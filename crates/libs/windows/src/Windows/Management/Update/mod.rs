@@ -661,7 +661,7 @@ impl PreviewBuildsManager {
     }
     #[doc(hidden)]
     pub fn IPreviewBuildsManagerStatics<R, F: FnOnce(&IPreviewBuildsManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PreviewBuildsManager, IPreviewBuildsManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PreviewBuildsManager, IPreviewBuildsManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -677,7 +677,7 @@ impl ::core::fmt::Debug for PreviewBuildsManager {
     }
 }
 impl ::windows::core::RuntimeType for PreviewBuildsManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsManager;{fa07dd61-7e4f-59f7-7c9f-def9051c5f62})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsManager;{fa07dd61-7e4f-59f7-7c9f-def9051c5f62})");
 }
 impl ::core::clone::Clone for PreviewBuildsManager {
     fn clone(&self) -> Self {
@@ -693,7 +693,7 @@ unsafe impl ::windows::core::Interface for PreviewBuildsManager {
 impl ::windows::core::RuntimeName for PreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsManager";
 }
-::windows::core::interface_hierarchy!(PreviewBuildsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PreviewBuildsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PreviewBuildsManager {}
 unsafe impl ::core::marker::Sync for PreviewBuildsManager {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -722,7 +722,7 @@ impl ::core::fmt::Debug for PreviewBuildsState {
     }
 }
 impl ::windows::core::RuntimeType for PreviewBuildsState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsState;{a2f2903e-b223-5f63-7546-3e8eac070a2e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsState;{a2f2903e-b223-5f63-7546-3e8eac070a2e})");
 }
 impl ::core::clone::Clone for PreviewBuildsState {
     fn clone(&self) -> Self {
@@ -738,7 +738,7 @@ unsafe impl ::windows::core::Interface for PreviewBuildsState {
 impl ::windows::core::RuntimeName for PreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsState";
 }
-::windows::core::interface_hierarchy!(PreviewBuildsState, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PreviewBuildsState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PreviewBuildsState {}
 unsafe impl ::core::marker::Sync for PreviewBuildsState {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -929,7 +929,7 @@ impl ::core::fmt::Debug for WindowsUpdate {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdate;{c3c88dd7-0ef3-52b2-a9ad-66bfc6bd9582})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdate;{c3c88dd7-0ef3-52b2-a9ad-66bfc6bd9582})");
 }
 impl ::core::clone::Clone for WindowsUpdate {
     fn clone(&self) -> Self {
@@ -945,7 +945,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdate {
 impl ::windows::core::RuntimeName for WindowsUpdate {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdate";
 }
-::windows::core::interface_hierarchy!(WindowsUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdate {}
 unsafe impl ::core::marker::Sync for WindowsUpdate {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -993,7 +993,7 @@ impl ::core::fmt::Debug for WindowsUpdateActionCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateActionCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionCompletedEventArgs;{2c44b950-a655-5321-aec1-aee762922131})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionCompletedEventArgs;{2c44b950-a655-5321-aec1-aee762922131})");
 }
 impl ::core::clone::Clone for WindowsUpdateActionCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -1009,7 +1009,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateActionCompletedEventArgs
 impl ::windows::core::RuntimeName for WindowsUpdateActionCompletedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateActionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateActionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateActionCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowsUpdateActionCompletedEventArgs {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1043,7 +1043,7 @@ impl ::core::fmt::Debug for WindowsUpdateActionProgress {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateActionProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionProgress;{83b22d8a-4bb0-549f-ba39-59724882d137})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionProgress;{83b22d8a-4bb0-549f-ba39-59724882d137})");
 }
 impl ::core::clone::Clone for WindowsUpdateActionProgress {
     fn clone(&self) -> Self {
@@ -1059,7 +1059,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateActionProgress {
 impl ::windows::core::RuntimeName for WindowsUpdateActionProgress {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionProgress";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateActionProgress, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateActionProgress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateActionProgress {}
 unsafe impl ::core::marker::Sync for WindowsUpdateActionProgress {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1109,7 +1109,7 @@ impl ::core::fmt::Debug for WindowsUpdateActionResult {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateActionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionResult;{e6692c62-f697-51b7-ab7f-e73e5e688f12})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionResult;{e6692c62-f697-51b7-ab7f-e73e5e688f12})");
 }
 impl ::core::clone::Clone for WindowsUpdateActionResult {
     fn clone(&self) -> Self {
@@ -1125,7 +1125,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateActionResult {
 impl ::windows::core::RuntimeName for WindowsUpdateActionResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionResult";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateActionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateActionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateActionResult {}
 unsafe impl ::core::marker::Sync for WindowsUpdateActionResult {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1196,7 +1196,7 @@ impl WindowsUpdateAdministrator {
     }
     #[doc(hidden)]
     pub fn IWindowsUpdateAdministratorStatics<R, F: FnOnce(&IWindowsUpdateAdministratorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowsUpdateAdministrator, IWindowsUpdateAdministratorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WindowsUpdateAdministrator, IWindowsUpdateAdministratorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1212,7 +1212,7 @@ impl ::core::fmt::Debug for WindowsUpdateAdministrator {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateAdministrator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAdministrator;{7a60181c-ba1e-5cf9-aa65-304120b73d72})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAdministrator;{7a60181c-ba1e-5cf9-aa65-304120b73d72})");
 }
 impl ::core::clone::Clone for WindowsUpdateAdministrator {
     fn clone(&self) -> Self {
@@ -1228,7 +1228,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateAdministrator {
 impl ::windows::core::RuntimeName for WindowsUpdateAdministrator {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAdministrator";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateAdministrator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateAdministrator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateAdministrator {}
 unsafe impl ::core::marker::Sync for WindowsUpdateAdministrator {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1238,8 +1238,8 @@ impl WindowsUpdateApprovalData {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowsUpdateApprovalData, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WindowsUpdateApprovalData, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1350,7 +1350,7 @@ impl ::core::fmt::Debug for WindowsUpdateApprovalData {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateApprovalData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateApprovalData;{aadf5bfd-84db-59bc-85e2-ad4fc1f62f7c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateApprovalData;{aadf5bfd-84db-59bc-85e2-ad4fc1f62f7c})");
 }
 impl ::core::clone::Clone for WindowsUpdateApprovalData {
     fn clone(&self) -> Self {
@@ -1366,7 +1366,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateApprovalData {
 impl ::windows::core::RuntimeName for WindowsUpdateApprovalData {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateApprovalData";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateApprovalData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateApprovalData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateApprovalData {}
 unsafe impl ::core::marker::Sync for WindowsUpdateApprovalData {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1402,7 +1402,7 @@ impl ::core::fmt::Debug for WindowsUpdateAttentionRequiredInfo {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateAttentionRequiredInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAttentionRequiredInfo;{44df2579-74d3-5ffa-b6ce-09e187e1e0ed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAttentionRequiredInfo;{44df2579-74d3-5ffa-b6ce-09e187e1e0ed})");
 }
 impl ::core::clone::Clone for WindowsUpdateAttentionRequiredInfo {
     fn clone(&self) -> Self {
@@ -1418,7 +1418,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateAttentionRequiredInfo {
 impl ::windows::core::RuntimeName for WindowsUpdateAttentionRequiredInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAttentionRequiredInfo";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateAttentionRequiredInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateAttentionRequiredInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateAttentionRequiredInfo {}
 unsafe impl ::core::marker::Sync for WindowsUpdateAttentionRequiredInfo {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1452,7 +1452,7 @@ impl ::core::fmt::Debug for WindowsUpdateAttentionRequiredReasonChangedEventArgs
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAttentionRequiredReasonChangedEventArgs;{0627abca-dbb8-524a-b1d2-d9df004eeb31})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAttentionRequiredReasonChangedEventArgs;{0627abca-dbb8-524a-b1d2-d9df004eeb31})");
 }
 impl ::core::clone::Clone for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1468,7 +1468,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateAttentionRequiredReasonC
 impl ::windows::core::RuntimeName for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAttentionRequiredReasonChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateAttentionRequiredReasonChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateAttentionRequiredReasonChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateAttentionRequiredReasonChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowsUpdateAttentionRequiredReasonChangedEventArgs {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1502,7 +1502,7 @@ impl ::core::fmt::Debug for WindowsUpdateGetAdministratorResult {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateGetAdministratorResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateGetAdministratorResult;{bb39ffc4-2c42-5b1c-8995-343341c92c50})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateGetAdministratorResult;{bb39ffc4-2c42-5b1c-8995-343341c92c50})");
 }
 impl ::core::clone::Clone for WindowsUpdateGetAdministratorResult {
     fn clone(&self) -> Self {
@@ -1518,7 +1518,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateGetAdministratorResult {
 impl ::windows::core::RuntimeName for WindowsUpdateGetAdministratorResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateGetAdministratorResult";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateGetAdministratorResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateGetAdministratorResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateGetAdministratorResult {}
 unsafe impl ::core::marker::Sync for WindowsUpdateGetAdministratorResult {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1598,7 +1598,7 @@ impl ::core::fmt::Debug for WindowsUpdateItem {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateItem;{b222e44a-49b6-59bf-a033-ef617cd73a98})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateItem;{b222e44a-49b6-59bf-a033-ef617cd73a98})");
 }
 impl ::core::clone::Clone for WindowsUpdateItem {
     fn clone(&self) -> Self {
@@ -1614,7 +1614,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateItem {
 impl ::windows::core::RuntimeName for WindowsUpdateItem {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateItem";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateItem {}
 unsafe impl ::core::marker::Sync for WindowsUpdateItem {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1773,7 +1773,7 @@ impl WindowsUpdateManager {
     }
     #[doc(hidden)]
     pub fn IWindowsUpdateManagerFactory<R, F: FnOnce(&IWindowsUpdateManagerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowsUpdateManager, IWindowsUpdateManagerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WindowsUpdateManager, IWindowsUpdateManagerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1789,7 +1789,7 @@ impl ::core::fmt::Debug for WindowsUpdateManager {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateManager;{5dd966c0-a71a-5602-bbd0-09a70e4573fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateManager;{5dd966c0-a71a-5602-bbd0-09a70e4573fa})");
 }
 impl ::core::clone::Clone for WindowsUpdateManager {
     fn clone(&self) -> Self {
@@ -1805,7 +1805,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateManager {
 impl ::windows::core::RuntimeName for WindowsUpdateManager {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateManager";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateManager {}
 unsafe impl ::core::marker::Sync for WindowsUpdateManager {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1839,7 +1839,7 @@ impl ::core::fmt::Debug for WindowsUpdateProgressChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateProgressChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateProgressChangedEventArgs;{bbfbdeeb-94c8-5aa7-b0fb-66c67c233b0a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateProgressChangedEventArgs;{bbfbdeeb-94c8-5aa7-b0fb-66c67c233b0a})");
 }
 impl ::core::clone::Clone for WindowsUpdateProgressChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1855,7 +1855,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateProgressChangedEventArgs
 impl ::windows::core::RuntimeName for WindowsUpdateProgressChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateProgressChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateProgressChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateProgressChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateProgressChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowsUpdateProgressChangedEventArgs {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -1865,8 +1865,8 @@ impl WindowsUpdateRestartRequestOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowsUpdateRestartRequestOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WindowsUpdateRestartRequestOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1960,7 +1960,7 @@ impl WindowsUpdateRestartRequestOptions {
     }
     #[doc(hidden)]
     pub fn IWindowsUpdateRestartRequestOptionsFactory<R, F: FnOnce(&IWindowsUpdateRestartRequestOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowsUpdateRestartRequestOptions, IWindowsUpdateRestartRequestOptionsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WindowsUpdateRestartRequestOptions, IWindowsUpdateRestartRequestOptionsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1976,7 +1976,7 @@ impl ::core::fmt::Debug for WindowsUpdateRestartRequestOptions {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateRestartRequestOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateRestartRequestOptions;{38cfb7d3-4188-5222-905c-6c4443c951ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateRestartRequestOptions;{38cfb7d3-4188-5222-905c-6c4443c951ee})");
 }
 impl ::core::clone::Clone for WindowsUpdateRestartRequestOptions {
     fn clone(&self) -> Self {
@@ -1992,7 +1992,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateRestartRequestOptions {
 impl ::windows::core::RuntimeName for WindowsUpdateRestartRequestOptions {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateRestartRequestOptions";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateRestartRequestOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateRestartRequestOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateRestartRequestOptions {}
 unsafe impl ::core::marker::Sync for WindowsUpdateRestartRequestOptions {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -2042,7 +2042,7 @@ impl ::core::fmt::Debug for WindowsUpdateScanCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateScanCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateScanCompletedEventArgs;{95b6953e-ba5c-5fe8-b115-12de184a6bb0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateScanCompletedEventArgs;{95b6953e-ba5c-5fe8-b115-12de184a6bb0})");
 }
 impl ::core::clone::Clone for WindowsUpdateScanCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -2058,7 +2058,7 @@ unsafe impl ::windows::core::Interface for WindowsUpdateScanCompletedEventArgs {
 impl ::windows::core::RuntimeName for WindowsUpdateScanCompletedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateScanCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(WindowsUpdateScanCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowsUpdateScanCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowsUpdateScanCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowsUpdateScanCompletedEventArgs {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -2124,7 +2124,7 @@ impl ::core::ops::Not for WindowsUpdateAdministratorOptions {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateAdministratorOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAdministratorOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAdministratorOptions;u4)");
 }
 #[doc = "*Required features: `\"Management_Update\"`*"]
 #[repr(transparent)]
@@ -2155,7 +2155,7 @@ impl ::core::fmt::Debug for WindowsUpdateAdministratorStatus {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateAdministratorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAdministratorStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAdministratorStatus;i4)");
 }
 #[doc = "*Required features: `\"Management_Update\"`*"]
 #[repr(transparent)]
@@ -2216,7 +2216,7 @@ impl ::core::fmt::Debug for WindowsUpdateAttentionRequiredReason {
     }
 }
 impl ::windows::core::RuntimeType for WindowsUpdateAttentionRequiredReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAttentionRequiredReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAttentionRequiredReason;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

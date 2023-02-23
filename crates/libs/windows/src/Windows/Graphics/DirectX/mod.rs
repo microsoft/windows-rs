@@ -30,7 +30,7 @@ impl ::core::fmt::Debug for DirectXAlphaMode {
     }
 }
 impl ::windows::core::RuntimeType for DirectXAlphaMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
@@ -83,7 +83,7 @@ impl ::core::fmt::Debug for DirectXColorSpace {
     }
 }
 impl ::windows::core::RuntimeType for DirectXColorSpace {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
 }
 #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
@@ -232,7 +232,7 @@ impl ::core::fmt::Debug for DirectXPixelFormat {
     }
 }
 impl ::windows::core::RuntimeType for DirectXPixelFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
 }
 #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
@@ -266,7 +266,7 @@ impl ::core::fmt::Debug for DirectXPrimitiveTopology {
     }
 }
 impl ::windows::core::RuntimeType for DirectXPrimitiveTopology {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

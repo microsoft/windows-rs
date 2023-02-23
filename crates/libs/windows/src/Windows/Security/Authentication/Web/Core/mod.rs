@@ -528,7 +528,7 @@ impl ::core::fmt::Debug for FindAllAccountsResult {
     }
 }
 impl ::windows::core::RuntimeType for FindAllAccountsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.FindAllAccountsResult;{a5812b5d-b72e-420c-86ab-aac0d7b7261f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.FindAllAccountsResult;{a5812b5d-b72e-420c-86ab-aac0d7b7261f})");
 }
 impl ::core::clone::Clone for FindAllAccountsResult {
     fn clone(&self) -> Self {
@@ -544,7 +544,7 @@ unsafe impl ::windows::core::Interface for FindAllAccountsResult {
 impl ::windows::core::RuntimeName for FindAllAccountsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.FindAllAccountsResult";
 }
-::windows::core::interface_hierarchy!(FindAllAccountsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FindAllAccountsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FindAllAccountsResult {}
 unsafe impl ::core::marker::Sync for FindAllAccountsResult {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -573,7 +573,7 @@ impl ::core::fmt::Debug for WebAccountEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountEventArgs;{6fb7037d-424e-44ec-977c-ef2415462a5a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountEventArgs;{6fb7037d-424e-44ec-977c-ef2415462a5a})");
 }
 impl ::core::clone::Clone for WebAccountEventArgs {
     fn clone(&self) -> Self {
@@ -589,7 +589,7 @@ unsafe impl ::windows::core::Interface for WebAccountEventArgs {
 impl ::windows::core::RuntimeName for WebAccountEventArgs {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountEventArgs";
 }
-::windows::core::interface_hierarchy!(WebAccountEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebAccountEventArgs {}
 unsafe impl ::core::marker::Sync for WebAccountEventArgs {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -669,7 +669,7 @@ impl ::core::fmt::Debug for WebAccountMonitor {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountMonitor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountMonitor;{7445f5fd-aa9d-4619-8d5d-c138a4ede3e5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountMonitor;{7445f5fd-aa9d-4619-8d5d-c138a4ede3e5})");
 }
 impl ::core::clone::Clone for WebAccountMonitor {
     fn clone(&self) -> Self {
@@ -685,7 +685,7 @@ unsafe impl ::windows::core::Interface for WebAccountMonitor {
 impl ::windows::core::RuntimeName for WebAccountMonitor {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountMonitor";
 }
-::windows::core::interface_hierarchy!(WebAccountMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebAccountMonitor {}
 unsafe impl ::core::marker::Sync for WebAccountMonitor {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -809,22 +809,22 @@ impl WebAuthenticationCoreManager {
     }
     #[doc(hidden)]
     pub fn IWebAuthenticationCoreManagerStatics<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebAuthenticationCoreManagerStatics2<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebAuthenticationCoreManagerStatics3<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebAuthenticationCoreManagerStatics4<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -866,7 +866,7 @@ impl WebProviderError {
     }
     #[doc(hidden)]
     pub fn IWebProviderErrorFactory<R, F: FnOnce(&IWebProviderErrorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebProviderError, IWebProviderErrorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebProviderError, IWebProviderErrorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -882,7 +882,7 @@ impl ::core::fmt::Debug for WebProviderError {
     }
 }
 impl ::windows::core::RuntimeType for WebProviderError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebProviderError;{db191bb1-50c5-4809-8dca-09c99410245c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebProviderError;{db191bb1-50c5-4809-8dca-09c99410245c})");
 }
 impl ::core::clone::Clone for WebProviderError {
     fn clone(&self) -> Self {
@@ -898,7 +898,7 @@ unsafe impl ::windows::core::Interface for WebProviderError {
 impl ::windows::core::RuntimeName for WebProviderError {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebProviderError";
 }
-::windows::core::interface_hierarchy!(WebProviderError, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebProviderError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebProviderError {}
 unsafe impl ::core::marker::Sync for WebProviderError {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -998,7 +998,7 @@ impl WebTokenRequest {
     }
     #[doc(hidden)]
     pub fn IWebTokenRequestFactory<R, F: FnOnce(&IWebTokenRequestFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebTokenRequest, IWebTokenRequestFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebTokenRequest, IWebTokenRequestFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1014,7 +1014,7 @@ impl ::core::fmt::Debug for WebTokenRequest {
     }
 }
 impl ::windows::core::RuntimeType for WebTokenRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequest;{b77b4d68-adcb-4673-b364-0cf7b35caf97})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequest;{b77b4d68-adcb-4673-b364-0cf7b35caf97})");
 }
 impl ::core::clone::Clone for WebTokenRequest {
     fn clone(&self) -> Self {
@@ -1030,7 +1030,7 @@ unsafe impl ::windows::core::Interface for WebTokenRequest {
 impl ::windows::core::RuntimeName for WebTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequest";
 }
-::windows::core::interface_hierarchy!(WebTokenRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebTokenRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebTokenRequest {}
 unsafe impl ::core::marker::Sync for WebTokenRequest {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -1082,7 +1082,7 @@ impl ::core::fmt::Debug for WebTokenRequestResult {
     }
 }
 impl ::windows::core::RuntimeType for WebTokenRequestResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequestResult;{c12a8305-d1f8-4483-8d54-38fe292784ff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequestResult;{c12a8305-d1f8-4483-8d54-38fe292784ff})");
 }
 impl ::core::clone::Clone for WebTokenRequestResult {
     fn clone(&self) -> Self {
@@ -1098,7 +1098,7 @@ unsafe impl ::windows::core::Interface for WebTokenRequestResult {
 impl ::windows::core::RuntimeName for WebTokenRequestResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequestResult";
 }
-::windows::core::interface_hierarchy!(WebTokenRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebTokenRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebTokenRequestResult {}
 unsafe impl ::core::marker::Sync for WebTokenRequestResult {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -1108,8 +1108,8 @@ impl WebTokenResponse {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebTokenResponse, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WebTokenResponse, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Token(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1168,7 +1168,7 @@ impl WebTokenResponse {
     }
     #[doc(hidden)]
     pub fn IWebTokenResponseFactory<R, F: FnOnce(&IWebTokenResponseFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebTokenResponse, IWebTokenResponseFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebTokenResponse, IWebTokenResponseFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1184,7 +1184,7 @@ impl ::core::fmt::Debug for WebTokenResponse {
     }
 }
 impl ::windows::core::RuntimeType for WebTokenResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenResponse;{67a7c5ca-83f6-44c6-a3b1-0eb69e41fa8a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenResponse;{67a7c5ca-83f6-44c6-a3b1-0eb69e41fa8a})");
 }
 impl ::core::clone::Clone for WebTokenResponse {
     fn clone(&self) -> Self {
@@ -1200,7 +1200,7 @@ unsafe impl ::windows::core::Interface for WebTokenResponse {
 impl ::windows::core::RuntimeName for WebTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenResponse";
 }
-::windows::core::interface_hierarchy!(WebTokenResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebTokenResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebTokenResponse {}
 unsafe impl ::core::marker::Sync for WebTokenResponse {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -1233,7 +1233,7 @@ impl ::core::fmt::Debug for FindAllWebAccountsStatus {
     }
 }
 impl ::windows::core::RuntimeType for FindAllWebAccountsStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
@@ -1263,7 +1263,7 @@ impl ::core::fmt::Debug for WebTokenRequestPromptType {
     }
 }
 impl ::windows::core::RuntimeType for WebTokenRequestPromptType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType;i4)");
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
@@ -1297,7 +1297,7 @@ impl ::core::fmt::Debug for WebTokenRequestStatus {
     }
 }
 impl ::windows::core::RuntimeType for WebTokenRequestStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

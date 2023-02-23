@@ -222,7 +222,7 @@ pub struct IAppointmentStoreNotificationTrigger_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCondition(::windows::core::IUnknown);
 impl IBackgroundCondition {}
-::windows::core::interface_hierarchy!(IBackgroundCondition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundCondition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundCondition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -235,7 +235,7 @@ impl ::core::fmt::Debug for IBackgroundCondition {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundCondition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ae48a1ee-8951-400a-8302-9c9c9a2a3a3b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ae48a1ee-8951-400a-8302-9c9c9a2a3a3b}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundCondition {
     type Vtable = IBackgroundCondition_Vtbl;
@@ -345,7 +345,7 @@ impl IBackgroundTask {
         unsafe { (::windows::core::Vtable::vtable(this).Run)(::windows::core::Vtable::as_raw(this), taskinstance.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundTask {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -358,7 +358,7 @@ impl ::core::fmt::Debug for IBackgroundTask {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTask {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7d13d534-fd12-43ce-8c22-ea1ff13c06df}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{7d13d534-fd12-43ce-8c22-ea1ff13c06df}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTask {
     type Vtable = IBackgroundTask_Vtbl;
@@ -593,7 +593,7 @@ impl IBackgroundTaskInstance {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTaskInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTaskInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundTaskInstance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -606,7 +606,7 @@ impl ::core::fmt::Debug for IBackgroundTaskInstance {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTaskInstance {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{865bda7a-21d8-4573-8f32-928a1b0641f6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{865bda7a-21d8-4573-8f32-928a1b0641f6}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTaskInstance {
     type Vtable = IBackgroundTaskInstance_Vtbl;
@@ -712,7 +712,7 @@ impl IBackgroundTaskInstance2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTaskInstance2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTaskInstance2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBackgroundTaskInstance2> for IBackgroundTaskInstance {
     type Error = ::windows::core::Error;
     fn try_from(value: IBackgroundTaskInstance2) -> ::windows::core::Result<Self> {
@@ -744,7 +744,7 @@ impl ::core::fmt::Debug for IBackgroundTaskInstance2 {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTaskInstance2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4f7d0176-0c76-4fb4-896d-5de1864122f6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4f7d0176-0c76-4fb4-896d-5de1864122f6}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTaskInstance2 {
     type Vtable = IBackgroundTaskInstance2_Vtbl;
@@ -838,7 +838,7 @@ impl IBackgroundTaskInstance4 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTaskInstance4, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTaskInstance4, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBackgroundTaskInstance4> for IBackgroundTaskInstance {
     type Error = ::windows::core::Error;
     fn try_from(value: IBackgroundTaskInstance4) -> ::windows::core::Result<Self> {
@@ -870,7 +870,7 @@ impl ::core::fmt::Debug for IBackgroundTaskInstance4 {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTaskInstance4 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7f29f23c-aa04-4b08-97b0-06d874cdabf5}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{7f29f23c-aa04-4b08-97b0-06d874cdabf5}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTaskInstance4 {
     type Vtable = IBackgroundTaskInstance4_Vtbl;
@@ -966,7 +966,7 @@ impl IBackgroundTaskRegistration {
         unsafe { (::windows::core::Vtable::vtable(this).Unregister)(::windows::core::Vtable::as_raw(this), canceltask).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTaskRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTaskRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundTaskRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -979,7 +979,7 @@ impl ::core::fmt::Debug for IBackgroundTaskRegistration {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTaskRegistration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTaskRegistration {
     type Vtable = IBackgroundTaskRegistration_Vtbl;
@@ -1076,7 +1076,7 @@ impl IBackgroundTaskRegistration2 {
         unsafe { (::windows::core::Vtable::vtable(this).Unregister)(::windows::core::Vtable::as_raw(this), canceltask).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTaskRegistration2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTaskRegistration2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBackgroundTaskRegistration2> for IBackgroundTaskRegistration {
     type Error = ::windows::core::Error;
     fn try_from(value: IBackgroundTaskRegistration2) -> ::windows::core::Result<Self> {
@@ -1108,7 +1108,7 @@ impl ::core::fmt::Debug for IBackgroundTaskRegistration2 {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTaskRegistration2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6138c703-bb86-4112-afc3-7f939b166e3b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6138c703-bb86-4112-afc3-7f939b166e3b}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTaskRegistration2 {
     type Vtable = IBackgroundTaskRegistration2_Vtbl;
@@ -1187,7 +1187,7 @@ impl IBackgroundTaskRegistration3 {
         unsafe { (::windows::core::Vtable::vtable(this).Unregister)(::windows::core::Vtable::as_raw(this), canceltask).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTaskRegistration3, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTaskRegistration3, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBackgroundTaskRegistration3> for IBackgroundTaskRegistration {
     type Error = ::windows::core::Error;
     fn try_from(value: IBackgroundTaskRegistration3) -> ::windows::core::Result<Self> {
@@ -1219,7 +1219,7 @@ impl ::core::fmt::Debug for IBackgroundTaskRegistration3 {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTaskRegistration3 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fe338195-9423-4d8b-830d-b1dd2c7badd5}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{fe338195-9423-4d8b-830d-b1dd2c7badd5}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTaskRegistration3 {
     type Vtable = IBackgroundTaskRegistration3_Vtbl;
@@ -1343,7 +1343,7 @@ pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundTrigger(::windows::core::IUnknown);
 impl IBackgroundTrigger {}
-::windows::core::interface_hierarchy!(IBackgroundTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundTrigger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1356,7 +1356,7 @@ impl ::core::fmt::Debug for IBackgroundTrigger {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{84b3a058-6027-4b87-9790-bdf3f757dbd7}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{84b3a058-6027-4b87-9790-bdf3f757dbd7}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -2879,7 +2879,7 @@ impl ActivitySensorTrigger {
     }
     #[doc(hidden)]
     pub fn IActivitySensorTriggerFactory<R, F: FnOnce(&IActivitySensorTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ActivitySensorTrigger, IActivitySensorTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ActivitySensorTrigger, IActivitySensorTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2895,7 +2895,7 @@ impl ::core::fmt::Debug for ActivitySensorTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ActivitySensorTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ActivitySensorTrigger;{d0dd4342-e37b-4823-a5fe-6b31dfefdeb0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ActivitySensorTrigger;{d0dd4342-e37b-4823-a5fe-6b31dfefdeb0})");
 }
 impl ::core::clone::Clone for ActivitySensorTrigger {
     fn clone(&self) -> Self {
@@ -2911,7 +2911,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorTrigger {
 impl ::windows::core::RuntimeName for ActivitySensorTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ActivitySensorTrigger";
 }
-::windows::core::interface_hierarchy!(ActivitySensorTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivitySensorTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ActivitySensorTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ActivitySensorTrigger) -> ::windows::core::Result<Self> {
@@ -2952,7 +2952,7 @@ impl AlarmApplicationManager {
     }
     #[doc(hidden)]
     pub fn IAlarmApplicationManagerStatics<R, F: FnOnce(&IAlarmApplicationManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AlarmApplicationManager, IAlarmApplicationManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AlarmApplicationManager, IAlarmApplicationManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2982,7 +2982,7 @@ impl AppBroadcastTrigger {
     }
     #[doc(hidden)]
     pub fn IAppBroadcastTriggerFactory<R, F: FnOnce(&IAppBroadcastTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppBroadcastTrigger, IAppBroadcastTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppBroadcastTrigger, IAppBroadcastTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2998,7 +2998,7 @@ impl ::core::fmt::Debug for AppBroadcastTrigger {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTrigger;{74d4f496-8d37-44ec-9481-2a0b9854eb48})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTrigger;{74d4f496-8d37-44ec-9481-2a0b9854eb48})");
 }
 impl ::core::clone::Clone for AppBroadcastTrigger {
     fn clone(&self) -> Self {
@@ -3014,7 +3014,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastTrigger {
 impl ::windows::core::RuntimeName for AppBroadcastTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTrigger";
 }
-::windows::core::interface_hierarchy!(AppBroadcastTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppBroadcastTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: AppBroadcastTrigger) -> ::windows::core::Result<Self> {
@@ -3123,7 +3123,7 @@ impl ::core::fmt::Debug for AppBroadcastTriggerProviderInfo {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastTriggerProviderInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo;{f219352d-9de8-4420-9ce2-5eff8f17376b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo;{f219352d-9de8-4420-9ce2-5eff8f17376b})");
 }
 impl ::core::clone::Clone for AppBroadcastTriggerProviderInfo {
     fn clone(&self) -> Self {
@@ -3139,7 +3139,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastTriggerProviderInfo {
 impl ::windows::core::RuntimeName for AppBroadcastTriggerProviderInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo";
 }
-::windows::core::interface_hierarchy!(AppBroadcastTriggerProviderInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastTriggerProviderInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastTriggerProviderInfo {}
 unsafe impl ::core::marker::Sync for AppBroadcastTriggerProviderInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3149,8 +3149,8 @@ impl ApplicationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ApplicationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3184,7 +3184,7 @@ impl ::core::fmt::Debug for ApplicationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTrigger;{0b468630-9574-492c-9e93-1a3ae6335fe9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTrigger;{0b468630-9574-492c-9e93-1a3ae6335fe9})");
 }
 impl ::core::clone::Clone for ApplicationTrigger {
     fn clone(&self) -> Self {
@@ -3200,7 +3200,7 @@ unsafe impl ::windows::core::Interface for ApplicationTrigger {
 impl ::windows::core::RuntimeName for ApplicationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTrigger";
 }
-::windows::core::interface_hierarchy!(ApplicationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ApplicationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ApplicationTrigger) -> ::windows::core::Result<Self> {
@@ -3248,7 +3248,7 @@ impl ::core::fmt::Debug for ApplicationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTriggerDetails;{97dc6ab2-2219-4a9e-9c5e-41d047f76e82})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTriggerDetails;{97dc6ab2-2219-4a9e-9c5e-41d047f76e82})");
 }
 impl ::core::clone::Clone for ApplicationTriggerDetails {
     fn clone(&self) -> Self {
@@ -3264,7 +3264,7 @@ unsafe impl ::windows::core::Interface for ApplicationTriggerDetails {
 impl ::windows::core::RuntimeName for ApplicationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(ApplicationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ApplicationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3274,8 +3274,8 @@ impl AppointmentStoreNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentStoreNotificationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppointmentStoreNotificationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3291,7 +3291,7 @@ impl ::core::fmt::Debug for AppointmentStoreNotificationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStoreNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger;{64d4040c-c201-42ad-aa2a-e21ba3425b6d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger;{64d4040c-c201-42ad-aa2a-e21ba3425b6d})");
 }
 impl ::core::clone::Clone for AppointmentStoreNotificationTrigger {
     fn clone(&self) -> Self {
@@ -3307,7 +3307,7 @@ unsafe impl ::windows::core::Interface for AppointmentStoreNotificationTrigger {
 impl ::windows::core::RuntimeName for AppointmentStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger";
 }
-::windows::core::interface_hierarchy!(AppointmentStoreNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentStoreNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentStoreNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentStoreNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -3396,17 +3396,17 @@ impl BackgroundExecutionManager {
     }
     #[doc(hidden)]
     pub fn IBackgroundExecutionManagerStatics<R, F: FnOnce(&IBackgroundExecutionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundExecutionManager, IBackgroundExecutionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundExecutionManager, IBackgroundExecutionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBackgroundExecutionManagerStatics2<R, F: FnOnce(&IBackgroundExecutionManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundExecutionManager, IBackgroundExecutionManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundExecutionManager, IBackgroundExecutionManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBackgroundExecutionManagerStatics3<R, F: FnOnce(&IBackgroundExecutionManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundExecutionManager, IBackgroundExecutionManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundExecutionManager, IBackgroundExecutionManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3420,8 +3420,8 @@ impl BackgroundTaskBuilder {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundTaskBuilder, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BackgroundTaskBuilder, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetTaskEntryPoint(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3519,7 +3519,7 @@ impl ::core::fmt::Debug for BackgroundTaskBuilder {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTaskBuilder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskBuilder;{0351550e-3e64-4572-a93a-84075a37c917})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskBuilder;{0351550e-3e64-4572-a93a-84075a37c917})");
 }
 impl ::core::clone::Clone for BackgroundTaskBuilder {
     fn clone(&self) -> Self {
@@ -3535,7 +3535,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskBuilder {
 impl ::windows::core::RuntimeName for BackgroundTaskBuilder {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskBuilder";
 }
-::windows::core::interface_hierarchy!(BackgroundTaskBuilder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTaskBuilder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 pub struct BackgroundTaskCompletedEventArgs(::windows::core::IUnknown);
@@ -3564,7 +3564,7 @@ impl ::core::fmt::Debug for BackgroundTaskCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTaskCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs;{565d25cf-f209-48f4-9967-2b184f7bfbf0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs;{565d25cf-f209-48f4-9967-2b184f7bfbf0})");
 }
 impl ::core::clone::Clone for BackgroundTaskCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -3580,7 +3580,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskCompletedEventArgs {
 impl ::windows::core::RuntimeName for BackgroundTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(BackgroundTaskCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTaskCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTaskCompletedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3604,7 +3604,7 @@ impl ::core::fmt::Debug for BackgroundTaskDeferral {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTaskDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskDeferral;{93cc156d-af27-4dd3-846e-24ee40cadd25})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskDeferral;{93cc156d-af27-4dd3-846e-24ee40cadd25})");
 }
 impl ::core::clone::Clone for BackgroundTaskDeferral {
     fn clone(&self) -> Self {
@@ -3620,7 +3620,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskDeferral {
 impl ::windows::core::RuntimeName for BackgroundTaskDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskDeferral";
 }
-::windows::core::interface_hierarchy!(BackgroundTaskDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTaskDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskDeferral {}
 unsafe impl ::core::marker::Sync for BackgroundTaskDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3654,7 +3654,7 @@ impl ::core::fmt::Debug for BackgroundTaskProgressEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTaskProgressEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs;{fb1468ac-8332-4d0a-9532-03eae684da31})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs;{fb1468ac-8332-4d0a-9532-03eae684da31})");
 }
 impl ::core::clone::Clone for BackgroundTaskProgressEventArgs {
     fn clone(&self) -> Self {
@@ -3670,7 +3670,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskProgressEventArgs {
 impl ::windows::core::RuntimeName for BackgroundTaskProgressEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs";
 }
-::windows::core::interface_hierarchy!(BackgroundTaskProgressEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTaskProgressEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskProgressEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTaskProgressEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3763,12 +3763,12 @@ impl BackgroundTaskRegistration {
     }
     #[doc(hidden)]
     pub fn IBackgroundTaskRegistrationStatics<R, F: FnOnce(&IBackgroundTaskRegistrationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundTaskRegistration, IBackgroundTaskRegistrationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundTaskRegistration, IBackgroundTaskRegistrationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBackgroundTaskRegistrationStatics2<R, F: FnOnce(&IBackgroundTaskRegistrationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundTaskRegistration, IBackgroundTaskRegistrationStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundTaskRegistration, IBackgroundTaskRegistrationStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3784,7 +3784,7 @@ impl ::core::fmt::Debug for BackgroundTaskRegistration {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTaskRegistration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistration;{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistration;{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0})");
 }
 impl ::core::clone::Clone for BackgroundTaskRegistration {
     fn clone(&self) -> Self {
@@ -3800,7 +3800,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskRegistration {
 impl ::windows::core::RuntimeName for BackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistration";
 }
-::windows::core::interface_hierarchy!(BackgroundTaskRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTaskRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackgroundTaskRegistration> for IBackgroundTaskRegistration {
     type Error = ::windows::core::Error;
     fn try_from(value: BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
@@ -3916,7 +3916,7 @@ impl BackgroundTaskRegistrationGroup {
     }
     #[doc(hidden)]
     pub fn IBackgroundTaskRegistrationGroupFactory<R, F: FnOnce(&IBackgroundTaskRegistrationGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroupFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroupFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3932,7 +3932,7 @@ impl ::core::fmt::Debug for BackgroundTaskRegistrationGroup {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTaskRegistrationGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup;{2ab1919a-871b-4167-8a76-055cd67b5b23})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup;{2ab1919a-871b-4167-8a76-055cd67b5b23})");
 }
 impl ::core::clone::Clone for BackgroundTaskRegistrationGroup {
     fn clone(&self) -> Self {
@@ -3948,7 +3948,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskRegistrationGroup {
 impl ::windows::core::RuntimeName for BackgroundTaskRegistrationGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup";
 }
-::windows::core::interface_hierarchy!(BackgroundTaskRegistrationGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTaskRegistrationGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskRegistrationGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTaskRegistrationGroup {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3962,7 +3962,7 @@ impl BackgroundWorkCost {
     }
     #[doc(hidden)]
     pub fn IBackgroundWorkCostStatics<R, F: FnOnce(&IBackgroundWorkCostStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundWorkCost, IBackgroundWorkCostStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundWorkCost, IBackgroundWorkCostStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3976,8 +3976,8 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementPublisherTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementPublisherTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -4054,7 +4054,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherTrigger {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger;{ab3e2612-25d3-48ae-8724-d81877ae6129})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger;{ab3e2612-25d3-48ae-8724-d81877ae6129})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherTrigger {
     fn clone(&self) -> Self {
@@ -4070,7 +4070,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherTrig
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementPublisherTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BluetoothLEAdvertisementPublisherTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: BluetoothLEAdvertisementPublisherTrigger) -> ::windows::core::Result<Self> {
@@ -4099,8 +4099,8 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementWatcherTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementWatcherTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4193,7 +4193,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherTrigger {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger;{1aab1819-bce1-48eb-a827-59fb7cee52a6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger;{1aab1819-bce1-48eb-a827-59fb7cee52a6})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherTrigger {
     fn clone(&self) -> Self {
@@ -4209,7 +4209,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherTrigge
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementWatcherTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BluetoothLEAdvertisementWatcherTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: BluetoothLEAdvertisementWatcherTrigger) -> ::windows::core::Result<Self> {
@@ -4238,8 +4238,8 @@ impl CachedFileUpdaterTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CachedFileUpdaterTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CachedFileUpdaterTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4255,7 +4255,7 @@ impl ::core::fmt::Debug for CachedFileUpdaterTrigger {
     }
 }
 impl ::windows::core::RuntimeType for CachedFileUpdaterTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTrigger;{e21caeeb-32f2-4d31-b553-b9e01bde37e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTrigger;{e21caeeb-32f2-4d31-b553-b9e01bde37e0})");
 }
 impl ::core::clone::Clone for CachedFileUpdaterTrigger {
     fn clone(&self) -> Self {
@@ -4271,7 +4271,7 @@ unsafe impl ::windows::core::Interface for CachedFileUpdaterTrigger {
 impl ::windows::core::RuntimeName for CachedFileUpdaterTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTrigger";
 }
-::windows::core::interface_hierarchy!(CachedFileUpdaterTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CachedFileUpdaterTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CachedFileUpdaterTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: CachedFileUpdaterTrigger) -> ::windows::core::Result<Self> {
@@ -4335,7 +4335,7 @@ impl ::core::fmt::Debug for CachedFileUpdaterTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for CachedFileUpdaterTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails;{71838c13-1314-47b4-9597-dc7e248c17cc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails;{71838c13-1314-47b4-9597-dc7e248c17cc})");
 }
 impl ::core::clone::Clone for CachedFileUpdaterTriggerDetails {
     fn clone(&self) -> Self {
@@ -4351,7 +4351,7 @@ unsafe impl ::windows::core::Interface for CachedFileUpdaterTriggerDetails {
 impl ::windows::core::RuntimeName for CachedFileUpdaterTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails";
 }
-::windows::core::interface_hierarchy!(CachedFileUpdaterTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CachedFileUpdaterTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CachedFileUpdaterTriggerDetails {}
 unsafe impl ::core::marker::Sync for CachedFileUpdaterTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -4361,8 +4361,8 @@ impl ChatMessageNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatMessageNotificationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ChatMessageNotificationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4378,7 +4378,7 @@ impl ::core::fmt::Debug for ChatMessageNotificationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageNotificationTrigger;{513b43bf-1d40-5c5d-78f5-c923fee3739e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageNotificationTrigger;{513b43bf-1d40-5c5d-78f5-c923fee3739e})");
 }
 impl ::core::clone::Clone for ChatMessageNotificationTrigger {
     fn clone(&self) -> Self {
@@ -4394,7 +4394,7 @@ unsafe impl ::windows::core::Interface for ChatMessageNotificationTrigger {
 impl ::windows::core::RuntimeName for ChatMessageNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageNotificationTrigger";
 }
-::windows::core::interface_hierarchy!(ChatMessageNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ChatMessageNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ChatMessageNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -4423,8 +4423,8 @@ impl ChatMessageReceivedNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatMessageReceivedNotificationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ChatMessageReceivedNotificationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4440,7 +4440,7 @@ impl ::core::fmt::Debug for ChatMessageReceivedNotificationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageReceivedNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger;{3ea3760e-baf5-4077-88e9-060cf6f0c6d5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger;{3ea3760e-baf5-4077-88e9-060cf6f0c6d5})");
 }
 impl ::core::clone::Clone for ChatMessageReceivedNotificationTrigger {
     fn clone(&self) -> Self {
@@ -4456,7 +4456,7 @@ unsafe impl ::windows::core::Interface for ChatMessageReceivedNotificationTrigge
 impl ::windows::core::RuntimeName for ChatMessageReceivedNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger";
 }
-::windows::core::interface_hierarchy!(ChatMessageReceivedNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageReceivedNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ChatMessageReceivedNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ChatMessageReceivedNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -4485,8 +4485,8 @@ impl CommunicationBlockingAppSetAsActiveTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CommunicationBlockingAppSetAsActiveTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CommunicationBlockingAppSetAsActiveTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4502,7 +4502,7 @@ impl ::core::fmt::Debug for CommunicationBlockingAppSetAsActiveTrigger {
     }
 }
 impl ::windows::core::RuntimeType for CommunicationBlockingAppSetAsActiveTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger;{fb91f28a-16a5-486d-974c-7835a8477be2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger;{fb91f28a-16a5-486d-974c-7835a8477be2})");
 }
 impl ::core::clone::Clone for CommunicationBlockingAppSetAsActiveTrigger {
     fn clone(&self) -> Self {
@@ -4518,7 +4518,7 @@ unsafe impl ::windows::core::Interface for CommunicationBlockingAppSetAsActiveTr
 impl ::windows::core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger";
 }
-::windows::core::interface_hierarchy!(CommunicationBlockingAppSetAsActiveTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CommunicationBlockingAppSetAsActiveTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CommunicationBlockingAppSetAsActiveTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: CommunicationBlockingAppSetAsActiveTrigger) -> ::windows::core::Result<Self> {
@@ -4547,8 +4547,8 @@ impl ContactStoreNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactStoreNotificationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContactStoreNotificationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4564,7 +4564,7 @@ impl ::core::fmt::Debug for ContactStoreNotificationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ContactStoreNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContactStoreNotificationTrigger;{c833419b-4705-4571-9a16-06b997bf9c96})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContactStoreNotificationTrigger;{c833419b-4705-4571-9a16-06b997bf9c96})");
 }
 impl ::core::clone::Clone for ContactStoreNotificationTrigger {
     fn clone(&self) -> Self {
@@ -4580,7 +4580,7 @@ unsafe impl ::windows::core::Interface for ContactStoreNotificationTrigger {
 impl ::windows::core::RuntimeName for ContactStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContactStoreNotificationTrigger";
 }
-::windows::core::interface_hierarchy!(ContactStoreNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContactStoreNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactStoreNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactStoreNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -4609,8 +4609,8 @@ impl ContentPrefetchTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContentPrefetchTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContentPrefetchTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4632,7 +4632,7 @@ impl ContentPrefetchTrigger {
     }
     #[doc(hidden)]
     pub fn IContentPrefetchTriggerFactory<R, F: FnOnce(&IContentPrefetchTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContentPrefetchTrigger, IContentPrefetchTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContentPrefetchTrigger, IContentPrefetchTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4648,7 +4648,7 @@ impl ::core::fmt::Debug for ContentPrefetchTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ContentPrefetchTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContentPrefetchTrigger;{710627ee-04fa-440b-80c0-173202199e5d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContentPrefetchTrigger;{710627ee-04fa-440b-80c0-173202199e5d})");
 }
 impl ::core::clone::Clone for ContentPrefetchTrigger {
     fn clone(&self) -> Self {
@@ -4664,7 +4664,7 @@ unsafe impl ::windows::core::Interface for ContentPrefetchTrigger {
 impl ::windows::core::RuntimeName for ContentPrefetchTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContentPrefetchTrigger";
 }
-::windows::core::interface_hierarchy!(ContentPrefetchTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContentPrefetchTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContentPrefetchTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ContentPrefetchTrigger) -> ::windows::core::Result<Self> {
@@ -4691,8 +4691,8 @@ impl ConversationalAgentTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ConversationalAgentTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ConversationalAgentTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4708,7 +4708,7 @@ impl ::core::fmt::Debug for ConversationalAgentTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ConversationalAgentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ConversationalAgentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for ConversationalAgentTrigger {
     fn clone(&self) -> Self {
@@ -4724,7 +4724,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentTrigger {
 impl ::windows::core::RuntimeName for ConversationalAgentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ConversationalAgentTrigger";
 }
-::windows::core::interface_hierarchy!(ConversationalAgentTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConversationalAgentTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ConversationalAgentTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ConversationalAgentTrigger) -> ::windows::core::Result<Self> {
@@ -4770,7 +4770,7 @@ impl CustomSystemEventTrigger {
     }
     #[doc(hidden)]
     pub fn ICustomSystemEventTriggerFactory<R, F: FnOnce(&ICustomSystemEventTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CustomSystemEventTrigger, ICustomSystemEventTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CustomSystemEventTrigger, ICustomSystemEventTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4786,7 +4786,7 @@ impl ::core::fmt::Debug for CustomSystemEventTrigger {
     }
 }
 impl ::windows::core::RuntimeType for CustomSystemEventTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CustomSystemEventTrigger;{f3596798-cf6b-4ef4-a0ca-29cf4a278c87})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CustomSystemEventTrigger;{f3596798-cf6b-4ef4-a0ca-29cf4a278c87})");
 }
 impl ::core::clone::Clone for CustomSystemEventTrigger {
     fn clone(&self) -> Self {
@@ -4802,7 +4802,7 @@ unsafe impl ::windows::core::Interface for CustomSystemEventTrigger {
 impl ::windows::core::RuntimeName for CustomSystemEventTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CustomSystemEventTrigger";
 }
-::windows::core::interface_hierarchy!(CustomSystemEventTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CustomSystemEventTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CustomSystemEventTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: CustomSystemEventTrigger) -> ::windows::core::Result<Self> {
@@ -4861,7 +4861,7 @@ impl DeviceConnectionChangeTrigger {
     }
     #[doc(hidden)]
     pub fn IDeviceConnectionChangeTriggerStatics<R, F: FnOnce(&IDeviceConnectionChangeTriggerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceConnectionChangeTrigger, IDeviceConnectionChangeTriggerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DeviceConnectionChangeTrigger, IDeviceConnectionChangeTriggerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4877,7 +4877,7 @@ impl ::core::fmt::Debug for DeviceConnectionChangeTrigger {
     }
 }
 impl ::windows::core::RuntimeType for DeviceConnectionChangeTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger;{90875e64-3cdd-4efb-ab1c-5b3b6a60ce34})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger;{90875e64-3cdd-4efb-ab1c-5b3b6a60ce34})");
 }
 impl ::core::clone::Clone for DeviceConnectionChangeTrigger {
     fn clone(&self) -> Self {
@@ -4893,7 +4893,7 @@ unsafe impl ::windows::core::Interface for DeviceConnectionChangeTrigger {
 impl ::windows::core::RuntimeName for DeviceConnectionChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger";
 }
-::windows::core::interface_hierarchy!(DeviceConnectionChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceConnectionChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceConnectionChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceConnectionChangeTrigger) -> ::windows::core::Result<Self> {
@@ -4950,7 +4950,7 @@ impl DeviceManufacturerNotificationTrigger {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IDeviceManufacturerNotificationTriggerFactory<R, F: FnOnce(&IDeviceManufacturerNotificationTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4970,7 +4970,7 @@ impl ::core::fmt::Debug for DeviceManufacturerNotificationTrigger {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for DeviceManufacturerNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger;{81278ab5-41ab-16da-86c2-7f7bf0912f5b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger;{81278ab5-41ab-16da-86c2-7f7bf0912f5b})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for DeviceManufacturerNotificationTrigger {
@@ -4991,7 +4991,7 @@ impl ::windows::core::RuntimeName for DeviceManufacturerNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(DeviceManufacturerNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceManufacturerNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<DeviceManufacturerNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
@@ -5021,8 +5021,8 @@ impl DeviceServicingTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceServicingTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DeviceServicingTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5056,7 +5056,7 @@ impl ::core::fmt::Debug for DeviceServicingTrigger {
     }
 }
 impl ::windows::core::RuntimeType for DeviceServicingTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceServicingTrigger;{1ab217ad-6e34-49d3-9e6f-17f1b6dfa881})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceServicingTrigger;{1ab217ad-6e34-49d3-9e6f-17f1b6dfa881})");
 }
 impl ::core::clone::Clone for DeviceServicingTrigger {
     fn clone(&self) -> Self {
@@ -5072,7 +5072,7 @@ unsafe impl ::windows::core::Interface for DeviceServicingTrigger {
 impl ::windows::core::RuntimeName for DeviceServicingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceServicingTrigger";
 }
-::windows::core::interface_hierarchy!(DeviceServicingTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceServicingTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceServicingTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceServicingTrigger) -> ::windows::core::Result<Self> {
@@ -5101,8 +5101,8 @@ impl DeviceUseTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceUseTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DeviceUseTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5136,7 +5136,7 @@ impl ::core::fmt::Debug for DeviceUseTrigger {
     }
 }
 impl ::windows::core::RuntimeType for DeviceUseTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceUseTrigger;{0da68011-334f-4d57-b6ec-6dca64b412e4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceUseTrigger;{0da68011-334f-4d57-b6ec-6dca64b412e4})");
 }
 impl ::core::clone::Clone for DeviceUseTrigger {
     fn clone(&self) -> Self {
@@ -5152,7 +5152,7 @@ unsafe impl ::windows::core::Interface for DeviceUseTrigger {
 impl ::windows::core::RuntimeName for DeviceUseTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceUseTrigger";
 }
-::windows::core::interface_hierarchy!(DeviceUseTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceUseTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceUseTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceUseTrigger) -> ::windows::core::Result<Self> {
@@ -5190,7 +5190,7 @@ impl ::core::fmt::Debug for DeviceWatcherTrigger {
     }
 }
 impl ::windows::core::RuntimeType for DeviceWatcherTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceWatcherTrigger;{a4617fdd-8573-4260-befc-5bec89cb693d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceWatcherTrigger;{a4617fdd-8573-4260-befc-5bec89cb693d})");
 }
 impl ::core::clone::Clone for DeviceWatcherTrigger {
     fn clone(&self) -> Self {
@@ -5206,7 +5206,7 @@ unsafe impl ::windows::core::Interface for DeviceWatcherTrigger {
 impl ::windows::core::RuntimeName for DeviceWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceWatcherTrigger";
 }
-::windows::core::interface_hierarchy!(DeviceWatcherTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceWatcherTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceWatcherTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceWatcherTrigger) -> ::windows::core::Result<Self> {
@@ -5233,8 +5233,8 @@ impl EmailStoreNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailStoreNotificationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailStoreNotificationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5250,7 +5250,7 @@ impl ::core::fmt::Debug for EmailStoreNotificationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for EmailStoreNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.EmailStoreNotificationTrigger;{986d06da-47eb-4268-a4f2-f3f77188388a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.EmailStoreNotificationTrigger;{986d06da-47eb-4268-a4f2-f3f77188388a})");
 }
 impl ::core::clone::Clone for EmailStoreNotificationTrigger {
     fn clone(&self) -> Self {
@@ -5266,7 +5266,7 @@ unsafe impl ::windows::core::Interface for EmailStoreNotificationTrigger {
 impl ::windows::core::RuntimeName for EmailStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.EmailStoreNotificationTrigger";
 }
-::windows::core::interface_hierarchy!(EmailStoreNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailStoreNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<EmailStoreNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: EmailStoreNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -5328,12 +5328,12 @@ impl GattCharacteristicNotificationTrigger {
     }
     #[doc(hidden)]
     pub fn IGattCharacteristicNotificationTriggerFactory<R, F: FnOnce(&IGattCharacteristicNotificationTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGattCharacteristicNotificationTriggerFactory2<R, F: FnOnce(&IGattCharacteristicNotificationTriggerFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTriggerFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTriggerFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5349,7 +5349,7 @@ impl ::core::fmt::Debug for GattCharacteristicNotificationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for GattCharacteristicNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger;{e25f8fc8-0696-474f-a732-f292b0cebc5d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger;{e25f8fc8-0696-474f-a732-f292b0cebc5d})");
 }
 impl ::core::clone::Clone for GattCharacteristicNotificationTrigger {
     fn clone(&self) -> Self {
@@ -5365,7 +5365,7 @@ unsafe impl ::windows::core::Interface for GattCharacteristicNotificationTrigger
 impl ::windows::core::RuntimeName for GattCharacteristicNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger";
 }
-::windows::core::interface_hierarchy!(GattCharacteristicNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattCharacteristicNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GattCharacteristicNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: GattCharacteristicNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -5432,7 +5432,7 @@ impl GattServiceProviderTrigger {
     }
     #[doc(hidden)]
     pub fn IGattServiceProviderTriggerStatics<R, F: FnOnce(&IGattServiceProviderTriggerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattServiceProviderTrigger, IGattServiceProviderTriggerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattServiceProviderTrigger, IGattServiceProviderTriggerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5448,7 +5448,7 @@ impl ::core::fmt::Debug for GattServiceProviderTrigger {
     }
 }
 impl ::windows::core::RuntimeType for GattServiceProviderTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTrigger;{ddc6a3e9-1557-4bd8-8542-468aa0c696f6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTrigger;{ddc6a3e9-1557-4bd8-8542-468aa0c696f6})");
 }
 impl ::core::clone::Clone for GattServiceProviderTrigger {
     fn clone(&self) -> Self {
@@ -5464,7 +5464,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderTrigger {
 impl ::windows::core::RuntimeName for GattServiceProviderTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTrigger";
 }
-::windows::core::interface_hierarchy!(GattServiceProviderTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattServiceProviderTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GattServiceProviderTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: GattServiceProviderTrigger) -> ::windows::core::Result<Self> {
@@ -5519,7 +5519,7 @@ impl ::core::fmt::Debug for GattServiceProviderTriggerResult {
     }
 }
 impl ::windows::core::RuntimeType for GattServiceProviderTriggerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTriggerResult;{3c4691b1-b198-4e84-bad4-cf4ad299ed3a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTriggerResult;{3c4691b1-b198-4e84-bad4-cf4ad299ed3a})");
 }
 impl ::core::clone::Clone for GattServiceProviderTriggerResult {
     fn clone(&self) -> Self {
@@ -5535,7 +5535,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderTriggerResult {
 impl ::windows::core::RuntimeName for GattServiceProviderTriggerResult {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTriggerResult";
 }
-::windows::core::interface_hierarchy!(GattServiceProviderTriggerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattServiceProviderTriggerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderTriggerResult {}
 unsafe impl ::core::marker::Sync for GattServiceProviderTriggerResult {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -5545,8 +5545,8 @@ impl GeovisitTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GeovisitTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GeovisitTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -5577,7 +5577,7 @@ impl ::core::fmt::Debug for GeovisitTrigger {
     }
 }
 impl ::windows::core::RuntimeType for GeovisitTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GeovisitTrigger;{4818edaa-04e1-4127-9a4c-19351b8a80a4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GeovisitTrigger;{4818edaa-04e1-4127-9a4c-19351b8a80a4})");
 }
 impl ::core::clone::Clone for GeovisitTrigger {
     fn clone(&self) -> Self {
@@ -5593,7 +5593,7 @@ unsafe impl ::windows::core::Interface for GeovisitTrigger {
 impl ::windows::core::RuntimeName for GeovisitTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GeovisitTrigger";
 }
-::windows::core::interface_hierarchy!(GeovisitTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GeovisitTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GeovisitTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: GeovisitTrigger) -> ::windows::core::Result<Self> {
@@ -5634,7 +5634,7 @@ impl LocationTrigger {
     }
     #[doc(hidden)]
     pub fn ILocationTriggerFactory<R, F: FnOnce(&ILocationTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LocationTrigger, ILocationTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LocationTrigger, ILocationTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5650,7 +5650,7 @@ impl ::core::fmt::Debug for LocationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for LocationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.LocationTrigger;{47666a1c-6877-481e-8026-ff7e14a811a0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.LocationTrigger;{47666a1c-6877-481e-8026-ff7e14a811a0})");
 }
 impl ::core::clone::Clone for LocationTrigger {
     fn clone(&self) -> Self {
@@ -5666,7 +5666,7 @@ unsafe impl ::windows::core::Interface for LocationTrigger {
 impl ::windows::core::RuntimeName for LocationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.LocationTrigger";
 }
-::windows::core::interface_hierarchy!(LocationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LocationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LocationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: LocationTrigger) -> ::windows::core::Result<Self> {
@@ -5714,7 +5714,7 @@ impl MaintenanceTrigger {
     }
     #[doc(hidden)]
     pub fn IMaintenanceTriggerFactory<R, F: FnOnce(&IMaintenanceTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MaintenanceTrigger, IMaintenanceTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MaintenanceTrigger, IMaintenanceTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5730,7 +5730,7 @@ impl ::core::fmt::Debug for MaintenanceTrigger {
     }
 }
 impl ::windows::core::RuntimeType for MaintenanceTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MaintenanceTrigger;{68184c83-fc22-4ce5-841a-7239a9810047})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MaintenanceTrigger;{68184c83-fc22-4ce5-841a-7239a9810047})");
 }
 impl ::core::clone::Clone for MaintenanceTrigger {
     fn clone(&self) -> Self {
@@ -5746,7 +5746,7 @@ unsafe impl ::windows::core::Interface for MaintenanceTrigger {
 impl ::windows::core::RuntimeName for MaintenanceTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MaintenanceTrigger";
 }
-::windows::core::interface_hierarchy!(MaintenanceTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MaintenanceTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MaintenanceTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MaintenanceTrigger) -> ::windows::core::Result<Self> {
@@ -5773,8 +5773,8 @@ impl MediaProcessingTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaProcessingTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaProcessingTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5808,7 +5808,7 @@ impl ::core::fmt::Debug for MediaProcessingTrigger {
     }
 }
 impl ::windows::core::RuntimeType for MediaProcessingTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MediaProcessingTrigger;{9a95be65-8a52-4b30-9011-cf38040ea8b0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MediaProcessingTrigger;{9a95be65-8a52-4b30-9011-cf38040ea8b0})");
 }
 impl ::core::clone::Clone for MediaProcessingTrigger {
     fn clone(&self) -> Self {
@@ -5824,7 +5824,7 @@ unsafe impl ::windows::core::Interface for MediaProcessingTrigger {
 impl ::windows::core::RuntimeName for MediaProcessingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MediaProcessingTrigger";
 }
-::windows::core::interface_hierarchy!(MediaProcessingTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaProcessingTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaProcessingTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaProcessingTrigger) -> ::windows::core::Result<Self> {
@@ -5851,8 +5851,8 @@ impl MobileBroadbandDeviceServiceNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandDeviceServiceNotificationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandDeviceServiceNotificationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5868,7 +5868,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceServiceNotificationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceNotificationTrigger {
     fn clone(&self) -> Self {
@@ -5884,7 +5884,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceNotificat
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandDeviceServiceNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -5913,8 +5913,8 @@ impl MobileBroadbandPcoDataChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandPcoDataChangeTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandPcoDataChangeTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5930,7 +5930,7 @@ impl ::core::fmt::Debug for MobileBroadbandPcoDataChangeTrigger {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for MobileBroadbandPcoDataChangeTrigger {
     fn clone(&self) -> Self {
@@ -5946,7 +5946,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPcoDataChangeTrigger {
 impl ::windows::core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandPcoDataChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandPcoDataChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandPcoDataChangeTrigger) -> ::windows::core::Result<Self> {
@@ -5975,8 +5975,8 @@ impl MobileBroadbandPinLockStateChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandPinLockStateChangeTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandPinLockStateChangeTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5992,7 +5992,7 @@ impl ::core::fmt::Debug for MobileBroadbandPinLockStateChangeTrigger {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for MobileBroadbandPinLockStateChangeTrigger {
     fn clone(&self) -> Self {
@@ -6008,7 +6008,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChangeTrig
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandPinLockStateChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandPinLockStateChangeTrigger) -> ::windows::core::Result<Self> {
@@ -6037,8 +6037,8 @@ impl MobileBroadbandRadioStateChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandRadioStateChangeTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandRadioStateChangeTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6054,7 +6054,7 @@ impl ::core::fmt::Debug for MobileBroadbandRadioStateChangeTrigger {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for MobileBroadbandRadioStateChangeTrigger {
     fn clone(&self) -> Self {
@@ -6070,7 +6070,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChangeTrigge
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandRadioStateChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandRadioStateChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandRadioStateChangeTrigger) -> ::windows::core::Result<Self> {
@@ -6099,8 +6099,8 @@ impl MobileBroadbandRegistrationStateChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandRegistrationStateChangeTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandRegistrationStateChangeTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6116,7 +6116,7 @@ impl ::core::fmt::Debug for MobileBroadbandRegistrationStateChangeTrigger {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for MobileBroadbandRegistrationStateChangeTrigger {
     fn clone(&self) -> Self {
@@ -6132,7 +6132,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandRegistrationStateChang
 impl ::windows::core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandRegistrationStateChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandRegistrationStateChangeTrigger) -> ::windows::core::Result<Self> {
@@ -6161,8 +6161,8 @@ impl NetworkOperatorDataUsageTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkOperatorDataUsageTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<NetworkOperatorDataUsageTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6178,7 +6178,7 @@ impl ::core::fmt::Debug for NetworkOperatorDataUsageTrigger {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorDataUsageTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for NetworkOperatorDataUsageTrigger {
     fn clone(&self) -> Self {
@@ -6194,7 +6194,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorDataUsageTrigger {
 impl ::windows::core::RuntimeName for NetworkOperatorDataUsageTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger";
 }
-::windows::core::interface_hierarchy!(NetworkOperatorDataUsageTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkOperatorDataUsageTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<NetworkOperatorDataUsageTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: NetworkOperatorDataUsageTrigger) -> ::windows::core::Result<Self> {
@@ -6223,8 +6223,8 @@ impl NetworkOperatorHotspotAuthenticationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkOperatorHotspotAuthenticationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<NetworkOperatorHotspotAuthenticationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6240,7 +6240,7 @@ impl ::core::fmt::Debug for NetworkOperatorHotspotAuthenticationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger;{e756c791-3001-4de5-83c7-de61d88831d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger;{e756c791-3001-4de5-83c7-de61d88831d0})");
 }
 impl ::core::clone::Clone for NetworkOperatorHotspotAuthenticationTrigger {
     fn clone(&self) -> Self {
@@ -6256,7 +6256,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorHotspotAuthenticationT
 impl ::windows::core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger";
 }
-::windows::core::interface_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<NetworkOperatorHotspotAuthenticationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: NetworkOperatorHotspotAuthenticationTrigger) -> ::windows::core::Result<Self> {
@@ -6295,7 +6295,7 @@ impl NetworkOperatorNotificationTrigger {
     }
     #[doc(hidden)]
     pub fn INetworkOperatorNotificationTriggerFactory<R, F: FnOnce(&INetworkOperatorNotificationTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkOperatorNotificationTrigger, INetworkOperatorNotificationTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NetworkOperatorNotificationTrigger, INetworkOperatorNotificationTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6311,7 +6311,7 @@ impl ::core::fmt::Debug for NetworkOperatorNotificationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger;{90089cc6-63cd-480c-95d1-6e6aef801e4a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger;{90089cc6-63cd-480c-95d1-6e6aef801e4a})");
 }
 impl ::core::clone::Clone for NetworkOperatorNotificationTrigger {
     fn clone(&self) -> Self {
@@ -6327,7 +6327,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorNotificationTrigger {
 impl ::windows::core::RuntimeName for NetworkOperatorNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger";
 }
-::windows::core::interface_hierarchy!(NetworkOperatorNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkOperatorNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<NetworkOperatorNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: NetworkOperatorNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -6354,8 +6354,8 @@ impl PaymentAppCanMakePaymentTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PaymentAppCanMakePaymentTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PaymentAppCanMakePaymentTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6371,7 +6371,7 @@ impl ::core::fmt::Debug for PaymentAppCanMakePaymentTrigger {
     }
 }
 impl ::windows::core::RuntimeType for PaymentAppCanMakePaymentTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for PaymentAppCanMakePaymentTrigger {
     fn clone(&self) -> Self {
@@ -6387,7 +6387,7 @@ unsafe impl ::windows::core::Interface for PaymentAppCanMakePaymentTrigger {
 impl ::windows::core::RuntimeName for PaymentAppCanMakePaymentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger";
 }
-::windows::core::interface_hierarchy!(PaymentAppCanMakePaymentTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PaymentAppCanMakePaymentTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PaymentAppCanMakePaymentTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: PaymentAppCanMakePaymentTrigger) -> ::windows::core::Result<Self> {
@@ -6439,7 +6439,7 @@ impl PhoneTrigger {
     }
     #[doc(hidden)]
     pub fn IPhoneTriggerFactory<R, F: FnOnce(&IPhoneTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhoneTrigger, IPhoneTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhoneTrigger, IPhoneTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6455,7 +6455,7 @@ impl ::core::fmt::Debug for PhoneTrigger {
     }
 }
 impl ::windows::core::RuntimeType for PhoneTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PhoneTrigger;{8dcfe99b-d4c5-49f1-b7d3-82e87a0e9dde})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PhoneTrigger;{8dcfe99b-d4c5-49f1-b7d3-82e87a0e9dde})");
 }
 impl ::core::clone::Clone for PhoneTrigger {
     fn clone(&self) -> Self {
@@ -6471,7 +6471,7 @@ unsafe impl ::windows::core::Interface for PhoneTrigger {
 impl ::windows::core::RuntimeName for PhoneTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PhoneTrigger";
 }
-::windows::core::interface_hierarchy!(PhoneTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PhoneTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: PhoneTrigger) -> ::windows::core::Result<Self> {
@@ -6500,8 +6500,8 @@ impl PushNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PushNotificationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PushNotificationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Create(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<PushNotificationTrigger> {
@@ -6512,7 +6512,7 @@ impl PushNotificationTrigger {
     }
     #[doc(hidden)]
     pub fn IPushNotificationTriggerFactory<R, F: FnOnce(&IPushNotificationTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PushNotificationTrigger, IPushNotificationTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PushNotificationTrigger, IPushNotificationTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6528,7 +6528,7 @@ impl ::core::fmt::Debug for PushNotificationTrigger {
     }
 }
 impl ::windows::core::RuntimeType for PushNotificationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PushNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PushNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for PushNotificationTrigger {
     fn clone(&self) -> Self {
@@ -6544,7 +6544,7 @@ unsafe impl ::windows::core::Interface for PushNotificationTrigger {
 impl ::windows::core::RuntimeName for PushNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PushNotificationTrigger";
 }
-::windows::core::interface_hierarchy!(PushNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PushNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PushNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: PushNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -6573,8 +6573,8 @@ impl RcsEndUserMessageAvailableTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RcsEndUserMessageAvailableTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<RcsEndUserMessageAvailableTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6590,7 +6590,7 @@ impl ::core::fmt::Debug for RcsEndUserMessageAvailableTrigger {
     }
 }
 impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger;{986d0d6a-b2f6-467f-a978-a44091c11a66})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger;{986d0d6a-b2f6-467f-a978-a44091c11a66})");
 }
 impl ::core::clone::Clone for RcsEndUserMessageAvailableTrigger {
     fn clone(&self) -> Self {
@@ -6606,7 +6606,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableTrigger {
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger";
 }
-::windows::core::interface_hierarchy!(RcsEndUserMessageAvailableTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RcsEndUserMessageAvailableTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RcsEndUserMessageAvailableTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: RcsEndUserMessageAvailableTrigger) -> ::windows::core::Result<Self> {
@@ -6635,8 +6635,8 @@ impl RfcommConnectionTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RfcommConnectionTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<RfcommConnectionTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -6711,7 +6711,7 @@ impl ::core::fmt::Debug for RfcommConnectionTrigger {
     }
 }
 impl ::windows::core::RuntimeType for RfcommConnectionTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RfcommConnectionTrigger;{e8c4cae2-0b53-4464-9394-fd875654de64})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RfcommConnectionTrigger;{e8c4cae2-0b53-4464-9394-fd875654de64})");
 }
 impl ::core::clone::Clone for RfcommConnectionTrigger {
     fn clone(&self) -> Self {
@@ -6727,7 +6727,7 @@ unsafe impl ::windows::core::Interface for RfcommConnectionTrigger {
 impl ::windows::core::RuntimeName for RfcommConnectionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RfcommConnectionTrigger";
 }
-::windows::core::interface_hierarchy!(RfcommConnectionTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RfcommConnectionTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RfcommConnectionTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: RfcommConnectionTrigger) -> ::windows::core::Result<Self> {
@@ -6758,8 +6758,8 @@ impl SecondaryAuthenticationFactorAuthenticationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SecondaryAuthenticationFactorAuthenticationTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SecondaryAuthenticationFactorAuthenticationTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6779,7 +6779,7 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationTrigger {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger;{f237f327-5181-4f24-96a7-700a4e5fac62})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger;{f237f327-5181-4f24-96a7-700a4e5fac62})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationTrigger {
@@ -6800,7 +6800,7 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticatio
     const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<SecondaryAuthenticationFactorAuthenticationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
@@ -6841,7 +6841,7 @@ impl SensorDataThresholdTrigger {
     }
     #[doc(hidden)]
     pub fn ISensorDataThresholdTriggerFactory<R, F: FnOnce(&ISensorDataThresholdTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SensorDataThresholdTrigger, ISensorDataThresholdTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SensorDataThresholdTrigger, ISensorDataThresholdTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6857,7 +6857,7 @@ impl ::core::fmt::Debug for SensorDataThresholdTrigger {
     }
 }
 impl ::windows::core::RuntimeType for SensorDataThresholdTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SensorDataThresholdTrigger;{5bc0f372-d48b-4b7f-abec-15f9bacc12e2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SensorDataThresholdTrigger;{5bc0f372-d48b-4b7f-abec-15f9bacc12e2})");
 }
 impl ::core::clone::Clone for SensorDataThresholdTrigger {
     fn clone(&self) -> Self {
@@ -6873,7 +6873,7 @@ unsafe impl ::windows::core::Interface for SensorDataThresholdTrigger {
 impl ::windows::core::RuntimeName for SensorDataThresholdTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SensorDataThresholdTrigger";
 }
-::windows::core::interface_hierarchy!(SensorDataThresholdTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SensorDataThresholdTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SensorDataThresholdTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SensorDataThresholdTrigger) -> ::windows::core::Result<Self> {
@@ -6918,7 +6918,7 @@ impl SmartCardTrigger {
     }
     #[doc(hidden)]
     pub fn ISmartCardTriggerFactory<R, F: FnOnce(&ISmartCardTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardTrigger, ISmartCardTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardTrigger, ISmartCardTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6934,7 +6934,7 @@ impl ::core::fmt::Debug for SmartCardTrigger {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmartCardTrigger;{f53bc5ac-84ca-4972-8ce9-e58f97b37a50})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmartCardTrigger;{f53bc5ac-84ca-4972-8ce9-e58f97b37a50})");
 }
 impl ::core::clone::Clone for SmartCardTrigger {
     fn clone(&self) -> Self {
@@ -6950,7 +6950,7 @@ unsafe impl ::windows::core::Interface for SmartCardTrigger {
 impl ::windows::core::RuntimeName for SmartCardTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmartCardTrigger";
 }
-::windows::core::interface_hierarchy!(SmartCardTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmartCardTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SmartCardTrigger) -> ::windows::core::Result<Self> {
@@ -6984,7 +6984,7 @@ impl SmsMessageReceivedTrigger {
     }
     #[doc(hidden)]
     pub fn ISmsMessageReceivedTriggerFactory<R, F: FnOnce(&ISmsMessageReceivedTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmsMessageReceivedTrigger, ISmsMessageReceivedTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmsMessageReceivedTrigger, ISmsMessageReceivedTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7000,7 +7000,7 @@ impl ::core::fmt::Debug for SmsMessageReceivedTrigger {
     }
 }
 impl ::windows::core::RuntimeType for SmsMessageReceivedTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmsMessageReceivedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmsMessageReceivedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for SmsMessageReceivedTrigger {
     fn clone(&self) -> Self {
@@ -7016,7 +7016,7 @@ unsafe impl ::windows::core::Interface for SmsMessageReceivedTrigger {
 impl ::windows::core::RuntimeName for SmsMessageReceivedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger";
 }
-::windows::core::interface_hierarchy!(SmsMessageReceivedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmsMessageReceivedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmsMessageReceivedTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SmsMessageReceivedTrigger) -> ::windows::core::Result<Self> {
@@ -7045,8 +7045,8 @@ impl SocketActivityTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SocketActivityTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SocketActivityTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn IsWakeFromLowPowerSupported(&self) -> ::windows::core::Result<bool> {
@@ -7069,7 +7069,7 @@ impl ::core::fmt::Debug for SocketActivityTrigger {
     }
 }
 impl ::windows::core::RuntimeType for SocketActivityTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SocketActivityTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SocketActivityTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for SocketActivityTrigger {
     fn clone(&self) -> Self {
@@ -7085,7 +7085,7 @@ unsafe impl ::windows::core::Interface for SocketActivityTrigger {
 impl ::windows::core::RuntimeName for SocketActivityTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SocketActivityTrigger";
 }
-::windows::core::interface_hierarchy!(SocketActivityTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SocketActivityTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SocketActivityTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SocketActivityTrigger) -> ::windows::core::Result<Self> {
@@ -7121,7 +7121,7 @@ impl StorageLibraryChangeTrackerTrigger {
     }
     #[doc(hidden)]
     pub fn IStorageLibraryChangeTrackerTriggerFactory<R, F: FnOnce(&IStorageLibraryChangeTrackerTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageLibraryChangeTrackerTrigger, IStorageLibraryChangeTrackerTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageLibraryChangeTrackerTrigger, IStorageLibraryChangeTrackerTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7137,7 +7137,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeTrackerTrigger {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for StorageLibraryChangeTrackerTrigger {
     fn clone(&self) -> Self {
@@ -7153,7 +7153,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerTrigger {
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger";
 }
-::windows::core::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageLibraryChangeTrackerTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageLibraryChangeTrackerTrigger) -> ::windows::core::Result<Self> {
@@ -7201,7 +7201,7 @@ impl StorageLibraryContentChangedTrigger {
     }
     #[doc(hidden)]
     pub fn IStorageLibraryContentChangedTriggerStatics<R, F: FnOnce(&IStorageLibraryContentChangedTriggerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTriggerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTriggerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7217,7 +7217,7 @@ impl ::core::fmt::Debug for StorageLibraryContentChangedTrigger {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryContentChangedTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger;{1637e0a7-829c-45bc-929b-a1e7ea78d89b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger;{1637e0a7-829c-45bc-929b-a1e7ea78d89b})");
 }
 impl ::core::clone::Clone for StorageLibraryContentChangedTrigger {
     fn clone(&self) -> Self {
@@ -7233,7 +7233,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryContentChangedTrigger {
 impl ::windows::core::RuntimeName for StorageLibraryContentChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger";
 }
-::windows::core::interface_hierarchy!(StorageLibraryContentChangedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibraryContentChangedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageLibraryContentChangedTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageLibraryContentChangedTrigger) -> ::windows::core::Result<Self> {
@@ -7272,7 +7272,7 @@ impl SystemCondition {
     }
     #[doc(hidden)]
     pub fn ISystemConditionFactory<R, F: FnOnce(&ISystemConditionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemCondition, ISystemConditionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemCondition, ISystemConditionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7288,7 +7288,7 @@ impl ::core::fmt::Debug for SystemCondition {
     }
 }
 impl ::windows::core::RuntimeType for SystemCondition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemCondition;{c15fb476-89c5-420b-abd3-fb3030472128})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemCondition;{c15fb476-89c5-420b-abd3-fb3030472128})");
 }
 impl ::core::clone::Clone for SystemCondition {
     fn clone(&self) -> Self {
@@ -7304,7 +7304,7 @@ unsafe impl ::windows::core::Interface for SystemCondition {
 impl ::windows::core::RuntimeName for SystemCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemCondition";
 }
-::windows::core::interface_hierarchy!(SystemCondition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemCondition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SystemCondition> for IBackgroundCondition {
     type Error = ::windows::core::Error;
     fn try_from(value: SystemCondition) -> ::windows::core::Result<Self> {
@@ -7350,7 +7350,7 @@ impl SystemTrigger {
     }
     #[doc(hidden)]
     pub fn ISystemTriggerFactory<R, F: FnOnce(&ISystemTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemTrigger, ISystemTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemTrigger, ISystemTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7366,7 +7366,7 @@ impl ::core::fmt::Debug for SystemTrigger {
     }
 }
 impl ::windows::core::RuntimeType for SystemTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemTrigger;{1d80c776-3748-4463-8d7e-276dc139ac1c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemTrigger;{1d80c776-3748-4463-8d7e-276dc139ac1c})");
 }
 impl ::core::clone::Clone for SystemTrigger {
     fn clone(&self) -> Self {
@@ -7382,7 +7382,7 @@ unsafe impl ::windows::core::Interface for SystemTrigger {
 impl ::windows::core::RuntimeName for SystemTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemTrigger";
 }
-::windows::core::interface_hierarchy!(SystemTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SystemTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SystemTrigger) -> ::windows::core::Result<Self> {
@@ -7409,8 +7409,8 @@ impl TetheringEntitlementCheckTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TetheringEntitlementCheckTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<TetheringEntitlementCheckTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7426,7 +7426,7 @@ impl ::core::fmt::Debug for TetheringEntitlementCheckTrigger {
     }
 }
 impl ::windows::core::RuntimeType for TetheringEntitlementCheckTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for TetheringEntitlementCheckTrigger {
     fn clone(&self) -> Self {
@@ -7442,7 +7442,7 @@ unsafe impl ::windows::core::Interface for TetheringEntitlementCheckTrigger {
 impl ::windows::core::RuntimeName for TetheringEntitlementCheckTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger";
 }
-::windows::core::interface_hierarchy!(TetheringEntitlementCheckTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TetheringEntitlementCheckTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TetheringEntitlementCheckTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: TetheringEntitlementCheckTrigger) -> ::windows::core::Result<Self> {
@@ -7490,7 +7490,7 @@ impl TimeTrigger {
     }
     #[doc(hidden)]
     pub fn ITimeTriggerFactory<R, F: FnOnce(&ITimeTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TimeTrigger, ITimeTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TimeTrigger, ITimeTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7506,7 +7506,7 @@ impl ::core::fmt::Debug for TimeTrigger {
     }
 }
 impl ::windows::core::RuntimeType for TimeTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TimeTrigger;{656e5556-0b2a-4377-ba70-3b45a935547f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TimeTrigger;{656e5556-0b2a-4377-ba70-3b45a935547f})");
 }
 impl ::core::clone::Clone for TimeTrigger {
     fn clone(&self) -> Self {
@@ -7522,7 +7522,7 @@ unsafe impl ::windows::core::Interface for TimeTrigger {
 impl ::windows::core::RuntimeName for TimeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TimeTrigger";
 }
-::windows::core::interface_hierarchy!(TimeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TimeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TimeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: TimeTrigger) -> ::windows::core::Result<Self> {
@@ -7549,8 +7549,8 @@ impl ToastNotificationActionTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastNotificationActionTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ToastNotificationActionTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Create(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotificationActionTrigger> {
@@ -7561,7 +7561,7 @@ impl ToastNotificationActionTrigger {
     }
     #[doc(hidden)]
     pub fn IToastNotificationActionTriggerFactory<R, F: FnOnce(&IToastNotificationActionTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastNotificationActionTrigger, IToastNotificationActionTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ToastNotificationActionTrigger, IToastNotificationActionTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7577,7 +7577,7 @@ impl ::core::fmt::Debug for ToastNotificationActionTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationActionTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationActionTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationActionTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for ToastNotificationActionTrigger {
     fn clone(&self) -> Self {
@@ -7593,7 +7593,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationActionTrigger {
 impl ::windows::core::RuntimeName for ToastNotificationActionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationActionTrigger";
 }
-::windows::core::interface_hierarchy!(ToastNotificationActionTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotificationActionTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ToastNotificationActionTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ToastNotificationActionTrigger) -> ::windows::core::Result<Self> {
@@ -7622,8 +7622,8 @@ impl ToastNotificationHistoryChangedTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastNotificationHistoryChangedTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ToastNotificationHistoryChangedTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Create(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotificationHistoryChangedTrigger> {
@@ -7634,7 +7634,7 @@ impl ToastNotificationHistoryChangedTrigger {
     }
     #[doc(hidden)]
     pub fn IToastNotificationHistoryChangedTriggerFactory<R, F: FnOnce(&IToastNotificationHistoryChangedTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ToastNotificationHistoryChangedTrigger, IToastNotificationHistoryChangedTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ToastNotificationHistoryChangedTrigger, IToastNotificationHistoryChangedTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7650,7 +7650,7 @@ impl ::core::fmt::Debug for ToastNotificationHistoryChangedTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ToastNotificationHistoryChangedTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for ToastNotificationHistoryChangedTrigger {
     fn clone(&self) -> Self {
@@ -7666,7 +7666,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationHistoryChangedTrigge
 impl ::windows::core::RuntimeName for ToastNotificationHistoryChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger";
 }
-::windows::core::interface_hierarchy!(ToastNotificationHistoryChangedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ToastNotificationHistoryChangedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ToastNotificationHistoryChangedTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ToastNotificationHistoryChangedTrigger) -> ::windows::core::Result<Self> {
@@ -7702,7 +7702,7 @@ impl UserNotificationChangedTrigger {
     }
     #[doc(hidden)]
     pub fn IUserNotificationChangedTriggerFactory<R, F: FnOnce(&IUserNotificationChangedTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserNotificationChangedTrigger, IUserNotificationChangedTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserNotificationChangedTrigger, IUserNotificationChangedTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7718,7 +7718,7 @@ impl ::core::fmt::Debug for UserNotificationChangedTrigger {
     }
 }
 impl ::windows::core::RuntimeType for UserNotificationChangedTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.UserNotificationChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.UserNotificationChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for UserNotificationChangedTrigger {
     fn clone(&self) -> Self {
@@ -7734,7 +7734,7 @@ unsafe impl ::windows::core::Interface for UserNotificationChangedTrigger {
 impl ::windows::core::RuntimeName for UserNotificationChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.UserNotificationChangedTrigger";
 }
-::windows::core::interface_hierarchy!(UserNotificationChangedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserNotificationChangedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserNotificationChangedTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: UserNotificationChangedTrigger) -> ::windows::core::Result<Self> {
@@ -7763,8 +7763,8 @@ impl WiFiOnDemandHotspotConnectTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiOnDemandHotspotConnectTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WiFiOnDemandHotspotConnectTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7780,7 +7780,7 @@ impl ::core::fmt::Debug for WiFiOnDemandHotspotConnectTrigger {
     }
 }
 impl ::windows::core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for WiFiOnDemandHotspotConnectTrigger {
     fn clone(&self) -> Self {
@@ -7796,7 +7796,7 @@ unsafe impl ::windows::core::Interface for WiFiOnDemandHotspotConnectTrigger {
 impl ::windows::core::RuntimeName for WiFiOnDemandHotspotConnectTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger";
 }
-::windows::core::interface_hierarchy!(WiFiOnDemandHotspotConnectTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WiFiOnDemandHotspotConnectTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: WiFiOnDemandHotspotConnectTrigger) -> ::windows::core::Result<Self> {
@@ -7825,8 +7825,8 @@ impl WiFiOnDemandHotspotUpdateMetadataTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WiFiOnDemandHotspotUpdateMetadataTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WiFiOnDemandHotspotUpdateMetadataTrigger, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7842,7 +7842,7 @@ impl ::core::fmt::Debug for WiFiOnDemandHotspotUpdateMetadataTrigger {
     }
 }
 impl ::windows::core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 impl ::core::clone::Clone for WiFiOnDemandHotspotUpdateMetadataTrigger {
     fn clone(&self) -> Self {
@@ -7858,7 +7858,7 @@ unsafe impl ::windows::core::Interface for WiFiOnDemandHotspotUpdateMetadataTrig
 impl ::windows::core::RuntimeName for WiFiOnDemandHotspotUpdateMetadataTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger";
 }
-::windows::core::interface_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WiFiOnDemandHotspotUpdateMetadataTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: WiFiOnDemandHotspotUpdateMetadataTrigger) -> ::windows::core::Result<Self> {
@@ -7910,7 +7910,7 @@ impl ::core::fmt::Debug for AlarmAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for AlarmAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -7942,7 +7942,7 @@ impl ::core::fmt::Debug for ApplicationTriggerResult {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationTriggerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -7972,7 +7972,7 @@ impl ::core::fmt::Debug for BackgroundAccessRequestKind {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundAccessRequestKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8008,7 +8008,7 @@ impl ::core::fmt::Debug for BackgroundAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8048,7 +8048,7 @@ impl ::core::fmt::Debug for BackgroundTaskCancellationReason {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTaskCancellationReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8079,7 +8079,7 @@ impl ::core::fmt::Debug for BackgroundTaskThrottleCounter {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTaskThrottleCounter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8110,7 +8110,7 @@ impl ::core::fmt::Debug for BackgroundWorkCostValue {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundWorkCostValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8140,7 +8140,7 @@ impl ::core::fmt::Debug for CustomSystemEventTriggerRecurrence {
     }
 }
 impl ::windows::core::RuntimeType for CustomSystemEventTriggerRecurrence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8172,7 +8172,7 @@ impl ::core::fmt::Debug for DeviceTriggerResult {
     }
 }
 impl ::windows::core::RuntimeType for DeviceTriggerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8201,7 +8201,7 @@ impl ::core::fmt::Debug for LocationTriggerType {
     }
 }
 impl ::windows::core::RuntimeType for LocationTriggerType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.LocationTriggerType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.LocationTriggerType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8233,7 +8233,7 @@ impl ::core::fmt::Debug for MediaProcessingTriggerResult {
     }
 }
 impl ::windows::core::RuntimeType for MediaProcessingTriggerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.MediaProcessingTriggerResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.MediaProcessingTriggerResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8270,7 +8270,7 @@ impl ::core::fmt::Debug for SystemConditionType {
     }
 }
 impl ::windows::core::RuntimeType for SystemConditionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemConditionType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemConditionType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
@@ -8314,15 +8314,15 @@ impl ::core::fmt::Debug for SystemTriggerType {
     }
 }
 impl ::windows::core::RuntimeType for SystemTriggerType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemTriggerType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemTriggerType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 pub struct BackgroundTaskCanceledEventHandler(pub ::windows::core::IUnknown);
 impl BackgroundTaskCanceledEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskCanceledEventHandlerBox::<F> { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = BackgroundTaskCanceledEventHandlerBox::<F> { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke<P0, E0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> ::windows::core::Result<()>
     where
@@ -8337,7 +8337,7 @@ impl BackgroundTaskCanceledEventHandler {
 struct BackgroundTaskCanceledEventHandlerBox<F: FnMut(::core::option::Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const BackgroundTaskCanceledEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCanceledEventHandler_Vtbl = BackgroundTaskCanceledEventHandler_Vtbl {
@@ -8346,7 +8346,7 @@ impl<F: FnMut(::core::option::Option<&IBackgroundTaskInstance>, BackgroundTaskCa
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<BackgroundTaskCanceledEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<BackgroundTaskCanceledEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -8362,7 +8362,7 @@ impl<F: FnMut(::core::option::Option<&IBackgroundTaskInstance>, BackgroundTaskCa
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -8394,7 +8394,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskCanceledEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
 }
 impl ::windows::core::RuntimeType for BackgroundTaskCanceledEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a6c4bac0-51f8-4c57-ac3f-156dd1680c4f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a6c4bac0-51f8-4c57-ac3f-156dd1680c4f}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8407,8 +8407,8 @@ pub struct BackgroundTaskCanceledEventHandler_Vtbl {
 pub struct BackgroundTaskCompletedEventHandler(pub ::windows::core::IUnknown);
 impl BackgroundTaskCompletedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::option::Option<&BackgroundTaskCompletedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskCompletedEventHandlerBox::<F> { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = BackgroundTaskCompletedEventHandlerBox::<F> { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, sender: &BackgroundTaskRegistration, args: &BackgroundTaskCompletedEventArgs) -> ::windows::core::Result<()> {
         let this = self;
@@ -8419,7 +8419,7 @@ impl BackgroundTaskCompletedEventHandler {
 struct BackgroundTaskCompletedEventHandlerBox<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::option::Option<&BackgroundTaskCompletedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const BackgroundTaskCompletedEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::option::Option<&BackgroundTaskCompletedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCompletedEventHandler_Vtbl = BackgroundTaskCompletedEventHandler_Vtbl {
@@ -8428,7 +8428,7 @@ impl<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::optio
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<BackgroundTaskCompletedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<BackgroundTaskCompletedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -8444,7 +8444,7 @@ impl<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::optio
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -8476,7 +8476,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskCompletedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b38e929_a086_46a7_a678_439135822bcf);
 }
 impl ::windows::core::RuntimeType for BackgroundTaskCompletedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5b38e929-a086-46a7-a678-439135822bcf}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5b38e929-a086-46a7-a678-439135822bcf}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8489,8 +8489,8 @@ pub struct BackgroundTaskCompletedEventHandler_Vtbl {
 pub struct BackgroundTaskProgressEventHandler(pub ::windows::core::IUnknown);
 impl BackgroundTaskProgressEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::option::Option<&BackgroundTaskProgressEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskProgressEventHandlerBox::<F> { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = BackgroundTaskProgressEventHandlerBox::<F> { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, sender: &BackgroundTaskRegistration, args: &BackgroundTaskProgressEventArgs) -> ::windows::core::Result<()> {
         let this = self;
@@ -8501,7 +8501,7 @@ impl BackgroundTaskProgressEventHandler {
 struct BackgroundTaskProgressEventHandlerBox<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::option::Option<&BackgroundTaskProgressEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const BackgroundTaskProgressEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::option::Option<&BackgroundTaskProgressEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
     const VTABLE: BackgroundTaskProgressEventHandler_Vtbl = BackgroundTaskProgressEventHandler_Vtbl {
@@ -8510,7 +8510,7 @@ impl<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::optio
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<BackgroundTaskProgressEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<BackgroundTaskProgressEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -8526,7 +8526,7 @@ impl<F: FnMut(::core::option::Option<&BackgroundTaskRegistration>, ::core::optio
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -8558,7 +8558,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskProgressEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46e0683c_8a88_4c99_804c_76897f6277a6);
 }
 impl ::windows::core::RuntimeType for BackgroundTaskProgressEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{46e0683c-8a88-4c99-804c-76897f6277a6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{46e0683c-8a88-4c99-804c-76897f6277a6}");
 }
 #[repr(C)]
 #[doc(hidden)]

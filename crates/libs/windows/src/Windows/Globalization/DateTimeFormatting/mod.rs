@@ -362,12 +362,12 @@ impl DateTimeFormatter {
     }
     #[doc(hidden)]
     pub fn IDateTimeFormatterFactory<R, F: FnOnce(&IDateTimeFormatterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DateTimeFormatter, IDateTimeFormatterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DateTimeFormatter, IDateTimeFormatterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDateTimeFormatterStatics<R, F: FnOnce(&IDateTimeFormatterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DateTimeFormatter, IDateTimeFormatterStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DateTimeFormatter, IDateTimeFormatterStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -383,7 +383,7 @@ impl ::core::fmt::Debug for DateTimeFormatter {
     }
 }
 impl ::windows::core::RuntimeType for DateTimeFormatter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.DateTimeFormatting.DateTimeFormatter;{95eeca10-73e0-4e4b-a183-3d6ad0ba35ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.DateTimeFormatting.DateTimeFormatter;{95eeca10-73e0-4e4b-a183-3d6ad0ba35ec})");
 }
 impl ::core::clone::Clone for DateTimeFormatter {
     fn clone(&self) -> Self {
@@ -399,7 +399,7 @@ unsafe impl ::windows::core::Interface for DateTimeFormatter {
 impl ::windows::core::RuntimeName for DateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.DateTimeFormatter";
 }
-::windows::core::interface_hierarchy!(DateTimeFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DateTimeFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DateTimeFormatter {}
 unsafe impl ::core::marker::Sync for DateTimeFormatter {}
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -430,7 +430,7 @@ impl ::core::fmt::Debug for DayFormat {
     }
 }
 impl ::windows::core::RuntimeType for DayFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
@@ -462,7 +462,7 @@ impl ::core::fmt::Debug for DayOfWeekFormat {
     }
 }
 impl ::windows::core::RuntimeType for DayOfWeekFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
@@ -492,7 +492,7 @@ impl ::core::fmt::Debug for HourFormat {
     }
 }
 impl ::windows::core::RuntimeType for HourFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
@@ -522,7 +522,7 @@ impl ::core::fmt::Debug for MinuteFormat {
     }
 }
 impl ::windows::core::RuntimeType for MinuteFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
@@ -555,7 +555,7 @@ impl ::core::fmt::Debug for MonthFormat {
     }
 }
 impl ::windows::core::RuntimeType for MonthFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
@@ -585,7 +585,7 @@ impl ::core::fmt::Debug for SecondFormat {
     }
 }
 impl ::windows::core::RuntimeType for SecondFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
@@ -617,7 +617,7 @@ impl ::core::fmt::Debug for YearFormat {
     }
 }
 impl ::windows::core::RuntimeType for YearFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.YearFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.YearFormat;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

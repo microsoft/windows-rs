@@ -675,7 +675,7 @@ impl IAppointmentParticipant {
         unsafe { (::windows::core::Vtable::vtable(this).SetAddress)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IAppointmentParticipant, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAppointmentParticipant, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAppointmentParticipant {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -688,7 +688,7 @@ impl ::core::fmt::Debug for IAppointmentParticipant {
     }
 }
 impl ::windows::core::RuntimeType for IAppointmentParticipant {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{615e2902-9718-467b-83fb-b293a19121de}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{615e2902-9718-467b-83fb-b293a19121de}");
 }
 unsafe impl ::windows::core::Vtable for IAppointmentParticipant {
     type Vtable = IAppointmentParticipant_Vtbl;
@@ -1222,8 +1222,8 @@ impl Appointment {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Appointment, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Appointment, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1555,7 +1555,7 @@ impl ::core::fmt::Debug for Appointment {
     }
 }
 impl ::windows::core::RuntimeType for Appointment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.Appointment;{dd002f2f-2bdd-4076-90a3-22c275312965})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.Appointment;{dd002f2f-2bdd-4076-90a3-22c275312965})");
 }
 impl ::core::clone::Clone for Appointment {
     fn clone(&self) -> Self {
@@ -1571,7 +1571,7 @@ unsafe impl ::windows::core::Interface for Appointment {
 impl ::windows::core::RuntimeName for Appointment {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.Appointment";
 }
-::windows::core::interface_hierarchy!(Appointment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Appointment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Appointment {}
 unsafe impl ::core::marker::Sync for Appointment {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -1961,7 +1961,7 @@ impl ::core::fmt::Debug for AppointmentCalendar {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendar {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendar;{5273819d-8339-3d4f-a02f-64084452bb5d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendar;{5273819d-8339-3d4f-a02f-64084452bb5d})");
 }
 impl ::core::clone::Clone for AppointmentCalendar {
     fn clone(&self) -> Self {
@@ -1977,7 +1977,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendar {
 impl ::windows::core::RuntimeName for AppointmentCalendar {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentCalendar";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendar, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendar {}
 unsafe impl ::core::marker::Sync for AppointmentCalendar {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -2062,7 +2062,7 @@ impl ::core::fmt::Debug for AppointmentCalendarSyncManager {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarSyncManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager;{2b21b3a0-4aff-4392-bc5f-5645ffcffb17})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager;{2b21b3a0-4aff-4392-bc5f-5645ffcffb17})");
 }
 impl ::core::clone::Clone for AppointmentCalendarSyncManager {
     fn clone(&self) -> Self {
@@ -2078,7 +2078,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManager {
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManager {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -2114,7 +2114,7 @@ impl ::core::fmt::Debug for AppointmentConflictResult {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentConflictResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentConflictResult;{d5cdf0be-2f2f-3b7d-af0a-a7e20f3a46e3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentConflictResult;{d5cdf0be-2f2f-3b7d-af0a-a7e20f3a46e3})");
 }
 impl ::core::clone::Clone for AppointmentConflictResult {
     fn clone(&self) -> Self {
@@ -2130,7 +2130,7 @@ unsafe impl ::windows::core::Interface for AppointmentConflictResult {
 impl ::windows::core::RuntimeName for AppointmentConflictResult {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentConflictResult";
 }
-::windows::core::interface_hierarchy!(AppointmentConflictResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentConflictResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentConflictResult {}
 unsafe impl ::core::marker::Sync for AppointmentConflictResult {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -2173,7 +2173,7 @@ impl ::core::fmt::Debug for AppointmentException {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentException {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentException;{a2076767-16f6-4bce-9f5a-8600b8019fcb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentException;{a2076767-16f6-4bce-9f5a-8600b8019fcb})");
 }
 impl ::core::clone::Clone for AppointmentException {
     fn clone(&self) -> Self {
@@ -2189,7 +2189,7 @@ unsafe impl ::windows::core::Interface for AppointmentException {
 impl ::windows::core::RuntimeName for AppointmentException {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentException";
 }
-::windows::core::interface_hierarchy!(AppointmentException, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentException, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentException {}
 unsafe impl ::core::marker::Sync for AppointmentException {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -2199,8 +2199,8 @@ impl AppointmentInvitee {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentInvitee, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppointmentInvitee, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Role(&self) -> ::windows::core::Result<AppointmentParticipantRole> {
@@ -2260,7 +2260,7 @@ impl ::core::fmt::Debug for AppointmentInvitee {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentInvitee {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentInvitee;{13bf0796-9842-495b-b0e7-ef8f79c0701d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentInvitee;{13bf0796-9842-495b-b0e7-ef8f79c0701d})");
 }
 impl ::core::clone::Clone for AppointmentInvitee {
     fn clone(&self) -> Self {
@@ -2276,7 +2276,7 @@ unsafe impl ::windows::core::Interface for AppointmentInvitee {
 impl ::windows::core::RuntimeName for AppointmentInvitee {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentInvitee";
 }
-::windows::core::interface_hierarchy!(AppointmentInvitee, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentInvitee, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentInvitee> for IAppointmentParticipant {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentInvitee) -> ::windows::core::Result<Self> {
@@ -2415,17 +2415,17 @@ impl AppointmentManager {
     }
     #[doc(hidden)]
     pub fn IAppointmentManagerStatics<R, F: FnOnce(&IAppointmentManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentManager, IAppointmentManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppointmentManager, IAppointmentManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAppointmentManagerStatics2<R, F: FnOnce(&IAppointmentManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentManager, IAppointmentManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppointmentManager, IAppointmentManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAppointmentManagerStatics3<R, F: FnOnce(&IAppointmentManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentManager, IAppointmentManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppointmentManager, IAppointmentManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2575,7 +2575,7 @@ impl ::core::fmt::Debug for AppointmentManagerForUser {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentManagerForUser;{70261423-73cc-4660-b318-b01365302a03})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentManagerForUser;{70261423-73cc-4660-b318-b01365302a03})");
 }
 impl ::core::clone::Clone for AppointmentManagerForUser {
     fn clone(&self) -> Self {
@@ -2591,7 +2591,7 @@ unsafe impl ::windows::core::Interface for AppointmentManagerForUser {
 impl ::windows::core::RuntimeName for AppointmentManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentManagerForUser";
 }
-::windows::core::interface_hierarchy!(AppointmentManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentManagerForUser {}
 unsafe impl ::core::marker::Sync for AppointmentManagerForUser {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -2601,8 +2601,8 @@ impl AppointmentOrganizer {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentOrganizer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppointmentOrganizer, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2640,7 +2640,7 @@ impl ::core::fmt::Debug for AppointmentOrganizer {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentOrganizer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentOrganizer;{615e2902-9718-467b-83fb-b293a19121de})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentOrganizer;{615e2902-9718-467b-83fb-b293a19121de})");
 }
 impl ::core::clone::Clone for AppointmentOrganizer {
     fn clone(&self) -> Self {
@@ -2656,7 +2656,7 @@ unsafe impl ::windows::core::Interface for AppointmentOrganizer {
 impl ::windows::core::RuntimeName for AppointmentOrganizer {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentOrganizer";
 }
-::windows::core::interface_hierarchy!(AppointmentOrganizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentOrganizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentOrganizer> for IAppointmentParticipant {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentOrganizer) -> ::windows::core::Result<Self> {
@@ -2841,12 +2841,12 @@ impl AppointmentProperties {
     }
     #[doc(hidden)]
     pub fn IAppointmentPropertiesStatics<R, F: FnOnce(&IAppointmentPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentProperties, IAppointmentPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppointmentProperties, IAppointmentPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAppointmentPropertiesStatics2<R, F: FnOnce(&IAppointmentPropertiesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentProperties, IAppointmentPropertiesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppointmentProperties, IAppointmentPropertiesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2860,8 +2860,8 @@ impl AppointmentRecurrence {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppointmentRecurrence, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppointmentRecurrence, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Unit(&self) -> ::windows::core::Result<AppointmentRecurrenceUnit> {
@@ -3006,7 +3006,7 @@ impl ::core::fmt::Debug for AppointmentRecurrence {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentRecurrence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentRecurrence;{d87b3e83-15a6-487b-b959-0c361e60e954})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentRecurrence;{d87b3e83-15a6-487b-b959-0c361e60e954})");
 }
 impl ::core::clone::Clone for AppointmentRecurrence {
     fn clone(&self) -> Self {
@@ -3022,7 +3022,7 @@ unsafe impl ::windows::core::Interface for AppointmentRecurrence {
 impl ::windows::core::RuntimeName for AppointmentRecurrence {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentRecurrence";
 }
-::windows::core::interface_hierarchy!(AppointmentRecurrence, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentRecurrence, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentRecurrence {}
 unsafe impl ::core::marker::Sync for AppointmentRecurrence {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -3260,7 +3260,7 @@ impl ::core::fmt::Debug for AppointmentStore {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStore;{a461918c-7a47-4d96-96c9-15cd8a05a735})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStore;{a461918c-7a47-4d96-96c9-15cd8a05a735})");
 }
 impl ::core::clone::Clone for AppointmentStore {
     fn clone(&self) -> Self {
@@ -3276,7 +3276,7 @@ unsafe impl ::windows::core::Interface for AppointmentStore {
 impl ::windows::core::RuntimeName for AppointmentStore {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStore";
 }
-::windows::core::interface_hierarchy!(AppointmentStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentStore {}
 unsafe impl ::core::marker::Sync for AppointmentStore {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -3317,7 +3317,7 @@ impl ::core::fmt::Debug for AppointmentStoreChange {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStoreChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChange;{a5a6e035-0a33-3654-8463-b543e90c3b79})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChange;{a5a6e035-0a33-3654-8463-b543e90c3b79})");
 }
 impl ::core::clone::Clone for AppointmentStoreChange {
     fn clone(&self) -> Self {
@@ -3333,7 +3333,7 @@ unsafe impl ::windows::core::Interface for AppointmentStoreChange {
 impl ::windows::core::RuntimeName for AppointmentStoreChange {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChange";
 }
-::windows::core::interface_hierarchy!(AppointmentStoreChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentStoreChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentStoreChange {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChange {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -3370,7 +3370,7 @@ impl ::core::fmt::Debug for AppointmentStoreChangeReader {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStoreChangeReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader;{8b2409f1-65f3-42a0-961d-4c209bf30370})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader;{8b2409f1-65f3-42a0-961d-4c209bf30370})");
 }
 impl ::core::clone::Clone for AppointmentStoreChangeReader {
     fn clone(&self) -> Self {
@@ -3386,7 +3386,7 @@ unsafe impl ::windows::core::Interface for AppointmentStoreChangeReader {
 impl ::windows::core::RuntimeName for AppointmentStoreChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader";
 }
-::windows::core::interface_hierarchy!(AppointmentStoreChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentStoreChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentStoreChangeReader {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangeReader {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -3428,7 +3428,7 @@ impl ::core::fmt::Debug for AppointmentStoreChangeTracker {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStoreChangeTracker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker;{1b25f4b1-8ece-4f17-93c8-e6412458fd5c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker;{1b25f4b1-8ece-4f17-93c8-e6412458fd5c})");
 }
 impl ::core::clone::Clone for AppointmentStoreChangeTracker {
     fn clone(&self) -> Self {
@@ -3444,7 +3444,7 @@ unsafe impl ::windows::core::Interface for AppointmentStoreChangeTracker {
 impl ::windows::core::RuntimeName for AppointmentStoreChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker";
 }
-::windows::core::interface_hierarchy!(AppointmentStoreChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentStoreChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentStoreChangeTracker {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangeTracker {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -3468,7 +3468,7 @@ impl ::core::fmt::Debug for AppointmentStoreChangedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStoreChangedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral;{4cb82026-fedb-4bc3-9662-95a9befdf4df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral;{4cb82026-fedb-4bc3-9662-95a9befdf4df})");
 }
 impl ::core::clone::Clone for AppointmentStoreChangedDeferral {
     fn clone(&self) -> Self {
@@ -3484,7 +3484,7 @@ unsafe impl ::windows::core::Interface for AppointmentStoreChangedDeferral {
 impl ::windows::core::RuntimeName for AppointmentStoreChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral";
 }
-::windows::core::interface_hierarchy!(AppointmentStoreChangedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentStoreChangedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentStoreChangedDeferral {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangedDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -3511,7 +3511,7 @@ impl ::core::fmt::Debug for AppointmentStoreChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStoreChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs;{2285f8b9-0791-417e-bfea-cc6d41636c8c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs;{2285f8b9-0791-417e-bfea-cc6d41636c8c})");
 }
 impl ::core::clone::Clone for AppointmentStoreChangedEventArgs {
     fn clone(&self) -> Self {
@@ -3527,7 +3527,7 @@ unsafe impl ::windows::core::Interface for AppointmentStoreChangedEventArgs {
 impl ::windows::core::RuntimeName for AppointmentStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentStoreChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentStoreChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentStoreChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -3546,7 +3546,7 @@ impl ::core::fmt::Debug for AppointmentStoreNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStoreNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails;{9b33cb11-c301-421e-afef-047ecfa76adb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails;{9b33cb11-c301-421e-afef-047ecfa76adb})");
 }
 impl ::core::clone::Clone for AppointmentStoreNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -3562,7 +3562,7 @@ unsafe impl ::windows::core::Interface for AppointmentStoreNotificationTriggerDe
 impl ::windows::core::RuntimeName for AppointmentStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(AppointmentStoreNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentStoreNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentStoreNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -3572,8 +3572,8 @@ impl FindAppointmentsOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FindAppointmentsOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<FindAppointmentsOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3629,7 +3629,7 @@ impl ::core::fmt::Debug for FindAppointmentsOptions {
     }
 }
 impl ::windows::core::RuntimeType for FindAppointmentsOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.FindAppointmentsOptions;{55f7dc55-9942-3086-82b5-2cb29f64d5f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.FindAppointmentsOptions;{55f7dc55-9942-3086-82b5-2cb29f64d5f5})");
 }
 impl ::core::clone::Clone for FindAppointmentsOptions {
     fn clone(&self) -> Self {
@@ -3645,7 +3645,7 @@ unsafe impl ::windows::core::Interface for FindAppointmentsOptions {
 impl ::windows::core::RuntimeName for FindAppointmentsOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.FindAppointmentsOptions";
 }
-::windows::core::interface_hierarchy!(FindAppointmentsOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FindAppointmentsOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FindAppointmentsOptions {}
 unsafe impl ::core::marker::Sync for FindAppointmentsOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
@@ -3679,7 +3679,7 @@ impl ::core::fmt::Debug for AppointmentBusyStatus {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentBusyStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentBusyStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentBusyStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -3711,7 +3711,7 @@ impl ::core::fmt::Debug for AppointmentCalendarOtherAppReadAccess {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppReadAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -3742,7 +3742,7 @@ impl ::core::fmt::Debug for AppointmentCalendarOtherAppWriteAccess {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppWriteAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -3777,7 +3777,7 @@ impl ::core::fmt::Debug for AppointmentCalendarSyncStatus {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarSyncStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -3808,7 +3808,7 @@ impl ::core::fmt::Debug for AppointmentConflictType {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentConflictType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentConflictType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentConflictType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -3877,7 +3877,7 @@ impl ::core::ops::Not for AppointmentDaysOfWeek {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentDaysOfWeek {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -3907,7 +3907,7 @@ impl ::core::fmt::Debug for AppointmentDetailsKind {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentDetailsKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDetailsKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDetailsKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -3940,7 +3940,7 @@ impl ::core::fmt::Debug for AppointmentParticipantResponse {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentParticipantResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantResponse;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantResponse;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -3971,7 +3971,7 @@ impl ::core::fmt::Debug for AppointmentParticipantRole {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentParticipantRole {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantRole;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantRole;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -4005,7 +4005,7 @@ impl ::core::fmt::Debug for AppointmentRecurrenceUnit {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentRecurrenceUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -4035,7 +4035,7 @@ impl ::core::fmt::Debug for AppointmentSensitivity {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentSensitivity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSensitivity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSensitivity;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -4066,7 +4066,7 @@ impl ::core::fmt::Debug for AppointmentStoreAccessType {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStoreAccessType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreAccessType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreAccessType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -4101,7 +4101,7 @@ impl ::core::fmt::Debug for AppointmentStoreChangeType {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentStoreChangeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreChangeType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreChangeType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -4131,7 +4131,7 @@ impl ::core::fmt::Debug for AppointmentSummaryCardView {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentSummaryCardView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSummaryCardView;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSummaryCardView;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -4164,7 +4164,7 @@ impl ::core::fmt::Debug for AppointmentWeekOfMonth {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentWeekOfMonth {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -4227,7 +4227,7 @@ impl ::core::ops::Not for FindAppointmentCalendarsOptions {
     }
 }
 impl ::windows::core::RuntimeType for FindAppointmentCalendarsOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
@@ -4258,7 +4258,7 @@ impl ::core::fmt::Debug for RecurrenceType {
     }
 }
 impl ::windows::core::RuntimeType for RecurrenceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.RecurrenceType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.RecurrenceType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

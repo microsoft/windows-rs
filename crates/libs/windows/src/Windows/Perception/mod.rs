@@ -144,7 +144,7 @@ impl ::core::fmt::Debug for PerceptionTimestamp {
     }
 }
 impl ::windows::core::RuntimeType for PerceptionTimestamp {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.PerceptionTimestamp;{87c24804-a22e-4adb-ba26-d78ef639bcf4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.PerceptionTimestamp;{87c24804-a22e-4adb-ba26-d78ef639bcf4})");
 }
 impl ::core::clone::Clone for PerceptionTimestamp {
     fn clone(&self) -> Self {
@@ -160,7 +160,7 @@ unsafe impl ::windows::core::Interface for PerceptionTimestamp {
 impl ::windows::core::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";
 }
-::windows::core::interface_hierarchy!(PerceptionTimestamp, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PerceptionTimestamp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PerceptionTimestamp {}
 unsafe impl ::core::marker::Sync for PerceptionTimestamp {}
 #[doc = "*Required features: `\"Perception\"`*"]
@@ -184,12 +184,12 @@ impl PerceptionTimestampHelper {
     }
     #[doc(hidden)]
     pub fn IPerceptionTimestampHelperStatics<R, F: FnOnce(&IPerceptionTimestampHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPerceptionTimestampHelperStatics2<R, F: FnOnce(&IPerceptionTimestampHelperStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

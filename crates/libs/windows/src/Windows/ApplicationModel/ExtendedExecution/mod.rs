@@ -81,7 +81,7 @@ impl ::core::fmt::Debug for ExtendedExecutionRevokedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionRevokedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs;{bfbc9f16-63b5-4c0b-aad6-828af5373ec3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs;{bfbc9f16-63b5-4c0b-aad6-828af5373ec3})");
 }
 impl ::core::clone::Clone for ExtendedExecutionRevokedEventArgs {
     fn clone(&self) -> Self {
@@ -97,7 +97,7 @@ unsafe impl ::windows::core::Interface for ExtendedExecutionRevokedEventArgs {
 impl ::windows::core::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
 }
-::windows::core::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionRevokedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
@@ -107,8 +107,8 @@ impl ExtendedExecutionSession {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ExtendedExecutionSession, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ExtendedExecutionSession, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -187,7 +187,7 @@ impl ::core::fmt::Debug for ExtendedExecutionSession {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession;{af908a2d-118b-48f1-9308-0c4fc41e200f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession;{af908a2d-118b-48f1-9308-0c4fc41e200f})");
 }
 impl ::core::clone::Clone for ExtendedExecutionSession {
     fn clone(&self) -> Self {
@@ -203,7 +203,7 @@ unsafe impl ::windows::core::Interface for ExtendedExecutionSession {
 impl ::windows::core::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
 }
-::windows::core::interface_hierarchy!(ExtendedExecutionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ExtendedExecutionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ExtendedExecutionSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -257,7 +257,7 @@ impl ::core::fmt::Debug for ExtendedExecutionReason {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
@@ -287,7 +287,7 @@ impl ::core::fmt::Debug for ExtendedExecutionResult {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
@@ -317,7 +317,7 @@ impl ::core::fmt::Debug for ExtendedExecutionRevokedReason {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionRevokedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

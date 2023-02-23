@@ -384,7 +384,7 @@ impl IEnteredBackgroundEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IEnteredBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IEnteredBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IEnteredBackgroundEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -397,7 +397,7 @@ impl ::core::fmt::Debug for IEnteredBackgroundEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IEnteredBackgroundEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f722dcc2-9827-403d-aaed-ecca9ac17398}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f722dcc2-9827-403d-aaed-ecca9ac17398}");
 }
 unsafe impl ::windows::core::Vtable for IEnteredBackgroundEventArgs {
     type Vtable = IEnteredBackgroundEventArgs_Vtbl;
@@ -565,7 +565,7 @@ impl ILeavingBackgroundEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ILeavingBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ILeavingBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ILeavingBackgroundEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -578,7 +578,7 @@ impl ::core::fmt::Debug for ILeavingBackgroundEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ILeavingBackgroundEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e}");
 }
 unsafe impl ::windows::core::Vtable for ILeavingBackgroundEventArgs {
     type Vtable = ILeavingBackgroundEventArgs_Vtbl;
@@ -1180,7 +1180,7 @@ impl IPackageCatalogStatics2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPackageCatalogStatics2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPackageCatalogStatics2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPackageCatalogStatics2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1193,7 +1193,7 @@ impl ::core::fmt::Debug for IPackageCatalogStatics2 {
     }
 }
 impl ::windows::core::RuntimeType for IPackageCatalogStatics2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4c11c159-9a28-598c-b185-55e1899b2be4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4c11c159-9a28-598c-b185-55e1899b2be4}");
 }
 unsafe impl ::windows::core::Vtable for IPackageCatalogStatics2 {
     type Vtable = IPackageCatalogStatics2_Vtbl;
@@ -1631,7 +1631,7 @@ impl ISuspendingDeferral {
         unsafe { (::windows::core::Vtable::vtable(this).Complete)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ISuspendingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISuspendingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISuspendingDeferral {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1644,7 +1644,7 @@ impl ::core::fmt::Debug for ISuspendingDeferral {
     }
 }
 impl ::windows::core::RuntimeType for ISuspendingDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{59140509-8bc9-4eb4-b636-dabdc4f46f66}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{59140509-8bc9-4eb4-b636-dabdc4f46f66}");
 }
 unsafe impl ::windows::core::Vtable for ISuspendingDeferral {
     type Vtable = ISuspendingDeferral_Vtbl;
@@ -1675,7 +1675,7 @@ impl ISuspendingEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISuspendingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISuspendingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISuspendingEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1688,7 +1688,7 @@ impl ::core::fmt::Debug for ISuspendingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ISuspendingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96061c05-2dba-4d08-b0bd-2b30a131c6aa}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{96061c05-2dba-4d08-b0bd-2b30a131c6aa}");
 }
 unsafe impl ::windows::core::Vtable for ISuspendingEventArgs {
     type Vtable = ISuspendingEventArgs_Vtbl;
@@ -1728,7 +1728,7 @@ impl ISuspendingOperation {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISuspendingOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISuspendingOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISuspendingOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1741,7 +1741,7 @@ impl ::core::fmt::Debug for ISuspendingOperation {
     }
 }
 impl ::windows::core::RuntimeType for ISuspendingOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9da4ca41-20e1-4e9b-9f65-a9f435340c3a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9da4ca41-20e1-4e9b-9f65-a9f435340c3a}");
 }
 unsafe impl ::windows::core::Vtable for ISuspendingOperation {
     type Vtable = ISuspendingOperation_Vtbl;
@@ -1804,7 +1804,7 @@ impl ::core::fmt::Debug for AppDisplayInfo {
     }
 }
 impl ::windows::core::RuntimeType for AppDisplayInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppDisplayInfo;{1aeb1103-e4d4-41aa-a4f6-c4a276e79eac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppDisplayInfo;{1aeb1103-e4d4-41aa-a4f6-c4a276e79eac})");
 }
 impl ::core::clone::Clone for AppDisplayInfo {
     fn clone(&self) -> Self {
@@ -1820,7 +1820,7 @@ unsafe impl ::windows::core::Interface for AppDisplayInfo {
 impl ::windows::core::RuntimeName for AppDisplayInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppDisplayInfo";
 }
-::windows::core::interface_hierarchy!(AppDisplayInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppDisplayInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppDisplayInfo {}
 unsafe impl ::core::marker::Sync for AppDisplayInfo {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -1898,7 +1898,7 @@ impl AppInfo {
     }
     #[doc(hidden)]
     pub fn IAppInfoStatics<R, F: FnOnce(&IAppInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppInfo, IAppInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppInfo, IAppInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1914,7 +1914,7 @@ impl ::core::fmt::Debug for AppInfo {
     }
 }
 impl ::windows::core::RuntimeType for AppInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInfo;{cf7f59b3-6a09-4de8-a6c0-5792d56880d1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInfo;{cf7f59b3-6a09-4de8-a6c0-5792d56880d1})");
 }
 impl ::core::clone::Clone for AppInfo {
     fn clone(&self) -> Self {
@@ -1930,7 +1930,7 @@ unsafe impl ::windows::core::Interface for AppInfo {
 impl ::windows::core::RuntimeName for AppInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInfo";
 }
-::windows::core::interface_hierarchy!(AppInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInfo {}
 unsafe impl ::core::marker::Sync for AppInfo {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -2076,7 +2076,7 @@ impl ::core::fmt::Debug for AppInstallerInfo {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallerInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstallerInfo;{29ab2ac0-d4f6-42a3-adcd-d6583c659508})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstallerInfo;{29ab2ac0-d4f6-42a3-adcd-d6583c659508})");
 }
 impl ::core::clone::Clone for AppInstallerInfo {
     fn clone(&self) -> Self {
@@ -2092,7 +2092,7 @@ unsafe impl ::windows::core::Interface for AppInstallerInfo {
 impl ::windows::core::RuntimeName for AppInstallerInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstallerInfo";
 }
-::windows::core::interface_hierarchy!(AppInstallerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppInstallerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallerInfo {}
 unsafe impl ::core::marker::Sync for AppInstallerInfo {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -2150,7 +2150,7 @@ impl AppInstance {
     }
     #[doc(hidden)]
     pub fn IAppInstanceStatics<R, F: FnOnce(&IAppInstanceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppInstance, IAppInstanceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppInstance, IAppInstanceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2166,7 +2166,7 @@ impl ::core::fmt::Debug for AppInstance {
     }
 }
 impl ::windows::core::RuntimeType for AppInstance {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstance;{675f2b47-f25f-4532-9fd6-3633e0634d01})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstance;{675f2b47-f25f-4532-9fd6-3633e0634d01})");
 }
 impl ::core::clone::Clone for AppInstance {
     fn clone(&self) -> Self {
@@ -2182,7 +2182,7 @@ unsafe impl ::windows::core::Interface for AppInstance {
 impl ::windows::core::RuntimeName for AppInstance {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstance";
 }
-::windows::core::interface_hierarchy!(AppInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstance {}
 unsafe impl ::core::marker::Sync for AppInstance {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -2193,7 +2193,7 @@ impl CameraApplicationManager {
     }
     #[doc(hidden)]
     pub fn ICameraApplicationManagerStatics<R, F: FnOnce(&ICameraApplicationManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CameraApplicationManager, ICameraApplicationManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CameraApplicationManager, ICameraApplicationManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2217,12 +2217,12 @@ impl DesignMode {
     }
     #[doc(hidden)]
     pub fn IDesignModeStatics<R, F: FnOnce(&IDesignModeStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DesignMode, IDesignModeStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DesignMode, IDesignModeStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDesignModeStatics2<R, F: FnOnce(&IDesignModeStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DesignMode, IDesignModeStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DesignMode, IDesignModeStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2255,7 +2255,7 @@ impl ::core::fmt::Debug for EnteredBackgroundEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for EnteredBackgroundEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.EnteredBackgroundEventArgs;{f722dcc2-9827-403d-aaed-ecca9ac17398})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.EnteredBackgroundEventArgs;{f722dcc2-9827-403d-aaed-ecca9ac17398})");
 }
 impl ::core::clone::Clone for EnteredBackgroundEventArgs {
     fn clone(&self) -> Self {
@@ -2271,7 +2271,7 @@ unsafe impl ::windows::core::Interface for EnteredBackgroundEventArgs {
 impl ::windows::core::RuntimeName for EnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.EnteredBackgroundEventArgs";
 }
-::windows::core::interface_hierarchy!(EnteredBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EnteredBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<EnteredBackgroundEventArgs> for IEnteredBackgroundEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: EnteredBackgroundEventArgs) -> ::windows::core::Result<Self> {
@@ -2360,7 +2360,7 @@ impl FindRelatedPackagesOptions {
     }
     #[doc(hidden)]
     pub fn IFindRelatedPackagesOptionsFactory<R, F: FnOnce(&IFindRelatedPackagesOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FindRelatedPackagesOptions, IFindRelatedPackagesOptionsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FindRelatedPackagesOptions, IFindRelatedPackagesOptionsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2376,7 +2376,7 @@ impl ::core::fmt::Debug for FindRelatedPackagesOptions {
     }
 }
 impl ::windows::core::RuntimeType for FindRelatedPackagesOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.FindRelatedPackagesOptions;{41dd7eea-b335-521f-b96c-5ea07f5b7329})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.FindRelatedPackagesOptions;{41dd7eea-b335-521f-b96c-5ea07f5b7329})");
 }
 impl ::core::clone::Clone for FindRelatedPackagesOptions {
     fn clone(&self) -> Self {
@@ -2392,7 +2392,7 @@ unsafe impl ::windows::core::Interface for FindRelatedPackagesOptions {
 impl ::windows::core::RuntimeName for FindRelatedPackagesOptions {
     const NAME: &'static str = "Windows.ApplicationModel.FindRelatedPackagesOptions";
 }
-::windows::core::interface_hierarchy!(FindRelatedPackagesOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FindRelatedPackagesOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FindRelatedPackagesOptions {}
 unsafe impl ::core::marker::Sync for FindRelatedPackagesOptions {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -2426,7 +2426,7 @@ impl ::core::fmt::Debug for FullTrustProcessLaunchResult {
     }
 }
 impl ::windows::core::RuntimeType for FullTrustProcessLaunchResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.FullTrustProcessLaunchResult;{8917d888-edfb-515f-8e22-5ebceb69dfd9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.FullTrustProcessLaunchResult;{8917d888-edfb-515f-8e22-5ebceb69dfd9})");
 }
 impl ::core::clone::Clone for FullTrustProcessLaunchResult {
     fn clone(&self) -> Self {
@@ -2442,7 +2442,7 @@ unsafe impl ::windows::core::Interface for FullTrustProcessLaunchResult {
 impl ::windows::core::RuntimeName for FullTrustProcessLaunchResult {
     const NAME: &'static str = "Windows.ApplicationModel.FullTrustProcessLaunchResult";
 }
-::windows::core::interface_hierarchy!(FullTrustProcessLaunchResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FullTrustProcessLaunchResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FullTrustProcessLaunchResult {}
 unsafe impl ::core::marker::Sync for FullTrustProcessLaunchResult {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -2498,12 +2498,12 @@ impl FullTrustProcessLauncher {
     }
     #[doc(hidden)]
     pub fn IFullTrustProcessLauncherStatics<R, F: FnOnce(&IFullTrustProcessLauncherStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FullTrustProcessLauncher, IFullTrustProcessLauncherStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FullTrustProcessLauncher, IFullTrustProcessLauncherStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IFullTrustProcessLauncherStatics2<R, F: FnOnce(&IFullTrustProcessLauncherStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FullTrustProcessLauncher, IFullTrustProcessLauncherStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FullTrustProcessLauncher, IFullTrustProcessLauncherStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2536,7 +2536,7 @@ impl ::core::fmt::Debug for LeavingBackgroundEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LeavingBackgroundEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LeavingBackgroundEventArgs;{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LeavingBackgroundEventArgs;{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e})");
 }
 impl ::core::clone::Clone for LeavingBackgroundEventArgs {
     fn clone(&self) -> Self {
@@ -2552,7 +2552,7 @@ unsafe impl ::windows::core::Interface for LeavingBackgroundEventArgs {
 impl ::windows::core::RuntimeName for LeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LeavingBackgroundEventArgs";
 }
-::windows::core::interface_hierarchy!(LeavingBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LeavingBackgroundEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LeavingBackgroundEventArgs> for ILeavingBackgroundEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: LeavingBackgroundEventArgs) -> ::windows::core::Result<Self> {
@@ -2614,7 +2614,7 @@ impl ::core::fmt::Debug for LimitedAccessFeatureRequestResult {
     }
 }
 impl ::windows::core::RuntimeType for LimitedAccessFeatureRequestResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LimitedAccessFeatureRequestResult;{d45156a6-1e24-5ddd-abb4-6188aba4d5bf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LimitedAccessFeatureRequestResult;{d45156a6-1e24-5ddd-abb4-6188aba4d5bf})");
 }
 impl ::core::clone::Clone for LimitedAccessFeatureRequestResult {
     fn clone(&self) -> Self {
@@ -2630,7 +2630,7 @@ unsafe impl ::windows::core::Interface for LimitedAccessFeatureRequestResult {
 impl ::windows::core::RuntimeName for LimitedAccessFeatureRequestResult {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatureRequestResult";
 }
-::windows::core::interface_hierarchy!(LimitedAccessFeatureRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LimitedAccessFeatureRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LimitedAccessFeatureRequestResult {}
 unsafe impl ::core::marker::Sync for LimitedAccessFeatureRequestResult {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -2644,7 +2644,7 @@ impl LimitedAccessFeatures {
     }
     #[doc(hidden)]
     pub fn ILimitedAccessFeaturesStatics<R, F: FnOnce(&ILimitedAccessFeaturesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LimitedAccessFeatures, ILimitedAccessFeaturesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LimitedAccessFeatures, ILimitedAccessFeaturesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3013,7 +3013,7 @@ impl Package {
     }
     #[doc(hidden)]
     pub fn IPackageStatics<R, F: FnOnce(&IPackageStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Package, IPackageStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Package, IPackageStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3029,7 +3029,7 @@ impl ::core::fmt::Debug for Package {
     }
 }
 impl ::windows::core::RuntimeType for Package {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Package;{163c792f-bd75-413c-bf23-b1fe7b95d825})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Package;{163c792f-bd75-413c-bf23-b1fe7b95d825})");
 }
 impl ::core::clone::Clone for Package {
     fn clone(&self) -> Self {
@@ -3045,7 +3045,7 @@ unsafe impl ::windows::core::Interface for Package {
 impl ::windows::core::RuntimeName for Package {
     const NAME: &'static str = "Windows.ApplicationModel.Package";
 }
-::windows::core::interface_hierarchy!(Package, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Package, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Package {}
 unsafe impl ::core::marker::Sync for Package {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3206,12 +3206,12 @@ impl PackageCatalog {
     }
     #[doc(hidden)]
     pub fn IPackageCatalogStatics<R, F: FnOnce(&IPackageCatalogStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PackageCatalog, IPackageCatalogStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PackageCatalog, IPackageCatalogStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPackageCatalogStatics2<R, F: FnOnce(&IPackageCatalogStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PackageCatalog, IPackageCatalogStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PackageCatalog, IPackageCatalogStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3227,7 +3227,7 @@ impl ::core::fmt::Debug for PackageCatalog {
     }
 }
 impl ::windows::core::RuntimeType for PackageCatalog {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalog;{230a3751-9de3-4445-be74-91fb325abefe})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalog;{230a3751-9de3-4445-be74-91fb325abefe})");
 }
 impl ::core::clone::Clone for PackageCatalog {
     fn clone(&self) -> Self {
@@ -3243,7 +3243,7 @@ unsafe impl ::windows::core::Interface for PackageCatalog {
 impl ::windows::core::RuntimeName for PackageCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalog";
 }
-::windows::core::interface_hierarchy!(PackageCatalog, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageCatalog, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct PackageCatalogAddOptionalPackageResult(::windows::core::IUnknown);
@@ -3275,7 +3275,7 @@ impl ::core::fmt::Debug for PackageCatalogAddOptionalPackageResult {
     }
 }
 impl ::windows::core::RuntimeType for PackageCatalogAddOptionalPackageResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult;{3bf10cd4-b4df-47b3-a963-e2fa832f7dd3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult;{3bf10cd4-b4df-47b3-a963-e2fa832f7dd3})");
 }
 impl ::core::clone::Clone for PackageCatalogAddOptionalPackageResult {
     fn clone(&self) -> Self {
@@ -3291,7 +3291,7 @@ unsafe impl ::windows::core::Interface for PackageCatalogAddOptionalPackageResul
 impl ::windows::core::RuntimeName for PackageCatalogAddOptionalPackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult";
 }
-::windows::core::interface_hierarchy!(PackageCatalogAddOptionalPackageResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageCatalogAddOptionalPackageResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct PackageCatalogAddResourcePackageResult(::windows::core::IUnknown);
@@ -3330,7 +3330,7 @@ impl ::core::fmt::Debug for PackageCatalogAddResourcePackageResult {
     }
 }
 impl ::windows::core::RuntimeType for PackageCatalogAddResourcePackageResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogAddResourcePackageResult;{9636ce0d-3e17-493f-aa08-ccec6fdef699})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogAddResourcePackageResult;{9636ce0d-3e17-493f-aa08-ccec6fdef699})");
 }
 impl ::core::clone::Clone for PackageCatalogAddResourcePackageResult {
     fn clone(&self) -> Self {
@@ -3346,7 +3346,7 @@ unsafe impl ::windows::core::Interface for PackageCatalogAddResourcePackageResul
 impl ::windows::core::RuntimeName for PackageCatalogAddResourcePackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddResourcePackageResult";
 }
-::windows::core::interface_hierarchy!(PackageCatalogAddResourcePackageResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageCatalogAddResourcePackageResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageCatalogAddResourcePackageResult {}
 unsafe impl ::core::marker::Sync for PackageCatalogAddResourcePackageResult {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3382,7 +3382,7 @@ impl ::core::fmt::Debug for PackageCatalogRemoveOptionalPackagesResult {
     }
 }
 impl ::windows::core::RuntimeType for PackageCatalogRemoveOptionalPackagesResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult;{29d2f97b-d974-4e64-9359-22cadfd79828})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult;{29d2f97b-d974-4e64-9359-22cadfd79828})");
 }
 impl ::core::clone::Clone for PackageCatalogRemoveOptionalPackagesResult {
     fn clone(&self) -> Self {
@@ -3398,7 +3398,7 @@ unsafe impl ::windows::core::Interface for PackageCatalogRemoveOptionalPackagesR
 impl ::windows::core::RuntimeName for PackageCatalogRemoveOptionalPackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult";
 }
-::windows::core::interface_hierarchy!(PackageCatalogRemoveOptionalPackagesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageCatalogRemoveOptionalPackagesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
 pub struct PackageCatalogRemoveResourcePackagesResult(::windows::core::IUnknown);
@@ -3432,7 +3432,7 @@ impl ::core::fmt::Debug for PackageCatalogRemoveResourcePackagesResult {
     }
 }
 impl ::windows::core::RuntimeType for PackageCatalogRemoveResourcePackagesResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult;{ae719709-1a52-4321-87b3-e5a1a17981a7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult;{ae719709-1a52-4321-87b3-e5a1a17981a7})");
 }
 impl ::core::clone::Clone for PackageCatalogRemoveResourcePackagesResult {
     fn clone(&self) -> Self {
@@ -3448,7 +3448,7 @@ unsafe impl ::windows::core::Interface for PackageCatalogRemoveResourcePackagesR
 impl ::windows::core::RuntimeName for PackageCatalogRemoveResourcePackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult";
 }
-::windows::core::interface_hierarchy!(PackageCatalogRemoveResourcePackagesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageCatalogRemoveResourcePackagesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageCatalogRemoveResourcePackagesResult {}
 unsafe impl ::core::marker::Sync for PackageCatalogRemoveResourcePackagesResult {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3491,7 +3491,7 @@ impl PackageContentGroup {
     }
     #[doc(hidden)]
     pub fn IPackageContentGroupStatics<R, F: FnOnce(&IPackageContentGroupStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PackageContentGroup, IPackageContentGroupStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PackageContentGroup, IPackageContentGroupStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3507,7 +3507,7 @@ impl ::core::fmt::Debug for PackageContentGroup {
     }
 }
 impl ::windows::core::RuntimeType for PackageContentGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageContentGroup;{8f62695d-120a-4798-b5e1-5800dda8f2e1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageContentGroup;{8f62695d-120a-4798-b5e1-5800dda8f2e1})");
 }
 impl ::core::clone::Clone for PackageContentGroup {
     fn clone(&self) -> Self {
@@ -3523,7 +3523,7 @@ unsafe impl ::windows::core::Interface for PackageContentGroup {
 impl ::windows::core::RuntimeName for PackageContentGroup {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroup";
 }
-::windows::core::interface_hierarchy!(PackageContentGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageContentGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageContentGroup {}
 unsafe impl ::core::marker::Sync for PackageContentGroup {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3592,7 +3592,7 @@ impl ::core::fmt::Debug for PackageContentGroupStagingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PackageContentGroupStagingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageContentGroupStagingEventArgs;{3d7bc27e-6f27-446c-986e-d4733d4d9113})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageContentGroupStagingEventArgs;{3d7bc27e-6f27-446c-986e-d4733d4d9113})");
 }
 impl ::core::clone::Clone for PackageContentGroupStagingEventArgs {
     fn clone(&self) -> Self {
@@ -3608,7 +3608,7 @@ unsafe impl ::windows::core::Interface for PackageContentGroupStagingEventArgs {
 impl ::windows::core::RuntimeName for PackageContentGroupStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroupStagingEventArgs";
 }
-::windows::core::interface_hierarchy!(PackageContentGroupStagingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageContentGroupStagingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageContentGroupStagingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageContentGroupStagingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3700,7 +3700,7 @@ impl ::core::fmt::Debug for PackageId {
     }
 }
 impl ::windows::core::RuntimeType for PackageId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageId;{1adb665e-37c7-4790-9980-dd7ae74e8bb2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageId;{1adb665e-37c7-4790-9980-dd7ae74e8bb2})");
 }
 impl ::core::clone::Clone for PackageId {
     fn clone(&self) -> Self {
@@ -3716,7 +3716,7 @@ unsafe impl ::windows::core::Interface for PackageId {
 impl ::windows::core::RuntimeName for PackageId {
     const NAME: &'static str = "Windows.ApplicationModel.PackageId";
 }
-::windows::core::interface_hierarchy!(PackageId, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageId {}
 unsafe impl ::core::marker::Sync for PackageId {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3771,7 +3771,7 @@ impl ::core::fmt::Debug for PackageInstallingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PackageInstallingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageInstallingEventArgs;{97741eb7-ab7a-401a-8b61-eb0e7faff237})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageInstallingEventArgs;{97741eb7-ab7a-401a-8b61-eb0e7faff237})");
 }
 impl ::core::clone::Clone for PackageInstallingEventArgs {
     fn clone(&self) -> Self {
@@ -3787,7 +3787,7 @@ unsafe impl ::windows::core::Interface for PackageInstallingEventArgs {
 impl ::windows::core::RuntimeName for PackageInstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageInstallingEventArgs";
 }
-::windows::core::interface_hierarchy!(PackageInstallingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageInstallingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageInstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageInstallingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3842,7 +3842,7 @@ impl ::core::fmt::Debug for PackageStagingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PackageStagingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStagingEventArgs;{1041682d-54e2-4f51-b828-9ef7046c210f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStagingEventArgs;{1041682d-54e2-4f51-b828-9ef7046c210f})");
 }
 impl ::core::clone::Clone for PackageStagingEventArgs {
     fn clone(&self) -> Self {
@@ -3858,7 +3858,7 @@ unsafe impl ::windows::core::Interface for PackageStagingEventArgs {
 impl ::windows::core::RuntimeName for PackageStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStagingEventArgs";
 }
-::windows::core::interface_hierarchy!(PackageStagingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageStagingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageStagingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageStagingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3969,7 +3969,7 @@ impl ::core::fmt::Debug for PackageStatus {
     }
 }
 impl ::windows::core::RuntimeType for PackageStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStatus;{5fe74f71-a365-4c09-a02d-046d525ea1da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStatus;{5fe74f71-a365-4c09-a02d-046d525ea1da})");
 }
 impl ::core::clone::Clone for PackageStatus {
     fn clone(&self) -> Self {
@@ -3985,7 +3985,7 @@ unsafe impl ::windows::core::Interface for PackageStatus {
 impl ::windows::core::RuntimeName for PackageStatus {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatus";
 }
-::windows::core::interface_hierarchy!(PackageStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageStatus {}
 unsafe impl ::core::marker::Sync for PackageStatus {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -4012,7 +4012,7 @@ impl ::core::fmt::Debug for PackageStatusChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PackageStatusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStatusChangedEventArgs;{437d714d-bd80-4a70-bc50-f6e796509575})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStatusChangedEventArgs;{437d714d-bd80-4a70-bc50-f6e796509575})");
 }
 impl ::core::clone::Clone for PackageStatusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4028,7 +4028,7 @@ unsafe impl ::windows::core::Interface for PackageStatusChangedEventArgs {
 impl ::windows::core::RuntimeName for PackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(PackageStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PackageStatusChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -4083,7 +4083,7 @@ impl ::core::fmt::Debug for PackageUninstallingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PackageUninstallingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUninstallingEventArgs;{4443aa52-ab22-44cd-82bb-4ec9b827367a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUninstallingEventArgs;{4443aa52-ab22-44cd-82bb-4ec9b827367a})");
 }
 impl ::core::clone::Clone for PackageUninstallingEventArgs {
     fn clone(&self) -> Self {
@@ -4099,7 +4099,7 @@ unsafe impl ::windows::core::Interface for PackageUninstallingEventArgs {
 impl ::windows::core::RuntimeName for PackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUninstallingEventArgs";
 }
-::windows::core::interface_hierarchy!(PackageUninstallingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageUninstallingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageUninstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageUninstallingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -4133,7 +4133,7 @@ impl ::core::fmt::Debug for PackageUpdateAvailabilityResult {
     }
 }
 impl ::windows::core::RuntimeType for PackageUpdateAvailabilityResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUpdateAvailabilityResult;{114e5009-199a-48a1-a079-313c45634a71})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUpdateAvailabilityResult;{114e5009-199a-48a1-a079-313c45634a71})");
 }
 impl ::core::clone::Clone for PackageUpdateAvailabilityResult {
     fn clone(&self) -> Self {
@@ -4149,7 +4149,7 @@ unsafe impl ::windows::core::Interface for PackageUpdateAvailabilityResult {
 impl ::windows::core::RuntimeName for PackageUpdateAvailabilityResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdateAvailabilityResult";
 }
-::windows::core::interface_hierarchy!(PackageUpdateAvailabilityResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageUpdateAvailabilityResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageUpdateAvailabilityResult {}
 unsafe impl ::core::marker::Sync for PackageUpdateAvailabilityResult {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -4211,7 +4211,7 @@ impl ::core::fmt::Debug for PackageUpdatingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PackageUpdatingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUpdatingEventArgs;{cd7b4228-fd74-443e-b114-23e677b0e86f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUpdatingEventArgs;{cd7b4228-fd74-443e-b114-23e677b0e86f})");
 }
 impl ::core::clone::Clone for PackageUpdatingEventArgs {
     fn clone(&self) -> Self {
@@ -4227,7 +4227,7 @@ unsafe impl ::windows::core::Interface for PackageUpdatingEventArgs {
 impl ::windows::core::RuntimeName for PackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdatingEventArgs";
 }
-::windows::core::interface_hierarchy!(PackageUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageUpdatingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -4279,7 +4279,7 @@ impl StartupTask {
     }
     #[doc(hidden)]
     pub fn IStartupTaskStatics<R, F: FnOnce(&IStartupTaskStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StartupTask, IStartupTaskStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StartupTask, IStartupTaskStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4295,7 +4295,7 @@ impl ::core::fmt::Debug for StartupTask {
     }
 }
 impl ::windows::core::RuntimeType for StartupTask {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.StartupTask;{f75c23c8-b5f2-4f6c-88dd-36cb1d599d17})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.StartupTask;{f75c23c8-b5f2-4f6c-88dd-36cb1d599d17})");
 }
 impl ::core::clone::Clone for StartupTask {
     fn clone(&self) -> Self {
@@ -4311,7 +4311,7 @@ unsafe impl ::windows::core::Interface for StartupTask {
 impl ::windows::core::RuntimeName for StartupTask {
     const NAME: &'static str = "Windows.ApplicationModel.StartupTask";
 }
-::windows::core::interface_hierarchy!(StartupTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StartupTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StartupTask {}
 unsafe impl ::core::marker::Sync for StartupTask {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -4335,7 +4335,7 @@ impl ::core::fmt::Debug for SuspendingDeferral {
     }
 }
 impl ::windows::core::RuntimeType for SuspendingDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingDeferral;{59140509-8bc9-4eb4-b636-dabdc4f46f66})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingDeferral;{59140509-8bc9-4eb4-b636-dabdc4f46f66})");
 }
 impl ::core::clone::Clone for SuspendingDeferral {
     fn clone(&self) -> Self {
@@ -4351,7 +4351,7 @@ unsafe impl ::windows::core::Interface for SuspendingDeferral {
 impl ::windows::core::RuntimeName for SuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingDeferral";
 }
-::windows::core::interface_hierarchy!(SuspendingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SuspendingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SuspendingDeferral> for ISuspendingDeferral {
     type Error = ::windows::core::Error;
     fn try_from(value: SuspendingDeferral) -> ::windows::core::Result<Self> {
@@ -4397,7 +4397,7 @@ impl ::core::fmt::Debug for SuspendingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SuspendingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingEventArgs;{96061c05-2dba-4d08-b0bd-2b30a131c6aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingEventArgs;{96061c05-2dba-4d08-b0bd-2b30a131c6aa})");
 }
 impl ::core::clone::Clone for SuspendingEventArgs {
     fn clone(&self) -> Self {
@@ -4413,7 +4413,7 @@ unsafe impl ::windows::core::Interface for SuspendingEventArgs {
 impl ::windows::core::RuntimeName for SuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingEventArgs";
 }
-::windows::core::interface_hierarchy!(SuspendingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SuspendingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SuspendingEventArgs> for ISuspendingEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: SuspendingEventArgs) -> ::windows::core::Result<Self> {
@@ -4468,7 +4468,7 @@ impl ::core::fmt::Debug for SuspendingOperation {
     }
 }
 impl ::windows::core::RuntimeType for SuspendingOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingOperation;{9da4ca41-20e1-4e9b-9f65-a9f435340c3a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingOperation;{9da4ca41-20e1-4e9b-9f65-a9f435340c3a})");
 }
 impl ::core::clone::Clone for SuspendingOperation {
     fn clone(&self) -> Self {
@@ -4484,7 +4484,7 @@ unsafe impl ::windows::core::Interface for SuspendingOperation {
 impl ::windows::core::RuntimeName for SuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingOperation";
 }
-::windows::core::interface_hierarchy!(SuspendingOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SuspendingOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SuspendingOperation> for ISuspendingOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: SuspendingOperation) -> ::windows::core::Result<Self> {
@@ -4568,7 +4568,7 @@ impl ::core::ops::Not for AddResourcePackageOptions {
     }
 }
 impl ::windows::core::RuntimeType for AddResourcePackageOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AddResourcePackageOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AddResourcePackageOptions;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
@@ -4599,7 +4599,7 @@ impl ::core::fmt::Debug for AppExecutionContext {
     }
 }
 impl ::windows::core::RuntimeType for AppExecutionContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppExecutionContext;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppExecutionContext;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
@@ -4629,7 +4629,7 @@ impl ::core::fmt::Debug for AppInstallerPolicySource {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallerPolicySource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppInstallerPolicySource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppInstallerPolicySource;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
@@ -4661,7 +4661,7 @@ impl ::core::fmt::Debug for FullTrustLaunchResult {
     }
 }
 impl ::windows::core::RuntimeType for FullTrustLaunchResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.FullTrustLaunchResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.FullTrustLaunchResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
@@ -4693,7 +4693,7 @@ impl ::core::fmt::Debug for LimitedAccessFeatureStatus {
     }
 }
 impl ::windows::core::RuntimeType for LimitedAccessFeatureStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.LimitedAccessFeatureStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.LimitedAccessFeatureStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
@@ -4725,7 +4725,7 @@ impl ::core::fmt::Debug for PackageContentGroupState {
     }
 }
 impl ::windows::core::RuntimeType for PackageContentGroupState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageContentGroupState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageContentGroupState;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
@@ -4756,7 +4756,7 @@ impl ::core::fmt::Debug for PackageRelationship {
     }
 }
 impl ::windows::core::RuntimeType for PackageRelationship {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageRelationship;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageRelationship;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
@@ -4789,7 +4789,7 @@ impl ::core::fmt::Debug for PackageSignatureKind {
     }
 }
 impl ::windows::core::RuntimeType for PackageSignatureKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageSignatureKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageSignatureKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
@@ -4822,7 +4822,7 @@ impl ::core::fmt::Debug for PackageUpdateAvailability {
     }
 }
 impl ::windows::core::RuntimeType for PackageUpdateAvailability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageUpdateAvailability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageUpdateAvailability;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
@@ -4855,7 +4855,7 @@ impl ::core::fmt::Debug for StartupTaskState {
     }
 }
 impl ::windows::core::RuntimeType for StartupTaskState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.StartupTaskState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.StartupTaskState;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -4877,7 +4877,7 @@ impl ::windows::core::TypeKind for PackageInstallProgress {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for PackageInstallProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageInstallProgress;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageInstallProgress;u4)");
 }
 impl ::core::cmp::PartialEq for PackageInstallProgress {
     fn eq(&self, other: &Self) -> bool {
@@ -4913,7 +4913,7 @@ impl ::windows::core::TypeKind for PackageVersion {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for PackageVersion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageVersion;u2;u2;u2;u2)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageVersion;u2;u2;u2;u2)");
 }
 impl ::core::cmp::PartialEq for PackageVersion {
     fn eq(&self, other: &Self) -> bool {

@@ -19,7 +19,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMoniker>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn BindMoniker ( pmk : * mut::core::ffi::c_void , grfopt : u32 , iidresult : *const :: windows::core::GUID , ppvresult : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn BindMoniker ( pmk : * mut::core::ffi::c_void , grfopt : u32 , iidresult : *const :: windows::core::GUID , ppvresult : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     BindMoniker(pmk.into().abi(), grfopt, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -29,7 +29,7 @@ pub unsafe fn CLSIDFromProgID<P0>(lpszprogid: P0) -> ::windows::core::Result<::w
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CLSIDFromProgID ( lpszprogid : :: windows::core::PCWSTR , lpclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CLSIDFromProgID ( lpszprogid : :: windows::core::PCWSTR , lpclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     CLSIDFromProgID(lpszprogid.into().abi(), &mut result__).from_abi(result__)
 }
@@ -39,7 +39,7 @@ pub unsafe fn CLSIDFromProgIDEx<P0>(lpszprogid: P0) -> ::windows::core::Result<:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CLSIDFromProgIDEx ( lpszprogid : :: windows::core::PCWSTR , lpclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CLSIDFromProgIDEx ( lpszprogid : :: windows::core::PCWSTR , lpclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     CLSIDFromProgIDEx(lpszprogid.into().abi(), &mut result__).from_abi(result__)
 }
@@ -49,14 +49,14 @@ pub unsafe fn CLSIDFromString<P0>(lpsz: P0) -> ::windows::core::Result<::windows
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CLSIDFromString ( lpsz : :: windows::core::PCWSTR , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CLSIDFromString ( lpsz : :: windows::core::PCWSTR , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     CLSIDFromString(lpsz.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoAddRefServerProcess() -> u32 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoAddRefServerProcess ( ) -> u32 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoAddRefServerProcess ( ) -> u32 );
     CoAddRefServerProcess()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -65,25 +65,25 @@ pub unsafe fn CoAllowSetForegroundWindow<P0>(punk: P0, lpvreserved: ::core::opti
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoAllowSetForegroundWindow ( punk : * mut::core::ffi::c_void , lpvreserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoAllowSetForegroundWindow ( punk : * mut::core::ffi::c_void , lpvreserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoAllowSetForegroundWindow(punk.into().abi(), ::core::mem::transmute(lpvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoAllowUnmarshalerCLSID(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoAllowUnmarshalerCLSID ( clsid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoAllowUnmarshalerCLSID ( clsid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     CoAllowUnmarshalerCLSID(clsid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoBuildVersion() -> u32 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoBuildVersion ( ) -> u32 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoBuildVersion ( ) -> u32 );
     CoBuildVersion()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoCancelCall ( dwthreadid : u32 , ultimeout : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoCancelCall ( dwthreadid : u32 , ultimeout : u32 ) -> :: windows::core::HRESULT );
     CoCancelCall(dwthreadid, ultimeout).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -92,7 +92,7 @@ pub unsafe fn CoCopyProxy<P0>(pproxy: P0) -> ::windows::core::Result<::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoCopyProxy ( pproxy : * mut::core::ffi::c_void , ppcopy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoCopyProxy ( pproxy : * mut::core::ffi::c_void , ppcopy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CoCopyProxy(pproxy.into().abi(), &mut result__).from_abi(result__)
 }
@@ -102,14 +102,14 @@ pub unsafe fn CoCreateFreeThreadedMarshaler<P0>(punkouter: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoCreateFreeThreadedMarshaler ( punkouter : * mut::core::ffi::c_void , ppunkmarshal : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoCreateFreeThreadedMarshaler ( punkouter : * mut::core::ffi::c_void , ppunkmarshal : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CoCreateFreeThreadedMarshaler(punkouter.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoCreateGuid() -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoCreateGuid ( pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoCreateGuid ( pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     CoCreateGuid(&mut result__).from_abi(result__)
 }
@@ -120,7 +120,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoCreateInstance ( rclsid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , dwclscontext : CLSCTX , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoCreateInstance ( rclsid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , dwclscontext : CLSCTX , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CoCreateInstance(rclsid, punkouter.into().abi(), dwclscontext, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -130,7 +130,7 @@ pub unsafe fn CoCreateInstanceEx<P0>(clsid: *const ::windows::core::GUID, punkou
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoCreateInstanceEx ( clsid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , dwclsctx : CLSCTX , pserverinfo : *const COSERVERINFO , dwcount : u32 , presults : *mut MULTI_QI ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoCreateInstanceEx ( clsid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , dwclsctx : CLSCTX , pserverinfo : *const COSERVERINFO , dwcount : u32 , presults : *mut MULTI_QI ) -> :: windows::core::HRESULT );
     CoCreateInstanceEx(clsid, punkouter.into().abi(), dwclsctx, ::core::mem::transmute(pserverinfo.unwrap_or(::std::ptr::null())), presults.len() as _, ::core::mem::transmute(presults.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -139,7 +139,7 @@ pub unsafe fn CoCreateInstanceFromApp<P0>(clsid: *const ::windows::core::GUID, p
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoCreateInstanceFromApp ( clsid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , dwclsctx : CLSCTX , reserved : *const ::core::ffi::c_void , dwcount : u32 , presults : *mut MULTI_QI ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoCreateInstanceFromApp ( clsid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , dwclsctx : CLSCTX , reserved : *const ::core::ffi::c_void , dwcount : u32 , presults : *mut MULTI_QI ) -> :: windows::core::HRESULT );
     CoCreateInstanceFromApp(clsid, punkouter.into().abi(), dwclsctx, ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), presults.len() as _, ::core::mem::transmute(presults.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -148,19 +148,19 @@ pub unsafe fn CoDecrementMTAUsage<P0>(cookie: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<CO_MTA_USAGE_COOKIE>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoDecrementMTAUsage ( cookie : CO_MTA_USAGE_COOKIE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoDecrementMTAUsage ( cookie : CO_MTA_USAGE_COOKIE ) -> :: windows::core::HRESULT );
     CoDecrementMTAUsage(cookie.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoDisableCallCancellation(preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoDisableCallCancellation ( preserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoDisableCallCancellation ( preserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoDisableCallCancellation(::core::mem::transmute(preserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoDisconnectContext(dwtimeout: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoDisconnectContext ( dwtimeout : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoDisconnectContext ( dwtimeout : u32 ) -> :: windows::core::HRESULT );
     CoDisconnectContext(dwtimeout).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -169,27 +169,27 @@ pub unsafe fn CoDisconnectObject<P0>(punk: P0, dwreserved: u32) -> ::windows::co
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoDisconnectObject ( punk : * mut::core::ffi::c_void , dwreserved : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoDisconnectObject ( punk : * mut::core::ffi::c_void , dwreserved : u32 ) -> :: windows::core::HRESULT );
     CoDisconnectObject(punk.into().abi(), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoDosDateTimeToFileTime ( ndosdate : u16 , ndostime : u16 , lpfiletime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoDosDateTimeToFileTime ( ndosdate : u16 , ndostime : u16 , lpfiletime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
     CoDosDateTimeToFileTime(ndosdate, ndostime, lpfiletime)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoEnableCallCancellation(preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoEnableCallCancellation ( preserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoEnableCallCancellation ( preserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoEnableCallCancellation(::core::mem::transmute(preserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoFileTimeNow() -> ::windows::core::Result<super::super::Foundation::FILETIME> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoFileTimeNow ( lpfiletime : *mut super::super::Foundation:: FILETIME ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoFileTimeNow ( lpfiletime : *mut super::super::Foundation:: FILETIME ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::FILETIME>();
     CoFileTimeNow(&mut result__).from_abi(result__)
 }
@@ -197,13 +197,13 @@ pub unsafe fn CoFileTimeNow() -> ::windows::core::Result<super::super::Foundatio
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoFileTimeToDosDateTime(lpfiletime: *const super::super::Foundation::FILETIME, lpdosdate: *mut u16, lpdostime: *mut u16) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoFileTimeToDosDateTime ( lpfiletime : *const super::super::Foundation:: FILETIME , lpdosdate : *mut u16 , lpdostime : *mut u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoFileTimeToDosDateTime ( lpfiletime : *const super::super::Foundation:: FILETIME , lpdosdate : *mut u16 , lpdostime : *mut u16 ) -> super::super::Foundation:: BOOL );
     CoFileTimeToDosDateTime(lpfiletime, lpdosdate, lpdostime)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoFreeAllLibraries() {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoFreeAllLibraries ( ) -> ( ) );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoFreeAllLibraries ( ) -> ( ) );
     CoFreeAllLibraries()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
@@ -213,25 +213,25 @@ pub unsafe fn CoFreeLibrary<P0>(hinst: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoFreeLibrary ( hinst : super::super::Foundation:: HINSTANCE ) -> ( ) );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoFreeLibrary ( hinst : super::super::Foundation:: HINSTANCE ) -> ( ) );
     CoFreeLibrary(hinst.into())
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoFreeUnusedLibraries() {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoFreeUnusedLibraries ( ) -> ( ) );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoFreeUnusedLibraries ( ) -> ( ) );
     CoFreeUnusedLibraries()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32) {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoFreeUnusedLibrariesEx ( dwunloaddelay : u32 , dwreserved : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoFreeUnusedLibrariesEx ( dwunloaddelay : u32 , dwreserved : u32 ) -> ( ) );
     CoFreeUnusedLibrariesEx(dwunloaddelay, dwreserved)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoGetApartmentType(papttype: *mut APTTYPE, paptqualifier: *mut APTTYPEQUALIFIER) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetApartmentType ( papttype : *mut APTTYPE , paptqualifier : *mut APTTYPEQUALIFIER ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetApartmentType ( papttype : *mut APTTYPE , paptqualifier : *mut APTTYPEQUALIFIER ) -> :: windows::core::HRESULT );
     CoGetApartmentType(papttype, paptqualifier).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -240,14 +240,14 @@ pub unsafe fn CoGetCallContext<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetCallContext ( riid : *const :: windows::core::GUID , ppinterface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetCallContext ( riid : *const :: windows::core::GUID , ppinterface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CoGetCallContext(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoGetCallerTID() -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetCallerTID ( lpdwtid : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetCallerTID ( lpdwtid : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     CoGetCallerTID(&mut result__).from_abi(result__)
 }
@@ -257,7 +257,7 @@ pub unsafe fn CoGetCancelObject<T>(dwthreadid: u32) -> ::windows::core::Result<T
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetCancelObject ( dwthreadid : u32 , iid : *const :: windows::core::GUID , ppunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetCancelObject ( dwthreadid : u32 , iid : *const :: windows::core::GUID , ppunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CoGetCancelObject(dwthreadid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -267,34 +267,34 @@ pub unsafe fn CoGetClassObject<T>(rclsid: *const ::windows::core::GUID, dwclscon
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetClassObject ( rclsid : *const :: windows::core::GUID , dwclscontext : CLSCTX , pvreserved : *const ::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetClassObject ( rclsid : *const :: windows::core::GUID , dwclscontext : CLSCTX , pvreserved : *const ::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CoGetClassObject(rclsid, dwclscontext, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoGetContextToken() -> ::windows::core::Result<usize> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetContextToken ( ptoken : *mut usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetContextToken ( ptoken : *mut usize ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<usize>();
     CoGetContextToken(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoGetCurrentLogicalThreadId() -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetCurrentLogicalThreadId ( pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetCurrentLogicalThreadId ( pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     CoGetCurrentLogicalThreadId(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoGetCurrentProcess() -> u32 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetCurrentProcess ( ) -> u32 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetCurrentProcess ( ) -> u32 );
     CoGetCurrentProcess()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoGetMalloc(dwmemcontext: u32) -> ::windows::core::Result<IMalloc> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetMalloc ( dwmemcontext : u32 , ppmalloc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetMalloc ( dwmemcontext : u32 , ppmalloc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMalloc>();
     CoGetMalloc(dwmemcontext, &mut result__).from_abi(result__)
 }
@@ -305,7 +305,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetObject ( pszname : :: windows::core::PCWSTR , pbindoptions : *const BIND_OPTS , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetObject ( pszname : :: windows::core::PCWSTR , pbindoptions : *const BIND_OPTS , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CoGetObject(pszname.into().abi(), ::core::mem::transmute(pbindoptions.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -315,14 +315,14 @@ pub unsafe fn CoGetObjectContext<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetObjectContext ( riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetObjectContext ( riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CoGetObjectContext(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoGetPSClsid(riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetPSClsid ( riid : *const :: windows::core::GUID , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetPSClsid ( riid : *const :: windows::core::GUID , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     CoGetPSClsid(riid, &mut result__).from_abi(result__)
 }
@@ -330,39 +330,39 @@ pub unsafe fn CoGetPSClsid(riid: *const ::windows::core::GUID) -> ::windows::cor
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetSystemSecurityPermissions ( comsdtype : COMSD , ppsd : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetSystemSecurityPermissions ( comsdtype : COMSD , ppsd : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> :: windows::core::HRESULT );
     CoGetSystemSecurityPermissions(comsdtype, ppsd).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoGetTreatAsClass(clsidold: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoGetTreatAsClass ( clsidold : *const :: windows::core::GUID , pclsidnew : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetTreatAsClass ( clsidold : *const :: windows::core::GUID , pclsidnew : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     CoGetTreatAsClass(clsidold, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoImpersonateClient() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoImpersonateClient ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoImpersonateClient ( ) -> :: windows::core::HRESULT );
     CoImpersonateClient().ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoIncrementMTAUsage() -> ::windows::core::Result<CO_MTA_USAGE_COOKIE> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoIncrementMTAUsage ( pcookie : *mut CO_MTA_USAGE_COOKIE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoIncrementMTAUsage ( pcookie : *mut CO_MTA_USAGE_COOKIE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<CO_MTA_USAGE_COOKIE>();
     CoIncrementMTAUsage(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoInitialize(pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoInitialize ( pvreserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoInitialize ( pvreserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoInitialize(::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoInitializeEx(pvreserved: ::core::option::Option<*const ::core::ffi::c_void>, dwcoinit: COINIT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoInitializeEx ( pvreserved : *const ::core::ffi::c_void , dwcoinit : COINIT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoInitializeEx ( pvreserved : *const ::core::ffi::c_void , dwcoinit : COINIT ) -> :: windows::core::HRESULT );
     CoInitializeEx(::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), dwcoinit).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Security\"`*"]
@@ -372,7 +372,7 @@ pub unsafe fn CoInitializeSecurity<P0>(psecdesc: P0, cauthsvc: i32, asauthsvc: :
 where
     P0: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoInitializeSecurity ( psecdesc : super::super::Security:: PSECURITY_DESCRIPTOR , cauthsvc : i32 , asauthsvc : *const SOLE_AUTHENTICATION_SERVICE , preserved1 : *const ::core::ffi::c_void , dwauthnlevel : RPC_C_AUTHN_LEVEL , dwimplevel : RPC_C_IMP_LEVEL , pauthlist : *const ::core::ffi::c_void , dwcapabilities : EOLE_AUTHENTICATION_CAPABILITIES , preserved3 : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoInitializeSecurity ( psecdesc : super::super::Security:: PSECURITY_DESCRIPTOR , cauthsvc : i32 , asauthsvc : *const SOLE_AUTHENTICATION_SERVICE , preserved1 : *const ::core::ffi::c_void , dwauthnlevel : RPC_C_AUTHN_LEVEL , dwimplevel : RPC_C_IMP_LEVEL , pauthlist : *const ::core::ffi::c_void , dwcapabilities : EOLE_AUTHENTICATION_CAPABILITIES , preserved3 : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoInitializeSecurity(psecdesc.into(), cauthsvc, ::core::mem::transmute(asauthsvc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved1.unwrap_or(::std::ptr::null())), dwauthnlevel, dwimplevel, ::core::mem::transmute(pauthlist.unwrap_or(::std::ptr::null())), dwcapabilities, ::core::mem::transmute(preserved3.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -382,7 +382,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoInstall ( pbc : * mut::core::ffi::c_void , dwflags : u32 , pclassspec : *const uCLSSPEC , pquery : *const QUERYCONTEXT , pszcodebase : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoInstall ( pbc : * mut::core::ffi::c_void , dwflags : u32 , pclassspec : *const uCLSSPEC , pquery : *const QUERYCONTEXT , pszcodebase : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     CoInstall(pbc.into().abi(), dwflags, pclassspec, pquery, pszcodebase.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -391,7 +391,7 @@ pub unsafe fn CoInvalidateRemoteMachineBindings<P0>(pszmachinename: P0) -> ::win
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoInvalidateRemoteMachineBindings ( pszmachinename : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoInvalidateRemoteMachineBindings ( pszmachinename : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     CoInvalidateRemoteMachineBindings(pszmachinename.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
@@ -401,14 +401,14 @@ pub unsafe fn CoIsHandlerConnected<P0>(punk: P0) -> super::super::Foundation::BO
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoIsHandlerConnected ( punk : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoIsHandlerConnected ( punk : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     CoIsHandlerConnected(punk.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoIsOle1Class(rclsid: *const ::windows::core::GUID) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoIsOle1Class ( rclsid : *const :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoIsOle1Class ( rclsid : *const :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
     CoIsOle1Class(rclsid)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
@@ -419,7 +419,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoLoadLibrary ( lpszlibname : :: windows::core::PCWSTR , bautofree : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoLoadLibrary ( lpszlibname : :: windows::core::PCWSTR , bautofree : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HINSTANCE );
     CoLoadLibrary(lpszlibname.into().abi(), bautofree.into())
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
@@ -431,19 +431,19 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoLockObjectExternal ( punk : * mut::core::ffi::c_void , flock : super::super::Foundation:: BOOL , flastunlockreleases : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoLockObjectExternal ( punk : * mut::core::ffi::c_void , flock : super::super::Foundation:: BOOL , flastunlockreleases : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     CoLockObjectExternal(punk.into().abi(), flock.into(), flastunlockreleases.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoQueryAuthenticationServices ( pcauthsvc : *mut u32 , asauthsvc : *mut *mut SOLE_AUTHENTICATION_SERVICE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoQueryAuthenticationServices ( pcauthsvc : *mut u32 , asauthsvc : *mut *mut SOLE_AUTHENTICATION_SERVICE ) -> :: windows::core::HRESULT );
     CoQueryAuthenticationServices(pcauthsvc, asauthsvc).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoQueryClientBlanket(pauthnsvc: ::core::option::Option<*mut u32>, pauthzsvc: ::core::option::Option<*mut u32>, pserverprincname: ::core::option::Option<*mut ::windows::core::PWSTR>, pauthnlevel: ::core::option::Option<*mut u32>, pimplevel: ::core::option::Option<*mut u32>, pprivs: ::core::option::Option<*mut *mut ::core::ffi::c_void>, pcapabilities: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoQueryClientBlanket ( pauthnsvc : *mut u32 , pauthzsvc : *mut u32 , pserverprincname : *mut :: windows::core::PWSTR , pauthnlevel : *mut u32 , pimplevel : *mut u32 , pprivs : *mut *mut ::core::ffi::c_void , pcapabilities : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoQueryClientBlanket ( pauthnsvc : *mut u32 , pauthzsvc : *mut u32 , pserverprincname : *mut :: windows::core::PWSTR , pauthnlevel : *mut u32 , pimplevel : *mut u32 , pprivs : *mut *mut ::core::ffi::c_void , pcapabilities : *mut u32 ) -> :: windows::core::HRESULT );
     CoQueryClientBlanket(
         ::core::mem::transmute(pauthnsvc.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(pauthzsvc.unwrap_or(::std::ptr::null_mut())),
@@ -461,7 +461,7 @@ pub unsafe fn CoQueryProxyBlanket<P0>(pproxy: P0, pwauthnsvc: ::core::option::Op
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoQueryProxyBlanket ( pproxy : * mut::core::ffi::c_void , pwauthnsvc : *mut u32 , pauthzsvc : *mut u32 , pserverprincname : *mut :: windows::core::PWSTR , pauthnlevel : *mut u32 , pimplevel : *mut u32 , pauthinfo : *mut *mut ::core::ffi::c_void , pcapabilites : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoQueryProxyBlanket ( pproxy : * mut::core::ffi::c_void , pwauthnsvc : *mut u32 , pauthzsvc : *mut u32 , pserverprincname : *mut :: windows::core::PWSTR , pauthnlevel : *mut u32 , pimplevel : *mut u32 , pauthinfo : *mut *mut ::core::ffi::c_void , pcapabilites : *mut u32 ) -> :: windows::core::HRESULT );
     CoQueryProxyBlanket(
         pproxy.into().abi(),
         ::core::mem::transmute(pwauthnsvc.unwrap_or(::std::ptr::null_mut())),
@@ -480,7 +480,7 @@ pub unsafe fn CoRegisterActivationFilter<P0>(pactivationfilter: P0) -> ::windows
 where
     P0: ::std::convert::Into<::windows::core::InParam<IActivationFilter>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRegisterActivationFilter ( pactivationfilter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterActivationFilter ( pactivationfilter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoRegisterActivationFilter(pactivationfilter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -489,7 +489,7 @@ pub unsafe fn CoRegisterChannelHook<P0>(extensionuuid: *const ::windows::core::G
 where
     P0: ::std::convert::Into<::windows::core::InParam<IChannelHook>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRegisterChannelHook ( extensionuuid : *const :: windows::core::GUID , pchannelhook : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterChannelHook ( extensionuuid : *const :: windows::core::GUID , pchannelhook : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoRegisterChannelHook(extensionuuid, pchannelhook.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -498,7 +498,7 @@ pub unsafe fn CoRegisterClassObject<P0>(rclsid: *const ::windows::core::GUID, pu
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRegisterClassObject ( rclsid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , dwclscontext : CLSCTX , flags : REGCLS , lpdwregister : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterClassObject ( rclsid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , dwclscontext : CLSCTX , flags : REGCLS , lpdwregister : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     CoRegisterClassObject(rclsid, punk.into().abi(), dwclscontext, flags, &mut result__).from_abi(result__)
 }
@@ -508,7 +508,7 @@ pub unsafe fn CoRegisterDeviceCatalog<P0>(deviceinstanceid: P0) -> ::windows::co
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRegisterDeviceCatalog ( deviceinstanceid : :: windows::core::PCWSTR , cookie : *mut CO_DEVICE_CATALOG_COOKIE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterDeviceCatalog ( deviceinstanceid : :: windows::core::PCWSTR , cookie : *mut CO_DEVICE_CATALOG_COOKIE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<CO_DEVICE_CATALOG_COOKIE>();
     CoRegisterDeviceCatalog(deviceinstanceid.into().abi(), &mut result__).from_abi(result__)
 }
@@ -518,7 +518,7 @@ pub unsafe fn CoRegisterInitializeSpy<P0>(pspy: P0) -> ::windows::core::Result<u
 where
     P0: ::std::convert::Into<::windows::core::InParam<IInitializeSpy>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRegisterInitializeSpy ( pspy : * mut::core::ffi::c_void , pulicookie : *mut u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterInitializeSpy ( pspy : * mut::core::ffi::c_void , pulicookie : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u64>();
     CoRegisterInitializeSpy(pspy.into().abi(), &mut result__).from_abi(result__)
 }
@@ -528,13 +528,13 @@ pub unsafe fn CoRegisterMallocSpy<P0>(pmallocspy: P0) -> ::windows::core::Result
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMallocSpy>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRegisterMallocSpy ( pmallocspy : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterMallocSpy ( pmallocspy : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoRegisterMallocSpy(pmallocspy.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoRegisterPSClsid(riid: *const ::windows::core::GUID, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRegisterPSClsid ( riid : *const :: windows::core::GUID , rclsid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterPSClsid ( riid : *const :: windows::core::GUID , rclsid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     CoRegisterPSClsid(riid, rclsid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -543,31 +543,31 @@ pub unsafe fn CoRegisterSurrogate<P0>(psurrogate: P0) -> ::windows::core::Result
 where
     P0: ::std::convert::Into<::windows::core::InParam<ISurrogate>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRegisterSurrogate ( psurrogate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterSurrogate ( psurrogate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoRegisterSurrogate(psurrogate.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoReleaseServerProcess() -> u32 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoReleaseServerProcess ( ) -> u32 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoReleaseServerProcess ( ) -> u32 );
     CoReleaseServerProcess()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoResumeClassObjects() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoResumeClassObjects ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoResumeClassObjects ( ) -> :: windows::core::HRESULT );
     CoResumeClassObjects().ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoRevertToSelf() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRevertToSelf ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRevertToSelf ( ) -> :: windows::core::HRESULT );
     CoRevertToSelf().ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoRevokeClassObject(dwregister: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRevokeClassObject ( dwregister : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRevokeClassObject ( dwregister : u32 ) -> :: windows::core::HRESULT );
     CoRevokeClassObject(dwregister).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -576,19 +576,19 @@ pub unsafe fn CoRevokeDeviceCatalog<P0>(cookie: P0) -> ::windows::core::Result<(
 where
     P0: ::std::convert::Into<CO_DEVICE_CATALOG_COOKIE>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRevokeDeviceCatalog ( cookie : CO_DEVICE_CATALOG_COOKIE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRevokeDeviceCatalog ( cookie : CO_DEVICE_CATALOG_COOKIE ) -> :: windows::core::HRESULT );
     CoRevokeDeviceCatalog(cookie.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRevokeInitializeSpy ( ulicookie : u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRevokeInitializeSpy ( ulicookie : u64 ) -> :: windows::core::HRESULT );
     CoRevokeInitializeSpy(ulicookie).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoRevokeMallocSpy() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoRevokeMallocSpy ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRevokeMallocSpy ( ) -> :: windows::core::HRESULT );
     CoRevokeMallocSpy().ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -597,7 +597,7 @@ pub unsafe fn CoSetCancelObject<P0>(punk: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoSetCancelObject ( punk : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoSetCancelObject ( punk : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoSetCancelObject(punk.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -607,13 +607,13 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoSetProxyBlanket ( pproxy : * mut::core::ffi::c_void , dwauthnsvc : u32 , dwauthzsvc : u32 , pserverprincname : :: windows::core::PCWSTR , dwauthnlevel : RPC_C_AUTHN_LEVEL , dwimplevel : RPC_C_IMP_LEVEL , pauthinfo : *const ::core::ffi::c_void , dwcapabilities : EOLE_AUTHENTICATION_CAPABILITIES ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoSetProxyBlanket ( pproxy : * mut::core::ffi::c_void , dwauthnsvc : u32 , dwauthzsvc : u32 , pserverprincname : :: windows::core::PCWSTR , dwauthnlevel : RPC_C_AUTHN_LEVEL , dwimplevel : RPC_C_IMP_LEVEL , pauthinfo : *const ::core::ffi::c_void , dwcapabilities : EOLE_AUTHENTICATION_CAPABILITIES ) -> :: windows::core::HRESULT );
     CoSetProxyBlanket(pproxy.into().abi(), dwauthnsvc, dwauthzsvc, pserverprincname.into().abi(), dwauthnlevel, dwimplevel, ::core::mem::transmute(pauthinfo.unwrap_or(::std::ptr::null())), dwcapabilities).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoSuspendClassObjects() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoSuspendClassObjects ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoSuspendClassObjects ( ) -> :: windows::core::HRESULT );
     CoSuspendClassObjects().ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -622,51 +622,51 @@ pub unsafe fn CoSwitchCallContext<P0>(pnewobject: P0) -> ::windows::core::Result
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoSwitchCallContext ( pnewobject : * mut::core::ffi::c_void , ppoldobject : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoSwitchCallContext ( pnewobject : * mut::core::ffi::c_void , ppoldobject : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CoSwitchCallContext(pnewobject.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoTaskMemAlloc ( cb : usize ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoTaskMemAlloc ( cb : usize ) -> *mut ::core::ffi::c_void );
     CoTaskMemAlloc(cb)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoTaskMemFree(pv: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoTaskMemFree ( pv : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoTaskMemFree ( pv : *const ::core::ffi::c_void ) -> ( ) );
     CoTaskMemFree(::core::mem::transmute(pv.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoTaskMemRealloc(pv: ::core::option::Option<*const ::core::ffi::c_void>, cb: usize) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoTaskMemRealloc ( pv : *const ::core::ffi::c_void , cb : usize ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoTaskMemRealloc ( pv : *const ::core::ffi::c_void , cb : usize ) -> *mut ::core::ffi::c_void );
     CoTaskMemRealloc(::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), cb)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoTestCancel() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoTestCancel ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoTestCancel ( ) -> :: windows::core::HRESULT );
     CoTestCancel().ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoTreatAsClass(clsidold: *const ::windows::core::GUID, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoTreatAsClass ( clsidold : *const :: windows::core::GUID , clsidnew : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoTreatAsClass ( clsidold : *const :: windows::core::GUID , clsidnew : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     CoTreatAsClass(clsidold, clsidnew).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CoUninitialize() {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoUninitialize ( ) -> ( ) );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoUninitialize ( ) -> ( ) );
     CoUninitialize()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, phandles: &[super::super::Foundation::HANDLE]) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoWaitForMultipleHandles ( dwflags : u32 , dwtimeout : u32 , chandles : u32 , phandles : *const super::super::Foundation:: HANDLE , lpdwindex : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoWaitForMultipleHandles ( dwflags : u32 , dwtimeout : u32 , chandles : u32 , phandles : *const super::super::Foundation:: HANDLE , lpdwindex : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len() as _, ::core::mem::transmute(phandles.as_ptr()), &mut result__).from_abi(result__)
 }
@@ -674,35 +674,35 @@ pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, phandles: &
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, phandles: &[super::super::Foundation::HANDLE]) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CoWaitForMultipleObjects ( dwflags : u32 , dwtimeout : u32 , chandles : u32 , phandles : *const super::super::Foundation:: HANDLE , lpdwindex : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoWaitForMultipleObjects ( dwflags : u32 , dwtimeout : u32 , chandles : u32 , phandles : *const super::super::Foundation:: HANDLE , lpdwindex : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     CoWaitForMultipleObjects(dwflags, dwtimeout, phandles.len() as _, ::core::mem::transmute(phandles.as_ptr()), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CreateAntiMoniker() -> ::windows::core::Result<IMoniker> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateAntiMoniker ( ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateAntiMoniker ( ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMoniker>();
     CreateAntiMoniker(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CreateBindCtx(reserved: u32) -> ::windows::core::Result<IBindCtx> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateBindCtx ( reserved : u32 , ppbc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateBindCtx ( reserved : u32 , ppbc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IBindCtx>();
     CreateBindCtx(reserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CreateClassMoniker(rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<IMoniker> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateClassMoniker ( rclsid : *const :: windows::core::GUID , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateClassMoniker ( rclsid : *const :: windows::core::GUID , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMoniker>();
     CreateClassMoniker(rclsid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CreateDataAdviseHolder() -> ::windows::core::Result<IDataAdviseHolder> {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateDataAdviseHolder ( ppdaholder : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateDataAdviseHolder ( ppdaholder : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IDataAdviseHolder>();
     CreateDataAdviseHolder(&mut result__).from_abi(result__)
 }
@@ -713,7 +713,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateDataCache ( punkouter : * mut::core::ffi::c_void , rclsid : *const :: windows::core::GUID , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateDataCache ( punkouter : * mut::core::ffi::c_void , rclsid : *const :: windows::core::GUID , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CreateDataCache(punkouter.into().abi(), rclsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -723,7 +723,7 @@ pub unsafe fn CreateFileMoniker<P0>(lpszpathname: P0) -> ::windows::core::Result
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateFileMoniker ( lpszpathname : :: windows::core::PCWSTR , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateFileMoniker ( lpszpathname : :: windows::core::PCWSTR , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMoniker>();
     CreateFileMoniker(lpszpathname.into().abi(), &mut result__).from_abi(result__)
 }
@@ -734,7 +734,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMoniker>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMoniker>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateGenericComposite ( pmkfirst : * mut::core::ffi::c_void , pmkrest : * mut::core::ffi::c_void , ppmkcomposite : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateGenericComposite ( pmkfirst : * mut::core::ffi::c_void , pmkrest : * mut::core::ffi::c_void , ppmkcomposite : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMoniker>();
     CreateGenericComposite(pmkfirst.into().abi(), pmkrest.into().abi(), &mut result__).from_abi(result__)
 }
@@ -744,7 +744,7 @@ pub unsafe fn CreateIUriBuilder<P0>(piuri: P0, dwflags: u32, dwreserved: usize) 
 where
     P0: ::std::convert::Into<::windows::core::InParam<IUri>>,
 {
-    ::windows::core::link ! ( "urlmon.dll""system" fn CreateIUriBuilder ( piuri : * mut::core::ffi::c_void , dwflags : u32 , dwreserved : usize , ppiuribuilder : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "urlmon.dll""system" fn CreateIUriBuilder ( piuri : * mut::core::ffi::c_void , dwflags : u32 , dwreserved : usize , ppiuribuilder : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IUriBuilder>();
     CreateIUriBuilder(piuri.into().abi(), dwflags, dwreserved, &mut result__).from_abi(result__)
 }
@@ -755,7 +755,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateItemMoniker ( lpszdelim : :: windows::core::PCWSTR , lpszitem : :: windows::core::PCWSTR , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateItemMoniker ( lpszdelim : :: windows::core::PCWSTR , lpszitem : :: windows::core::PCWSTR , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMoniker>();
     CreateItemMoniker(lpszdelim.into().abi(), lpszitem.into().abi(), &mut result__).from_abi(result__)
 }
@@ -765,7 +765,7 @@ pub unsafe fn CreateObjrefMoniker<P0>(punk: P0) -> ::windows::core::Result<IMoni
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateObjrefMoniker ( punk : * mut::core::ffi::c_void , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateObjrefMoniker ( punk : * mut::core::ffi::c_void , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMoniker>();
     CreateObjrefMoniker(punk.into().abi(), &mut result__).from_abi(result__)
 }
@@ -775,7 +775,7 @@ pub unsafe fn CreatePointerMoniker<P0>(punk: P0) -> ::windows::core::Result<IMon
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreatePointerMoniker ( punk : * mut::core::ffi::c_void , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreatePointerMoniker ( punk : * mut::core::ffi::c_void , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMoniker>();
     CreatePointerMoniker(punk.into().abi(), &mut result__).from_abi(result__)
 }
@@ -788,7 +788,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<IBindStatusCallback>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn CreateStdProgressIndicator ( hwndparent : super::super::Foundation:: HWND , psztitle : :: windows::core::PCWSTR , pibsccaller : * mut::core::ffi::c_void , ppibsc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateStdProgressIndicator ( hwndparent : super::super::Foundation:: HWND , psztitle : :: windows::core::PCWSTR , pibsccaller : * mut::core::ffi::c_void , ppibsc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IBindStatusCallback>();
     CreateStdProgressIndicator(hwndparent.into(), psztitle.into().abi(), pibsccaller.into().abi(), &mut result__).from_abi(result__)
 }
@@ -798,7 +798,7 @@ pub unsafe fn CreateUri<P0>(pwzuri: P0, dwflags: URI_CREATE_FLAGS, dwreserved: u
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "urlmon.dll""system" fn CreateUri ( pwzuri : :: windows::core::PCWSTR , dwflags : URI_CREATE_FLAGS , dwreserved : usize , ppuri : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "urlmon.dll""system" fn CreateUri ( pwzuri : :: windows::core::PCWSTR , dwflags : URI_CREATE_FLAGS , dwreserved : usize , ppuri : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IUri>();
     CreateUri(pwzuri.into().abi(), dwflags, dwreserved, &mut result__).from_abi(result__)
 }
@@ -808,7 +808,7 @@ pub unsafe fn CreateUriFromMultiByteString<P0>(pszansiinputuri: P0, dwencodingfl
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "urlmon.dll""system" fn CreateUriFromMultiByteString ( pszansiinputuri : :: windows::core::PCSTR , dwencodingflags : u32 , dwcodepage : u32 , dwcreateflags : u32 , dwreserved : usize , ppuri : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "urlmon.dll""system" fn CreateUriFromMultiByteString ( pszansiinputuri : :: windows::core::PCSTR , dwencodingflags : u32 , dwcodepage : u32 , dwcreateflags : u32 , dwreserved : usize , ppuri : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IUri>();
     CreateUriFromMultiByteString(pszansiinputuri.into().abi(), dwencodingflags, dwcodepage, dwcreateflags, dwreserved, &mut result__).from_abi(result__)
 }
@@ -819,14 +819,14 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "urlmon.dll""system" fn CreateUriWithFragment ( pwzuri : :: windows::core::PCWSTR , pwzfragment : :: windows::core::PCWSTR , dwflags : u32 , dwreserved : usize , ppuri : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "urlmon.dll""system" fn CreateUriWithFragment ( pwzuri : :: windows::core::PCWSTR , pwzfragment : :: windows::core::PCWSTR , dwflags : u32 , dwreserved : usize , ppuri : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IUri>();
     CreateUriWithFragment(pwzuri.into().abi(), pwzfragment.into().abi(), dwflags, dwreserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn DcomChannelSetHResult(pvreserved: ::core::option::Option<*const ::core::ffi::c_void>, pulreserved: ::core::option::Option<*const u32>, appshr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ole32.dll""system" fn DcomChannelSetHResult ( pvreserved : *const ::core::ffi::c_void , pulreserved : *const u32 , appshr : :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn DcomChannelSetHResult ( pvreserved : *const ::core::ffi::c_void , pulreserved : *const u32 , appshr : :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
     DcomChannelSetHResult(::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pulreserved.unwrap_or(::std::ptr::null())), appshr).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -835,21 +835,21 @@ pub unsafe fn GetClassFile<P0>(szfilename: P0) -> ::windows::core::Result<::wind
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn GetClassFile ( szfilename : :: windows::core::PCWSTR , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn GetClassFile ( szfilename : :: windows::core::PCWSTR , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     GetClassFile(szfilename.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInfo> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn GetErrorInfo ( dwreserved : u32 , pperrinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn GetErrorInfo ( dwreserved : u32 , pperrinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IErrorInfo>();
     GetErrorInfo(dwreserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn GetRunningObjectTable(reserved: u32) -> ::windows::core::Result<IRunningObjectTable> {
-    ::windows::core::link ! ( "ole32.dll""system" fn GetRunningObjectTable ( reserved : u32 , pprot : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn GetRunningObjectTable ( reserved : u32 , pprot : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IRunningObjectTable>();
     GetRunningObjectTable(reserved, &mut result__).from_abi(result__)
 }
@@ -859,7 +859,7 @@ pub unsafe fn IIDFromString<P0>(lpsz: P0) -> ::windows::core::Result<::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn IIDFromString ( lpsz : :: windows::core::PCWSTR , lpiid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn IIDFromString ( lpsz : :: windows::core::PCWSTR , lpiid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     IIDFromString(lpsz.into().abi(), &mut result__).from_abi(result__)
 }
@@ -870,7 +870,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn MkParseDisplayName ( pbc : * mut::core::ffi::c_void , szusername : :: windows::core::PCWSTR , pcheaten : *mut u32 , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn MkParseDisplayName ( pbc : * mut::core::ffi::c_void , szusername : :: windows::core::PCWSTR , pcheaten : *mut u32 , ppmk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MkParseDisplayName(pbc.into().abi(), szusername.into().abi(), pcheaten, ::core::mem::transmute(ppmk)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -880,7 +880,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMoniker>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMoniker>>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn MonikerCommonPrefixWith ( pmkthis : * mut::core::ffi::c_void , pmkother : * mut::core::ffi::c_void , ppmkcommon : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn MonikerCommonPrefixWith ( pmkthis : * mut::core::ffi::c_void , pmkother : * mut::core::ffi::c_void , ppmkcommon : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMoniker>();
     MonikerCommonPrefixWith(pmkthis.into().abi(), pmkother.into().abi(), &mut result__).from_abi(result__)
 }
@@ -893,13 +893,13 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMoniker>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "ole32.dll""system" fn MonikerRelativePathTo ( pmksrc : * mut::core::ffi::c_void , pmkdest : * mut::core::ffi::c_void , ppmkrelpath : *mut * mut::core::ffi::c_void , dwreserved : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn MonikerRelativePathTo ( pmksrc : * mut::core::ffi::c_void , pmkdest : * mut::core::ffi::c_void , ppmkrelpath : *mut * mut::core::ffi::c_void , dwreserved : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     MonikerRelativePathTo(pmksrc.into().abi(), pmkdest.into().abi(), ::core::mem::transmute(ppmkrelpath), dwreserved.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn ProgIDFromCLSID(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "ole32.dll""system" fn ProgIDFromCLSID ( clsid : *const :: windows::core::GUID , lplpszprogid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn ProgIDFromCLSID ( clsid : *const :: windows::core::GUID , lplpszprogid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     ProgIDFromCLSID(clsid, &mut result__).from_abi(result__)
 }
@@ -909,26 +909,26 @@ pub unsafe fn SetErrorInfo<P0>(dwreserved: u32, perrinfo: P0) -> ::windows::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<IErrorInfo>>,
 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn SetErrorInfo ( dwreserved : u32 , perrinfo : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn SetErrorInfo ( dwreserved : u32 , perrinfo : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SetErrorInfo(dwreserved, perrinfo.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn StringFromCLSID(rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "ole32.dll""system" fn StringFromCLSID ( rclsid : *const :: windows::core::GUID , lplpsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn StringFromCLSID ( rclsid : *const :: windows::core::GUID , lplpsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     StringFromCLSID(rclsid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn StringFromGUID2(rguid: *const ::windows::core::GUID, lpsz: &mut [u16]) -> i32 {
-    ::windows::core::link ! ( "ole32.dll""system" fn StringFromGUID2 ( rguid : *const :: windows::core::GUID , lpsz : :: windows::core::PWSTR , cchmax : i32 ) -> i32 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn StringFromGUID2 ( rguid : *const :: windows::core::GUID , lpsz : :: windows::core::PWSTR , cchmax : i32 ) -> i32 );
     StringFromGUID2(rguid, ::core::mem::transmute(lpsz.as_ptr()), lpsz.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn StringFromIID(rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "ole32.dll""system" fn StringFromIID ( rclsid : *const :: windows::core::GUID , lplpsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn StringFromIID ( rclsid : *const :: windows::core::GUID , lplpsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     StringFromIID(rclsid, &mut result__).from_abi(result__)
 }
@@ -972,7 +972,7 @@ impl AsyncIAdviseSink {
         (::windows::core::Vtable::vtable(self).Finish_OnClose)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(AsyncIAdviseSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIAdviseSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIAdviseSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1062,7 +1062,7 @@ impl AsyncIAdviseSink2 {
         (::windows::core::Vtable::vtable(self).Finish_OnLinkSrcChange)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(AsyncIAdviseSink2, ::windows::core::IUnknown, AsyncIAdviseSink);
+::windows::imp::interface_hierarchy!(AsyncIAdviseSink2, ::windows::core::IUnknown, AsyncIAdviseSink);
 impl ::core::cmp::PartialEq for AsyncIAdviseSink2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1103,7 +1103,7 @@ impl AsyncIMultiQI {
         (::windows::core::Vtable::vtable(self).Finish_QueryMultipleInterfaces)(::windows::core::Vtable::as_raw(self), pmqis).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIMultiQI, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIMultiQI, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIMultiQI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1150,7 +1150,7 @@ impl AsyncIPipeByte {
         (::windows::core::Vtable::vtable(self).Finish_Push)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIPipeByte, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIPipeByte, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIPipeByte {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1199,7 +1199,7 @@ impl AsyncIPipeDouble {
         (::windows::core::Vtable::vtable(self).Finish_Push)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIPipeDouble, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIPipeDouble, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIPipeDouble {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1248,7 +1248,7 @@ impl AsyncIPipeLong {
         (::windows::core::Vtable::vtable(self).Finish_Push)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIPipeLong, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIPipeLong, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIPipeLong {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1303,7 +1303,7 @@ impl AsyncIUnknown {
         (::windows::core::Vtable::vtable(self).Finish_Release)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(AsyncIUnknown, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIUnknown, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIUnknown {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1346,7 +1346,7 @@ impl IActivationFilter {
         (::windows::core::Vtable::vtable(self).HandleActivation)(::windows::core::Vtable::as_raw(self), dwactivationtype, rclsid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActivationFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActivationFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActivationFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1389,7 +1389,7 @@ impl IAddrExclusionControl {
         (::windows::core::Vtable::vtable(self).UpdateAddrExclusionList)(::windows::core::Vtable::as_raw(self), penumerator.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAddrExclusionControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAddrExclusionControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAddrExclusionControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1430,7 +1430,7 @@ impl IAddrTrackingControl {
         (::windows::core::Vtable::vtable(self).DisableCOMDynamicAddrTracking)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAddrTrackingControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAddrTrackingControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAddrTrackingControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1485,7 +1485,7 @@ impl IAdviseSink {
         (::windows::core::Vtable::vtable(self).OnClose)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IAdviseSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAdviseSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAdviseSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1552,7 +1552,7 @@ impl IAdviseSink2 {
         (::windows::core::Vtable::vtable(self).OnLinkSrcChange)(::windows::core::Vtable::as_raw(self), pmk.into().abi())
     }
 }
-::windows::core::interface_hierarchy!(IAdviseSink2, ::windows::core::IUnknown, IAdviseSink);
+::windows::imp::interface_hierarchy!(IAdviseSink2, ::windows::core::IUnknown, IAdviseSink);
 impl ::core::cmp::PartialEq for IAdviseSink2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1585,7 +1585,7 @@ pub struct IAdviseSink2_Vtbl {
 #[repr(transparent)]
 pub struct IAgileObject(::windows::core::IUnknown);
 impl IAgileObject {}
-::windows::core::interface_hierarchy!(IAgileObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAgileObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAgileObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1628,7 +1628,7 @@ impl IAsyncManager {
         (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAsyncManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAsyncManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAsyncManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1695,7 +1695,7 @@ impl IAsyncRpcChannelBuffer {
         (::windows::core::Vtable::vtable(self).GetDestCtxEx)(::windows::core::Vtable::as_raw(self), pmsg, pdwdestcontext, ::core::mem::transmute(ppvdestcontext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAsyncRpcChannelBuffer, ::windows::core::IUnknown, IRpcChannelBuffer, IRpcChannelBuffer2);
+::windows::imp::interface_hierarchy!(IAsyncRpcChannelBuffer, ::windows::core::IUnknown, IRpcChannelBuffer, IRpcChannelBuffer2);
 impl ::core::cmp::PartialEq for IAsyncRpcChannelBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1736,7 +1736,7 @@ impl IAuthenticate {
         (::windows::core::Vtable::vtable(self).Authenticate)(::windows::core::Vtable::as_raw(self), phwnd, pszusername, pszpassword).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAuthenticate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAuthenticate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAuthenticate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1783,7 +1783,7 @@ impl IAuthenticateEx {
         (::windows::core::Vtable::vtable(self).AuthenticateEx)(::windows::core::Vtable::as_raw(self), phwnd, pszusername, pszpassword, pauthinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAuthenticateEx, ::windows::core::IUnknown, IAuthenticate);
+::windows::imp::interface_hierarchy!(IAuthenticateEx, ::windows::core::IUnknown, IAuthenticate);
 impl ::core::cmp::PartialEq for IAuthenticateEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1869,7 +1869,7 @@ impl IBindCtx {
         (::windows::core::Vtable::vtable(self).RevokeObjectParam)(::windows::core::Vtable::as_raw(self), pszkey.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBindCtx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBindCtx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBindCtx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1935,7 +1935,7 @@ impl IBindHost {
         (::windows::core::Vtable::vtable(self).MonikerBindToObject)(::windows::core::Vtable::as_raw(self), pmk.into().abi(), pbc.into().abi(), pbsc.into().abi(), riid, ppvobj).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBindHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBindHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBindHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2012,7 +2012,7 @@ impl IBindStatusCallback {
         (::windows::core::Vtable::vtable(self).OnObjectAvailable)(::windows::core::Vtable::as_raw(self), riid, punk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBindStatusCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBindStatusCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBindStatusCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2105,7 +2105,7 @@ impl IBindStatusCallbackEx {
         (::windows::core::Vtable::vtable(self).GetBindInfoEx)(::windows::core::Vtable::as_raw(self), grfbindf, pbindinfo, grfbindf2, pdwreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBindStatusCallbackEx, ::windows::core::IUnknown, IBindStatusCallback);
+::windows::imp::interface_hierarchy!(IBindStatusCallbackEx, ::windows::core::IUnknown, IBindStatusCallback);
 impl ::core::cmp::PartialEq for IBindStatusCallbackEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2161,7 +2161,7 @@ impl IBinding {
         (::windows::core::Vtable::vtable(self).GetBindResult)(::windows::core::Vtable::as_raw(self), pclsidprotocol, pdwresult, pszresult, pdwreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBinding, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBinding, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBinding {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2206,7 +2206,7 @@ impl IBlockingLock {
         (::windows::core::Vtable::vtable(self).Unlock)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBlockingLock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBlockingLock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBlockingLock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2248,7 +2248,7 @@ impl ICallFactory {
         (::windows::core::Vtable::vtable(self).CreateCall)(::windows::core::Vtable::as_raw(self), riid, pctrlunk.into().abi(), riid2, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICallFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICallFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICallFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2288,7 +2288,7 @@ impl ICancelMethodCalls {
         (::windows::core::Vtable::vtable(self).TestCancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICancelMethodCalls, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICancelMethodCalls, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICancelMethodCalls {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2346,7 +2346,7 @@ impl ICatInformation {
         (::windows::core::Vtable::vtable(self).EnumReqCategoriesOfClass)(::windows::core::Vtable::as_raw(self), rclsid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICatInformation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICatInformation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICatInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2403,7 +2403,7 @@ impl ICatRegister {
         (::windows::core::Vtable::vtable(self).UnRegisterClassReqCategories)(::windows::core::Vtable::as_raw(self), rclsid, rgcatid.len() as _, ::core::mem::transmute(rgcatid.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICatRegister, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICatRegister, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICatRegister {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2464,7 +2464,7 @@ impl IChannelHook {
         (::windows::core::Vtable::vtable(self).ServerFillBuffer)(::windows::core::Vtable::as_raw(self), uextent, riid, pdatasize, pdatabuffer, hrfault)
     }
 }
-::windows::core::interface_hierarchy!(IChannelHook, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IChannelHook, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IChannelHook {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2510,7 +2510,7 @@ impl IClassActivator {
         (::windows::core::Vtable::vtable(self).GetClassObject)(::windows::core::Vtable::as_raw(self), rclsid, dwclasscontext, locale, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IClassActivator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IClassActivator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IClassActivator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2560,7 +2560,7 @@ impl IClassFactory {
         (::windows::core::Vtable::vtable(self).LockServer)(::windows::core::Vtable::as_raw(self), flock.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IClassFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IClassFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2618,7 +2618,7 @@ impl IClientSecurity {
         (::windows::core::Vtable::vtable(self).CopyProxy)(::windows::core::Vtable::as_raw(self), pproxy.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IClientSecurity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IClientSecurity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IClientSecurity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2669,7 +2669,7 @@ impl IComThreadingInfo {
         (::windows::core::Vtable::vtable(self).SetCurrentLogicalThreadId)(::windows::core::Vtable::as_raw(self), rguid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComThreadingInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComThreadingInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComThreadingInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2728,7 +2728,7 @@ impl IConnectionPoint {
         (::windows::core::Vtable::vtable(self).EnumConnections)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IConnectionPoint, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConnectionPoint, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConnectionPoint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2774,7 +2774,7 @@ impl IConnectionPointContainer {
         (::windows::core::Vtable::vtable(self).FindConnectionPoint)(::windows::core::Vtable::as_raw(self), riid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IConnectionPointContainer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConnectionPointContainer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConnectionPointContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2815,7 +2815,7 @@ impl IContextCallback {
         (::windows::core::Vtable::vtable(self).ContextCallback)(::windows::core::Vtable::as_raw(self), pfncallback, pparam, riid, imethod, punk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContextCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContextCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2870,7 +2870,7 @@ impl IDataAdviseHolder {
         (::windows::core::Vtable::vtable(self).SendOnDataChange)(::windows::core::Vtable::as_raw(self), pdataobject.into().abi(), dwreserved, advf).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataAdviseHolder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataAdviseHolder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataAdviseHolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2950,7 +2950,7 @@ impl IDataObject {
         (::windows::core::Vtable::vtable(self).EnumDAdvise)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3017,7 +3017,7 @@ impl IDispatch {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), dispidmember, riid, lcid, wflags, pdispparams, ::core::mem::transmute(pvarresult.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pexcepinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(puargerr.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDispatch, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDispatch, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDispatch {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3070,7 +3070,7 @@ impl IEnumCATEGORYINFO {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumCATEGORYINFO, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumCATEGORYINFO, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumCATEGORYINFO {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3120,7 +3120,7 @@ impl IEnumConnectionPoints {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumConnectionPoints, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumConnectionPoints, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumConnectionPoints {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3170,7 +3170,7 @@ impl IEnumConnections {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumConnections, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumConnections, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumConnections {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3220,7 +3220,7 @@ impl IEnumFORMATETC {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumFORMATETC, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumFORMATETC, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumFORMATETC {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3270,7 +3270,7 @@ impl IEnumGUID {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumGUID, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumGUID, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumGUID {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3320,7 +3320,7 @@ impl IEnumMoniker {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumMoniker, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumMoniker, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumMoniker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3370,7 +3370,7 @@ impl IEnumSTATDATA {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumSTATDATA, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSTATDATA, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSTATDATA {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3420,7 +3420,7 @@ impl IEnumString {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumString, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumString, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumString {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3470,7 +3470,7 @@ impl IEnumUnknown {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumUnknown, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumUnknown, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumUnknown {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3527,7 +3527,7 @@ impl IErrorInfo {
         (::windows::core::Vtable::vtable(self).GetHelpContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IErrorInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IErrorInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3571,7 +3571,7 @@ impl IErrorLog {
         (::windows::core::Vtable::vtable(self).AddError)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pexcepinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IErrorLog, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IErrorLog, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IErrorLog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3616,7 +3616,7 @@ impl IExternalConnection {
         (::windows::core::Vtable::vtable(self).ReleaseConnection)(::windows::core::Vtable::as_raw(self), extconn, reserved, flastreleasecloses.into())
     }
 }
-::windows::core::interface_hierarchy!(IExternalConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExternalConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExternalConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3653,7 +3653,7 @@ pub struct IExternalConnection_Vtbl {
 #[repr(transparent)]
 pub struct IFastRundown(::windows::core::IUnknown);
 impl IFastRundown {}
-::windows::core::interface_hierarchy!(IFastRundown, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFastRundown, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFastRundown {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3689,7 +3689,7 @@ impl IForegroundTransfer {
         (::windows::core::Vtable::vtable(self).AllowForegroundTransfer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvreserved.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IForegroundTransfer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IForegroundTransfer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IForegroundTransfer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3736,7 +3736,7 @@ impl IGlobalInterfaceTable {
         (::windows::core::Vtable::vtable(self).GetInterfaceFromGlobal)(::windows::core::Vtable::as_raw(self), dwcookie, riid, ppv).ok()
     }
 }
-::windows::core::interface_hierarchy!(IGlobalInterfaceTable, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGlobalInterfaceTable, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGlobalInterfaceTable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3779,7 +3779,7 @@ impl IGlobalOptions {
         (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), dwproperty, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGlobalOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGlobalOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGlobalOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3826,7 +3826,7 @@ impl IInitializeSpy {
         (::windows::core::Vtable::vtable(self).PostUninitialize)(::windows::core::Vtable::as_raw(self), dwnewthreadaptrefs).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInitializeSpy, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInitializeSpy, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInitializeSpy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3866,7 +3866,7 @@ impl IInternalUnknown {
         (::windows::core::Vtable::vtable(self).QueryInternalInterface)(::windows::core::Vtable::as_raw(self), riid, ppv).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInternalUnknown, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInternalUnknown, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInternalUnknown {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3919,7 +3919,7 @@ impl IMachineGlobalObjectTable {
         (::windows::core::Vtable::vtable(self).RevokeObject)(::windows::core::Vtable::as_raw(self), token).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMachineGlobalObjectTable, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMachineGlobalObjectTable, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMachineGlobalObjectTable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3973,7 +3973,7 @@ impl IMalloc {
         (::windows::core::Vtable::vtable(self).HeapMinimize)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMalloc, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMalloc, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMalloc {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4088,7 +4088,7 @@ impl IMallocSpy {
         (::windows::core::Vtable::vtable(self).PostHeapMinimize)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMallocSpy, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMallocSpy, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMallocSpy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4288,7 +4288,7 @@ impl IMoniker {
         (::windows::core::Vtable::vtable(self).IsSystemMoniker)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMoniker, ::windows::core::IUnknown, IPersist, IPersistStream);
+::windows::imp::interface_hierarchy!(IMoniker, ::windows::core::IUnknown, IPersist, IPersistStream);
 impl ::core::cmp::PartialEq for IMoniker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4348,7 +4348,7 @@ impl IMultiQI {
         (::windows::core::Vtable::vtable(self).QueryMultipleInterfaces)(::windows::core::Vtable::as_raw(self), pmqis.len() as _, ::core::mem::transmute(pmqis.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMultiQI, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMultiQI, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMultiQI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4381,7 +4381,7 @@ pub struct IMultiQI_Vtbl {
 #[repr(transparent)]
 pub struct INoMarshal(::windows::core::IUnknown);
 impl INoMarshal {}
-::windows::core::interface_hierarchy!(INoMarshal, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INoMarshal, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INoMarshal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4430,7 +4430,7 @@ impl IOplockStorage {
         (::windows::core::Vtable::vtable(self).OpenStorageEx)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), grfmode, stgfmt, grfattrs, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOplockStorage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOplockStorage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOplockStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4478,7 +4478,7 @@ impl IPSFactoryBuffer {
         (::windows::core::Vtable::vtable(self).CreateStub)(::windows::core::Vtable::as_raw(self), riid, punkserver.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPSFactoryBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPSFactoryBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPSFactoryBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4517,7 +4517,7 @@ impl IPersist {
         (::windows::core::Vtable::vtable(self).GetClassID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPersist, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPersist, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPersist {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4583,7 +4583,7 @@ impl IPersistFile {
         (::windows::core::Vtable::vtable(self).GetCurFile)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPersistFile, ::windows::core::IUnknown, IPersist);
+::windows::imp::interface_hierarchy!(IPersistFile, ::windows::core::IUnknown, IPersist);
 impl ::core::cmp::PartialEq for IPersistFile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4649,7 +4649,7 @@ impl IPersistMemory {
         (::windows::core::Vtable::vtable(self).InitNew)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPersistMemory, ::windows::core::IUnknown, IPersist);
+::windows::imp::interface_hierarchy!(IPersistMemory, ::windows::core::IUnknown, IPersist);
 impl ::core::cmp::PartialEq for IPersistMemory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4716,7 +4716,7 @@ impl IPersistStream {
         (::windows::core::Vtable::vtable(self).GetSizeMax)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPersistStream, ::windows::core::IUnknown, IPersist);
+::windows::imp::interface_hierarchy!(IPersistStream, ::windows::core::IUnknown, IPersist);
 impl ::core::cmp::PartialEq for IPersistStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4785,7 +4785,7 @@ impl IPersistStreamInit {
         (::windows::core::Vtable::vtable(self).InitNew)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPersistStreamInit, ::windows::core::IUnknown, IPersist);
+::windows::imp::interface_hierarchy!(IPersistStreamInit, ::windows::core::IUnknown, IPersist);
 impl ::core::cmp::PartialEq for IPersistStreamInit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4832,7 +4832,7 @@ impl IPipeByte {
         (::windows::core::Vtable::vtable(self).Push)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buf.as_ptr()), buf.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPipeByte, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPipeByte, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPipeByte {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4873,7 +4873,7 @@ impl IPipeDouble {
         (::windows::core::Vtable::vtable(self).Push)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buf.as_ptr()), buf.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPipeDouble, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPipeDouble, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPipeDouble {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4914,7 +4914,7 @@ impl IPipeLong {
         (::windows::core::Vtable::vtable(self).Push)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buf.as_ptr()), buf.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPipeLong, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPipeLong, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPipeLong {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4952,7 +4952,7 @@ impl IProcessInitControl {
         (::windows::core::Vtable::vtable(self).ResetInitializerTimeout)(::windows::core::Vtable::as_raw(self), dwsecondsremaining).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProcessInitControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProcessInitControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProcessInitControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4992,7 +4992,7 @@ impl IProcessLock {
         (::windows::core::Vtable::vtable(self).ReleaseRefOnProcess)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IProcessLock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProcessLock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProcessLock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5036,7 +5036,7 @@ impl IProgressNotify {
         (::windows::core::Vtable::vtable(self).OnProgress)(::windows::core::Vtable::as_raw(self), dwprogresscurrent, dwprogressmaximum, faccurate.into(), fowner.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProgressNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProgressNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProgressNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5076,7 +5076,7 @@ impl IROTData {
         (::windows::core::Vtable::vtable(self).GetComparisonData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _, pcbdata).ok()
     }
 }
-::windows::core::interface_hierarchy!(IROTData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IROTData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IROTData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5116,7 +5116,7 @@ impl IReleaseMarshalBuffers {
         (::windows::core::Vtable::vtable(self).ReleaseMarshalBuffer)(::windows::core::Vtable::as_raw(self), pmsg, dwflags, pchnl.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IReleaseMarshalBuffers, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IReleaseMarshalBuffers, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IReleaseMarshalBuffers {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5165,7 +5165,7 @@ impl IRpcChannelBuffer {
         (::windows::core::Vtable::vtable(self).IsConnected)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRpcChannelBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRpcChannelBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRpcChannelBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5222,7 +5222,7 @@ impl IRpcChannelBuffer2 {
         (::windows::core::Vtable::vtable(self).GetProtocolVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRpcChannelBuffer2, ::windows::core::IUnknown, IRpcChannelBuffer);
+::windows::imp::interface_hierarchy!(IRpcChannelBuffer2, ::windows::core::IUnknown, IRpcChannelBuffer);
 impl ::core::cmp::PartialEq for IRpcChannelBuffer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5300,7 +5300,7 @@ impl IRpcChannelBuffer3 {
         (::windows::core::Vtable::vtable(self).RegisterAsync)(::windows::core::Vtable::as_raw(self), pmsg, pasyncmgr.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRpcChannelBuffer3, ::windows::core::IUnknown, IRpcChannelBuffer, IRpcChannelBuffer2);
+::windows::imp::interface_hierarchy!(IRpcChannelBuffer3, ::windows::core::IUnknown, IRpcChannelBuffer, IRpcChannelBuffer2);
 impl ::core::cmp::PartialEq for IRpcChannelBuffer3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5348,7 +5348,7 @@ impl IRpcHelper {
         (::windows::core::Vtable::vtable(self).GetIIDFromOBJREF)(::windows::core::Vtable::as_raw(self), pobjref, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRpcHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRpcHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRpcHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5396,7 +5396,7 @@ impl IRpcOptions {
         (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), pprx.into().abi(), dwproperty, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRpcOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRpcOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRpcOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5440,7 +5440,7 @@ impl IRpcProxyBuffer {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IRpcProxyBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRpcProxyBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRpcProxyBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5502,7 +5502,7 @@ impl IRpcStubBuffer {
         (::windows::core::Vtable::vtable(self).DebugServerRelease)(::windows::core::Vtable::as_raw(self), pv)
     }
 }
-::windows::core::interface_hierarchy!(IRpcStubBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRpcStubBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRpcStubBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5545,7 +5545,7 @@ impl IRpcSyntaxNegotiate {
         (::windows::core::Vtable::vtable(self).NegotiateSyntax)(::windows::core::Vtable::as_raw(self), pmsg).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRpcSyntaxNegotiate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRpcSyntaxNegotiate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRpcSyntaxNegotiate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5611,7 +5611,7 @@ impl IRunnableObject {
         (::windows::core::Vtable::vtable(self).SetContainedObject)(::windows::core::Vtable::as_raw(self), fcontained.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRunnableObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRunnableObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRunnableObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5700,7 +5700,7 @@ impl IRunningObjectTable {
         (::windows::core::Vtable::vtable(self).EnumRunning)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRunningObjectTable, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRunningObjectTable, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRunningObjectTable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5752,7 +5752,7 @@ impl ISequentialStream {
         (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), pv, cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
 }
-::windows::core::interface_hierarchy!(ISequentialStream, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISequentialStream, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISequentialStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5801,7 +5801,7 @@ impl IServerSecurity {
         (::windows::core::Vtable::vtable(self).IsImpersonating)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IServerSecurity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServerSecurity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServerSecurity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5844,7 +5844,7 @@ impl IServiceProvider {
         (::windows::core::Vtable::vtable(self).QueryService)(::windows::core::Vtable::as_raw(self), guidservice, riid, ppvobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(IServiceProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IServiceProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IServiceProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5882,7 +5882,7 @@ impl IStdMarshalInfo {
         (::windows::core::Vtable::vtable(self).GetClassForHandler)(::windows::core::Vtable::as_raw(self), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStdMarshalInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStdMarshalInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStdMarshalInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5955,7 +5955,7 @@ impl IStream {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStream, ::windows::core::IUnknown, ISequentialStream);
+::windows::imp::interface_hierarchy!(IStream, ::windows::core::IUnknown, ISequentialStream);
 impl ::core::cmp::PartialEq for IStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6003,7 +6003,7 @@ impl ISupportErrorInfo {
         (::windows::core::Vtable::vtable(self).InterfaceSupportsErrorInfo)(::windows::core::Vtable::as_raw(self), riid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISupportErrorInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISupportErrorInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISupportErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6043,7 +6043,7 @@ impl ISurrogate {
         (::windows::core::Vtable::vtable(self).FreeSurrogate)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISurrogate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISurrogate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISurrogate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6099,7 +6099,7 @@ impl ISurrogateService {
         (::windows::core::Vtable::vtable(self).ProcessShutdown)(::windows::core::Vtable::as_raw(self), shutdowntype).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISurrogateService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISurrogateService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISurrogateService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6149,7 +6149,7 @@ impl ISynchronize {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISynchronize, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISynchronize, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISynchronize {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6195,7 +6195,7 @@ impl ISynchronizeContainer {
         (::windows::core::Vtable::vtable(self).WaitMultiple)(::windows::core::Vtable::as_raw(self), dwflags, dwtimeout, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISynchronizeContainer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISynchronizeContainer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISynchronizeContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6241,7 +6241,7 @@ impl ISynchronizeEvent {
         (::windows::core::Vtable::vtable(self).SetEventHandle)(::windows::core::Vtable::as_raw(self), ph).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISynchronizeEvent, ::windows::core::IUnknown, ISynchronizeHandle);
+::windows::imp::interface_hierarchy!(ISynchronizeEvent, ::windows::core::IUnknown, ISynchronizeHandle);
 impl ::core::cmp::PartialEq for ISynchronizeEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6284,7 +6284,7 @@ impl ISynchronizeHandle {
         (::windows::core::Vtable::vtable(self).GetHandle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISynchronizeHandle, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISynchronizeHandle, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISynchronizeHandle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6333,7 +6333,7 @@ impl ISynchronizeMutex {
         (::windows::core::Vtable::vtable(self).ReleaseMutex)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISynchronizeMutex, ::windows::core::IUnknown, ISynchronize);
+::windows::imp::interface_hierarchy!(ISynchronizeMutex, ::windows::core::IUnknown, ISynchronize);
 impl ::core::cmp::PartialEq for ISynchronizeMutex {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6370,7 +6370,7 @@ impl ITimeAndNoticeControl {
         (::windows::core::Vtable::vtable(self).SuppressChanges)(::windows::core::Vtable::as_raw(self), res1, res2).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITimeAndNoticeControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITimeAndNoticeControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITimeAndNoticeControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6418,7 +6418,7 @@ impl ITypeComp {
         (::windows::core::Vtable::vtable(self).BindType)(::windows::core::Vtable::as_raw(self), szname.into().abi(), lhashval, ::core::mem::transmute(pptinfo), ::core::mem::transmute(pptcomp)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITypeComp, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITypeComp, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITypeComp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6540,7 +6540,7 @@ impl ITypeInfo {
         (::windows::core::Vtable::vtable(self).ReleaseVarDesc)(::windows::core::Vtable::as_raw(self), pvardesc)
     }
 }
-::windows::core::interface_hierarchy!(ITypeInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITypeInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITypeInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6776,7 +6776,7 @@ impl ITypeInfo2 {
         (::windows::core::Vtable::vtable(self).GetAllImplTypeCustData)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITypeInfo2, ::windows::core::IUnknown, ITypeInfo);
+::windows::imp::interface_hierarchy!(ITypeInfo2, ::windows::core::IUnknown, ITypeInfo);
 impl ::core::cmp::PartialEq for ITypeInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6891,7 +6891,7 @@ impl ITypeLib {
         (::windows::core::Vtable::vtable(self).ReleaseTLibAttr)(::windows::core::Vtable::as_raw(self), ptlibattr)
     }
 }
-::windows::core::interface_hierarchy!(ITypeLib, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITypeLib, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITypeLib {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6992,7 +6992,7 @@ impl ITypeLib2 {
         (::windows::core::Vtable::vtable(self).GetAllCustData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITypeLib2, ::windows::core::IUnknown, ITypeLib);
+::windows::imp::interface_hierarchy!(ITypeLib2, ::windows::core::IUnknown, ITypeLib);
 impl ::core::cmp::PartialEq for ITypeLib2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7067,7 +7067,7 @@ impl ITypeLibRegistration {
         (::windows::core::Vtable::vtable(self).GetHelpDir)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITypeLibRegistration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITypeLibRegistration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITypeLibRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7112,7 +7112,7 @@ impl ITypeLibRegistrationReader {
         (::windows::core::Vtable::vtable(self).EnumTypeLibRegistrations)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITypeLibRegistrationReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITypeLibRegistrationReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITypeLibRegistrationReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7250,7 +7250,7 @@ impl IUri {
         (::windows::core::Vtable::vtable(self).IsEqual)(::windows::core::Vtable::as_raw(self), puri.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUri, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUri, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUri {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7421,7 +7421,7 @@ impl IUriBuilder {
         (::windows::core::Vtable::vtable(self).HasBeenModified)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUriBuilder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUriBuilder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUriBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7495,7 +7495,7 @@ impl IUrlMon {
         (::windows::core::Vtable::vtable(self).AsyncGetClassBits)(::windows::core::Vtable::as_raw(self), rclsid, psztype.into().abi(), pszext.into().abi(), dwfileversionms, dwfileversionls, pszcodebase.into().abi(), pbc.into().abi(), dwclasscontext, riid, flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUrlMon, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUrlMon, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUrlMon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7539,7 +7539,7 @@ impl IWaitMultiple {
         (::windows::core::Vtable::vtable(self).AddSynchronize)(::windows::core::Vtable::as_raw(self), psync.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWaitMultiple, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWaitMultiple, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWaitMultiple {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

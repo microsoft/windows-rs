@@ -126,7 +126,7 @@ impl CoreAppWindowPreview {
     }
     #[doc(hidden)]
     pub fn ICoreAppWindowPreviewStatics<R, F: FnOnce(&ICoreAppWindowPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreAppWindowPreview, ICoreAppWindowPreviewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreAppWindowPreview, ICoreAppWindowPreviewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -142,7 +142,7 @@ impl ::core::fmt::Debug for CoreAppWindowPreview {
     }
 }
 impl ::windows::core::RuntimeType for CoreAppWindowPreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.CoreAppWindowPreview;{a4f6e665-365e-5fde-87a5-9543c3a15aa8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.CoreAppWindowPreview;{a4f6e665-365e-5fde-87a5-9543c3a15aa8})");
 }
 impl ::core::clone::Clone for CoreAppWindowPreview {
     fn clone(&self) -> Self {
@@ -158,7 +158,7 @@ unsafe impl ::windows::core::Interface for CoreAppWindowPreview {
 impl ::windows::core::RuntimeName for CoreAppWindowPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.CoreAppWindowPreview";
 }
-::windows::core::interface_hierarchy!(CoreAppWindowPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreAppWindowPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreAppWindowPreview {}
 unsafe impl ::core::marker::Sync for CoreAppWindowPreview {}
 #[doc = "*Required features: `\"UI_Core_Preview\"`*"]
@@ -198,7 +198,7 @@ impl ::core::fmt::Debug for SystemNavigationCloseRequestedPreviewEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SystemNavigationCloseRequestedPreviewEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs;{83d00de1-cbe5-4f31-8414-361da046518f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs;{83d00de1-cbe5-4f31-8414-361da046518f})");
 }
 impl ::core::clone::Clone for SystemNavigationCloseRequestedPreviewEventArgs {
     fn clone(&self) -> Self {
@@ -214,7 +214,7 @@ unsafe impl ::windows::core::Interface for SystemNavigationCloseRequestedPreview
 impl ::windows::core::RuntimeName for SystemNavigationCloseRequestedPreviewEventArgs {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs";
 }
-::windows::core::interface_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemNavigationCloseRequestedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
 #[doc = "*Required features: `\"UI_Core_Preview\"`*"]
@@ -244,7 +244,7 @@ impl SystemNavigationManagerPreview {
     }
     #[doc(hidden)]
     pub fn ISystemNavigationManagerPreviewStatics<R, F: FnOnce(&ISystemNavigationManagerPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemNavigationManagerPreview, ISystemNavigationManagerPreviewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemNavigationManagerPreview, ISystemNavigationManagerPreviewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -260,7 +260,7 @@ impl ::core::fmt::Debug for SystemNavigationManagerPreview {
     }
 }
 impl ::windows::core::RuntimeType for SystemNavigationManagerPreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.SystemNavigationManagerPreview;{ec5f0488-6425-4777-a536-cb5634427f0d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.SystemNavigationManagerPreview;{ec5f0488-6425-4777-a536-cb5634427f0d})");
 }
 impl ::core::clone::Clone for SystemNavigationManagerPreview {
     fn clone(&self) -> Self {
@@ -276,7 +276,7 @@ unsafe impl ::windows::core::Interface for SystemNavigationManagerPreview {
 impl ::windows::core::RuntimeName for SystemNavigationManagerPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationManagerPreview";
 }
-::windows::core::interface_hierarchy!(SystemNavigationManagerPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemNavigationManagerPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemNavigationManagerPreview {}
 unsafe impl ::core::marker::Sync for SystemNavigationManagerPreview {}
 #[cfg(feature = "implement")]

@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 #[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn MAPIFreeBuffer ( pv : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn MAPIFreeBuffer ( pv : *mut ::core::ffi::c_void ) -> u32 );
     MAPIFreeBuffer(pv)
 }
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]

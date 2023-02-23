@@ -250,7 +250,7 @@ impl ICoreApplicationUnhandledError {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveUnhandledErrorDetected)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ICoreApplicationUnhandledError, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICoreApplicationUnhandledError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICoreApplicationUnhandledError {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -263,7 +263,7 @@ impl ::core::fmt::Debug for ICoreApplicationUnhandledError {
     }
 }
 impl ::windows::core::RuntimeType for ICoreApplicationUnhandledError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f0e24ab0-dd09-42e1-b0bc-e0e131f78d7e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f0e24ab0-dd09-42e1-b0bc-e0e131f78d7e}");
 }
 unsafe impl ::windows::core::Vtable for ICoreApplicationUnhandledError {
     type Vtable = ICoreApplicationUnhandledError_Vtbl;
@@ -574,7 +574,7 @@ impl IFrameworkView {
         unsafe { (::windows::core::Vtable::vtable(this).Uninitialize)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IFrameworkView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFrameworkView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IFrameworkView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -587,7 +587,7 @@ impl ::core::fmt::Debug for IFrameworkView {
     }
 }
 impl ::windows::core::RuntimeType for IFrameworkView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{faab5cd0-8924-45ac-ad0f-a08fae5d0324}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{faab5cd0-8924-45ac-ad0f-a08fae5d0324}");
 }
 unsafe impl ::windows::core::Vtable for IFrameworkView {
     type Vtable = IFrameworkView_Vtbl;
@@ -625,7 +625,7 @@ impl IFrameworkViewSource {
         }
     }
 }
-::windows::core::interface_hierarchy!(IFrameworkViewSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IFrameworkViewSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IFrameworkViewSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -638,7 +638,7 @@ impl ::core::fmt::Debug for IFrameworkViewSource {
     }
 }
 impl ::windows::core::RuntimeType for IFrameworkViewSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cd770614-65c4-426c-9494-34fc43554862}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{cd770614-65c4-426c-9494-34fc43554862}");
 }
 unsafe impl ::windows::core::Vtable for IFrameworkViewSource {
     type Vtable = IFrameworkViewSource_Vtbl;
@@ -777,7 +777,7 @@ impl ::core::fmt::Debug for AppListEntry {
     }
 }
 impl ::windows::core::RuntimeType for AppListEntry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.AppListEntry;{ef00f07f-2108-490a-877a-8a9f17c25fad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.AppListEntry;{ef00f07f-2108-490a-877a-8a9f17c25fad})");
 }
 impl ::core::clone::Clone for AppListEntry {
     fn clone(&self) -> Self {
@@ -793,7 +793,7 @@ unsafe impl ::windows::core::Interface for AppListEntry {
 impl ::windows::core::RuntimeName for AppListEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Core.AppListEntry";
 }
-::windows::core::interface_hierarchy!(AppListEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppListEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppListEntry {}
 unsafe impl ::core::marker::Sync for AppListEntry {}
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -992,47 +992,47 @@ impl CoreApplication {
     }
     #[doc(hidden)]
     pub fn ICoreApplication<R, F: FnOnce(&ICoreApplication) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreApplication, ICoreApplication> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreApplication, ICoreApplication> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICoreApplication2<R, F: FnOnce(&ICoreApplication2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreApplication, ICoreApplication2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreApplication, ICoreApplication2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICoreApplication3<R, F: FnOnce(&ICoreApplication3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreApplication, ICoreApplication3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreApplication, ICoreApplication3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICoreApplicationExit<R, F: FnOnce(&ICoreApplicationExit) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreApplication, ICoreApplicationExit> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreApplication, ICoreApplicationExit> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICoreApplicationUnhandledError<R, F: FnOnce(&ICoreApplicationUnhandledError) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreApplication, ICoreApplicationUnhandledError> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreApplication, ICoreApplicationUnhandledError> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICoreApplicationUseCount<R, F: FnOnce(&ICoreApplicationUseCount) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreApplication, ICoreApplicationUseCount> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreApplication, ICoreApplicationUseCount> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICoreImmersiveApplication<R, F: FnOnce(&ICoreImmersiveApplication) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreApplication, ICoreImmersiveApplication> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreApplication, ICoreImmersiveApplication> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICoreImmersiveApplication2<R, F: FnOnce(&ICoreImmersiveApplication2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreApplication, ICoreImmersiveApplication2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreApplication, ICoreImmersiveApplication2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICoreImmersiveApplication3<R, F: FnOnce(&ICoreImmersiveApplication3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreApplication, ICoreImmersiveApplication3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CoreApplication, ICoreImmersiveApplication3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1150,7 +1150,7 @@ impl ::core::fmt::Debug for CoreApplicationView {
     }
 }
 impl ::windows::core::RuntimeType for CoreApplicationView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationView;{638bb2db-451d-4661-b099-414f34ffb9f1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationView;{638bb2db-451d-4661-b099-414f34ffb9f1})");
 }
 impl ::core::clone::Clone for CoreApplicationView {
     fn clone(&self) -> Self {
@@ -1166,7 +1166,7 @@ unsafe impl ::windows::core::Interface for CoreApplicationView {
 impl ::windows::core::RuntimeName for CoreApplicationView {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationView";
 }
-::windows::core::interface_hierarchy!(CoreApplicationView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreApplicationView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreApplicationViewTitleBar(::windows::core::IUnknown);
@@ -1253,7 +1253,7 @@ impl ::core::fmt::Debug for CoreApplicationViewTitleBar {
     }
 }
 impl ::windows::core::RuntimeType for CoreApplicationViewTitleBar {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationViewTitleBar;{006d35e3-e1f1-431b-9508-29b96926ac53})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationViewTitleBar;{006d35e3-e1f1-431b-9508-29b96926ac53})");
 }
 impl ::core::clone::Clone for CoreApplicationViewTitleBar {
     fn clone(&self) -> Self {
@@ -1269,7 +1269,7 @@ unsafe impl ::windows::core::Interface for CoreApplicationViewTitleBar {
 impl ::windows::core::RuntimeName for CoreApplicationViewTitleBar {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationViewTitleBar";
 }
-::windows::core::interface_hierarchy!(CoreApplicationViewTitleBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CoreApplicationViewTitleBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
 #[repr(transparent)]
 pub struct HostedViewClosingEventArgs(::windows::core::IUnknown);
@@ -1296,7 +1296,7 @@ impl ::core::fmt::Debug for HostedViewClosingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HostedViewClosingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.HostedViewClosingEventArgs;{d238943c-b24e-4790-acb5-3e4243c4ff87})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.HostedViewClosingEventArgs;{d238943c-b24e-4790-acb5-3e4243c4ff87})");
 }
 impl ::core::clone::Clone for HostedViewClosingEventArgs {
     fn clone(&self) -> Self {
@@ -1312,7 +1312,7 @@ unsafe impl ::windows::core::Interface for HostedViewClosingEventArgs {
 impl ::windows::core::RuntimeName for HostedViewClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.HostedViewClosingEventArgs";
 }
-::windows::core::interface_hierarchy!(HostedViewClosingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HostedViewClosingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HostedViewClosingEventArgs {}
 unsafe impl ::core::marker::Sync for HostedViewClosingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -1343,7 +1343,7 @@ impl ::core::fmt::Debug for UnhandledError {
     }
 }
 impl ::windows::core::RuntimeType for UnhandledError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.UnhandledError;{9459b726-53b5-4686-9eaf-fa8162dc3980})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.UnhandledError;{9459b726-53b5-4686-9eaf-fa8162dc3980})");
 }
 impl ::core::clone::Clone for UnhandledError {
     fn clone(&self) -> Self {
@@ -1359,7 +1359,7 @@ unsafe impl ::windows::core::Interface for UnhandledError {
 impl ::windows::core::RuntimeName for UnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledError";
 }
-::windows::core::interface_hierarchy!(UnhandledError, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UnhandledError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnhandledError {}
 unsafe impl ::core::marker::Sync for UnhandledError {}
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -1386,7 +1386,7 @@ impl ::core::fmt::Debug for UnhandledErrorDetectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UnhandledErrorDetectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs;{679ab78b-b336-4822-ac40-0d750f0b7a2b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs;{679ab78b-b336-4822-ac40-0d750f0b7a2b})");
 }
 impl ::core::clone::Clone for UnhandledErrorDetectedEventArgs {
     fn clone(&self) -> Self {
@@ -1402,7 +1402,7 @@ unsafe impl ::windows::core::Interface for UnhandledErrorDetectedEventArgs {
 impl ::windows::core::RuntimeName for UnhandledErrorDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";
 }
-::windows::core::interface_hierarchy!(UnhandledErrorDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UnhandledErrorDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnhandledErrorDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for UnhandledErrorDetectedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -1435,7 +1435,7 @@ impl ::core::fmt::Debug for AppRestartFailureReason {
     }
 }
 impl ::windows::core::RuntimeType for AppRestartFailureReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Core.AppRestartFailureReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Core.AppRestartFailureReason;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

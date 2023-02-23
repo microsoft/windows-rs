@@ -113,8 +113,8 @@ impl MediaTranscoder {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaTranscoder, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaTranscoder, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -270,7 +270,7 @@ impl ::core::fmt::Debug for MediaTranscoder {
     }
 }
 impl ::windows::core::RuntimeType for MediaTranscoder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.MediaTranscoder;{190c99d2-a0aa-4d34-86bc-eed1b12c2f5b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.MediaTranscoder;{190c99d2-a0aa-4d34-86bc-eed1b12c2f5b})");
 }
 impl ::core::clone::Clone for MediaTranscoder {
     fn clone(&self) -> Self {
@@ -286,7 +286,7 @@ unsafe impl ::windows::core::Interface for MediaTranscoder {
 impl ::windows::core::RuntimeName for MediaTranscoder {
     const NAME: &'static str = "Windows.Media.Transcoding.MediaTranscoder";
 }
-::windows::core::interface_hierarchy!(MediaTranscoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaTranscoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaTranscoder {}
 unsafe impl ::core::marker::Sync for MediaTranscoder {}
 #[doc = "*Required features: `\"Media_Transcoding\"`*"]
@@ -329,7 +329,7 @@ impl ::core::fmt::Debug for PrepareTranscodeResult {
     }
 }
 impl ::windows::core::RuntimeType for PrepareTranscodeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.PrepareTranscodeResult;{05f25dce-994f-4a34-9d68-97ccce1730d6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.PrepareTranscodeResult;{05f25dce-994f-4a34-9d68-97ccce1730d6})");
 }
 impl ::core::clone::Clone for PrepareTranscodeResult {
     fn clone(&self) -> Self {
@@ -345,7 +345,7 @@ unsafe impl ::windows::core::Interface for PrepareTranscodeResult {
 impl ::windows::core::RuntimeName for PrepareTranscodeResult {
     const NAME: &'static str = "Windows.Media.Transcoding.PrepareTranscodeResult";
 }
-::windows::core::interface_hierarchy!(PrepareTranscodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrepareTranscodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrepareTranscodeResult {}
 unsafe impl ::core::marker::Sync for PrepareTranscodeResult {}
 #[doc = "*Required features: `\"Media_Transcoding\"`*"]
@@ -376,7 +376,7 @@ impl ::core::fmt::Debug for MediaVideoProcessingAlgorithm {
     }
 }
 impl ::windows::core::RuntimeType for MediaVideoProcessingAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
 }
 #[doc = "*Required features: `\"Media_Transcoding\"`*"]
 #[repr(transparent)]
@@ -408,7 +408,7 @@ impl ::core::fmt::Debug for TranscodeFailureReason {
     }
 }
 impl ::windows::core::RuntimeType for TranscodeFailureReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

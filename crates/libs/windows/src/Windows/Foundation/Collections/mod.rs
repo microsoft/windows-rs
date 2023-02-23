@@ -54,7 +54,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IIterable
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IIterable<T> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{faa585ea-6214-4217-afda-7f46de5869b3}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{faa585ea-6214-4217-afda-7f46de5869b3}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for IIterable<T> {
     type Item = T;
@@ -168,7 +168,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IIterator
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IIterator<T> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{6a79e863-4300-459a-9966-cbb660963ee1}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{6a79e863-4300-459a-9966-cbb660963ee1}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 impl<T: ::windows::core::RuntimeType> ::core::iter::Iterator for IIterator<T> {
     type Item = T;
@@ -268,7 +268,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IKeyValuePair<K, V> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{02b51929-c1c4-4a7e-8940-0312b5c18500}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{02b51929-c1c4-4a7e-8940-0312b5c18500}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Vtable for IKeyValuePair<K, V> {
     type Vtable = IKeyValuePair_Vtbl<K, V>;
@@ -426,7 +426,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IMap<K, V> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{3c2925fe-8519-45c1-aa79-197b6718c1c1}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{3c2925fe-8519-45c1-aa79-197b6718c1c1}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for IMap<K, V> {
     type Item = IKeyValuePair<K, V>;
@@ -534,7 +534,7 @@ impl<K: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IMapChang
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IMapChangedEventArgs<K> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9939f4df-050a-4c0f-aa60-77075f9c4777}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9939f4df-050a-4c0f-aa60-77075f9c4777}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static> ::windows::core::Vtable for IMapChangedEventArgs<K> {
     type Vtable = IMapChangedEventArgs_Vtbl<K>;
@@ -665,7 +665,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IMapView<K, V> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{e480ce40-a338-4ada-adcf-272272e48cb9}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{e480ce40-a338-4ada-adcf-272272e48cb9}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for IMapView<K, V> {
     type Item = IKeyValuePair<K, V>;
@@ -869,7 +869,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IObservableMap<K, V> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{65df2bf5-bf39-41b5-aebc-5a9d865e472b}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{65df2bf5-bf39-41b5-aebc-5a9d865e472b}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for IObservableMap<K, V> {
     type Item = IKeyValuePair<K, V>;
@@ -1089,7 +1089,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IObservab
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IObservableVector<T> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{5917eb53-50b4-4a0d-b309-65862b3f1dbc}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{5917eb53-50b4-4a0d-b309-65862b3f1dbc}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for IObservableVector<T> {
     type Item = T;
@@ -1196,7 +1196,7 @@ impl IPropertySet {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveMapChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPropertySet> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: IPropertySet) -> ::windows::core::Result<Self> {
@@ -1266,7 +1266,7 @@ impl ::core::fmt::Debug for IPropertySet {
     }
 }
 impl ::windows::core::RuntimeType for IPropertySet {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8a43ed9f-f4e6-4421-acf9-1dab2986820c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8a43ed9f-f4e6-4421-acf9-1dab2986820c}");
 }
 impl ::core::iter::IntoIterator for IPropertySet {
     type Item = IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
@@ -1448,7 +1448,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IVector<T
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IVector<T> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{913337e9-11a1-4345-a3a2-4e7f956e222d}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{913337e9-11a1-4345-a3a2-4e7f956e222d}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 pub struct VectorIterator<T: ::windows::core::RuntimeType + 'static> {
     vector: ::core::option::Option<IVector<T>>,
@@ -1533,7 +1533,7 @@ impl IVectorChangedEventArgs {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVectorChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVectorChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVectorChangedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1546,7 +1546,7 @@ impl ::core::fmt::Debug for IVectorChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for IVectorChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{575933df-34fe-4480-af15-07691f3d5d9b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{575933df-34fe-4480-af15-07691f3d5d9b}");
 }
 unsafe impl ::windows::core::Vtable for IVectorChangedEventArgs {
     type Vtable = IVectorChangedEventArgs_Vtbl;
@@ -1672,7 +1672,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IVectorVi
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IVectorView<T> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 pub struct VectorViewIterator<T: ::windows::core::RuntimeType + 'static> {
     vector: ::core::option::Option<IVectorView<T>>,
@@ -1737,8 +1737,8 @@ impl PropertySet {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PropertySet, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PropertySet, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
@@ -1818,7 +1818,7 @@ impl ::core::fmt::Debug for PropertySet {
     }
 }
 impl ::windows::core::RuntimeType for PropertySet {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.PropertySet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.PropertySet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
 impl ::core::clone::Clone for PropertySet {
     fn clone(&self) -> Self {
@@ -1848,7 +1848,7 @@ impl ::core::iter::IntoIterator for &PropertySet {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(PropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PropertySet> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: PropertySet) -> ::windows::core::Result<Self> {
@@ -1934,8 +1934,8 @@ impl StringMap {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StringMap, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StringMap, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
@@ -2012,7 +2012,7 @@ impl ::core::fmt::Debug for StringMap {
     }
 }
 impl ::windows::core::RuntimeType for StringMap {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.StringMap;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.StringMap;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
 }
 impl ::core::clone::Clone for StringMap {
     fn clone(&self) -> Self {
@@ -2042,7 +2042,7 @@ impl ::core::iter::IntoIterator for &StringMap {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(StringMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StringMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StringMap> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: StringMap) -> ::windows::core::Result<Self> {
@@ -2109,8 +2109,8 @@ impl ValueSet {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ValueSet, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ValueSet, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
@@ -2190,7 +2190,7 @@ impl ::core::fmt::Debug for ValueSet {
     }
 }
 impl ::windows::core::RuntimeType for ValueSet {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.ValueSet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.ValueSet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
 impl ::core::clone::Clone for ValueSet {
     fn clone(&self) -> Self {
@@ -2220,7 +2220,7 @@ impl ::core::iter::IntoIterator for &ValueSet {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(ValueSet, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ValueSet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ValueSet> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: ValueSet) -> ::windows::core::Result<Self> {
@@ -2329,7 +2329,7 @@ impl ::core::fmt::Debug for CollectionChange {
     }
 }
 impl ::windows::core::RuntimeType for CollectionChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Collections.CollectionChange;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Collections.CollectionChange;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
@@ -2339,8 +2339,8 @@ where
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> MapChangedEventHandler<K, V> {
     pub fn new<F: FnMut(::core::option::Option<&IObservableMap<K, V>>, ::core::option::Option<&IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = MapChangedEventHandlerBox::<K, V, F> { vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = MapChangedEventHandlerBox::<K, V, F> { vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke<P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
     where
@@ -2361,7 +2361,7 @@ where
 {
     vtable: *const MapChangedEventHandler_Vtbl<K, V>,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, F: FnMut(::core::option::Option<&IObservableMap<K, V>>, ::core::option::Option<&IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MapChangedEventHandlerBox<K, V, F> {
     const VTABLE: MapChangedEventHandler_Vtbl<K, V> = MapChangedEventHandler_Vtbl::<K, V> {
@@ -2372,7 +2372,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<MapChangedEventHandler<K, V> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<MapChangedEventHandler<K, V> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -2388,7 +2388,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -2420,7 +2420,7 @@ unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::Runti
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for MapChangedEventHandler<K, V> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{179517f3-94ee-41f8-bddc-768a895544f3}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{179517f3-94ee-41f8-bddc-768a895544f3}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2441,8 +2441,8 @@ where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> VectorChangedEventHandler<T> {
     pub fn new<F: FnMut(::core::option::Option<&IObservableVector<T>>, ::core::option::Option<&IVectorChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = VectorChangedEventHandlerBox::<T, F> { vtable: &VectorChangedEventHandlerBox::<T, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = VectorChangedEventHandlerBox::<T, F> { vtable: &VectorChangedEventHandlerBox::<T, F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke<P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
     where
@@ -2462,7 +2462,7 @@ where
 {
     vtable: *const VectorChangedEventHandler_Vtbl<T>,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(::core::option::Option<&IObservableVector<T>>, ::core::option::Option<&IVectorChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> VectorChangedEventHandlerBox<T, F> {
     const VTABLE: VectorChangedEventHandler_Vtbl<T> = VectorChangedEventHandler_Vtbl::<T> {
@@ -2472,7 +2472,7 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(::core::option::Option<
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<VectorChangedEventHandler<T> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<VectorChangedEventHandler<T> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -2488,7 +2488,7 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(::core::option::Option<
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -2520,7 +2520,7 @@ unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interfac
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for VectorChangedEventHandler<T> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{0c051752-9fbf-4c70-aa0c-0e4c82d9a761}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    const SIGNATURE: ::windows::imp::ConstBuffer = { ::windows::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{0c051752-9fbf-4c70-aa0c-0e4c82d9a761}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 #[repr(C)]
 #[doc(hidden)]

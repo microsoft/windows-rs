@@ -4,7 +4,7 @@ pub unsafe fn DMProcessConfigXMLFiltered<P0>(pszxmlin: P0, rgszallowedcspnodes: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dmprocessxmlfiltered.dll""system" fn DMProcessConfigXMLFiltered ( pszxmlin : :: windows::core::PCWSTR , rgszallowedcspnodes : *const :: windows::core::PCWSTR , dwnumallowedcspnodes : u32 , pbstrxmlout : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dmprocessxmlfiltered.dll""system" fn DMProcessConfigXMLFiltered ( pszxmlin : :: windows::core::PCWSTR , rgszallowedcspnodes : *const :: windows::core::PCWSTR , dwnumallowedcspnodes : u32 , pbstrxmlout : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
     DMProcessConfigXMLFiltered(pszxmlin.into().abi(), ::core::mem::transmute(rgszallowedcspnodes.as_ptr()), rgszallowedcspnodes.len() as _, &mut result__).from_abi(result__)
 }
@@ -16,7 +16,7 @@ impl IConnectionRequestCallback {
         (::windows::core::Vtable::vtable(self).OnComplete)(::windows::core::Vtable::as_raw(self), hrstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConnectionRequestCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConnectionRequestCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConnectionRequestCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -63,7 +63,7 @@ impl IEnumPortableDeviceConnectors {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumPortableDeviceConnectors, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumPortableDeviceConnectors, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumPortableDeviceConnectors {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -116,7 +116,7 @@ impl IEnumPortableDeviceObjectIDs {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumPortableDeviceObjectIDs, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumPortableDeviceObjectIDs, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumPortableDeviceObjectIDs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -161,7 +161,7 @@ impl IMediaRadioManager {
         (::windows::core::Vtable::vtable(self).OnSystemRadioStateChange)(::windows::core::Vtable::as_raw(self), sysradiostate, utimeoutsec).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMediaRadioManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMediaRadioManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMediaRadioManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -208,7 +208,7 @@ impl IMediaRadioManagerNotifySink {
         (::windows::core::Vtable::vtable(self).OnInstanceRadioChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrradioinstanceid), radiostate).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMediaRadioManagerNotifySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMediaRadioManagerNotifySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMediaRadioManagerNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -290,7 +290,7 @@ impl IPortableDevice {
         (::windows::core::Vtable::vtable(self).GetPnPDeviceID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPortableDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -379,7 +379,7 @@ impl IPortableDeviceCapabilities {
         (::windows::core::Vtable::vtable(self).GetEventOptions)(::windows::core::Vtable::as_raw(self), event, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceCapabilities, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceCapabilities, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -461,7 +461,7 @@ impl IPortableDeviceConnector {
         (::windows::core::Vtable::vtable(self).GetPnPID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceConnector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceConnector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceConnector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -566,7 +566,7 @@ impl IPortableDeviceContent {
         (::windows::core::Vtable::vtable(self).Copy)(::windows::core::Vtable::as_raw(self), pobjectids.into().abi(), pszdestinationfolderobjectid.into().abi(), ::core::mem::transmute(ppresults)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceContent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceContent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -681,7 +681,7 @@ impl IPortableDeviceContent2 {
         (::windows::core::Vtable::vtable(self).UpdateObjectWithPropertiesAndData)(::windows::core::Vtable::as_raw(self), pszobjectid.into().abi(), pproperties.into().abi(), ::core::mem::transmute(ppdata), pdwoptimalwritebuffersize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceContent2, ::windows::core::IUnknown, IPortableDeviceContent);
+::windows::imp::interface_hierarchy!(IPortableDeviceContent2, ::windows::core::IUnknown, IPortableDeviceContent);
 impl ::core::cmp::PartialEq for IPortableDeviceContent2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -787,7 +787,7 @@ impl IPortableDeviceDataStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPortableDeviceDataStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
+::windows::imp::interface_hierarchy!(IPortableDeviceDataStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPortableDeviceDataStream {
     fn eq(&self, other: &Self) -> bool {
@@ -838,7 +838,7 @@ impl IPortableDeviceDispatchFactory {
         (::windows::core::Vtable::vtable(self).GetDeviceDispatch)(::windows::core::Vtable::as_raw(self), pszpnpdeviceid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceDispatchFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceDispatchFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceDispatchFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -881,7 +881,7 @@ impl IPortableDeviceEventCallback {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), peventparameters.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceEventCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceEventCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceEventCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -934,7 +934,7 @@ impl IPortableDeviceKeyCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceKeyCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceKeyCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceKeyCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1012,7 +1012,7 @@ impl IPortableDeviceManager {
         (::windows::core::Vtable::vtable(self).GetPrivateDevices)(::windows::core::Vtable::as_raw(self), ppnpdeviceids, pcpnpdeviceids).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1078,7 +1078,7 @@ impl IPortableDevicePropVariantCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDevicePropVariantCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDevicePropVariantCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDevicePropVariantCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1166,7 +1166,7 @@ impl IPortableDeviceProperties {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1240,7 +1240,7 @@ impl IPortableDevicePropertiesBulk {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self), pcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDevicePropertiesBulk, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDevicePropertiesBulk, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDevicePropertiesBulk {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1290,7 +1290,7 @@ impl IPortableDevicePropertiesBulkCallback {
         (::windows::core::Vtable::vtable(self).OnEnd)(::windows::core::Vtable::as_raw(self), pcontext, hrstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDevicePropertiesBulkCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDevicePropertiesBulkCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDevicePropertiesBulkCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1368,7 +1368,7 @@ impl IPortableDeviceResources {
         (::windows::core::Vtable::vtable(self).CreateResource)(::windows::core::Vtable::as_raw(self), presourceattributes.into().abi(), ::core::mem::transmute(ppdata), pdwoptimalwritebuffersize, ppszcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceResources, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceResources, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceResources {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1470,7 +1470,7 @@ impl IPortableDeviceService {
         (::windows::core::Vtable::vtable(self).SendCommand)(::windows::core::Vtable::as_raw(self), dwflags, pparameters.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1525,7 +1525,7 @@ impl IPortableDeviceServiceActivation {
         (::windows::core::Vtable::vtable(self).CancelOpenAsync)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceServiceActivation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceServiceActivation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceServiceActivation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1631,7 +1631,7 @@ impl IPortableDeviceServiceCapabilities {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceServiceCapabilities, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceServiceCapabilities, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceServiceCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1705,7 +1705,7 @@ impl IPortableDeviceServiceManager {
         (::windows::core::Vtable::vtable(self).GetDeviceForService)(::windows::core::Vtable::as_raw(self), pszpnpserviceid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceServiceManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceServiceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceServiceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1746,7 +1746,7 @@ impl IPortableDeviceServiceMethodCallback {
         (::windows::core::Vtable::vtable(self).OnComplete)(::windows::core::Vtable::as_raw(self), hrstatus, presults.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceServiceMethodCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceServiceMethodCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceServiceMethodCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1799,7 +1799,7 @@ impl IPortableDeviceServiceMethods {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceServiceMethods, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceServiceMethods, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceServiceMethods {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1838,7 +1838,7 @@ impl IPortableDeviceServiceOpenCallback {
         (::windows::core::Vtable::vtable(self).OnComplete)(::windows::core::Vtable::as_raw(self), hrstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceServiceOpenCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceServiceOpenCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceServiceOpenCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1878,7 +1878,7 @@ impl IPortableDeviceUnitsStream {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceUnitsStream, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceUnitsStream, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceUnitsStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2151,7 +2151,7 @@ impl IPortableDeviceValues {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceValues, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceValues, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceValues {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2357,7 +2357,7 @@ impl IPortableDeviceValuesCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPortableDeviceValuesCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPortableDeviceValuesCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPortableDeviceValuesCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2413,7 +2413,7 @@ impl IPortableDeviceWebControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPortableDeviceWebControl, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IPortableDeviceWebControl, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPortableDeviceWebControl {
     fn eq(&self, other: &Self) -> bool {
@@ -2490,7 +2490,7 @@ impl IRadioInstance {
         (::windows::core::Vtable::vtable(self).IsAssociatingDevice)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IRadioInstance, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRadioInstance, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRadioInstance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2544,7 +2544,7 @@ impl IRadioInstanceCollection {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), uindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRadioInstanceCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRadioInstanceCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRadioInstanceCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2602,7 +2602,7 @@ impl IWpdSerializer {
         (::windows::core::Vtable::vtable(self).GetSerializedSize)(::windows::core::Vtable::as_raw(self), psource.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWpdSerializer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWpdSerializer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWpdSerializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

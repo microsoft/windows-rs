@@ -1,37 +1,37 @@
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupClose ( hbc : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupClose ( hbc : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CertSrvBackupClose(hbc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupEnd ( hbc : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupEnd ( hbc : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CertSrvBackupEnd(hbc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupFree ( pv : *mut ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupFree ( pv : *mut ::core::ffi::c_void ) -> ( ) );
     CertSrvBackupFree(pv)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupGetBackupLogsW ( hbc : *const ::core::ffi::c_void , ppwszzbackuplogfiles : *mut :: windows::core::PWSTR , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupGetBackupLogsW ( hbc : *const ::core::ffi::c_void , ppwszzbackuplogfiles : *mut :: windows::core::PWSTR , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
     CertSrvBackupGetBackupLogsW(hbc, ppwszzbackuplogfiles, pcbsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupGetDatabaseNamesW ( hbc : *const ::core::ffi::c_void , ppwszzattachmentinformation : *mut :: windows::core::PWSTR , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupGetDatabaseNamesW ( hbc : *const ::core::ffi::c_void , ppwszzattachmentinformation : *mut :: windows::core::PWSTR , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
     CertSrvBackupGetDatabaseNamesW(hbc, ppwszzattachmentinformation, pcbsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupGetDynamicFileListW ( hbc : *const ::core::ffi::c_void , ppwszzfilelist : *mut :: windows::core::PWSTR , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupGetDynamicFileListW ( hbc : *const ::core::ffi::c_void , ppwszzfilelist : *mut :: windows::core::PWSTR , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
     CertSrvBackupGetDynamicFileListW(hbc, ppwszzfilelist, pcbsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
@@ -40,7 +40,7 @@ pub unsafe fn CertSrvBackupOpenFileW<P0>(hbc: *mut ::core::ffi::c_void, pwszatta
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupOpenFileW ( hbc : *mut ::core::ffi::c_void , pwszattachmentname : :: windows::core::PCWSTR , cbreadhintsize : u32 , plifilesize : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupOpenFileW ( hbc : *mut ::core::ffi::c_void , pwszattachmentname : :: windows::core::PCWSTR , cbreadhintsize : u32 , plifilesize : *mut i64 ) -> :: windows::core::HRESULT );
     CertSrvBackupOpenFileW(hbc, pwszattachmentname.into().abi(), cbreadhintsize, plifilesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
@@ -49,19 +49,19 @@ pub unsafe fn CertSrvBackupPrepareW<P0>(pwszservername: P0, grbitjet: u32, dwbac
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupPrepareW ( pwszservername : :: windows::core::PCWSTR , grbitjet : u32 , dwbackupflags : CSBACKUP_TYPE , phbc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupPrepareW ( pwszservername : :: windows::core::PCWSTR , grbitjet : u32 , dwbackupflags : CSBACKUP_TYPE , phbc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CertSrvBackupPrepareW(pwszservername.into().abi(), grbitjet, dwbackupflags, phbc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupRead ( hbc : *mut ::core::ffi::c_void , pvbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 , pcbread : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupRead ( hbc : *mut ::core::ffi::c_void , pvbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 , pcbread : *mut u32 ) -> :: windows::core::HRESULT );
     CertSrvBackupRead(hbc, pvbuffer, cbbuffer, pcbread).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupTruncateLogs ( hbc : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvBackupTruncateLogs ( hbc : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CertSrvBackupTruncateLogs(hbc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
@@ -71,19 +71,19 @@ pub unsafe fn CertSrvIsServerOnlineW<P0>(pwszservername: P0, pfserveronline: *mu
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvIsServerOnlineW ( pwszservername : :: windows::core::PCWSTR , pfserveronline : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvIsServerOnlineW ( pwszservername : :: windows::core::PCWSTR , pfserveronline : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     CertSrvIsServerOnlineW(pwszservername.into().abi(), pfserveronline).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvRestoreEnd ( hbc : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvRestoreEnd ( hbc : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CertSrvRestoreEnd(hbc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvRestoreGetDatabaseLocationsW ( hbc : *const ::core::ffi::c_void , ppwszzdatabaselocationlist : *mut :: windows::core::PWSTR , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvRestoreGetDatabaseLocationsW ( hbc : *const ::core::ffi::c_void , ppwszzdatabaselocationlist : *mut :: windows::core::PWSTR , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
     CertSrvRestoreGetDatabaseLocationsW(hbc, ppwszzdatabaselocationlist, pcbsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
@@ -92,13 +92,13 @@ pub unsafe fn CertSrvRestorePrepareW<P0>(pwszservername: P0, dwrestoreflags: u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvRestorePrepareW ( pwszservername : :: windows::core::PCWSTR , dwrestoreflags : u32 , phbc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvRestorePrepareW ( pwszservername : :: windows::core::PCWSTR , dwrestoreflags : u32 , phbc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CertSrvRestorePrepareW(pwszservername.into().abi(), dwrestoreflags, phbc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvRestoreRegisterComplete ( hbc : *mut ::core::ffi::c_void , hrrestorestate : :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvRestoreRegisterComplete ( hbc : *mut ::core::ffi::c_void , hrrestorestate : :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
     CertSrvRestoreRegisterComplete(hbc, hrrestorestate).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
@@ -109,7 +109,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvRestoreRegisterThroughFile ( hbc : *mut ::core::ffi::c_void , pwszcheckpointfilepath : :: windows::core::PCWSTR , pwszlogpath : :: windows::core::PCWSTR , rgrstmap : *mut CSEDB_RSTMAPW , crstmap : i32 , pwszbackuplogpath : :: windows::core::PCWSTR , genlow : u32 , genhigh : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvRestoreRegisterThroughFile ( hbc : *mut ::core::ffi::c_void , pwszcheckpointfilepath : :: windows::core::PCWSTR , pwszlogpath : :: windows::core::PCWSTR , rgrstmap : *mut CSEDB_RSTMAPW , crstmap : i32 , pwszbackuplogpath : :: windows::core::PCWSTR , genlow : u32 , genhigh : u32 ) -> :: windows::core::HRESULT );
     CertSrvRestoreRegisterThroughFile(hbc, pwszcheckpointfilepath.into().abi(), pwszlogpath.into().abi(), rgrstmap, crstmap, pwszbackuplogpath.into().abi(), genlow, genhigh).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
@@ -120,7 +120,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvRestoreRegisterW ( hbc : *mut ::core::ffi::c_void , pwszcheckpointfilepath : :: windows::core::PCWSTR , pwszlogpath : :: windows::core::PCWSTR , rgrstmap : *mut CSEDB_RSTMAPW , crstmap : i32 , pwszbackuplogpath : :: windows::core::PCWSTR , genlow : u32 , genhigh : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvRestoreRegisterW ( hbc : *mut ::core::ffi::c_void , pwszcheckpointfilepath : :: windows::core::PCWSTR , pwszlogpath : :: windows::core::PCWSTR , rgrstmap : *mut CSEDB_RSTMAPW , crstmap : i32 , pwszbackuplogpath : :: windows::core::PCWSTR , genlow : u32 , genhigh : u32 ) -> :: windows::core::HRESULT );
     CertSrvRestoreRegisterW(hbc, pwszcheckpointfilepath.into().abi(), pwszlogpath.into().abi(), rgrstmap, crstmap, pwszbackuplogpath.into().abi(), genlow, genhigh).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
@@ -129,21 +129,21 @@ pub unsafe fn CertSrvServerControlW<P0>(pwszservername: P0, dwcontrolflags: u32,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "certadm.dll""system" fn CertSrvServerControlW ( pwszservername : :: windows::core::PCWSTR , dwcontrolflags : u32 , pcbout : *mut u32 , ppbout : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "certadm.dll""system" fn CertSrvServerControlW ( pwszservername : :: windows::core::PCWSTR , dwcontrolflags : u32 , pcbout : *mut u32 , ppbout : *mut *mut u8 ) -> :: windows::core::HRESULT );
     CertSrvServerControlW(pwszservername.into().abi(), dwcontrolflags, pcbout, ppbout).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certpoleng.dll""system" fn PstAcquirePrivateKey ( pcert : *const super:: CERT_CONTEXT ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "certpoleng.dll""system" fn PstAcquirePrivateKey ( pcert : *const super:: CERT_CONTEXT ) -> super::super::super::Foundation:: NTSTATUS );
     PstAcquirePrivateKey(pcert).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certpoleng.dll""system" fn PstGetCertificateChain ( pcert : *const super:: CERT_CONTEXT , ptrustedissuers : *const super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx , ppcertchaincontext : *mut *mut super:: CERT_CHAIN_CONTEXT ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "certpoleng.dll""system" fn PstGetCertificateChain ( pcert : *const super:: CERT_CONTEXT , ptrustedissuers : *const super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx , ppcertchaincontext : *mut *mut super:: CERT_CHAIN_CONTEXT ) -> super::super::super::Foundation:: NTSTATUS );
     PstGetCertificateChain(pcert, ptrustedissuers, ppcertchaincontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
@@ -153,35 +153,35 @@ pub unsafe fn PstGetCertificates<P0>(ptargetname: *const super::super::super::Fo
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "certpoleng.dll""system" fn PstGetCertificates ( ptargetname : *const super::super::super::Foundation:: UNICODE_STRING , ccriteria : u32 , rgpcriteria : *const super:: CERT_SELECT_CRITERIA , bisclient : super::super::super::Foundation:: BOOL , pdwcertchaincontextcount : *mut u32 , ppcertchaincontexts : *mut *mut *mut super:: CERT_CHAIN_CONTEXT ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "certpoleng.dll""system" fn PstGetCertificates ( ptargetname : *const super::super::super::Foundation:: UNICODE_STRING , ccriteria : u32 , rgpcriteria : *const super:: CERT_SELECT_CRITERIA , bisclient : super::super::super::Foundation:: BOOL , pdwcertchaincontextcount : *mut u32 , ppcertchaincontexts : *mut *mut *mut super:: CERT_CHAIN_CONTEXT ) -> super::super::super::Foundation:: NTSTATUS );
     PstGetCertificates(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpcriteria.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bisclient.into(), pdwcertchaincontextcount, ppcertchaincontexts).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certpoleng.dll""system" fn PstGetTrustAnchors ( ptargetname : *const super::super::super::Foundation:: UNICODE_STRING , ccriteria : u32 , rgpcriteria : *const super:: CERT_SELECT_CRITERIA , pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "certpoleng.dll""system" fn PstGetTrustAnchors ( ptargetname : *const super::super::super::Foundation:: UNICODE_STRING , ccriteria : u32 , rgpcriteria : *const super:: CERT_SELECT_CRITERIA , pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx ) -> super::super::super::Foundation:: NTSTATUS );
     PstGetTrustAnchors(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpcriteria.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pptrustedissuers).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, pcertcontext: ::core::option::Option<*const super::CERT_CONTEXT>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certpoleng.dll""system" fn PstGetTrustAnchorsEx ( ptargetname : *const super::super::super::Foundation:: UNICODE_STRING , ccriteria : u32 , rgpcriteria : *const super:: CERT_SELECT_CRITERIA , pcertcontext : *const super:: CERT_CONTEXT , pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "certpoleng.dll""system" fn PstGetTrustAnchorsEx ( ptargetname : *const super::super::super::Foundation:: UNICODE_STRING , ccriteria : u32 , rgpcriteria : *const super:: CERT_SELECT_CRITERIA , pcertcontext : *const super:: CERT_CONTEXT , pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx ) -> super::super::super::Foundation:: NTSTATUS );
     PstGetTrustAnchorsEx(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpcriteria.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcertcontext.unwrap_or(::std::ptr::null())), pptrustedissuers).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certpoleng.dll""system" fn PstGetUserNameForCertificate ( pcertcontext : *const super:: CERT_CONTEXT , username : *mut super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "certpoleng.dll""system" fn PstGetUserNameForCertificate ( pcertcontext : *const super:: CERT_CONTEXT , username : *mut super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
     PstGetUserNameForCertificate(pcertcontext, username).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "certpoleng.dll""system" fn PstMapCertificate ( pcert : *const super:: CERT_CONTEXT , ptokeninformationtype : *mut super::super::Authentication::Identity:: LSA_TOKEN_INFORMATION_TYPE , pptokeninformation : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "certpoleng.dll""system" fn PstMapCertificate ( pcert : *const super:: CERT_CONTEXT , ptokeninformationtype : *mut super::super::Authentication::Identity:: LSA_TOKEN_INFORMATION_TYPE , pptokeninformation : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
     PstMapCertificate(pcert, ptokeninformationtype, pptokeninformation).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
@@ -191,7 +191,7 @@ pub unsafe fn PstValidate<P0>(ptargetname: ::core::option::Option<*const super::
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "certpoleng.dll""system" fn PstValidate ( ptargetname : *const super::super::super::Foundation:: UNICODE_STRING , bisclient : super::super::super::Foundation:: BOOL , prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH , phadditionalcertstore : *const super:: HCERTSTORE , pcert : *const super:: CERT_CONTEXT , pprovguid : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "certpoleng.dll""system" fn PstValidate ( ptargetname : *const super::super::super::Foundation:: UNICODE_STRING , bisclient : super::super::super::Foundation:: BOOL , prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH , phadditionalcertstore : *const super:: HCERTSTORE , pcert : *const super:: CERT_CONTEXT , pprovguid : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: NTSTATUS );
     PstValidate(::core::mem::transmute(ptargetname.unwrap_or(::std::ptr::null())), bisclient.into(), ::core::mem::transmute(prequestedissuancepolicy.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phadditionalcertstore.unwrap_or(::std::ptr::null())), pcert, ::core::mem::transmute(pprovguid.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
@@ -235,7 +235,7 @@ impl IAlternativeName {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAlternativeName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IAlternativeName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAlternativeName {
     fn eq(&self, other: &Self) -> bool {
@@ -319,7 +319,7 @@ impl IAlternativeNames {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IAlternativeNames, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IAlternativeNames, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAlternativeNames {
     fn eq(&self, other: &Self) -> bool {
@@ -390,7 +390,7 @@ impl IBinaryConverter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IBinaryConverter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IBinaryConverter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBinaryConverter {
     fn eq(&self, other: &Self) -> bool {
@@ -470,7 +470,7 @@ impl IBinaryConverter2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IBinaryConverter2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IBinaryConverter);
+::windows::imp::interface_hierarchy!(IBinaryConverter2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IBinaryConverter);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBinaryConverter2 {
     fn eq(&self, other: &Self) -> bool {
@@ -738,7 +738,7 @@ impl ICEnroll {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICEnroll, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICEnroll, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICEnroll {
     fn eq(&self, other: &Self) -> bool {
@@ -1106,7 +1106,7 @@ impl ICEnroll2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICEnroll2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICEnroll);
+::windows::imp::interface_hierarchy!(ICEnroll2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICEnroll);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICEnroll2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1495,7 +1495,7 @@ impl ICEnroll3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICEnroll3, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICEnroll, ICEnroll2);
+::windows::imp::interface_hierarchy!(ICEnroll3, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICEnroll, ICEnroll2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICEnroll3 {
     fn eq(&self, other: &Self) -> bool {
@@ -2028,7 +2028,7 @@ impl ICEnroll4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICEnroll4, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICEnroll, ICEnroll2, ICEnroll3);
+::windows::imp::interface_hierarchy!(ICEnroll4, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICEnroll, ICEnroll2, ICEnroll3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICEnroll4 {
     fn eq(&self, other: &Self) -> bool {
@@ -2153,7 +2153,7 @@ impl ICertAdmin {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertAdmin, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertAdmin, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertAdmin {
     fn eq(&self, other: &Self) -> bool {
@@ -2294,7 +2294,7 @@ impl ICertAdmin2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertAdmin2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertAdmin);
+::windows::imp::interface_hierarchy!(ICertAdmin2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertAdmin);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertAdmin2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2376,7 +2376,7 @@ impl ICertConfig {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertConfig, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertConfig, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertConfig {
     fn eq(&self, other: &Self) -> bool {
@@ -2442,7 +2442,7 @@ impl ICertConfig2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertConfig2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertConfig);
+::windows::imp::interface_hierarchy!(ICertConfig2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertConfig);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertConfig2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2511,7 +2511,7 @@ impl ICertEncodeAltName {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeAltName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertEncodeAltName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeAltName {
     fn eq(&self, other: &Self) -> bool {
@@ -2600,7 +2600,7 @@ impl ICertEncodeAltName2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeAltName2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeAltName);
+::windows::imp::interface_hierarchy!(ICertEncodeAltName2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeAltName);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeAltName2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2662,7 +2662,7 @@ impl ICertEncodeBitString {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeBitString, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertEncodeBitString, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeBitString {
     fn eq(&self, other: &Self) -> bool {
@@ -2735,7 +2735,7 @@ impl ICertEncodeBitString2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeBitString2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeBitString);
+::windows::imp::interface_hierarchy!(ICertEncodeBitString2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeBitString);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeBitString2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2813,7 +2813,7 @@ impl ICertEncodeCRLDistInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeCRLDistInfo, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertEncodeCRLDistInfo, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeCRLDistInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -2904,7 +2904,7 @@ impl ICertEncodeCRLDistInfo2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeCRLDistInfo2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeCRLDistInfo);
+::windows::imp::interface_hierarchy!(ICertEncodeCRLDistInfo2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeCRLDistInfo);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeCRLDistInfo2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2970,7 +2970,7 @@ impl ICertEncodeDateArray {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeDateArray, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertEncodeDateArray, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeDateArray {
     fn eq(&self, other: &Self) -> bool {
@@ -3047,7 +3047,7 @@ impl ICertEncodeDateArray2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeDateArray2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeDateArray);
+::windows::imp::interface_hierarchy!(ICertEncodeDateArray2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeDateArray);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeDateArray2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3113,7 +3113,7 @@ impl ICertEncodeLongArray {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeLongArray, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertEncodeLongArray, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeLongArray {
     fn eq(&self, other: &Self) -> bool {
@@ -3190,7 +3190,7 @@ impl ICertEncodeLongArray2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeLongArray2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeLongArray);
+::windows::imp::interface_hierarchy!(ICertEncodeLongArray2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeLongArray);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeLongArray2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3260,7 +3260,7 @@ impl ICertEncodeStringArray {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeStringArray, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertEncodeStringArray, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeStringArray {
     fn eq(&self, other: &Self) -> bool {
@@ -3342,7 +3342,7 @@ impl ICertEncodeStringArray2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertEncodeStringArray2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeStringArray);
+::windows::imp::interface_hierarchy!(ICertEncodeStringArray2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeStringArray);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertEncodeStringArray2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3398,7 +3398,7 @@ impl ICertExit {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertExit, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertExit, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertExit {
     fn eq(&self, other: &Self) -> bool {
@@ -3461,7 +3461,7 @@ impl ICertExit2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertExit2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertExit);
+::windows::imp::interface_hierarchy!(ICertExit2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertExit);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertExit2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3512,7 +3512,7 @@ impl ICertGetConfig {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertGetConfig, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertGetConfig, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertGetConfig {
     fn eq(&self, other: &Self) -> bool {
@@ -3570,7 +3570,7 @@ impl ICertManageModule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertManageModule, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertManageModule, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertManageModule {
     fn eq(&self, other: &Self) -> bool {
@@ -3636,7 +3636,7 @@ impl ICertPolicy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPolicy, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertPolicy, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPolicy {
     fn eq(&self, other: &Self) -> bool {
@@ -3703,7 +3703,7 @@ impl ICertPolicy2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPolicy2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertPolicy);
+::windows::imp::interface_hierarchy!(ICertPolicy2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertPolicy);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPolicy2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3786,7 +3786,7 @@ impl ICertProperties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertProperties, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertProperties, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertProperties {
     fn eq(&self, other: &Self) -> bool {
@@ -3883,7 +3883,7 @@ impl ICertProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertProperty, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertProperty, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertProperty {
     fn eq(&self, other: &Self) -> bool {
@@ -3994,7 +3994,7 @@ impl ICertPropertyArchived {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyArchived, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyArchived, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyArchived {
     fn eq(&self, other: &Self) -> bool {
@@ -4090,7 +4090,7 @@ impl ICertPropertyArchivedKeyHash {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyArchivedKeyHash, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyArchivedKeyHash, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyArchivedKeyHash {
     fn eq(&self, other: &Self) -> bool {
@@ -4180,7 +4180,7 @@ impl ICertPropertyAutoEnroll {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyAutoEnroll, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyAutoEnroll, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyAutoEnroll {
     fn eq(&self, other: &Self) -> bool {
@@ -4289,7 +4289,7 @@ impl ICertPropertyBackedUp {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyBackedUp, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyBackedUp, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyBackedUp {
     fn eq(&self, other: &Self) -> bool {
@@ -4390,7 +4390,7 @@ impl ICertPropertyDescription {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyDescription, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyDescription, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -4492,7 +4492,7 @@ impl ICertPropertyEnrollment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyEnrollment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyEnrollment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyEnrollment {
     fn eq(&self, other: &Self) -> bool {
@@ -4613,7 +4613,7 @@ impl ICertPropertyEnrollmentPolicyServer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyEnrollmentPolicyServer, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyEnrollmentPolicyServer, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyEnrollmentPolicyServer {
     fn eq(&self, other: &Self) -> bool {
@@ -4710,7 +4710,7 @@ impl ICertPropertyFriendlyName {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyFriendlyName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyFriendlyName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyFriendlyName {
     fn eq(&self, other: &Self) -> bool {
@@ -4807,7 +4807,7 @@ impl ICertPropertyKeyProvInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyKeyProvInfo, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyKeyProvInfo, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyKeyProvInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -4911,7 +4911,7 @@ impl ICertPropertyRenewal {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyRenewal, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyRenewal, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyRenewal {
     fn eq(&self, other: &Self) -> bool {
@@ -5008,7 +5008,7 @@ impl ICertPropertyRequestOriginator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertyRequestOriginator, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertyRequestOriginator, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertyRequestOriginator {
     fn eq(&self, other: &Self) -> bool {
@@ -5099,7 +5099,7 @@ impl ICertPropertySHA1Hash {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertPropertySHA1Hash, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
+::windows::imp::interface_hierarchy!(ICertPropertySHA1Hash, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertPropertySHA1Hash {
     fn eq(&self, other: &Self) -> bool {
@@ -5172,7 +5172,7 @@ impl ICertRequest {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertRequest {
     fn eq(&self, other: &Self) -> bool {
@@ -5278,7 +5278,7 @@ impl ICertRequest2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertRequest2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertRequest);
+::windows::imp::interface_hierarchy!(ICertRequest2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertRequest);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertRequest2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5406,7 +5406,7 @@ impl ICertRequest3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertRequest3, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertRequest, ICertRequest2);
+::windows::imp::interface_hierarchy!(ICertRequest3, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertRequest, ICertRequest2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertRequest3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5473,7 +5473,7 @@ impl ICertRequestD {
         (::windows::core::Vtable::vtable(self).Ping)(::windows::core::Vtable::as_raw(self), pwszauthority.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICertRequestD, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICertRequestD, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICertRequestD {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5556,7 +5556,7 @@ impl ICertRequestD2 {
         (::windows::core::Vtable::vtable(self).Ping2)(::windows::core::Vtable::as_raw(self), pwszauthority.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICertRequestD2, ::windows::core::IUnknown, ICertRequestD);
+::windows::imp::interface_hierarchy!(ICertRequestD2, ::windows::core::IUnknown, ICertRequestD);
 impl ::core::cmp::PartialEq for ICertRequestD2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5645,7 +5645,7 @@ impl ICertServerExit {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertServerExit, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertServerExit, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertServerExit {
     fn eq(&self, other: &Self) -> bool {
@@ -5768,7 +5768,7 @@ impl ICertServerPolicy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertServerPolicy, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertServerPolicy, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertServerPolicy {
     fn eq(&self, other: &Self) -> bool {
@@ -5872,7 +5872,7 @@ impl ICertView {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertView, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertView, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertView {
     fn eq(&self, other: &Self) -> bool {
@@ -5967,7 +5967,7 @@ impl ICertView2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertView2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertView);
+::windows::imp::interface_hierarchy!(ICertView2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertView);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertView2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6022,7 +6022,7 @@ impl ICertificateAttestationChallenge {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertificateAttestationChallenge, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertificateAttestationChallenge, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertificateAttestationChallenge {
     fn eq(&self, other: &Self) -> bool {
@@ -6085,7 +6085,7 @@ impl ICertificateAttestationChallenge2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertificateAttestationChallenge2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertificateAttestationChallenge);
+::windows::imp::interface_hierarchy!(ICertificateAttestationChallenge2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ICertificateAttestationChallenge);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertificateAttestationChallenge2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6158,7 +6158,7 @@ impl ICertificatePolicies {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertificatePolicies, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertificatePolicies, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertificatePolicies {
     fn eq(&self, other: &Self) -> bool {
@@ -6233,7 +6233,7 @@ impl ICertificatePolicy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertificatePolicy, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertificatePolicy, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertificatePolicy {
     fn eq(&self, other: &Self) -> bool {
@@ -6325,7 +6325,7 @@ impl ICertificationAuthorities {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertificationAuthorities, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertificationAuthorities, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertificationAuthorities {
     fn eq(&self, other: &Self) -> bool {
@@ -6391,7 +6391,7 @@ impl ICertificationAuthority {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICertificationAuthority, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICertificationAuthority, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertificationAuthority {
     fn eq(&self, other: &Self) -> bool {
@@ -6466,7 +6466,7 @@ impl ICryptAttribute {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICryptAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICryptAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICryptAttribute {
     fn eq(&self, other: &Self) -> bool {
@@ -6570,7 +6570,7 @@ impl ICryptAttributes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICryptAttributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICryptAttributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICryptAttributes {
     fn eq(&self, other: &Self) -> bool {
@@ -6677,7 +6677,7 @@ impl ICspAlgorithm {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICspAlgorithm, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICspAlgorithm, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICspAlgorithm {
     fn eq(&self, other: &Self) -> bool {
@@ -6779,7 +6779,7 @@ impl ICspAlgorithms {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICspAlgorithms, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICspAlgorithms, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICspAlgorithms {
     fn eq(&self, other: &Self) -> bool {
@@ -6940,7 +6940,7 @@ impl ICspInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICspInformation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICspInformation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICspInformation {
     fn eq(&self, other: &Self) -> bool {
@@ -7103,7 +7103,7 @@ impl ICspInformations {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICspInformations, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICspInformations, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICspInformations {
     fn eq(&self, other: &Self) -> bool {
@@ -7217,7 +7217,7 @@ impl ICspStatus {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICspStatus, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICspStatus, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICspStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -7334,7 +7334,7 @@ impl ICspStatuses {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICspStatuses, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICspStatuses, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICspStatuses {
     fn eq(&self, other: &Self) -> bool {
@@ -7715,7 +7715,7 @@ impl IEnroll {
         (::windows::core::Vtable::vtable(self).CreatePKCS7RequestFromRequest)(::windows::core::Vtable::as_raw(self), prequest, psigningcertcontext, ppkcs7blob).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnroll, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnroll, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnroll {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8269,7 +8269,7 @@ impl IEnroll2 {
         (::windows::core::Vtable::vtable(self).EnableSMIMECapabilities)(::windows::core::Vtable::as_raw(self), fenablesmimecapabilities).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnroll2, ::windows::core::IUnknown, IEnroll);
+::windows::imp::interface_hierarchy!(IEnroll2, ::windows::core::IUnknown, IEnroll);
 impl ::core::cmp::PartialEq for IEnroll2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8909,7 +8909,7 @@ impl IEnroll4 {
         (::windows::core::Vtable::vtable(self).IncludeSubjectKeyID)(::windows::core::Vtable::as_raw(self), pfinclude).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnroll4, ::windows::core::IUnknown, IEnroll, IEnroll2);
+::windows::imp::interface_hierarchy!(IEnroll4, ::windows::core::IUnknown, IEnroll, IEnroll2);
 impl ::core::cmp::PartialEq for IEnroll4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9022,7 +9022,7 @@ impl IEnumCERTVIEWATTRIBUTE {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEnumCERTVIEWATTRIBUTE, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IEnumCERTVIEWATTRIBUTE, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEnumCERTVIEWATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
@@ -9109,7 +9109,7 @@ impl IEnumCERTVIEWCOLUMN {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEnumCERTVIEWCOLUMN, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IEnumCERTVIEWCOLUMN, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEnumCERTVIEWCOLUMN {
     fn eq(&self, other: &Self) -> bool {
@@ -9194,7 +9194,7 @@ impl IEnumCERTVIEWEXTENSION {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEnumCERTVIEWEXTENSION, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IEnumCERTVIEWEXTENSION, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEnumCERTVIEWEXTENSION {
     fn eq(&self, other: &Self) -> bool {
@@ -9286,7 +9286,7 @@ impl IEnumCERTVIEWROW {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEnumCERTVIEWROW, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IEnumCERTVIEWROW, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEnumCERTVIEWROW {
     fn eq(&self, other: &Self) -> bool {
@@ -9376,7 +9376,7 @@ impl INDESPolicy {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), pwszchallenge.into().abi(), pwsztransactionid.into().abi(), disposition, lasthresult, pctbissuedcertencoded).ok()
     }
 }
-::windows::core::interface_hierarchy!(INDESPolicy, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INDESPolicy, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INDESPolicy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9474,7 +9474,7 @@ impl IOCSPAdmin {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IOCSPAdmin, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IOCSPAdmin, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IOCSPAdmin {
     fn eq(&self, other: &Self) -> bool {
@@ -9648,7 +9648,7 @@ impl IOCSPCAConfiguration {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IOCSPCAConfiguration, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IOCSPCAConfiguration, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IOCSPCAConfiguration {
     fn eq(&self, other: &Self) -> bool {
@@ -9768,7 +9768,7 @@ impl IOCSPCAConfigurationCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IOCSPCAConfigurationCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IOCSPCAConfigurationCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IOCSPCAConfigurationCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -9847,7 +9847,7 @@ impl IOCSPProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IOCSPProperty, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IOCSPProperty, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IOCSPProperty {
     fn eq(&self, other: &Self) -> bool {
@@ -9943,7 +9943,7 @@ impl IOCSPPropertyCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IOCSPPropertyCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IOCSPPropertyCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IOCSPPropertyCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -10037,7 +10037,7 @@ impl IObjectId {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IObjectId, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IObjectId, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IObjectId {
     fn eq(&self, other: &Self) -> bool {
@@ -10124,7 +10124,7 @@ impl IObjectIds {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IObjectIds, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IObjectIds, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IObjectIds {
     fn eq(&self, other: &Self) -> bool {
@@ -10204,7 +10204,7 @@ impl IPolicyQualifier {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPolicyQualifier, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IPolicyQualifier, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPolicyQualifier {
     fn eq(&self, other: &Self) -> bool {
@@ -10283,7 +10283,7 @@ impl IPolicyQualifiers {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPolicyQualifiers, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IPolicyQualifiers, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPolicyQualifiers {
     fn eq(&self, other: &Self) -> bool {
@@ -10393,7 +10393,7 @@ impl ISignerCertificate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISignerCertificate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISignerCertificate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISignerCertificate {
     fn eq(&self, other: &Self) -> bool {
@@ -10499,7 +10499,7 @@ impl ISignerCertificates {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISignerCertificates, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISignerCertificates, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISignerCertificates {
     fn eq(&self, other: &Self) -> bool {
@@ -10602,7 +10602,7 @@ impl ISmimeCapabilities {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISmimeCapabilities, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISmimeCapabilities, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISmimeCapabilities {
     fn eq(&self, other: &Self) -> bool {
@@ -10683,7 +10683,7 @@ impl ISmimeCapability {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISmimeCapability, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISmimeCapability, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISmimeCapability {
     fn eq(&self, other: &Self) -> bool {
@@ -10749,7 +10749,7 @@ impl IX500DistinguishedName {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX500DistinguishedName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX500DistinguishedName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX500DistinguishedName {
     fn eq(&self, other: &Self) -> bool {
@@ -10814,7 +10814,7 @@ impl IX509Attribute {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509Attribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509Attribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509Attribute {
     fn eq(&self, other: &Self) -> bool {
@@ -10910,7 +10910,7 @@ impl IX509AttributeArchiveKey {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509AttributeArchiveKey, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
+::windows::imp::interface_hierarchy!(IX509AttributeArchiveKey, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509AttributeArchiveKey {
     fn eq(&self, other: &Self) -> bool {
@@ -10992,7 +10992,7 @@ impl IX509AttributeArchiveKeyHash {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509AttributeArchiveKeyHash, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
+::windows::imp::interface_hierarchy!(IX509AttributeArchiveKeyHash, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509AttributeArchiveKeyHash {
     fn eq(&self, other: &Self) -> bool {
@@ -11078,7 +11078,7 @@ impl IX509AttributeClientId {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509AttributeClientId, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
+::windows::imp::interface_hierarchy!(IX509AttributeClientId, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509AttributeClientId {
     fn eq(&self, other: &Self) -> bool {
@@ -11163,7 +11163,7 @@ impl IX509AttributeCspProvider {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509AttributeCspProvider, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
+::windows::imp::interface_hierarchy!(IX509AttributeCspProvider, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509AttributeCspProvider {
     fn eq(&self, other: &Self) -> bool {
@@ -11246,7 +11246,7 @@ impl IX509AttributeExtensions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509AttributeExtensions, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
+::windows::imp::interface_hierarchy!(IX509AttributeExtensions, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509AttributeExtensions {
     fn eq(&self, other: &Self) -> bool {
@@ -11326,7 +11326,7 @@ impl IX509AttributeOSVersion {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509AttributeOSVersion, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
+::windows::imp::interface_hierarchy!(IX509AttributeOSVersion, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509AttributeOSVersion {
     fn eq(&self, other: &Self) -> bool {
@@ -11400,7 +11400,7 @@ impl IX509AttributeRenewalCertificate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509AttributeRenewalCertificate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
+::windows::imp::interface_hierarchy!(IX509AttributeRenewalCertificate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509AttributeRenewalCertificate {
     fn eq(&self, other: &Self) -> bool {
@@ -11474,7 +11474,7 @@ impl IX509Attributes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509Attributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509Attributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509Attributes {
     fn eq(&self, other: &Self) -> bool {
@@ -11654,7 +11654,7 @@ impl IX509CertificateRequest {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509CertificateRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequest {
     fn eq(&self, other: &Self) -> bool {
@@ -12090,7 +12090,7 @@ impl IX509CertificateRequestCertificate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestCertificate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestCertificate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestCertificate {
     fn eq(&self, other: &Self) -> bool {
@@ -12525,7 +12525,7 @@ impl IX509CertificateRequestCertificate2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestCertificate2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestCertificate);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestCertificate2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestCertificate);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestCertificate2 {
     fn eq(&self, other: &Self) -> bool {
@@ -12874,7 +12874,7 @@ impl IX509CertificateRequestCmc {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestCmc, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestCmc, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestCmc {
     fn eq(&self, other: &Self) -> bool {
@@ -13315,7 +13315,7 @@ impl IX509CertificateRequestCmc2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestCmc2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7, IX509CertificateRequestCmc);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestCmc2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7, IX509CertificateRequestCmc);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestCmc2 {
     fn eq(&self, other: &Self) -> bool {
@@ -13657,7 +13657,7 @@ impl IX509CertificateRequestPkcs10 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestPkcs10, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestPkcs10, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10 {
     fn eq(&self, other: &Self) -> bool {
@@ -14104,7 +14104,7 @@ impl IX509CertificateRequestPkcs10V2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestPkcs10V2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestPkcs10V2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -14541,7 +14541,7 @@ impl IX509CertificateRequestPkcs10V3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestPkcs10V3, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestPkcs10V2);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestPkcs10V3, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestPkcs10V2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10V3 {
     fn eq(&self, other: &Self) -> bool {
@@ -15005,7 +15005,7 @@ impl IX509CertificateRequestPkcs10V4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestPkcs10V4, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestPkcs10V2, IX509CertificateRequestPkcs10V3);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestPkcs10V4, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestPkcs10V2, IX509CertificateRequestPkcs10V3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10V4 {
     fn eq(&self, other: &Self) -> bool {
@@ -15226,7 +15226,7 @@ impl IX509CertificateRequestPkcs7 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestPkcs7, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestPkcs7, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs7 {
     fn eq(&self, other: &Self) -> bool {
@@ -15486,7 +15486,7 @@ impl IX509CertificateRequestPkcs7V2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRequestPkcs7V2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7);
+::windows::imp::interface_hierarchy!(IX509CertificateRequestPkcs7V2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs7V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -15700,7 +15700,7 @@ impl IX509CertificateRevocationList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRevocationList, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509CertificateRevocationList, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRevocationList {
     fn eq(&self, other: &Self) -> bool {
@@ -15859,7 +15859,7 @@ impl IX509CertificateRevocationListEntries {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRevocationListEntries, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509CertificateRevocationListEntries, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRevocationListEntries {
     fn eq(&self, other: &Self) -> bool {
@@ -15949,7 +15949,7 @@ impl IX509CertificateRevocationListEntry {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateRevocationListEntry, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509CertificateRevocationListEntry, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateRevocationListEntry {
     fn eq(&self, other: &Self) -> bool {
@@ -16011,7 +16011,7 @@ impl IX509CertificateTemplate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateTemplate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509CertificateTemplate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateTemplate {
     fn eq(&self, other: &Self) -> bool {
@@ -16086,7 +16086,7 @@ impl IX509CertificateTemplateWritable {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateTemplateWritable, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509CertificateTemplateWritable, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateTemplateWritable {
     fn eq(&self, other: &Self) -> bool {
@@ -16189,7 +16189,7 @@ impl IX509CertificateTemplates {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509CertificateTemplates, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509CertificateTemplates, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509CertificateTemplates {
     fn eq(&self, other: &Self) -> bool {
@@ -16305,7 +16305,7 @@ impl IX509EndorsementKey {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509EndorsementKey, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509EndorsementKey, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509EndorsementKey {
     fn eq(&self, other: &Self) -> bool {
@@ -16472,7 +16472,7 @@ impl IX509Enrollment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509Enrollment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509Enrollment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509Enrollment {
     fn eq(&self, other: &Self) -> bool {
@@ -16685,7 +16685,7 @@ impl IX509Enrollment2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509Enrollment2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Enrollment);
+::windows::imp::interface_hierarchy!(IX509Enrollment2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Enrollment);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509Enrollment2 {
     fn eq(&self, other: &Self) -> bool {
@@ -16755,7 +16755,7 @@ impl IX509EnrollmentHelper {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509EnrollmentHelper, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509EnrollmentHelper, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509EnrollmentHelper {
     fn eq(&self, other: &Self) -> bool {
@@ -16920,7 +16920,7 @@ impl IX509EnrollmentPolicyServer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509EnrollmentPolicyServer, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509EnrollmentPolicyServer, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509EnrollmentPolicyServer {
     fn eq(&self, other: &Self) -> bool {
@@ -17062,7 +17062,7 @@ impl IX509EnrollmentStatus {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509EnrollmentStatus, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509EnrollmentStatus, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509EnrollmentStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -17121,7 +17121,7 @@ impl IX509EnrollmentWebClassFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509EnrollmentWebClassFactory, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509EnrollmentWebClassFactory, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509EnrollmentWebClassFactory {
     fn eq(&self, other: &Self) -> bool {
@@ -17197,7 +17197,7 @@ impl IX509Extension {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509Extension, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509Extension, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509Extension {
     fn eq(&self, other: &Self) -> bool {
@@ -17306,7 +17306,7 @@ impl IX509ExtensionAlternativeNames {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionAlternativeNames, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionAlternativeNames, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionAlternativeNames {
     fn eq(&self, other: &Self) -> bool {
@@ -17400,7 +17400,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionAuthorityKeyIdentifier, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionAuthorityKeyIdentifier, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionAuthorityKeyIdentifier {
     fn eq(&self, other: &Self) -> bool {
@@ -17499,7 +17499,7 @@ impl IX509ExtensionBasicConstraints {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionBasicConstraints, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionBasicConstraints, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionBasicConstraints {
     fn eq(&self, other: &Self) -> bool {
@@ -17601,7 +17601,7 @@ impl IX509ExtensionCertificatePolicies {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionCertificatePolicies, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionCertificatePolicies, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionCertificatePolicies {
     fn eq(&self, other: &Self) -> bool {
@@ -17702,7 +17702,7 @@ impl IX509ExtensionEnhancedKeyUsage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionEnhancedKeyUsage, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionEnhancedKeyUsage, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionEnhancedKeyUsage {
     fn eq(&self, other: &Self) -> bool {
@@ -17796,7 +17796,7 @@ impl IX509ExtensionKeyUsage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionKeyUsage, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionKeyUsage, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionKeyUsage {
     fn eq(&self, other: &Self) -> bool {
@@ -17891,7 +17891,7 @@ impl IX509ExtensionMSApplicationPolicies {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionMSApplicationPolicies, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionMSApplicationPolicies, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionMSApplicationPolicies {
     fn eq(&self, other: &Self) -> bool {
@@ -17992,7 +17992,7 @@ impl IX509ExtensionSmimeCapabilities {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionSmimeCapabilities, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionSmimeCapabilities, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionSmimeCapabilities {
     fn eq(&self, other: &Self) -> bool {
@@ -18086,7 +18086,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionSubjectKeyIdentifier, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionSubjectKeyIdentifier, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionSubjectKeyIdentifier {
     fn eq(&self, other: &Self) -> bool {
@@ -18189,7 +18189,7 @@ impl IX509ExtensionTemplate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionTemplate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionTemplate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionTemplate {
     fn eq(&self, other: &Self) -> bool {
@@ -18285,7 +18285,7 @@ impl IX509ExtensionTemplateName {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509ExtensionTemplateName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
+::windows::imp::interface_hierarchy!(IX509ExtensionTemplateName, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509ExtensionTemplateName {
     fn eq(&self, other: &Self) -> bool {
@@ -18376,7 +18376,7 @@ impl IX509Extensions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509Extensions, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509Extensions, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509Extensions {
     fn eq(&self, other: &Self) -> bool {
@@ -18445,7 +18445,7 @@ impl IX509MachineEnrollmentFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509MachineEnrollmentFactory, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509MachineEnrollmentFactory, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509MachineEnrollmentFactory {
     fn eq(&self, other: &Self) -> bool {
@@ -18503,7 +18503,7 @@ impl IX509NameValuePair {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509NameValuePair, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509NameValuePair, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509NameValuePair {
     fn eq(&self, other: &Self) -> bool {
@@ -18577,7 +18577,7 @@ impl IX509NameValuePairs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509NameValuePairs, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509NameValuePairs, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509NameValuePairs {
     fn eq(&self, other: &Self) -> bool {
@@ -18663,7 +18663,7 @@ impl IX509PolicyServerListManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509PolicyServerListManager, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509PolicyServerListManager, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509PolicyServerListManager {
     fn eq(&self, other: &Self) -> bool {
@@ -18777,7 +18777,7 @@ impl IX509PolicyServerUrl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509PolicyServerUrl, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509PolicyServerUrl, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509PolicyServerUrl {
     fn eq(&self, other: &Self) -> bool {
@@ -19098,7 +19098,7 @@ impl IX509PrivateKey {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509PrivateKey, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509PrivateKey, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509PrivateKey {
     fn eq(&self, other: &Self) -> bool {
@@ -19542,7 +19542,7 @@ impl IX509PrivateKey2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509PrivateKey2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509PrivateKey);
+::windows::imp::interface_hierarchy!(IX509PrivateKey2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509PrivateKey);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509PrivateKey2 {
     fn eq(&self, other: &Self) -> bool {
@@ -19628,7 +19628,7 @@ impl IX509PublicKey {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509PublicKey, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509PublicKey, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509PublicKey {
     fn eq(&self, other: &Self) -> bool {
@@ -19793,7 +19793,7 @@ impl IX509SCEPEnrollment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509SCEPEnrollment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509SCEPEnrollment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509SCEPEnrollment {
     fn eq(&self, other: &Self) -> bool {
@@ -20017,7 +20017,7 @@ impl IX509SCEPEnrollment2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509SCEPEnrollment2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509SCEPEnrollment);
+::windows::imp::interface_hierarchy!(IX509SCEPEnrollment2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IX509SCEPEnrollment);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509SCEPEnrollment2 {
     fn eq(&self, other: &Self) -> bool {
@@ -20095,7 +20095,7 @@ impl IX509SCEPEnrollmentHelper {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509SCEPEnrollmentHelper, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509SCEPEnrollmentHelper, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509SCEPEnrollmentHelper {
     fn eq(&self, other: &Self) -> bool {
@@ -20232,7 +20232,7 @@ impl IX509SignatureInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IX509SignatureInformation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IX509SignatureInformation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IX509SignatureInformation {
     fn eq(&self, other: &Self) -> bool {

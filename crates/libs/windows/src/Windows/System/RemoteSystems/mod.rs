@@ -537,7 +537,7 @@ pub struct IRemoteSystemEnumerationCompletedEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct IRemoteSystemFilter(::windows::core::IUnknown);
 impl IRemoteSystemFilter {}
-::windows::core::interface_hierarchy!(IRemoteSystemFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IRemoteSystemFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IRemoteSystemFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -550,7 +550,7 @@ impl ::core::fmt::Debug for IRemoteSystemFilter {
     }
 }
 impl ::windows::core::RuntimeType for IRemoteSystemFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4a3ba9e4-99eb-45eb-ba16-0367728ff374}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4a3ba9e4-99eb-45eb-ba16-0367728ff374}");
 }
 unsafe impl ::windows::core::Vtable for IRemoteSystemFilter {
     type Vtable = IRemoteSystemFilter_Vtbl;
@@ -1644,7 +1644,7 @@ impl KnownRemoteSystemCapabilities {
     }
     #[doc(hidden)]
     pub fn IKnownRemoteSystemCapabilitiesStatics<R, F: FnOnce(&IKnownRemoteSystemCapabilitiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownRemoteSystemCapabilities, IKnownRemoteSystemCapabilitiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownRemoteSystemCapabilities, IKnownRemoteSystemCapabilitiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1803,17 +1803,17 @@ impl RemoteSystem {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemStatics<R, F: FnOnce(&IRemoteSystemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystem, IRemoteSystemStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystem, IRemoteSystemStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRemoteSystemStatics2<R, F: FnOnce(&IRemoteSystemStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystem, IRemoteSystemStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystem, IRemoteSystemStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRemoteSystemStatics3<R, F: FnOnce(&IRemoteSystemStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystem, IRemoteSystemStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystem, IRemoteSystemStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1829,7 +1829,7 @@ impl ::core::fmt::Debug for RemoteSystem {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystem;{ed5838cd-1e10-4a8c-b4a6-4e5fd6f97721})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystem;{ed5838cd-1e10-4a8c-b4a6-4e5fd6f97721})");
 }
 impl ::core::clone::Clone for RemoteSystem {
     fn clone(&self) -> Self {
@@ -1845,7 +1845,7 @@ unsafe impl ::windows::core::Interface for RemoteSystem {
 impl ::windows::core::RuntimeName for RemoteSystem {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystem";
 }
-::windows::core::interface_hierarchy!(RemoteSystem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystem {}
 unsafe impl ::core::marker::Sync for RemoteSystem {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -1872,7 +1872,7 @@ impl ::core::fmt::Debug for RemoteSystemAddedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAddedEventArgs;{8f39560f-e534-4697-8836-7abea151516e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAddedEventArgs;{8f39560f-e534-4697-8836-7abea151516e})");
 }
 impl ::core::clone::Clone for RemoteSystemAddedEventArgs {
     fn clone(&self) -> Self {
@@ -1888,7 +1888,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemAddedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAddedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemAddedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -1959,7 +1959,7 @@ impl ::core::fmt::Debug for RemoteSystemApp {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemApp {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemApp;{80e5bcbd-d54d-41b1-9b16-6810a871ed4f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemApp;{80e5bcbd-d54d-41b1-9b16-6810a871ed4f})");
 }
 impl ::core::clone::Clone for RemoteSystemApp {
     fn clone(&self) -> Self {
@@ -1975,7 +1975,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemApp {
 impl ::windows::core::RuntimeName for RemoteSystemApp {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemApp";
 }
-::windows::core::interface_hierarchy!(RemoteSystemApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemApp {}
 unsafe impl ::core::marker::Sync for RemoteSystemApp {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2021,7 +2021,7 @@ impl RemoteSystemAppRegistration {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemAppRegistrationStatics<R, F: FnOnce(&IRemoteSystemAppRegistrationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemAppRegistration, IRemoteSystemAppRegistrationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemAppRegistration, IRemoteSystemAppRegistrationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2037,7 +2037,7 @@ impl ::core::fmt::Debug for RemoteSystemAppRegistration {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemAppRegistration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAppRegistration;{b47947b5-7035-4a5a-b8df-962d8f8431f4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAppRegistration;{b47947b5-7035-4a5a-b8df-962d8f8431f4})");
 }
 impl ::core::clone::Clone for RemoteSystemAppRegistration {
     fn clone(&self) -> Self {
@@ -2053,7 +2053,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemAppRegistration {
 impl ::windows::core::RuntimeName for RemoteSystemAppRegistration {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAppRegistration";
 }
-::windows::core::interface_hierarchy!(RemoteSystemAppRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemAppRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemAppRegistration {}
 unsafe impl ::core::marker::Sync for RemoteSystemAppRegistration {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2075,7 +2075,7 @@ impl RemoteSystemAuthorizationKindFilter {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemAuthorizationKindFilterFactory<R, F: FnOnce(&IRemoteSystemAuthorizationKindFilterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemAuthorizationKindFilter, IRemoteSystemAuthorizationKindFilterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemAuthorizationKindFilter, IRemoteSystemAuthorizationKindFilterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2091,7 +2091,7 @@ impl ::core::fmt::Debug for RemoteSystemAuthorizationKindFilter {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKindFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter;{6b0dde8e-04d0-40f4-a27f-c2acbbd6b734})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter;{6b0dde8e-04d0-40f4-a27f-c2acbbd6b734})");
 }
 impl ::core::clone::Clone for RemoteSystemAuthorizationKindFilter {
     fn clone(&self) -> Self {
@@ -2107,7 +2107,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemAuthorizationKindFilter {
 impl ::windows::core::RuntimeName for RemoteSystemAuthorizationKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter";
 }
-::windows::core::interface_hierarchy!(RemoteSystemAuthorizationKindFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemAuthorizationKindFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemAuthorizationKindFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemAuthorizationKindFilter) -> ::windows::core::Result<Self> {
@@ -2150,7 +2150,7 @@ impl RemoteSystemConnectionInfo {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemConnectionInfoStatics<R, F: FnOnce(&IRemoteSystemConnectionInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemConnectionInfo, IRemoteSystemConnectionInfoStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemConnectionInfo, IRemoteSystemConnectionInfoStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2166,7 +2166,7 @@ impl ::core::fmt::Debug for RemoteSystemConnectionInfo {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemConnectionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemConnectionInfo;{23278bc3-0d09-52cb-9c6a-eed2940bee43})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemConnectionInfo;{23278bc3-0d09-52cb-9c6a-eed2940bee43})");
 }
 impl ::core::clone::Clone for RemoteSystemConnectionInfo {
     fn clone(&self) -> Self {
@@ -2182,7 +2182,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemConnectionInfo {
 impl ::windows::core::RuntimeName for RemoteSystemConnectionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionInfo";
 }
-::windows::core::interface_hierarchy!(RemoteSystemConnectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemConnectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemConnectionInfo {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionInfo {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2236,17 +2236,17 @@ impl RemoteSystemConnectionRequest {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemConnectionRequestFactory<R, F: FnOnce(&IRemoteSystemConnectionRequestFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemConnectionRequest, IRemoteSystemConnectionRequestFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemConnectionRequest, IRemoteSystemConnectionRequestFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRemoteSystemConnectionRequestStatics<R, F: FnOnce(&IRemoteSystemConnectionRequestStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemConnectionRequest, IRemoteSystemConnectionRequestStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemConnectionRequest, IRemoteSystemConnectionRequestStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRemoteSystemConnectionRequestStatics2<R, F: FnOnce(&IRemoteSystemConnectionRequestStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemConnectionRequest, IRemoteSystemConnectionRequestStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemConnectionRequest, IRemoteSystemConnectionRequestStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2262,7 +2262,7 @@ impl ::core::fmt::Debug for RemoteSystemConnectionRequest {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemConnectionRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemConnectionRequest;{84ed4104-8d5e-4d72-8238-7621576c7a67})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemConnectionRequest;{84ed4104-8d5e-4d72-8238-7621576c7a67})");
 }
 impl ::core::clone::Clone for RemoteSystemConnectionRequest {
     fn clone(&self) -> Self {
@@ -2278,7 +2278,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemConnectionRequest {
 impl ::windows::core::RuntimeName for RemoteSystemConnectionRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionRequest";
 }
-::windows::core::interface_hierarchy!(RemoteSystemConnectionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemConnectionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemConnectionRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionRequest {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2300,7 +2300,7 @@ impl RemoteSystemDiscoveryTypeFilter {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemDiscoveryTypeFilterFactory<R, F: FnOnce(&IRemoteSystemDiscoveryTypeFilterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemDiscoveryTypeFilter, IRemoteSystemDiscoveryTypeFilterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemDiscoveryTypeFilter, IRemoteSystemDiscoveryTypeFilterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2316,7 +2316,7 @@ impl ::core::fmt::Debug for RemoteSystemDiscoveryTypeFilter {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemDiscoveryTypeFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter;{42d9041f-ee5a-43da-ac6a-6fee25460741})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter;{42d9041f-ee5a-43da-ac6a-6fee25460741})");
 }
 impl ::core::clone::Clone for RemoteSystemDiscoveryTypeFilter {
     fn clone(&self) -> Self {
@@ -2332,7 +2332,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemDiscoveryTypeFilter {
 impl ::windows::core::RuntimeName for RemoteSystemDiscoveryTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter";
 }
-::windows::core::interface_hierarchy!(RemoteSystemDiscoveryTypeFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemDiscoveryTypeFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemDiscoveryTypeFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemDiscoveryTypeFilter) -> ::windows::core::Result<Self> {
@@ -2370,7 +2370,7 @@ impl ::core::fmt::Debug for RemoteSystemEnumerationCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemEnumerationCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs;{c6e83d5f-4030-4354-a060-14f1b22c545d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs;{c6e83d5f-4030-4354-a060-14f1b22c545d})");
 }
 impl ::core::clone::Clone for RemoteSystemEnumerationCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -2386,7 +2386,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemEnumerationCompletedEvent
 impl ::windows::core::RuntimeName for RemoteSystemEnumerationCompletedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemEnumerationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemEnumerationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemEnumerationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemEnumerationCompletedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2416,7 +2416,7 @@ impl RemoteSystemKindFilter {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemKindFilterFactory<R, F: FnOnce(&IRemoteSystemKindFilterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemKindFilter, IRemoteSystemKindFilterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemKindFilter, IRemoteSystemKindFilterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2432,7 +2432,7 @@ impl ::core::fmt::Debug for RemoteSystemKindFilter {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemKindFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemKindFilter;{38e1c9ec-22c3-4ef6-901a-bbb1c7aad4ed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemKindFilter;{38e1c9ec-22c3-4ef6-901a-bbb1c7aad4ed})");
 }
 impl ::core::clone::Clone for RemoteSystemKindFilter {
     fn clone(&self) -> Self {
@@ -2448,7 +2448,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemKindFilter {
 impl ::windows::core::RuntimeName for RemoteSystemKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemKindFilter";
 }
-::windows::core::interface_hierarchy!(RemoteSystemKindFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemKindFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemKindFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemKindFilter) -> ::windows::core::Result<Self> {
@@ -2523,12 +2523,12 @@ impl RemoteSystemKinds {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemKindStatics<R, F: FnOnce(&IRemoteSystemKindStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemKinds, IRemoteSystemKindStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemKinds, IRemoteSystemKindStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRemoteSystemKindStatics2<R, F: FnOnce(&IRemoteSystemKindStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemKinds, IRemoteSystemKindStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemKinds, IRemoteSystemKindStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2559,7 +2559,7 @@ impl ::core::fmt::Debug for RemoteSystemRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs;{8b3d16bb-7306-49ea-b7df-67d5714cb013})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs;{8b3d16bb-7306-49ea-b7df-67d5714cb013})");
 }
 impl ::core::clone::Clone for RemoteSystemRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -2575,7 +2575,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemRemovedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemRemovedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2648,7 +2648,7 @@ impl RemoteSystemSession {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemSessionStatics<R, F: FnOnce(&IRemoteSystemSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemSession, IRemoteSystemSessionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemSession, IRemoteSystemSessionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2664,7 +2664,7 @@ impl ::core::fmt::Debug for RemoteSystemSession {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSession;{69476a01-9ada-490f-9549-d31cb14c9e95})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSession;{69476a01-9ada-490f-9549-d31cb14c9e95})");
 }
 impl ::core::clone::Clone for RemoteSystemSession {
     fn clone(&self) -> Self {
@@ -2680,7 +2680,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSession {
 impl ::windows::core::RuntimeName for RemoteSystemSession {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSession";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<RemoteSystemSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2729,7 +2729,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionAddedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs;{d585d754-bc97-4c39-99b4-beca76e04c3f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs;{d585d754-bc97-4c39-99b4-beca76e04c3f})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionAddedEventArgs {
     fn clone(&self) -> Self {
@@ -2745,7 +2745,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionAddedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemSessionAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionAddedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2799,7 +2799,7 @@ impl RemoteSystemSessionController {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemSessionControllerFactory<R, F: FnOnce(&IRemoteSystemSessionControllerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemSessionController, IRemoteSystemSessionControllerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemSessionController, IRemoteSystemSessionControllerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2815,7 +2815,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionController {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionController;{e48b2dd2-6820-4867-b425-d89c0a3ef7ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionController;{e48b2dd2-6820-4867-b425-d89c0a3ef7ba})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionController {
     fn clone(&self) -> Self {
@@ -2831,7 +2831,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionController {
 impl ::windows::core::RuntimeName for RemoteSystemSessionController {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionController";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionController {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionController {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2865,7 +2865,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionCreationResult {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionCreationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionCreationResult;{a79812c2-37de-448c-8b83-a30aa3c4ead6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionCreationResult;{a79812c2-37de-448c-8b83-a30aa3c4ead6})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionCreationResult {
     fn clone(&self) -> Self {
@@ -2881,7 +2881,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionCreationResult {
 impl ::windows::core::RuntimeName for RemoteSystemSessionCreationResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionCreationResult";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionCreationResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionCreationResult {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2908,7 +2908,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs;{de0bc69b-77c5-461c-8209-7c6c5d3111ab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs;{de0bc69b-77c5-461c-8209-7c6c5d3111ab})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionDisconnectedEventArgs {
     fn clone(&self) -> Self {
@@ -2924,7 +2924,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionDisconnectedEventA
 impl ::windows::core::RuntimeName for RemoteSystemSessionDisconnectedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionDisconnectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionDisconnectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionDisconnectedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2967,7 +2967,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionInfo {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInfo;{ff4df648-8b0a-4e9a-9905-69e4b841c588})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInfo;{ff4df648-8b0a-4e9a-9905-69e4b841c588})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionInfo {
     fn clone(&self) -> Self {
@@ -2983,7 +2983,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionInfo {
 impl ::windows::core::RuntimeName for RemoteSystemSessionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInfo";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionInfo {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInfo {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3017,7 +3017,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionInvitation {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionInvitation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitation;{3e32cc91-51d7-4766-a121-25516c3b8294})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitation;{3e32cc91-51d7-4766-a121-25516c3b8294})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionInvitation {
     fn clone(&self) -> Self {
@@ -3033,7 +3033,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionInvitation {
 impl ::windows::core::RuntimeName for RemoteSystemSessionInvitation {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitation";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionInvitation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionInvitation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitation {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitation {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3043,8 +3043,8 @@ impl RemoteSystemSessionInvitationListener {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemSessionInvitationListener, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemSessionInvitationListener, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3075,7 +3075,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionInvitationListener {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionInvitationListener {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener;{08f4003f-bc71-49e1-874a-31ddff9a27b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener;{08f4003f-bc71-49e1-874a-31ddff9a27b9})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionInvitationListener {
     fn clone(&self) -> Self {
@@ -3091,7 +3091,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionInvitationListener
 impl ::windows::core::RuntimeName for RemoteSystemSessionInvitationListener {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionInvitationListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionInvitationListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationListener {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationListener {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3118,7 +3118,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionInvitationReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionInvitationReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs;{5e964a2d-a10d-4edb-8dea-54d20ac19543})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs;{5e964a2d-a10d-4edb-8dea-54d20ac19543})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionInvitationReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3134,7 +3134,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionInvitationReceived
 impl ::windows::core::RuntimeName for RemoteSystemSessionInvitationReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionInvitationReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionInvitationReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationReceivedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3165,7 +3165,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionJoinRequest {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionJoinRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest;{20600068-7994-4331-86d1-d89d882585ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest;{20600068-7994-4331-86d1-d89d882585ee})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionJoinRequest {
     fn clone(&self) -> Self {
@@ -3181,7 +3181,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionJoinRequest {
 impl ::windows::core::RuntimeName for RemoteSystemSessionJoinRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionJoinRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionJoinRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequest {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3217,7 +3217,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionJoinRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionJoinRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs;{dbca4fc3-82b9-4816-9c24-e40e61774bd8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs;{dbca4fc3-82b9-4816-9c24-e40e61774bd8})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionJoinRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -3233,7 +3233,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionJoinRequestedEvent
 impl ::windows::core::RuntimeName for RemoteSystemSessionJoinRequestedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionJoinRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionJoinRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequestedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3267,7 +3267,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionJoinResult {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionJoinResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinResult;{ce7b1f04-a03e-41a4-900b-1e79328c1267})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinResult;{ce7b1f04-a03e-41a4-900b-1e79328c1267})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionJoinResult {
     fn clone(&self) -> Self {
@@ -3283,7 +3283,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionJoinResult {
 impl ::windows::core::RuntimeName for RemoteSystemSessionJoinResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinResult";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionJoinResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionJoinResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinResult {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3357,7 +3357,7 @@ impl RemoteSystemSessionMessageChannel {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemSessionMessageChannelFactory<R, F: FnOnce(&IRemoteSystemSessionMessageChannelFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemSessionMessageChannel, IRemoteSystemSessionMessageChannelFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemSessionMessageChannel, IRemoteSystemSessionMessageChannelFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3373,7 +3373,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionMessageChannel {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel;{9524d12a-73d9-4c10-b751-c26784437127})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel;{9524d12a-73d9-4c10-b751-c26784437127})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionMessageChannel {
     fn clone(&self) -> Self {
@@ -3389,7 +3389,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionMessageChannel {
 impl ::windows::core::RuntimeName for RemoteSystemSessionMessageChannel {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionMessageChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionMessageChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionMessageChannel {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionMessageChannel {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3399,8 +3399,8 @@ impl RemoteSystemSessionOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemSessionOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemSessionOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn IsInviteOnly(&self) -> ::windows::core::Result<bool> {
@@ -3427,7 +3427,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionOptions {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionOptions;{740ed755-8418-4f01-9353-e21c9ecc6cfc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionOptions;{740ed755-8418-4f01-9353-e21c9ecc6cfc})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionOptions {
     fn clone(&self) -> Self {
@@ -3443,7 +3443,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionOptions {
 impl ::windows::core::RuntimeName for RemoteSystemSessionOptions {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionOptions";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionOptions {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionOptions {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3479,7 +3479,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionParticipant {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionParticipant {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipant;{7e90058c-acf9-4729-8a17-44e7baed5dcc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipant;{7e90058c-acf9-4729-8a17-44e7baed5dcc})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionParticipant {
     fn clone(&self) -> Self {
@@ -3495,7 +3495,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipant {
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipant {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipant";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionParticipant, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionParticipant, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipant {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipant {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3522,7 +3522,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionParticipantAddedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs;{d35a57d8-c9a1-4bb7-b6b0-79bb91adf93d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs;{d35a57d8-c9a1-4bb7-b6b0-79bb91adf93d})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionParticipantAddedEventArgs {
     fn clone(&self) -> Self {
@@ -3538,7 +3538,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipantAddedEv
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipantAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionParticipantAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionParticipantAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantAddedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3565,7 +3565,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionParticipantRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs;{866ef088-de68-4abf-88a1-f90d16274192})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs;{866ef088-de68-4abf-88a1-f90d16274192})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionParticipantRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -3581,7 +3581,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipantRemoved
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipantRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionParticipantRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionParticipantRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantRemovedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3661,7 +3661,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcher {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher;{dcdd02cc-aa87-4d79-b6cc-4459b3e92075})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher;{dcdd02cc-aa87-4d79-b6cc-4459b3e92075})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcher {
     fn clone(&self) -> Self {
@@ -3677,7 +3677,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipantWatcher
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipantWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionParticipantWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionParticipantWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3704,7 +3704,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs;{af82914e-39a1-4dea-9d63-43798d5bbbd0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs;{af82914e-39a1-4dea-9d63-43798d5bbbd0})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -3720,7 +3720,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionRemovedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemSessionRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionRemovedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3747,7 +3747,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs;{16875069-231e-4c91-8ec8-b3a39d9e55a3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs;{16875069-231e-4c91-8ec8-b3a39d9e55a3})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -3763,7 +3763,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionUpdatedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemSessionUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionUpdatedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3799,7 +3799,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionValueSetReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionValueSetReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs;{06f31785-2da5-4e58-a78f-9e8d0784ee25})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs;{06f31785-2da5-4e58-a78f-9e8d0784ee25})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionValueSetReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3815,7 +3815,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionValueSetReceivedEv
 impl ::windows::core::RuntimeName for RemoteSystemSessionValueSetReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionValueSetReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionValueSetReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionValueSetReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionValueSetReceivedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3895,7 +3895,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionWatcher {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionWatcher;{8003e340-0c41-4a62-b6d7-bdbe2b19be2d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionWatcher;{8003e340-0c41-4a62-b6d7-bdbe2b19be2d})");
 }
 impl ::core::clone::Clone for RemoteSystemSessionWatcher {
     fn clone(&self) -> Self {
@@ -3911,7 +3911,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionWatcher {
 impl ::windows::core::RuntimeName for RemoteSystemSessionWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionWatcher";
 }
-::windows::core::interface_hierarchy!(RemoteSystemSessionWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemSessionWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3933,7 +3933,7 @@ impl RemoteSystemStatusTypeFilter {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemStatusTypeFilterFactory<R, F: FnOnce(&IRemoteSystemStatusTypeFilterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemStatusTypeFilter, IRemoteSystemStatusTypeFilterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemStatusTypeFilter, IRemoteSystemStatusTypeFilterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3949,7 +3949,7 @@ impl ::core::fmt::Debug for RemoteSystemStatusTypeFilter {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemStatusTypeFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter;{0c39514e-cbb6-4777-8534-2e0c521affa2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter;{0c39514e-cbb6-4777-8534-2e0c521affa2})");
 }
 impl ::core::clone::Clone for RemoteSystemStatusTypeFilter {
     fn clone(&self) -> Self {
@@ -3965,7 +3965,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemStatusTypeFilter {
 impl ::windows::core::RuntimeName for RemoteSystemStatusTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter";
 }
-::windows::core::interface_hierarchy!(RemoteSystemStatusTypeFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemStatusTypeFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemStatusTypeFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemStatusTypeFilter) -> ::windows::core::Result<Self> {
@@ -4011,7 +4011,7 @@ impl ::core::fmt::Debug for RemoteSystemUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs;{7502ff0e-dbcb-4155-b4ca-b30a04f27627})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs;{7502ff0e-dbcb-4155-b4ca-b30a04f27627})");
 }
 impl ::core::clone::Clone for RemoteSystemUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -4027,7 +4027,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemUpdatedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemUpdatedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4137,7 +4137,7 @@ impl ::core::fmt::Debug for RemoteSystemWatcher {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWatcher;{5d600c7e-2c07-48c5-889c-455d2b099771})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWatcher;{5d600c7e-2c07-48c5-889c-455d2b099771})");
 }
 impl ::core::clone::Clone for RemoteSystemWatcher {
     fn clone(&self) -> Self {
@@ -4153,7 +4153,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemWatcher {
 impl ::windows::core::RuntimeName for RemoteSystemWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcher";
 }
-::windows::core::interface_hierarchy!(RemoteSystemWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4180,7 +4180,7 @@ impl ::core::fmt::Debug for RemoteSystemWatcherErrorOccurredEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemWatcherErrorOccurredEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs;{74c5c6af-5114-4426-9216-20d81f8519ae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs;{74c5c6af-5114-4426-9216-20d81f8519ae})");
 }
 impl ::core::clone::Clone for RemoteSystemWatcherErrorOccurredEventArgs {
     fn clone(&self) -> Self {
@@ -4196,7 +4196,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemWatcherErrorOccurredEvent
 impl ::windows::core::RuntimeName for RemoteSystemWatcherErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteSystemWatcherErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemWatcherErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemWatcherErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemWatcherErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4222,7 +4222,7 @@ impl RemoteSystemWebAccountFilter {
     }
     #[doc(hidden)]
     pub fn IRemoteSystemWebAccountFilterFactory<R, F: FnOnce(&IRemoteSystemWebAccountFilterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteSystemWebAccountFilter, IRemoteSystemWebAccountFilterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteSystemWebAccountFilter, IRemoteSystemWebAccountFilterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4238,7 +4238,7 @@ impl ::core::fmt::Debug for RemoteSystemWebAccountFilter {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemWebAccountFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWebAccountFilter;{3fb75873-87c8-5d8f-977e-f69f96d67238})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWebAccountFilter;{3fb75873-87c8-5d8f-977e-f69f96d67238})");
 }
 impl ::core::clone::Clone for RemoteSystemWebAccountFilter {
     fn clone(&self) -> Self {
@@ -4254,7 +4254,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemWebAccountFilter {
 impl ::windows::core::RuntimeName for RemoteSystemWebAccountFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWebAccountFilter";
 }
-::windows::core::interface_hierarchy!(RemoteSystemWebAccountFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteSystemWebAccountFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemWebAccountFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemWebAccountFilter) -> ::windows::core::Result<Self> {
@@ -4306,7 +4306,7 @@ impl ::core::fmt::Debug for RemoteSystemAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAccessStatus;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4336,7 +4336,7 @@ impl ::core::fmt::Debug for RemoteSystemAuthorizationKind {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAuthorizationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAuthorizationKind;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4368,7 +4368,7 @@ impl ::core::fmt::Debug for RemoteSystemDiscoveryType {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemDiscoveryType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemDiscoveryType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemDiscoveryType;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4401,7 +4401,7 @@ impl ::core::fmt::Debug for RemoteSystemPlatform {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemPlatform {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemPlatform;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemPlatform;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4432,7 +4432,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionCreationStatus {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4463,7 +4463,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedReason {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4496,7 +4496,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionJoinStatus {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionJoinStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4526,7 +4526,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionMessageChannelReliability {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannelReliability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4560,7 +4560,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4594,7 +4594,7 @@ impl ::core::fmt::Debug for RemoteSystemSessionWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemSessionWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4626,7 +4626,7 @@ impl ::core::fmt::Debug for RemoteSystemStatus {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatus;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4656,7 +4656,7 @@ impl ::core::fmt::Debug for RemoteSystemStatusType {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemStatusType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatusType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatusType;i4)");
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -4687,7 +4687,7 @@ impl ::core::fmt::Debug for RemoteSystemWatcherError {
     }
 }
 impl ::windows::core::RuntimeType for RemoteSystemWatcherError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemWatcherError;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemWatcherError;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

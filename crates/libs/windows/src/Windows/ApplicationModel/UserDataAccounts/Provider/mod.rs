@@ -57,7 +57,7 @@ impl IUserDataAccountProviderOperation {
         }
     }
 }
-::windows::core::interface_hierarchy!(IUserDataAccountProviderOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IUserDataAccountProviderOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IUserDataAccountProviderOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -70,7 +70,7 @@ impl ::core::fmt::Debug for IUserDataAccountProviderOperation {
     }
 }
 impl ::windows::core::RuntimeType for IUserDataAccountProviderOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a20aad63-888c-4a62-a3dd-34d07a802b2b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a20aad63-888c-4a62-a3dd-34d07a802b2b}");
 }
 unsafe impl ::windows::core::Vtable for IUserDataAccountProviderOperation {
     type Vtable = IUserDataAccountProviderOperation_Vtbl;
@@ -169,7 +169,7 @@ impl ::core::fmt::Debug for UserDataAccountPartnerAccountInfo {
     }
 }
 impl ::windows::core::RuntimeType for UserDataAccountPartnerAccountInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo;{5f200037-f6ef-4ec3-8630-012c59c1149f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo;{5f200037-f6ef-4ec3-8630-012c59c1149f})");
 }
 impl ::core::clone::Clone for UserDataAccountPartnerAccountInfo {
     fn clone(&self) -> Self {
@@ -185,7 +185,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountPartnerAccountInfo {
 impl ::windows::core::RuntimeName for UserDataAccountPartnerAccountInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo";
 }
-::windows::core::interface_hierarchy!(UserDataAccountPartnerAccountInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataAccountPartnerAccountInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAccountPartnerAccountInfo {}
 unsafe impl ::core::marker::Sync for UserDataAccountPartnerAccountInfo {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
@@ -232,7 +232,7 @@ impl ::core::fmt::Debug for UserDataAccountProviderAddAccountOperation {
     }
 }
 impl ::windows::core::RuntimeType for UserDataAccountProviderAddAccountOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation;{b9c72530-3f84-4b5d-8eaa-45e97aa842ed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation;{b9c72530-3f84-4b5d-8eaa-45e97aa842ed})");
 }
 impl ::core::clone::Clone for UserDataAccountProviderAddAccountOperation {
     fn clone(&self) -> Self {
@@ -248,7 +248,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountProviderAddAccountOper
 impl ::windows::core::RuntimeName for UserDataAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation";
 }
-::windows::core::interface_hierarchy!(UserDataAccountProviderAddAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataAccountProviderAddAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserDataAccountProviderAddAccountOperation> for IUserDataAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: UserDataAccountProviderAddAccountOperation) -> ::windows::core::Result<Self> {
@@ -305,7 +305,7 @@ impl ::core::fmt::Debug for UserDataAccountProviderResolveErrorsOperation {
     }
 }
 impl ::windows::core::RuntimeType for UserDataAccountProviderResolveErrorsOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation;{6235dc15-bfcb-41e1-9957-9759a28846cc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation;{6235dc15-bfcb-41e1-9957-9759a28846cc})");
 }
 impl ::core::clone::Clone for UserDataAccountProviderResolveErrorsOperation {
     fn clone(&self) -> Self {
@@ -321,7 +321,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountProviderResolveErrorsO
 impl ::windows::core::RuntimeName for UserDataAccountProviderResolveErrorsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation";
 }
-::windows::core::interface_hierarchy!(UserDataAccountProviderResolveErrorsOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataAccountProviderResolveErrorsOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserDataAccountProviderResolveErrorsOperation> for IUserDataAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: UserDataAccountProviderResolveErrorsOperation) -> ::windows::core::Result<Self> {
@@ -378,7 +378,7 @@ impl ::core::fmt::Debug for UserDataAccountProviderSettingsOperation {
     }
 }
 impl ::windows::core::RuntimeType for UserDataAccountProviderSettingsOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation;{92034db7-8648-4f30-acfa-3002658ca80d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation;{92034db7-8648-4f30-acfa-3002658ca80d})");
 }
 impl ::core::clone::Clone for UserDataAccountProviderSettingsOperation {
     fn clone(&self) -> Self {
@@ -394,7 +394,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountProviderSettingsOperat
 impl ::windows::core::RuntimeName for UserDataAccountProviderSettingsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation";
 }
-::windows::core::interface_hierarchy!(UserDataAccountProviderSettingsOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataAccountProviderSettingsOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserDataAccountProviderSettingsOperation> for IUserDataAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: UserDataAccountProviderSettingsOperation) -> ::windows::core::Result<Self> {
@@ -445,7 +445,7 @@ impl ::core::fmt::Debug for UserDataAccountProviderOperationKind {
     }
 }
 impl ::windows::core::RuntimeType for UserDataAccountProviderOperationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
@@ -475,7 +475,7 @@ impl ::core::fmt::Debug for UserDataAccountProviderPartnerAccountKind {
     }
 }
 impl ::windows::core::RuntimeType for UserDataAccountProviderPartnerAccountKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

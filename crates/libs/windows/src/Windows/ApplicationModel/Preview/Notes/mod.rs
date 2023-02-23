@@ -197,7 +197,7 @@ impl ::core::fmt::Debug for NotePlacementChangedPreviewEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for NotePlacementChangedPreviewEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs;{491d57b7-f780-4e7f-a939-9a4caf965214})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs;{491d57b7-f780-4e7f-a939-9a4caf965214})");
 }
 impl ::core::clone::Clone for NotePlacementChangedPreviewEventArgs {
     fn clone(&self) -> Self {
@@ -213,7 +213,7 @@ unsafe impl ::windows::core::Interface for NotePlacementChangedPreviewEventArgs 
 impl ::windows::core::RuntimeName for NotePlacementChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs";
 }
-::windows::core::interface_hierarchy!(NotePlacementChangedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NotePlacementChangedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotePlacementChangedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for NotePlacementChangedPreviewEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
@@ -247,7 +247,7 @@ impl ::core::fmt::Debug for NoteVisibilityChangedPreviewEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for NoteVisibilityChangedPreviewEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs;{0e34649e-3815-4ff6-83b3-a14d17120e24})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs;{0e34649e-3815-4ff6-83b3-a14d17120e24})");
 }
 impl ::core::clone::Clone for NoteVisibilityChangedPreviewEventArgs {
     fn clone(&self) -> Self {
@@ -263,7 +263,7 @@ unsafe impl ::windows::core::Interface for NoteVisibilityChangedPreviewEventArgs
 impl ::windows::core::RuntimeName for NoteVisibilityChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs";
 }
-::windows::core::interface_hierarchy!(NoteVisibilityChangedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NoteVisibilityChangedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NoteVisibilityChangedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for NoteVisibilityChangedPreviewEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
@@ -414,7 +414,7 @@ impl NotesWindowManagerPreview {
     }
     #[doc(hidden)]
     pub fn INotesWindowManagerPreviewStatics<R, F: FnOnce(&INotesWindowManagerPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NotesWindowManagerPreview, INotesWindowManagerPreviewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NotesWindowManagerPreview, INotesWindowManagerPreviewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -430,7 +430,7 @@ impl ::core::fmt::Debug for NotesWindowManagerPreview {
     }
 }
 impl ::windows::core::RuntimeType for NotesWindowManagerPreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview;{dc2ac23e-4850-4f13-9cc7-ff487efdfcde})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview;{dc2ac23e-4850-4f13-9cc7-ff487efdfcde})");
 }
 impl ::core::clone::Clone for NotesWindowManagerPreview {
     fn clone(&self) -> Self {
@@ -446,7 +446,7 @@ unsafe impl ::windows::core::Interface for NotesWindowManagerPreview {
 impl ::windows::core::RuntimeName for NotesWindowManagerPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview";
 }
-::windows::core::interface_hierarchy!(NotesWindowManagerPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NotesWindowManagerPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotesWindowManagerPreview {}
 unsafe impl ::core::marker::Sync for NotesWindowManagerPreview {}
 #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
@@ -456,8 +456,8 @@ impl NotesWindowManagerPreviewShowNoteOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NotesWindowManagerPreviewShowNoteOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<NotesWindowManagerPreviewShowNoteOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ShowWithFocus(&self) -> ::windows::core::Result<bool> {
@@ -484,7 +484,7 @@ impl ::core::fmt::Debug for NotesWindowManagerPreviewShowNoteOptions {
     }
 }
 impl ::windows::core::RuntimeType for NotesWindowManagerPreviewShowNoteOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions;{886b09d6-a6ae-4007-a56d-1ca70c84c0d2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions;{886b09d6-a6ae-4007-a56d-1ca70c84c0d2})");
 }
 impl ::core::clone::Clone for NotesWindowManagerPreviewShowNoteOptions {
     fn clone(&self) -> Self {
@@ -500,7 +500,7 @@ unsafe impl ::windows::core::Interface for NotesWindowManagerPreviewShowNoteOpti
 impl ::windows::core::RuntimeName for NotesWindowManagerPreviewShowNoteOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions";
 }
-::windows::core::interface_hierarchy!(NotesWindowManagerPreviewShowNoteOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NotesWindowManagerPreviewShowNoteOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotesWindowManagerPreviewShowNoteOptions {}
 unsafe impl ::core::marker::Sync for NotesWindowManagerPreviewShowNoteOptions {}
 #[cfg(feature = "implement")]

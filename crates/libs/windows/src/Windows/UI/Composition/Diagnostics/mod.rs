@@ -106,7 +106,7 @@ impl ::core::fmt::Debug for CompositionDebugHeatMaps {
     }
 }
 impl ::windows::core::RuntimeType for CompositionDebugHeatMaps {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps;{e49c90ac-2ff3-5805-718c-b725ee07650f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps;{e49c90ac-2ff3-5805-718c-b725ee07650f})");
 }
 impl ::core::clone::Clone for CompositionDebugHeatMaps {
     fn clone(&self) -> Self {
@@ -122,7 +122,7 @@ unsafe impl ::windows::core::Interface for CompositionDebugHeatMaps {
 impl ::windows::core::RuntimeName for CompositionDebugHeatMaps {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps";
 }
-::windows::core::interface_hierarchy!(CompositionDebugHeatMaps, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionDebugHeatMaps, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::core::marker::Sync for CompositionDebugHeatMaps {}
 #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
@@ -144,7 +144,7 @@ impl CompositionDebugSettings {
     }
     #[doc(hidden)]
     pub fn ICompositionDebugSettingsStatics<R, F: FnOnce(&ICompositionDebugSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompositionDebugSettings, ICompositionDebugSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CompositionDebugSettings, ICompositionDebugSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -160,7 +160,7 @@ impl ::core::fmt::Debug for CompositionDebugSettings {
     }
 }
 impl ::windows::core::RuntimeType for CompositionDebugSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Diagnostics.CompositionDebugSettings;{2831987e-1d82-4d38-b7b7-efd11c7bc3d1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Diagnostics.CompositionDebugSettings;{2831987e-1d82-4d38-b7b7-efd11c7bc3d1})");
 }
 impl ::core::clone::Clone for CompositionDebugSettings {
     fn clone(&self) -> Self {
@@ -176,7 +176,7 @@ unsafe impl ::windows::core::Interface for CompositionDebugSettings {
 impl ::windows::core::RuntimeName for CompositionDebugSettings {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugSettings";
 }
-::windows::core::interface_hierarchy!(CompositionDebugSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionDebugSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompositionDebugSettings {}
 unsafe impl ::core::marker::Sync for CompositionDebugSettings {}
 #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
@@ -247,7 +247,7 @@ impl ::core::ops::Not for CompositionDebugOverdrawContentKinds {
     }
 }
 impl ::windows::core::RuntimeType for CompositionDebugOverdrawContentKinds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

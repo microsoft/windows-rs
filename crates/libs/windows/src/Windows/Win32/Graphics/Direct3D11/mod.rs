@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIAdapter>>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "d3d11.dll""system" fn D3D11CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D11CreateDevice(padapter.into().abi(), drivertype, software.into(), flags, ::core::mem::transmute(pfeaturelevels.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfeaturelevels.as_deref().map_or(0, |slice| slice.len() as _), sdkversion, ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfeaturelevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppimmediatecontext.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIAdapter>>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "d3d11.dll""system" fn D3D11CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D11CreateDeviceAndSwapChain(
         padapter.into().abi(),
         drivertype,
@@ -41,7 +41,7 @@ pub unsafe fn D3DDisassemble11Trace<P0>(psrcdata: *const ::core::ffi::c_void, sr
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11ShaderTrace>>,
 {
-    ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble11Trace ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ptrace : * mut::core::ffi::c_void , startstep : u32 , numsteps : u32 , flags : u32 , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble11Trace ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ptrace : * mut::core::ffi::c_void , startstep : u32 , numsteps : u32 , flags : u32 , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3DDisassemble11Trace(psrcdata, srcdatasize, ptrace.into().abi(), startstep, numsteps, flags, &mut result__).from_abi(result__)
 }
@@ -51,7 +51,7 @@ pub unsafe fn D3DX11CreateFFT<P0>(pdevicecontext: P0, pdesc: *const D3DX11_FFT_D
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
-    ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT ( pdevicecontext : * mut::core::ffi::c_void , pdesc : *const D3DX11_FFT_DESC , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT ( pdevicecontext : * mut::core::ffi::c_void , pdesc : *const D3DX11_FFT_DESC , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3DX11CreateFFT(pdevicecontext.into().abi(), pdesc, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -60,7 +60,7 @@ pub unsafe fn D3DX11CreateFFT1DComplex<P0>(pdevicecontext: P0, x: u32, flags: u3
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
-    ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3DX11CreateFFT1DComplex(pdevicecontext.into().abi(), x, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn D3DX11CreateFFT1DReal<P0>(pdevicecontext: P0, x: u32, flags: u32, 
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
-    ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3DX11CreateFFT1DReal(pdevicecontext.into().abi(), x, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -78,7 +78,7 @@ pub unsafe fn D3DX11CreateFFT2DComplex<P0>(pdevicecontext: P0, x: u32, y: u32, f
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
-    ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3DX11CreateFFT2DComplex(pdevicecontext.into().abi(), x, y, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -87,7 +87,7 @@ pub unsafe fn D3DX11CreateFFT2DReal<P0>(pdevicecontext: P0, x: u32, y: u32, flag
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
-    ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3DX11CreateFFT2DReal(pdevicecontext.into().abi(), x, y, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -96,7 +96,7 @@ pub unsafe fn D3DX11CreateFFT3DComplex<P0>(pdevicecontext: P0, x: u32, y: u32, z
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
-    ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3DX11CreateFFT3DComplex(pdevicecontext.into().abi(), x, y, z, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -105,7 +105,7 @@ pub unsafe fn D3DX11CreateFFT3DReal<P0>(pdevicecontext: P0, x: u32, y: u32, z: u
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
-    ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3DX11CreateFFT3DReal(pdevicecontext.into().abi(), x, y, z, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -114,7 +114,7 @@ pub unsafe fn D3DX11CreateScan<P0>(pdevicecontext: P0, maxelementscansize: u32, 
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
-    ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , maxscancount : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , maxscancount : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3DX11Scan>();
     D3DX11CreateScan(pdevicecontext.into().abi(), maxelementscansize, maxscancount, &mut result__).from_abi(result__)
 }
@@ -124,7 +124,7 @@ pub unsafe fn D3DX11CreateSegmentedScan<P0>(pdevicecontext: P0, maxelementscansi
 where
     P0: ::std::convert::Into<::windows::core::InParam<ID3D11DeviceContext>>,
 {
-    ::windows::core::link ! ( "d3dcsx.dll""system" fn D3DX11CreateSegmentedScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateSegmentedScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3DX11SegmentedScan>();
     D3DX11CreateSegmentedScan(pdevicecontext.into().abi(), maxelementscansize, &mut result__).from_abi(result__)
 }
@@ -153,7 +153,7 @@ impl ID3D11Asynchronous {
         (::windows::core::Vtable::vtable(self).GetDataSize)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Asynchronous, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11Asynchronous, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11Asynchronous {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -220,7 +220,7 @@ impl ID3D11AuthenticatedChannel {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11AuthenticatedChannel, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11AuthenticatedChannel, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11AuthenticatedChannel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -283,7 +283,7 @@ impl ID3D11BlendState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11BlendState, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11BlendState, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11BlendState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -349,7 +349,7 @@ impl ID3D11BlendState1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11BlendState1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11BlendState);
+::windows::imp::interface_hierarchy!(ID3D11BlendState1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11BlendState);
 impl ::core::cmp::PartialEq for ID3D11BlendState1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -419,7 +419,7 @@ impl ID3D11Buffer {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Buffer, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
+::windows::imp::interface_hierarchy!(ID3D11Buffer, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
 impl ::core::cmp::PartialEq for ID3D11Buffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -488,7 +488,7 @@ impl ID3D11ClassInstance {
         (::windows::core::Vtable::vtable(self).GetTypeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptypename), pbufferlength)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11ClassInstance, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11ClassInstance, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11ClassInstance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -561,7 +561,7 @@ impl ID3D11ClassLinkage {
         (::windows::core::Vtable::vtable(self).CreateClassInstance)(::windows::core::Vtable::as_raw(self), pclasstypename.into().abi(), constantbufferoffset, constantvectoroffset, textureoffset, sampleroffset, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11ClassLinkage, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11ClassLinkage, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11ClassLinkage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -618,7 +618,7 @@ impl ID3D11CommandList {
         (::windows::core::Vtable::vtable(self).GetContextFlags)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11CommandList, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11CommandList, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11CommandList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -671,7 +671,7 @@ impl ID3D11ComputeShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11ComputeShader, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11ComputeShader, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11ComputeShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -731,7 +731,7 @@ impl ID3D11Counter {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Counter, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous);
+::windows::imp::interface_hierarchy!(ID3D11Counter, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous);
 impl ::core::cmp::PartialEq for ID3D11Counter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -808,7 +808,7 @@ impl ID3D11CryptoSession {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11CryptoSession, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11CryptoSession, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11CryptoSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -892,7 +892,7 @@ impl ID3D11Debug {
         (::windows::core::Vtable::vtable(self).ValidateContextForDispatch)(::windows::core::Vtable::as_raw(self), pcontext.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Debug, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11Debug, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11Debug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -964,7 +964,7 @@ impl ID3D11DepthStencilState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11DepthStencilState, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11DepthStencilState, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11DepthStencilState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1030,7 +1030,7 @@ impl ID3D11DepthStencilView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11DepthStencilView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
+::windows::imp::interface_hierarchy!(ID3D11DepthStencilView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
 impl ::core::cmp::PartialEq for ID3D11DepthStencilView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1278,7 +1278,7 @@ impl ID3D11Device {
         (::windows::core::Vtable::vtable(self).GetExceptionMode)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Device, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11Device, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11Device {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1648,7 +1648,7 @@ impl ID3D11Device1 {
         (::windows::core::Vtable::vtable(self).OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Device1, ::windows::core::IUnknown, ID3D11Device);
+::windows::imp::interface_hierarchy!(ID3D11Device1, ::windows::core::IUnknown, ID3D11Device);
 impl ::core::cmp::PartialEq for ID3D11Device1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1972,7 +1972,7 @@ impl ID3D11Device2 {
         (::windows::core::Vtable::vtable(self).CheckMultisampleQualityLevels1)(::windows::core::Vtable::as_raw(self), format, samplecount, flags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Device2, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1);
+::windows::imp::interface_hierarchy!(ID3D11Device2, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1);
 impl ::core::cmp::PartialEq for ID3D11Device2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2346,7 +2346,7 @@ impl ID3D11Device3 {
         (::windows::core::Vtable::vtable(self).ReadFromSubresource)(::windows::core::Vtable::as_raw(self), pdstdata, dstrowpitch, dstdepthpitch, psrcresource.into().abi(), srcsubresource, ::core::mem::transmute(psrcbox.unwrap_or(::std::ptr::null())))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Device3, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2);
+::windows::imp::interface_hierarchy!(ID3D11Device3, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2);
 impl ::core::cmp::PartialEq for ID3D11Device3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2754,7 +2754,7 @@ impl ID3D11Device4 {
         (::windows::core::Vtable::vtable(self).UnregisterDeviceRemoved)(::windows::core::Vtable::as_raw(self), dwcookie)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Device4, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2, ID3D11Device3);
+::windows::imp::interface_hierarchy!(ID3D11Device4, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2, ID3D11Device3);
 impl ::core::cmp::PartialEq for ID3D11Device4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3153,7 +3153,7 @@ impl ID3D11Device5 {
         (::windows::core::Vtable::vtable(self).CreateFence)(::windows::core::Vtable::as_raw(self), initialvalue, flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Device5, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2, ID3D11Device3, ID3D11Device4);
+::windows::imp::interface_hierarchy!(ID3D11Device5, ::windows::core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2, ID3D11Device3, ID3D11Device4);
 impl ::core::cmp::PartialEq for ID3D11Device5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3210,7 +3210,7 @@ impl ID3D11DeviceChild {
         (::windows::core::Vtable::vtable(self).SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11DeviceChild, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11DeviceChild, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11DeviceChild {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3740,7 +3740,7 @@ impl ID3D11DeviceContext {
         (::windows::core::Vtable::vtable(self).FinishCommandList)(::windows::core::Vtable::as_raw(self), restoredeferredcontextstate.into(), ::core::mem::transmute(ppcommandlist.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11DeviceContext, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11DeviceContext, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11DeviceContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4490,7 +4490,7 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Vtable::vtable(self).DiscardView1)(::windows::core::Vtable::as_raw(self), presourceview.into().abi(), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prects.as_deref().map_or(0, |slice| slice.len() as _))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11DeviceContext1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext);
+::windows::imp::interface_hierarchy!(ID3D11DeviceContext1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext);
 impl ::core::cmp::PartialEq for ID3D11DeviceContext1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5205,7 +5205,7 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Vtable::vtable(self).EndEvent)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11DeviceContext2, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1);
+::windows::imp::interface_hierarchy!(ID3D11DeviceContext2, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1);
 impl ::core::cmp::PartialEq for ID3D11DeviceContext2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5943,7 +5943,7 @@ impl ID3D11DeviceContext3 {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11DeviceContext3, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1, ID3D11DeviceContext2);
+::windows::imp::interface_hierarchy!(ID3D11DeviceContext3, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1, ID3D11DeviceContext2);
 impl ::core::cmp::PartialEq for ID3D11DeviceContext3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6680,7 +6680,7 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Vtable::vtable(self).Wait)(::windows::core::Vtable::as_raw(self), pfence.into().abi(), value).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11DeviceContext4, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1, ID3D11DeviceContext2, ID3D11DeviceContext3);
+::windows::imp::interface_hierarchy!(ID3D11DeviceContext4, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1, ID3D11DeviceContext2, ID3D11DeviceContext3);
 impl ::core::cmp::PartialEq for ID3D11DeviceContext4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6734,7 +6734,7 @@ impl ID3D11DomainShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11DomainShader, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11DomainShader, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11DomainShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6806,7 +6806,7 @@ impl ID3D11Fence {
         (::windows::core::Vtable::vtable(self).SetEventOnCompletion)(::windows::core::Vtable::as_raw(self), value, hevent.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Fence, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11Fence, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11Fence {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6903,7 +6903,7 @@ impl ID3D11FunctionLinkingGraph {
         (::windows::core::Vtable::vtable(self).GenerateHlsl)(::windows::core::Vtable::as_raw(self), uflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11FunctionLinkingGraph, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11FunctionLinkingGraph, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11FunctionLinkingGraph {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7099,7 +7099,7 @@ impl ID3D11GeometryShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11GeometryShader, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11GeometryShader, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11GeometryShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7151,7 +7151,7 @@ impl ID3D11HullShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11HullShader, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11HullShader, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11HullShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7325,7 +7325,7 @@ impl ID3D11InfoQueue {
         (::windows::core::Vtable::vtable(self).GetMuteDebugOutput)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11InfoQueue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11InfoQueue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11InfoQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7436,7 +7436,7 @@ impl ID3D11InputLayout {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11InputLayout, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11InputLayout, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11InputLayout {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7478,7 +7478,7 @@ impl ID3D11LibraryReflection {
         (::windows::core::Vtable::vtable(self).GetFunctionByIndex)(::windows::core::Vtable::as_raw(self), functionindex)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11LibraryReflection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11LibraryReflection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11LibraryReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7534,7 +7534,7 @@ impl ID3D11Linker {
         (::windows::core::Vtable::vtable(self).AddClipPlaneFromCBuffer)(::windows::core::Vtable::as_raw(self), ucbufferslot, ucbufferentry).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Linker, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11Linker, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11Linker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7574,7 +7574,7 @@ pub struct ID3D11Linker_Vtbl {
 #[repr(transparent)]
 pub struct ID3D11LinkingNode(::windows::core::IUnknown);
 impl ID3D11LinkingNode {}
-::windows::core::interface_hierarchy!(ID3D11LinkingNode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11LinkingNode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11LinkingNode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7616,7 +7616,7 @@ impl ID3D11Module {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Module, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11Module, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11Module {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7697,7 +7697,7 @@ impl ID3D11ModuleInstance {
         (::windows::core::Vtable::vtable(self).BindResourceAsUnorderedAccessViewByName)(::windows::core::Vtable::as_raw(self), psrvname.into().abi(), udstuavslot, ucount).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11ModuleInstance, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11ModuleInstance, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11ModuleInstance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7761,7 +7761,7 @@ impl ID3D11Multithread {
         (::windows::core::Vtable::vtable(self).GetMultithreadProtected)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Multithread, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11Multithread, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11Multithread {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7823,7 +7823,7 @@ impl ID3D11PixelShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11PixelShader, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11PixelShader, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11PixelShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7883,7 +7883,7 @@ impl ID3D11Predicate {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Predicate, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous, ID3D11Query);
+::windows::imp::interface_hierarchy!(ID3D11Predicate, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous, ID3D11Query);
 impl ::core::cmp::PartialEq for ID3D11Predicate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7943,7 +7943,7 @@ impl ID3D11Query {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Query, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous);
+::windows::imp::interface_hierarchy!(ID3D11Query, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous);
 impl ::core::cmp::PartialEq for ID3D11Query {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8009,7 +8009,7 @@ impl ID3D11Query1 {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Query1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous, ID3D11Query);
+::windows::imp::interface_hierarchy!(ID3D11Query1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous, ID3D11Query);
 impl ::core::cmp::PartialEq for ID3D11Query1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8067,7 +8067,7 @@ impl ID3D11RasterizerState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11RasterizerState, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11RasterizerState, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11RasterizerState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8133,7 +8133,7 @@ impl ID3D11RasterizerState1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11RasterizerState1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11RasterizerState);
+::windows::imp::interface_hierarchy!(ID3D11RasterizerState1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11RasterizerState);
 impl ::core::cmp::PartialEq for ID3D11RasterizerState1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8204,7 +8204,7 @@ impl ID3D11RasterizerState2 {
         (::windows::core::Vtable::vtable(self).GetDesc2)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11RasterizerState2, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11RasterizerState, ID3D11RasterizerState1);
+::windows::imp::interface_hierarchy!(ID3D11RasterizerState2, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11RasterizerState, ID3D11RasterizerState1);
 impl ::core::cmp::PartialEq for ID3D11RasterizerState2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8246,7 +8246,7 @@ impl ID3D11RefDefaultTrackingOptions {
         (::windows::core::Vtable::vtable(self).SetTrackingOptions)(::windows::core::Vtable::as_raw(self), resourcetypeflags, options).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11RefDefaultTrackingOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11RefDefaultTrackingOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11RefDefaultTrackingOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8285,7 +8285,7 @@ impl ID3D11RefTrackingOptions {
         (::windows::core::Vtable::vtable(self).SetTrackingOptions)(::windows::core::Vtable::as_raw(self), uoptions).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11RefTrackingOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11RefTrackingOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11RefTrackingOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8348,7 +8348,7 @@ impl ID3D11RenderTargetView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11RenderTargetView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
+::windows::imp::interface_hierarchy!(ID3D11RenderTargetView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
 impl ::core::cmp::PartialEq for ID3D11RenderTargetView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8419,7 +8419,7 @@ impl ID3D11RenderTargetView1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc1)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11RenderTargetView1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View, ID3D11RenderTargetView);
+::windows::imp::interface_hierarchy!(ID3D11RenderTargetView1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View, ID3D11RenderTargetView);
 impl ::core::cmp::PartialEq for ID3D11RenderTargetView1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8486,7 +8486,7 @@ impl ID3D11Resource {
         (::windows::core::Vtable::vtable(self).GetEvictionPriority)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Resource, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11Resource, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11Resource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8544,7 +8544,7 @@ impl ID3D11SamplerState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11SamplerState, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11SamplerState, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11SamplerState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8665,7 +8665,7 @@ impl ID3D11ShaderReflection {
         (::windows::core::Vtable::vtable(self).GetRequiresFlags)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11ShaderReflection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11ShaderReflection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11ShaderReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8960,7 +8960,7 @@ impl ID3D11ShaderResourceView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11ShaderResourceView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
+::windows::imp::interface_hierarchy!(ID3D11ShaderResourceView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
 impl ::core::cmp::PartialEq for ID3D11ShaderResourceView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9031,7 +9031,7 @@ impl ID3D11ShaderResourceView1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc1)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11ShaderResourceView1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View, ID3D11ShaderResourceView);
+::windows::imp::interface_hierarchy!(ID3D11ShaderResourceView1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View, ID3D11ShaderResourceView);
 impl ::core::cmp::PartialEq for ID3D11ShaderResourceView1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9098,7 +9098,7 @@ impl ID3D11ShaderTrace {
         (::windows::core::Vtable::vtable(self).GetReadRegister)(::windows::core::Vtable::as_raw(self), stepindex, readregisterindex, pregister, pvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11ShaderTrace, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11ShaderTrace, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11ShaderTrace {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9154,7 +9154,7 @@ impl ID3D11ShaderTraceFactory {
         (::windows::core::Vtable::vtable(self).CreateShaderTrace)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), ptracedesc, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11ShaderTraceFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11ShaderTraceFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11ShaderTraceFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9203,7 +9203,7 @@ impl ID3D11SwitchToRef {
         (::windows::core::Vtable::vtable(self).GetUseRef)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11SwitchToRef, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11SwitchToRef, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11SwitchToRef {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9279,7 +9279,7 @@ impl ID3D11Texture1D {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Texture1D, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
+::windows::imp::interface_hierarchy!(ID3D11Texture1D, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
 impl ::core::cmp::PartialEq for ID3D11Texture1D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9351,7 +9351,7 @@ impl ID3D11Texture2D {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Texture2D, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
+::windows::imp::interface_hierarchy!(ID3D11Texture2D, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
 impl ::core::cmp::PartialEq for ID3D11Texture2D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9428,7 +9428,7 @@ impl ID3D11Texture2D1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Texture2D1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource, ID3D11Texture2D);
+::windows::imp::interface_hierarchy!(ID3D11Texture2D1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource, ID3D11Texture2D);
 impl ::core::cmp::PartialEq for ID3D11Texture2D1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9500,7 +9500,7 @@ impl ID3D11Texture3D {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Texture3D, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
+::windows::imp::interface_hierarchy!(ID3D11Texture3D, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
 impl ::core::cmp::PartialEq for ID3D11Texture3D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9577,7 +9577,7 @@ impl ID3D11Texture3D1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11Texture3D1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource, ID3D11Texture3D);
+::windows::imp::interface_hierarchy!(ID3D11Texture3D1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11Resource, ID3D11Texture3D);
 impl ::core::cmp::PartialEq for ID3D11Texture3D1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9625,7 +9625,7 @@ impl ID3D11TracingDevice {
         (::windows::core::Vtable::vtable(self).SetShaderTrackingOptions)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), options).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11TracingDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11TracingDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11TracingDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9689,7 +9689,7 @@ impl ID3D11UnorderedAccessView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11UnorderedAccessView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
+::windows::imp::interface_hierarchy!(ID3D11UnorderedAccessView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
 impl ::core::cmp::PartialEq for ID3D11UnorderedAccessView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9760,7 +9760,7 @@ impl ID3D11UnorderedAccessView1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc1)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11UnorderedAccessView1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View, ID3D11UnorderedAccessView);
+::windows::imp::interface_hierarchy!(ID3D11UnorderedAccessView1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View, ID3D11UnorderedAccessView);
 impl ::core::cmp::PartialEq for ID3D11UnorderedAccessView1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9816,7 +9816,7 @@ impl ID3D11VertexShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VertexShader, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11VertexShader, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11VertexShader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10310,7 +10310,7 @@ impl ID3D11VideoContext {
         (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamRotation)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, penable, protation)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoContext, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11VideoContext, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11VideoContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11074,7 +11074,7 @@ impl ID3D11VideoContext1 {
         (::windows::core::Vtable::vtable(self).VideoProcessorGetBehaviorHints)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), outputwidth, outputheight, outputformat, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoContext1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext);
+::windows::imp::interface_hierarchy!(ID3D11VideoContext1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext);
 impl ::core::cmp::PartialEq for ID3D11VideoContext1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11766,7 +11766,7 @@ impl ID3D11VideoContext2 {
         (::windows::core::Vtable::vtable(self).VideoProcessorGetStreamHDRMetaData)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), streamindex, ptype, size, ::core::mem::transmute(pmetadata.unwrap_or(::std::ptr::null_mut())))
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoContext2, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext, ID3D11VideoContext1);
+::windows::imp::interface_hierarchy!(ID3D11VideoContext2, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext, ID3D11VideoContext1);
 impl ::core::cmp::PartialEq for ID3D11VideoContext2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12440,7 +12440,7 @@ impl ID3D11VideoContext3 {
         (::windows::core::Vtable::vtable(self).SubmitDecoderBuffers2)(::windows::core::Vtable::as_raw(self), pdecoder.into().abi(), pbufferdesc.len() as _, ::core::mem::transmute(pbufferdesc.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoContext3, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext, ID3D11VideoContext1, ID3D11VideoContext2);
+::windows::imp::interface_hierarchy!(ID3D11VideoContext3, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext, ID3D11VideoContext1, ID3D11VideoContext2);
 impl ::core::cmp::PartialEq for ID3D11VideoContext3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12505,7 +12505,7 @@ impl ID3D11VideoDecoder {
         (::windows::core::Vtable::vtable(self).GetDriverHandle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoDecoder, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11VideoDecoder, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11VideoDecoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12573,7 +12573,7 @@ impl ID3D11VideoDecoderOutputView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoDecoderOutputView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
+::windows::imp::interface_hierarchy!(ID3D11VideoDecoderOutputView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
 impl ::core::cmp::PartialEq for ID3D11VideoDecoderOutputView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12696,7 +12696,7 @@ impl ID3D11VideoDevice {
         (::windows::core::Vtable::vtable(self).SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11VideoDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11VideoDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12870,7 +12870,7 @@ impl ID3D11VideoDevice1 {
         (::windows::core::Vtable::vtable(self).RecommendVideoDecoderDownsampleParameters)(::windows::core::Vtable::as_raw(self), pinputdesc, inputcolorspace, pinputconfig, pframerate, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoDevice1, ::windows::core::IUnknown, ID3D11VideoDevice);
+::windows::imp::interface_hierarchy!(ID3D11VideoDevice1, ::windows::core::IUnknown, ID3D11VideoDevice);
 impl ::core::cmp::PartialEq for ID3D11VideoDevice1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13034,7 +13034,7 @@ impl ID3D11VideoDevice2 {
         (::windows::core::Vtable::vtable(self).NegotiateCryptoSessionKeyExchangeMT)(::windows::core::Vtable::as_raw(self), pcryptosession.into().abi(), flags, datasize, pdata).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoDevice2, ::windows::core::IUnknown, ID3D11VideoDevice, ID3D11VideoDevice1);
+::windows::imp::interface_hierarchy!(ID3D11VideoDevice2, ::windows::core::IUnknown, ID3D11VideoDevice, ID3D11VideoDevice1);
 impl ::core::cmp::PartialEq for ID3D11VideoDevice2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13096,7 +13096,7 @@ impl ID3D11VideoProcessor {
         (::windows::core::Vtable::vtable(self).GetRateConversionCaps)(::windows::core::Vtable::as_raw(self), pcaps)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoProcessor, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11VideoProcessor, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11VideoProcessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13179,7 +13179,7 @@ impl ID3D11VideoProcessorEnumerator {
         (::windows::core::Vtable::vtable(self).GetVideoProcessorFilterRange)(::windows::core::Vtable::as_raw(self), filter, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoProcessorEnumerator, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11VideoProcessorEnumerator, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11VideoProcessorEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13278,7 +13278,7 @@ impl ID3D11VideoProcessorEnumerator1 {
         (::windows::core::Vtable::vtable(self).CheckVideoProcessorFormatConversion)(::windows::core::Vtable::as_raw(self), inputformat, inputcolorspace, outputformat, outputcolorspace, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoProcessorEnumerator1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoProcessorEnumerator);
+::windows::imp::interface_hierarchy!(ID3D11VideoProcessorEnumerator1, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11VideoProcessorEnumerator);
 impl ::core::cmp::PartialEq for ID3D11VideoProcessorEnumerator1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13344,7 +13344,7 @@ impl ID3D11VideoProcessorInputView {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoProcessorInputView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
+::windows::imp::interface_hierarchy!(ID3D11VideoProcessorInputView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
 impl ::core::cmp::PartialEq for ID3D11VideoProcessorInputView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13407,7 +13407,7 @@ impl ID3D11VideoProcessorOutputView {
         ::std::mem::transmute(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11VideoProcessorOutputView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
+::windows::imp::interface_hierarchy!(ID3D11VideoProcessorOutputView, ::windows::core::IUnknown, ID3D11DeviceChild, ID3D11View);
 impl ::core::cmp::PartialEq for ID3D11VideoProcessorOutputView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13465,7 +13465,7 @@ impl ID3D11View {
         ::windows::core::from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11View, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D11View, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3D11View {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13518,7 +13518,7 @@ impl ID3DDeviceContextState {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3DDeviceContextState, ::windows::core::IUnknown, ID3D11DeviceChild);
+::windows::imp::interface_hierarchy!(ID3DDeviceContextState, ::windows::core::IUnknown, ID3D11DeviceChild);
 impl ::core::cmp::PartialEq for ID3DDeviceContextState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13573,7 +13573,7 @@ impl ID3DUserDefinedAnnotation {
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3DUserDefinedAnnotation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3DUserDefinedAnnotation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3DUserDefinedAnnotation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13642,7 +13642,7 @@ impl ID3DX11FFT {
         (::windows::core::Vtable::vtable(self).InverseTransform)(::windows::core::Vtable::as_raw(self), pinputbuffer.into().abi(), ::core::mem::transmute(ppoutputbuffer)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3DX11FFT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3DX11FFT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3DX11FFT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13701,7 +13701,7 @@ impl ID3DX11Scan {
         (::windows::core::Vtable::vtable(self).Multiscan)(::windows::core::Vtable::as_raw(self), elementtype, opcode, elementscansize, elementscanpitch, scancount, psrc.into().abi(), pdst.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3DX11Scan, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3DX11Scan, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3DX11Scan {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13750,7 +13750,7 @@ impl ID3DX11SegmentedScan {
         (::windows::core::Vtable::vtable(self).SegScan)(::windows::core::Vtable::as_raw(self), elementtype, opcode, elementscansize, psrc.into().abi(), psrcelementflags.into().abi(), pdst.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3DX11SegmentedScan, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3DX11SegmentedScan, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3DX11SegmentedScan {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

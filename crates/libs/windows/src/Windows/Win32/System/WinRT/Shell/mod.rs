@@ -18,7 +18,7 @@ impl IDDEInitializer {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), fileextensionorprotocol.into().abi(), method, currentdirectory.into().abi(), exectarget.into().abi(), site.into().abi(), application.into().abi(), targetfile.into().abi(), arguments.into().abi(), verb.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDDEInitializer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDDEInitializer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDDEInitializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

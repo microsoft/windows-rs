@@ -1081,7 +1081,7 @@ impl DisplayAdapter {
     }
     #[doc(hidden)]
     pub fn IDisplayAdapterStatics<R, F: FnOnce(&IDisplayAdapterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayAdapter, IDisplayAdapterStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayAdapter, IDisplayAdapterStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1097,7 +1097,7 @@ impl ::core::fmt::Debug for DisplayAdapter {
     }
 }
 impl ::windows::core::RuntimeType for DisplayAdapter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayAdapter;{a56f5287-f000-5f2e-b5ac-3783a2b69af5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayAdapter;{a56f5287-f000-5f2e-b5ac-3783a2b69af5})");
 }
 impl ::core::clone::Clone for DisplayAdapter {
     fn clone(&self) -> Self {
@@ -1113,7 +1113,7 @@ unsafe impl ::windows::core::Interface for DisplayAdapter {
 impl ::windows::core::RuntimeName for DisplayAdapter {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayAdapter";
 }
-::windows::core::interface_hierarchy!(DisplayAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayAdapter {}
 unsafe impl ::core::marker::Sync for DisplayAdapter {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1194,7 +1194,7 @@ impl ::core::fmt::Debug for DisplayDevice {
     }
 }
 impl ::windows::core::RuntimeType for DisplayDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayDevice;{a4c9b62c-335f-5731-8cb4-c1ccd4731070})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayDevice;{a4c9b62c-335f-5731-8cb4-c1ccd4731070})");
 }
 impl ::core::clone::Clone for DisplayDevice {
     fn clone(&self) -> Self {
@@ -1210,7 +1210,7 @@ unsafe impl ::windows::core::Interface for DisplayDevice {
 impl ::windows::core::RuntimeName for DisplayDevice {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayDevice";
 }
-::windows::core::interface_hierarchy!(DisplayDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayDevice {}
 unsafe impl ::core::marker::Sync for DisplayDevice {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1229,7 +1229,7 @@ impl ::core::fmt::Debug for DisplayFence {
     }
 }
 impl ::windows::core::RuntimeType for DisplayFence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayFence;{04dcf9ef-3406-5700-8fec-77eba4c5a74b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayFence;{04dcf9ef-3406-5700-8fec-77eba4c5a74b})");
 }
 impl ::core::clone::Clone for DisplayFence {
     fn clone(&self) -> Self {
@@ -1245,7 +1245,7 @@ unsafe impl ::windows::core::Interface for DisplayFence {
 impl ::windows::core::RuntimeName for DisplayFence {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayFence";
 }
-::windows::core::interface_hierarchy!(DisplayFence, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayFence, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayFence {}
 unsafe impl ::core::marker::Sync for DisplayFence {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1416,7 +1416,7 @@ impl DisplayManager {
     }
     #[doc(hidden)]
     pub fn IDisplayManagerStatics<R, F: FnOnce(&IDisplayManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayManager, IDisplayManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayManager, IDisplayManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1432,7 +1432,7 @@ impl ::core::fmt::Debug for DisplayManager {
     }
 }
 impl ::windows::core::RuntimeType for DisplayManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManager;{4ed9245b-15ec-56e2-9072-7fe5084a31a7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManager;{4ed9245b-15ec-56e2-9072-7fe5084a31a7})");
 }
 impl ::core::clone::Clone for DisplayManager {
     fn clone(&self) -> Self {
@@ -1448,7 +1448,7 @@ unsafe impl ::windows::core::Interface for DisplayManager {
 impl ::windows::core::RuntimeName for DisplayManager {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManager";
 }
-::windows::core::interface_hierarchy!(DisplayManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DisplayManager> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1510,7 +1510,7 @@ impl ::core::fmt::Debug for DisplayManagerChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DisplayManagerChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerChangedEventArgs;{6abfa285-6cca-5731-bcdc-42e5d2f5c50f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerChangedEventArgs;{6abfa285-6cca-5731-bcdc-42e5d2f5c50f})");
 }
 impl ::core::clone::Clone for DisplayManagerChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1526,7 +1526,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerChangedEventArgs {
 impl ::windows::core::RuntimeName for DisplayManagerChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(DisplayManagerChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayManagerChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1566,7 +1566,7 @@ impl ::core::fmt::Debug for DisplayManagerDisabledEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DisplayManagerDisabledEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs;{8726dde4-6793-5973-a11f-5ffbc93fdb90})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs;{8726dde4-6793-5973-a11f-5ffbc93fdb90})");
 }
 impl ::core::clone::Clone for DisplayManagerDisabledEventArgs {
     fn clone(&self) -> Self {
@@ -1582,7 +1582,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerDisabledEventArgs {
 impl ::windows::core::RuntimeName for DisplayManagerDisabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs";
 }
-::windows::core::interface_hierarchy!(DisplayManagerDisabledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayManagerDisabledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerDisabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerDisabledEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1622,7 +1622,7 @@ impl ::core::fmt::Debug for DisplayManagerEnabledEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DisplayManagerEnabledEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs;{f0cf3f6f-42fa-59a2-b297-26e1713de848})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs;{f0cf3f6f-42fa-59a2-b297-26e1713de848})");
 }
 impl ::core::clone::Clone for DisplayManagerEnabledEventArgs {
     fn clone(&self) -> Self {
@@ -1638,7 +1638,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerEnabledEventArgs {
 impl ::windows::core::RuntimeName for DisplayManagerEnabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs";
 }
-::windows::core::interface_hierarchy!(DisplayManagerEnabledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayManagerEnabledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerEnabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerEnabledEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1678,7 +1678,7 @@ impl ::core::fmt::Debug for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs;{03a65659-1dec-5c15-b2a2-8fe9129869fe})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs;{03a65659-1dec-5c15-b2a2-8fe9129869fe})");
 }
 impl ::core::clone::Clone for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     fn clone(&self) -> Self {
@@ -1694,7 +1694,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerPathsFailedOrInvalidate
 impl ::windows::core::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs";
 }
-::windows::core::interface_hierarchy!(DisplayManagerPathsFailedOrInvalidatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayManagerPathsFailedOrInvalidatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1735,7 +1735,7 @@ impl ::core::fmt::Debug for DisplayManagerResultWithState {
     }
 }
 impl ::windows::core::RuntimeType for DisplayManagerResultWithState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerResultWithState;{8e656aa6-6614-54be-bfef-4994547f7be1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerResultWithState;{8e656aa6-6614-54be-bfef-4994547f7be1})");
 }
 impl ::core::clone::Clone for DisplayManagerResultWithState {
     fn clone(&self) -> Self {
@@ -1751,7 +1751,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerResultWithState {
 impl ::windows::core::RuntimeName for DisplayManagerResultWithState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerResultWithState";
 }
-::windows::core::interface_hierarchy!(DisplayManagerResultWithState, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayManagerResultWithState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerResultWithState {}
 unsafe impl ::core::marker::Sync for DisplayManagerResultWithState {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1853,7 +1853,7 @@ impl ::core::fmt::Debug for DisplayModeInfo {
     }
 }
 impl ::windows::core::RuntimeType for DisplayModeInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayModeInfo;{48d513a0-f79b-5a74-a05e-da821f470868})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayModeInfo;{48d513a0-f79b-5a74-a05e-da821f470868})");
 }
 impl ::core::clone::Clone for DisplayModeInfo {
     fn clone(&self) -> Self {
@@ -1869,7 +1869,7 @@ unsafe impl ::windows::core::Interface for DisplayModeInfo {
 impl ::windows::core::RuntimeName for DisplayModeInfo {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayModeInfo";
 }
-::windows::core::interface_hierarchy!(DisplayModeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayModeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayModeInfo {}
 unsafe impl ::core::marker::Sync for DisplayModeInfo {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2086,7 +2086,7 @@ impl ::core::fmt::Debug for DisplayPath {
     }
 }
 impl ::windows::core::RuntimeType for DisplayPath {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayPath;{b3dfd64a-7460-5cde-811b-d5ae9f3d9f84})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayPath;{b3dfd64a-7460-5cde-811b-d5ae9f3d9f84})");
 }
 impl ::core::clone::Clone for DisplayPath {
     fn clone(&self) -> Self {
@@ -2102,7 +2102,7 @@ unsafe impl ::windows::core::Interface for DisplayPath {
 impl ::windows::core::RuntimeName for DisplayPath {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPath";
 }
-::windows::core::interface_hierarchy!(DisplayPath, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayPath, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayPath {}
 unsafe impl ::core::marker::Sync for DisplayPath {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2188,12 +2188,12 @@ impl DisplayPrimaryDescription {
     }
     #[doc(hidden)]
     pub fn IDisplayPrimaryDescriptionFactory<R, F: FnOnce(&IDisplayPrimaryDescriptionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayPrimaryDescription, IDisplayPrimaryDescriptionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayPrimaryDescription, IDisplayPrimaryDescriptionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDisplayPrimaryDescriptionStatics<R, F: FnOnce(&IDisplayPrimaryDescriptionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayPrimaryDescription, IDisplayPrimaryDescriptionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayPrimaryDescription, IDisplayPrimaryDescriptionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2209,7 +2209,7 @@ impl ::core::fmt::Debug for DisplayPrimaryDescription {
     }
 }
 impl ::windows::core::RuntimeType for DisplayPrimaryDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayPrimaryDescription;{872591d2-d533-50ff-a85e-06696194b77c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayPrimaryDescription;{872591d2-d533-50ff-a85e-06696194b77c})");
 }
 impl ::core::clone::Clone for DisplayPrimaryDescription {
     fn clone(&self) -> Self {
@@ -2225,7 +2225,7 @@ unsafe impl ::windows::core::Interface for DisplayPrimaryDescription {
 impl ::windows::core::RuntimeName for DisplayPrimaryDescription {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPrimaryDescription";
 }
-::windows::core::interface_hierarchy!(DisplayPrimaryDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayPrimaryDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayPrimaryDescription {}
 unsafe impl ::core::marker::Sync for DisplayPrimaryDescription {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2244,7 +2244,7 @@ impl ::core::fmt::Debug for DisplayScanout {
     }
 }
 impl ::windows::core::RuntimeType for DisplayScanout {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayScanout;{e3051828-1ba5-50e7-8a39-bb1fd2f4f8b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayScanout;{e3051828-1ba5-50e7-8a39-bb1fd2f4f8b9})");
 }
 impl ::core::clone::Clone for DisplayScanout {
     fn clone(&self) -> Self {
@@ -2260,7 +2260,7 @@ unsafe impl ::windows::core::Interface for DisplayScanout {
 impl ::windows::core::RuntimeName for DisplayScanout {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayScanout";
 }
-::windows::core::interface_hierarchy!(DisplayScanout, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayScanout, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayScanout {}
 unsafe impl ::core::marker::Sync for DisplayScanout {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2327,7 +2327,7 @@ impl ::core::fmt::Debug for DisplaySource {
     }
 }
 impl ::windows::core::RuntimeType for DisplaySource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplaySource;{ecd15fc1-eadc-51bc-971d-3bc628db2dd4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplaySource;{ecd15fc1-eadc-51bc-971d-3bc628db2dd4})");
 }
 impl ::core::clone::Clone for DisplaySource {
     fn clone(&self) -> Self {
@@ -2343,7 +2343,7 @@ unsafe impl ::windows::core::Interface for DisplaySource {
 impl ::windows::core::RuntimeName for DisplaySource {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySource";
 }
-::windows::core::interface_hierarchy!(DisplaySource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplaySource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplaySource {}
 unsafe impl ::core::marker::Sync for DisplaySource {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2464,7 +2464,7 @@ impl ::core::fmt::Debug for DisplayState {
     }
 }
 impl ::windows::core::RuntimeType for DisplayState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayState;{08129321-11b5-5cb2-99f8-e90b479a8a1d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayState;{08129321-11b5-5cb2-99f8-e90b479a8a1d})");
 }
 impl ::core::clone::Clone for DisplayState {
     fn clone(&self) -> Self {
@@ -2480,7 +2480,7 @@ unsafe impl ::windows::core::Interface for DisplayState {
 impl ::windows::core::RuntimeName for DisplayState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayState";
 }
-::windows::core::interface_hierarchy!(DisplayState, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayState {}
 unsafe impl ::core::marker::Sync for DisplayState {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2514,7 +2514,7 @@ impl ::core::fmt::Debug for DisplayStateOperationResult {
     }
 }
 impl ::windows::core::RuntimeType for DisplayStateOperationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayStateOperationResult;{fcadbfdf-dc27-5638-b7f2-ebdfa4f7ea93})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayStateOperationResult;{fcadbfdf-dc27-5638-b7f2-ebdfa4f7ea93})");
 }
 impl ::core::clone::Clone for DisplayStateOperationResult {
     fn clone(&self) -> Self {
@@ -2530,7 +2530,7 @@ unsafe impl ::windows::core::Interface for DisplayStateOperationResult {
 impl ::windows::core::RuntimeName for DisplayStateOperationResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayStateOperationResult";
 }
-::windows::core::interface_hierarchy!(DisplayStateOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayStateOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayStateOperationResult {}
 unsafe impl ::core::marker::Sync for DisplayStateOperationResult {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2549,7 +2549,7 @@ impl ::core::fmt::Debug for DisplaySurface {
     }
 }
 impl ::windows::core::RuntimeType for DisplaySurface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplaySurface;{594f6cc6-139a-56d6-a4b1-15fe2cb76adb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplaySurface;{594f6cc6-139a-56d6-a4b1-15fe2cb76adb})");
 }
 impl ::core::clone::Clone for DisplaySurface {
     fn clone(&self) -> Self {
@@ -2565,7 +2565,7 @@ unsafe impl ::windows::core::Interface for DisplaySurface {
 impl ::windows::core::RuntimeName for DisplaySurface {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySurface";
 }
-::windows::core::interface_hierarchy!(DisplaySurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplaySurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplaySurface {}
 unsafe impl ::core::marker::Sync for DisplaySurface {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2685,7 +2685,7 @@ impl ::core::fmt::Debug for DisplayTarget {
     }
 }
 impl ::windows::core::RuntimeType for DisplayTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTarget;{aec57c6f-47b4-546b-987c-e73fa791fe3a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTarget;{aec57c6f-47b4-546b-987c-e73fa791fe3a})");
 }
 impl ::core::clone::Clone for DisplayTarget {
     fn clone(&self) -> Self {
@@ -2701,7 +2701,7 @@ unsafe impl ::windows::core::Interface for DisplayTarget {
 impl ::windows::core::RuntimeName for DisplayTarget {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTarget";
 }
-::windows::core::interface_hierarchy!(DisplayTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayTarget {}
 unsafe impl ::core::marker::Sync for DisplayTarget {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2733,7 +2733,7 @@ impl ::core::fmt::Debug for DisplayTask {
     }
 }
 impl ::windows::core::RuntimeType for DisplayTask {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTask;{5e087448-135b-5bb0-bf63-637f84227c7a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTask;{5e087448-135b-5bb0-bf63-637f84227c7a})");
 }
 impl ::core::clone::Clone for DisplayTask {
     fn clone(&self) -> Self {
@@ -2749,7 +2749,7 @@ unsafe impl ::windows::core::Interface for DisplayTask {
 impl ::windows::core::RuntimeName for DisplayTask {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTask";
 }
-::windows::core::interface_hierarchy!(DisplayTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayTask {}
 unsafe impl ::core::marker::Sync for DisplayTask {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2789,7 +2789,7 @@ impl ::core::fmt::Debug for DisplayTaskPool {
     }
 }
 impl ::windows::core::RuntimeType for DisplayTaskPool {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTaskPool;{c676253d-237d-5548-aafa-3e517fefef1c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTaskPool;{c676253d-237d-5548-aafa-3e517fefef1c})");
 }
 impl ::core::clone::Clone for DisplayTaskPool {
     fn clone(&self) -> Self {
@@ -2805,7 +2805,7 @@ unsafe impl ::windows::core::Interface for DisplayTaskPool {
 impl ::windows::core::RuntimeName for DisplayTaskPool {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskPool";
 }
-::windows::core::interface_hierarchy!(DisplayTaskPool, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayTaskPool, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayTaskPool {}
 unsafe impl ::core::marker::Sync for DisplayTaskPool {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2846,7 +2846,7 @@ impl ::core::fmt::Debug for DisplayTaskResult {
     }
 }
 impl ::windows::core::RuntimeType for DisplayTaskResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTaskResult;{6fbc7d67-f9b1-55e0-9d88-d3a5197a3f59})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTaskResult;{6fbc7d67-f9b1-55e0-9d88-d3a5197a3f59})");
 }
 impl ::core::clone::Clone for DisplayTaskResult {
     fn clone(&self) -> Self {
@@ -2862,7 +2862,7 @@ unsafe impl ::windows::core::Interface for DisplayTaskResult {
 impl ::windows::core::RuntimeName for DisplayTaskResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskResult";
 }
-::windows::core::interface_hierarchy!(DisplayTaskResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayTaskResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayTaskResult {}
 unsafe impl ::core::marker::Sync for DisplayTaskResult {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2923,7 +2923,7 @@ impl ::core::fmt::Debug for DisplayView {
     }
 }
 impl ::windows::core::RuntimeType for DisplayView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayView;{b0c98ca1-b759-5b59-b1ad-f0786aa9e53d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayView;{b0c98ca1-b759-5b59-b1ad-f0786aa9e53d})");
 }
 impl ::core::clone::Clone for DisplayView {
     fn clone(&self) -> Self {
@@ -2939,7 +2939,7 @@ unsafe impl ::windows::core::Interface for DisplayView {
 impl ::windows::core::RuntimeName for DisplayView {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayView";
 }
-::windows::core::interface_hierarchy!(DisplayView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayView {}
 unsafe impl ::core::marker::Sync for DisplayView {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -3010,12 +3010,12 @@ impl DisplayWireFormat {
     }
     #[doc(hidden)]
     pub fn IDisplayWireFormatFactory<R, F: FnOnce(&IDisplayWireFormatFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayWireFormat, IDisplayWireFormatFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayWireFormat, IDisplayWireFormatFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDisplayWireFormatStatics<R, F: FnOnce(&IDisplayWireFormatStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayWireFormat, IDisplayWireFormatStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DisplayWireFormat, IDisplayWireFormatStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3031,7 +3031,7 @@ impl ::core::fmt::Debug for DisplayWireFormat {
     }
 }
 impl ::windows::core::RuntimeType for DisplayWireFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayWireFormat;{1acc967d-872c-5a38-bbb9-1d4872b76255})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayWireFormat;{1acc967d-872c-5a38-bbb9-1d4872b76255})");
 }
 impl ::core::clone::Clone for DisplayWireFormat {
     fn clone(&self) -> Self {
@@ -3047,7 +3047,7 @@ unsafe impl ::windows::core::Interface for DisplayWireFormat {
 impl ::windows::core::RuntimeName for DisplayWireFormat {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayWireFormat";
 }
-::windows::core::interface_hierarchy!(DisplayWireFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DisplayWireFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayWireFormat {}
 unsafe impl ::core::marker::Sync for DisplayWireFormat {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -3116,7 +3116,7 @@ impl ::core::ops::Not for DisplayBitsPerChannel {
     }
 }
 impl ::windows::core::RuntimeType for DisplayBitsPerChannel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3145,7 +3145,7 @@ impl ::core::fmt::Debug for DisplayDeviceCapability {
     }
 }
 impl ::windows::core::RuntimeType for DisplayDeviceCapability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3209,7 +3209,7 @@ impl ::core::ops::Not for DisplayManagerOptions {
     }
 }
 impl ::windows::core::RuntimeType for DisplayManagerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3242,7 +3242,7 @@ impl ::core::fmt::Debug for DisplayManagerResult {
     }
 }
 impl ::windows::core::RuntimeType for DisplayManagerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3305,7 +3305,7 @@ impl ::core::ops::Not for DisplayModeQueryOptions {
     }
 }
 impl ::windows::core::RuntimeType for DisplayModeQueryOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3339,7 +3339,7 @@ impl ::core::fmt::Debug for DisplayPathScaling {
     }
 }
 impl ::windows::core::RuntimeType for DisplayPathScaling {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3373,7 +3373,7 @@ impl ::core::fmt::Debug for DisplayPathStatus {
     }
 }
 impl ::windows::core::RuntimeType for DisplayPathStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3407,7 +3407,7 @@ impl ::core::fmt::Debug for DisplayPresentStatus {
     }
 }
 impl ::windows::core::RuntimeType for DisplayPresentStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPresentStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPresentStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3439,7 +3439,7 @@ impl ::core::fmt::Debug for DisplayRotation {
     }
 }
 impl ::windows::core::RuntimeType for DisplayRotation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3502,7 +3502,7 @@ impl ::core::ops::Not for DisplayScanoutOptions {
     }
 }
 impl ::windows::core::RuntimeType for DisplayScanoutOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3535,7 +3535,7 @@ impl ::core::fmt::Debug for DisplaySourceStatus {
     }
 }
 impl ::windows::core::RuntimeType for DisplaySourceStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3600,7 +3600,7 @@ impl ::core::ops::Not for DisplayStateApplyOptions {
     }
 }
 impl ::windows::core::RuntimeType for DisplayStateApplyOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3664,7 +3664,7 @@ impl ::core::ops::Not for DisplayStateFunctionalizeOptions {
     }
 }
 impl ::windows::core::RuntimeType for DisplayStateFunctionalizeOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3700,7 +3700,7 @@ impl ::core::fmt::Debug for DisplayStateOperationStatus {
     }
 }
 impl ::windows::core::RuntimeType for DisplayStateOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3732,7 +3732,7 @@ impl ::core::fmt::Debug for DisplayTargetPersistence {
     }
 }
 impl ::windows::core::RuntimeType for DisplayTargetPersistence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3762,7 +3762,7 @@ impl ::core::fmt::Debug for DisplayTaskSignalKind {
     }
 }
 impl ::windows::core::RuntimeType for DisplayTaskSignalKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3793,7 +3793,7 @@ impl ::core::fmt::Debug for DisplayWireFormatColorSpace {
     }
 }
 impl ::windows::core::RuntimeType for DisplayWireFormatColorSpace {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3823,7 +3823,7 @@ impl ::core::fmt::Debug for DisplayWireFormatEotf {
     }
 }
 impl ::windows::core::RuntimeType for DisplayWireFormatEotf {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3855,7 +3855,7 @@ impl ::core::fmt::Debug for DisplayWireFormatHdrMetadata {
     }
 }
 impl ::windows::core::RuntimeType for DisplayWireFormatHdrMetadata {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
@@ -3888,7 +3888,7 @@ impl ::core::fmt::Debug for DisplayWireFormatPixelEncoding {
     }
 }
 impl ::windows::core::RuntimeType for DisplayWireFormatPixelEncoding {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Numerics\"`*"]
@@ -3917,7 +3917,7 @@ impl ::windows::core::TypeKind for DisplayPresentationRate {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeType for DisplayPresentationRate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for DisplayPresentationRate {

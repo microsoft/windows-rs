@@ -115,8 +115,8 @@ impl QuickLink {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<QuickLink, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<QuickLink, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -187,7 +187,7 @@ impl ::core::fmt::Debug for QuickLink {
     }
 }
 impl ::windows::core::RuntimeType for QuickLink {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink;{603e4308-f0be-4adc-acc9-8b27ab9cf556})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink;{603e4308-f0be-4adc-acc9-8b27ab9cf556})");
 }
 impl ::core::clone::Clone for QuickLink {
     fn clone(&self) -> Self {
@@ -203,7 +203,7 @@ unsafe impl ::windows::core::Interface for QuickLink {
 impl ::windows::core::RuntimeName for QuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink";
 }
-::windows::core::interface_hierarchy!(QuickLink, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(QuickLink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
 #[repr(transparent)]
 pub struct ShareOperation(::windows::core::IUnknown);
@@ -276,7 +276,7 @@ impl ::core::fmt::Debug for ShareOperation {
     }
 }
 impl ::windows::core::RuntimeType for ShareOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation;{2246bab8-d0f8-41c1-a82a-4137db6504fb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation;{2246bab8-d0f8-41c1-a82a-4137db6504fb})");
 }
 impl ::core::clone::Clone for ShareOperation {
     fn clone(&self) -> Self {
@@ -292,6 +292,6 @@ unsafe impl ::windows::core::Interface for ShareOperation {
 impl ::windows::core::RuntimeName for ShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";
 }
-::windows::core::interface_hierarchy!(ShareOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

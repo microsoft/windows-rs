@@ -85,7 +85,7 @@ impl NamedPolicy {
     }
     #[doc(hidden)]
     pub fn INamedPolicyStatics<R, F: FnOnce(&INamedPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NamedPolicy, INamedPolicyStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NamedPolicy, INamedPolicyStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -205,7 +205,7 @@ impl ::core::fmt::Debug for NamedPolicyData {
     }
 }
 impl ::windows::core::RuntimeType for NamedPolicyData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Policies.NamedPolicyData;{38dcb198-95ac-4077-a643-8078cae26400})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Policies.NamedPolicyData;{38dcb198-95ac-4077-a643-8078cae26400})");
 }
 impl ::core::clone::Clone for NamedPolicyData {
     fn clone(&self) -> Self {
@@ -221,7 +221,7 @@ unsafe impl ::windows::core::Interface for NamedPolicyData {
 impl ::windows::core::RuntimeName for NamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicyData";
 }
-::windows::core::interface_hierarchy!(NamedPolicyData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NamedPolicyData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NamedPolicyData {}
 unsafe impl ::core::marker::Sync for NamedPolicyData {}
 #[doc = "*Required features: `\"Management_Policies\"`*"]
@@ -256,7 +256,7 @@ impl ::core::fmt::Debug for NamedPolicyKind {
     }
 }
 impl ::windows::core::RuntimeType for NamedPolicyKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Policies.NamedPolicyKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Policies.NamedPolicyKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

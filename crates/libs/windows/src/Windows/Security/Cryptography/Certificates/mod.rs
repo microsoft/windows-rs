@@ -1394,7 +1394,7 @@ impl Certificate {
     }
     #[doc(hidden)]
     pub fn ICertificateFactory<R, F: FnOnce(&ICertificateFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Certificate, ICertificateFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Certificate, ICertificateFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1410,7 +1410,7 @@ impl ::core::fmt::Debug for Certificate {
     }
 }
 impl ::windows::core::RuntimeType for Certificate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.Certificate;{333f740c-04d8-43b3-b278-8c5fcc9be5a0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.Certificate;{333f740c-04d8-43b3-b278-8c5fcc9be5a0})");
 }
 impl ::core::clone::Clone for Certificate {
     fn clone(&self) -> Self {
@@ -1426,7 +1426,7 @@ unsafe impl ::windows::core::Interface for Certificate {
 impl ::windows::core::RuntimeName for Certificate {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.Certificate";
 }
-::windows::core::interface_hierarchy!(Certificate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Certificate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Certificate {}
 unsafe impl ::core::marker::Sync for Certificate {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1469,7 +1469,7 @@ impl ::core::fmt::Debug for CertificateChain {
     }
 }
 impl ::windows::core::RuntimeType for CertificateChain {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateChain;{20bf5385-3691-4501-a62c-fd97278b31ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateChain;{20bf5385-3691-4501-a62c-fd97278b31ee})");
 }
 impl ::core::clone::Clone for CertificateChain {
     fn clone(&self) -> Self {
@@ -1485,7 +1485,7 @@ unsafe impl ::windows::core::Interface for CertificateChain {
 impl ::windows::core::RuntimeName for CertificateChain {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateChain";
 }
-::windows::core::interface_hierarchy!(CertificateChain, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CertificateChain, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateChain {}
 unsafe impl ::core::marker::Sync for CertificateChain {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1539,17 +1539,17 @@ impl CertificateEnrollmentManager {
     }
     #[doc(hidden)]
     pub fn ICertificateEnrollmentManagerStatics<R, F: FnOnce(&ICertificateEnrollmentManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CertificateEnrollmentManager, ICertificateEnrollmentManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CertificateEnrollmentManager, ICertificateEnrollmentManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICertificateEnrollmentManagerStatics2<R, F: FnOnce(&ICertificateEnrollmentManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CertificateEnrollmentManager, ICertificateEnrollmentManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CertificateEnrollmentManager, ICertificateEnrollmentManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICertificateEnrollmentManagerStatics3<R, F: FnOnce(&ICertificateEnrollmentManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CertificateEnrollmentManager, ICertificateEnrollmentManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CertificateEnrollmentManager, ICertificateEnrollmentManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1563,8 +1563,8 @@ impl CertificateExtension {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CertificateExtension, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CertificateExtension, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ObjectId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1617,7 +1617,7 @@ impl ::core::fmt::Debug for CertificateExtension {
     }
 }
 impl ::windows::core::RuntimeType for CertificateExtension {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateExtension;{84cf0656-a9e6-454d-8e45-2ea7c4bcd53b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateExtension;{84cf0656-a9e6-454d-8e45-2ea7c4bcd53b})");
 }
 impl ::core::clone::Clone for CertificateExtension {
     fn clone(&self) -> Self {
@@ -1633,7 +1633,7 @@ unsafe impl ::windows::core::Interface for CertificateExtension {
 impl ::windows::core::RuntimeName for CertificateExtension {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateExtension";
 }
-::windows::core::interface_hierarchy!(CertificateExtension, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CertificateExtension, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateExtension {}
 unsafe impl ::core::marker::Sync for CertificateExtension {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1643,8 +1643,8 @@ impl CertificateKeyUsages {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CertificateKeyUsages, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CertificateKeyUsages, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn EncipherOnly(&self) -> ::windows::core::Result<bool> {
@@ -1748,7 +1748,7 @@ impl ::core::fmt::Debug for CertificateKeyUsages {
     }
 }
 impl ::windows::core::RuntimeType for CertificateKeyUsages {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateKeyUsages;{6ac6206f-e1cf-486a-b485-a69c83e46fd1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateKeyUsages;{6ac6206f-e1cf-486a-b485-a69c83e46fd1})");
 }
 impl ::core::clone::Clone for CertificateKeyUsages {
     fn clone(&self) -> Self {
@@ -1764,7 +1764,7 @@ unsafe impl ::windows::core::Interface for CertificateKeyUsages {
 impl ::windows::core::RuntimeName for CertificateKeyUsages {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateKeyUsages";
 }
-::windows::core::interface_hierarchy!(CertificateKeyUsages, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CertificateKeyUsages, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateKeyUsages {}
 unsafe impl ::core::marker::Sync for CertificateKeyUsages {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1774,8 +1774,8 @@ impl CertificateQuery {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CertificateQuery, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CertificateQuery, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1877,7 +1877,7 @@ impl ::core::fmt::Debug for CertificateQuery {
     }
 }
 impl ::windows::core::RuntimeType for CertificateQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateQuery;{5b082a31-a728-4916-b5ee-ffcb8acf2417})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateQuery;{5b082a31-a728-4916-b5ee-ffcb8acf2417})");
 }
 impl ::core::clone::Clone for CertificateQuery {
     fn clone(&self) -> Self {
@@ -1893,7 +1893,7 @@ unsafe impl ::windows::core::Interface for CertificateQuery {
 impl ::windows::core::RuntimeName for CertificateQuery {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateQuery";
 }
-::windows::core::interface_hierarchy!(CertificateQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CertificateQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateQuery {}
 unsafe impl ::core::marker::Sync for CertificateQuery {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1903,8 +1903,8 @@ impl CertificateRequestProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CertificateRequestProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CertificateRequestProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2132,7 +2132,7 @@ impl ::core::fmt::Debug for CertificateRequestProperties {
     }
 }
 impl ::windows::core::RuntimeType for CertificateRequestProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateRequestProperties;{487e84f6-94e2-4dce-8833-1a700a37a29a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateRequestProperties;{487e84f6-94e2-4dce-8833-1a700a37a29a})");
 }
 impl ::core::clone::Clone for CertificateRequestProperties {
     fn clone(&self) -> Self {
@@ -2148,7 +2148,7 @@ unsafe impl ::windows::core::Interface for CertificateRequestProperties {
 impl ::windows::core::RuntimeName for CertificateRequestProperties {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateRequestProperties";
 }
-::windows::core::interface_hierarchy!(CertificateRequestProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CertificateRequestProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateRequestProperties {}
 unsafe impl ::core::marker::Sync for CertificateRequestProperties {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2183,7 +2183,7 @@ impl ::core::fmt::Debug for CertificateStore {
     }
 }
 impl ::windows::core::RuntimeType for CertificateStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateStore;{b0bff720-344e-4331-af14-a7f7a7ebc93a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateStore;{b0bff720-344e-4331-af14-a7f7a7ebc93a})");
 }
 impl ::core::clone::Clone for CertificateStore {
     fn clone(&self) -> Self {
@@ -2199,7 +2199,7 @@ unsafe impl ::windows::core::Interface for CertificateStore {
 impl ::windows::core::RuntimeName for CertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStore";
 }
-::windows::core::interface_hierarchy!(CertificateStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CertificateStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateStore {}
 unsafe impl ::core::marker::Sync for CertificateStore {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2247,12 +2247,12 @@ impl CertificateStores {
     }
     #[doc(hidden)]
     pub fn ICertificateStoresStatics<R, F: FnOnce(&ICertificateStoresStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CertificateStores, ICertificateStoresStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CertificateStores, ICertificateStoresStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICertificateStoresStatics2<R, F: FnOnce(&ICertificateStoresStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CertificateStores, ICertificateStoresStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CertificateStores, ICertificateStoresStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2266,8 +2266,8 @@ impl ChainBuildingParameters {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChainBuildingParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ChainBuildingParameters, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2360,7 +2360,7 @@ impl ::core::fmt::Debug for ChainBuildingParameters {
     }
 }
 impl ::windows::core::RuntimeType for ChainBuildingParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.ChainBuildingParameters;{422ba922-7c8d-47b7-b59b-b12703733ac3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.ChainBuildingParameters;{422ba922-7c8d-47b7-b59b-b12703733ac3})");
 }
 impl ::core::clone::Clone for ChainBuildingParameters {
     fn clone(&self) -> Self {
@@ -2376,7 +2376,7 @@ unsafe impl ::windows::core::Interface for ChainBuildingParameters {
 impl ::windows::core::RuntimeName for ChainBuildingParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainBuildingParameters";
 }
-::windows::core::interface_hierarchy!(ChainBuildingParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChainBuildingParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChainBuildingParameters {}
 unsafe impl ::core::marker::Sync for ChainBuildingParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2386,8 +2386,8 @@ impl ChainValidationParameters {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChainValidationParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ChainValidationParameters, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CertificateChainPolicy(&self) -> ::windows::core::Result<CertificateChainPolicy> {
@@ -2429,7 +2429,7 @@ impl ::core::fmt::Debug for ChainValidationParameters {
     }
 }
 impl ::windows::core::RuntimeType for ChainValidationParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.ChainValidationParameters;{c4743b4a-7eb0-4b56-a040-b9c8e655ddf3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.ChainValidationParameters;{c4743b4a-7eb0-4b56-a040-b9c8e655ddf3})");
 }
 impl ::core::clone::Clone for ChainValidationParameters {
     fn clone(&self) -> Self {
@@ -2445,7 +2445,7 @@ unsafe impl ::windows::core::Interface for ChainValidationParameters {
 impl ::windows::core::RuntimeName for ChainValidationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainValidationParameters";
 }
-::windows::core::interface_hierarchy!(ChainValidationParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChainValidationParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChainValidationParameters {}
 unsafe impl ::core::marker::Sync for ChainValidationParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2514,12 +2514,12 @@ impl CmsAttachedSignature {
     }
     #[doc(hidden)]
     pub fn ICmsAttachedSignatureFactory<R, F: FnOnce(&ICmsAttachedSignatureFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CmsAttachedSignature, ICmsAttachedSignatureFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CmsAttachedSignature, ICmsAttachedSignatureFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICmsAttachedSignatureStatics<R, F: FnOnce(&ICmsAttachedSignatureStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CmsAttachedSignature, ICmsAttachedSignatureStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CmsAttachedSignature, ICmsAttachedSignatureStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2535,7 +2535,7 @@ impl ::core::fmt::Debug for CmsAttachedSignature {
     }
 }
 impl ::windows::core::RuntimeType for CmsAttachedSignature {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsAttachedSignature;{61899d9d-3757-4ecb-bddc-0ca357d7a936})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsAttachedSignature;{61899d9d-3757-4ecb-bddc-0ca357d7a936})");
 }
 impl ::core::clone::Clone for CmsAttachedSignature {
     fn clone(&self) -> Self {
@@ -2551,7 +2551,7 @@ unsafe impl ::windows::core::Interface for CmsAttachedSignature {
 impl ::windows::core::RuntimeName for CmsAttachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsAttachedSignature";
 }
-::windows::core::interface_hierarchy!(CmsAttachedSignature, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CmsAttachedSignature, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CmsAttachedSignature {}
 unsafe impl ::core::marker::Sync for CmsAttachedSignature {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2619,12 +2619,12 @@ impl CmsDetachedSignature {
     }
     #[doc(hidden)]
     pub fn ICmsDetachedSignatureFactory<R, F: FnOnce(&ICmsDetachedSignatureFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CmsDetachedSignature, ICmsDetachedSignatureFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CmsDetachedSignature, ICmsDetachedSignatureFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICmsDetachedSignatureStatics<R, F: FnOnce(&ICmsDetachedSignatureStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CmsDetachedSignature, ICmsDetachedSignatureStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CmsDetachedSignature, ICmsDetachedSignatureStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2640,7 +2640,7 @@ impl ::core::fmt::Debug for CmsDetachedSignature {
     }
 }
 impl ::windows::core::RuntimeType for CmsDetachedSignature {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsDetachedSignature;{0f1ef154-f65e-4536-8339-5944081db2ca})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsDetachedSignature;{0f1ef154-f65e-4536-8339-5944081db2ca})");
 }
 impl ::core::clone::Clone for CmsDetachedSignature {
     fn clone(&self) -> Self {
@@ -2656,7 +2656,7 @@ unsafe impl ::windows::core::Interface for CmsDetachedSignature {
 impl ::windows::core::RuntimeName for CmsDetachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsDetachedSignature";
 }
-::windows::core::interface_hierarchy!(CmsDetachedSignature, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CmsDetachedSignature, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CmsDetachedSignature {}
 unsafe impl ::core::marker::Sync for CmsDetachedSignature {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2666,8 +2666,8 @@ impl CmsSignerInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CmsSignerInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CmsSignerInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Certificate(&self) -> ::windows::core::Result<Certificate> {
@@ -2712,7 +2712,7 @@ impl ::core::fmt::Debug for CmsSignerInfo {
     }
 }
 impl ::windows::core::RuntimeType for CmsSignerInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsSignerInfo;{50d020db-1d2f-4c1a-b5c5-d0188ff91f47})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsSignerInfo;{50d020db-1d2f-4c1a-b5c5-d0188ff91f47})");
 }
 impl ::core::clone::Clone for CmsSignerInfo {
     fn clone(&self) -> Self {
@@ -2728,7 +2728,7 @@ unsafe impl ::windows::core::Interface for CmsSignerInfo {
 impl ::windows::core::RuntimeName for CmsSignerInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsSignerInfo";
 }
-::windows::core::interface_hierarchy!(CmsSignerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CmsSignerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CmsSignerInfo {}
 unsafe impl ::core::marker::Sync for CmsSignerInfo {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2773,7 +2773,7 @@ impl ::core::fmt::Debug for CmsTimestampInfo {
     }
 }
 impl ::windows::core::RuntimeType for CmsTimestampInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsTimestampInfo;{2f5f00f2-2c18-4f88-8435-c534086076f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsTimestampInfo;{2f5f00f2-2c18-4f88-8435-c534086076f5})");
 }
 impl ::core::clone::Clone for CmsTimestampInfo {
     fn clone(&self) -> Self {
@@ -2789,7 +2789,7 @@ unsafe impl ::windows::core::Interface for CmsTimestampInfo {
 impl ::windows::core::RuntimeName for CmsTimestampInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsTimestampInfo";
 }
-::windows::core::interface_hierarchy!(CmsTimestampInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CmsTimestampInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CmsTimestampInfo {}
 unsafe impl ::core::marker::Sync for CmsTimestampInfo {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2857,12 +2857,12 @@ impl KeyAlgorithmNames {
     }
     #[doc(hidden)]
     pub fn IKeyAlgorithmNamesStatics<R, F: FnOnce(&IKeyAlgorithmNamesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyAlgorithmNames, IKeyAlgorithmNamesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyAlgorithmNames, IKeyAlgorithmNamesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKeyAlgorithmNamesStatics2<R, F: FnOnce(&IKeyAlgorithmNamesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyAlgorithmNames, IKeyAlgorithmNamesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyAlgorithmNames, IKeyAlgorithmNamesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2896,12 +2896,12 @@ impl KeyAttestationHelper {
     }
     #[doc(hidden)]
     pub fn IKeyAttestationHelperStatics<R, F: FnOnce(&IKeyAttestationHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyAttestationHelper, IKeyAttestationHelperStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyAttestationHelper, IKeyAttestationHelperStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKeyAttestationHelperStatics2<R, F: FnOnce(&IKeyAttestationHelperStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyAttestationHelper, IKeyAttestationHelperStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyAttestationHelper, IKeyAttestationHelperStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2937,12 +2937,12 @@ impl KeyStorageProviderNames {
     }
     #[doc(hidden)]
     pub fn IKeyStorageProviderNamesStatics<R, F: FnOnce(&IKeyStorageProviderNamesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyStorageProviderNames, IKeyStorageProviderNamesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyStorageProviderNames, IKeyStorageProviderNamesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKeyStorageProviderNamesStatics2<R, F: FnOnce(&IKeyStorageProviderNamesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyStorageProviderNames, IKeyStorageProviderNamesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyStorageProviderNames, IKeyStorageProviderNamesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2956,8 +2956,8 @@ impl PfxImportParameters {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PfxImportParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PfxImportParameters, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Exportable(&self) -> ::windows::core::Result<ExportOption> {
@@ -3050,7 +3050,7 @@ impl ::core::fmt::Debug for PfxImportParameters {
     }
 }
 impl ::windows::core::RuntimeType for PfxImportParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.PfxImportParameters;{680d3511-9a08-47c8-864a-2edd4d8eb46c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.PfxImportParameters;{680d3511-9a08-47c8-864a-2edd4d8eb46c})");
 }
 impl ::core::clone::Clone for PfxImportParameters {
     fn clone(&self) -> Self {
@@ -3066,7 +3066,7 @@ unsafe impl ::windows::core::Interface for PfxImportParameters {
 impl ::windows::core::RuntimeName for PfxImportParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.PfxImportParameters";
 }
-::windows::core::interface_hierarchy!(PfxImportParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PfxImportParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PfxImportParameters {}
 unsafe impl ::core::marker::Sync for PfxImportParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3092,7 +3092,7 @@ impl StandardCertificateStoreNames {
     }
     #[doc(hidden)]
     pub fn IStandardCertificateStoreNamesStatics<R, F: FnOnce(&IStandardCertificateStoreNamesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StandardCertificateStoreNames, IStandardCertificateStoreNamesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StandardCertificateStoreNames, IStandardCertificateStoreNamesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3106,8 +3106,8 @@ impl SubjectAlternativeNameInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SubjectAlternativeNameInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SubjectAlternativeNameInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3238,7 +3238,7 @@ impl ::core::fmt::Debug for SubjectAlternativeNameInfo {
     }
 }
 impl ::windows::core::RuntimeType for SubjectAlternativeNameInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo;{582859f1-569d-4c20-be7b-4e1c9a0bc52b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo;{582859f1-569d-4c20-be7b-4e1c9a0bc52b})");
 }
 impl ::core::clone::Clone for SubjectAlternativeNameInfo {
     fn clone(&self) -> Self {
@@ -3254,7 +3254,7 @@ unsafe impl ::windows::core::Interface for SubjectAlternativeNameInfo {
 impl ::windows::core::RuntimeName for SubjectAlternativeNameInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo";
 }
-::windows::core::interface_hierarchy!(SubjectAlternativeNameInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SubjectAlternativeNameInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SubjectAlternativeNameInfo {}
 unsafe impl ::core::marker::Sync for SubjectAlternativeNameInfo {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3319,7 +3319,7 @@ impl ::core::fmt::Debug for UserCertificateEnrollmentManager {
     }
 }
 impl ::windows::core::RuntimeType for UserCertificateEnrollmentManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager;{96313718-22e1-4819-b20b-ab46a6eca06e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager;{96313718-22e1-4819-b20b-ab46a6eca06e})");
 }
 impl ::core::clone::Clone for UserCertificateEnrollmentManager {
     fn clone(&self) -> Self {
@@ -3335,7 +3335,7 @@ unsafe impl ::windows::core::Interface for UserCertificateEnrollmentManager {
 impl ::windows::core::RuntimeName for UserCertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager";
 }
-::windows::core::interface_hierarchy!(UserCertificateEnrollmentManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserCertificateEnrollmentManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserCertificateEnrollmentManager {}
 unsafe impl ::core::marker::Sync for UserCertificateEnrollmentManager {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3380,7 +3380,7 @@ impl ::core::fmt::Debug for UserCertificateStore {
     }
 }
 impl ::windows::core::RuntimeType for UserCertificateStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateStore;{c9fb1d83-789f-4b4e-9180-045a757aac6d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateStore;{c9fb1d83-789f-4b4e-9180-045a757aac6d})");
 }
 impl ::core::clone::Clone for UserCertificateStore {
     fn clone(&self) -> Self {
@@ -3396,7 +3396,7 @@ unsafe impl ::windows::core::Interface for UserCertificateStore {
 impl ::windows::core::RuntimeName for UserCertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateStore";
 }
-::windows::core::interface_hierarchy!(UserCertificateStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserCertificateStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserCertificateStore {}
 unsafe impl ::core::marker::Sync for UserCertificateStore {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3429,7 +3429,7 @@ impl ::core::fmt::Debug for CertificateChainPolicy {
     }
 }
 impl ::windows::core::RuntimeType for CertificateChainPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -3471,7 +3471,7 @@ impl ::core::fmt::Debug for ChainValidationResult {
     }
 }
 impl ::windows::core::RuntimeType for ChainValidationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -3537,7 +3537,7 @@ impl ::core::ops::Not for EnrollKeyUsages {
     }
 }
 impl ::windows::core::RuntimeType for EnrollKeyUsages {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -3567,7 +3567,7 @@ impl ::core::fmt::Debug for ExportOption {
     }
 }
 impl ::windows::core::RuntimeType for ExportOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -3630,7 +3630,7 @@ impl ::core::ops::Not for InstallOptions {
     }
 }
 impl ::windows::core::RuntimeType for InstallOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -3662,7 +3662,7 @@ impl ::core::fmt::Debug for KeyProtectionLevel {
     }
 }
 impl ::windows::core::RuntimeType for KeyProtectionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -3693,7 +3693,7 @@ impl ::core::fmt::Debug for KeySize {
     }
 }
 impl ::windows::core::RuntimeType for KeySize {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -3726,7 +3726,7 @@ impl ::core::fmt::Debug for SignatureValidationResult {
     }
 }
 impl ::windows::core::RuntimeType for SignatureValidationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

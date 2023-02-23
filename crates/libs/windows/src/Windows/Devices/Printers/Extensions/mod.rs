@@ -307,7 +307,7 @@ impl ::core::fmt::Debug for Print3DWorkflow {
     }
 }
 impl ::windows::core::RuntimeType for Print3DWorkflow {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflow;{c56f74bd-3669-4a66-ab42-c8151930cd34})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflow;{c56f74bd-3669-4a66-ab42-c8151930cd34})");
 }
 impl ::core::clone::Clone for Print3DWorkflow {
     fn clone(&self) -> Self {
@@ -323,7 +323,7 @@ unsafe impl ::windows::core::Interface for Print3DWorkflow {
 impl ::windows::core::RuntimeName for Print3DWorkflow {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflow";
 }
-::windows::core::interface_hierarchy!(Print3DWorkflow, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DWorkflow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DWorkflow {}
 unsafe impl ::core::marker::Sync for Print3DWorkflow {}
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
@@ -365,7 +365,7 @@ impl ::core::fmt::Debug for Print3DWorkflowPrintRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for Print3DWorkflowPrintRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs;{19f8c858-5ac8-4b55-8a5f-e61567dafb4d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs;{19f8c858-5ac8-4b55-8a5f-e61567dafb4d})");
 }
 impl ::core::clone::Clone for Print3DWorkflowPrintRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -381,7 +381,7 @@ unsafe impl ::windows::core::Interface for Print3DWorkflowPrintRequestedEventArg
 impl ::windows::core::RuntimeName for Print3DWorkflowPrintRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(Print3DWorkflowPrintRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DWorkflowPrintRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DWorkflowPrintRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DWorkflowPrintRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
@@ -408,7 +408,7 @@ impl ::core::fmt::Debug for Print3DWorkflowPrinterChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for Print3DWorkflowPrinterChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs;{45226402-95fc-4847-93b3-134dbf5c60f7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs;{45226402-95fc-4847-93b3-134dbf5c60f7})");
 }
 impl ::core::clone::Clone for Print3DWorkflowPrinterChangedEventArgs {
     fn clone(&self) -> Self {
@@ -424,7 +424,7 @@ unsafe impl ::windows::core::Interface for Print3DWorkflowPrinterChangedEventArg
 impl ::windows::core::RuntimeName for Print3DWorkflowPrinterChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(Print3DWorkflowPrinterChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DWorkflowPrinterChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DWorkflowPrinterChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DWorkflowPrinterChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
@@ -438,7 +438,7 @@ impl PrintExtensionContext {
     }
     #[doc(hidden)]
     pub fn IPrintExtensionContextStatic<R, F: FnOnce(&IPrintExtensionContextStatic) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PrintExtensionContext, IPrintExtensionContextStatic> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PrintExtensionContext, IPrintExtensionContextStatic> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -480,7 +480,7 @@ impl ::core::fmt::Debug for PrintNotificationEventDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintNotificationEventDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintNotificationEventDetails;{e00e4c8a-4828-4da1-8bb8-8672df8515e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintNotificationEventDetails;{e00e4c8a-4828-4da1-8bb8-8672df8515e7})");
 }
 impl ::core::clone::Clone for PrintNotificationEventDetails {
     fn clone(&self) -> Self {
@@ -496,7 +496,7 @@ unsafe impl ::windows::core::Interface for PrintNotificationEventDetails {
 impl ::windows::core::RuntimeName for PrintNotificationEventDetails {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintNotificationEventDetails";
 }
-::windows::core::interface_hierarchy!(PrintNotificationEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintNotificationEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintNotificationEventDetails {}
 unsafe impl ::core::marker::Sync for PrintNotificationEventDetails {}
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
@@ -538,7 +538,7 @@ impl ::core::fmt::Debug for PrintTaskConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfiguration;{e3c22451-3aa4-4885-9240-311f5f8fbe9d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfiguration;{e3c22451-3aa4-4885-9240-311f5f8fbe9d})");
 }
 impl ::core::clone::Clone for PrintTaskConfiguration {
     fn clone(&self) -> Self {
@@ -554,7 +554,7 @@ unsafe impl ::windows::core::Interface for PrintTaskConfiguration {
 impl ::windows::core::RuntimeName for PrintTaskConfiguration {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfiguration";
 }
-::windows::core::interface_hierarchy!(PrintTaskConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 #[repr(transparent)]
 pub struct PrintTaskConfigurationSaveRequest(::windows::core::IUnknown);
@@ -599,7 +599,7 @@ impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequest {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequest;{eeaf2fcb-621e-4b62-ac77-b281cce08d60})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequest;{eeaf2fcb-621e-4b62-ac77-b281cce08d60})");
 }
 impl ::core::clone::Clone for PrintTaskConfigurationSaveRequest {
     fn clone(&self) -> Self {
@@ -615,7 +615,7 @@ unsafe impl ::windows::core::Interface for PrintTaskConfigurationSaveRequest {
 impl ::windows::core::RuntimeName for PrintTaskConfigurationSaveRequest {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequest";
 }
-::windows::core::interface_hierarchy!(PrintTaskConfigurationSaveRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 #[repr(transparent)]
 pub struct PrintTaskConfigurationSaveRequestedDeferral(::windows::core::IUnknown);
@@ -637,7 +637,7 @@ impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequestedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequestedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedDeferral;{e959d568-f729-44a4-871d-bd0628696a33})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedDeferral;{e959d568-f729-44a4-871d-bd0628696a33})");
 }
 impl ::core::clone::Clone for PrintTaskConfigurationSaveRequestedDeferral {
     fn clone(&self) -> Self {
@@ -653,7 +653,7 @@ unsafe impl ::windows::core::Interface for PrintTaskConfigurationSaveRequestedDe
 impl ::windows::core::RuntimeName for PrintTaskConfigurationSaveRequestedDeferral {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedDeferral";
 }
-::windows::core::interface_hierarchy!(PrintTaskConfigurationSaveRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 #[repr(transparent)]
 pub struct PrintTaskConfigurationSaveRequestedEventArgs(::windows::core::IUnknown);
@@ -678,7 +678,7 @@ impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedEventArgs;{e06c2879-0d61-4938-91d0-96a45bee8479})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedEventArgs;{e06c2879-0d61-4938-91d0-96a45bee8479})");
 }
 impl ::core::clone::Clone for PrintTaskConfigurationSaveRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -694,7 +694,7 @@ unsafe impl ::windows::core::Interface for PrintTaskConfigurationSaveRequestedEv
 impl ::windows::core::RuntimeName for PrintTaskConfigurationSaveRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintTaskConfigurationSaveRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -728,7 +728,7 @@ impl ::core::fmt::Debug for Print3DWorkflowDetail {
     }
 }
 impl ::windows::core::RuntimeType for Print3DWorkflowDetail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
 }
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 #[repr(transparent)]
@@ -761,7 +761,7 @@ impl ::core::fmt::Debug for Print3DWorkflowStatus {
     }
 }
 impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

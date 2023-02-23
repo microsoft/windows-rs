@@ -20,7 +20,7 @@ impl IUriToStreamResolver {
         }
     }
 }
-::windows::core::interface_hierarchy!(IUriToStreamResolver, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IUriToStreamResolver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IUriToStreamResolver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -33,7 +33,7 @@ impl ::core::fmt::Debug for IUriToStreamResolver {
     }
 }
 impl ::windows::core::RuntimeType for IUriToStreamResolver {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b0aba86a-9aeb-4d3a-9590-003e3ca7e290}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b0aba86a-9aeb-4d3a-9590-003e3ca7e290}");
 }
 unsafe impl ::windows::core::Vtable for IUriToStreamResolver {
     type Vtable = IUriToStreamResolver_Vtbl;
@@ -86,7 +86,7 @@ impl WebError {
     }
     #[doc(hidden)]
     pub fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebError, IWebErrorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebError, IWebErrorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -174,7 +174,7 @@ impl ::core::fmt::Debug for WebErrorStatus {
     }
 }
 impl ::windows::core::RuntimeType for WebErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.WebErrorStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.WebErrorStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

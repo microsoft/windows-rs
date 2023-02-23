@@ -10,7 +10,7 @@ impl IWsbApplicationAsync {
         (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWsbApplicationAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWsbApplicationAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWsbApplicationAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -54,7 +54,7 @@ impl IWsbApplicationBackupSupport {
         (::windows::core::Vtable::vtable(self).CheckConsistency)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into().abi(), wszcomponentname.into().abi(), wszcomponentlogicalpath.into().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWsbApplicationBackupSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWsbApplicationBackupSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWsbApplicationBackupSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -117,7 +117,7 @@ impl IWsbApplicationRestoreSupport {
         (::windows::core::Vtable::vtable(self).IsRollForwardSupported)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWsbApplicationRestoreSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWsbApplicationRestoreSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWsbApplicationRestoreSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

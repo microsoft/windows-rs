@@ -258,7 +258,7 @@ impl LocalCategories {
     }
     #[doc(hidden)]
     pub fn ILocalCategoriesStatics<R, F: FnOnce(&ILocalCategoriesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LocalCategories, ILocalCategoriesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LocalCategories, ILocalCategoriesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -356,7 +356,7 @@ impl ::core::fmt::Debug for LocalLocation {
     }
 }
 impl ::windows::core::RuntimeType for LocalLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocation;{bb0fe9ab-4502-4f2c-94a9-0d60de0e2163})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocation;{bb0fe9ab-4502-4f2c-94a9-0d60de0e2163})");
 }
 impl ::core::clone::Clone for LocalLocation {
     fn clone(&self) -> Self {
@@ -372,7 +372,7 @@ unsafe impl ::windows::core::Interface for LocalLocation {
 impl ::windows::core::RuntimeName for LocalLocation {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocation";
 }
-::windows::core::interface_hierarchy!(LocalLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LocalLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocation {}
 unsafe impl ::core::marker::Sync for LocalLocation {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
@@ -388,7 +388,7 @@ impl LocalLocationFinder {
     }
     #[doc(hidden)]
     pub fn ILocalLocationFinderStatics<R, F: FnOnce(&ILocalLocationFinderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LocalLocationFinder, ILocalLocationFinderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LocalLocationFinder, ILocalLocationFinderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -428,7 +428,7 @@ impl ::core::fmt::Debug for LocalLocationFinderResult {
     }
 }
 impl ::windows::core::RuntimeType for LocalLocationFinderResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationFinderResult;{d09b6cc6-f338-4191-9fd8-5440b9a68f52})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationFinderResult;{d09b6cc6-f338-4191-9fd8-5440b9a68f52})");
 }
 impl ::core::clone::Clone for LocalLocationFinderResult {
     fn clone(&self) -> Self {
@@ -444,7 +444,7 @@ unsafe impl ::windows::core::Interface for LocalLocationFinderResult {
 impl ::windows::core::RuntimeName for LocalLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
 }
-::windows::core::interface_hierarchy!(LocalLocationFinderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LocalLocationFinderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocationFinderResult {}
 unsafe impl ::core::marker::Sync for LocalLocationFinderResult {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
@@ -491,7 +491,7 @@ impl ::core::fmt::Debug for LocalLocationHoursOfOperationItem {
     }
 }
 impl ::windows::core::RuntimeType for LocalLocationHoursOfOperationItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem;{23548c72-a1c7-43f1-a4f0-1091c39ec640})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem;{23548c72-a1c7-43f1-a4f0-1091c39ec640})");
 }
 impl ::core::clone::Clone for LocalLocationHoursOfOperationItem {
     fn clone(&self) -> Self {
@@ -507,7 +507,7 @@ unsafe impl ::windows::core::Interface for LocalLocationHoursOfOperationItem {
 impl ::windows::core::RuntimeName for LocalLocationHoursOfOperationItem {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
 }
-::windows::core::interface_hierarchy!(LocalLocationHoursOfOperationItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LocalLocationHoursOfOperationItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocationHoursOfOperationItem {}
 unsafe impl ::core::marker::Sync for LocalLocationHoursOfOperationItem {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
@@ -552,7 +552,7 @@ impl ::core::fmt::Debug for LocalLocationRatingInfo {
     }
 }
 impl ::windows::core::RuntimeType for LocalLocationRatingInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo;{cb1dab56-3354-4311-8bc0-a2d4d5eb806e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo;{cb1dab56-3354-4311-8bc0-a2d4d5eb806e})");
 }
 impl ::core::clone::Clone for LocalLocationRatingInfo {
     fn clone(&self) -> Self {
@@ -568,7 +568,7 @@ unsafe impl ::windows::core::Interface for LocalLocationRatingInfo {
 impl ::windows::core::RuntimeName for LocalLocationRatingInfo {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";
 }
-::windows::core::interface_hierarchy!(LocalLocationRatingInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LocalLocationRatingInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocationRatingInfo {}
 unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
@@ -582,7 +582,7 @@ impl PlaceInfoHelper {
     }
     #[doc(hidden)]
     pub fn IPlaceInfoHelperStatics<R, F: FnOnce(&IPlaceInfoHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlaceInfoHelper, IPlaceInfoHelperStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlaceInfoHelper, IPlaceInfoHelperStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -623,7 +623,7 @@ impl ::core::fmt::Debug for LocalLocationFinderStatus {
     }
 }
 impl ::windows::core::RuntimeType for LocalLocationFinderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -2000,7 +2000,7 @@ impl GattCharacteristic {
     }
     #[doc(hidden)]
     pub fn IGattCharacteristicStatics<R, F: FnOnce(&IGattCharacteristicStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattCharacteristic, IGattCharacteristicStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattCharacteristic, IGattCharacteristicStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2016,7 +2016,7 @@ impl ::core::fmt::Debug for GattCharacteristic {
     }
 }
 impl ::windows::core::RuntimeType for GattCharacteristic {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic;{59cb50c1-5934-4f68-a198-eb864fa44e6b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic;{59cb50c1-5934-4f68-a198-eb864fa44e6b})");
 }
 impl ::core::clone::Clone for GattCharacteristic {
     fn clone(&self) -> Self {
@@ -2032,7 +2032,7 @@ unsafe impl ::windows::core::Interface for GattCharacteristic {
 impl ::windows::core::RuntimeName for GattCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic";
 }
-::windows::core::interface_hierarchy!(GattCharacteristic, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattCharacteristic, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattCharacteristic {}
 unsafe impl ::core::marker::Sync for GattCharacteristic {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2526,12 +2526,12 @@ impl GattCharacteristicUuids {
     }
     #[doc(hidden)]
     pub fn IGattCharacteristicUuidsStatics<R, F: FnOnce(&IGattCharacteristicUuidsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattCharacteristicUuids, IGattCharacteristicUuidsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattCharacteristicUuids, IGattCharacteristicUuidsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGattCharacteristicUuidsStatics2<R, F: FnOnce(&IGattCharacteristicUuidsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattCharacteristicUuids, IGattCharacteristicUuidsStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattCharacteristicUuids, IGattCharacteristicUuidsStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2580,7 +2580,7 @@ impl ::core::fmt::Debug for GattCharacteristicsResult {
     }
 }
 impl ::windows::core::RuntimeType for GattCharacteristicsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult;{1194945c-b257-4f3e-9db7-f68bc9a9aef2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult;{1194945c-b257-4f3e-9db7-f68bc9a9aef2})");
 }
 impl ::core::clone::Clone for GattCharacteristicsResult {
     fn clone(&self) -> Self {
@@ -2596,7 +2596,7 @@ unsafe impl ::windows::core::Interface for GattCharacteristicsResult {
 impl ::windows::core::RuntimeName for GattCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult";
 }
-::windows::core::interface_hierarchy!(GattCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for GattCharacteristicsResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2646,7 +2646,7 @@ impl ::core::fmt::Debug for GattClientNotificationResult {
     }
 }
 impl ::windows::core::RuntimeType for GattClientNotificationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult;{506d5599-0112-419a-8e3b-ae21afabd2c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult;{506d5599-0112-419a-8e3b-ae21afabd2c2})");
 }
 impl ::core::clone::Clone for GattClientNotificationResult {
     fn clone(&self) -> Self {
@@ -2662,7 +2662,7 @@ unsafe impl ::windows::core::Interface for GattClientNotificationResult {
 impl ::windows::core::RuntimeName for GattClientNotificationResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult";
 }
-::windows::core::interface_hierarchy!(GattClientNotificationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattClientNotificationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattClientNotificationResult {}
 unsafe impl ::core::marker::Sync for GattClientNotificationResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2748,7 +2748,7 @@ impl GattDescriptor {
     }
     #[doc(hidden)]
     pub fn IGattDescriptorStatics<R, F: FnOnce(&IGattDescriptorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattDescriptor, IGattDescriptorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattDescriptor, IGattDescriptorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2764,7 +2764,7 @@ impl ::core::fmt::Debug for GattDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for GattDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor;{92055f2b-8084-4344-b4c2-284de19a8506})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor;{92055f2b-8084-4344-b4c2-284de19a8506})");
 }
 impl ::core::clone::Clone for GattDescriptor {
     fn clone(&self) -> Self {
@@ -2780,7 +2780,7 @@ unsafe impl ::windows::core::Interface for GattDescriptor {
 impl ::windows::core::RuntimeName for GattDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor";
 }
-::windows::core::interface_hierarchy!(GattDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattDescriptor {}
 unsafe impl ::core::marker::Sync for GattDescriptor {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2824,7 +2824,7 @@ impl GattDescriptorUuids {
     }
     #[doc(hidden)]
     pub fn IGattDescriptorUuidsStatics<R, F: FnOnce(&IGattDescriptorUuidsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattDescriptorUuids, IGattDescriptorUuidsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattDescriptorUuids, IGattDescriptorUuidsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2873,7 +2873,7 @@ impl ::core::fmt::Debug for GattDescriptorsResult {
     }
 }
 impl ::windows::core::RuntimeType for GattDescriptorsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult;{9bc091f3-95e7-4489-8d25-ff81955a57b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult;{9bc091f3-95e7-4489-8d25-ff81955a57b9})");
 }
 impl ::core::clone::Clone for GattDescriptorsResult {
     fn clone(&self) -> Self {
@@ -2889,7 +2889,7 @@ unsafe impl ::windows::core::Interface for GattDescriptorsResult {
 impl ::windows::core::RuntimeName for GattDescriptorsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult";
 }
-::windows::core::interface_hierarchy!(GattDescriptorsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattDescriptorsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattDescriptorsResult {}
 unsafe impl ::core::marker::Sync for GattDescriptorsResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3154,12 +3154,12 @@ impl GattDeviceService {
     }
     #[doc(hidden)]
     pub fn IGattDeviceServiceStatics<R, F: FnOnce(&IGattDeviceServiceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattDeviceService, IGattDeviceServiceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattDeviceService, IGattDeviceServiceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGattDeviceServiceStatics2<R, F: FnOnce(&IGattDeviceServiceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattDeviceService, IGattDeviceServiceStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattDeviceService, IGattDeviceServiceStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3175,7 +3175,7 @@ impl ::core::fmt::Debug for GattDeviceService {
     }
 }
 impl ::windows::core::RuntimeType for GattDeviceService {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService;{ac7b7c05-b33c-47cf-990f-6b8f5577df71})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService;{ac7b7c05-b33c-47cf-990f-6b8f5577df71})");
 }
 impl ::core::clone::Clone for GattDeviceService {
     fn clone(&self) -> Self {
@@ -3191,7 +3191,7 @@ unsafe impl ::windows::core::Interface for GattDeviceService {
 impl ::windows::core::RuntimeName for GattDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService";
 }
-::windows::core::interface_hierarchy!(GattDeviceService, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattDeviceService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GattDeviceService> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3258,7 +3258,7 @@ impl ::core::fmt::Debug for GattDeviceServicesResult {
     }
 }
 impl ::windows::core::RuntimeType for GattDeviceServicesResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult;{171dd3ee-016d-419d-838a-576cf475a3d8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult;{171dd3ee-016d-419d-838a-576cf475a3d8})");
 }
 impl ::core::clone::Clone for GattDeviceServicesResult {
     fn clone(&self) -> Self {
@@ -3274,7 +3274,7 @@ unsafe impl ::windows::core::Interface for GattDeviceServicesResult {
 impl ::windows::core::RuntimeName for GattDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult";
 }
-::windows::core::interface_hierarchy!(GattDeviceServicesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattDeviceServicesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for GattDeviceServicesResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3445,7 +3445,7 @@ impl ::core::fmt::Debug for GattLocalCharacteristic {
     }
 }
 impl ::windows::core::RuntimeType for GattLocalCharacteristic {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic;{aede376d-5412-4d74-92a8-8deb8526829c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic;{aede376d-5412-4d74-92a8-8deb8526829c})");
 }
 impl ::core::clone::Clone for GattLocalCharacteristic {
     fn clone(&self) -> Self {
@@ -3461,7 +3461,7 @@ unsafe impl ::windows::core::Interface for GattLocalCharacteristic {
 impl ::windows::core::RuntimeName for GattLocalCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic";
 }
-::windows::core::interface_hierarchy!(GattLocalCharacteristic, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattLocalCharacteristic, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalCharacteristic {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristic {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3471,8 +3471,8 @@ impl GattLocalCharacteristicParameters {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattLocalCharacteristicParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GattLocalCharacteristicParameters, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3560,7 +3560,7 @@ impl ::core::fmt::Debug for GattLocalCharacteristicParameters {
     }
 }
 impl ::windows::core::RuntimeType for GattLocalCharacteristicParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters;{faf73db4-4cff-44c7-8445-040e6ead0063})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters;{faf73db4-4cff-44c7-8445-040e6ead0063})");
 }
 impl ::core::clone::Clone for GattLocalCharacteristicParameters {
     fn clone(&self) -> Self {
@@ -3576,7 +3576,7 @@ unsafe impl ::windows::core::Interface for GattLocalCharacteristicParameters {
 impl ::windows::core::RuntimeName for GattLocalCharacteristicParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters";
 }
-::windows::core::interface_hierarchy!(GattLocalCharacteristicParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattLocalCharacteristicParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalCharacteristicParameters {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3610,7 +3610,7 @@ impl ::core::fmt::Debug for GattLocalCharacteristicResult {
     }
 }
 impl ::windows::core::RuntimeType for GattLocalCharacteristicResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult;{7975de9b-0170-4397-9666-92f863f12ee6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult;{7975de9b-0170-4397-9666-92f863f12ee6})");
 }
 impl ::core::clone::Clone for GattLocalCharacteristicResult {
     fn clone(&self) -> Self {
@@ -3626,7 +3626,7 @@ unsafe impl ::windows::core::Interface for GattLocalCharacteristicResult {
 impl ::windows::core::RuntimeName for GattLocalCharacteristicResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult";
 }
-::windows::core::interface_hierarchy!(GattLocalCharacteristicResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattLocalCharacteristicResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalCharacteristicResult {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3706,7 +3706,7 @@ impl ::core::fmt::Debug for GattLocalDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for GattLocalDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor;{f48ebe06-789d-4a4b-8652-bd017b5d2fc6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor;{f48ebe06-789d-4a4b-8652-bd017b5d2fc6})");
 }
 impl ::core::clone::Clone for GattLocalDescriptor {
     fn clone(&self) -> Self {
@@ -3722,7 +3722,7 @@ unsafe impl ::windows::core::Interface for GattLocalDescriptor {
 impl ::windows::core::RuntimeName for GattLocalDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor";
 }
-::windows::core::interface_hierarchy!(GattLocalDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattLocalDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalDescriptor {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptor {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3732,8 +3732,8 @@ impl GattLocalDescriptorParameters {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattLocalDescriptorParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GattLocalDescriptorParameters, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3790,7 +3790,7 @@ impl ::core::fmt::Debug for GattLocalDescriptorParameters {
     }
 }
 impl ::windows::core::RuntimeType for GattLocalDescriptorParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters;{5fdede6a-f3c1-4b66-8c4b-e3d2293b40e9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters;{5fdede6a-f3c1-4b66-8c4b-e3d2293b40e9})");
 }
 impl ::core::clone::Clone for GattLocalDescriptorParameters {
     fn clone(&self) -> Self {
@@ -3806,7 +3806,7 @@ unsafe impl ::windows::core::Interface for GattLocalDescriptorParameters {
 impl ::windows::core::RuntimeName for GattLocalDescriptorParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters";
 }
-::windows::core::interface_hierarchy!(GattLocalDescriptorParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattLocalDescriptorParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalDescriptorParameters {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3840,7 +3840,7 @@ impl ::core::fmt::Debug for GattLocalDescriptorResult {
     }
 }
 impl ::windows::core::RuntimeType for GattLocalDescriptorResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult;{375791be-321f-4366-bfc1-3bc6b82c79f8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult;{375791be-321f-4366-bfc1-3bc6b82c79f8})");
 }
 impl ::core::clone::Clone for GattLocalDescriptorResult {
     fn clone(&self) -> Self {
@@ -3856,7 +3856,7 @@ unsafe impl ::windows::core::Interface for GattLocalDescriptorResult {
 impl ::windows::core::RuntimeName for GattLocalDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult";
 }
-::windows::core::interface_hierarchy!(GattLocalDescriptorResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattLocalDescriptorResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3901,7 +3901,7 @@ impl ::core::fmt::Debug for GattLocalService {
     }
 }
 impl ::windows::core::RuntimeType for GattLocalService {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService;{f513e258-f7f7-4902-b803-57fcc7d6fe83})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService;{f513e258-f7f7-4902-b803-57fcc7d6fe83})");
 }
 impl ::core::clone::Clone for GattLocalService {
     fn clone(&self) -> Self {
@@ -3917,7 +3917,7 @@ unsafe impl ::windows::core::Interface for GattLocalService {
 impl ::windows::core::RuntimeName for GattLocalService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService";
 }
-::windows::core::interface_hierarchy!(GattLocalService, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattLocalService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalService {}
 unsafe impl ::core::marker::Sync for GattLocalService {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3973,12 +3973,12 @@ impl GattPresentationFormat {
     }
     #[doc(hidden)]
     pub fn IGattPresentationFormatStatics<R, F: FnOnce(&IGattPresentationFormatStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattPresentationFormat, IGattPresentationFormatStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattPresentationFormat, IGattPresentationFormatStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGattPresentationFormatStatics2<R, F: FnOnce(&IGattPresentationFormatStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattPresentationFormat, IGattPresentationFormatStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattPresentationFormat, IGattPresentationFormatStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3994,7 +3994,7 @@ impl ::core::fmt::Debug for GattPresentationFormat {
     }
 }
 impl ::windows::core::RuntimeType for GattPresentationFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat;{196d0021-faad-45dc-ae5b-2ac3184e84db})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat;{196d0021-faad-45dc-ae5b-2ac3184e84db})");
 }
 impl ::core::clone::Clone for GattPresentationFormat {
     fn clone(&self) -> Self {
@@ -4010,7 +4010,7 @@ unsafe impl ::windows::core::Interface for GattPresentationFormat {
 impl ::windows::core::RuntimeName for GattPresentationFormat {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat";
 }
-::windows::core::interface_hierarchy!(GattPresentationFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattPresentationFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattPresentationFormat {}
 unsafe impl ::core::marker::Sync for GattPresentationFormat {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4180,7 +4180,7 @@ impl GattPresentationFormatTypes {
     }
     #[doc(hidden)]
     pub fn IGattPresentationFormatTypesStatics<R, F: FnOnce(&IGattPresentationFormatTypesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattPresentationFormatTypes, IGattPresentationFormatTypesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattPresentationFormatTypes, IGattPresentationFormatTypesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4294,7 +4294,7 @@ impl GattProtocolError {
     }
     #[doc(hidden)]
     pub fn IGattProtocolErrorStatics<R, F: FnOnce(&IGattProtocolErrorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattProtocolError, IGattProtocolErrorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattProtocolError, IGattProtocolErrorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4341,7 +4341,7 @@ impl ::core::fmt::Debug for GattReadClientCharacteristicConfigurationDescriptorR
     }
 }
 impl ::windows::core::RuntimeType for GattReadClientCharacteristicConfigurationDescriptorResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult;{63a66f09-1aea-4c4c-a50f-97bae474b348})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult;{63a66f09-1aea-4c4c-a50f-97bae474b348})");
 }
 impl ::core::clone::Clone for GattReadClientCharacteristicConfigurationDescriptorResult {
     fn clone(&self) -> Self {
@@ -4357,7 +4357,7 @@ unsafe impl ::windows::core::Interface for GattReadClientCharacteristicConfigura
 impl ::windows::core::RuntimeName for GattReadClientCharacteristicConfigurationDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult";
 }
-::windows::core::interface_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4427,7 +4427,7 @@ impl ::core::fmt::Debug for GattReadRequest {
     }
 }
 impl ::windows::core::RuntimeType for GattReadRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest;{f1dd6535-6acd-42a6-a4bb-d789dae0043e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest;{f1dd6535-6acd-42a6-a4bb-d789dae0043e})");
 }
 impl ::core::clone::Clone for GattReadRequest {
     fn clone(&self) -> Self {
@@ -4443,7 +4443,7 @@ unsafe impl ::windows::core::Interface for GattReadRequest {
 impl ::windows::core::RuntimeName for GattReadRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest";
 }
-::windows::core::interface_hierarchy!(GattReadRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattReadRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadRequest {}
 unsafe impl ::core::marker::Sync for GattReadRequest {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4488,7 +4488,7 @@ impl ::core::fmt::Debug for GattReadRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GattReadRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs;{93497243-f39c-484b-8ab6-996ba486cfa3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs;{93497243-f39c-484b-8ab6-996ba486cfa3})");
 }
 impl ::core::clone::Clone for GattReadRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -4504,7 +4504,7 @@ unsafe impl ::windows::core::Interface for GattReadRequestedEventArgs {
 impl ::windows::core::RuntimeName for GattReadRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(GattReadRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattReadRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattReadRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4549,7 +4549,7 @@ impl ::core::fmt::Debug for GattReadResult {
     }
 }
 impl ::windows::core::RuntimeType for GattReadResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult;{63a66f08-1aea-4c4c-a50f-97bae474b348})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult;{63a66f08-1aea-4c4c-a50f-97bae474b348})");
 }
 impl ::core::clone::Clone for GattReadResult {
     fn clone(&self) -> Self {
@@ -4565,7 +4565,7 @@ unsafe impl ::windows::core::Interface for GattReadResult {
 impl ::windows::core::RuntimeName for GattReadResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult";
 }
-::windows::core::interface_hierarchy!(GattReadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattReadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadResult {}
 unsafe impl ::core::marker::Sync for GattReadResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4575,8 +4575,8 @@ impl GattReliableWriteTransaction {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattReliableWriteTransaction, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GattReliableWriteTransaction, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -4620,7 +4620,7 @@ impl ::core::fmt::Debug for GattReliableWriteTransaction {
     }
 }
 impl ::windows::core::RuntimeType for GattReliableWriteTransaction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction;{63a66f07-1aea-4c4c-a50f-97bae474b348})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction;{63a66f07-1aea-4c4c-a50f-97bae474b348})");
 }
 impl ::core::clone::Clone for GattReliableWriteTransaction {
     fn clone(&self) -> Self {
@@ -4636,7 +4636,7 @@ unsafe impl ::windows::core::Interface for GattReliableWriteTransaction {
 impl ::windows::core::RuntimeName for GattReliableWriteTransaction {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction";
 }
-::windows::core::interface_hierarchy!(GattReliableWriteTransaction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattReliableWriteTransaction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReliableWriteTransaction {}
 unsafe impl ::core::marker::Sync for GattReliableWriteTransaction {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4670,7 +4670,7 @@ impl ::core::fmt::Debug for GattRequestStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GattRequestStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs;{e834d92c-27be-44b3-9d0d-4fc6e808dd3f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs;{e834d92c-27be-44b3-9d0d-4fc6e808dd3f})");
 }
 impl ::core::clone::Clone for GattRequestStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4686,7 +4686,7 @@ unsafe impl ::windows::core::Interface for GattRequestStateChangedEventArgs {
 impl ::windows::core::RuntimeName for GattRequestStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(GattRequestStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattRequestStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattRequestStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattRequestStateChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4744,7 +4744,7 @@ impl GattServiceProvider {
     }
     #[doc(hidden)]
     pub fn IGattServiceProviderStatics<R, F: FnOnce(&IGattServiceProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattServiceProvider, IGattServiceProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattServiceProvider, IGattServiceProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4760,7 +4760,7 @@ impl ::core::fmt::Debug for GattServiceProvider {
     }
 }
 impl ::windows::core::RuntimeType for GattServiceProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider;{7822b3cd-2889-4f86-a051-3f0aed1c2760})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider;{7822b3cd-2889-4f86-a051-3f0aed1c2760})");
 }
 impl ::core::clone::Clone for GattServiceProvider {
     fn clone(&self) -> Self {
@@ -4776,7 +4776,7 @@ unsafe impl ::windows::core::Interface for GattServiceProvider {
 impl ::windows::core::RuntimeName for GattServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider";
 }
-::windows::core::interface_hierarchy!(GattServiceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattServiceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProvider {}
 unsafe impl ::core::marker::Sync for GattServiceProvider {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4810,7 +4810,7 @@ impl ::core::fmt::Debug for GattServiceProviderAdvertisementStatusChangedEventAr
     }
 }
 impl ::windows::core::RuntimeType for GattServiceProviderAdvertisementStatusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs;{59a5aa65-fa21-4ffc-b155-04d928012686})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs;{59a5aa65-fa21-4ffc-b155-04d928012686})");
 }
 impl ::core::clone::Clone for GattServiceProviderAdvertisementStatusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4826,7 +4826,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderAdvertisementStatu
 impl ::windows::core::RuntimeName for GattServiceProviderAdvertisementStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4836,8 +4836,8 @@ impl GattServiceProviderAdvertisingParameters {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattServiceProviderAdvertisingParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GattServiceProviderAdvertisingParameters, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetIsConnectable(&self, value: bool) -> ::windows::core::Result<()> {
@@ -4894,7 +4894,7 @@ impl ::core::fmt::Debug for GattServiceProviderAdvertisingParameters {
     }
 }
 impl ::windows::core::RuntimeType for GattServiceProviderAdvertisingParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters;{e2ce31ab-6315-4c22-9bd7-781dbc3d8d82})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters;{e2ce31ab-6315-4c22-9bd7-781dbc3d8d82})");
 }
 impl ::core::clone::Clone for GattServiceProviderAdvertisingParameters {
     fn clone(&self) -> Self {
@@ -4910,7 +4910,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderAdvertisingParamet
 impl ::windows::core::RuntimeName for GattServiceProviderAdvertisingParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters";
 }
-::windows::core::interface_hierarchy!(GattServiceProviderAdvertisingParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattServiceProviderAdvertisingParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisingParameters {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisingParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4944,7 +4944,7 @@ impl ::core::fmt::Debug for GattServiceProviderResult {
     }
 }
 impl ::windows::core::RuntimeType for GattServiceProviderResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult;{764696d8-c53e-428c-8a48-67afe02c3ae6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult;{764696d8-c53e-428c-8a48-67afe02c3ae6})");
 }
 impl ::core::clone::Clone for GattServiceProviderResult {
     fn clone(&self) -> Self {
@@ -4960,7 +4960,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderResult {
 impl ::windows::core::RuntimeName for GattServiceProviderResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult";
 }
-::windows::core::interface_hierarchy!(GattServiceProviderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattServiceProviderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderResult {}
 unsafe impl ::core::marker::Sync for GattServiceProviderResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5100,12 +5100,12 @@ impl GattServiceUuids {
     }
     #[doc(hidden)]
     pub fn IGattServiceUuidsStatics<R, F: FnOnce(&IGattServiceUuidsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattServiceUuids, IGattServiceUuidsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattServiceUuids, IGattServiceUuidsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGattServiceUuidsStatics2<R, F: FnOnce(&IGattServiceUuidsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattServiceUuids, IGattServiceUuidsStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattServiceUuids, IGattServiceUuidsStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5201,7 +5201,7 @@ impl GattSession {
     }
     #[doc(hidden)]
     pub fn IGattSessionStatics<R, F: FnOnce(&IGattSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattSession, IGattSessionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattSession, IGattSessionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5217,7 +5217,7 @@ impl ::core::fmt::Debug for GattSession {
     }
 }
 impl ::windows::core::RuntimeType for GattSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession;{d23b5143-e04e-4c24-999c-9c256f9856b1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession;{d23b5143-e04e-4c24-999c-9c256f9856b1})");
 }
 impl ::core::clone::Clone for GattSession {
     fn clone(&self) -> Self {
@@ -5233,7 +5233,7 @@ unsafe impl ::windows::core::Interface for GattSession {
 impl ::windows::core::RuntimeName for GattSession {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession";
 }
-::windows::core::interface_hierarchy!(GattSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GattSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5289,7 +5289,7 @@ impl ::core::fmt::Debug for GattSessionStatusChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GattSessionStatusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs;{7605b72e-837f-404c-ab34-3163f39ddf32})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs;{7605b72e-837f-404c-ab34-3163f39ddf32})");
 }
 impl ::core::clone::Clone for GattSessionStatusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5305,7 +5305,7 @@ unsafe impl ::windows::core::Interface for GattSessionStatusChangedEventArgs {
 impl ::windows::core::RuntimeName for GattSessionStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(GattSessionStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattSessionStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattSessionStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattSessionStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5354,7 +5354,7 @@ impl ::core::fmt::Debug for GattSubscribedClient {
     }
 }
 impl ::windows::core::RuntimeType for GattSubscribedClient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient;{736e9001-15a4-4ec2-9248-e3f20d463be9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient;{736e9001-15a4-4ec2-9248-e3f20d463be9})");
 }
 impl ::core::clone::Clone for GattSubscribedClient {
     fn clone(&self) -> Self {
@@ -5370,7 +5370,7 @@ unsafe impl ::windows::core::Interface for GattSubscribedClient {
 impl ::windows::core::RuntimeName for GattSubscribedClient {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient";
 }
-::windows::core::interface_hierarchy!(GattSubscribedClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattSubscribedClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattSubscribedClient {}
 unsafe impl ::core::marker::Sync for GattSubscribedClient {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5408,7 +5408,7 @@ impl ::core::fmt::Debug for GattValueChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GattValueChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs;{d21bdb54-06e3-4ed8-a263-acfac8ba7313})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs;{d21bdb54-06e3-4ed8-a263-acfac8ba7313})");
 }
 impl ::core::clone::Clone for GattValueChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5424,7 +5424,7 @@ unsafe impl ::windows::core::Interface for GattValueChangedEventArgs {
 impl ::windows::core::RuntimeName for GattValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(GattValueChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattValueChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattValueChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5497,7 +5497,7 @@ impl ::core::fmt::Debug for GattWriteRequest {
     }
 }
 impl ::windows::core::RuntimeType for GattWriteRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest;{aeb6a9ed-de2f-4fc2-a9a8-94ea7844f13d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest;{aeb6a9ed-de2f-4fc2-a9a8-94ea7844f13d})");
 }
 impl ::core::clone::Clone for GattWriteRequest {
     fn clone(&self) -> Self {
@@ -5513,7 +5513,7 @@ unsafe impl ::windows::core::Interface for GattWriteRequest {
 impl ::windows::core::RuntimeName for GattWriteRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest";
 }
-::windows::core::interface_hierarchy!(GattWriteRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattWriteRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattWriteRequest {}
 unsafe impl ::core::marker::Sync for GattWriteRequest {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5558,7 +5558,7 @@ impl ::core::fmt::Debug for GattWriteRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GattWriteRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs;{2dec8bbe-a73a-471a-94d5-037deadd0806})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs;{2dec8bbe-a73a-471a-94d5-037deadd0806})");
 }
 impl ::core::clone::Clone for GattWriteRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -5574,7 +5574,7 @@ unsafe impl ::windows::core::Interface for GattWriteRequestedEventArgs {
 impl ::windows::core::RuntimeName for GattWriteRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(GattWriteRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattWriteRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattWriteRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattWriteRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5610,7 +5610,7 @@ impl ::core::fmt::Debug for GattWriteResult {
     }
 }
 impl ::windows::core::RuntimeType for GattWriteResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult;{4991ddb1-cb2b-44f7-99fc-d29a2871dc9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult;{4991ddb1-cb2b-44f7-99fc-d29a2871dc9b})");
 }
 impl ::core::clone::Clone for GattWriteResult {
     fn clone(&self) -> Self {
@@ -5626,7 +5626,7 @@ unsafe impl ::windows::core::Interface for GattWriteResult {
 impl ::windows::core::RuntimeName for GattWriteResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult";
 }
-::windows::core::interface_hierarchy!(GattWriteResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattWriteResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattWriteResult {}
 unsafe impl ::core::marker::Sync for GattWriteResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5699,7 +5699,7 @@ impl ::core::ops::Not for GattCharacteristicProperties {
     }
 }
 impl ::windows::core::RuntimeType for GattCharacteristicProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties;u4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
@@ -5730,7 +5730,7 @@ impl ::core::fmt::Debug for GattClientCharacteristicConfigurationDescriptorValue
     }
 }
 impl ::windows::core::RuntimeType for GattClientCharacteristicConfigurationDescriptorValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
@@ -5762,7 +5762,7 @@ impl ::core::fmt::Debug for GattCommunicationStatus {
     }
 }
 impl ::windows::core::RuntimeType for GattCommunicationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
@@ -5796,7 +5796,7 @@ impl ::core::fmt::Debug for GattOpenStatus {
     }
 }
 impl ::windows::core::RuntimeType for GattOpenStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
@@ -5828,7 +5828,7 @@ impl ::core::fmt::Debug for GattProtectionLevel {
     }
 }
 impl ::windows::core::RuntimeType for GattProtectionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
@@ -5859,7 +5859,7 @@ impl ::core::fmt::Debug for GattRequestState {
     }
 }
 impl ::windows::core::RuntimeType for GattRequestState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestState;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
@@ -5892,7 +5892,7 @@ impl ::core::fmt::Debug for GattServiceProviderAdvertisementStatus {
     }
 }
 impl ::windows::core::RuntimeType for GattServiceProviderAdvertisementStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
@@ -5922,7 +5922,7 @@ impl ::core::fmt::Debug for GattSessionStatus {
     }
 }
 impl ::windows::core::RuntimeType for GattSessionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
@@ -5954,7 +5954,7 @@ impl ::core::fmt::Debug for GattSharingMode {
     }
 }
 impl ::windows::core::RuntimeType for GattSharingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
@@ -5984,7 +5984,7 @@ impl ::core::fmt::Debug for GattWriteOption {
     }
 }
 impl ::windows::core::RuntimeType for GattWriteOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteOption;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

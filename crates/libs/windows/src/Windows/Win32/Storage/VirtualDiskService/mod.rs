@@ -16,7 +16,7 @@ impl IEnumVdsObject {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumVdsObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumVdsObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumVdsObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -64,7 +64,7 @@ impl IVdsAdmin {
         (::windows::core::Vtable::vtable(self).UnregisterProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(providerid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsAdmin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsAdmin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsAdmin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -102,7 +102,7 @@ impl IVdsAdviseSink {
         (::windows::core::Vtable::vtable(self).OnNotify)(::windows::core::Vtable::as_raw(self), pnotificationarray.len() as _, ::core::mem::transmute(pnotificationarray.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsAdviseSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsAdviseSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsAdviseSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -145,7 +145,7 @@ impl IVdsAsync {
         (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), phrresult, pulpercentcompleted).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsAsync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -207,7 +207,7 @@ impl IVdsController {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsController, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsController, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsController {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -252,7 +252,7 @@ impl IVdsControllerControllerPort {
         (::windows::core::Vtable::vtable(self).QueryControllerPorts)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsControllerControllerPort, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsControllerControllerPort, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsControllerControllerPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -303,7 +303,7 @@ impl IVdsControllerPort {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsControllerPort, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsControllerPort, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsControllerPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -362,7 +362,7 @@ impl IVdsDrive {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsDrive, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsDrive, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsDrive {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -407,7 +407,7 @@ impl IVdsDrive2 {
         (::windows::core::Vtable::vtable(self).GetProperties2)(::windows::core::Vtable::as_raw(self), pdriveprop2).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsDrive2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsDrive2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsDrive2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -451,7 +451,7 @@ impl IVdsHwProvider {
         (::windows::core::Vtable::vtable(self).Refresh)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsHwProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsHwProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsHwProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -496,7 +496,7 @@ impl IVdsHwProviderPrivate {
         (::windows::core::Vtable::vtable(self).QueryIfCreatedLun)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into().abi(), pvdsluninformation, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsHwProviderPrivate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsHwProviderPrivate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsHwProviderPrivate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -536,7 +536,7 @@ impl IVdsHwProviderPrivateMpio {
         (::windows::core::Vtable::vtable(self).SetAllPathStatusesFromHbaPort)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(hbaportprop), status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsHwProviderPrivateMpio, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsHwProviderPrivateMpio, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsHwProviderPrivateMpio {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -591,7 +591,7 @@ impl IVdsHwProviderStoragePools {
         (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSizeInStoragePool)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(storagepoolid), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsHwProviderStoragePools, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsHwProviderStoragePools, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsHwProviderStoragePools {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -640,7 +640,7 @@ impl IVdsHwProviderType {
         (::windows::core::Vtable::vtable(self).GetProviderType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsHwProviderType, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsHwProviderType, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsHwProviderType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -678,7 +678,7 @@ impl IVdsHwProviderType2 {
         (::windows::core::Vtable::vtable(self).GetProviderType2)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsHwProviderType2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsHwProviderType2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsHwProviderType2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -736,7 +736,7 @@ impl IVdsIscsiPortal {
         (::windows::core::Vtable::vtable(self).SetIpsecSecurity)(::windows::core::Vtable::as_raw(self), pinitiatorportaladdress, ullsecurityflags, ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsIscsiPortal, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsIscsiPortal, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsIscsiPortal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -799,7 +799,7 @@ impl IVdsIscsiPortalGroup {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsIscsiPortalGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsIscsiPortalGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsIscsiPortalGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -884,7 +884,7 @@ impl IVdsIscsiTarget {
         (::windows::core::Vtable::vtable(self).GetConnectedInitiators)(::windows::core::Vtable::as_raw(self), pppwszinitiatorlist, plnumberofinitiators).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsIscsiTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsIscsiTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsIscsiTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -999,7 +999,7 @@ impl IVdsLun {
         (::windows::core::Vtable::vtable(self).QueryMaxLunExtendSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsLun, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsLun, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsLun {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1068,7 +1068,7 @@ impl IVdsLun2 {
         (::windows::core::Vtable::vtable(self).ApplyHints2)(::windows::core::Vtable::as_raw(self), phints2).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsLun2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsLun2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsLun2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1116,7 +1116,7 @@ impl IVdsLunControllerPorts {
         (::windows::core::Vtable::vtable(self).QueryActiveControllerPorts)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsLunControllerPorts, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsLunControllerPorts, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsLunControllerPorts {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1158,7 +1158,7 @@ impl IVdsLunIscsi {
         (::windows::core::Vtable::vtable(self).QueryAssociatedTargets)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsLunIscsi, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsLunIscsi, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsLunIscsi {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1210,7 +1210,7 @@ impl IVdsLunMpio {
         (::windows::core::Vtable::vtable(self).GetSupportedLbPolicies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsLunMpio, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsLunMpio, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsLunMpio {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1259,7 +1259,7 @@ impl IVdsLunNaming {
         (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsLunNaming, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsLunNaming, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsLunNaming {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1297,7 +1297,7 @@ impl IVdsLunNumber {
         (::windows::core::Vtable::vtable(self).GetLunNumber)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsLunNumber, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsLunNumber, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsLunNumber {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1353,7 +1353,7 @@ impl IVdsLunPlex {
         (::windows::core::Vtable::vtable(self).ApplyHints)(::windows::core::Vtable::as_raw(self), phints).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsLunPlex, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsLunPlex, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsLunPlex {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1409,7 +1409,7 @@ impl IVdsMaintenance {
         (::windows::core::Vtable::vtable(self).PulseMaintenance)(::windows::core::Vtable::as_raw(self), operation, ulcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsMaintenance, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsMaintenance, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsMaintenance {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1448,7 +1448,7 @@ impl IVdsProvider {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pproviderprop).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1501,7 +1501,7 @@ impl IVdsProviderPrivate {
         (::windows::core::Vtable::vtable(self).OnUnload)(::windows::core::Vtable::as_raw(self), bforceunload.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsProviderPrivate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsProviderPrivate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsProviderPrivate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1544,7 +1544,7 @@ impl IVdsProviderSupport {
         (::windows::core::Vtable::vtable(self).GetVersionSupport)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsProviderSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsProviderSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsProviderSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1603,7 +1603,7 @@ impl IVdsStoragePool {
         (::windows::core::Vtable::vtable(self).QueryAllocatedStoragePools)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsStoragePool, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsStoragePool, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsStoragePool {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1698,7 +1698,7 @@ impl IVdsSubSystem {
         (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSize)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsSubSystem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsSubSystem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsSubSystem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1771,7 +1771,7 @@ impl IVdsSubSystem2 {
         (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSize2)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsSubSystem2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsSubSystem2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsSubSystem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1818,7 +1818,7 @@ impl IVdsSubSystemInterconnect {
         (::windows::core::Vtable::vtable(self).GetSupportedInterconnects)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IVdsSubSystemInterconnect, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsSubSystemInterconnect, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsSubSystemInterconnect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1871,7 +1871,7 @@ impl IVdsSubSystemIscsi {
         (::windows::core::Vtable::vtable(self).SetIpsecGroupPresharedKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsSubSystemIscsi, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsSubSystemIscsi, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsSubSystemIscsi {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1914,7 +1914,7 @@ impl IVdsSubSystemNaming {
         (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVdsSubSystemNaming, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVdsSubSystemNaming, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVdsSubSystemNaming {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

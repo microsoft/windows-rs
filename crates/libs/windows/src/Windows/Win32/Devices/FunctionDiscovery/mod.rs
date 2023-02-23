@@ -60,7 +60,7 @@ impl IFunctionDiscovery {
         (::windows::core::Vtable::vtable(self).RemoveInstance)(::windows::core::Vtable::as_raw(self), enumsystemvisibility, pszcategory.into().abi(), pszsubcategory.into().abi(), pszcategoryidentity.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFunctionDiscovery, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFunctionDiscovery, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFunctionDiscovery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -131,7 +131,7 @@ impl IFunctionDiscoveryNotification {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), dweventid, fdqcquerycontext, pszprovider.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFunctionDiscoveryNotification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFunctionDiscoveryNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFunctionDiscoveryNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -230,7 +230,7 @@ impl IFunctionDiscoveryProvider {
         (::windows::core::Vtable::vtable(self).InstanceReleased)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFunctionDiscoveryProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFunctionDiscoveryProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFunctionDiscoveryProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -308,7 +308,7 @@ impl IFunctionDiscoveryProviderFactory {
         (::windows::core::Vtable::vtable(self).CreateFunctionInstanceCollection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFunctionDiscoveryProviderFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFunctionDiscoveryProviderFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFunctionDiscoveryProviderFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -368,7 +368,7 @@ impl IFunctionDiscoveryProviderQuery {
         (::windows::core::Vtable::vtable(self).GetPropertyConstraints)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFunctionDiscoveryProviderQuery, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFunctionDiscoveryProviderQuery, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFunctionDiscoveryProviderQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -421,7 +421,7 @@ impl IFunctionDiscoveryServiceProvider {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFunctionDiscoveryServiceProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFunctionDiscoveryServiceProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFunctionDiscoveryServiceProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -483,7 +483,7 @@ impl IFunctionInstance {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFunctionInstance, ::windows::core::IUnknown, super::super::System::Com::IServiceProvider);
+::windows::imp::interface_hierarchy!(IFunctionInstance, ::windows::core::IUnknown, super::super::System::Com::IServiceProvider);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFunctionInstance {
     fn eq(&self, other: &Self) -> bool {
@@ -568,7 +568,7 @@ impl IFunctionInstanceCollection {
         (::windows::core::Vtable::vtable(self).DeleteAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFunctionInstanceCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFunctionInstanceCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFunctionInstanceCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -636,7 +636,7 @@ impl IFunctionInstanceCollectionQuery {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFunctionInstanceCollectionQuery, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFunctionInstanceCollectionQuery, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFunctionInstanceCollectionQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -681,7 +681,7 @@ impl IFunctionInstanceQuery {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFunctionInstanceQuery, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFunctionInstanceQuery, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFunctionInstanceQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -736,7 +736,7 @@ impl IPNPXAssociation {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), pszsubcategory.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPNPXAssociation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPNPXAssociation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPNPXAssociation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -793,7 +793,7 @@ impl IPNPXDeviceAssociation {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), pszsubcategory.into().abi(), pifunctiondiscoverynotification.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPNPXDeviceAssociation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPNPXDeviceAssociation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPNPXDeviceAssociation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -867,7 +867,7 @@ impl IPropertyStoreCollection {
         (::windows::core::Vtable::vtable(self).DeleteAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPropertyStoreCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPropertyStoreCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPropertyStoreCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -953,7 +953,7 @@ impl IProviderProperties {
         (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, key, ppropvar).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProviderProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProviderProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProviderProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1027,7 +1027,7 @@ impl IProviderPropertyConstraintCollection {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProviderPropertyConstraintCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProviderPropertyConstraintCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProviderPropertyConstraintCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1092,7 +1092,7 @@ impl IProviderPublishing {
         (::windows::core::Vtable::vtable(self).RemoveInstance)(::windows::core::Vtable::as_raw(self), enumvisibilityflags, pszsubcategory.into().abi(), pszproviderinstanceidentity.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProviderPublishing, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProviderPublishing, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProviderPublishing {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1153,7 +1153,7 @@ impl IProviderQueryConstraintCollection {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProviderQueryConstraintCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProviderQueryConstraintCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProviderQueryConstraintCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

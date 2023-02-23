@@ -23,7 +23,7 @@ impl ITpmVirtualSmartCardManager {
         (::windows::core::Vtable::vtable(self).DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into().abi(), pstatuscallback.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITpmVirtualSmartCardManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -94,7 +94,7 @@ impl ITpmVirtualSmartCardManager2 {
         (::windows::core::Vtable::vtable(self).CreateVirtualSmartCardWithPinPolicy)(::windows::core::Vtable::as_raw(self), pszfriendlyname.into().abi(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, ::core::mem::transmute(pbpinpolicy.as_ptr()), pbpinpolicy.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ppszinstanceid, pfneedreboot).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager2, ::windows::core::IUnknown, ITpmVirtualSmartCardManager);
+::windows::imp::interface_hierarchy!(ITpmVirtualSmartCardManager2, ::windows::core::IUnknown, ITpmVirtualSmartCardManager);
 impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -191,7 +191,7 @@ impl ITpmVirtualSmartCardManager3 {
         .from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager3, ::windows::core::IUnknown, ITpmVirtualSmartCardManager, ITpmVirtualSmartCardManager2);
+::windows::imp::interface_hierarchy!(ITpmVirtualSmartCardManager3, ::windows::core::IUnknown, ITpmVirtualSmartCardManager, ITpmVirtualSmartCardManager2);
 impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -234,7 +234,7 @@ impl ITpmVirtualSmartCardManagerStatusCallback {
         (::windows::core::Vtable::vtable(self).ReportError)(::windows::core::Vtable::as_raw(self), error).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManagerStatusCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITpmVirtualSmartCardManagerStatusCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManagerStatusCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

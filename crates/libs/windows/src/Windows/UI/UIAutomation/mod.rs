@@ -121,7 +121,7 @@ impl ::core::fmt::Debug for AutomationConnection {
     }
 }
 impl ::windows::core::RuntimeType for AutomationConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnection;{aad262ed-0ef4-5d43-97be-a834e27b65b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnection;{aad262ed-0ef4-5d43-97be-a834e27b65b9})");
 }
 impl ::core::clone::Clone for AutomationConnection {
     fn clone(&self) -> Self {
@@ -137,7 +137,7 @@ unsafe impl ::windows::core::Interface for AutomationConnection {
 impl ::windows::core::RuntimeName for AutomationConnection {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnection";
 }
-::windows::core::interface_hierarchy!(AutomationConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AutomationConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationConnection {}
 unsafe impl ::core::marker::Sync for AutomationConnection {}
 #[doc = "*Required features: `\"UI_UIAutomation\"`*"]
@@ -164,7 +164,7 @@ impl ::core::fmt::Debug for AutomationConnectionBoundObject {
     }
 }
 impl ::windows::core::RuntimeType for AutomationConnectionBoundObject {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnectionBoundObject;{5e8558fb-ca52-5b65-9830-dd2905816093})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnectionBoundObject;{5e8558fb-ca52-5b65-9830-dd2905816093})");
 }
 impl ::core::clone::Clone for AutomationConnectionBoundObject {
     fn clone(&self) -> Self {
@@ -180,7 +180,7 @@ unsafe impl ::windows::core::Interface for AutomationConnectionBoundObject {
 impl ::windows::core::RuntimeName for AutomationConnectionBoundObject {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnectionBoundObject";
 }
-::windows::core::interface_hierarchy!(AutomationConnectionBoundObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AutomationConnectionBoundObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationConnectionBoundObject {}
 unsafe impl ::core::marker::Sync for AutomationConnectionBoundObject {}
 #[doc = "*Required features: `\"UI_UIAutomation\"`*"]
@@ -221,7 +221,7 @@ impl ::core::fmt::Debug for AutomationElement {
     }
 }
 impl ::windows::core::RuntimeType for AutomationElement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationElement;{a1898370-2c07-56fd-993f-61a72a08058c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationElement;{a1898370-2c07-56fd-993f-61a72a08058c})");
 }
 impl ::core::clone::Clone for AutomationElement {
     fn clone(&self) -> Self {
@@ -237,7 +237,7 @@ unsafe impl ::windows::core::Interface for AutomationElement {
 impl ::windows::core::RuntimeName for AutomationElement {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationElement";
 }
-::windows::core::interface_hierarchy!(AutomationElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AutomationElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationElement {}
 unsafe impl ::core::marker::Sync for AutomationElement {}
 #[doc = "*Required features: `\"UI_UIAutomation\"`*"]
@@ -256,7 +256,7 @@ impl ::core::fmt::Debug for AutomationTextRange {
     }
 }
 impl ::windows::core::RuntimeType for AutomationTextRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationTextRange;{7e101b65-40d3-5994-85a9-0a0cb9a4ec98})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationTextRange;{7e101b65-40d3-5994-85a9-0a0cb9a4ec98})");
 }
 impl ::core::clone::Clone for AutomationTextRange {
     fn clone(&self) -> Self {
@@ -272,7 +272,7 @@ unsafe impl ::windows::core::Interface for AutomationTextRange {
 impl ::windows::core::RuntimeName for AutomationTextRange {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationTextRange";
 }
-::windows::core::interface_hierarchy!(AutomationTextRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AutomationTextRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationTextRange {}
 unsafe impl ::core::marker::Sync for AutomationTextRange {}
 #[cfg(feature = "implement")]

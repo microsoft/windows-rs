@@ -50,7 +50,7 @@ impl SoundLevelBroker {
     }
     #[doc(hidden)]
     pub fn ISoundLevelBrokerStatics<R, F: FnOnce(&ISoundLevelBrokerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SoundLevelBroker, ISoundLevelBrokerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SoundLevelBroker, ISoundLevelBrokerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

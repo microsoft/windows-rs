@@ -611,7 +611,7 @@ impl BackgroundAudioTrack {
     }
     #[doc(hidden)]
     pub fn IBackgroundAudioTrackStatics<R, F: FnOnce(&IBackgroundAudioTrackStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundAudioTrack, IBackgroundAudioTrackStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundAudioTrack, IBackgroundAudioTrackStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -627,7 +627,7 @@ impl ::core::fmt::Debug for BackgroundAudioTrack {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundAudioTrack {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.BackgroundAudioTrack;{4b91b3bd-9e21-4266-a9c2-67dd011a2357})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.BackgroundAudioTrack;{4b91b3bd-9e21-4266-a9c2-67dd011a2357})");
 }
 impl ::core::clone::Clone for BackgroundAudioTrack {
     fn clone(&self) -> Self {
@@ -643,7 +643,7 @@ unsafe impl ::windows::core::Interface for BackgroundAudioTrack {
 impl ::windows::core::RuntimeName for BackgroundAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.BackgroundAudioTrack";
 }
-::windows::core::interface_hierarchy!(BackgroundAudioTrack, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundAudioTrack, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundAudioTrack {}
 unsafe impl ::core::marker::Sync for BackgroundAudioTrack {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -672,7 +672,7 @@ impl ::core::fmt::Debug for EmbeddedAudioTrack {
     }
 }
 impl ::windows::core::RuntimeType for EmbeddedAudioTrack {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.EmbeddedAudioTrack;{55ee5a7a-2d30-3fba-a190-4f1a6454f88f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.EmbeddedAudioTrack;{55ee5a7a-2d30-3fba-a190-4f1a6454f88f})");
 }
 impl ::core::clone::Clone for EmbeddedAudioTrack {
     fn clone(&self) -> Self {
@@ -688,7 +688,7 @@ unsafe impl ::windows::core::Interface for EmbeddedAudioTrack {
 impl ::windows::core::RuntimeName for EmbeddedAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.EmbeddedAudioTrack";
 }
-::windows::core::interface_hierarchy!(EmbeddedAudioTrack, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmbeddedAudioTrack, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmbeddedAudioTrack {}
 unsafe impl ::core::marker::Sync for EmbeddedAudioTrack {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -881,12 +881,12 @@ impl MediaClip {
     }
     #[doc(hidden)]
     pub fn IMediaClipStatics<R, F: FnOnce(&IMediaClipStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaClip, IMediaClipStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaClip, IMediaClipStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaClipStatics2<R, F: FnOnce(&IMediaClipStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaClip, IMediaClipStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaClip, IMediaClipStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -902,7 +902,7 @@ impl ::core::fmt::Debug for MediaClip {
     }
 }
 impl ::windows::core::RuntimeType for MediaClip {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaClip;{53f25366-5fba-3ea4-8693-24761811140a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaClip;{53f25366-5fba-3ea4-8693-24761811140a})");
 }
 impl ::core::clone::Clone for MediaClip {
     fn clone(&self) -> Self {
@@ -918,7 +918,7 @@ unsafe impl ::windows::core::Interface for MediaClip {
 impl ::windows::core::RuntimeName for MediaClip {
     const NAME: &'static str = "Windows.Media.Editing.MediaClip";
 }
-::windows::core::interface_hierarchy!(MediaClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaClip {}
 unsafe impl ::core::marker::Sync for MediaClip {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -928,8 +928,8 @@ impl MediaComposition {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaComposition, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaComposition, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1104,7 +1104,7 @@ impl MediaComposition {
     }
     #[doc(hidden)]
     pub fn IMediaCompositionStatics<R, F: FnOnce(&IMediaCompositionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaComposition, IMediaCompositionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaComposition, IMediaCompositionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1120,7 +1120,7 @@ impl ::core::fmt::Debug for MediaComposition {
     }
 }
 impl ::windows::core::RuntimeType for MediaComposition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaComposition;{2e06e605-dc71-41d6-b837-2d2bc14a2947})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaComposition;{2e06e605-dc71-41d6-b837-2d2bc14a2947})");
 }
 impl ::core::clone::Clone for MediaComposition {
     fn clone(&self) -> Self {
@@ -1136,7 +1136,7 @@ unsafe impl ::windows::core::Interface for MediaComposition {
 impl ::windows::core::RuntimeName for MediaComposition {
     const NAME: &'static str = "Windows.Media.Editing.MediaComposition";
 }
-::windows::core::interface_hierarchy!(MediaComposition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaComposition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaComposition {}
 unsafe impl ::core::marker::Sync for MediaComposition {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -1225,7 +1225,7 @@ impl MediaOverlay {
     }
     #[doc(hidden)]
     pub fn IMediaOverlayFactory<R, F: FnOnce(&IMediaOverlayFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaOverlay, IMediaOverlayFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaOverlay, IMediaOverlayFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1241,7 +1241,7 @@ impl ::core::fmt::Debug for MediaOverlay {
     }
 }
 impl ::windows::core::RuntimeType for MediaOverlay {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlay;{a902ae5d-7869-4830-8ab1-94dc01c05fa4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlay;{a902ae5d-7869-4830-8ab1-94dc01c05fa4})");
 }
 impl ::core::clone::Clone for MediaOverlay {
     fn clone(&self) -> Self {
@@ -1257,7 +1257,7 @@ unsafe impl ::windows::core::Interface for MediaOverlay {
 impl ::windows::core::RuntimeName for MediaOverlay {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlay";
 }
-::windows::core::interface_hierarchy!(MediaOverlay, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaOverlay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaOverlay {}
 unsafe impl ::core::marker::Sync for MediaOverlay {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -1267,8 +1267,8 @@ impl MediaOverlayLayer {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaOverlayLayer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaOverlayLayer, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Clone(&self) -> ::windows::core::Result<MediaOverlayLayer> {
@@ -1310,7 +1310,7 @@ impl MediaOverlayLayer {
     }
     #[doc(hidden)]
     pub fn IMediaOverlayLayerFactory<R, F: FnOnce(&IMediaOverlayLayerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaOverlayLayer, IMediaOverlayLayerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaOverlayLayer, IMediaOverlayLayerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1326,7 +1326,7 @@ impl ::core::fmt::Debug for MediaOverlayLayer {
     }
 }
 impl ::windows::core::RuntimeType for MediaOverlayLayer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlayLayer;{a6d9ba57-eeda-46c6-bbe5-e398c84168ac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlayLayer;{a6d9ba57-eeda-46c6-bbe5-e398c84168ac})");
 }
 impl ::core::clone::Clone for MediaOverlayLayer {
     fn clone(&self) -> Self {
@@ -1342,7 +1342,7 @@ unsafe impl ::windows::core::Interface for MediaOverlayLayer {
 impl ::windows::core::RuntimeName for MediaOverlayLayer {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlayLayer";
 }
-::windows::core::interface_hierarchy!(MediaOverlayLayer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaOverlayLayer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaOverlayLayer {}
 unsafe impl ::core::marker::Sync for MediaOverlayLayer {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -1373,7 +1373,7 @@ impl ::core::fmt::Debug for MediaTrimmingPreference {
     }
 }
 impl ::windows::core::RuntimeType for MediaTrimmingPreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.MediaTrimmingPreference;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.MediaTrimmingPreference;i4)");
 }
 #[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
@@ -1403,7 +1403,7 @@ impl ::core::fmt::Debug for VideoFramePrecision {
     }
 }
 impl ::windows::core::RuntimeType for VideoFramePrecision {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.VideoFramePrecision;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.VideoFramePrecision;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

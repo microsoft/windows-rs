@@ -154,12 +154,12 @@ impl WebAuthenticationBroker {
     }
     #[doc(hidden)]
     pub fn IWebAuthenticationBrokerStatics<R, F: FnOnce(&IWebAuthenticationBrokerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAuthenticationBroker, IWebAuthenticationBrokerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAuthenticationBroker, IWebAuthenticationBrokerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IWebAuthenticationBrokerStatics2<R, F: FnOnce(&IWebAuthenticationBrokerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAuthenticationBroker, IWebAuthenticationBrokerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAuthenticationBroker, IWebAuthenticationBrokerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -204,7 +204,7 @@ impl ::core::fmt::Debug for WebAuthenticationResult {
     }
 }
 impl ::windows::core::RuntimeType for WebAuthenticationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
 }
 impl ::core::clone::Clone for WebAuthenticationResult {
     fn clone(&self) -> Self {
@@ -220,7 +220,7 @@ unsafe impl ::windows::core::Interface for WebAuthenticationResult {
 impl ::windows::core::RuntimeName for WebAuthenticationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.WebAuthenticationResult";
 }
-::windows::core::interface_hierarchy!(WebAuthenticationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAuthenticationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -250,7 +250,7 @@ impl ::core::fmt::Debug for TokenBindingKeyType {
     }
 }
 impl ::windows::core::RuntimeType for TokenBindingKeyType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
@@ -316,7 +316,7 @@ impl ::core::ops::Not for WebAuthenticationOptions {
     }
 }
 impl ::windows::core::RuntimeType for WebAuthenticationOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
@@ -347,7 +347,7 @@ impl ::core::fmt::Debug for WebAuthenticationStatus {
     }
 }
 impl ::windows::core::RuntimeType for WebAuthenticationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

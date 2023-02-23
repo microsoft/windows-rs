@@ -5,7 +5,7 @@ pub unsafe fn CreateXmlReader<P0>(riid: *const ::windows::core::GUID, ppvobject:
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
 {
-    ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlReader ( riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xmllite.dll""system" fn CreateXmlReader ( riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreateXmlReader(riid, ppvobject, pmalloc.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -18,7 +18,7 @@ where
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlReaderInputWithEncodingCodePage ( pinputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , nencodingcodepage : u32 , fencodinghint : super::super::super::Foundation:: BOOL , pwszbaseuri : :: windows::core::PCWSTR , ppinput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xmllite.dll""system" fn CreateXmlReaderInputWithEncodingCodePage ( pinputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , nencodingcodepage : u32 , fencodinghint : super::super::super::Foundation:: BOOL , pwszbaseuri : :: windows::core::PCWSTR , ppinput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CreateXmlReaderInputWithEncodingCodePage(pinputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.into().abi(), &mut result__).from_abi(result__)
 }
@@ -33,7 +33,7 @@ where
     P3: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlReaderInputWithEncodingName ( pinputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , pwszencodingname : :: windows::core::PCWSTR , fencodinghint : super::super::super::Foundation:: BOOL , pwszbaseuri : :: windows::core::PCWSTR , ppinput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xmllite.dll""system" fn CreateXmlReaderInputWithEncodingName ( pinputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , pwszencodingname : :: windows::core::PCWSTR , fencodinghint : super::super::super::Foundation:: BOOL , pwszbaseuri : :: windows::core::PCWSTR , ppinput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CreateXmlReaderInputWithEncodingName(pinputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into().abi(), fencodinghint.into(), pwszbaseuri.into().abi(), &mut result__).from_abi(result__)
 }
@@ -44,7 +44,7 @@ pub unsafe fn CreateXmlWriter<P0>(riid: *const ::windows::core::GUID, ppvobject:
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
 {
-    ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlWriter ( riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xmllite.dll""system" fn CreateXmlWriter ( riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreateXmlWriter(riid, ppvobject, pmalloc.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_System_Com\"`*"]
@@ -55,7 +55,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
 {
-    ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlWriterOutputWithEncodingCodePage ( poutputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , nencodingcodepage : u32 , ppoutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xmllite.dll""system" fn CreateXmlWriterOutputWithEncodingCodePage ( poutputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , nencodingcodepage : u32 , ppoutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CreateXmlWriterOutputWithEncodingCodePage(poutputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, &mut result__).from_abi(result__)
 }
@@ -68,7 +68,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlWriterOutputWithEncodingName ( poutputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , pwszencodingname : :: windows::core::PCWSTR , ppoutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "xmllite.dll""system" fn CreateXmlWriterOutputWithEncodingName ( poutputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , pwszencodingname : :: windows::core::PCWSTR , ppoutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     CreateXmlWriterOutputWithEncodingName(poutputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into().abi(), &mut result__).from_abi(result__)
 }
@@ -165,7 +165,7 @@ impl IXmlReader {
         (::windows::core::Vtable::vtable(self).IsEOF)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IXmlReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXmlReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXmlReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -239,7 +239,7 @@ impl IXmlResolver {
         (::windows::core::Vtable::vtable(self).ResolveUri)(::windows::core::Vtable::as_raw(self), pwszbaseuri.into().abi(), pwszpublicidentifier.into().abi(), pwszsystemidentifier.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXmlResolver, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXmlResolver, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXmlResolver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -437,7 +437,7 @@ impl IXmlWriter {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXmlWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXmlWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXmlWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -651,7 +651,7 @@ impl IXmlWriterLite {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXmlWriterLite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXmlWriterLite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXmlWriterLite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

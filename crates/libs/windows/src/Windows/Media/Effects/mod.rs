@@ -70,7 +70,7 @@ impl IAudioEffectDefinition {
         }
     }
 }
-::windows::core::interface_hierarchy!(IAudioEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAudioEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IAudioEffectDefinition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -83,7 +83,7 @@ impl ::core::fmt::Debug for IAudioEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for IAudioEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e4d7f974-7d80-4f73-9089-e31c9db9c294}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e4d7f974-7d80-4f73-9089-e31c9db9c294}");
 }
 unsafe impl ::windows::core::Vtable for IAudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_Vtbl;
@@ -281,7 +281,7 @@ impl IBasicAudioEffect {
         unsafe { (::windows::core::Vtable::vtable(this).SetProperties)(::windows::core::Vtable::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IBasicAudioEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBasicAudioEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBasicAudioEffect> for super::IMediaExtension {
     type Error = ::windows::core::Error;
     fn try_from(value: IBasicAudioEffect) -> ::windows::core::Result<Self> {
@@ -313,7 +313,7 @@ impl ::core::fmt::Debug for IBasicAudioEffect {
     }
 }
 impl ::windows::core::RuntimeType for IBasicAudioEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8c062c53-6bc0-48b8-a99a-4b41550f1359}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8c062c53-6bc0-48b8-a99a-4b41550f1359}");
 }
 unsafe impl ::windows::core::Vtable for IBasicAudioEffect {
     type Vtable = IBasicAudioEffect_Vtbl;
@@ -410,7 +410,7 @@ impl IBasicVideoEffect {
         unsafe { (::windows::core::Vtable::vtable(this).SetProperties)(::windows::core::Vtable::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IBasicVideoEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBasicVideoEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBasicVideoEffect> for super::IMediaExtension {
     type Error = ::windows::core::Error;
     fn try_from(value: IBasicVideoEffect) -> ::windows::core::Result<Self> {
@@ -442,7 +442,7 @@ impl ::core::fmt::Debug for IBasicVideoEffect {
     }
 }
 impl ::windows::core::RuntimeType for IBasicVideoEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8262c7ef-b360-40be-949b-2ff42ff35693}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8262c7ef-b360-40be-949b-2ff42ff35693}");
 }
 unsafe impl ::windows::core::Vtable for IBasicVideoEffect {
     type Vtable = IBasicVideoEffect_Vtbl;
@@ -610,7 +610,7 @@ impl IVideoCompositor {
         unsafe { (::windows::core::Vtable::vtable(this).SetProperties)(::windows::core::Vtable::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IVideoCompositor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVideoCompositor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IVideoCompositor> for super::IMediaExtension {
     type Error = ::windows::core::Error;
     fn try_from(value: IVideoCompositor) -> ::windows::core::Result<Self> {
@@ -642,7 +642,7 @@ impl ::core::fmt::Debug for IVideoCompositor {
     }
 }
 impl ::windows::core::RuntimeType for IVideoCompositor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8510b43e-420c-420f-96c7-7c98bba1fc55}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8510b43e-420c-420f-96c7-7c98bba1fc55}");
 }
 unsafe impl ::windows::core::Vtable for IVideoCompositor {
     type Vtable = IVideoCompositor_Vtbl;
@@ -689,7 +689,7 @@ impl IVideoCompositorDefinition {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVideoCompositorDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVideoCompositorDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVideoCompositorDefinition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -702,7 +702,7 @@ impl ::core::fmt::Debug for IVideoCompositorDefinition {
     }
 }
 impl ::windows::core::RuntimeType for IVideoCompositorDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2}");
 }
 unsafe impl ::windows::core::Vtable for IVideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_Vtbl;
@@ -770,7 +770,7 @@ impl IVideoEffectDefinition {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVideoEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVideoEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVideoEffectDefinition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -783,7 +783,7 @@ impl ::core::fmt::Debug for IVideoEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for IVideoEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{39f38cf0-8d0f-4f3e-84fc-2d46a5297943}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{39f38cf0-8d0f-4f3e-84fc-2d46a5297943}");
 }
 unsafe impl ::windows::core::Vtable for IVideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
@@ -1005,7 +1005,7 @@ impl ::core::fmt::Debug for AudioCaptureEffectsManager {
     }
 }
 impl ::windows::core::RuntimeType for AudioCaptureEffectsManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioCaptureEffectsManager;{8f85c271-038d-4393-8298-540110608eef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioCaptureEffectsManager;{8f85c271-038d-4393-8298-540110608eef})");
 }
 impl ::core::clone::Clone for AudioCaptureEffectsManager {
     fn clone(&self) -> Self {
@@ -1021,7 +1021,7 @@ unsafe impl ::windows::core::Interface for AudioCaptureEffectsManager {
 impl ::windows::core::RuntimeName for AudioCaptureEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioCaptureEffectsManager";
 }
-::windows::core::interface_hierarchy!(AudioCaptureEffectsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioCaptureEffectsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioCaptureEffectsManager {}
 unsafe impl ::core::marker::Sync for AudioCaptureEffectsManager {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1048,7 +1048,7 @@ impl ::core::fmt::Debug for AudioEffect {
     }
 }
 impl ::windows::core::RuntimeType for AudioEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffect;{34aafa51-9207-4055-be93-6e5734a86ae4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffect;{34aafa51-9207-4055-be93-6e5734a86ae4})");
 }
 impl ::core::clone::Clone for AudioEffect {
     fn clone(&self) -> Self {
@@ -1064,7 +1064,7 @@ unsafe impl ::windows::core::Interface for AudioEffect {
 impl ::windows::core::RuntimeName for AudioEffect {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffect";
 }
-::windows::core::interface_hierarchy!(AudioEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioEffect {}
 unsafe impl ::core::marker::Sync for AudioEffect {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1107,7 +1107,7 @@ impl AudioEffectDefinition {
     }
     #[doc(hidden)]
     pub fn IAudioEffectDefinitionFactory<R, F: FnOnce(&IAudioEffectDefinitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEffectDefinition, IAudioEffectDefinitionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioEffectDefinition, IAudioEffectDefinitionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1123,7 +1123,7 @@ impl ::core::fmt::Debug for AudioEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for AudioEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffectDefinition;{e4d7f974-7d80-4f73-9089-e31c9db9c294})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffectDefinition;{e4d7f974-7d80-4f73-9089-e31c9db9c294})");
 }
 impl ::core::clone::Clone for AudioEffectDefinition {
     fn clone(&self) -> Self {
@@ -1139,7 +1139,7 @@ unsafe impl ::windows::core::Interface for AudioEffectDefinition {
 impl ::windows::core::RuntimeName for AudioEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffectDefinition";
 }
-::windows::core::interface_hierarchy!(AudioEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioEffectDefinition> for IAudioEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioEffectDefinition) -> ::windows::core::Result<Self> {
@@ -1198,7 +1198,7 @@ impl AudioEffectsManager {
     }
     #[doc(hidden)]
     pub fn IAudioEffectsManagerStatics<R, F: FnOnce(&IAudioEffectsManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEffectsManager, IAudioEffectsManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioEffectsManager, IAudioEffectsManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1270,7 +1270,7 @@ impl ::core::fmt::Debug for AudioRenderEffectsManager {
     }
 }
 impl ::windows::core::RuntimeType for AudioRenderEffectsManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioRenderEffectsManager;{4dc98966-8751-42b2-bfcb-39ca7864bd47})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioRenderEffectsManager;{4dc98966-8751-42b2-bfcb-39ca7864bd47})");
 }
 impl ::core::clone::Clone for AudioRenderEffectsManager {
     fn clone(&self) -> Self {
@@ -1286,7 +1286,7 @@ unsafe impl ::windows::core::Interface for AudioRenderEffectsManager {
 impl ::windows::core::RuntimeName for AudioRenderEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioRenderEffectsManager";
 }
-::windows::core::interface_hierarchy!(AudioRenderEffectsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioRenderEffectsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioRenderEffectsManager {}
 unsafe impl ::core::marker::Sync for AudioRenderEffectsManager {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1342,7 +1342,7 @@ impl ::core::fmt::Debug for CompositeVideoFrameContext {
     }
 }
 impl ::windows::core::RuntimeType for CompositeVideoFrameContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.CompositeVideoFrameContext;{6c30024b-f514-4278-a5f7-b9188049d110})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.CompositeVideoFrameContext;{6c30024b-f514-4278-a5f7-b9188049d110})");
 }
 impl ::core::clone::Clone for CompositeVideoFrameContext {
     fn clone(&self) -> Self {
@@ -1358,7 +1358,7 @@ unsafe impl ::windows::core::Interface for CompositeVideoFrameContext {
 impl ::windows::core::RuntimeName for CompositeVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.CompositeVideoFrameContext";
 }
-::windows::core::interface_hierarchy!(CompositeVideoFrameContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositeVideoFrameContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompositeVideoFrameContext {}
 unsafe impl ::core::marker::Sync for CompositeVideoFrameContext {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1392,7 +1392,7 @@ impl ::core::fmt::Debug for ProcessAudioFrameContext {
     }
 }
 impl ::windows::core::RuntimeType for ProcessAudioFrameContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessAudioFrameContext;{4cd92946-1222-4a27-a586-fb3e20273255})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessAudioFrameContext;{4cd92946-1222-4a27-a586-fb3e20273255})");
 }
 impl ::core::clone::Clone for ProcessAudioFrameContext {
     fn clone(&self) -> Self {
@@ -1408,7 +1408,7 @@ unsafe impl ::windows::core::Interface for ProcessAudioFrameContext {
 impl ::windows::core::RuntimeName for ProcessAudioFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessAudioFrameContext";
 }
-::windows::core::interface_hierarchy!(ProcessAudioFrameContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProcessAudioFrameContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessAudioFrameContext {}
 unsafe impl ::core::marker::Sync for ProcessAudioFrameContext {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1442,7 +1442,7 @@ impl ::core::fmt::Debug for ProcessVideoFrameContext {
     }
 }
 impl ::windows::core::RuntimeType for ProcessVideoFrameContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessVideoFrameContext;{276f0e2b-6461-401e-ba78-0fdad6114eec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessVideoFrameContext;{276f0e2b-6461-401e-ba78-0fdad6114eec})");
 }
 impl ::core::clone::Clone for ProcessVideoFrameContext {
     fn clone(&self) -> Self {
@@ -1458,7 +1458,7 @@ unsafe impl ::windows::core::Interface for ProcessVideoFrameContext {
 impl ::windows::core::RuntimeName for ProcessVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessVideoFrameContext";
 }
-::windows::core::interface_hierarchy!(ProcessVideoFrameContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProcessVideoFrameContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessVideoFrameContext {}
 unsafe impl ::core::marker::Sync for ProcessVideoFrameContext {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1468,8 +1468,8 @@ impl SlowMotionEffectDefinition {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SlowMotionEffectDefinition, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SlowMotionEffectDefinition, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn TimeStretchRate(&self) -> ::windows::core::Result<f64> {
@@ -1512,7 +1512,7 @@ impl ::core::fmt::Debug for SlowMotionEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for SlowMotionEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.SlowMotionEffectDefinition;{35053cd0-176c-4763-82c4-1b02dbe31737})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.SlowMotionEffectDefinition;{35053cd0-176c-4763-82c4-1b02dbe31737})");
 }
 impl ::core::clone::Clone for SlowMotionEffectDefinition {
     fn clone(&self) -> Self {
@@ -1528,7 +1528,7 @@ unsafe impl ::windows::core::Interface for SlowMotionEffectDefinition {
 impl ::windows::core::RuntimeName for SlowMotionEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.SlowMotionEffectDefinition";
 }
-::windows::core::interface_hierarchy!(SlowMotionEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SlowMotionEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SlowMotionEffectDefinition> for IVideoEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: SlowMotionEffectDefinition) -> ::windows::core::Result<Self> {
@@ -1590,7 +1590,7 @@ impl VideoCompositorDefinition {
     }
     #[doc(hidden)]
     pub fn IVideoCompositorDefinitionFactory<R, F: FnOnce(&IVideoCompositorDefinitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VideoCompositorDefinition, IVideoCompositorDefinitionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VideoCompositorDefinition, IVideoCompositorDefinitionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1606,7 +1606,7 @@ impl ::core::fmt::Debug for VideoCompositorDefinition {
     }
 }
 impl ::windows::core::RuntimeType for VideoCompositorDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoCompositorDefinition;{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoCompositorDefinition;{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2})");
 }
 impl ::core::clone::Clone for VideoCompositorDefinition {
     fn clone(&self) -> Self {
@@ -1622,7 +1622,7 @@ unsafe impl ::windows::core::Interface for VideoCompositorDefinition {
 impl ::windows::core::RuntimeName for VideoCompositorDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoCompositorDefinition";
 }
-::windows::core::interface_hierarchy!(VideoCompositorDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VideoCompositorDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VideoCompositorDefinition> for IVideoCompositorDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: VideoCompositorDefinition) -> ::windows::core::Result<Self> {
@@ -1684,7 +1684,7 @@ impl VideoEffectDefinition {
     }
     #[doc(hidden)]
     pub fn IVideoEffectDefinitionFactory<R, F: FnOnce(&IVideoEffectDefinitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VideoEffectDefinition, IVideoEffectDefinitionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VideoEffectDefinition, IVideoEffectDefinitionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1700,7 +1700,7 @@ impl ::core::fmt::Debug for VideoEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for VideoEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
 }
 impl ::core::clone::Clone for VideoEffectDefinition {
     fn clone(&self) -> Self {
@@ -1716,7 +1716,7 @@ unsafe impl ::windows::core::Interface for VideoEffectDefinition {
 impl ::windows::core::RuntimeName for VideoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoEffectDefinition";
 }
-::windows::core::interface_hierarchy!(VideoEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VideoEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VideoEffectDefinition> for IVideoEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: VideoEffectDefinition) -> ::windows::core::Result<Self> {
@@ -1745,8 +1745,8 @@ impl VideoTransformEffectDefinition {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VideoTransformEffectDefinition, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VideoTransformEffectDefinition, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1875,7 +1875,7 @@ impl ::core::fmt::Debug for VideoTransformEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for VideoTransformEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
 }
 impl ::core::clone::Clone for VideoTransformEffectDefinition {
     fn clone(&self) -> Self {
@@ -1891,7 +1891,7 @@ unsafe impl ::windows::core::Interface for VideoTransformEffectDefinition {
 impl ::windows::core::RuntimeName for VideoTransformEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformEffectDefinition";
 }
-::windows::core::interface_hierarchy!(VideoTransformEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VideoTransformEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VideoTransformEffectDefinition> for IVideoEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: VideoTransformEffectDefinition) -> ::windows::core::Result<Self> {
@@ -1997,7 +1997,7 @@ impl ::core::fmt::Debug for VideoTransformSphericalProjection {
     }
 }
 impl ::windows::core::RuntimeType for VideoTransformSphericalProjection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformSphericalProjection;{cf4401f0-9bf2-4c39-9f41-e022514a8468})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformSphericalProjection;{cf4401f0-9bf2-4c39-9f41-e022514a8468})");
 }
 impl ::core::clone::Clone for VideoTransformSphericalProjection {
     fn clone(&self) -> Self {
@@ -2013,7 +2013,7 @@ unsafe impl ::windows::core::Interface for VideoTransformSphericalProjection {
 impl ::windows::core::RuntimeName for VideoTransformSphericalProjection {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformSphericalProjection";
 }
-::windows::core::interface_hierarchy!(VideoTransformSphericalProjection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VideoTransformSphericalProjection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VideoTransformSphericalProjection {}
 unsafe impl ::core::marker::Sync for VideoTransformSphericalProjection {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -2062,7 +2062,7 @@ impl ::core::fmt::Debug for AudioEffectType {
     }
 }
 impl ::windows::core::RuntimeType for AudioEffectType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
 }
 #[doc = "*Required features: `\"Media_Effects\"`*"]
 #[repr(transparent)]
@@ -2094,7 +2094,7 @@ impl ::core::fmt::Debug for MediaEffectClosedReason {
     }
 }
 impl ::windows::core::RuntimeType for MediaEffectClosedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
 }
 #[doc = "*Required features: `\"Media_Effects\"`*"]
 #[repr(transparent)]
@@ -2125,7 +2125,7 @@ impl ::core::fmt::Debug for MediaMemoryTypes {
     }
 }
 impl ::windows::core::RuntimeType for MediaMemoryTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaMemoryTypes;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaMemoryTypes;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

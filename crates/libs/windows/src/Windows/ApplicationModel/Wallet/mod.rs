@@ -772,7 +772,7 @@ impl WalletBarcode {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IWalletBarcodeFactory<R, F: FnOnce(&IWalletBarcodeFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WalletBarcode, IWalletBarcodeFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WalletBarcode, IWalletBarcodeFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -792,7 +792,7 @@ impl ::core::fmt::Debug for WalletBarcode {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletBarcode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletBarcode;{4f857b29-de80-4ea4-a1cd-81cd084dac27})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletBarcode;{4f857b29-de80-4ea4-a1cd-81cd084dac27})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletBarcode {
@@ -813,7 +813,7 @@ impl ::windows::core::RuntimeName for WalletBarcode {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletBarcode";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(WalletBarcode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WalletBarcode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletBarcode {}
 #[cfg(feature = "deprecated")]
@@ -1274,7 +1274,7 @@ impl WalletItem {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IWalletItemFactory<R, F: FnOnce(&IWalletItemFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WalletItem, IWalletItemFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WalletItem, IWalletItemFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1294,7 +1294,7 @@ impl ::core::fmt::Debug for WalletItem {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItem;{20b54be8-118d-4ec4-996c-b963e7bd3e74})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItem;{20b54be8-118d-4ec4-996c-b963e7bd3e74})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletItem {
@@ -1315,7 +1315,7 @@ impl ::windows::core::RuntimeName for WalletItem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItem";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(WalletItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WalletItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletItem {}
 #[cfg(feature = "deprecated")]
@@ -1412,7 +1412,7 @@ impl WalletItemCustomProperty {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IWalletItemCustomPropertyFactory<R, F: FnOnce(&IWalletItemCustomPropertyFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WalletItemCustomProperty, IWalletItemCustomPropertyFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WalletItemCustomProperty, IWalletItemCustomPropertyFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1432,7 +1432,7 @@ impl ::core::fmt::Debug for WalletItemCustomProperty {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletItemCustomProperty {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItemCustomProperty;{b94b40f3-fa00-40fd-98dc-9de46697f1e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItemCustomProperty;{b94b40f3-fa00-40fd-98dc-9de46697f1e7})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletItemCustomProperty {
@@ -1453,7 +1453,7 @@ impl ::windows::core::RuntimeName for WalletItemCustomProperty {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(WalletItemCustomProperty, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WalletItemCustomProperty, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletItemCustomProperty {}
 #[cfg(feature = "deprecated")]
@@ -1575,7 +1575,7 @@ impl ::core::fmt::Debug for WalletItemStore {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletItemStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItemStore;{7160484b-6d49-48f8-91a9-40a1d0f13ef4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItemStore;{7160484b-6d49-48f8-91a9-40a1d0f13ef4})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletItemStore {
@@ -1596,7 +1596,7 @@ impl ::windows::core::RuntimeName for WalletItemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemStore";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(WalletItemStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WalletItemStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletItemStore {}
 #[cfg(feature = "deprecated")]
@@ -1617,7 +1617,7 @@ impl WalletManager {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IWalletManagerStatics<R, F: FnOnce(&IWalletManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WalletManager, IWalletManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WalletManager, IWalletManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1634,8 +1634,8 @@ impl WalletRelevantLocation {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WalletRelevantLocation, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WalletRelevantLocation, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"deprecated\"`*"]
@@ -1685,7 +1685,7 @@ impl ::core::fmt::Debug for WalletRelevantLocation {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletRelevantLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletRelevantLocation;{9fd8782a-e3f9-4de1-bab3-bb192e46b3f3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletRelevantLocation;{9fd8782a-e3f9-4de1-bab3-bb192e46b3f3})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletRelevantLocation {
@@ -1706,7 +1706,7 @@ impl ::windows::core::RuntimeName for WalletRelevantLocation {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletRelevantLocation";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(WalletRelevantLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WalletRelevantLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletRelevantLocation {}
 #[cfg(feature = "deprecated")]
@@ -1720,8 +1720,8 @@ impl WalletTransaction {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WalletTransaction, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WalletTransaction, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1835,7 +1835,7 @@ impl ::core::fmt::Debug for WalletTransaction {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletTransaction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletTransaction;{40e1e940-2606-4519-81cb-bff1c60d1f79})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletTransaction;{40e1e940-2606-4519-81cb-bff1c60d1f79})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletTransaction {
@@ -1856,7 +1856,7 @@ impl ::windows::core::RuntimeName for WalletTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletTransaction";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(WalletTransaction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WalletTransaction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletTransaction {}
 #[cfg(feature = "deprecated")]
@@ -1893,7 +1893,7 @@ impl WalletVerb {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IWalletVerbFactory<R, F: FnOnce(&IWalletVerbFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WalletVerb, IWalletVerbFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WalletVerb, IWalletVerbFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1913,7 +1913,7 @@ impl ::core::fmt::Debug for WalletVerb {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletVerb {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletVerb;{17b826d6-e3c1-4c74-8a94-217aadbc4884})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletVerb;{17b826d6-e3c1-4c74-8a94-217aadbc4884})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletVerb {
@@ -1934,7 +1934,7 @@ impl ::windows::core::RuntimeName for WalletVerb {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletVerb";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(WalletVerb, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WalletVerb, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletVerb {}
 #[cfg(feature = "deprecated")]
@@ -1978,7 +1978,7 @@ impl ::core::fmt::Debug for WalletActionKind {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletActionKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -2026,7 +2026,7 @@ impl ::core::fmt::Debug for WalletBarcodeSymbology {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletBarcodeSymbology {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletBarcodeSymbology;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletBarcodeSymbology;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -2077,7 +2077,7 @@ impl ::core::fmt::Debug for WalletDetailViewPosition {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletDetailViewPosition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -2120,7 +2120,7 @@ impl ::core::fmt::Debug for WalletItemKind {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletItemKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -2159,7 +2159,7 @@ impl ::core::fmt::Debug for WalletSummaryViewPosition {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

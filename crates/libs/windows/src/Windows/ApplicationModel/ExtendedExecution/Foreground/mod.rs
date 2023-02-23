@@ -77,7 +77,7 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs;{b07cd940-9557-aea4-2c99-bdd56d9be461})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs;{b07cd940-9557-aea4-2c99-bdd56d9be461})");
 }
 impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedEventArgs {
     fn clone(&self) -> Self {
@@ -93,7 +93,7 @@ unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundRevokedEve
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs";
 }
-::windows::core::interface_hierarchy!(ExtendedExecutionForegroundRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ExtendedExecutionForegroundRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ExtendedExecutionForegroundRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundRevokedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
@@ -103,8 +103,8 @@ impl ExtendedExecutionForegroundSession {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ExtendedExecutionForegroundSession, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ExtendedExecutionForegroundSession, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -172,7 +172,7 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundSession {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionForegroundSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession;{fbf440e1-9d10-4201-b01e-c83275296f2e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession;{fbf440e1-9d10-4201-b01e-c83275296f2e})");
 }
 impl ::core::clone::Clone for ExtendedExecutionForegroundSession {
     fn clone(&self) -> Self {
@@ -188,7 +188,7 @@ unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundSession {
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession";
 }
-::windows::core::interface_hierarchy!(ExtendedExecutionForegroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ExtendedExecutionForegroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ExtendedExecutionForegroundSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -243,7 +243,7 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundReason {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionForegroundReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
@@ -273,7 +273,7 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundResult {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionForegroundResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
@@ -303,7 +303,7 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedReason {
     }
 }
 impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

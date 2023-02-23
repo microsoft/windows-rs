@@ -522,7 +522,7 @@ impl ::core::fmt::Debug for FileExtensionVector {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for FileExtensionVector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileExtensionVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};string))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileExtensionVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};string))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for FileExtensionVector {
@@ -559,7 +559,7 @@ impl ::core::iter::IntoIterator for &FileExtensionVector {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(FileExtensionVector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileExtensionVector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FileExtensionVector> for super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> {
     type Error = ::windows::core::Error;
@@ -615,8 +615,8 @@ impl FileOpenPicker {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileOpenPicker, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<FileOpenPicker, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ViewMode(&self) -> ::windows::core::Result<PickerViewMode> {
@@ -747,12 +747,12 @@ impl FileOpenPicker {
     }
     #[doc(hidden)]
     pub fn IFileOpenPickerStatics<R, F: FnOnce(&IFileOpenPickerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileOpenPicker, IFileOpenPickerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileOpenPicker, IFileOpenPickerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IFileOpenPickerStatics2<R, F: FnOnce(&IFileOpenPickerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileOpenPicker, IFileOpenPickerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileOpenPicker, IFileOpenPickerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -768,7 +768,7 @@ impl ::core::fmt::Debug for FileOpenPicker {
     }
 }
 impl ::windows::core::RuntimeType for FileOpenPicker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileOpenPicker;{2ca8278a-12c5-4c5f-8977-94547793c241})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileOpenPicker;{2ca8278a-12c5-4c5f-8977-94547793c241})");
 }
 impl ::core::clone::Clone for FileOpenPicker {
     fn clone(&self) -> Self {
@@ -784,7 +784,7 @@ unsafe impl ::windows::core::Interface for FileOpenPicker {
 impl ::windows::core::RuntimeName for FileOpenPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileOpenPicker";
 }
-::windows::core::interface_hierarchy!(FileOpenPicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileOpenPicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FileOpenPicker {}
 unsafe impl ::core::marker::Sync for FileOpenPicker {}
 #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
@@ -880,7 +880,7 @@ impl ::core::fmt::Debug for FilePickerFileTypesOrderedMap {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for FilePickerFileTypesOrderedMap {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FilePickerFileTypesOrderedMap;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};string)))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FilePickerFileTypesOrderedMap;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};string)))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for FilePickerFileTypesOrderedMap {
@@ -917,7 +917,7 @@ impl ::core::iter::IntoIterator for &FilePickerFileTypesOrderedMap {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(FilePickerFileTypesOrderedMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FilePickerFileTypesOrderedMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FilePickerFileTypesOrderedMap> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
@@ -1034,7 +1034,7 @@ impl ::core::fmt::Debug for FilePickerSelectedFilesArray {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for FilePickerSelectedFilesArray {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FilePickerSelectedFilesArray;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Storage.StorageFile;{fa3f6186-4214-428c-a64c-14c9ac7315ea})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FilePickerSelectedFilesArray;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Storage.StorageFile;{fa3f6186-4214-428c-a64c-14c9ac7315ea})))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for FilePickerSelectedFilesArray {
@@ -1071,7 +1071,7 @@ impl ::core::iter::IntoIterator for &FilePickerSelectedFilesArray {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(FilePickerSelectedFilesArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FilePickerSelectedFilesArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FilePickerSelectedFilesArray> for super::super::Foundation::Collections::IIterable<super::StorageFile> {
     type Error = ::windows::core::Error;
@@ -1127,8 +1127,8 @@ impl FileSavePicker {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileSavePicker, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<FileSavePicker, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1260,7 +1260,7 @@ impl FileSavePicker {
     }
     #[doc(hidden)]
     pub fn IFileSavePickerStatics<R, F: FnOnce(&IFileSavePickerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileSavePicker, IFileSavePickerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileSavePicker, IFileSavePickerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1276,7 +1276,7 @@ impl ::core::fmt::Debug for FileSavePicker {
     }
 }
 impl ::windows::core::RuntimeType for FileSavePicker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileSavePicker;{3286ffcb-617f-4cc5-af6a-b3fdf29ad145})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileSavePicker;{3286ffcb-617f-4cc5-af6a-b3fdf29ad145})");
 }
 impl ::core::clone::Clone for FileSavePicker {
     fn clone(&self) -> Self {
@@ -1292,7 +1292,7 @@ unsafe impl ::windows::core::Interface for FileSavePicker {
 impl ::windows::core::RuntimeName for FileSavePicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileSavePicker";
 }
-::windows::core::interface_hierarchy!(FileSavePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileSavePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FileSavePicker {}
 unsafe impl ::core::marker::Sync for FileSavePicker {}
 #[doc = "*Required features: `\"Storage_Pickers\"`*"]
@@ -1302,8 +1302,8 @@ impl FolderPicker {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FolderPicker, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<FolderPicker, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ViewMode(&self) -> ::windows::core::Result<PickerViewMode> {
@@ -1402,7 +1402,7 @@ impl FolderPicker {
     }
     #[doc(hidden)]
     pub fn IFolderPickerStatics<R, F: FnOnce(&IFolderPickerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FolderPicker, IFolderPickerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FolderPicker, IFolderPickerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1418,7 +1418,7 @@ impl ::core::fmt::Debug for FolderPicker {
     }
 }
 impl ::windows::core::RuntimeType for FolderPicker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FolderPicker;{084f7799-f3fb-400a-99b1-7b4a772fd60d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FolderPicker;{084f7799-f3fb-400a-99b1-7b4a772fd60d})");
 }
 impl ::core::clone::Clone for FolderPicker {
     fn clone(&self) -> Self {
@@ -1434,7 +1434,7 @@ unsafe impl ::windows::core::Interface for FolderPicker {
 impl ::windows::core::RuntimeName for FolderPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FolderPicker";
 }
-::windows::core::interface_hierarchy!(FolderPicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FolderPicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FolderPicker {}
 unsafe impl ::core::marker::Sync for FolderPicker {}
 #[doc = "*Required features: `\"Storage_Pickers\"`*"]
@@ -1473,7 +1473,7 @@ impl ::core::fmt::Debug for PickerLocationId {
     }
 }
 impl ::windows::core::RuntimeType for PickerLocationId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
 }
 #[doc = "*Required features: `\"Storage_Pickers\"`*"]
 #[repr(transparent)]
@@ -1503,7 +1503,7 @@ impl ::core::fmt::Debug for PickerViewMode {
     }
 }
 impl ::windows::core::RuntimeType for PickerViewMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerViewMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerViewMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

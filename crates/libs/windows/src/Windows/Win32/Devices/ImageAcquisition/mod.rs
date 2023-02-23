@@ -20,7 +20,7 @@ impl IEnumWIA_DEV_CAPS {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumWIA_DEV_CAPS, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumWIA_DEV_CAPS, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumWIA_DEV_CAPS {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -75,7 +75,7 @@ impl IEnumWIA_DEV_INFO {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumWIA_DEV_INFO, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumWIA_DEV_INFO, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumWIA_DEV_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -130,7 +130,7 @@ impl IEnumWIA_FORMAT_INFO {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumWIA_FORMAT_INFO, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumWIA_FORMAT_INFO, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumWIA_FORMAT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -185,7 +185,7 @@ impl IEnumWiaItem {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumWiaItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumWiaItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumWiaItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -240,7 +240,7 @@ impl IEnumWiaItem2 {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumWiaItem2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumWiaItem2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumWiaItem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -290,7 +290,7 @@ impl IWiaAppErrorHandler {
         (::windows::core::Vtable::vtable(self).ReportStatus)(::windows::core::Vtable::as_raw(self), lflags, pwiaitem2.into().abi(), hrstatus, lpercentcomplete).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaAppErrorHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaAppErrorHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaAppErrorHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -331,7 +331,7 @@ impl IWiaDataCallback {
         (::windows::core::Vtable::vtable(self).BandedDataCallback)(::windows::core::Vtable::as_raw(self), lmessage, lstatus, lpercentcomplete, loffset, llength, lreserved, lreslength, pbbuffer).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaDataCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaDataCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaDataCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -391,7 +391,7 @@ impl IWiaDataTransfer {
         (::windows::core::Vtable::vtable(self).idtGetExtendedTransferInfo)(::windows::core::Vtable::as_raw(self), pextendedtransferinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaDataTransfer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaDataTransfer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaDataTransfer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -489,7 +489,7 @@ impl IWiaDevMgr {
         (::windows::core::Vtable::vtable(self).AddDeviceDlg)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaDevMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaDevMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaDevMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -588,7 +588,7 @@ impl IWiaDevMgr2 {
         (::windows::core::Vtable::vtable(self).GetImageDlg)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), hwndparent.into(), ::core::mem::transmute_copy(bstrfoldername), ::core::mem::transmute_copy(bstrfilename), plnumfiles, ppbstrfilepaths, ::core::mem::transmute(ppitem)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaDevMgr2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaDevMgr2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaDevMgr2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -690,7 +690,7 @@ impl IWiaDrvItem {
         (::windows::core::Vtable::vtable(self).DumpItemData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWiaDrvItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaDrvItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaDrvItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -752,7 +752,7 @@ impl IWiaErrorHandler {
         (::windows::core::Vtable::vtable(self).GetStatusDescription)(::windows::core::Vtable::as_raw(self), lflags, pwiaitem2.into().abi(), hrstatus, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWiaErrorHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaErrorHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaErrorHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -793,7 +793,7 @@ impl IWiaEventCallback {
         (::windows::core::Vtable::vtable(self).ImageEventCallback)(::windows::core::Vtable::as_raw(self), peventguid, ::core::mem::transmute_copy(bstreventdescription), ::core::mem::transmute_copy(bstrdeviceid), ::core::mem::transmute_copy(bstrdevicedescription), dwdevicetype, ::core::mem::transmute_copy(bstrfullitemname), puleventtype, ulreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaEventCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaEventCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaEventCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -855,7 +855,7 @@ impl IWiaImageFilter {
         (::windows::core::Vtable::vtable(self).ApplyProperties)(::windows::core::Vtable::as_raw(self), pwiapropertystorage.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaImageFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaImageFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaImageFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -955,7 +955,7 @@ impl IWiaItem {
         (::windows::core::Vtable::vtable(self).Diagnostic)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1071,7 +1071,7 @@ impl IWiaItem2 {
         (::windows::core::Vtable::vtable(self).Diagnostic)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaItem2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaItem2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaItem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1136,7 +1136,7 @@ impl IWiaItemExtras {
         (::windows::core::Vtable::vtable(self).CancelPendingIO)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaItemExtras, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaItemExtras, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaItemExtras {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1181,7 +1181,7 @@ impl IWiaLog {
         (::windows::core::Vtable::vtable(self).Log)(::windows::core::Vtable::as_raw(self), lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaLog, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaLog, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaLog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1232,7 +1232,7 @@ impl IWiaLogEx {
         (::windows::core::Vtable::vtable(self).LogEx)(::windows::core::Vtable::as_raw(self), lmethodid, lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaLogEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaLogEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaLogEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1341,7 +1341,7 @@ impl IWiaMiniDrv {
         (::windows::core::Vtable::vtable(self).drvUnInitializeWia)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0064).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaMiniDrv, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaMiniDrv, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaMiniDrv {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1408,7 +1408,7 @@ impl IWiaMiniDrvCallBack {
         (::windows::core::Vtable::vtable(self).MiniDrvCallback)(::windows::core::Vtable::as_raw(self), lreason, lstatus, lpercentcomplete, loffset, llength, ptranctx, lreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaMiniDrvCallBack, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaMiniDrvCallBack, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaMiniDrvCallBack {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1454,7 +1454,7 @@ impl IWiaMiniDrvTransferCallback {
         (::windows::core::Vtable::vtable(self).SendMessage)(::windows::core::Vtable::as_raw(self), lflags, pwiatransferparams).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaMiniDrvTransferCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaMiniDrvTransferCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaMiniDrvTransferCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1495,7 +1495,7 @@ impl IWiaNotifyDevMgr {
         (::windows::core::Vtable::vtable(self).NewDeviceArrival)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaNotifyDevMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaNotifyDevMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaNotifyDevMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1549,7 +1549,7 @@ impl IWiaPreview {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaPreview, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaPreview, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaPreview {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1657,7 +1657,7 @@ impl IWiaPropertyStorage {
         (::windows::core::Vtable::vtable(self).SetPropertyStream)(::windows::core::Vtable::as_raw(self), pcompatibilityid, pistream.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaPropertyStorage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaPropertyStorage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaPropertyStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1742,7 +1742,7 @@ impl IWiaSegmentationFilter {
         (::windows::core::Vtable::vtable(self).DetectRegions)(::windows::core::Vtable::as_raw(self), lflags, pinputstream.into().abi(), pwiaitem2.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaSegmentationFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaSegmentationFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaSegmentationFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1801,7 +1801,7 @@ impl IWiaTransfer {
         (::windows::core::Vtable::vtable(self).EnumWIA_FORMAT_INFO)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWiaTransfer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaTransfer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaTransfer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1850,7 +1850,7 @@ impl IWiaTransferCallback {
         (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWiaTransferCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaTransferCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaTransferCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1903,7 +1903,7 @@ impl IWiaUIExtension {
         (::windows::core::Vtable::vtable(self).GetDeviceBitmapLogo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), phbitmap, nmaxwidth, nmaxheight).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaUIExtension, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaUIExtension, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaUIExtension {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1958,7 +1958,7 @@ impl IWiaUIExtension2 {
         (::windows::core::Vtable::vtable(self).GetDeviceIcon)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), phicon, nsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWiaUIExtension2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaUIExtension2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaUIExtension2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2075,7 +2075,7 @@ impl IWiaVideo {
         (::windows::core::Vtable::vtable(self).GetCurrentState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWiaVideo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWiaVideo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWiaVideo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

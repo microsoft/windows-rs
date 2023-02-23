@@ -3337,7 +3337,7 @@ impl ::core::fmt::Debug for ESim {
     }
 }
 impl ::windows::core::RuntimeType for ESim {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESim;{6f6e6e26-f123-437d-8ced-dc1d2bc0c3a9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESim;{6f6e6e26-f123-437d-8ced-dc1d2bc0c3a9})");
 }
 impl ::core::clone::Clone for ESim {
     fn clone(&self) -> Self {
@@ -3353,7 +3353,7 @@ unsafe impl ::windows::core::Interface for ESim {
 impl ::windows::core::RuntimeName for ESim {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESim";
 }
-::windows::core::interface_hierarchy!(ESim, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESim, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESim {}
 unsafe impl ::core::marker::Sync for ESim {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3380,7 +3380,7 @@ impl ::core::fmt::Debug for ESimAddedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ESimAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimAddedEventArgs;{38bd0a58-4d5a-4d08-8da7-e73eff369ddd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimAddedEventArgs;{38bd0a58-4d5a-4d08-8da7-e73eff369ddd})");
 }
 impl ::core::clone::Clone for ESimAddedEventArgs {
     fn clone(&self) -> Self {
@@ -3396,7 +3396,7 @@ unsafe impl ::windows::core::Interface for ESimAddedEventArgs {
 impl ::windows::core::RuntimeName for ESimAddedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimAddedEventArgs";
 }
-::windows::core::interface_hierarchy!(ESimAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimAddedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimAddedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3430,7 +3430,7 @@ impl ::core::fmt::Debug for ESimDiscoverEvent {
     }
 }
 impl ::windows::core::RuntimeType for ESimDiscoverEvent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDiscoverEvent;{e59ac3e3-39bc-5f6f-9321-0d4a182d261b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDiscoverEvent;{e59ac3e3-39bc-5f6f-9321-0d4a182d261b})");
 }
 impl ::core::clone::Clone for ESimDiscoverEvent {
     fn clone(&self) -> Self {
@@ -3446,7 +3446,7 @@ unsafe impl ::windows::core::Interface for ESimDiscoverEvent {
 impl ::windows::core::RuntimeName for ESimDiscoverEvent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverEvent";
 }
-::windows::core::interface_hierarchy!(ESimDiscoverEvent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimDiscoverEvent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimDiscoverEvent {}
 unsafe impl ::core::marker::Sync for ESimDiscoverEvent {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3496,7 +3496,7 @@ impl ::core::fmt::Debug for ESimDiscoverResult {
     }
 }
 impl ::windows::core::RuntimeType for ESimDiscoverResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDiscoverResult;{56b4bb5e-ab2f-5ac6-b359-dd5a8e237926})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDiscoverResult;{56b4bb5e-ab2f-5ac6-b359-dd5a8e237926})");
 }
 impl ::core::clone::Clone for ESimDiscoverResult {
     fn clone(&self) -> Self {
@@ -3512,7 +3512,7 @@ unsafe impl ::windows::core::Interface for ESimDiscoverResult {
 impl ::windows::core::RuntimeName for ESimDiscoverResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverResult";
 }
-::windows::core::interface_hierarchy!(ESimDiscoverResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimDiscoverResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimDiscoverResult {}
 unsafe impl ::core::marker::Sync for ESimDiscoverResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3546,7 +3546,7 @@ impl ::core::fmt::Debug for ESimDownloadProfileMetadataResult {
     }
 }
 impl ::windows::core::RuntimeType for ESimDownloadProfileMetadataResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult;{c4234d9e-5ad6-426d-8d00-4434f449afec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult;{c4234d9e-5ad6-426d-8d00-4434f449afec})");
 }
 impl ::core::clone::Clone for ESimDownloadProfileMetadataResult {
     fn clone(&self) -> Self {
@@ -3562,7 +3562,7 @@ unsafe impl ::windows::core::Interface for ESimDownloadProfileMetadataResult {
 impl ::windows::core::RuntimeName for ESimDownloadProfileMetadataResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult";
 }
-::windows::core::interface_hierarchy!(ESimDownloadProfileMetadataResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimDownloadProfileMetadataResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimDownloadProfileMetadataResult {}
 unsafe impl ::core::marker::Sync for ESimDownloadProfileMetadataResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3595,7 +3595,7 @@ impl ESimManager {
     }
     #[doc(hidden)]
     pub fn IESimManagerStatics<R, F: FnOnce(&IESimManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ESimManager, IESimManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ESimManager, IESimManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3626,7 +3626,7 @@ impl ::core::fmt::Debug for ESimOperationResult {
     }
 }
 impl ::windows::core::RuntimeType for ESimOperationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimOperationResult;{a67b63b1-309b-4e77-9e7e-cd93f1ddc7b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimOperationResult;{a67b63b1-309b-4e77-9e7e-cd93f1ddc7b9})");
 }
 impl ::core::clone::Clone for ESimOperationResult {
     fn clone(&self) -> Self {
@@ -3642,7 +3642,7 @@ unsafe impl ::windows::core::Interface for ESimOperationResult {
 impl ::windows::core::RuntimeName for ESimOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimOperationResult";
 }
-::windows::core::interface_hierarchy!(ESimOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimOperationResult {}
 unsafe impl ::core::marker::Sync for ESimOperationResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3669,7 +3669,7 @@ impl ::core::fmt::Debug for ESimPolicy {
     }
 }
 impl ::windows::core::RuntimeType for ESimPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimPolicy;{41e1b99d-cf7e-4315-882b-6f1e74b0d38f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimPolicy;{41e1b99d-cf7e-4315-882b-6f1e74b0d38f})");
 }
 impl ::core::clone::Clone for ESimPolicy {
     fn clone(&self) -> Self {
@@ -3685,7 +3685,7 @@ unsafe impl ::windows::core::Interface for ESimPolicy {
 impl ::windows::core::RuntimeName for ESimPolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimPolicy";
 }
-::windows::core::interface_hierarchy!(ESimPolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimPolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimPolicy {}
 unsafe impl ::core::marker::Sync for ESimPolicy {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3790,7 +3790,7 @@ impl ::core::fmt::Debug for ESimProfile {
     }
 }
 impl ::windows::core::RuntimeType for ESimProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfile;{ee1e7880-06a9-4027-b4f8-ddb23d7810e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfile;{ee1e7880-06a9-4027-b4f8-ddb23d7810e0})");
 }
 impl ::core::clone::Clone for ESimProfile {
     fn clone(&self) -> Self {
@@ -3806,7 +3806,7 @@ unsafe impl ::windows::core::Interface for ESimProfile {
 impl ::windows::core::RuntimeName for ESimProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfile";
 }
-::windows::core::interface_hierarchy!(ESimProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimProfile {}
 unsafe impl ::core::marker::Sync for ESimProfile {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3928,7 +3928,7 @@ impl ::core::fmt::Debug for ESimProfileMetadata {
     }
 }
 impl ::windows::core::RuntimeType for ESimProfileMetadata {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfileMetadata;{ed25831f-90db-498d-a7b4-ebce807d3c23})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfileMetadata;{ed25831f-90db-498d-a7b4-ebce807d3c23})");
 }
 impl ::core::clone::Clone for ESimProfileMetadata {
     fn clone(&self) -> Self {
@@ -3944,7 +3944,7 @@ unsafe impl ::windows::core::Interface for ESimProfileMetadata {
 impl ::windows::core::RuntimeName for ESimProfileMetadata {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfileMetadata";
 }
-::windows::core::interface_hierarchy!(ESimProfileMetadata, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimProfileMetadata, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimProfileMetadata {}
 unsafe impl ::core::marker::Sync for ESimProfileMetadata {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3985,7 +3985,7 @@ impl ::core::fmt::Debug for ESimProfilePolicy {
     }
 }
 impl ::windows::core::RuntimeType for ESimProfilePolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfilePolicy;{e6dd0f1d-9c5c-46c5-a289-a948999bf062})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfilePolicy;{e6dd0f1d-9c5c-46c5-a289-a948999bf062})");
 }
 impl ::core::clone::Clone for ESimProfilePolicy {
     fn clone(&self) -> Self {
@@ -4001,7 +4001,7 @@ unsafe impl ::windows::core::Interface for ESimProfilePolicy {
 impl ::windows::core::RuntimeName for ESimProfilePolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfilePolicy";
 }
-::windows::core::interface_hierarchy!(ESimProfilePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimProfilePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimProfilePolicy {}
 unsafe impl ::core::marker::Sync for ESimProfilePolicy {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -4028,7 +4028,7 @@ impl ::core::fmt::Debug for ESimRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ESimRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimRemovedEventArgs;{dec5277b-2fd9-4ed9-8376-d9b5e41278a3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimRemovedEventArgs;{dec5277b-2fd9-4ed9-8376-d9b5e41278a3})");
 }
 impl ::core::clone::Clone for ESimRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -4044,7 +4044,7 @@ unsafe impl ::windows::core::Interface for ESimRemovedEventArgs {
 impl ::windows::core::RuntimeName for ESimRemovedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(ESimRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimRemovedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -4078,7 +4078,7 @@ impl ::core::fmt::Debug for ESimServiceInfo {
     }
 }
 impl ::windows::core::RuntimeType for ESimServiceInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimServiceInfo;{f16aabcf-7f59-4a51-8494-bd89d5ff50ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimServiceInfo;{f16aabcf-7f59-4a51-8494-bd89d5ff50ee})");
 }
 impl ::core::clone::Clone for ESimServiceInfo {
     fn clone(&self) -> Self {
@@ -4094,7 +4094,7 @@ unsafe impl ::windows::core::Interface for ESimServiceInfo {
 impl ::windows::core::RuntimeName for ESimServiceInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimServiceInfo";
 }
-::windows::core::interface_hierarchy!(ESimServiceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimServiceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimServiceInfo {}
 unsafe impl ::core::marker::Sync for ESimServiceInfo {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -4121,7 +4121,7 @@ impl ::core::fmt::Debug for ESimUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ESimUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimUpdatedEventArgs;{4c125cec-508d-4b88-83cb-68bef8168d12})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimUpdatedEventArgs;{4c125cec-508d-4b88-83cb-68bef8168d12})");
 }
 impl ::core::clone::Clone for ESimUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -4137,7 +4137,7 @@ unsafe impl ::windows::core::Interface for ESimUpdatedEventArgs {
 impl ::windows::core::RuntimeName for ESimUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ESimUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimUpdatedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -4247,7 +4247,7 @@ impl ::core::fmt::Debug for ESimWatcher {
     }
 }
 impl ::windows::core::RuntimeType for ESimWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimWatcher;{c1f84ceb-a28d-4fbf-9771-6e31b81ccf22})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimWatcher;{c1f84ceb-a28d-4fbf-9771-6e31b81ccf22})");
 }
 impl ::core::clone::Clone for ESimWatcher {
     fn clone(&self) -> Self {
@@ -4263,7 +4263,7 @@ unsafe impl ::windows::core::Interface for ESimWatcher {
 impl ::windows::core::RuntimeName for ESimWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimWatcher";
 }
-::windows::core::interface_hierarchy!(ESimWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ESimWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimWatcher {}
 unsafe impl ::core::marker::Sync for ESimWatcher {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -4279,7 +4279,7 @@ impl FdnAccessManager {
     }
     #[doc(hidden)]
     pub fn IFdnAccessManagerStatics<R, F: FnOnce(&IFdnAccessManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FdnAccessManager, IFdnAccessManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FdnAccessManager, IFdnAccessManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4366,7 +4366,7 @@ impl HotspotAuthenticationContext {
     }
     #[doc(hidden)]
     pub fn IHotspotAuthenticationContextStatics<R, F: FnOnce(&IHotspotAuthenticationContextStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HotspotAuthenticationContext, IHotspotAuthenticationContextStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HotspotAuthenticationContext, IHotspotAuthenticationContextStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4382,7 +4382,7 @@ impl ::core::fmt::Debug for HotspotAuthenticationContext {
     }
 }
 impl ::windows::core::RuntimeType for HotspotAuthenticationContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotAuthenticationContext;{e756c791-1003-4de5-83c7-de61d88831d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotAuthenticationContext;{e756c791-1003-4de5-83c7-de61d88831d0})");
 }
 impl ::core::clone::Clone for HotspotAuthenticationContext {
     fn clone(&self) -> Self {
@@ -4398,7 +4398,7 @@ unsafe impl ::windows::core::Interface for HotspotAuthenticationContext {
 impl ::windows::core::RuntimeName for HotspotAuthenticationContext {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationContext";
 }
-::windows::core::interface_hierarchy!(HotspotAuthenticationContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HotspotAuthenticationContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct HotspotAuthenticationEventDetails(::windows::core::IUnknown);
@@ -4423,7 +4423,7 @@ impl ::core::fmt::Debug for HotspotAuthenticationEventDetails {
     }
 }
 impl ::windows::core::RuntimeType for HotspotAuthenticationEventDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails;{e756c791-1001-4de5-83c7-de61d88831d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails;{e756c791-1001-4de5-83c7-de61d88831d0})");
 }
 impl ::core::clone::Clone for HotspotAuthenticationEventDetails {
     fn clone(&self) -> Self {
@@ -4439,7 +4439,7 @@ unsafe impl ::windows::core::Interface for HotspotAuthenticationEventDetails {
 impl ::windows::core::RuntimeName for HotspotAuthenticationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
 }
-::windows::core::interface_hierarchy!(HotspotAuthenticationEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HotspotAuthenticationEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct HotspotCredentialsAuthenticationResult(::windows::core::IUnknown);
@@ -4489,7 +4489,7 @@ impl ::core::fmt::Debug for HotspotCredentialsAuthenticationResult {
     }
 }
 impl ::windows::core::RuntimeType for HotspotCredentialsAuthenticationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult;{e756c791-1005-4de5-83c7-de61d88831d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult;{e756c791-1005-4de5-83c7-de61d88831d0})");
 }
 impl ::core::clone::Clone for HotspotCredentialsAuthenticationResult {
     fn clone(&self) -> Self {
@@ -4505,7 +4505,7 @@ unsafe impl ::windows::core::Interface for HotspotCredentialsAuthenticationResul
 impl ::windows::core::RuntimeName for HotspotCredentialsAuthenticationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
 }
-::windows::core::interface_hierarchy!(HotspotCredentialsAuthenticationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HotspotCredentialsAuthenticationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 pub struct KnownCSimFilePaths;
 impl KnownCSimFilePaths {
@@ -4535,7 +4535,7 @@ impl KnownCSimFilePaths {
     }
     #[doc(hidden)]
     pub fn IKnownCSimFilePathsStatics<R, F: FnOnce(&IKnownCSimFilePathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownCSimFilePaths, IKnownCSimFilePathsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownCSimFilePaths, IKnownCSimFilePathsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4571,7 +4571,7 @@ impl KnownRuimFilePaths {
     }
     #[doc(hidden)]
     pub fn IKnownRuimFilePathsStatics<R, F: FnOnce(&IKnownRuimFilePathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownRuimFilePaths, IKnownRuimFilePathsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownRuimFilePaths, IKnownRuimFilePathsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4615,7 +4615,7 @@ impl KnownSimFilePaths {
     }
     #[doc(hidden)]
     pub fn IKnownSimFilePathsStatics<R, F: FnOnce(&IKnownSimFilePathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownSimFilePaths, IKnownSimFilePathsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownSimFilePaths, IKnownSimFilePathsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4667,7 +4667,7 @@ impl KnownUSimFilePaths {
     }
     #[doc(hidden)]
     pub fn IKnownUSimFilePathsStatics<R, F: FnOnce(&IKnownUSimFilePathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownUSimFilePaths, IKnownUSimFilePathsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownUSimFilePaths, IKnownUSimFilePathsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4747,7 +4747,7 @@ impl MobileBroadbandAccount {
     }
     #[doc(hidden)]
     pub fn IMobileBroadbandAccountStatics<R, F: FnOnce(&IMobileBroadbandAccountStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandAccount, IMobileBroadbandAccountStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandAccount, IMobileBroadbandAccountStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4763,7 +4763,7 @@ impl ::core::fmt::Debug for MobileBroadbandAccount {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandAccount {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAccount;{36c24ccd-cee2-43e0-a603-ee86a36d6570})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAccount;{36c24ccd-cee2-43e0-a603-ee86a36d6570})");
 }
 impl ::core::clone::Clone for MobileBroadbandAccount {
     fn clone(&self) -> Self {
@@ -4779,7 +4779,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAccount {
 impl ::windows::core::RuntimeName for MobileBroadbandAccount {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccount";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountEventArgs(::windows::core::IUnknown);
@@ -4804,7 +4804,7 @@ impl ::core::fmt::Debug for MobileBroadbandAccountEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandAccountEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs;{3853c880-77de-4c04-bead-a123b08c9f59})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs;{3853c880-77de-4c04-bead-a123b08c9f59})");
 }
 impl ::core::clone::Clone for MobileBroadbandAccountEventArgs {
     fn clone(&self) -> Self {
@@ -4820,7 +4820,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAccountEventArgs {
 impl ::windows::core::RuntimeName for MobileBroadbandAccountEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandAccountEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandAccountEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountUpdatedEventArgs(::windows::core::IUnknown);
@@ -4859,7 +4859,7 @@ impl ::core::fmt::Debug for MobileBroadbandAccountUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandAccountUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs;{7bc31d88-a6bd-49e1-80ab-6b91354a57d4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs;{7bc31d88-a6bd-49e1-80ab-6b91354a57d4})");
 }
 impl ::core::clone::Clone for MobileBroadbandAccountUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -4875,7 +4875,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAccountUpdatedEventArg
 impl ::windows::core::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandAccountUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandAccountUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountWatcher(::windows::core::IUnknown);
@@ -4883,8 +4883,8 @@ impl MobileBroadbandAccountWatcher {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandAccountWatcher, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandAccountWatcher, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4990,7 +4990,7 @@ impl ::core::fmt::Debug for MobileBroadbandAccountWatcher {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandAccountWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher;{6bf3335e-23b5-449f-928d-5e0d3e04471d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher;{6bf3335e-23b5-449f-928d-5e0d3e04471d})");
 }
 impl ::core::clone::Clone for MobileBroadbandAccountWatcher {
     fn clone(&self) -> Self {
@@ -5006,7 +5006,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAccountWatcher {
 impl ::windows::core::RuntimeName for MobileBroadbandAccountWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandAccountWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandAccountWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAntennaSar(::windows::core::IUnknown);
@@ -5033,7 +5033,7 @@ impl MobileBroadbandAntennaSar {
     }
     #[doc(hidden)]
     pub fn IMobileBroadbandAntennaSarFactory<R, F: FnOnce(&IMobileBroadbandAntennaSarFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandAntennaSar, IMobileBroadbandAntennaSarFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandAntennaSar, IMobileBroadbandAntennaSarFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5049,7 +5049,7 @@ impl ::core::fmt::Debug for MobileBroadbandAntennaSar {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandAntennaSar {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar;{b9af4b7e-cbf9-4109-90be-5c06bfd513b6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar;{b9af4b7e-cbf9-4109-90be-5c06bfd513b6})");
 }
 impl ::core::clone::Clone for MobileBroadbandAntennaSar {
     fn clone(&self) -> Self {
@@ -5065,7 +5065,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAntennaSar {
 impl ::windows::core::RuntimeName for MobileBroadbandAntennaSar {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandAntennaSar, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandAntennaSar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandAntennaSar {}
 unsafe impl ::core::marker::Sync for MobileBroadbandAntennaSar {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5157,7 +5157,7 @@ impl ::core::fmt::Debug for MobileBroadbandCellCdma {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandCellCdma {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellCdma;{0601b3b4-411a-4f2e-8287-76f5650c60cd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellCdma;{0601b3b4-411a-4f2e-8287-76f5650c60cd})");
 }
 impl ::core::clone::Clone for MobileBroadbandCellCdma {
     fn clone(&self) -> Self {
@@ -5173,7 +5173,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellCdma {
 impl ::windows::core::RuntimeName for MobileBroadbandCellCdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellCdma";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandCellCdma, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandCellCdma, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellCdma {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellCdma {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5254,7 +5254,7 @@ impl ::core::fmt::Debug for MobileBroadbandCellGsm {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandCellGsm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellGsm;{cc917f06-7ee0-47b8-9e1f-c3b48df9df5b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellGsm;{cc917f06-7ee0-47b8-9e1f-c3b48df9df5b})");
 }
 impl ::core::clone::Clone for MobileBroadbandCellGsm {
     fn clone(&self) -> Self {
@@ -5270,7 +5270,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellGsm {
 impl ::windows::core::RuntimeName for MobileBroadbandCellGsm {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellGsm";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandCellGsm, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandCellGsm, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellGsm {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellGsm {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5360,7 +5360,7 @@ impl ::core::fmt::Debug for MobileBroadbandCellLte {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandCellLte {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellLte;{9197c87b-2b78-456d-8b53-aaa25d0af741})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellLte;{9197c87b-2b78-456d-8b53-aaa25d0af741})");
 }
 impl ::core::clone::Clone for MobileBroadbandCellLte {
     fn clone(&self) -> Self {
@@ -5376,7 +5376,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellLte {
 impl ::windows::core::RuntimeName for MobileBroadbandCellLte {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellLte";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandCellLte, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandCellLte, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellLte {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellLte {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5475,7 +5475,7 @@ impl ::core::fmt::Debug for MobileBroadbandCellNR {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandCellNR {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellNR;{a13f0deb-66fc-4b4b-83a9-a487a3a5a0a6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellNR;{a13f0deb-66fc-4b4b-83a9-a487a3a5a0a6})");
 }
 impl ::core::clone::Clone for MobileBroadbandCellNR {
     fn clone(&self) -> Self {
@@ -5491,7 +5491,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellNR {
 impl ::windows::core::RuntimeName for MobileBroadbandCellNR {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellNR";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandCellNR, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandCellNR, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellNR {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellNR {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5581,7 +5581,7 @@ impl ::core::fmt::Debug for MobileBroadbandCellTdscdma {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandCellTdscdma {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma;{0eda1655-db0e-4182-8cda-cc419a7bde08})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma;{0eda1655-db0e-4182-8cda-cc419a7bde08})");
 }
 impl ::core::clone::Clone for MobileBroadbandCellTdscdma {
     fn clone(&self) -> Self {
@@ -5597,7 +5597,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellTdscdma {
 impl ::windows::core::RuntimeName for MobileBroadbandCellTdscdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandCellTdscdma, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandCellTdscdma, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellTdscdma {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellTdscdma {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5687,7 +5687,7 @@ impl ::core::fmt::Debug for MobileBroadbandCellUmts {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandCellUmts {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellUmts;{77b4b5ae-49c8-4f15-b285-4c26a7f67215})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellUmts;{77b4b5ae-49c8-4f15-b285-4c26a7f67215})");
 }
 impl ::core::clone::Clone for MobileBroadbandCellUmts {
     fn clone(&self) -> Self {
@@ -5703,7 +5703,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellUmts {
 impl ::windows::core::RuntimeName for MobileBroadbandCellUmts {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellUmts";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandCellUmts, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandCellUmts, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellUmts {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellUmts {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5831,7 +5831,7 @@ impl ::core::fmt::Debug for MobileBroadbandCellsInfo {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandCellsInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo;{89a9562a-e472-4da5-929c-de61711dd261})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo;{89a9562a-e472-4da5-929c-de61711dd261})");
 }
 impl ::core::clone::Clone for MobileBroadbandCellsInfo {
     fn clone(&self) -> Self {
@@ -5847,7 +5847,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellsInfo {
 impl ::windows::core::RuntimeName for MobileBroadbandCellsInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandCellsInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandCellsInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellsInfo {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellsInfo {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5874,7 +5874,7 @@ impl ::core::fmt::Debug for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandCurrentSlotIndexChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCurrentSlotIndexChangedEventArgs;{f718b184-c370-5fd4-a670-1846cb9bce47})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandCurrentSlotIndexChangedEventArgs;{f718b184-c370-5fd4-a670-1846cb9bce47})");
 }
 impl ::core::clone::Clone for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5890,7 +5890,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCurrentSlotIndexChange
 impl ::windows::core::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCurrentSlotIndexChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandCurrentSlotIndexChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandCurrentSlotIndexChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6061,7 +6061,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceInformation {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation;{e6d08168-e381-4c6e-9be8-fe156969a446})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation;{e6d08168-e381-4c6e-9be8-fe156969a446})");
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceInformation {
     fn clone(&self) -> Self {
@@ -6077,7 +6077,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceInformation {
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandDeviceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandDeviceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceService(::windows::core::IUnknown);
@@ -6125,7 +6125,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceService {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceService {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceService;{22be1a52-bd80-40ac-8e1f-2e07836a3dbd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceService;{22be1a52-bd80-40ac-8e1f-2e07836a3dbd})");
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceService {
     fn clone(&self) -> Self {
@@ -6141,7 +6141,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceService {
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceService {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceService";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandDeviceService, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandDeviceService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceService {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceService {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6177,7 +6177,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceServiceCommandResult {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceCommandResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult;{b0f46abb-94d6-44b9-a538-f0810b645389})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult;{b0f46abb-94d6-44b9-a538-f0810b645389})");
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceCommandResult {
     fn clone(&self) -> Self {
@@ -6193,7 +6193,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceCommandRe
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceCommandResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceCommandResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6243,7 +6243,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceServiceCommandSession {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceCommandSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession;{fc098a45-913b-4914-b6c3-ae6304593e75})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession;{fc098a45-913b-4914-b6c3-ae6304593e75})");
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceCommandSession {
     fn clone(&self) -> Self {
@@ -6259,7 +6259,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceCommandSe
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceCommandSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceCommandSession {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandSession {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6288,7 +6288,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceDataReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs;{b6aa13de-1380-40e3-8618-73cbca48138c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs;{b6aa13de-1380-40e3-8618-73cbca48138c})");
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -6304,7 +6304,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceDataRecei
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6356,7 +6356,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceServiceDataSession {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceDataSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession;{dad62333-8bcf-4289-8a37-045c2169486a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession;{dad62333-8bcf-4289-8a37-045c2169486a})");
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceDataSession {
     fn clone(&self) -> Self {
@@ -6372,7 +6372,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceDataSessi
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceDataSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceDataSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceDataSession {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceDataSession {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6413,7 +6413,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceServiceInformation {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation;{53d69b5b-c4ed-45f0-803a-d9417a6d9846})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation;{53d69b5b-c4ed-45f0-803a-d9417a6d9846})");
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceInformation {
     fn clone(&self) -> Self {
@@ -6429,7 +6429,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceInformati
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandDeviceServiceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceInformation {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceInformation {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6479,7 +6479,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceServiceTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails;{4a055b70-b9ae-4458-9241-a6a5fbf18a0c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails;{4a055b70-b9ae-4458-9241-a6a5fbf18a0c})");
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceTriggerDetails {
     fn clone(&self) -> Self {
@@ -6495,7 +6495,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceTriggerDe
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandDeviceServiceTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6679,7 +6679,7 @@ impl MobileBroadbandModem {
     }
     #[doc(hidden)]
     pub fn IMobileBroadbandModemStatics<R, F: FnOnce(&IMobileBroadbandModemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandModem, IMobileBroadbandModemStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandModem, IMobileBroadbandModemStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6695,7 +6695,7 @@ impl ::core::fmt::Debug for MobileBroadbandModem {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandModem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandModem;{d0356912-e9f9-4f67-a03d-43189a316bf1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandModem;{d0356912-e9f9-4f67-a03d-43189a316bf1})");
 }
 impl ::core::clone::Clone for MobileBroadbandModem {
     fn clone(&self) -> Self {
@@ -6711,7 +6711,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandModem {
 impl ::windows::core::RuntimeName for MobileBroadbandModem {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModem";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandModem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandModem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandModem {}
 unsafe impl ::core::marker::Sync for MobileBroadbandModem {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6759,7 +6759,7 @@ impl ::core::fmt::Debug for MobileBroadbandModemConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandModemConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration;{fce035a3-d6cd-4320-b982-be9d3ec7890f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration;{fce035a3-d6cd-4320-b982-be9d3ec7890f})");
 }
 impl ::core::clone::Clone for MobileBroadbandModemConfiguration {
     fn clone(&self) -> Self {
@@ -6775,7 +6775,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandModemConfiguration {
 impl ::windows::core::RuntimeName for MobileBroadbandModemConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandModemConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandModemConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandModemIsolation(::windows::core::IUnknown);
@@ -6814,7 +6814,7 @@ impl MobileBroadbandModemIsolation {
     }
     #[doc(hidden)]
     pub fn IMobileBroadbandModemIsolationFactory<R, F: FnOnce(&IMobileBroadbandModemIsolationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MobileBroadbandModemIsolation, IMobileBroadbandModemIsolationFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MobileBroadbandModemIsolation, IMobileBroadbandModemIsolationFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6830,7 +6830,7 @@ impl ::core::fmt::Debug for MobileBroadbandModemIsolation {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandModemIsolation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation;{b5618fec-e661-4330-9bb4-3480212ec354})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation;{b5618fec-e661-4330-9bb4-3480212ec354})");
 }
 impl ::core::clone::Clone for MobileBroadbandModemIsolation {
     fn clone(&self) -> Self {
@@ -6846,7 +6846,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandModemIsolation {
 impl ::windows::core::RuntimeName for MobileBroadbandModemIsolation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandModemIsolation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandModemIsolation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandModemIsolation {}
 unsafe impl ::core::marker::Sync for MobileBroadbandModemIsolation {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6962,7 +6962,7 @@ impl ::core::fmt::Debug for MobileBroadbandNetwork {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandNetwork {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandNetwork;{cb63928c-0309-4cb6-a8c1-6a5a3c8e1ff6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandNetwork;{cb63928c-0309-4cb6-a8c1-6a5a3c8e1ff6})");
 }
 impl ::core::clone::Clone for MobileBroadbandNetwork {
     fn clone(&self) -> Self {
@@ -6978,7 +6978,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandNetwork {
 impl ::windows::core::RuntimeName for MobileBroadbandNetwork {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetwork";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandNetwork, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandNetwork, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandNetworkRegistrationStateChange(::windows::core::IUnknown);
@@ -7010,7 +7010,7 @@ impl ::core::fmt::Debug for MobileBroadbandNetworkRegistrationStateChange {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandNetworkRegistrationStateChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange;{beaf94e1-960f-49b4-a08d-7d85e968c7ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange;{beaf94e1-960f-49b4-a08d-7d85e968c7ec})");
 }
 impl ::core::clone::Clone for MobileBroadbandNetworkRegistrationStateChange {
     fn clone(&self) -> Self {
@@ -7026,7 +7026,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandNetworkRegistrationSta
 impl ::windows::core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandNetworkRegistrationStateChange {}
 unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChange {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7055,7 +7055,7 @@ impl ::core::fmt::Debug for MobileBroadbandNetworkRegistrationStateChangeTrigger
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails;{89135cff-28b8-46aa-b137-1c4b0f21edfe})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails;{89135cff-28b8-46aa-b137-1c4b0f21edfe})");
 }
 impl ::core::clone::Clone for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     fn clone(&self) -> Self {
@@ -7071,7 +7071,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandNetworkRegistrationSta
 impl ::windows::core::RuntimeName for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7114,7 +7114,7 @@ impl ::core::fmt::Debug for MobileBroadbandPco {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPco {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPco;{d4e4fcbe-e3a3-43c5-a87b-6c86d229d7fa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPco;{d4e4fcbe-e3a3-43c5-a87b-6c86d229d7fa})");
 }
 impl ::core::clone::Clone for MobileBroadbandPco {
     fn clone(&self) -> Self {
@@ -7130,7 +7130,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPco {
 impl ::windows::core::RuntimeName for MobileBroadbandPco {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPco";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandPco, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandPco, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPco {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPco {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7157,7 +7157,7 @@ impl ::core::fmt::Debug for MobileBroadbandPcoDataChangeTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPcoDataChangeTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails;{263f5114-64e0-4493-909b-2d14a01962b1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails;{263f5114-64e0-4493-909b-2d14a01962b1})");
 }
 impl ::core::clone::Clone for MobileBroadbandPcoDataChangeTriggerDetails {
     fn clone(&self) -> Self {
@@ -7173,7 +7173,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPcoDataChangeTriggerDe
 impl ::windows::core::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandPcoDataChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPcoDataChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPcoDataChangeTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7287,7 +7287,7 @@ impl ::core::fmt::Debug for MobileBroadbandPin {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPin {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPin;{e661d709-e779-45bf-8281-75323df9e321})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPin;{e661d709-e779-45bf-8281-75323df9e321})");
 }
 impl ::core::clone::Clone for MobileBroadbandPin {
     fn clone(&self) -> Self {
@@ -7303,7 +7303,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPin {
 impl ::windows::core::RuntimeName for MobileBroadbandPin {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPin";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandPin, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandPin, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPin {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPin {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7344,7 +7344,7 @@ impl ::core::fmt::Debug for MobileBroadbandPinLockStateChange {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPinLockStateChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange;{be16673e-1f04-4f95-8b90-e7f559dde7e5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange;{be16673e-1f04-4f95-8b90-e7f559dde7e5})");
 }
 impl ::core::clone::Clone for MobileBroadbandPinLockStateChange {
     fn clone(&self) -> Self {
@@ -7360,7 +7360,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChange {
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandPinLockStateChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandPinLockStateChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChange {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChange {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7389,7 +7389,7 @@ impl ::core::fmt::Debug for MobileBroadbandPinLockStateChangeTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPinLockStateChangeTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails;{d338c091-3e91-4d38-9036-aee83a6e79ad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails;{d338c091-3e91-4d38-9036-aee83a6e79ad})");
 }
 impl ::core::clone::Clone for MobileBroadbandPinLockStateChangeTriggerDetails {
     fn clone(&self) -> Self {
@@ -7405,7 +7405,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChangeTrig
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandPinLockStateChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChangeTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7441,7 +7441,7 @@ impl ::core::fmt::Debug for MobileBroadbandPinManager {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPinManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPinManager;{83567edd-6e1f-4b9b-a413-2b1f50cc36df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPinManager;{83567edd-6e1f-4b9b-a413-2b1f50cc36df})");
 }
 impl ::core::clone::Clone for MobileBroadbandPinManager {
     fn clone(&self) -> Self {
@@ -7457,7 +7457,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinManager {
 impl ::windows::core::RuntimeName for MobileBroadbandPinManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinManager";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandPinManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandPinManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPinManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinManager {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7491,7 +7491,7 @@ impl ::core::fmt::Debug for MobileBroadbandPinOperationResult {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPinOperationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult;{11dddc32-31e7-49f5-b663-123d3bef0362})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult;{11dddc32-31e7-49f5-b663-123d3bef0362})");
 }
 impl ::core::clone::Clone for MobileBroadbandPinOperationResult {
     fn clone(&self) -> Self {
@@ -7507,7 +7507,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinOperationResult {
 impl ::windows::core::RuntimeName for MobileBroadbandPinOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandPinOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandPinOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPinOperationResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinOperationResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7541,7 +7541,7 @@ impl ::core::fmt::Debug for MobileBroadbandRadioStateChange {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandRadioStateChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange;{b054a561-9833-4aed-9717-4348b21a24b3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange;{b054a561-9833-4aed-9717-4348b21a24b3})");
 }
 impl ::core::clone::Clone for MobileBroadbandRadioStateChange {
     fn clone(&self) -> Self {
@@ -7557,7 +7557,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChange {
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandRadioStateChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandRadioStateChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChange {}
 unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChange {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7586,7 +7586,7 @@ impl ::core::fmt::Debug for MobileBroadbandRadioStateChangeTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandRadioStateChangeTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails;{71301ace-093c-42c6-b0db-ad1f75a65445})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails;{71301ace-093c-42c6-b0db-ad1f75a65445})");
 }
 impl ::core::clone::Clone for MobileBroadbandRadioStateChangeTriggerDetails {
     fn clone(&self) -> Self {
@@ -7602,7 +7602,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChangeTrigge
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandRadioStateChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChangeTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7742,7 +7742,7 @@ impl ::core::fmt::Debug for MobileBroadbandSarManager {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandSarManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandSarManager;{e5b26833-967e-40c9-a485-19c0dd209e22})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandSarManager;{e5b26833-967e-40c9-a485-19c0dd209e22})");
 }
 impl ::core::clone::Clone for MobileBroadbandSarManager {
     fn clone(&self) -> Self {
@@ -7758,7 +7758,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandSarManager {
 impl ::windows::core::RuntimeName for MobileBroadbandSarManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSarManager";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandSarManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandSarManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandSarManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSarManager {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7799,7 +7799,7 @@ impl ::core::fmt::Debug for MobileBroadbandSlotInfo {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandSlotInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo;{bd350b32-882e-542a-b17d-0bb1b49bae9e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo;{bd350b32-882e-542a-b17d-0bb1b49bae9e})");
 }
 impl ::core::clone::Clone for MobileBroadbandSlotInfo {
     fn clone(&self) -> Self {
@@ -7815,7 +7815,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandSlotInfo {
 impl ::windows::core::RuntimeName for MobileBroadbandSlotInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandSlotInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandSlotInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandSlotInfo {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotInfo {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7842,7 +7842,7 @@ impl ::core::fmt::Debug for MobileBroadbandSlotInfoChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandSlotInfoChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandSlotInfoChangedEventArgs;{3158839f-950c-54ce-a48d-ba4529b48f0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandSlotInfoChangedEventArgs;{3158839f-950c-54ce-a48d-ba4529b48f0f})");
 }
 impl ::core::clone::Clone for MobileBroadbandSlotInfoChangedEventArgs {
     fn clone(&self) -> Self {
@@ -7858,7 +7858,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandSlotInfoChangedEventAr
 impl ::windows::core::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfoChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandSlotInfoChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandSlotInfoChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandSlotInfoChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotInfoChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7940,7 +7940,7 @@ impl ::core::fmt::Debug for MobileBroadbandSlotManager {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandSlotManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandSlotManager;{eba07cd6-2019-5f81-a294-cc364a11d0b2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandSlotManager;{eba07cd6-2019-5f81-a294-cc364a11d0b2})");
 }
 impl ::core::clone::Clone for MobileBroadbandSlotManager {
     fn clone(&self) -> Self {
@@ -7956,7 +7956,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandSlotManager {
 impl ::windows::core::RuntimeName for MobileBroadbandSlotManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotManager";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandSlotManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandSlotManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandSlotManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotManager {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7983,7 +7983,7 @@ impl ::core::fmt::Debug for MobileBroadbandTransmissionStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandTransmissionStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs;{612e3875-040a-4f99-a4f9-61d7c32da129})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs;{612e3875-040a-4f99-a4f9-61d7c32da129})");
 }
 impl ::core::clone::Clone for MobileBroadbandTransmissionStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -7999,7 +7999,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandTransmissionStateChang
 impl ::windows::core::RuntimeName for MobileBroadbandTransmissionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandTransmissionStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandTransmissionStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandTransmissionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandTransmissionStateChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8035,7 +8035,7 @@ impl ::core::fmt::Debug for MobileBroadbandUicc {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandUicc {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUicc;{e634f691-525a-4ce2-8fce-aa4162579154})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUicc;{e634f691-525a-4ce2-8fce-aa4162579154})");
 }
 impl ::core::clone::Clone for MobileBroadbandUicc {
     fn clone(&self) -> Self {
@@ -8051,7 +8051,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUicc {
 impl ::windows::core::RuntimeName for MobileBroadbandUicc {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUicc";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandUicc, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandUicc, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUicc {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUicc {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8113,7 +8113,7 @@ impl ::core::fmt::Debug for MobileBroadbandUiccApp {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandUiccApp {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUiccApp;{4d170556-98a1-43dd-b2ec-50c90cf248df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUiccApp;{4d170556-98a1-43dd-b2ec-50c90cf248df})");
 }
 impl ::core::clone::Clone for MobileBroadbandUiccApp {
     fn clone(&self) -> Self {
@@ -8129,7 +8129,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUiccApp {
 impl ::windows::core::RuntimeName for MobileBroadbandUiccApp {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccApp";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandUiccApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandUiccApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUiccApp {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccApp {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8165,7 +8165,7 @@ impl ::core::fmt::Debug for MobileBroadbandUiccAppReadRecordResult {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandUiccAppReadRecordResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult;{64c95285-358e-47c5-8249-695f383b2bdb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult;{64c95285-358e-47c5-8249-695f383b2bdb})");
 }
 impl ::core::clone::Clone for MobileBroadbandUiccAppReadRecordResult {
     fn clone(&self) -> Self {
@@ -8181,7 +8181,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppReadRecordResul
 impl ::windows::core::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandUiccAppReadRecordResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandUiccAppReadRecordResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUiccAppReadRecordResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppReadRecordResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8243,7 +8243,7 @@ impl ::core::fmt::Debug for MobileBroadbandUiccAppRecordDetailsResult {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandUiccAppRecordDetailsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult;{d919682f-be14-4934-981d-2f57b9ed83e6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult;{d919682f-be14-4934-981d-2f57b9ed83e6})");
 }
 impl ::core::clone::Clone for MobileBroadbandUiccAppRecordDetailsResult {
     fn clone(&self) -> Self {
@@ -8259,7 +8259,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppRecordDetailsRe
 impl ::windows::core::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandUiccAppRecordDetailsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandUiccAppRecordDetailsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUiccAppRecordDetailsResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppRecordDetailsResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8295,7 +8295,7 @@ impl ::core::fmt::Debug for MobileBroadbandUiccAppsResult {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandUiccAppsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult;{744930eb-8157-4a41-8494-6bf54c9b1d2b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult;{744930eb-8157-4a41-8494-6bf54c9b1d2b})");
 }
 impl ::core::clone::Clone for MobileBroadbandUiccAppsResult {
     fn clone(&self) -> Self {
@@ -8311,7 +8311,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppsResult {
 impl ::windows::core::RuntimeName for MobileBroadbandUiccAppsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult";
 }
-::windows::core::interface_hierarchy!(MobileBroadbandUiccAppsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MobileBroadbandUiccAppsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUiccAppsResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppsResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8338,7 +8338,7 @@ impl ::core::fmt::Debug for NetworkOperatorDataUsageTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorDataUsageTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails;{50e3126d-a465-4eeb-9317-28a167630cea})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails;{50e3126d-a465-4eeb-9317-28a167630cea})");
 }
 impl ::core::clone::Clone for NetworkOperatorDataUsageTriggerDetails {
     fn clone(&self) -> Self {
@@ -8354,7 +8354,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorDataUsageTriggerDetail
 impl ::windows::core::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails";
 }
-::windows::core::interface_hierarchy!(NetworkOperatorDataUsageTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkOperatorDataUsageTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTriggerDetails {}
 unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8422,7 +8422,7 @@ impl ::core::fmt::Debug for NetworkOperatorNotificationEventDetails {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorNotificationEventDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails;{bc68a9d1-82e1-4488-9f2c-1276c2468fac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails;{bc68a9d1-82e1-4488-9f2c-1276c2468fac})");
 }
 impl ::core::clone::Clone for NetworkOperatorNotificationEventDetails {
     fn clone(&self) -> Self {
@@ -8438,7 +8438,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorNotificationEventDetai
 impl ::windows::core::RuntimeName for NetworkOperatorNotificationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails";
 }
-::windows::core::interface_hierarchy!(NetworkOperatorNotificationEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkOperatorNotificationEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkOperatorNotificationEventDetails {}
 unsafe impl ::core::marker::Sync for NetworkOperatorNotificationEventDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8448,8 +8448,8 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringAccessPointConfiguration, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<NetworkOperatorTetheringAccessPointConfiguration, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Ssid(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -8514,7 +8514,7 @@ impl ::core::fmt::Debug for NetworkOperatorTetheringAccessPointConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorTetheringAccessPointConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration;{0bcc0284-412e-403d-acc6-b757e34774a4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration;{0bcc0284-412e-403d-acc6-b757e34774a4})");
 }
 impl ::core::clone::Clone for NetworkOperatorTetheringAccessPointConfiguration {
     fn clone(&self) -> Self {
@@ -8530,7 +8530,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorTetheringAccessPointCo
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringAccessPointConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration";
 }
-::windows::core::interface_hierarchy!(NetworkOperatorTetheringAccessPointConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkOperatorTetheringAccessPointConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkOperatorTetheringAccessPointConfiguration {}
 unsafe impl ::core::marker::Sync for NetworkOperatorTetheringAccessPointConfiguration {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8566,7 +8566,7 @@ impl ::core::fmt::Debug for NetworkOperatorTetheringClient {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorTetheringClient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient;{709d254c-595f-4847-bb30-646935542918})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient;{709d254c-595f-4847-bb30-646935542918})");
 }
 impl ::core::clone::Clone for NetworkOperatorTetheringClient {
     fn clone(&self) -> Self {
@@ -8582,7 +8582,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorTetheringClient {
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringClient {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient";
 }
-::windows::core::interface_hierarchy!(NetworkOperatorTetheringClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkOperatorTetheringClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkOperatorTetheringClient {}
 unsafe impl ::core::marker::Sync for NetworkOperatorTetheringClient {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8719,22 +8719,22 @@ impl NetworkOperatorTetheringManager {
     }
     #[doc(hidden)]
     pub fn INetworkOperatorTetheringManagerStatics<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn INetworkOperatorTetheringManagerStatics2<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn INetworkOperatorTetheringManagerStatics3<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn INetworkOperatorTetheringManagerStatics4<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -8750,7 +8750,7 @@ impl ::core::fmt::Debug for NetworkOperatorTetheringManager {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorTetheringManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager;{d45a8da0-0e86-4d98-8ba4-dd70d4b764d3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager;{d45a8da0-0e86-4d98-8ba4-dd70d4b764d3})");
 }
 impl ::core::clone::Clone for NetworkOperatorTetheringManager {
     fn clone(&self) -> Self {
@@ -8766,7 +8766,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorTetheringManager {
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager";
 }
-::windows::core::interface_hierarchy!(NetworkOperatorTetheringManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkOperatorTetheringManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringOperationResult(::windows::core::IUnknown);
@@ -8798,7 +8798,7 @@ impl ::core::fmt::Debug for NetworkOperatorTetheringOperationResult {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorTetheringOperationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult;{ebd203a1-01ba-476d-b4b3-bf3d12c8f80c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult;{ebd203a1-01ba-476d-b4b3-bf3d12c8f80c})");
 }
 impl ::core::clone::Clone for NetworkOperatorTetheringOperationResult {
     fn clone(&self) -> Self {
@@ -8814,7 +8814,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorTetheringOperationResu
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
 }
-::windows::core::interface_hierarchy!(NetworkOperatorTetheringOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NetworkOperatorTetheringOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ProvisionFromXmlDocumentResults(::windows::core::IUnknown);
@@ -8846,7 +8846,7 @@ impl ::core::fmt::Debug for ProvisionFromXmlDocumentResults {
     }
 }
 impl ::windows::core::RuntimeType for ProvisionFromXmlDocumentResults {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults;{217700e0-8203-11df-adb9-f4ce462d9137})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults;{217700e0-8203-11df-adb9-f4ce462d9137})");
 }
 impl ::core::clone::Clone for ProvisionFromXmlDocumentResults {
     fn clone(&self) -> Self {
@@ -8862,7 +8862,7 @@ unsafe impl ::windows::core::Interface for ProvisionFromXmlDocumentResults {
 impl ::windows::core::RuntimeName for ProvisionFromXmlDocumentResults {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults";
 }
-::windows::core::interface_hierarchy!(ProvisionFromXmlDocumentResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProvisionFromXmlDocumentResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ProvisionedProfile(::windows::core::IUnknown);
@@ -8892,7 +8892,7 @@ impl ::core::fmt::Debug for ProvisionedProfile {
     }
 }
 impl ::windows::core::RuntimeType for ProvisionedProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ProvisionedProfile;{217700e0-8202-11df-adb9-f4ce462d9137})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ProvisionedProfile;{217700e0-8202-11df-adb9-f4ce462d9137})");
 }
 impl ::core::clone::Clone for ProvisionedProfile {
     fn clone(&self) -> Self {
@@ -8908,7 +8908,7 @@ unsafe impl ::windows::core::Interface for ProvisionedProfile {
 impl ::windows::core::RuntimeName for ProvisionedProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionedProfile";
 }
-::windows::core::interface_hierarchy!(ProvisionedProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProvisionedProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ProvisioningAgent(::windows::core::IUnknown);
@@ -8916,8 +8916,8 @@ impl ProvisioningAgent {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProvisioningAgent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ProvisioningAgent, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8944,7 +8944,7 @@ impl ProvisioningAgent {
     }
     #[doc(hidden)]
     pub fn IProvisioningAgentStaticMethods<R, F: FnOnce(&IProvisioningAgentStaticMethods) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProvisioningAgent, IProvisioningAgentStaticMethods> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProvisioningAgent, IProvisioningAgentStaticMethods> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -8960,7 +8960,7 @@ impl ::core::fmt::Debug for ProvisioningAgent {
     }
 }
 impl ::windows::core::RuntimeType for ProvisioningAgent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ProvisioningAgent;{217700e0-8201-11df-adb9-f4ce462d9137})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ProvisioningAgent;{217700e0-8201-11df-adb9-f4ce462d9137})");
 }
 impl ::core::clone::Clone for ProvisioningAgent {
     fn clone(&self) -> Self {
@@ -8976,7 +8976,7 @@ unsafe impl ::windows::core::Interface for ProvisioningAgent {
 impl ::windows::core::RuntimeName for ProvisioningAgent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisioningAgent";
 }
-::windows::core::interface_hierarchy!(ProvisioningAgent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProvisioningAgent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct TetheringEntitlementCheckTriggerDetails(::windows::core::IUnknown);
@@ -9009,7 +9009,7 @@ impl ::core::fmt::Debug for TetheringEntitlementCheckTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for TetheringEntitlementCheckTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails;{03c65e9d-5926-41f3-a94e-b50926fc421b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails;{03c65e9d-5926-41f3-a94e-b50926fc421b})");
 }
 impl ::core::clone::Clone for TetheringEntitlementCheckTriggerDetails {
     fn clone(&self) -> Self {
@@ -9025,7 +9025,7 @@ unsafe impl ::windows::core::Interface for TetheringEntitlementCheckTriggerDetai
 impl ::windows::core::RuntimeName for TetheringEntitlementCheckTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails";
 }
-::windows::core::interface_hierarchy!(TetheringEntitlementCheckTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TetheringEntitlementCheckTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TetheringEntitlementCheckTriggerDetails {}
 unsafe impl ::core::marker::Sync for TetheringEntitlementCheckTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9073,7 +9073,7 @@ impl UssdMessage {
     }
     #[doc(hidden)]
     pub fn IUssdMessageFactory<R, F: FnOnce(&IUssdMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UssdMessage, IUssdMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UssdMessage, IUssdMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -9089,7 +9089,7 @@ impl ::core::fmt::Debug for UssdMessage {
     }
 }
 impl ::windows::core::RuntimeType for UssdMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdMessage;{2f9acf82-2004-4d5d-bf81-2aba1b4be4a8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdMessage;{2f9acf82-2004-4d5d-bf81-2aba1b4be4a8})");
 }
 impl ::core::clone::Clone for UssdMessage {
     fn clone(&self) -> Self {
@@ -9105,7 +9105,7 @@ unsafe impl ::windows::core::Interface for UssdMessage {
 impl ::windows::core::RuntimeName for UssdMessage {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdMessage";
 }
-::windows::core::interface_hierarchy!(UssdMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UssdMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UssdMessage {}
 unsafe impl ::core::marker::Sync for UssdMessage {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9139,7 +9139,7 @@ impl ::core::fmt::Debug for UssdReply {
     }
 }
 impl ::windows::core::RuntimeType for UssdReply {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdReply;{2f9acf82-2005-4d5d-bf81-2aba1b4be4a8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdReply;{2f9acf82-2005-4d5d-bf81-2aba1b4be4a8})");
 }
 impl ::core::clone::Clone for UssdReply {
     fn clone(&self) -> Self {
@@ -9155,7 +9155,7 @@ unsafe impl ::windows::core::Interface for UssdReply {
 impl ::windows::core::RuntimeName for UssdReply {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
 }
-::windows::core::interface_hierarchy!(UssdReply, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UssdReply, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct UssdSession(::windows::core::IUnknown);
@@ -9187,7 +9187,7 @@ impl UssdSession {
     }
     #[doc(hidden)]
     pub fn IUssdSessionStatics<R, F: FnOnce(&IUssdSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UssdSession, IUssdSessionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UssdSession, IUssdSessionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -9203,7 +9203,7 @@ impl ::core::fmt::Debug for UssdSession {
     }
 }
 impl ::windows::core::RuntimeType for UssdSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdSession;{2f9acf82-2002-4d5d-bf81-2aba1b4be4a8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdSession;{2f9acf82-2002-4d5d-bf81-2aba1b4be4a8})");
 }
 impl ::core::clone::Clone for UssdSession {
     fn clone(&self) -> Self {
@@ -9219,7 +9219,7 @@ unsafe impl ::windows::core::Interface for UssdSession {
 impl ::windows::core::RuntimeName for UssdSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";
 }
-::windows::core::interface_hierarchy!(UssdSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UssdSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -9296,7 +9296,7 @@ impl ::core::ops::Not for DataClasses {
     }
 }
 impl ::windows::core::RuntimeType for DataClasses {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.DataClasses;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.DataClasses;u4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9327,7 +9327,7 @@ impl ::core::fmt::Debug for ESimAuthenticationPreference {
     }
 }
 impl ::windows::core::RuntimeType for ESimAuthenticationPreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimAuthenticationPreference;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimAuthenticationPreference;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9358,7 +9358,7 @@ impl ::core::fmt::Debug for ESimDiscoverResultKind {
     }
 }
 impl ::windows::core::RuntimeType for ESimDiscoverResultKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimDiscoverResultKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimDiscoverResultKind;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9415,7 +9415,7 @@ impl ::core::fmt::Debug for ESimOperationStatus {
     }
 }
 impl ::windows::core::RuntimeType for ESimOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimOperationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimOperationStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9446,7 +9446,7 @@ impl ::core::fmt::Debug for ESimProfileClass {
     }
 }
 impl ::windows::core::RuntimeType for ESimProfileClass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileClass;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileClass;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9482,7 +9482,7 @@ impl ::core::fmt::Debug for ESimProfileMetadataState {
     }
 }
 impl ::windows::core::RuntimeType for ESimProfileMetadataState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileMetadataState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileMetadataState;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9514,7 +9514,7 @@ impl ::core::fmt::Debug for ESimProfileState {
     }
 }
 impl ::windows::core::RuntimeType for ESimProfileState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileState;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9546,7 +9546,7 @@ impl ::core::fmt::Debug for ESimState {
     }
 }
 impl ::windows::core::RuntimeType for ESimState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimState;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9579,7 +9579,7 @@ impl ::core::fmt::Debug for ESimWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for ESimWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9614,7 +9614,7 @@ impl ::core::fmt::Debug for HotspotAuthenticationResponseCode {
     }
 }
 impl ::windows::core::RuntimeType for HotspotAuthenticationResponseCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9647,7 +9647,7 @@ impl ::core::fmt::Debug for MobileBroadbandAccountWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandAccountWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9679,7 +9679,7 @@ impl ::core::fmt::Debug for MobileBroadbandDeviceType {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandDeviceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandDeviceType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandDeviceType;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9711,7 +9711,7 @@ impl ::core::fmt::Debug for MobileBroadbandModemStatus {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandModemStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandModemStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandModemStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9742,7 +9742,7 @@ impl ::core::fmt::Debug for MobileBroadbandPinFormat {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPinFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinFormat;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9774,7 +9774,7 @@ impl ::core::fmt::Debug for MobileBroadbandPinLockState {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPinLockState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinLockState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinLockState;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9813,7 +9813,7 @@ impl ::core::fmt::Debug for MobileBroadbandPinType {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandPinType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinType;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9843,7 +9843,7 @@ impl ::core::fmt::Debug for MobileBroadbandRadioState {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandRadioState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandRadioState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandRadioState;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9881,7 +9881,7 @@ impl ::core::fmt::Debug for MobileBroadbandSlotState {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandSlotState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandSlotState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandSlotState;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9913,7 +9913,7 @@ impl ::core::fmt::Debug for MobileBroadbandUiccAppOperationStatus {
     }
 }
 impl ::windows::core::RuntimeType for MobileBroadbandUiccAppOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9949,7 +9949,7 @@ impl ::core::fmt::Debug for NetworkDeviceStatus {
     }
 }
 impl ::windows::core::RuntimeType for NetworkDeviceStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkDeviceStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkDeviceStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -9978,7 +9978,7 @@ impl ::core::fmt::Debug for NetworkOperatorDataUsageNotificationKind {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorDataUsageNotificationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10019,7 +10019,7 @@ impl ::core::fmt::Debug for NetworkOperatorEventMessageType {
     }
 }
 impl ::windows::core::RuntimeType for NetworkOperatorEventMessageType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10054,7 +10054,7 @@ impl ::core::fmt::Debug for NetworkRegistrationState {
     }
 }
 impl ::windows::core::RuntimeType for NetworkRegistrationState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkRegistrationState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkRegistrationState;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10084,7 +10084,7 @@ impl ::core::fmt::Debug for ProfileMediaType {
     }
 }
 impl ::windows::core::RuntimeType for ProfileMediaType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ProfileMediaType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ProfileMediaType;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10120,7 +10120,7 @@ impl ::core::fmt::Debug for TetheringCapability {
     }
 }
 impl ::windows::core::RuntimeType for TetheringCapability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringCapability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringCapability;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10157,7 +10157,7 @@ impl ::core::fmt::Debug for TetheringOperationStatus {
     }
 }
 impl ::windows::core::RuntimeType for TetheringOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10189,7 +10189,7 @@ impl ::core::fmt::Debug for TetheringOperationalState {
     }
 }
 impl ::windows::core::RuntimeType for TetheringOperationalState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationalState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationalState;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10220,7 +10220,7 @@ impl ::core::fmt::Debug for TetheringWiFiBand {
     }
 }
 impl ::windows::core::RuntimeType for TetheringWiFiBand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiBand;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiBand;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10256,7 +10256,7 @@ impl ::core::fmt::Debug for UiccAccessCondition {
     }
 }
 impl ::windows::core::RuntimeType for UiccAccessCondition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAccessCondition;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAccessCondition;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10291,7 +10291,7 @@ impl ::core::fmt::Debug for UiccAppKind {
     }
 }
 impl ::windows::core::RuntimeType for UiccAppKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppKind;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10322,7 +10322,7 @@ impl ::core::fmt::Debug for UiccAppRecordKind {
     }
 }
 impl ::windows::core::RuntimeType for UiccAppRecordKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppRecordKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppRecordKind;i4)");
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
@@ -10356,7 +10356,7 @@ impl ::core::fmt::Debug for UssdResultCode {
     }
 }
 impl ::windows::core::RuntimeType for UssdResultCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UssdResultCode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UssdResultCode;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10379,7 +10379,7 @@ impl ::windows::core::TypeKind for ESimProfileInstallProgress {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for ESimProfileInstallProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
 }
 impl ::core::cmp::PartialEq for ESimProfileInstallProgress {
     fn eq(&self, other: &Self) -> bool {
@@ -10419,7 +10419,7 @@ impl ::windows::core::TypeKind for ProfileUsage {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for ProfileUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ProfileUsage;u4;struct(Windows.Foundation.DateTime;i8))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ProfileUsage;u4;struct(Windows.Foundation.DateTime;i8))");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for ProfileUsage {

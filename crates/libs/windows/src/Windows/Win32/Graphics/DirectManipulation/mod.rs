@@ -6,7 +6,7 @@ impl IDirectManipulationAutoScrollBehavior {
         (::windows::core::Vtable::vtable(self).SetConfiguration)(::windows::core::Vtable::as_raw(self), motiontypes, scrollmotion).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationAutoScrollBehavior, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationAutoScrollBehavior, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationAutoScrollBehavior {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -64,7 +64,7 @@ impl IDirectManipulationCompositor {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationCompositor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationCompositor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationCompositor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -134,7 +134,7 @@ impl IDirectManipulationCompositor2 {
         (::windows::core::Vtable::vtable(self).AddContentWithCrossProcessChaining)(::windows::core::Vtable::as_raw(self), content.into().abi(), device.into().abi(), parentvisual.into().abi(), childvisual.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationCompositor2, ::windows::core::IUnknown, IDirectManipulationCompositor);
+::windows::imp::interface_hierarchy!(IDirectManipulationCompositor2, ::windows::core::IUnknown, IDirectManipulationCompositor);
 impl ::core::cmp::PartialEq for IDirectManipulationCompositor2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -207,7 +207,7 @@ impl IDirectManipulationContent {
         (::windows::core::Vtable::vtable(self).SyncContentTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationContent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationContent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -263,7 +263,7 @@ impl IDirectManipulationDeferContactService {
         (::windows::core::Vtable::vtable(self).CancelDeferral)(::windows::core::Vtable::as_raw(self), pointerid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationDeferContactService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationDeferContactService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationDeferContactService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -306,7 +306,7 @@ impl IDirectManipulationDragDropBehavior {
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationDragDropBehavior, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationDragDropBehavior, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationDragDropBehavior {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -347,7 +347,7 @@ impl IDirectManipulationDragDropEventHandler {
         (::windows::core::Vtable::vtable(self).OnDragDropStatusChange)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), current, previous).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationDragDropEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationDragDropEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationDragDropEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -384,7 +384,7 @@ impl IDirectManipulationFrameInfoProvider {
         (::windows::core::Vtable::vtable(self).GetNextFrameInfo)(::windows::core::Vtable::as_raw(self), time, processtime, compositiontime).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationFrameInfoProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationFrameInfoProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationFrameInfoProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -424,7 +424,7 @@ impl IDirectManipulationInteractionEventHandler {
         (::windows::core::Vtable::vtable(self).OnInteraction)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), interaction).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationInteractionEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationInteractionEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationInteractionEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -515,7 +515,7 @@ impl IDirectManipulationManager {
         (::windows::core::Vtable::vtable(self).CreateContent)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), clsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -634,7 +634,7 @@ impl IDirectManipulationManager2 {
         (::windows::core::Vtable::vtable(self).CreateBehavior)(::windows::core::Vtable::as_raw(self), clsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationManager2, ::windows::core::IUnknown, IDirectManipulationManager);
+::windows::imp::interface_hierarchy!(IDirectManipulationManager2, ::windows::core::IUnknown, IDirectManipulationManager);
 impl ::core::cmp::PartialEq for IDirectManipulationManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -739,7 +739,7 @@ impl IDirectManipulationManager3 {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), clsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationManager3, ::windows::core::IUnknown, IDirectManipulationManager, IDirectManipulationManager2);
+::windows::imp::interface_hierarchy!(IDirectManipulationManager3, ::windows::core::IUnknown, IDirectManipulationManager, IDirectManipulationManager2);
 impl ::core::cmp::PartialEq for IDirectManipulationManager3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -800,7 +800,7 @@ impl IDirectManipulationPrimaryContent {
         (::windows::core::Vtable::vtable(self).GetCenterPoint)(::windows::core::Vtable::as_raw(self), centerx, centery).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationPrimaryContent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationPrimaryContent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationPrimaryContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -845,7 +845,7 @@ impl IDirectManipulationUpdateHandler {
         (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationUpdateHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationUpdateHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationUpdateHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -898,7 +898,7 @@ impl IDirectManipulationUpdateManager {
         (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationUpdateManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationUpdateManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationUpdateManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1055,7 +1055,7 @@ impl IDirectManipulationViewport {
         (::windows::core::Vtable::vtable(self).Abandon)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationViewport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationViewport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationViewport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1259,7 +1259,7 @@ impl IDirectManipulationViewport2 {
         (::windows::core::Vtable::vtable(self).RemoveAllBehaviors)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationViewport2, ::windows::core::IUnknown, IDirectManipulationViewport);
+::windows::imp::interface_hierarchy!(IDirectManipulationViewport2, ::windows::core::IUnknown, IDirectManipulationViewport);
 impl ::core::cmp::PartialEq for IDirectManipulationViewport2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1314,7 +1314,7 @@ impl IDirectManipulationViewportEventHandler {
         (::windows::core::Vtable::vtable(self).OnContentUpdated)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), content.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectManipulationViewportEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectManipulationViewportEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectManipulationViewportEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

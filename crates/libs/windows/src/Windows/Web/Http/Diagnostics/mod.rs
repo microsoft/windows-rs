@@ -302,7 +302,7 @@ impl HttpDiagnosticProvider {
     }
     #[doc(hidden)]
     pub fn IHttpDiagnosticProviderStatics<R, F: FnOnce(&IHttpDiagnosticProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpDiagnosticProvider, IHttpDiagnosticProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpDiagnosticProvider, IHttpDiagnosticProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -318,7 +318,7 @@ impl ::core::fmt::Debug for HttpDiagnosticProvider {
     }
 }
 impl ::windows::core::RuntimeType for HttpDiagnosticProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProvider;{bd811501-a056-4d39-b174-833b7b03b02c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProvider;{bd811501-a056-4d39-b174-833b7b03b02c})");
 }
 impl ::core::clone::Clone for HttpDiagnosticProvider {
     fn clone(&self) -> Self {
@@ -334,7 +334,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProvider {
 impl ::windows::core::RuntimeName for HttpDiagnosticProvider {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProvider";
 }
-::windows::core::interface_hierarchy!(HttpDiagnosticProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpDiagnosticProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProvider {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProvider {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -407,7 +407,7 @@ impl ::core::fmt::Debug for HttpDiagnosticProviderRequestResponseCompletedEventA
     }
 }
 impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs;{735f98ee-94f6-4532-b26e-61e1b1e4efd4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs;{735f98ee-94f6-4532-b26e-61e1b1e4efd4})");
 }
 impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -423,7 +423,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponse
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(HttpDiagnosticProviderRequestResponseCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -524,7 +524,7 @@ impl ::core::fmt::Debug for HttpDiagnosticProviderRequestResponseTimestamps {
     }
 }
 impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestResponseTimestamps {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps;{e0afde10-55cf-4c01-91d4-a20557d849f0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps;{e0afde10-55cf-4c01-91d4-a20557d849f0})");
 }
 impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseTimestamps {
     fn clone(&self) -> Self {
@@ -540,7 +540,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponse
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestamps {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps";
 }
-::windows::core::interface_hierarchy!(HttpDiagnosticProviderRequestResponseTimestamps, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseTimestamps, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseTimestamps {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -613,7 +613,7 @@ impl ::core::fmt::Debug for HttpDiagnosticProviderRequestSentEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestSentEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs;{3f5196d0-4c1f-4ebe-a57a-06930771c50d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs;{3f5196d0-4c1f-4ebe-a57a-06930771c50d})");
 }
 impl ::core::clone::Clone for HttpDiagnosticProviderRequestSentEventArgs {
     fn clone(&self) -> Self {
@@ -629,7 +629,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestSentEven
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs";
 }
-::windows::core::interface_hierarchy!(HttpDiagnosticProviderRequestSentEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpDiagnosticProviderRequestSentEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestSentEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestSentEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -672,7 +672,7 @@ impl ::core::fmt::Debug for HttpDiagnosticProviderResponseReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HttpDiagnosticProviderResponseReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs;{a0a2566c-ab5f-4d66-bb2d-084cf41635d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs;{a0a2566c-ab5f-4d66-bb2d-084cf41635d0})");
 }
 impl ::core::clone::Clone for HttpDiagnosticProviderResponseReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -688,7 +688,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProviderResponseReceive
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(HttpDiagnosticProviderResponseReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpDiagnosticProviderResponseReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderResponseReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -731,7 +731,7 @@ impl ::core::fmt::Debug for HttpDiagnosticSourceLocation {
     }
 }
 impl ::windows::core::RuntimeType for HttpDiagnosticSourceLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation;{54a9d260-8860-423f-b6fa-d77716f647a7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation;{54a9d260-8860-423f-b6fa-d77716f647a7})");
 }
 impl ::core::clone::Clone for HttpDiagnosticSourceLocation {
     fn clone(&self) -> Self {
@@ -747,7 +747,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticSourceLocation {
 impl ::windows::core::RuntimeName for HttpDiagnosticSourceLocation {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation";
 }
-::windows::core::interface_hierarchy!(HttpDiagnosticSourceLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpDiagnosticSourceLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticSourceLocation {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticSourceLocation {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -789,7 +789,7 @@ impl ::core::fmt::Debug for HttpDiagnosticRequestInitiator {
     }
 }
 impl ::windows::core::RuntimeType for HttpDiagnosticRequestInitiator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -771,7 +771,7 @@ impl ::core::fmt::Debug for WebViewControl {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControl;{3f921316-bc70-4bda-9136-c94370899fab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControl;{3f921316-bc70-4bda-9136-c94370899fab})");
 }
 impl ::core::clone::Clone for WebViewControl {
     fn clone(&self) -> Self {
@@ -787,7 +787,7 @@ unsafe impl ::windows::core::Interface for WebViewControl {
 impl ::windows::core::RuntimeName for WebViewControl {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControl";
 }
-::windows::core::interface_hierarchy!(WebViewControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebViewControl> for super::IWebViewControl {
     type Error = ::windows::core::Error;
     fn try_from(value: WebViewControl) -> ::windows::core::Result<Self> {
@@ -888,7 +888,7 @@ impl ::core::fmt::Debug for WebViewControlAcceleratorKeyPressedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyPressedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs;{77a2a53e-7c74-437d-a290-3ac0d8cd5655})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs;{77a2a53e-7c74-437d-a290-3ac0d8cd5655})");
 }
 impl ::core::clone::Clone for WebViewControlAcceleratorKeyPressedEventArgs {
     fn clone(&self) -> Self {
@@ -904,7 +904,7 @@ unsafe impl ::windows::core::Interface for WebViewControlAcceleratorKeyPressedEv
 impl ::windows::core::RuntimeName for WebViewControlAcceleratorKeyPressedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlAcceleratorKeyPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlAcceleratorKeyPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusRequestedEventArgs(::windows::core::IUnknown);
@@ -929,7 +929,7 @@ impl ::core::fmt::Debug for WebViewControlMoveFocusRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlMoveFocusRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs;{6b2a340d-4bd0-405e-b7c1-1e72a492f446})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs;{6b2a340d-4bd0-405e-b7c1-1e72a492f446})");
 }
 impl ::core::clone::Clone for WebViewControlMoveFocusRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -945,7 +945,7 @@ unsafe impl ::windows::core::Interface for WebViewControlMoveFocusRequestedEvent
 impl ::windows::core::RuntimeName for WebViewControlMoveFocusRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebViewControlMoveFocusRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlMoveFocusRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlProcess(::windows::core::IUnknown);
@@ -953,8 +953,8 @@ impl WebViewControlProcess {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebViewControlProcess, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WebViewControlProcess, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ProcessId(&self) -> ::windows::core::Result<u32> {
@@ -1023,7 +1023,7 @@ impl WebViewControlProcess {
     }
     #[doc(hidden)]
     pub fn IWebViewControlProcessFactory<R, F: FnOnce(&IWebViewControlProcessFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebViewControlProcess, IWebViewControlProcessFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebViewControlProcess, IWebViewControlProcessFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1039,7 +1039,7 @@ impl ::core::fmt::Debug for WebViewControlProcess {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlProcess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcess;{02c723ec-98d6-424a-b63e-c6136c36a0f2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcess;{02c723ec-98d6-424a-b63e-c6136c36a0f2})");
 }
 impl ::core::clone::Clone for WebViewControlProcess {
     fn clone(&self) -> Self {
@@ -1055,7 +1055,7 @@ unsafe impl ::windows::core::Interface for WebViewControlProcess {
 impl ::windows::core::RuntimeName for WebViewControlProcess {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlProcess";
 }
-::windows::core::interface_hierarchy!(WebViewControlProcess, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlProcess, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlProcessOptions(::windows::core::IUnknown);
@@ -1063,8 +1063,8 @@ impl WebViewControlProcessOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebViewControlProcessOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WebViewControlProcessOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetEnterpriseId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1102,7 +1102,7 @@ impl ::core::fmt::Debug for WebViewControlProcessOptions {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlProcessOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcessOptions;{1cca72a7-3bd6-4826-8261-6c8189505d89})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcessOptions;{1cca72a7-3bd6-4826-8261-6c8189505d89})");
 }
 impl ::core::clone::Clone for WebViewControlProcessOptions {
     fn clone(&self) -> Self {
@@ -1118,7 +1118,7 @@ unsafe impl ::windows::core::Interface for WebViewControlProcessOptions {
 impl ::windows::core::RuntimeName for WebViewControlProcessOptions {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlProcessOptions";
 }
-::windows::core::interface_hierarchy!(WebViewControlProcessOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebViewControlProcessOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1147,7 +1147,7 @@ impl ::core::fmt::Debug for WebViewControlAcceleratorKeyRoutingStage {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyRoutingStage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage;i4)");
 }
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
@@ -1178,7 +1178,7 @@ impl ::core::fmt::Debug for WebViewControlMoveFocusReason {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlMoveFocusReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlMoveFocusReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlMoveFocusReason;i4)");
 }
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
@@ -1209,7 +1209,7 @@ impl ::core::fmt::Debug for WebViewControlProcessCapabilityState {
     }
 }
 impl ::windows::core::RuntimeType for WebViewControlProcessCapabilityState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlProcessCapabilityState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlProcessCapabilityState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

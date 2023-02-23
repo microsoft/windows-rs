@@ -5,9 +5,9 @@ pub unsafe fn CreateMailslotA<P0>(lpname: P0, nmaxmessagesize: u32, lreadtimeout
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateMailslotA ( lpname : :: windows::core::PCSTR , nmaxmessagesize : u32 , lreadtimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateMailslotA ( lpname : :: windows::core::PCSTR , nmaxmessagesize : u32 , lreadtimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateMailslotA(lpname.into().abi(), nmaxmessagesize, lreadtimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Mailslots\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -16,9 +16,9 @@ pub unsafe fn CreateMailslotW<P0>(lpname: P0, nmaxmessagesize: u32, lreadtimeout
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateMailslotW ( lpname : :: windows::core::PCWSTR , nmaxmessagesize : u32 , lreadtimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateMailslotW ( lpname : :: windows::core::PCWSTR , nmaxmessagesize : u32 , lreadtimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateMailslotW(lpname.into().abi(), nmaxmessagesize, lreadtimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Mailslots\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -27,7 +27,7 @@ pub unsafe fn GetMailslotInfo<P0>(hmailslot: P0, lpmaxmessagesize: ::core::optio
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetMailslotInfo ( hmailslot : super::super::Foundation:: HANDLE , lpmaxmessagesize : *mut u32 , lpnextsize : *mut u32 , lpmessagecount : *mut u32 , lpreadtimeout : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetMailslotInfo ( hmailslot : super::super::Foundation:: HANDLE , lpmaxmessagesize : *mut u32 , lpnextsize : *mut u32 , lpmessagecount : *mut u32 , lpreadtimeout : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetMailslotInfo(hmailslot.into(), ::core::mem::transmute(lpmaxmessagesize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpnextsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpmessagecount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreadtimeout.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Mailslots\"`, `\"Win32_Foundation\"`*"]
@@ -37,7 +37,7 @@ pub unsafe fn SetMailslotInfo<P0>(hmailslot: P0, lreadtimeout: u32) -> super::su
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetMailslotInfo ( hmailslot : super::super::Foundation:: HANDLE , lreadtimeout : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetMailslotInfo ( hmailslot : super::super::Foundation:: HANDLE , lreadtimeout : u32 ) -> super::super::Foundation:: BOOL );
     SetMailslotInfo(hmailslot.into(), lreadtimeout)
 }
 #[cfg(feature = "implement")]

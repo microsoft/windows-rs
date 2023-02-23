@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreateNamedPropertyStore() -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
-    ::windows::core::link ! ( "mf.dll""system" fn CreateNamedPropertyStore ( ppstore : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn CreateNamedPropertyStore ( ppstore : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore>();
     CreateNamedPropertyStore(&mut result__).from_abi(result__)
 }
@@ -10,14 +10,14 @@ pub unsafe fn CreateNamedPropertyStore() -> ::windows::core::Result<super::super
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreatePropertyStore() -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn CreatePropertyStore ( ppstore : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn CreatePropertyStore ( ppstore : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
     CreatePropertyStore(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IDirect3DDeviceManager9>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "dxva2.dll""system" fn DXVA2CreateDirect3DDeviceManager9 ( presettoken : *mut u32 , ppdevicemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn DXVA2CreateDirect3DDeviceManager9 ( presettoken : *mut u32 , ppdevicemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DXVA2CreateDirect3DDeviceManager9(presettoken, ::core::mem::transmute(ppdevicemanager)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
@@ -27,7 +27,7 @@ pub unsafe fn DXVA2CreateVideoService<P0>(pdd: P0, riid: *const ::windows::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn DXVA2CreateVideoService ( pdd : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppservice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn DXVA2CreateVideoService ( pdd : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppservice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DXVA2CreateVideoService(pdd.into().abi(), riid, ppservice).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
@@ -37,7 +37,7 @@ pub unsafe fn DXVAHD_CreateDevice<P0>(pd3ddevice: P0, pcontentdesc: *const DXVAH
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn DXVAHD_CreateDevice ( pd3ddevice : * mut::core::ffi::c_void , pcontentdesc : *const DXVAHD_CONTENT_DESC , usage : DXVAHD_DEVICE_USAGE , pplugin : PDXVAHDSW_Plugin , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn DXVAHD_CreateDevice ( pd3ddevice : * mut::core::ffi::c_void , pcontentdesc : *const DXVAHD_CONTENT_DESC , usage : DXVAHD_DEVICE_USAGE , pplugin : PDXVAHDSW_Plugin , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IDXVAHD_Device>();
     DXVAHD_CreateDevice(pd3ddevice.into().abi(), pcontentdesc, usage, pplugin, &mut result__).from_abi(result__)
 }
@@ -47,34 +47,34 @@ pub unsafe fn MFAddPeriodicCallback<P0>(callback: MFPERIODICCALLBACK, pcontext: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFAddPeriodicCallback ( callback : MFPERIODICCALLBACK , pcontext : * mut::core::ffi::c_void , pdwkey : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFAddPeriodicCallback ( callback : MFPERIODICCALLBACK , pcontext : * mut::core::ffi::c_void , pdwkey : *mut u32 ) -> :: windows::core::HRESULT );
     MFAddPeriodicCallback(callback, pcontext.into().abi(), ::core::mem::transmute(pdwkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFAllocateSerialWorkQueue ( dwworkqueue : u32 , pdwworkqueue : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFAllocateSerialWorkQueue ( dwworkqueue : u32 , pdwworkqueue : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFAllocateSerialWorkQueue(dwworkqueue, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFAllocateWorkQueue() -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFAllocateWorkQueue ( pdwworkqueue : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFAllocateWorkQueue ( pdwworkqueue : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFAllocateWorkQueue(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFAllocateWorkQueueEx ( workqueuetype : MFASYNC_WORKQUEUE_TYPE , pdwworkqueue : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFAllocateWorkQueueEx ( workqueuetype : MFASYNC_WORKQUEUE_TYPE , pdwworkqueue : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFAllocateWorkQueueEx(workqueuetype, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFAverageTimePerFrameToFrameRate ( unaveragetimeperframe : u64 , punnumerator : *mut u32 , pundenominator : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFAverageTimePerFrameToFrameRate ( unaveragetimeperframe : u64 , punnumerator : *mut u32 , pundenominator : *mut u32 ) -> :: windows::core::HRESULT );
     MFAverageTimePerFrameToFrameRate(unaveragetimeperframe, punnumerator, pundenominator).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -85,7 +85,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFAsyncCallback>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFBeginCreateFile ( accessmode : MF_FILE_ACCESSMODE , openmode : MF_FILE_OPENMODE , fflags : MF_FILE_FLAGS , pwszfilepath : :: windows::core::PCWSTR , pcallback : * mut::core::ffi::c_void , pstate : * mut::core::ffi::c_void , ppcancelcookie : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFBeginCreateFile ( accessmode : MF_FILE_ACCESSMODE , openmode : MF_FILE_OPENMODE , fflags : MF_FILE_FLAGS , pwszfilepath : :: windows::core::PCWSTR , pcallback : * mut::core::ffi::c_void , pstate : * mut::core::ffi::c_void , ppcancelcookie : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     MFBeginCreateFile(accessmode, openmode, fflags, pwszfilepath.into().abi(), pcallback.into().abi(), pstate.into().abi(), &mut result__).from_abi(result__)
 }
@@ -97,7 +97,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFAsyncCallback>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFBeginRegisterWorkQueueWithMMCSS ( dwworkqueueid : u32 , wszclass : :: windows::core::PCWSTR , dwtaskid : u32 , pdonecallback : * mut::core::ffi::c_void , pdonestate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFBeginRegisterWorkQueueWithMMCSS ( dwworkqueueid : u32 , wszclass : :: windows::core::PCWSTR , dwtaskid : u32 , pdonecallback : * mut::core::ffi::c_void , pdonestate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFBeginRegisterWorkQueueWithMMCSS(dwworkqueueid, wszclass.into().abi(), dwtaskid, pdonecallback.into().abi(), pdonestate.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -108,7 +108,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFAsyncCallback>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFBeginRegisterWorkQueueWithMMCSSEx ( dwworkqueueid : u32 , wszclass : :: windows::core::PCWSTR , dwtaskid : u32 , lpriority : i32 , pdonecallback : * mut::core::ffi::c_void , pdonestate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFBeginRegisterWorkQueueWithMMCSSEx ( dwworkqueueid : u32 , wszclass : :: windows::core::PCWSTR , dwtaskid : u32 , lpriority : i32 , pdonecallback : * mut::core::ffi::c_void , pdonestate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFBeginRegisterWorkQueueWithMMCSSEx(dwworkqueueid, wszclass.into().abi(), dwtaskid, lpriority, pdonecallback.into().abi(), pdonestate.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -118,20 +118,20 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncCallback>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFBeginUnregisterWorkQueueWithMMCSS ( dwworkqueueid : u32 , pdonecallback : * mut::core::ffi::c_void , pdonestate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFBeginUnregisterWorkQueueWithMMCSS ( dwworkqueueid : u32 , pdonecallback : * mut::core::ffi::c_void , pdonestate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid, pdonecallback.into().abi(), pdonestate.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCalculateBitmapImageSize ( pbmih : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER , cbbufsize : u32 , pcbimagesize : *mut u32 , pbknown : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCalculateBitmapImageSize ( pbmih : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER , cbbufsize : u32 , pcbimagesize : *mut u32 , pbknown : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     MFCalculateBitmapImageSize(pbmih, cbbufsize, pcbimagesize, ::core::mem::transmute(pbknown.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCalculateImageSize ( guidsubtype : *const :: windows::core::GUID , unwidth : u32 , unheight : u32 , pcbimagesize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCalculateImageSize ( guidsubtype : *const :: windows::core::GUID , unwidth : u32 , unheight : u32 , pcbimagesize : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFCalculateImageSize(guidsubtype, unwidth, unheight, &mut result__).from_abi(result__)
 }
@@ -141,13 +141,13 @@ pub unsafe fn MFCancelCreateFile<P0>(pcancelcookie: P0) -> ::windows::core::Resu
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCancelCreateFile ( pcancelcookie : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCancelCreateFile ( pcancelcookie : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCancelCreateFile(pcancelcookie.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCancelWorkItem(key: u64) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCancelWorkItem ( key : u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCancelWorkItem ( key : u64 ) -> :: windows::core::HRESULT );
     MFCancelWorkItem(key).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -158,7 +158,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFSample>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFSample>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCombineSamples ( psample : * mut::core::ffi::c_void , psampletoadd : * mut::core::ffi::c_void , dwmaxmergeddurationinms : u32 , pmerged : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCombineSamples ( psample : * mut::core::ffi::c_void , psampletoadd : * mut::core::ffi::c_void , dwmaxmergeddurationinms : u32 , pmerged : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
     MFCombineSamples(psample.into().abi(), psampletoadd.into().abi(), dwmaxmergeddurationinms, &mut result__).from_abi(result__)
 }
@@ -170,39 +170,39 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCompareFullToPartialMediaType ( pmftypefull : * mut::core::ffi::c_void , pmftypepartial : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCompareFullToPartialMediaType ( pmftypefull : * mut::core::ffi::c_void , pmftypepartial : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     MFCompareFullToPartialMediaType(pmftypefull.into().abi(), pmftypepartial.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFConvertColorInfoFromDXVA ( ptoformat : *mut MFVIDEOFORMAT , dwfromdxva : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFConvertColorInfoFromDXVA ( ptoformat : *mut MFVIDEOFORMAT , dwfromdxva : u32 ) -> :: windows::core::HRESULT );
     MFConvertColorInfoFromDXVA(ptoformat, dwfromdxva).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFConvertColorInfoToDXVA ( pdwtodxva : *mut u32 , pfromformat : *const MFVIDEOFORMAT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFConvertColorInfoToDXVA ( pdwtodxva : *mut u32 , pfromformat : *const MFVIDEOFORMAT ) -> :: windows::core::HRESULT );
     MFConvertColorInfoToDXVA(pdwtodxva, pfromformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFConvertFromFP16Array ( pdest : *mut f32 , psrc : *const u16 , dwcount : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFConvertFromFP16Array ( pdest : *mut f32 , psrc : *const u16 , dwcount : u32 ) -> :: windows::core::HRESULT );
     MFConvertFromFP16Array(pdest, psrc, dwcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFConvertToFP16Array ( pdest : *mut u16 , psrc : *const f32 , dwcount : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFConvertToFP16Array ( pdest : *mut u16 , psrc : *const f32 , dwcount : u32 ) -> :: windows::core::HRESULT );
     MFConvertToFP16Array(pdest, psrc, dwcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCopyImage ( pdest : *mut u8 , ldeststride : i32 , psrc : *const u8 , lsrcstride : i32 , dwwidthinbytes : u32 , dwlines : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCopyImage ( pdest : *mut u8 , ldeststride : i32 , psrc : *const u8 , lsrcstride : i32 , dwwidthinbytes : u32 , dwlines : u32 ) -> :: windows::core::HRESULT );
     MFCopyImage(pdest, ldeststride, psrc, lsrcstride, dwwidthinbytes, dwlines).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -212,7 +212,7 @@ pub unsafe fn MFCreate2DMediaBuffer<P0>(dwwidth: u32, dwheight: u32, dwfourcc: u
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreate2DMediaBuffer ( dwwidth : u32 , dwheight : u32 , dwfourcc : u32 , fbottomup : super::super::Foundation:: BOOL , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreate2DMediaBuffer ( dwwidth : u32 , dwheight : u32 , dwfourcc : u32 , fbottomup : super::super::Foundation:: BOOL , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaBuffer>();
     MFCreate2DMediaBuffer(dwwidth, dwheight, dwfourcc, fbottomup.into(), &mut result__).from_abi(result__)
 }
@@ -224,7 +224,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     P2: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreate3GPMediaSink ( pibytestream : * mut::core::ffi::c_void , pvideomediatype : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreate3GPMediaSink ( pibytestream : * mut::core::ffi::c_void , pvideomediatype : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreate3GPMediaSink(pibytestream.into().abi(), pvideomediatype.into().abi(), paudiomediatype.into().abi(), &mut result__).from_abi(result__)
 }
@@ -235,7 +235,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateAC3MediaSink ( ptargetbytestream : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppmediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateAC3MediaSink ( ptargetbytestream : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppmediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateAC3MediaSink(ptargetbytestream.into().abi(), paudiomediatype.into().abi(), &mut result__).from_abi(result__)
 }
@@ -246,7 +246,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateADTSMediaSink ( ptargetbytestream : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppmediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateADTSMediaSink ( ptargetbytestream : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppmediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateADTSMediaSink(ptargetbytestream.into().abi(), paudiomediatype.into().abi(), &mut result__).from_abi(result__)
 }
@@ -257,20 +257,20 @@ pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<P0>(pmftype: P0, guidformatbloc
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateAMMediaTypeFromMFMediaType ( pmftype : * mut::core::ffi::c_void , guidformatblocktype : :: windows::core::GUID , ppamtype : *mut *mut AM_MEDIA_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateAMMediaTypeFromMFMediaType ( pmftype : * mut::core::ffi::c_void , guidformatblocktype : :: windows::core::GUID , ppamtype : *mut *mut AM_MEDIA_TYPE ) -> :: windows::core::HRESULT );
     MFCreateAMMediaTypeFromMFMediaType(pmftype.into().abi(), ::core::mem::transmute(guidformatblocktype), ppamtype).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFContentInfo() -> ::windows::core::Result<IMFASFContentInfo> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFContentInfo ( ppicontentinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFContentInfo ( ppicontentinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFASFContentInfo>();
     MFCreateASFContentInfo(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFIndexer() -> ::windows::core::Result<IMFASFIndexer> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFIndexer ( ppiindexer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFIndexer ( ppiindexer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFASFIndexer>();
     MFCreateASFIndexer(&mut result__).from_abi(result__)
 }
@@ -280,7 +280,7 @@ pub unsafe fn MFCreateASFIndexerByteStream<P0>(picontentbytestream: P0, cbindexs
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFIndexerByteStream ( picontentbytestream : * mut::core::ffi::c_void , cbindexstartoffset : u64 , piindexbytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFIndexerByteStream ( picontentbytestream : * mut::core::ffi::c_void , cbindexstartoffset : u64 , piindexbytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFByteStream>();
     MFCreateASFIndexerByteStream(picontentbytestream.into().abi(), cbindexstartoffset, &mut result__).from_abi(result__)
 }
@@ -290,7 +290,7 @@ pub unsafe fn MFCreateASFMediaSink<P0>(pibytestream: P0) -> ::windows::core::Res
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFMediaSink ( pibytestream : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFMediaSink ( pibytestream : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateASFMediaSink(pibytestream.into().abi(), &mut result__).from_abi(result__)
 }
@@ -301,21 +301,21 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFASFContentInfo>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFMediaSinkActivate ( pwszfilename : :: windows::core::PCWSTR , pcontentinfo : * mut::core::ffi::c_void , ppiactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFMediaSinkActivate ( pwszfilename : :: windows::core::PCWSTR , pcontentinfo : * mut::core::ffi::c_void , ppiactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateASFMediaSinkActivate(pwszfilename.into().abi(), pcontentinfo.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFMultiplexer() -> ::windows::core::Result<IMFASFMultiplexer> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFMultiplexer ( ppimultiplexer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFMultiplexer ( ppimultiplexer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFASFMultiplexer>();
     MFCreateASFMultiplexer(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFProfile() -> ::windows::core::Result<IMFASFProfile> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFProfile ( ppiprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFProfile ( ppiprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFASFProfile>();
     MFCreateASFProfile(&mut result__).from_abi(result__)
 }
@@ -325,14 +325,14 @@ pub unsafe fn MFCreateASFProfileFromPresentationDescriptor<P0>(pipd: P0) -> ::wi
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFPresentationDescriptor>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFProfileFromPresentationDescriptor ( pipd : * mut::core::ffi::c_void , ppiprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFProfileFromPresentationDescriptor ( pipd : * mut::core::ffi::c_void , ppiprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFASFProfile>();
     MFCreateASFProfileFromPresentationDescriptor(pipd.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFSplitter() -> ::windows::core::Result<IMFASFSplitter> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFSplitter ( ppisplitter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFSplitter ( ppisplitter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFASFSplitter>();
     MFCreateASFSplitter(&mut result__).from_abi(result__)
 }
@@ -342,7 +342,7 @@ pub unsafe fn MFCreateASFStreamSelector<P0>(piasfprofile: P0) -> ::windows::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFASFProfile>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFStreamSelector ( piasfprofile : * mut::core::ffi::c_void , ppselector : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFStreamSelector ( piasfprofile : * mut::core::ffi::c_void , ppselector : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFASFStreamSelector>();
     MFCreateASFStreamSelector(piasfprofile.into().abi(), &mut result__).from_abi(result__)
 }
@@ -352,7 +352,7 @@ pub unsafe fn MFCreateASFStreamingMediaSink<P0>(pibytestream: P0) -> ::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFStreamingMediaSink ( pibytestream : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFStreamingMediaSink ( pibytestream : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateASFStreamingMediaSink(pibytestream.into().abi(), &mut result__).from_abi(result__)
 }
@@ -363,7 +363,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFActivate>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFASFContentInfo>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateASFStreamingMediaSinkActivate ( pbytestreamactivate : * mut::core::ffi::c_void , pcontentinfo : * mut::core::ffi::c_void , ppiactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateASFStreamingMediaSinkActivate ( pbytestreamactivate : * mut::core::ffi::c_void , pcontentinfo : * mut::core::ffi::c_void , ppiactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate.into().abi(), pcontentinfo.into().abi(), &mut result__).from_abi(result__)
 }
@@ -375,7 +375,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     P2: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfsrcsnk.dll""system" fn MFCreateAVIMediaSink ( pibytestream : * mut::core::ffi::c_void , pvideomediatype : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsrcsnk.dll""system" fn MFCreateAVIMediaSink ( pibytestream : * mut::core::ffi::c_void , pvideomediatype : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateAVIMediaSink(pibytestream.into().abi(), pvideomediatype.into().abi(), paudiomediatype.into().abi(), &mut result__).from_abi(result__)
 }
@@ -385,14 +385,14 @@ pub unsafe fn MFCreateAggregateSource<P0>(psourcecollection: P0) -> ::windows::c
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFCollection>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateAggregateSource ( psourcecollection : * mut::core::ffi::c_void , ppaggsource : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateAggregateSource ( psourcecollection : * mut::core::ffi::c_void , ppaggsource : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSource>();
     MFCreateAggregateSource(psourcecollection.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32) -> ::windows::core::Result<IMFMediaBuffer> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateAlignedMemoryBuffer ( cbmaxlength : u32 , cbaligment : u32 , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateAlignedMemoryBuffer ( cbmaxlength : u32 , cbaligment : u32 , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaBuffer>();
     MFCreateAlignedMemoryBuffer(cbmaxlength, cbaligment, &mut result__).from_abi(result__)
 }
@@ -404,21 +404,21 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFAsyncCallback>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateAsyncResult ( punkobject : * mut::core::ffi::c_void , pcallback : * mut::core::ffi::c_void , punkstate : * mut::core::ffi::c_void , ppasyncresult : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateAsyncResult ( punkobject : * mut::core::ffi::c_void , pcallback : * mut::core::ffi::c_void , punkstate : * mut::core::ffi::c_void , ppasyncresult : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFAsyncResult>();
     MFCreateAsyncResult(punkobject.into().abi(), pcallback.into().abi(), punkstate.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAttributes(ppmfattributes: *mut ::core::option::Option<IMFAttributes>, cinitialsize: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateAttributes ( ppmfattributes : *mut * mut::core::ffi::c_void , cinitialsize : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateAttributes ( ppmfattributes : *mut * mut::core::ffi::c_void , cinitialsize : u32 ) -> :: windows::core::HRESULT );
     MFCreateAttributes(::core::mem::transmute(ppmfattributes), cinitialsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_Audio\"`*"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<IMFAudioMediaType> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateAudioMediaType ( paudioformat : *const super::Audio:: WAVEFORMATEX , ppiaudiomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateAudioMediaType ( paudioformat : *const super::Audio:: WAVEFORMATEX , ppiaudiomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFAudioMediaType>();
     MFCreateAudioMediaType(paudioformat, &mut result__).from_abi(result__)
 }
@@ -428,14 +428,14 @@ pub unsafe fn MFCreateAudioRenderer<P0>(paudioattributes: P0) -> ::windows::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateAudioRenderer ( paudioattributes : * mut::core::ffi::c_void , ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateAudioRenderer ( paudioattributes : * mut::core::ffi::c_void , ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateAudioRenderer(paudioattributes.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAudioRendererActivate() -> ::windows::core::Result<IMFActivate> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateAudioRendererActivate ( ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateAudioRendererActivate ( ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateAudioRendererActivate(&mut result__).from_abi(result__)
 }
@@ -446,14 +446,14 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFCameraOcclusionStateReportCallback>>,
 {
-    ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFCreateCameraOcclusionStateMonitor ( symboliclink : :: windows::core::PCWSTR , callback : * mut::core::ffi::c_void , occlusionstatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsensorgroup.dll""system" fn MFCreateCameraOcclusionStateMonitor ( symboliclink : :: windows::core::PCWSTR , callback : * mut::core::ffi::c_void , occlusionstatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFCameraOcclusionStateMonitor>();
     MFCreateCameraOcclusionStateMonitor(symboliclink.into().abi(), callback.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateCollection() -> ::windows::core::Result<IMFCollection> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateCollection ( ppimfcollection : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateCollection ( ppimfcollection : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFCollection>();
     MFCreateCollection(&mut result__).from_abi(result__)
 }
@@ -464,21 +464,21 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFDXGIDeviceManager>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFContentProtectionDevice>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateContentDecryptorContext ( guidmediaprotectionsystemid : *const :: windows::core::GUID , pd3dmanager : * mut::core::ffi::c_void , pcontentprotectiondevice : * mut::core::ffi::c_void , ppcontentdecryptorcontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateContentDecryptorContext ( guidmediaprotectionsystemid : *const :: windows::core::GUID , pd3dmanager : * mut::core::ffi::c_void , pcontentprotectiondevice : * mut::core::ffi::c_void , ppcontentdecryptorcontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFContentDecryptorContext>();
     MFCreateContentDecryptorContext(guidmediaprotectionsystemid, pd3dmanager.into().abi(), pcontentprotectiondevice.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<IMFContentProtectionDevice> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateContentProtectionDevice ( protectionsystemid : *const :: windows::core::GUID , contentprotectiondevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateContentProtectionDevice ( protectionsystemid : *const :: windows::core::GUID , contentprotectiondevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFContentProtectionDevice>();
     MFCreateContentProtectionDevice(protectionsystemid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateCredentialCache() -> ::windows::core::Result<IMFNetCredentialCache> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateCredentialCache ( ppcache : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateCredentialCache ( ppcache : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFNetCredentialCache>();
     MFCreateCredentialCache(&mut result__).from_abi(result__)
 }
@@ -489,13 +489,13 @@ pub unsafe fn MFCreateD3D12SynchronizationObject<P0>(pdevice: P0, riid: *const :
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Device>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateD3D12SynchronizationObject ( pdevice : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvsyncobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateD3D12SynchronizationObject ( pdevice : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvsyncobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateD3D12SynchronizationObject(pdevice.into().abi(), riid, ppvsyncobject).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateDXGIDeviceManager ( resettoken : *mut u32 , ppdevicemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateDXGIDeviceManager ( resettoken : *mut u32 , ppdevicemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateDXGIDeviceManager(resettoken, ::core::mem::transmute(ppdevicemanager)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -506,7 +506,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateDXGISurfaceBuffer ( riid : *const :: windows::core::GUID , punksurface : * mut::core::ffi::c_void , usubresourceindex : u32 , fbottomupwhenlinear : super::super::Foundation:: BOOL , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateDXGISurfaceBuffer ( riid : *const :: windows::core::GUID , punksurface : * mut::core::ffi::c_void , usubresourceindex : u32 , fbottomupwhenlinear : super::super::Foundation:: BOOL , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaBuffer>();
     MFCreateDXGISurfaceBuffer(riid, punksurface.into().abi(), usubresourceindex, fbottomupwhenlinear.into(), &mut result__).from_abi(result__)
 }
@@ -518,7 +518,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateDXSurfaceBuffer ( riid : *const :: windows::core::GUID , punksurface : * mut::core::ffi::c_void , fbottomupwhenlinear : super::super::Foundation:: BOOL , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateDXSurfaceBuffer ( riid : *const :: windows::core::GUID , punksurface : * mut::core::ffi::c_void , fbottomupwhenlinear : super::super::Foundation:: BOOL , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaBuffer>();
     MFCreateDXSurfaceBuffer(riid, punksurface.into().abi(), fbottomupwhenlinear.into(), &mut result__).from_abi(result__)
 }
@@ -528,7 +528,7 @@ pub unsafe fn MFCreateDeviceSource<P0>(pattributes: P0) -> ::windows::core::Resu
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateDeviceSource ( pattributes : * mut::core::ffi::c_void , ppsource : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateDeviceSource ( pattributes : * mut::core::ffi::c_void , ppsource : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSource>();
     MFCreateDeviceSource(pattributes.into().abi(), &mut result__).from_abi(result__)
 }
@@ -538,7 +538,7 @@ pub unsafe fn MFCreateDeviceSourceActivate<P0>(pattributes: P0) -> ::windows::co
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateDeviceSourceActivate ( pattributes : * mut::core::ffi::c_void , ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateDeviceSourceActivate ( pattributes : * mut::core::ffi::c_void , ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateDeviceSourceActivate(pattributes.into().abi(), &mut result__).from_abi(result__)
 }
@@ -551,28 +551,28 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateEncryptedMediaExtensionsStoreActivate ( pmphost : * mut::core::ffi::c_void , objectstream : * mut::core::ffi::c_void , classid : :: windows::core::PCWSTR , activate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateEncryptedMediaExtensionsStoreActivate ( pmphost : * mut::core::ffi::c_void , objectstream : * mut::core::ffi::c_void , classid : :: windows::core::PCWSTR , activate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateEncryptedMediaExtensionsStoreActivate(pmphost.into().abi(), objectstream.into().abi(), classid.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateEventQueue() -> ::windows::core::Result<IMFMediaEventQueue> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateEventQueue ( ppmediaeventqueue : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateEventQueue ( ppmediaeventqueue : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaEventQueue>();
     MFCreateEventQueue(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType) -> ::windows::core::Result<IMFExtendedCameraIntrinsicModel> {
-    ::windows::core::link ! ( "mfcore.dll""system" fn MFCreateExtendedCameraIntrinsicModel ( distortionmodeltype : MFCameraIntrinsic_DistortionModelType , ppextendedcameraintrinsicmodel : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfcore.dll""system" fn MFCreateExtendedCameraIntrinsicModel ( distortionmodeltype : MFCameraIntrinsic_DistortionModelType , ppextendedcameraintrinsicmodel : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFExtendedCameraIntrinsicModel>();
     MFCreateExtendedCameraIntrinsicModel(distortionmodeltype, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateExtendedCameraIntrinsics() -> ::windows::core::Result<IMFExtendedCameraIntrinsics> {
-    ::windows::core::link ! ( "mfcore.dll""system" fn MFCreateExtendedCameraIntrinsics ( ppextendedcameraintrinsics : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfcore.dll""system" fn MFCreateExtendedCameraIntrinsics ( ppextendedcameraintrinsics : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFExtendedCameraIntrinsics>();
     MFCreateExtendedCameraIntrinsics(&mut result__).from_abi(result__)
 }
@@ -584,7 +584,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     P2: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateFMPEG4MediaSink ( pibytestream : * mut::core::ffi::c_void , pvideomediatype : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateFMPEG4MediaSink ( pibytestream : * mut::core::ffi::c_void , pvideomediatype : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateFMPEG4MediaSink(pibytestream.into().abi(), pvideomediatype.into().abi(), paudiomediatype.into().abi(), &mut result__).from_abi(result__)
 }
@@ -594,7 +594,7 @@ pub unsafe fn MFCreateFile<P0>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateFile ( accessmode : MF_FILE_ACCESSMODE , openmode : MF_FILE_OPENMODE , fflags : MF_FILE_FLAGS , pwszfileurl : :: windows::core::PCWSTR , ppibytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateFile ( accessmode : MF_FILE_ACCESSMODE , openmode : MF_FILE_OPENMODE , fflags : MF_FILE_FLAGS , pwszfileurl : :: windows::core::PCWSTR , ppibytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFByteStream>();
     MFCreateFile(accessmode, openmode, fflags, pwszfileurl.into().abi(), &mut result__).from_abi(result__)
 }
@@ -606,7 +606,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFSample>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFMediaBuffer>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateLegacyMediaBufferOnMFMediaBuffer ( psample : * mut::core::ffi::c_void , pmfmediabuffer : * mut::core::ffi::c_void , cboffset : u32 , ppmediabuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateLegacyMediaBufferOnMFMediaBuffer ( psample : * mut::core::ffi::c_void , pmfmediabuffer : * mut::core::ffi::c_void , cboffset : u32 , ppmediabuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::DxMediaObjects::IMediaBuffer>();
     MFCreateLegacyMediaBufferOnMFMediaBuffer(psample.into().abi(), pmfmediabuffer.into().abi(), cboffset, &mut result__).from_abi(result__)
 }
@@ -617,7 +617,7 @@ pub unsafe fn MFCreateMFByteStreamOnStream<P0>(pstream: P0) -> ::windows::core::
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMFByteStreamOnStream ( pstream : * mut::core::ffi::c_void , ppbytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMFByteStreamOnStream ( pstream : * mut::core::ffi::c_void , ppbytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFByteStream>();
     MFCreateMFByteStreamOnStream(pstream.into().abi(), &mut result__).from_abi(result__)
 }
@@ -627,7 +627,7 @@ pub unsafe fn MFCreateMFByteStreamOnStreamEx<P0>(punkstream: P0) -> ::windows::c
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMFByteStreamOnStreamEx ( punkstream : * mut::core::ffi::c_void , ppbytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMFByteStreamOnStreamEx ( punkstream : * mut::core::ffi::c_void , ppbytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFByteStream>();
     MFCreateMFByteStreamOnStreamEx(punkstream.into().abi(), &mut result__).from_abi(result__)
 }
@@ -637,7 +637,7 @@ pub unsafe fn MFCreateMFByteStreamWrapper<P0>(pstream: P0) -> ::windows::core::R
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMFByteStreamWrapper ( pstream : * mut::core::ffi::c_void , ppstreamwrapper : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMFByteStreamWrapper ( pstream : * mut::core::ffi::c_void , ppstreamwrapper : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFByteStream>();
     MFCreateMFByteStreamWrapper(pstream.into().abi(), &mut result__).from_abi(result__)
 }
@@ -648,7 +648,7 @@ pub unsafe fn MFCreateMFVideoFormatFromMFMediaType<P0>(pmftype: P0, ppmfvf: *mut
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMFVideoFormatFromMFMediaType ( pmftype : * mut::core::ffi::c_void , ppmfvf : *mut *mut MFVIDEOFORMAT , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMFVideoFormatFromMFMediaType ( pmftype : * mut::core::ffi::c_void , ppmfvf : *mut *mut MFVIDEOFORMAT , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
     MFCreateMFVideoFormatFromMFMediaType(pmftype.into().abi(), ppmfvf, ::core::mem::transmute(pcbsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -657,7 +657,7 @@ pub unsafe fn MFCreateMP3MediaSink<P0>(ptargetbytestream: P0) -> ::windows::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateMP3MediaSink ( ptargetbytestream : * mut::core::ffi::c_void , ppmediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateMP3MediaSink ( ptargetbytestream : * mut::core::ffi::c_void , ppmediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateMP3MediaSink(ptargetbytestream.into().abi(), &mut result__).from_abi(result__)
 }
@@ -669,7 +669,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     P2: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateMPEG4MediaSink ( pibytestream : * mut::core::ffi::c_void , pvideomediatype : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateMPEG4MediaSink ( pibytestream : * mut::core::ffi::c_void , pvideomediatype : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppimediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateMPEG4MediaSink(pibytestream.into().abi(), pvideomediatype.into().abi(), paudiomediatype.into().abi(), &mut result__).from_abi(result__)
 }
@@ -679,7 +679,7 @@ pub unsafe fn MFCreateMediaBufferFromMediaType<P0>(pmediatype: P0, llduration: i
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaBufferFromMediaType ( pmediatype : * mut::core::ffi::c_void , llduration : i64 , dwminlength : u32 , dwminalignment : u32 , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMediaBufferFromMediaType ( pmediatype : * mut::core::ffi::c_void , llduration : i64 , dwminlength : u32 , dwminalignment : u32 , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaBuffer>();
     MFCreateMediaBufferFromMediaType(pmediatype.into().abi(), llduration, dwminlength, dwminalignment, &mut result__).from_abi(result__)
 }
@@ -689,7 +689,7 @@ pub unsafe fn MFCreateMediaBufferWrapper<P0>(pbuffer: P0, cboffset: u32, dwlengt
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaBuffer>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaBufferWrapper ( pbuffer : * mut::core::ffi::c_void , cboffset : u32 , dwlength : u32 , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMediaBufferWrapper ( pbuffer : * mut::core::ffi::c_void , cboffset : u32 , dwlength : u32 , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaBuffer>();
     MFCreateMediaBufferWrapper(pbuffer.into().abi(), cboffset, dwlength, &mut result__).from_abi(result__)
 }
@@ -697,7 +697,7 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<IMFMediaEvent> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaEvent ( met : u32 , guidextendedtype : *const :: windows::core::GUID , hrstatus : :: windows::core::HRESULT , pvvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , ppevent : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMediaEvent ( met : u32 , guidextendedtype : *const :: windows::core::GUID , hrstatus : :: windows::core::HRESULT , pvvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , ppevent : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaEvent>();
     MFCreateMediaEvent(met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
@@ -708,7 +708,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaExtensionActivate ( szactivatableclassid : :: windows::core::PCWSTR , pconfiguration : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMediaExtensionActivate ( szactivatableclassid : :: windows::core::PCWSTR , pconfiguration : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateMediaExtensionActivate(szactivatableclassid.into().abi(), pconfiguration.into().abi(), riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -717,14 +717,14 @@ pub unsafe fn MFCreateMediaSession<P0>(pconfiguration: P0) -> ::windows::core::R
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateMediaSession ( pconfiguration : * mut::core::ffi::c_void , ppmediasession : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateMediaSession ( pconfiguration : * mut::core::ffi::c_void , ppmediasession : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSession>();
     MFCreateMediaSession(pconfiguration.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMediaType() -> ::windows::core::Result<IMFMediaType> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaType ( ppmftype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMediaType ( ppmftype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaType>();
     MFCreateMediaType(&mut result__).from_abi(result__)
 }
@@ -734,21 +734,21 @@ pub unsafe fn MFCreateMediaTypeFromProperties<P0>(punkstream: P0) -> ::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaTypeFromProperties ( punkstream : * mut::core::ffi::c_void , ppmediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMediaTypeFromProperties ( punkstream : * mut::core::ffi::c_void , ppmediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaType>();
     MFCreateMediaTypeFromProperties(punkstream.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMediaTypeFromRepresentation(guidrepresentation: ::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::Result<IMFMediaType> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaTypeFromRepresentation ( guidrepresentation : :: windows::core::GUID , pvrepresentation : *const ::core::ffi::c_void , ppimediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMediaTypeFromRepresentation ( guidrepresentation : :: windows::core::GUID , pvrepresentation : *const ::core::ffi::c_void , ppimediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaType>();
     MFCreateMediaTypeFromRepresentation(::core::mem::transmute(guidrepresentation), pvrepresentation, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMemoryBuffer(cbmaxlength: u32) -> ::windows::core::Result<IMFMediaBuffer> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMemoryBuffer ( cbmaxlength : u32 , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMemoryBuffer ( cbmaxlength : u32 , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaBuffer>();
     MFCreateMemoryBuffer(cbmaxlength, &mut result__).from_abi(result__)
 }
@@ -759,7 +759,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateMuxSink ( guidoutputsubtype : :: windows::core::GUID , poutputattributes : * mut::core::ffi::c_void , poutputbytestream : * mut::core::ffi::c_void , ppmuxsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateMuxSink ( guidoutputsubtype : :: windows::core::GUID , poutputattributes : * mut::core::ffi::c_void , poutputbytestream : * mut::core::ffi::c_void , ppmuxsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateMuxSink(::core::mem::transmute(guidoutputsubtype), poutputattributes.into().abi(), poutputbytestream.into().abi(), &mut result__).from_abi(result__)
 }
@@ -769,7 +769,7 @@ pub unsafe fn MFCreateMuxStreamAttributes<P0>(pattributestomux: P0) -> ::windows
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFCollection>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMuxStreamAttributes ( pattributestomux : * mut::core::ffi::c_void , ppmuxattribs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMuxStreamAttributes ( pattributestomux : * mut::core::ffi::c_void , ppmuxattribs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFAttributes>();
     MFCreateMuxStreamAttributes(pattributestomux.into().abi(), &mut result__).from_abi(result__)
 }
@@ -779,7 +779,7 @@ pub unsafe fn MFCreateMuxStreamMediaType<P0>(pmediatypestomux: P0) -> ::windows:
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFCollection>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMuxStreamMediaType ( pmediatypestomux : * mut::core::ffi::c_void , ppmuxmediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMuxStreamMediaType ( pmediatypestomux : * mut::core::ffi::c_void , ppmuxmediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaType>();
     MFCreateMuxStreamMediaType(pmediatypestomux.into().abi(), &mut result__).from_abi(result__)
 }
@@ -789,14 +789,14 @@ pub unsafe fn MFCreateMuxStreamSample<P0>(psamplestomux: P0) -> ::windows::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFCollection>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMuxStreamSample ( psamplestomux : * mut::core::ffi::c_void , ppmuxsample : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateMuxStreamSample ( psamplestomux : * mut::core::ffi::c_void , ppmuxsample : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSample>();
     MFCreateMuxStreamSample(psamplestomux.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateNetSchemePlugin ( riid : *const :: windows::core::GUID , ppvhandler : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateNetSchemePlugin ( riid : *const :: windows::core::GUID , ppvhandler : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateNetSchemePlugin(riid, ppvhandler).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -805,27 +805,27 @@ pub unsafe fn MFCreatePMPMediaSession<P0>(dwcreationflags: u32, pconfiguration: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreatePMPMediaSession ( dwcreationflags : u32 , pconfiguration : * mut::core::ffi::c_void , ppmediasession : *mut * mut::core::ffi::c_void , ppenableractivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreatePMPMediaSession ( dwcreationflags : u32 , pconfiguration : * mut::core::ffi::c_void , ppmediasession : *mut * mut::core::ffi::c_void , ppenableractivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreatePMPMediaSession(dwcreationflags, pconfiguration.into().abi(), ::core::mem::transmute(ppmediasession), ::core::mem::transmute(ppenableractivate.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreatePMPServer(dwcreationflags: u32) -> ::windows::core::Result<IMFPMPServer> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreatePMPServer ( dwcreationflags : u32 , pppmpserver : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreatePMPServer ( dwcreationflags : u32 , pppmpserver : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFPMPServer>();
     MFCreatePMPServer(dwcreationflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreatePresentationClock() -> ::windows::core::Result<IMFPresentationClock> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreatePresentationClock ( pppresentationclock : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreatePresentationClock ( pppresentationclock : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFPresentationClock>();
     MFCreatePresentationClock(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: ::core::option::Option<&[::core::option::Option<IMFStreamDescriptor>]>) -> ::windows::core::Result<IMFPresentationDescriptor> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreatePresentationDescriptor ( cstreamdescriptors : u32 , apstreamdescriptors : *const * mut::core::ffi::c_void , pppresentationdescriptor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreatePresentationDescriptor ( cstreamdescriptors : u32 , apstreamdescriptors : *const * mut::core::ffi::c_void , pppresentationdescriptor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFPresentationDescriptor>();
     MFCreatePresentationDescriptor(apstreamdescriptors.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(apstreamdescriptors.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
@@ -835,7 +835,7 @@ pub unsafe fn MFCreatePresentationDescriptorFromASFProfile<P0>(piprofile: P0) ->
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFASFProfile>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreatePresentationDescriptorFromASFProfile ( piprofile : * mut::core::ffi::c_void , ppipd : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreatePresentationDescriptorFromASFProfile ( piprofile : * mut::core::ffi::c_void , ppipd : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFPresentationDescriptor>();
     MFCreatePresentationDescriptorFromASFProfile(piprofile.into().abi(), &mut result__).from_abi(result__)
 }
@@ -845,13 +845,13 @@ pub unsafe fn MFCreatePropertiesFromMediaType<P0>(pmediatype: P0, riid: *const :
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreatePropertiesFromMediaType ( pmediatype : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreatePropertiesFromMediaType ( pmediatype : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreatePropertiesFromMediaType(pmediatype.into().abi(), riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateProtectedEnvironmentAccess() -> ::windows::core::Result<IMFProtectedEnvironmentAccess> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateProtectedEnvironmentAccess ( ppaccess : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateProtectedEnvironmentAccess ( ppaccess : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFProtectedEnvironmentAccess>();
     MFCreateProtectedEnvironmentAccess(&mut result__).from_abi(result__)
 }
@@ -863,7 +863,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateProxyLocator ( pszprotocol : :: windows::core::PCWSTR , pproxyconfig : * mut::core::ffi::c_void , ppproxylocator : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateProxyLocator ( pszprotocol : :: windows::core::PCWSTR , pproxyconfig : * mut::core::ffi::c_void , ppproxylocator : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFNetProxyLocator>();
     MFCreateProxyLocator(pszprotocol.into().abi(), pproxyconfig.into().abi(), &mut result__).from_abi(result__)
 }
@@ -874,28 +874,28 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFCreateRelativePanelWatcher ( videodeviceid : :: windows::core::PCWSTR , displaymonitordeviceid : :: windows::core::PCWSTR , pprelativepanelwatcher : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsensorgroup.dll""system" fn MFCreateRelativePanelWatcher ( videodeviceid : :: windows::core::PCWSTR , displaymonitordeviceid : :: windows::core::PCWSTR , pprelativepanelwatcher : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFRelativePanelWatcher>();
     MFCreateRelativePanelWatcher(videodeviceid.into().abi(), displaymonitordeviceid.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateRemoteDesktopPlugin() -> ::windows::core::Result<IMFRemoteDesktopPlugin> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateRemoteDesktopPlugin ( ppplugin : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateRemoteDesktopPlugin ( ppplugin : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFRemoteDesktopPlugin>();
     MFCreateRemoteDesktopPlugin(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSample() -> ::windows::core::Result<IMFSample> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateSample ( ppimfsample : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateSample ( ppimfsample : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSample>();
     MFCreateSample(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSampleCopierMFT() -> ::windows::core::Result<IMFTransform> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateSampleCopierMFT ( ppcopiermft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateSampleCopierMFT ( ppcopiermft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFTransform>();
     MFCreateSampleCopierMFT(&mut result__).from_abi(result__)
 }
@@ -906,7 +906,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFSampleGrabberSinkCallback>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateSampleGrabberSinkActivate ( pimfmediatype : * mut::core::ffi::c_void , pimfsamplegrabbersinkcallback : * mut::core::ffi::c_void , ppiactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateSampleGrabberSinkActivate ( pimfmediatype : * mut::core::ffi::c_void , pimfsamplegrabbersinkcallback : * mut::core::ffi::c_void , ppiactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateSampleGrabberSinkActivate(pimfmediatype.into().abi(), pimfsamplegrabbersinkcallback.into().abi(), &mut result__).from_abi(result__)
 }
@@ -916,7 +916,7 @@ pub unsafe fn MFCreateSensorActivityMonitor<P0>(pcallback: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFSensorActivitiesReportCallback>>,
 {
-    ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorActivityMonitor ( pcallback : * mut::core::ffi::c_void , ppactivitymonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorActivityMonitor ( pcallback : * mut::core::ffi::c_void , ppactivitymonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSensorActivityMonitor>();
     MFCreateSensorActivityMonitor(pcallback.into().abi(), &mut result__).from_abi(result__)
 }
@@ -926,7 +926,7 @@ pub unsafe fn MFCreateSensorGroup<P0>(sensorgroupsymboliclink: P0) -> ::windows:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorGroup ( sensorgroupsymboliclink : :: windows::core::PCWSTR , ppsensorgroup : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorGroup ( sensorgroupsymboliclink : :: windows::core::PCWSTR , ppsensorgroup : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSensorGroup>();
     MFCreateSensorGroup(sensorgroupsymboliclink.into().abi(), &mut result__).from_abi(result__)
 }
@@ -936,14 +936,14 @@ pub unsafe fn MFCreateSensorProfile<P0>(profiletype: *const ::windows::core::GUI
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorProfile ( profiletype : *const :: windows::core::GUID , profileindex : u32 , constraints : :: windows::core::PCWSTR , ppprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorProfile ( profiletype : *const :: windows::core::GUID , profileindex : u32 , constraints : :: windows::core::PCWSTR , ppprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSensorProfile>();
     MFCreateSensorProfile(profiletype, profileindex, constraints.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSensorProfileCollection() -> ::windows::core::Result<IMFSensorProfileCollection> {
-    ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorProfileCollection ( ppsensorprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorProfileCollection ( ppsensorprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSensorProfileCollection>();
     MFCreateSensorProfileCollection(&mut result__).from_abi(result__)
 }
@@ -954,7 +954,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFCollection>>,
 {
-    ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorStream ( streamid : u32 , pattributes : * mut::core::ffi::c_void , pmediatypecollection : * mut::core::ffi::c_void , ppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorStream ( streamid : u32 , pattributes : * mut::core::ffi::c_void , pmediatypecollection : * mut::core::ffi::c_void , ppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSensorStream>();
     MFCreateSensorStream(streamid, pattributes.into().abi(), pmediatypecollection.into().abi(), &mut result__).from_abi(result__)
 }
@@ -962,7 +962,7 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateSequencerSegmentOffset ( dwid : u32 , hnsoffset : i64 , pvarsegmentoffset : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateSequencerSegmentOffset ( dwid : u32 , hnsoffset : i64 , pvarsegmentoffset : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
     MFCreateSequencerSegmentOffset(dwid, hnsoffset, &mut result__).from_abi(result__)
 }
@@ -972,14 +972,14 @@ pub unsafe fn MFCreateSequencerSource<P0>(preserved: P0) -> ::windows::core::Res
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateSequencerSource ( preserved : * mut::core::ffi::c_void , ppsequencersource : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateSequencerSource ( preserved : * mut::core::ffi::c_void , ppsequencersource : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSequencerSource>();
     MFCreateSequencerSource(preserved.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSimpleTypeHandler() -> ::windows::core::Result<IMFMediaTypeHandler> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateSimpleTypeHandler ( pphandler : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateSimpleTypeHandler ( pphandler : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaTypeHandler>();
     MFCreateSimpleTypeHandler(&mut result__).from_abi(result__)
 }
@@ -990,7 +990,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaSink>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfreadwrite.dll""system" fn MFCreateSinkWriterFromMediaSink ( pmediasink : * mut::core::ffi::c_void , pattributes : * mut::core::ffi::c_void , ppsinkwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfreadwrite.dll""system" fn MFCreateSinkWriterFromMediaSink ( pmediasink : * mut::core::ffi::c_void , pattributes : * mut::core::ffi::c_void , ppsinkwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSinkWriter>();
     MFCreateSinkWriterFromMediaSink(pmediasink.into().abi(), pattributes.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1002,7 +1002,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
     P2: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfreadwrite.dll""system" fn MFCreateSinkWriterFromURL ( pwszoutputurl : :: windows::core::PCWSTR , pbytestream : * mut::core::ffi::c_void , pattributes : * mut::core::ffi::c_void , ppsinkwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfreadwrite.dll""system" fn MFCreateSinkWriterFromURL ( pwszoutputurl : :: windows::core::PCWSTR , pbytestream : * mut::core::ffi::c_void , pattributes : * mut::core::ffi::c_void , ppsinkwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSinkWriter>();
     MFCreateSinkWriterFromURL(pwszoutputurl.into().abi(), pbytestream.into().abi(), pattributes.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1013,7 +1013,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfreadwrite.dll""system" fn MFCreateSourceReaderFromByteStream ( pbytestream : * mut::core::ffi::c_void , pattributes : * mut::core::ffi::c_void , ppsourcereader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfreadwrite.dll""system" fn MFCreateSourceReaderFromByteStream ( pbytestream : * mut::core::ffi::c_void , pattributes : * mut::core::ffi::c_void , ppsourcereader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSourceReader>();
     MFCreateSourceReaderFromByteStream(pbytestream.into().abi(), pattributes.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1024,7 +1024,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaSource>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfreadwrite.dll""system" fn MFCreateSourceReaderFromMediaSource ( pmediasource : * mut::core::ffi::c_void , pattributes : * mut::core::ffi::c_void , ppsourcereader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfreadwrite.dll""system" fn MFCreateSourceReaderFromMediaSource ( pmediasource : * mut::core::ffi::c_void , pattributes : * mut::core::ffi::c_void , ppsourcereader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSourceReader>();
     MFCreateSourceReaderFromMediaSource(pmediasource.into().abi(), pattributes.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1035,28 +1035,28 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfreadwrite.dll""system" fn MFCreateSourceReaderFromURL ( pwszurl : :: windows::core::PCWSTR , pattributes : * mut::core::ffi::c_void , ppsourcereader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfreadwrite.dll""system" fn MFCreateSourceReaderFromURL ( pwszurl : :: windows::core::PCWSTR , pattributes : * mut::core::ffi::c_void , ppsourcereader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSourceReader>();
     MFCreateSourceReaderFromURL(pwszurl.into().abi(), pattributes.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSourceResolver() -> ::windows::core::Result<IMFSourceResolver> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateSourceResolver ( ppisourceresolver : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateSourceResolver ( ppisourceresolver : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSourceResolver>();
     MFCreateSourceResolver(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateStandardQualityManager() -> ::windows::core::Result<IMFQualityManager> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateStandardQualityManager ( ppqualitymanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateStandardQualityManager ( ppqualitymanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFQualityManager>();
     MFCreateStandardQualityManager(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, apmediatypes: &[::core::option::Option<IMFMediaType>]) -> ::windows::core::Result<IMFStreamDescriptor> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateStreamDescriptor ( dwstreamidentifier : u32 , cmediatypes : u32 , apmediatypes : *const * mut::core::ffi::c_void , ppdescriptor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateStreamDescriptor ( dwstreamidentifier : u32 , cmediatypes : u32 , apmediatypes : *const * mut::core::ffi::c_void , ppdescriptor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFStreamDescriptor>();
     MFCreateStreamDescriptor(dwstreamidentifier, apmediatypes.len() as _, ::core::mem::transmute(apmediatypes.as_ptr()), &mut result__).from_abi(result__)
 }
@@ -1067,7 +1067,7 @@ pub unsafe fn MFCreateStreamOnMFByteStream<P0>(pbytestream: P0) -> ::windows::co
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateStreamOnMFByteStream ( pbytestream : * mut::core::ffi::c_void , ppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateStreamOnMFByteStream ( pbytestream : * mut::core::ffi::c_void , ppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
     MFCreateStreamOnMFByteStream(pbytestream.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1077,62 +1077,62 @@ pub unsafe fn MFCreateStreamOnMFByteStreamEx<P0>(pbytestream: P0, riid: *const :
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateStreamOnMFByteStreamEx ( pbytestream : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateStreamOnMFByteStreamEx ( pbytestream : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateStreamOnMFByteStreamEx(pbytestream.into().abi(), riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSystemTimeSource() -> ::windows::core::Result<IMFPresentationTimeSource> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateSystemTimeSource ( ppsystemtimesource : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateSystemTimeSource ( ppsystemtimesource : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFPresentationTimeSource>();
     MFCreateSystemTimeSource(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS) -> ::windows::core::Result<IMFByteStream> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateTempFile ( accessmode : MF_FILE_ACCESSMODE , openmode : MF_FILE_OPENMODE , fflags : MF_FILE_FLAGS , ppibytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateTempFile ( accessmode : MF_FILE_ACCESSMODE , openmode : MF_FILE_OPENMODE , fflags : MF_FILE_FLAGS , ppibytestream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFByteStream>();
     MFCreateTempFile(accessmode, openmode, fflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTopoLoader() -> ::windows::core::Result<IMFTopoLoader> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateTopoLoader ( ppobj : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateTopoLoader ( ppobj : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFTopoLoader>();
     MFCreateTopoLoader(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTopology() -> ::windows::core::Result<IMFTopology> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateTopology ( pptopo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateTopology ( pptopo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFTopology>();
     MFCreateTopology(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE) -> ::windows::core::Result<IMFTopologyNode> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateTopologyNode ( nodetype : MF_TOPOLOGY_TYPE , ppnode : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateTopologyNode ( nodetype : MF_TOPOLOGY_TYPE , ppnode : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFTopologyNode>();
     MFCreateTopologyNode(nodetype, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTrackedSample() -> ::windows::core::Result<IMFTrackedSample> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateTrackedSample ( ppmfsample : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateTrackedSample ( ppmfsample : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFTrackedSample>();
     MFCreateTrackedSample(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTranscodeProfile() -> ::windows::core::Result<IMFTranscodeProfile> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateTranscodeProfile ( pptranscodeprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateTranscodeProfile ( pptranscodeprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFTranscodeProfile>();
     MFCreateTranscodeProfile(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTranscodeSinkActivate() -> ::windows::core::Result<IMFActivate> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateTranscodeSinkActivate ( ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateTranscodeSinkActivate ( ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateTranscodeSinkActivate(&mut result__).from_abi(result__)
 }
@@ -1144,7 +1144,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<IMFTranscodeProfile>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateTranscodeTopology ( psrc : * mut::core::ffi::c_void , pwszoutputfilepath : :: windows::core::PCWSTR , pprofile : * mut::core::ffi::c_void , pptranscodetopo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateTranscodeTopology ( psrc : * mut::core::ffi::c_void , pwszoutputfilepath : :: windows::core::PCWSTR , pprofile : * mut::core::ffi::c_void , pptranscodetopo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFTopology>();
     MFCreateTranscodeTopology(psrc.into().abi(), pwszoutputfilepath.into().abi(), pprofile.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1156,14 +1156,14 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
     P2: ::std::convert::Into<::windows::core::InParam<IMFTranscodeProfile>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateTranscodeTopologyFromByteStream ( psrc : * mut::core::ffi::c_void , poutputstream : * mut::core::ffi::c_void , pprofile : * mut::core::ffi::c_void , pptranscodetopo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateTranscodeTopologyFromByteStream ( psrc : * mut::core::ffi::c_void , poutputstream : * mut::core::ffi::c_void , pprofile : * mut::core::ffi::c_void , pptranscodetopo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFTopology>();
     MFCreateTranscodeTopologyFromByteStream(psrc.into().abi(), poutputstream.into().abi(), pprofile.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTransformActivate() -> ::windows::core::Result<IMFActivate> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateTransformActivate ( ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateTransformActivate ( ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateTransformActivate(&mut result__).from_abi(result__)
 }
@@ -1171,7 +1171,7 @@ pub unsafe fn MFCreateTransformActivate() -> ::windows::core::Result<IMFActivate
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<IMFVideoMediaType> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaType ( pvideoformat : *const MFVIDEOFORMAT , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaType ( pvideoformat : *const MFVIDEOFORMAT , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFVideoMediaType>();
     MFCreateVideoMediaType(pvideoformat, &mut result__).from_abi(result__)
 }
@@ -1179,7 +1179,7 @@ pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::wi
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaTypeFromBitMapInfoHeader ( pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER , dwpixelaspectratiox : u32 , dwpixelaspectratioy : u32 , interlacemode : MFVideoInterlaceMode , videoflags : u64 , qwframespersecondnumerator : u64 , qwframesperseconddenominator : u64 , dwmaxbitrate : u32 , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaTypeFromBitMapInfoHeader ( pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER , dwpixelaspectratiox : u32 , dwpixelaspectratioy : u32 , interlacemode : MFVideoInterlaceMode , videoflags : u64 , qwframespersecondnumerator : u64 , qwframesperseconddenominator : u64 , dwmaxbitrate : u32 , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFVideoMediaType>();
     MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, qwframespersecondnumerator, qwframesperseconddenominator, dwmaxbitrate, &mut result__).from_abi(result__)
 }
@@ -1187,14 +1187,14 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: 
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx ( pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER , cbbitmapinfoheader : u32 , dwpixelaspectratiox : u32 , dwpixelaspectratioy : u32 , interlacemode : MFVideoInterlaceMode , videoflags : u64 , dwframespersecondnumerator : u32 , dwframesperseconddenominator : u32 , dwmaxbitrate : u32 , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx ( pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER , cbbitmapinfoheader : u32 , dwpixelaspectratiox : u32 , dwpixelaspectratioy : u32 , interlacemode : MFVideoInterlaceMode , videoflags : u64 , dwframespersecondnumerator : u32 , dwframesperseconddenominator : u32 , dwmaxbitrate : u32 , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFVideoMediaType>();
     MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader, cbbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, dwframespersecondnumerator, dwframesperseconddenominator, dwmaxbitrate, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFVideoMediaType> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaTypeFromSubtype ( pamsubtype : *const :: windows::core::GUID , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaTypeFromSubtype ( pamsubtype : *const :: windows::core::GUID , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFVideoMediaType>();
     MFCreateVideoMediaTypeFromSubtype(pamsubtype, &mut result__).from_abi(result__)
 }
@@ -1204,7 +1204,7 @@ pub unsafe fn MFCreateVideoMixer<P0>(powner: P0, riiddevice: *const ::windows::c
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "evr.dll""system" fn MFCreateVideoMixer ( powner : * mut::core::ffi::c_void , riiddevice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "evr.dll""system" fn MFCreateVideoMixer ( powner : * mut::core::ffi::c_void , riiddevice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateVideoMixer(powner.into().abi(), riiddevice, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1214,7 +1214,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "evr.dll""system" fn MFCreateVideoMixerAndPresenter ( pmixerowner : * mut::core::ffi::c_void , ppresenterowner : * mut::core::ffi::c_void , riidmixer : *const :: windows::core::GUID , ppvvideomixer : *mut *mut ::core::ffi::c_void , riidpresenter : *const :: windows::core::GUID , ppvvideopresenter : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "evr.dll""system" fn MFCreateVideoMixerAndPresenter ( pmixerowner : * mut::core::ffi::c_void , ppresenterowner : * mut::core::ffi::c_void , riidmixer : *const :: windows::core::GUID , ppvvideomixer : *mut *mut ::core::ffi::c_void , riidpresenter : *const :: windows::core::GUID , ppvvideopresenter : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateVideoMixerAndPresenter(pmixerowner.into().abi(), ppresenterowner.into().abi(), riidmixer, ppvvideomixer, riidpresenter, ppvvideopresenter).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1223,13 +1223,13 @@ pub unsafe fn MFCreateVideoPresenter<P0>(powner: P0, riiddevice: *const ::window
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "evr.dll""system" fn MFCreateVideoPresenter ( powner : * mut::core::ffi::c_void , riiddevice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvideopresenter : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "evr.dll""system" fn MFCreateVideoPresenter ( powner : * mut::core::ffi::c_void , riiddevice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvideopresenter : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateVideoPresenter(powner.into().abi(), riiddevice, riid, ppvideopresenter).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateVideoRenderer ( riidrenderer : *const :: windows::core::GUID , ppvideorenderer : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateVideoRenderer ( riidrenderer : *const :: windows::core::GUID , ppvideorenderer : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateVideoRenderer(riidrenderer, ppvideorenderer).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -1239,20 +1239,20 @@ pub unsafe fn MFCreateVideoRendererActivate<P0>(hwndvideo: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateVideoRendererActivate ( hwndvideo : super::super::Foundation:: HWND , ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateVideoRendererActivate ( hwndvideo : super::super::Foundation:: HWND , ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateVideoRendererActivate(hwndvideo.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "evr.dll""system" fn MFCreateVideoSampleAllocator ( riid : *const :: windows::core::GUID , ppsampleallocator : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "evr.dll""system" fn MFCreateVideoSampleAllocator ( riid : *const :: windows::core::GUID , ppsampleallocator : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateVideoSampleAllocator(riid, ppsampleallocator).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoSampleAllocatorEx ( riid : *const :: windows::core::GUID , ppsampleallocator : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateVideoSampleAllocatorEx ( riid : *const :: windows::core::GUID , ppsampleallocator : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFCreateVideoSampleAllocatorEx(riid, ppsampleallocator).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1261,7 +1261,7 @@ pub unsafe fn MFCreateVideoSampleFromSurface<P0>(punksurface: P0) -> ::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "evr.dll""system" fn MFCreateVideoSampleFromSurface ( punksurface : * mut::core::ffi::c_void , ppsample : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "evr.dll""system" fn MFCreateVideoSampleFromSurface ( punksurface : * mut::core::ffi::c_void , ppsample : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSample>();
     MFCreateVideoSampleFromSurface(punksurface.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1272,7 +1272,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFCreateVirtualCamera ( r#type : MFVirtualCameraType , lifetime : MFVirtualCameraLifetime , access : MFVirtualCameraAccess , friendlyname : :: windows::core::PCWSTR , sourceid : :: windows::core::PCWSTR , categories : *const :: windows::core::GUID , categorycount : u32 , virtualcamera : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsensorgroup.dll""system" fn MFCreateVirtualCamera ( r#type : MFVirtualCameraType , lifetime : MFVirtualCameraLifetime , access : MFVirtualCameraAccess , friendlyname : :: windows::core::PCWSTR , sourceid : :: windows::core::PCWSTR , categories : *const :: windows::core::GUID , categorycount : u32 , virtualcamera : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFVirtualCamera>();
     MFCreateVirtualCamera(r#type, lifetime, access, friendlyname.into().abi(), sourceid.into().abi(), ::core::mem::transmute(categories.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), categories.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -1283,7 +1283,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFByteStream>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfsrcsnk.dll""system" fn MFCreateWAVEMediaSink ( ptargetbytestream : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppmediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsrcsnk.dll""system" fn MFCreateWAVEMediaSink ( ptargetbytestream : * mut::core::ffi::c_void , paudiomediatype : * mut::core::ffi::c_void , ppmediasink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaSink>();
     MFCreateWAVEMediaSink(ptargetbytestream.into().abi(), paudiomediatype.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1293,7 +1293,7 @@ pub unsafe fn MFCreateWICBitmapBuffer<P0>(riid: *const ::windows::core::GUID, pu
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateWICBitmapBuffer ( riid : *const :: windows::core::GUID , punksurface : * mut::core::ffi::c_void , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateWICBitmapBuffer ( riid : *const :: windows::core::GUID , punksurface : * mut::core::ffi::c_void , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaBuffer>();
     MFCreateWICBitmapBuffer(riid, punksurface.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1305,7 +1305,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateWMAEncoderActivate ( pmediatype : * mut::core::ffi::c_void , pencodingconfigurationproperties : * mut::core::ffi::c_void , ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateWMAEncoderActivate ( pmediatype : * mut::core::ffi::c_void , pencodingconfigurationproperties : * mut::core::ffi::c_void , ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateWMAEncoderActivate(pmediatype.into().abi(), pencodingconfigurationproperties.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1317,7 +1317,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFCreateWMVEncoderActivate ( pmediatype : * mut::core::ffi::c_void , pencodingconfigurationproperties : * mut::core::ffi::c_void , ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFCreateWMVEncoderActivate ( pmediatype : * mut::core::ffi::c_void , pencodingconfigurationproperties : * mut::core::ffi::c_void , ppactivate : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFActivate>();
     MFCreateWMVEncoderActivate(pmediatype.into().abi(), pencodingconfigurationproperties.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1328,7 +1328,7 @@ pub unsafe fn MFCreateWaveFormatExFromMFMediaType<P0>(pmftype: P0, ppwf: *mut *m
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateWaveFormatExFromMFMediaType ( pmftype : * mut::core::ffi::c_void , ppwf : *mut *mut super::Audio:: WAVEFORMATEX , pcbsize : *mut u32 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFCreateWaveFormatExFromMFMediaType ( pmftype : * mut::core::ffi::c_void , ppwf : *mut *mut super::Audio:: WAVEFORMATEX , pcbsize : *mut u32 , flags : u32 ) -> :: windows::core::HRESULT );
     MFCreateWaveFormatExFromMFMediaType(pmftype.into().abi(), ppwf, ::core::mem::transmute(pcbsize.unwrap_or(::std::ptr::null_mut())), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
@@ -1339,13 +1339,13 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFDeserializeAttributesFromStream ( pattr : * mut::core::ffi::c_void , dwoptions : u32 , pstm : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFDeserializeAttributesFromStream ( pattr : * mut::core::ffi::c_void , dwoptions : u32 , pstm : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFDeserializeAttributesFromStream(pattr.into().abi(), dwoptions, pstm.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFDeserializePresentationDescriptor(pbdata: &[u8]) -> ::windows::core::Result<IMFPresentationDescriptor> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFDeserializePresentationDescriptor ( cbdata : u32 , pbdata : *const u8 , pppd : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFDeserializePresentationDescriptor ( cbdata : u32 , pbdata : *const u8 , pppd : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFPresentationDescriptor>();
     MFDeserializePresentationDescriptor(pbdata.len() as _, ::core::mem::transmute(pbdata.as_ptr()), &mut result__).from_abi(result__)
 }
@@ -1355,7 +1355,7 @@ pub unsafe fn MFEndCreateFile<P0>(presult: P0) -> ::windows::core::Result<IMFByt
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncResult>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFEndCreateFile ( presult : * mut::core::ffi::c_void , ppfile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFEndCreateFile ( presult : * mut::core::ffi::c_void , ppfile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFByteStream>();
     MFEndCreateFile(presult.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1365,7 +1365,7 @@ pub unsafe fn MFEndRegisterWorkQueueWithMMCSS<P0>(presult: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncResult>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFEndRegisterWorkQueueWithMMCSS ( presult : * mut::core::ffi::c_void , pdwtaskid : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFEndRegisterWorkQueueWithMMCSS ( presult : * mut::core::ffi::c_void , pdwtaskid : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFEndRegisterWorkQueueWithMMCSS(presult.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1375,7 +1375,7 @@ pub unsafe fn MFEndUnregisterWorkQueueWithMMCSS<P0>(presult: P0) -> ::windows::c
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncResult>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFEndUnregisterWorkQueueWithMMCSS ( presult : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFEndUnregisterWorkQueueWithMMCSS ( presult : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFEndUnregisterWorkQueueWithMMCSS(presult.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1384,13 +1384,13 @@ pub unsafe fn MFEnumDeviceSources<P0>(pattributes: P0, pppsourceactivate: *mut *
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFEnumDeviceSources ( pattributes : * mut::core::ffi::c_void , pppsourceactivate : *mut *mut ::core::option::Option < IMFActivate > , pcsourceactivate : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFEnumDeviceSources ( pattributes : * mut::core::ffi::c_void , pppsourceactivate : *mut *mut ::core::option::Option < IMFActivate > , pcsourceactivate : *mut u32 ) -> :: windows::core::HRESULT );
     MFEnumDeviceSources(pattributes.into().abi(), pppsourceactivate, pcsourceactivate).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32) -> ::windows::core::Result<u64> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFFrameRateToAverageTimePerFrame ( unnumerator : u32 , undenominator : u32 , punaveragetimeperframe : *mut u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFFrameRateToAverageTimePerFrame ( unnumerator : u32 , undenominator : u32 , punaveragetimeperframe : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u64>();
     MFFrameRateToAverageTimePerFrame(unnumerator, undenominator, &mut result__).from_abi(result__)
 }
@@ -1400,7 +1400,7 @@ pub unsafe fn MFGetAttributesAsBlob<P0>(pattributes: P0, pbuf: &mut [u8]) -> ::w
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetAttributesAsBlob ( pattributes : * mut::core::ffi::c_void , pbuf : *mut u8 , cbbufsize : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetAttributesAsBlob ( pattributes : * mut::core::ffi::c_void , pbuf : *mut u8 , cbbufsize : u32 ) -> :: windows::core::HRESULT );
     MFGetAttributesAsBlob(pattributes.into().abi(), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1409,21 +1409,21 @@ pub unsafe fn MFGetAttributesAsBlobSize<P0>(pattributes: P0) -> ::windows::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetAttributesAsBlobSize ( pattributes : * mut::core::ffi::c_void , pcbbufsize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetAttributesAsBlobSize ( pattributes : * mut::core::ffi::c_void , pcbbufsize : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFGetAttributesAsBlobSize(pattributes.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetContentProtectionSystemCLSID ( guidprotectionsystemid : *const :: windows::core::GUID , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetContentProtectionSystemCLSID ( guidprotectionsystemid : *const :: windows::core::GUID , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     MFGetContentProtectionSystemCLSID(guidprotectionsystemid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetLocalId(verifier: &[u8]) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFGetLocalId ( verifier : *const u8 , size : u32 , id : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFGetLocalId ( verifier : *const u8 , size : u32 , id : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     MFGetLocalId(::core::mem::transmute(verifier.as_ptr()), verifier.len() as _, &mut result__).from_abi(result__)
 }
@@ -1433,21 +1433,21 @@ pub unsafe fn MFGetMFTMerit<P0>(pmft: P0, verifier: &[u8]) -> ::windows::core::R
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetMFTMerit ( pmft : * mut::core::ffi::c_void , cbverifier : u32 , verifier : *const u8 , merit : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetMFTMerit ( pmft : * mut::core::ffi::c_void , cbverifier : u32 , verifier : *const u8 , merit : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFGetMFTMerit(pmft.into().abi(), verifier.len() as _, ::core::mem::transmute(verifier.as_ptr()), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "evr.dll""system" fn MFGetPlaneSize ( format : u32 , dwwidth : u32 , dwheight : u32 , pdwplanesize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "evr.dll""system" fn MFGetPlaneSize ( format : u32 , dwwidth : u32 , dwheight : u32 , pdwplanesize : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFGetPlaneSize(format, dwwidth, dwheight, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetPluginControl() -> ::windows::core::Result<IMFPluginControl> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetPluginControl ( ppplugincontrol : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetPluginControl ( ppplugincontrol : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFPluginControl>();
     MFGetPluginControl(&mut result__).from_abi(result__)
 }
@@ -1457,13 +1457,13 @@ pub unsafe fn MFGetService<P0>(punkobject: P0, guidservice: *const ::windows::co
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFGetService ( punkobject : * mut::core::ffi::c_void , guidservice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFGetService ( punkobject : * mut::core::ffi::c_void , guidservice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFGetService(punkobject.into().abi(), guidservice, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> ::windows::core::Result<i32> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetStrideForBitmapInfoHeader ( format : u32 , dwwidth : u32 , pstride : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetStrideForBitmapInfoHeader ( format : u32 , dwwidth : u32 , pstride : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<i32>();
     MFGetStrideForBitmapInfoHeader(format, dwwidth, &mut result__).from_abi(result__)
 }
@@ -1471,7 +1471,7 @@ pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> ::win
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFGetSupportedMimeTypes() -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetSupportedMimeTypes ( ppropvarmimetypearray : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetSupportedMimeTypes ( ppropvarmimetypearray : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
     MFGetSupportedMimeTypes(&mut result__).from_abi(result__)
 }
@@ -1479,27 +1479,27 @@ pub unsafe fn MFGetSupportedMimeTypes() -> ::windows::core::Result<super::super:
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFGetSupportedSchemes() -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetSupportedSchemes ( ppropvarschemearray : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetSupportedSchemes ( ppropvarschemearray : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
     MFGetSupportedSchemes(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetSystemId() -> ::windows::core::Result<IMFSystemId> {
-    ::windows::core::link ! ( "mf.dll""system" fn MFGetSystemId ( ppid : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFGetSystemId ( ppid : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSystemId>();
     MFGetSystemId(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetSystemTime() -> i64 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetSystemTime ( ) -> i64 );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetSystemTime ( ) -> i64 );
     MFGetSystemTime()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetTimerPeriodicity() -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetTimerPeriodicity ( periodicity : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetTimerPeriodicity ( periodicity : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFGetTimerPeriodicity(&mut result__).from_abi(result__)
 }
@@ -1511,7 +1511,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFTopologyNode>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFGetTopoNodeCurrentType ( pnode : * mut::core::ffi::c_void , dwstreamindex : u32 , foutput : super::super::Foundation:: BOOL , pptype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFGetTopoNodeCurrentType ( pnode : * mut::core::ffi::c_void , dwstreamindex : u32 , foutput : super::super::Foundation:: BOOL , pptype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaType>();
     MFGetTopoNodeCurrentType(pnode.into().abi(), dwstreamindex, foutput.into(), &mut result__).from_abi(result__)
 }
@@ -1519,26 +1519,26 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetUncompressedVideoFormat ( pvideoformat : *const MFVIDEOFORMAT ) -> u32 );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetUncompressedVideoFormat ( pvideoformat : *const MFVIDEOFORMAT ) -> u32 );
     MFGetUncompressedVideoFormat(pvideoformat)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetWorkQueueMMCSSClass ( dwworkqueueid : u32 , pwszclass : :: windows::core::PWSTR , pcchclass : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetWorkQueueMMCSSClass ( dwworkqueueid : u32 , pwszclass : :: windows::core::PWSTR , pcchclass : *mut u32 ) -> :: windows::core::HRESULT );
     MFGetWorkQueueMMCSSClass(dwworkqueueid, ::core::mem::transmute(pwszclass), pcchclass).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> ::windows::core::Result<i32> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetWorkQueueMMCSSPriority ( dwworkqueueid : u32 , lpriority : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetWorkQueueMMCSSPriority ( dwworkqueueid : u32 , lpriority : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<i32>();
     MFGetWorkQueueMMCSSPriority(dwworkqueueid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFGetWorkQueueMMCSSTaskId ( dwworkqueueid : u32 , pdwtaskid : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFGetWorkQueueMMCSSTaskId ( dwworkqueueid : u32 , pdwtaskid : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     MFGetWorkQueueMMCSSTaskId(dwworkqueueid, &mut result__).from_abi(result__)
 }
@@ -1548,13 +1548,13 @@ pub unsafe fn MFHeapAlloc<P0>(nsize: usize, dwflags: u32, pszfile: P0, line: i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFHeapAlloc ( nsize : usize , dwflags : u32 , pszfile : :: windows::core::PCSTR , line : i32 , eat : EAllocationType ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFHeapAlloc ( nsize : usize , dwflags : u32 , pszfile : :: windows::core::PCSTR , line : i32 , eat : EAllocationType ) -> *mut ::core::ffi::c_void );
     MFHeapAlloc(nsize, dwflags, pszfile.into().abi(), line, eat)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFHeapFree(pv: *mut ::core::ffi::c_void) {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFHeapFree ( pv : *mut ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFHeapFree ( pv : *mut ::core::ffi::c_void ) -> ( ) );
     MFHeapFree(pv)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -1564,7 +1564,7 @@ pub unsafe fn MFInitAMMediaTypeFromMFMediaType<P0>(pmftype: P0, guidformatblockt
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitAMMediaTypeFromMFMediaType ( pmftype : * mut::core::ffi::c_void , guidformatblocktype : :: windows::core::GUID , pamtype : *mut AM_MEDIA_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitAMMediaTypeFromMFMediaType ( pmftype : * mut::core::ffi::c_void , guidformatblocktype : :: windows::core::GUID , pamtype : *mut AM_MEDIA_TYPE ) -> :: windows::core::HRESULT );
     MFInitAMMediaTypeFromMFMediaType(pmftype.into().abi(), ::core::mem::transmute(guidformatblocktype), pamtype).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1573,7 +1573,7 @@ pub unsafe fn MFInitAttributesFromBlob<P0>(pattributes: P0, pbuf: &[u8]) -> ::wi
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitAttributesFromBlob ( pattributes : * mut::core::ffi::c_void , pbuf : *const u8 , cbbufsize : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitAttributesFromBlob ( pattributes : * mut::core::ffi::c_void , pbuf : *const u8 , cbbufsize : u32 ) -> :: windows::core::HRESULT );
     MFInitAttributesFromBlob(pattributes.into().abi(), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -1583,7 +1583,7 @@ pub unsafe fn MFInitMediaTypeFromAMMediaType<P0>(pmftype: P0, pamtype: *const AM
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromAMMediaType ( pmftype : * mut::core::ffi::c_void , pamtype : *const AM_MEDIA_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromAMMediaType ( pmftype : * mut::core::ffi::c_void , pamtype : *const AM_MEDIA_TYPE ) -> :: windows::core::HRESULT );
     MFInitMediaTypeFromAMMediaType(pmftype.into().abi(), pamtype).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -1593,7 +1593,7 @@ pub unsafe fn MFInitMediaTypeFromMFVideoFormat<P0>(pmftype: P0, pmfvf: *const MF
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromMFVideoFormat ( pmftype : * mut::core::ffi::c_void , pmfvf : *const MFVIDEOFORMAT , cbbufsize : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromMFVideoFormat ( pmftype : * mut::core::ffi::c_void , pmfvf : *const MFVIDEOFORMAT , cbbufsize : u32 ) -> :: windows::core::HRESULT );
     MFInitMediaTypeFromMFVideoFormat(pmftype.into().abi(), pmfvf, cbbufsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1603,7 +1603,7 @@ pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<P0>(pmftype: P0, pmp1vi: *const 
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromMPEG1VideoInfo ( pmftype : * mut::core::ffi::c_void , pmp1vi : *const MPEG1VIDEOINFO , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromMPEG1VideoInfo ( pmftype : * mut::core::ffi::c_void , pmp1vi : *const MPEG1VIDEOINFO , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     MFInitMediaTypeFromMPEG1VideoInfo(pmftype.into().abi(), pmp1vi, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1613,7 +1613,7 @@ pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<P0>(pmftype: P0, pmp2vi: *const 
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromMPEG2VideoInfo ( pmftype : * mut::core::ffi::c_void , pmp2vi : *const MPEG2VIDEOINFO , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromMPEG2VideoInfo ( pmftype : * mut::core::ffi::c_void , pmp2vi : *const MPEG2VIDEOINFO , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     MFInitMediaTypeFromMPEG2VideoInfo(pmftype.into().abi(), pmp2vi, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1623,7 +1623,7 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<P0>(pmftype: P0, pvih: *const V
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromVideoInfoHeader ( pmftype : * mut::core::ffi::c_void , pvih : *const VIDEOINFOHEADER , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromVideoInfoHeader ( pmftype : * mut::core::ffi::c_void , pvih : *const VIDEOINFOHEADER , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     MFInitMediaTypeFromVideoInfoHeader(pmftype.into().abi(), pvih, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1633,7 +1633,7 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<P0>(pmftype: P0, pvih2: *const
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromVideoInfoHeader2 ( pmftype : * mut::core::ffi::c_void , pvih2 : *const VIDEOINFOHEADER2 , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromVideoInfoHeader2 ( pmftype : * mut::core::ffi::c_void , pvih2 : *const VIDEOINFOHEADER2 , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     MFInitMediaTypeFromVideoInfoHeader2(pmftype.into().abi(), pvih2, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_Audio\"`*"]
@@ -1643,21 +1643,21 @@ pub unsafe fn MFInitMediaTypeFromWaveFormatEx<P0>(pmftype: P0, pwaveformat: *con
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromWaveFormatEx ( pmftype : * mut::core::ffi::c_void , pwaveformat : *const super::Audio:: WAVEFORMATEX , cbbufsize : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromWaveFormatEx ( pmftype : * mut::core::ffi::c_void , pwaveformat : *const super::Audio:: WAVEFORMATEX , cbbufsize : u32 ) -> :: windows::core::HRESULT );
     MFInitMediaTypeFromWaveFormatEx(pmftype.into().abi(), pwaveformat, cbbufsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitVideoFormat ( pvideoformat : *const MFVIDEOFORMAT , r#type : MFStandardVideoFormat ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitVideoFormat ( pvideoformat : *const MFVIDEOFORMAT , r#type : MFStandardVideoFormat ) -> :: windows::core::HRESULT );
     MFInitVideoFormat(pvideoformat, r#type).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInitVideoFormat_RGB ( pvideoformat : *const MFVIDEOFORMAT , dwwidth : u32 , dwheight : u32 , d3dfmt : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInitVideoFormat_RGB ( pvideoformat : *const MFVIDEOFORMAT , dwwidth : u32 , dwheight : u32 , d3dfmt : u32 ) -> :: windows::core::HRESULT );
     MFInitVideoFormat_RGB(pvideoformat, dwwidth, dwheight, d3dfmt).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1666,14 +1666,14 @@ pub unsafe fn MFInvokeCallback<P0>(pasyncresult: P0) -> ::windows::core::Result<
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncResult>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFInvokeCallback ( pasyncresult : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFInvokeCallback ( pasyncresult : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFInvokeCallback(pasyncresult.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFIsContentProtectionDeviceSupported ( protectionsystemid : *const :: windows::core::GUID , issupported : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFIsContentProtectionDeviceSupported ( protectionsystemid : *const :: windows::core::GUID , issupported : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
     MFIsContentProtectionDeviceSupported(protectionsystemid, &mut result__).from_abi(result__)
 }
@@ -1681,14 +1681,14 @@ pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "evr.dll""system" fn MFIsFormatYUV ( format : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "evr.dll""system" fn MFIsFormatYUV ( format : u32 ) -> super::super::Foundation:: BOOL );
     MFIsFormatYUV(format)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFIsVirtualCameraTypeSupported ( r#type : MFVirtualCameraType , supported : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfsensorgroup.dll""system" fn MFIsVirtualCameraTypeSupported ( r#type : MFVirtualCameraType , supported : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
     MFIsVirtualCameraTypeSupported(r#type, &mut result__).from_abi(result__)
 }
@@ -1698,20 +1698,20 @@ pub unsafe fn MFLoadSignedLibrary<P0>(pszname: P0) -> ::windows::core::Result<IM
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFLoadSignedLibrary ( pszname : :: windows::core::PCWSTR , pplib : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFLoadSignedLibrary ( pszname : :: windows::core::PCWSTR , pplib : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFSignedLibrary>();
     MFLoadSignedLibrary(pszname.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFLockDXGIDeviceManager(presettoken: ::core::option::Option<*mut u32>, ppmanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFLockDXGIDeviceManager ( presettoken : *mut u32 , ppmanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFLockDXGIDeviceManager ( presettoken : *mut u32 , ppmanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFLockDXGIDeviceManager(::core::mem::transmute(presettoken.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppmanager)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFLockPlatform() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFLockPlatform ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFLockPlatform ( ) -> :: windows::core::HRESULT );
     MFLockPlatform().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1720,27 +1720,27 @@ pub unsafe fn MFLockSharedWorkQueue<P0>(wszclass: P0, basepriority: i32, pdwtask
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFLockSharedWorkQueue ( wszclass : :: windows::core::PCWSTR , basepriority : i32 , pdwtaskid : *mut u32 , pid : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFLockSharedWorkQueue ( wszclass : :: windows::core::PCWSTR , basepriority : i32 , pdwtaskid : *mut u32 , pid : *mut u32 ) -> :: windows::core::HRESULT );
     MFLockSharedWorkQueue(wszclass.into().abi(), basepriority, pdwtaskid, pid).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFLockWorkQueue ( dwworkqueue : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFLockWorkQueue ( dwworkqueue : u32 ) -> :: windows::core::HRESULT );
     MFLockWorkQueue(dwworkqueue).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFMapDX9FormatToDXGIFormat ( dx9 : u32 ) -> super::super::Graphics::Dxgi::Common:: DXGI_FORMAT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFMapDX9FormatToDXGIFormat ( dx9 : u32 ) -> super::super::Graphics::Dxgi::Common:: DXGI_FORMAT );
     MFMapDX9FormatToDXGIFormat(dx9)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFMapDXGIFormatToDX9Format ( dx11 : super::super::Graphics::Dxgi::Common:: DXGI_FORMAT ) -> u32 );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFMapDXGIFormatToDX9Format ( dx11 : super::super::Graphics::Dxgi::Common:: DXGI_FORMAT ) -> u32 );
     MFMapDXGIFormatToDX9Format(dx11)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -1753,7 +1753,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<IMFPMediaPlayerCallback>>,
     P3: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "mfplay.dll""system" fn MFPCreateMediaPlayer ( pwszurl : :: windows::core::PCWSTR , fstartplayback : super::super::Foundation:: BOOL , creationoptions : MFP_CREATION_OPTIONS , pcallback : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , ppmediaplayer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplay.dll""system" fn MFPCreateMediaPlayer ( pwszurl : :: windows::core::PCWSTR , fstartplayback : super::super::Foundation:: BOOL , creationoptions : MFP_CREATION_OPTIONS , pcallback : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , ppmediaplayer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFPCreateMediaPlayer(pwszurl.into().abi(), fstartplayback.into(), creationoptions, pcallback.into().abi(), hwnd.into(), ::core::mem::transmute(ppmediaplayer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -1764,7 +1764,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFAsyncResult>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFPutWaitingWorkItem ( hevent : super::super::Foundation:: HANDLE , priority : i32 , presult : * mut::core::ffi::c_void , pkey : *mut u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFPutWaitingWorkItem ( hevent : super::super::Foundation:: HANDLE , priority : i32 , presult : * mut::core::ffi::c_void , pkey : *mut u64 ) -> :: windows::core::HRESULT );
     MFPutWaitingWorkItem(hevent.into(), priority, presult.into().abi(), ::core::mem::transmute(pkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1774,7 +1774,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncCallback>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFPutWorkItem ( dwqueue : u32 , pcallback : * mut::core::ffi::c_void , pstate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFPutWorkItem ( dwqueue : u32 , pcallback : * mut::core::ffi::c_void , pstate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFPutWorkItem(dwqueue, pcallback.into().abi(), pstate.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1784,7 +1784,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncCallback>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFPutWorkItem2 ( dwqueue : u32 , priority : i32 , pcallback : * mut::core::ffi::c_void , pstate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFPutWorkItem2 ( dwqueue : u32 , priority : i32 , pcallback : * mut::core::ffi::c_void , pstate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFPutWorkItem2(dwqueue, priority, pcallback.into().abi(), pstate.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1793,7 +1793,7 @@ pub unsafe fn MFPutWorkItemEx<P0>(dwqueue: u32, presult: P0) -> ::windows::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncResult>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFPutWorkItemEx ( dwqueue : u32 , presult : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFPutWorkItemEx ( dwqueue : u32 , presult : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFPutWorkItemEx(dwqueue, presult.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1802,7 +1802,7 @@ pub unsafe fn MFPutWorkItemEx2<P0>(dwqueue: u32, priority: i32, presult: P0) -> 
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncResult>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFPutWorkItemEx2 ( dwqueue : u32 , priority : i32 , presult : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFPutWorkItemEx2 ( dwqueue : u32 , priority : i32 , presult : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFPutWorkItemEx2(dwqueue, priority, presult.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1813,7 +1813,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<IMFActivate>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFRegisterLocalByteStreamHandler ( szfileextension : :: windows::core::PCWSTR , szmimetype : :: windows::core::PCWSTR , pactivate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFRegisterLocalByteStreamHandler ( szfileextension : :: windows::core::PCWSTR , szmimetype : :: windows::core::PCWSTR , pactivate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFRegisterLocalByteStreamHandler(szfileextension.into().abi(), szmimetype.into().abi(), pactivate.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1823,7 +1823,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFActivate>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFRegisterLocalSchemeHandler ( szscheme : :: windows::core::PCWSTR , pactivate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFRegisterLocalSchemeHandler ( szscheme : :: windows::core::PCWSTR , pactivate : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFRegisterLocalSchemeHandler(szscheme.into().abi(), pactivate.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1832,13 +1832,13 @@ pub unsafe fn MFRegisterPlatformWithMMCSS<P0>(wszclass: P0, pdwtaskid: *mut u32,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFRegisterPlatformWithMMCSS ( wszclass : :: windows::core::PCWSTR , pdwtaskid : *mut u32 , lpriority : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFRegisterPlatformWithMMCSS ( wszclass : :: windows::core::PCWSTR , pdwtaskid : *mut u32 , lpriority : i32 ) -> :: windows::core::HRESULT );
     MFRegisterPlatformWithMMCSS(wszclass.into().abi(), pdwtaskid, lpriority).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFRemovePeriodicCallback ( dwkey : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFRemovePeriodicCallback ( dwkey : u32 ) -> :: windows::core::HRESULT );
     MFRemovePeriodicCallback(dwkey).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1847,7 +1847,7 @@ pub unsafe fn MFRequireProtectedEnvironment<P0>(ppresentationdescriptor: P0) -> 
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFPresentationDescriptor>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFRequireProtectedEnvironment ( ppresentationdescriptor : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFRequireProtectedEnvironment ( ppresentationdescriptor : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFRequireProtectedEnvironment(ppresentationdescriptor.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1857,7 +1857,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncCallback>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFScheduleWorkItem ( pcallback : * mut::core::ffi::c_void , pstate : * mut::core::ffi::c_void , timeout : i64 , pkey : *mut u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFScheduleWorkItem ( pcallback : * mut::core::ffi::c_void , pstate : * mut::core::ffi::c_void , timeout : i64 , pkey : *mut u64 ) -> :: windows::core::HRESULT );
     MFScheduleWorkItem(pcallback.into().abi(), pstate.into().abi(), timeout, ::core::mem::transmute(pkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1866,7 +1866,7 @@ pub unsafe fn MFScheduleWorkItemEx<P0>(presult: P0, timeout: i64, pkey: ::core::
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAsyncResult>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFScheduleWorkItemEx ( presult : * mut::core::ffi::c_void , timeout : i64 , pkey : *mut u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFScheduleWorkItemEx ( presult : * mut::core::ffi::c_void , timeout : i64 , pkey : *mut u64 ) -> :: windows::core::HRESULT );
     MFScheduleWorkItemEx(presult.into().abi(), timeout, ::core::mem::transmute(pkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
@@ -1877,7 +1877,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFSerializeAttributesToStream ( pattr : * mut::core::ffi::c_void , dwoptions : u32 , pstm : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFSerializeAttributesToStream ( pattr : * mut::core::ffi::c_void , dwoptions : u32 , pstm : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFSerializeAttributesToStream(pattr.into().abi(), dwoptions, pstm.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1886,13 +1886,13 @@ pub unsafe fn MFSerializePresentationDescriptor<P0>(ppd: P0, pcbdata: *mut u32, 
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFPresentationDescriptor>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFSerializePresentationDescriptor ( ppd : * mut::core::ffi::c_void , pcbdata : *mut u32 , ppbdata : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFSerializePresentationDescriptor ( ppd : * mut::core::ffi::c_void , pcbdata : *mut u32 , ppbdata : *mut *mut u8 ) -> :: windows::core::HRESULT );
     MFSerializePresentationDescriptor(ppd.into().abi(), pcbdata, ppbdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFShutdown() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFShutdown ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFShutdown ( ) -> :: windows::core::HRESULT );
     MFShutdown().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1901,7 +1901,7 @@ pub unsafe fn MFShutdownObject<P0>(punk: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFShutdownObject ( punk : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFShutdownObject ( punk : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFShutdownObject(punk.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1910,13 +1910,13 @@ pub unsafe fn MFSplitSample<P0>(psample: P0, poutputsamples: &mut [::core::optio
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFSample>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFSplitSample ( psample : * mut::core::ffi::c_void , poutputsamples : *mut * mut::core::ffi::c_void , dwoutputsamplemaxcount : u32 , pdwoutputsamplecount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFSplitSample ( psample : * mut::core::ffi::c_void , poutputsamples : *mut * mut::core::ffi::c_void , dwoutputsamplemaxcount : u32 , pdwoutputsamplecount : *mut u32 ) -> :: windows::core::HRESULT );
     MFSplitSample(psample.into().abi(), ::core::mem::transmute(poutputsamples.as_ptr()), poutputsamples.len() as _, pdwoutputsamplecount).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFStartup(version: u32, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFStartup ( version : u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFStartup ( version : u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     MFStartup(version, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1925,7 +1925,7 @@ pub unsafe fn MFTEnum<P0>(guidcategory: ::windows::core::GUID, flags: u32, pinpu
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTEnum ( guidcategory : :: windows::core::GUID , flags : u32 , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pattributes : * mut::core::ffi::c_void , ppclsidmft : *mut *mut :: windows::core::GUID , pcmfts : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTEnum ( guidcategory : :: windows::core::GUID , flags : u32 , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pattributes : * mut::core::ffi::c_void , ppclsidmft : *mut *mut :: windows::core::GUID , pcmfts : *mut u32 ) -> :: windows::core::HRESULT );
     MFTEnum(::core::mem::transmute(guidcategory), flags, ::core::mem::transmute(pinputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poutputtype.unwrap_or(::std::ptr::null())), pattributes.into().abi(), ppclsidmft, pcmfts).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1934,19 +1934,19 @@ pub unsafe fn MFTEnum2<P0>(guidcategory: ::windows::core::GUID, flags: MFT_ENUM_
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTEnum2 ( guidcategory : :: windows::core::GUID , flags : MFT_ENUM_FLAG , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pattributes : * mut::core::ffi::c_void , pppmftactivate : *mut *mut ::core::option::Option < IMFActivate > , pnummftactivate : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTEnum2 ( guidcategory : :: windows::core::GUID , flags : MFT_ENUM_FLAG , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pattributes : * mut::core::ffi::c_void , pppmftactivate : *mut *mut ::core::option::Option < IMFActivate > , pnummftactivate : *mut u32 ) -> :: windows::core::HRESULT );
     MFTEnum2(::core::mem::transmute(guidcategory), flags, ::core::mem::transmute(pinputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poutputtype.unwrap_or(::std::ptr::null())), pattributes.into().abi(), pppmftactivate, pnummftactivate).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTEnumEx(guidcategory: ::windows::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: ::core::option::Option<*const MFT_REGISTER_TYPE_INFO>, poutputtype: ::core::option::Option<*const MFT_REGISTER_TYPE_INFO>, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTEnumEx ( guidcategory : :: windows::core::GUID , flags : MFT_ENUM_FLAG , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pppmftactivate : *mut *mut ::core::option::Option < IMFActivate > , pnummftactivate : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTEnumEx ( guidcategory : :: windows::core::GUID , flags : MFT_ENUM_FLAG , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pppmftactivate : *mut *mut ::core::option::Option < IMFActivate > , pnummftactivate : *mut u32 ) -> :: windows::core::HRESULT );
     MFTEnumEx(::core::mem::transmute(guidcategory), flags, ::core::mem::transmute(pinputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poutputtype.unwrap_or(::std::ptr::null())), pppmftactivate, pnummftactivate).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTGetInfo(clsidmft: ::windows::core::GUID, pszname: ::core::option::Option<*mut ::windows::core::PWSTR>, ppinputtypes: ::core::option::Option<*mut *mut MFT_REGISTER_TYPE_INFO>, pcinputtypes: ::core::option::Option<*mut u32>, ppoutputtypes: ::core::option::Option<*mut *mut MFT_REGISTER_TYPE_INFO>, pcoutputtypes: ::core::option::Option<*mut u32>, ppattributes: ::core::option::Option<*mut ::core::option::Option<IMFAttributes>>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTGetInfo ( clsidmft : :: windows::core::GUID , pszname : *mut :: windows::core::PWSTR , ppinputtypes : *mut *mut MFT_REGISTER_TYPE_INFO , pcinputtypes : *mut u32 , ppoutputtypes : *mut *mut MFT_REGISTER_TYPE_INFO , pcoutputtypes : *mut u32 , ppattributes : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTGetInfo ( clsidmft : :: windows::core::GUID , pszname : *mut :: windows::core::PWSTR , ppinputtypes : *mut *mut MFT_REGISTER_TYPE_INFO , pcinputtypes : *mut u32 , ppoutputtypes : *mut *mut MFT_REGISTER_TYPE_INFO , pcoutputtypes : *mut u32 , ppattributes : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFTGetInfo(::core::mem::transmute(clsidmft), ::core::mem::transmute(pszname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppinputtypes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcinputtypes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoutputtypes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcoutputtypes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppattributes.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1956,7 +1956,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTRegister ( clsidmft : :: windows::core::GUID , guidcategory : :: windows::core::GUID , pszname : :: windows::core::PCWSTR , flags : u32 , cinputtypes : u32 , pinputtypes : *const MFT_REGISTER_TYPE_INFO , coutputtypes : u32 , poutputtypes : *const MFT_REGISTER_TYPE_INFO , pattributes : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTRegister ( clsidmft : :: windows::core::GUID , guidcategory : :: windows::core::GUID , pszname : :: windows::core::PCWSTR , flags : u32 , cinputtypes : u32 , pinputtypes : *const MFT_REGISTER_TYPE_INFO , coutputtypes : u32 , poutputtypes : *const MFT_REGISTER_TYPE_INFO , pattributes : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFTRegister(::core::mem::transmute(clsidmft), ::core::mem::transmute(guidcategory), pszname.into().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pattributes.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
@@ -1967,7 +1967,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IClassFactory>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTRegisterLocal ( pclassfactory : * mut::core::ffi::c_void , guidcategory : *const :: windows::core::GUID , pszname : :: windows::core::PCWSTR , flags : u32 , cinputtypes : u32 , pinputtypes : *const MFT_REGISTER_TYPE_INFO , coutputtypes : u32 , poutputtypes : *const MFT_REGISTER_TYPE_INFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTRegisterLocal ( pclassfactory : * mut::core::ffi::c_void , guidcategory : *const :: windows::core::GUID , pszname : :: windows::core::PCWSTR , flags : u32 , cinputtypes : u32 , pinputtypes : *const MFT_REGISTER_TYPE_INFO , coutputtypes : u32 , poutputtypes : *const MFT_REGISTER_TYPE_INFO ) -> :: windows::core::HRESULT );
     MFTRegisterLocal(pclassfactory.into().abi(), guidcategory, pszname.into().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -1976,13 +1976,13 @@ pub unsafe fn MFTRegisterLocalByCLSID<P0>(clisdmft: *const ::windows::core::GUID
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTRegisterLocalByCLSID ( clisdmft : *const :: windows::core::GUID , guidcategory : *const :: windows::core::GUID , pszname : :: windows::core::PCWSTR , flags : u32 , cinputtypes : u32 , pinputtypes : *const MFT_REGISTER_TYPE_INFO , coutputtypes : u32 , poutputtypes : *const MFT_REGISTER_TYPE_INFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTRegisterLocalByCLSID ( clisdmft : *const :: windows::core::GUID , guidcategory : *const :: windows::core::GUID , pszname : :: windows::core::PCWSTR , flags : u32 , cinputtypes : u32 , pinputtypes : *const MFT_REGISTER_TYPE_INFO , coutputtypes : u32 , poutputtypes : *const MFT_REGISTER_TYPE_INFO ) -> :: windows::core::HRESULT );
     MFTRegisterLocalByCLSID(clisdmft, guidcategory, pszname.into().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTUnregister(clsidmft: ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTUnregister ( clsidmft : :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTUnregister ( clsidmft : :: windows::core::GUID ) -> :: windows::core::HRESULT );
     MFTUnregister(::core::mem::transmute(clsidmft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
@@ -1992,13 +1992,13 @@ pub unsafe fn MFTUnregisterLocal<P0>(pclassfactory: P0) -> ::windows::core::Resu
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IClassFactory>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTUnregisterLocal ( pclassfactory : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTUnregisterLocal ( pclassfactory : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MFTUnregisterLocal(pclassfactory.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTUnregisterLocalByCLSID(clsidmft: ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTUnregisterLocalByCLSID ( clsidmft : :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFTUnregisterLocalByCLSID ( clsidmft : :: windows::core::GUID ) -> :: windows::core::HRESULT );
     MFTUnregisterLocalByCLSID(::core::mem::transmute(clsidmft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -2007,32 +2007,32 @@ pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<P0>(guidsubtype: *const ::
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFTranscodeGetAudioOutputAvailableTypes ( guidsubtype : *const :: windows::core::GUID , dwmftflags : u32 , pcodecconfig : * mut::core::ffi::c_void , ppavailabletypes : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mf.dll""system" fn MFTranscodeGetAudioOutputAvailableTypes ( guidsubtype : *const :: windows::core::GUID , dwmftflags : u32 , pcodecconfig : * mut::core::ffi::c_void , ppavailabletypes : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFCollection>();
     MFTranscodeGetAudioOutputAvailableTypes(guidsubtype, dwmftflags, pcodecconfig.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFUnlockDXGIDeviceManager() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFUnlockDXGIDeviceManager ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFUnlockDXGIDeviceManager ( ) -> :: windows::core::HRESULT );
     MFUnlockDXGIDeviceManager().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFUnlockPlatform() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFUnlockPlatform ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFUnlockPlatform ( ) -> :: windows::core::HRESULT );
     MFUnlockPlatform().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFUnlockWorkQueue ( dwworkqueue : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFUnlockWorkQueue ( dwworkqueue : u32 ) -> :: windows::core::HRESULT );
     MFUnlockWorkQueue(dwworkqueue).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFUnregisterPlatformFromMMCSS() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFUnregisterPlatformFromMMCSS ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFUnregisterPlatformFromMMCSS ( ) -> :: windows::core::HRESULT );
     MFUnregisterPlatformFromMMCSS().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -2041,14 +2041,14 @@ pub unsafe fn MFUnwrapMediaType<P0>(pwrap: P0) -> ::windows::core::Result<IMFMed
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFUnwrapMediaType ( pwrap : * mut::core::ffi::c_void , pporig : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFUnwrapMediaType ( pwrap : * mut::core::ffi::c_void , pporig : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaType>();
     MFUnwrapMediaType(pwrap.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFValidateMediaTypeSize(formattype: ::windows::core::GUID, pblock: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFValidateMediaTypeSize ( formattype : :: windows::core::GUID , pblock : *const u8 , cbsize : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFValidateMediaTypeSize ( formattype : :: windows::core::GUID , pblock : *const u8 , cbsize : u32 ) -> :: windows::core::HRESULT );
     MFValidateMediaTypeSize(::core::mem::transmute(formattype), ::core::mem::transmute(pblock.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pblock.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -2057,21 +2057,21 @@ pub unsafe fn MFWrapMediaType<P0>(porig: P0, majortype: *const ::windows::core::
 where
     P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFWrapMediaType ( porig : * mut::core::ffi::c_void , majortype : *const :: windows::core::GUID , subtype : *const :: windows::core::GUID , ppwrap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFWrapMediaType ( porig : * mut::core::ffi::c_void , majortype : *const :: windows::core::GUID , subtype : *const :: windows::core::GUID , ppwrap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IMFMediaType>();
     MFWrapMediaType(porig.into().abi(), majortype, subtype, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFllMulDiv ( a : i64 , b : i64 , c : i64 , d : i64 ) -> i64 );
+    ::windows::imp::link ! ( "mfplat.dll""system" fn MFllMulDiv ( a : i64 , b : i64 , c : i64 , d : i64 ) -> i64 );
     MFllMulDiv(a, b, c, d)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS) -> ::windows::core::Result<IOPMVideoOutput> {
-    ::windows::core::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputForTarget ( padapterluid : *const super::super::Foundation:: LUID , vidpntarget : u32 , vos : OPM_VIDEO_OUTPUT_SEMANTICS , ppopmvideooutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputForTarget ( padapterluid : *const super::super::Foundation:: LUID , vidpntarget : u32 , vos : OPM_VIDEO_OUTPUT_SEMANTICS , ppopmvideooutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IOPMVideoOutput>();
     OPMGetVideoOutputForTarget(padapterluid, vidpntarget, vos, &mut result__).from_abi(result__)
 }
@@ -2082,7 +2082,7 @@ pub unsafe fn OPMGetVideoOutputsFromHMONITOR<P0>(hmonitor: P0, vos: OPM_VIDEO_OU
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , vos : OPM_VIDEO_OUTPUT_SEMANTICS , pulnumvideooutputs : *mut u32 , pppopmvideooutputarray : *mut *mut ::core::option::Option < IOPMVideoOutput > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , vos : OPM_VIDEO_OUTPUT_SEMANTICS , pulnumvideooutputs : *mut u32 , pppopmvideooutputarray : *mut *mut ::core::option::Option < IOPMVideoOutput > ) -> :: windows::core::HRESULT );
     OPMGetVideoOutputsFromHMONITOR(hmonitor.into(), vos, pulnumvideooutputs, pppopmvideooutputarray).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
@@ -2092,25 +2092,25 @@ pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<P0>(pdirect3ddevice9:
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputsFromIDirect3DDevice9Object ( pdirect3ddevice9 : * mut::core::ffi::c_void , vos : OPM_VIDEO_OUTPUT_SEMANTICS , pulnumvideooutputs : *mut u32 , pppopmvideooutputarray : *mut *mut ::core::option::Option < IOPMVideoOutput > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputsFromIDirect3DDevice9Object ( pdirect3ddevice9 : * mut::core::ffi::c_void , vos : OPM_VIDEO_OUTPUT_SEMANTICS , pulnumvideooutputs : *mut u32 , pppopmvideooutputarray : *mut *mut ::core::option::Option < IOPMVideoOutput > ) -> :: windows::core::HRESULT );
     OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9.into().abi(), vos, pulnumvideooutputs, pppopmvideooutputarray).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "opmxbox.dll""system" fn OPMXboxEnableHDCP ( hdcptype : OPM_HDCP_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "opmxbox.dll""system" fn OPMXboxEnableHDCP ( hdcptype : OPM_HDCP_TYPE ) -> :: windows::core::HRESULT );
     OPMXboxEnableHDCP(hdcptype).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "opmxbox.dll""system" fn OPMXboxGetHDCPStatus ( phdcpstatus : *mut OPM_HDCP_STATUS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "opmxbox.dll""system" fn OPMXboxGetHDCPStatus ( phdcpstatus : *mut OPM_HDCP_STATUS ) -> :: windows::core::HRESULT );
     OPMXboxGetHDCPStatus(phdcpstatus).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "opmxbox.dll""system" fn OPMXboxGetHDCPStatusAndType ( phdcpstatus : *mut OPM_HDCP_STATUS , phdcptype : *mut OPM_HDCP_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "opmxbox.dll""system" fn OPMXboxGetHDCPStatusAndType ( phdcpstatus : *mut OPM_HDCP_STATUS , phdcptype : *mut OPM_HDCP_TYPE ) -> :: windows::core::HRESULT );
     OPMXboxGetHDCPStatusAndType(phdcpstatus, phdcptype).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -2122,7 +2122,7 @@ impl IAdvancedMediaCapture {
         (::windows::core::Vtable::vtable(self).GetAdvancedMediaCaptureSettings)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAdvancedMediaCapture, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAdvancedMediaCapture, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAdvancedMediaCapture {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2162,7 +2162,7 @@ impl IAdvancedMediaCaptureInitializationSettings {
         (::windows::core::Vtable::vtable(self).SetDirectxDeviceManager)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAdvancedMediaCaptureInitializationSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAdvancedMediaCaptureInitializationSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAdvancedMediaCaptureInitializationSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2200,7 +2200,7 @@ impl IAdvancedMediaCaptureSettings {
         (::windows::core::Vtable::vtable(self).GetDirectxDeviceManager)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAdvancedMediaCaptureSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAdvancedMediaCaptureSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAdvancedMediaCaptureSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2237,7 +2237,7 @@ impl IAudioSourceProvider {
         (::windows::core::Vtable::vtable(self).ProvideInput)(::windows::core::Vtable::as_raw(self), dwsamplecount, pdwchannelcount, ::core::mem::transmute(pinterleavedaudiodata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioSourceProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioSourceProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioSourceProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2281,7 +2281,7 @@ impl IClusterDetector {
         (::windows::core::Vtable::vtable(self).Detect)(::windows::core::Vtable::as_raw(self), dwmaxnumclusters, fminclusterduration, fmaxclusterduration, psrctoc.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IClusterDetector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IClusterDetector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IClusterDetector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2390,7 +2390,7 @@ impl ICodecAPI {
         (::windows::core::Vtable::vtable(self).SetAllSettingsWithNotify)(::windows::core::Vtable::as_raw(self), __midl__icodecapi0002.into().abi(), changedparam, changedparamcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICodecAPI, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICodecAPI, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICodecAPI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2589,7 +2589,7 @@ impl ID3D12VideoDecodeCommandList {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoDecodeCommandList, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList);
+::windows::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecodeCommandList {
     fn eq(&self, other: &Self) -> bool {
@@ -2806,7 +2806,7 @@ impl ID3D12VideoDecodeCommandList1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoDecodeCommandList1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoDecodeCommandList);
+::windows::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoDecodeCommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecodeCommandList1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3010,7 +3010,7 @@ impl ID3D12VideoDecodeCommandList2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoDecodeCommandList2, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList1);
+::windows::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList2, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList1);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecodeCommandList2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3227,7 +3227,7 @@ impl ID3D12VideoDecodeCommandList3 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoDecodeCommandList3, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList1, ID3D12VideoDecodeCommandList2);
+::windows::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList3, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList1, ID3D12VideoDecodeCommandList2);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecodeCommandList3 {
     fn eq(&self, other: &Self) -> bool {
@@ -3317,7 +3317,7 @@ impl ID3D12VideoDecoder {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoDecoder, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12VideoDecoder, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecoder {
     fn eq(&self, other: &Self) -> bool {
@@ -3410,7 +3410,7 @@ impl ID3D12VideoDecoder1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoDecoder1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoDecoder);
+::windows::imp::interface_hierarchy!(ID3D12VideoDecoder1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoDecoder);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecoder1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3499,7 +3499,7 @@ impl ID3D12VideoDecoderHeap {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoDecoderHeap, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12VideoDecoderHeap, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecoderHeap {
     fn eq(&self, other: &Self) -> bool {
@@ -3597,7 +3597,7 @@ impl ID3D12VideoDecoderHeap1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoDecoderHeap1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoDecoderHeap);
+::windows::imp::interface_hierarchy!(ID3D12VideoDecoderHeap1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoDecoderHeap);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoDecoderHeap1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3670,7 +3670,7 @@ impl ID3D12VideoDevice {
         (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12VideoDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12VideoDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12VideoDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3763,7 +3763,7 @@ impl ID3D12VideoDevice1 {
         (::windows::core::Vtable::vtable(self).CreateVideoMotionVectorHeap)(::windows::core::Vtable::as_raw(self), pdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12VideoDevice1, ::windows::core::IUnknown, ID3D12VideoDevice);
+::windows::imp::interface_hierarchy!(ID3D12VideoDevice1, ::windows::core::IUnknown, ID3D12VideoDevice);
 impl ::core::cmp::PartialEq for ID3D12VideoDevice1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3902,7 +3902,7 @@ impl ID3D12VideoDevice2 {
         (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes, poutputdata, outputdatasizeinbytes).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12VideoDevice2, ::windows::core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1);
+::windows::imp::interface_hierarchy!(ID3D12VideoDevice2, ::windows::core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1);
 impl ::core::cmp::PartialEq for ID3D12VideoDevice2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4069,7 +4069,7 @@ impl ID3D12VideoDevice3 {
         (::windows::core::Vtable::vtable(self).CreateVideoEncoderHeap)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12VideoDevice3, ::windows::core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1, ID3D12VideoDevice2);
+::windows::imp::interface_hierarchy!(ID3D12VideoDevice3, ::windows::core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1, ID3D12VideoDevice2);
 impl ::core::cmp::PartialEq for ID3D12VideoDevice3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4246,7 +4246,7 @@ impl ID3D12VideoEncodeCommandList {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoEncodeCommandList, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList);
+::windows::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncodeCommandList {
     fn eq(&self, other: &Self) -> bool {
@@ -4492,7 +4492,7 @@ impl ID3D12VideoEncodeCommandList1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoEncodeCommandList1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList);
+::windows::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncodeCommandList1 {
     fn eq(&self, other: &Self) -> bool {
@@ -4711,7 +4711,7 @@ impl ID3D12VideoEncodeCommandList2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoEncodeCommandList2, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1);
+::windows::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList2, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncodeCommandList2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4935,7 +4935,7 @@ impl ID3D12VideoEncodeCommandList3 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoEncodeCommandList3, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList2);
+::windows::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList3, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList2);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncodeCommandList3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5043,7 +5043,7 @@ impl ID3D12VideoEncoder {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoEncoder, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12VideoEncoder, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncoder {
     fn eq(&self, other: &Self) -> bool {
@@ -5155,7 +5155,7 @@ impl ID3D12VideoEncoderHeap {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoEncoderHeap, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12VideoEncoderHeap, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoEncoderHeap {
     fn eq(&self, other: &Self) -> bool {
@@ -5254,7 +5254,7 @@ impl ID3D12VideoExtensionCommand {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoExtensionCommand, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12VideoExtensionCommand, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoExtensionCommand {
     fn eq(&self, other: &Self) -> bool {
@@ -5350,7 +5350,7 @@ impl ID3D12VideoMotionEstimator {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoMotionEstimator, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12VideoMotionEstimator, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoMotionEstimator {
     fn eq(&self, other: &Self) -> bool {
@@ -5449,7 +5449,7 @@ impl ID3D12VideoMotionVectorHeap {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoMotionVectorHeap, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12VideoMotionVectorHeap, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoMotionVectorHeap {
     fn eq(&self, other: &Self) -> bool {
@@ -5622,7 +5622,7 @@ impl ID3D12VideoProcessCommandList {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoProcessCommandList, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList);
+::windows::imp::interface_hierarchy!(ID3D12VideoProcessCommandList, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessCommandList {
     fn eq(&self, other: &Self) -> bool {
@@ -5839,7 +5839,7 @@ impl ID3D12VideoProcessCommandList1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoProcessCommandList1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoProcessCommandList);
+::windows::imp::interface_hierarchy!(ID3D12VideoProcessCommandList1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoProcessCommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessCommandList1 {
     fn eq(&self, other: &Self) -> bool {
@@ -6043,7 +6043,7 @@ impl ID3D12VideoProcessCommandList2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoProcessCommandList2, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList1);
+::windows::imp::interface_hierarchy!(ID3D12VideoProcessCommandList2, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList1);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessCommandList2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6260,7 +6260,7 @@ impl ID3D12VideoProcessCommandList3 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoProcessCommandList3, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList1, ID3D12VideoProcessCommandList2);
+::windows::imp::interface_hierarchy!(ID3D12VideoProcessCommandList3, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList1, ID3D12VideoProcessCommandList2);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessCommandList3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6363,7 +6363,7 @@ impl ID3D12VideoProcessor {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoProcessor, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12VideoProcessor, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessor {
     fn eq(&self, other: &Self) -> bool {
@@ -6478,7 +6478,7 @@ impl ID3D12VideoProcessor1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-::windows::core::interface_hierarchy!(ID3D12VideoProcessor1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoProcessor);
+::windows::imp::interface_hierarchy!(ID3D12VideoProcessor1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoProcessor);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for ID3D12VideoProcessor1 {
     fn eq(&self, other: &Self) -> bool {
@@ -6559,7 +6559,7 @@ impl IDXVAHD_Device {
         (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), pvpguid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXVAHD_Device, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXVAHD_Device, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXVAHD_Device {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6635,7 +6635,7 @@ impl IDXVAHD_VideoProcessor {
         (::windows::core::Vtable::vtable(self).VideoProcessBltHD)(::windows::core::Vtable::as_raw(self), poutputsurface.into().abi(), outputframe, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXVAHD_VideoProcessor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXVAHD_VideoProcessor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXVAHD_VideoProcessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6681,7 +6681,7 @@ impl IDirect3D9ExOverlayExtension {
         (::windows::core::Vtable::vtable(self).CheckDeviceOverlayType)(::windows::core::Vtable::as_raw(self), adapter, devtype, overlaywidth, overlayheight, overlayformat, pdisplaymode, displayrotation, poverlaycaps).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3D9ExOverlayExtension, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3D9ExOverlayExtension, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3D9ExOverlayExtension {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6735,7 +6735,7 @@ impl IDirect3DAuthenticatedChannel9 {
         (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), inputsize, pinput, poutput).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DAuthenticatedChannel9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DAuthenticatedChannel9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DAuthenticatedChannel9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6820,7 +6820,7 @@ impl IDirect3DCryptoSession9 {
         (::windows::core::Vtable::vtable(self).GetEncryptionBltKey)(::windows::core::Vtable::as_raw(self), preadbackkey, keysize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DCryptoSession9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DCryptoSession9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DCryptoSession9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6884,7 +6884,7 @@ impl IDirect3DDevice9Video {
         (::windows::core::Vtable::vtable(self).CreateCryptoSession)(::windows::core::Vtable::as_raw(self), pcryptotype, pdecodeprofile, ::core::mem::transmute(ppcryptosession), pcryptohandle).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DDevice9Video, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DDevice9Video, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DDevice9Video {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6982,7 +6982,7 @@ impl IDirect3DDeviceManager9 {
         (::windows::core::Vtable::vtable(self).GetVideoService)(::windows::core::Vtable::as_raw(self), hdevice.into(), riid, ppservice).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DDeviceManager9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DDeviceManager9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DDeviceManager9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7048,7 +7048,7 @@ impl IDirectXVideoAccelerationService {
         (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, backbuffers, format, pool, usage, dxvatype, ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectXVideoAccelerationService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectXVideoAccelerationService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectXVideoAccelerationService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7116,7 +7116,7 @@ impl IDirectXVideoDecoder {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), pexecuteparams).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectXVideoDecoder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectXVideoDecoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectXVideoDecoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7189,7 +7189,7 @@ impl IDirectXVideoDecoderService {
         (::windows::core::Vtable::vtable(self).CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), guid, pvideodesc, pconfig, ::core::mem::transmute(ppdecoderrendertargets.as_ptr()), ppdecoderrendertargets.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectXVideoDecoderService, ::windows::core::IUnknown, IDirectXVideoAccelerationService);
+::windows::imp::interface_hierarchy!(IDirectXVideoDecoderService, ::windows::core::IUnknown, IDirectXVideoAccelerationService);
 impl ::core::cmp::PartialEq for IDirectXVideoDecoderService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7242,7 +7242,7 @@ impl IDirectXVideoMemoryConfiguration {
         (::windows::core::Vtable::vtable(self).SetSurfaceType)(::windows::core::Vtable::as_raw(self), dwtype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectXVideoMemoryConfiguration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectXVideoMemoryConfiguration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectXVideoMemoryConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7307,7 +7307,7 @@ impl IDirectXVideoProcessor {
         (::windows::core::Vtable::vtable(self).VideoProcessBlt)(::windows::core::Vtable::as_raw(self), prendertarget.into().abi(), pbltparams, ::core::mem::transmute(psamples.as_ptr()), psamples.len() as _, ::core::mem::transmute(phandlecomplete.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectXVideoProcessor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectXVideoProcessor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectXVideoProcessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7401,7 +7401,7 @@ impl IDirectXVideoProcessorService {
         (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, maxnumsubstreams, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirectXVideoProcessorService, ::windows::core::IUnknown, IDirectXVideoAccelerationService);
+::windows::imp::interface_hierarchy!(IDirectXVideoProcessorService, ::windows::core::IUnknown, IDirectXVideoAccelerationService);
 impl ::core::cmp::PartialEq for IDirectXVideoProcessorService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7470,7 +7470,7 @@ impl IEVRFilterConfig {
         (::windows::core::Vtable::vtable(self).GetNumberOfStreams)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEVRFilterConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEVRFilterConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEVRFilterConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7519,7 +7519,7 @@ impl IEVRFilterConfigEx {
         (::windows::core::Vtable::vtable(self).GetConfigPrefs)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEVRFilterConfigEx, ::windows::core::IUnknown, IEVRFilterConfig);
+::windows::imp::interface_hierarchy!(IEVRFilterConfigEx, ::windows::core::IUnknown, IEVRFilterConfig);
 impl ::core::cmp::PartialEq for IEVRFilterConfigEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7577,7 +7577,7 @@ impl IEVRTrustedVideoPlugin {
         (::windows::core::Vtable::vtable(self).DisableImageExport)(::windows::core::Vtable::as_raw(self), bdisable.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEVRTrustedVideoPlugin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEVRTrustedVideoPlugin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEVRTrustedVideoPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7637,7 +7637,7 @@ impl IEVRVideoStreamControl {
         (::windows::core::Vtable::vtable(self).GetStreamActiveState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEVRVideoStreamControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEVRVideoStreamControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEVRVideoStreamControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7693,7 +7693,7 @@ impl IFileClient {
         (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), pfio.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7764,7 +7764,7 @@ impl IFileIo {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileIo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileIo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileIo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7835,7 +7835,7 @@ impl IMF2DBuffer {
         (::windows::core::Vtable::vtable(self).ContiguousCopyFrom)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbsrcbuffer.as_ptr()), pbsrcbuffer.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMF2DBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMF2DBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMF2DBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7912,7 +7912,7 @@ impl IMF2DBuffer2 {
         (::windows::core::Vtable::vtable(self).Copy2DTo)(::windows::core::Vtable::as_raw(self), pdestbuffer.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMF2DBuffer2, ::windows::core::IUnknown, IMF2DBuffer);
+::windows::imp::interface_hierarchy!(IMF2DBuffer2, ::windows::core::IUnknown, IMF2DBuffer);
 impl ::core::cmp::PartialEq for IMF2DBuffer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7987,7 +7987,7 @@ impl IMFASFContentInfo {
         (::windows::core::Vtable::vtable(self).GetEncodingConfigurationPropertyStore)(::windows::core::Vtable::as_raw(self), wstreamnumber, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFASFContentInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFASFContentInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFASFContentInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8097,7 +8097,7 @@ impl IMFASFIndexer {
         (::windows::core::Vtable::vtable(self).GetCompletedIndex)(::windows::core::Vtable::as_raw(self), piindexbuffer.into().abi(), cboffsetwithinindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFASFIndexer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFASFIndexer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFASFIndexer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8190,7 +8190,7 @@ impl IMFASFMultiplexer {
         (::windows::core::Vtable::vtable(self).SetSyncTolerance)(::windows::core::Vtable::as_raw(self), mssynctolerance).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFASFMultiplexer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFASFMultiplexer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFASFMultiplexer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8263,7 +8263,7 @@ impl IMFASFMutualExclusion {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFASFMutualExclusion, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFASFMutualExclusion, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFASFMutualExclusion {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8500,7 +8500,7 @@ impl IMFASFProfile {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFASFProfile, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFASFProfile, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFASFProfile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8584,7 +8584,7 @@ impl IMFASFSplitter {
         (::windows::core::Vtable::vtable(self).GetLastSendTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFASFSplitter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFASFSplitter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFASFSplitter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8789,7 +8789,7 @@ impl IMFASFStreamConfig {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFASFStreamConfig, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFASFStreamConfig, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFASFStreamConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8849,7 +8849,7 @@ impl IMFASFStreamPrioritization {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFASFStreamPrioritization, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFASFStreamPrioritization, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFASFStreamPrioritization {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8939,7 +8939,7 @@ impl IMFASFStreamSelector {
         (::windows::core::Vtable::vtable(self).SetStreamSelectorFlags)(::windows::core::Vtable::as_raw(self), dwstreamselectorflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFASFStreamSelector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFASFStreamSelector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFASFStreamSelector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9125,7 +9125,7 @@ impl IMFActivate {
         (::windows::core::Vtable::vtable(self).DetachObject)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFActivate, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFActivate, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFActivate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9170,7 +9170,7 @@ impl IMFAsyncCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), pasyncresult.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFAsyncCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFAsyncCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFAsyncCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9220,7 +9220,7 @@ impl IMFAsyncCallbackLogging {
         (::windows::core::Vtable::vtable(self).GetObjectTag)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFAsyncCallbackLogging, ::windows::core::IUnknown, IMFAsyncCallback);
+::windows::imp::interface_hierarchy!(IMFAsyncCallbackLogging, ::windows::core::IUnknown, IMFAsyncCallback);
 impl ::core::cmp::PartialEq for IMFAsyncCallbackLogging {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9272,7 +9272,7 @@ impl IMFAsyncResult {
         (::windows::core::Vtable::vtable(self).GetStateNoAddRef)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFAsyncResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFAsyncResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFAsyncResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9436,7 +9436,7 @@ impl IMFAttributes {
         (::windows::core::Vtable::vtable(self).CopyAllItems)(::windows::core::Vtable::as_raw(self), pdest.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFAttributes, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFAttributes, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFAttributes {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9668,7 +9668,7 @@ impl IMFAudioMediaType {
         (::windows::core::Vtable::vtable(self).GetAudioFormat)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFAudioMediaType, ::windows::core::IUnknown, IMFAttributes, IMFMediaType);
+::windows::imp::interface_hierarchy!(IMFAudioMediaType, ::windows::core::IUnknown, IMFAttributes, IMFMediaType);
 impl ::core::cmp::PartialEq for IMFAudioMediaType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9732,7 +9732,7 @@ impl IMFAudioPolicy {
         (::windows::core::Vtable::vtable(self).GetIconPath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFAudioPolicy, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFAudioPolicy, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFAudioPolicy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9788,7 +9788,7 @@ impl IMFAudioStreamVolume {
         (::windows::core::Vtable::vtable(self).GetAllVolumes)(::windows::core::Vtable::as_raw(self), pfvolumes.len() as _, ::core::mem::transmute(pfvolumes.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFAudioStreamVolume, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFAudioStreamVolume, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFAudioStreamVolume {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9832,7 +9832,7 @@ impl IMFBufferListNotify {
         (::windows::core::Vtable::vtable(self).OnRemoveSourceBuffer)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFBufferListNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFBufferListNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFBufferListNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9936,7 +9936,7 @@ impl IMFByteStream {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFByteStream, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFByteStream, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFByteStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10001,7 +10001,7 @@ impl IMFByteStreamBuffering {
         (::windows::core::Vtable::vtable(self).StopBuffering)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFByteStreamBuffering, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFByteStreamBuffering, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFByteStreamBuffering {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10043,7 +10043,7 @@ impl IMFByteStreamCacheControl {
         (::windows::core::Vtable::vtable(self).StopBackgroundTransfer)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFByteStreamCacheControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFByteStreamCacheControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFByteStreamCacheControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10092,7 +10092,7 @@ impl IMFByteStreamCacheControl2 {
         (::windows::core::Vtable::vtable(self).IsBackgroundTransferActive)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFByteStreamCacheControl2, ::windows::core::IUnknown, IMFByteStreamCacheControl);
+::windows::imp::interface_hierarchy!(IMFByteStreamCacheControl2, ::windows::core::IUnknown, IMFByteStreamCacheControl);
 impl ::core::cmp::PartialEq for IMFByteStreamCacheControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10159,7 +10159,7 @@ impl IMFByteStreamHandler {
         (::windows::core::Vtable::vtable(self).GetMaxNumberOfBytesRequiredForResolution)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFByteStreamHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFByteStreamHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFByteStreamHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10208,7 +10208,7 @@ impl IMFByteStreamProxyClassFactory {
         (::windows::core::Vtable::vtable(self).CreateByteStreamProxy)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), pattributes.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFByteStreamProxyClassFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFByteStreamProxyClassFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFByteStreamProxyClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10254,7 +10254,7 @@ impl IMFByteStreamTimeSeek {
         (::windows::core::Vtable::vtable(self).GetTimeSeekResult)(::windows::core::Vtable::as_raw(self), pqwstarttime, pqwstoptime, pqwduration).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFByteStreamTimeSeek, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFByteStreamTimeSeek, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFByteStreamTimeSeek {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10302,7 +10302,7 @@ impl IMFCameraOcclusionStateMonitor {
         (::windows::core::Vtable::vtable(self).GetSupportedStates)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFCameraOcclusionStateMonitor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCameraOcclusionStateMonitor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCameraOcclusionStateMonitor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10342,7 +10342,7 @@ impl IMFCameraOcclusionStateReport {
         (::windows::core::Vtable::vtable(self).GetOcclusionState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFCameraOcclusionStateReport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCameraOcclusionStateReport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCameraOcclusionStateReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10382,7 +10382,7 @@ impl IMFCameraOcclusionStateReportCallback {
         (::windows::core::Vtable::vtable(self).OnOcclusionStateReport)(::windows::core::Vtable::as_raw(self), occlusionstatereport.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCameraOcclusionStateReportCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCameraOcclusionStateReportCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCameraOcclusionStateReportCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10422,7 +10422,7 @@ impl IMFCameraSyncObject {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFCameraSyncObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCameraSyncObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCameraSyncObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10495,7 +10495,7 @@ impl IMFCaptureEngine {
         (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFCaptureEngine, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCaptureEngine, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCaptureEngine {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10546,7 +10546,7 @@ impl IMFCaptureEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), clsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFCaptureEngineClassFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCaptureEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCaptureEngineClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10586,7 +10586,7 @@ impl IMFCaptureEngineOnEventCallback {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), pevent.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCaptureEngineOnEventCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCaptureEngineOnEventCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCaptureEngineOnEventCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10626,7 +10626,7 @@ impl IMFCaptureEngineOnSampleCallback {
         (::windows::core::Vtable::vtable(self).OnSample)(::windows::core::Vtable::as_raw(self), psample.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCaptureEngineOnSampleCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCaptureEngineOnSampleCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCaptureEngineOnSampleCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10672,7 +10672,7 @@ impl IMFCaptureEngineOnSampleCallback2 {
         (::windows::core::Vtable::vtable(self).OnSynchronizedEvent)(::windows::core::Vtable::as_raw(self), pevent.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCaptureEngineOnSampleCallback2, ::windows::core::IUnknown, IMFCaptureEngineOnSampleCallback);
+::windows::imp::interface_hierarchy!(IMFCaptureEngineOnSampleCallback2, ::windows::core::IUnknown, IMFCaptureEngineOnSampleCallback);
 impl ::core::cmp::PartialEq for IMFCaptureEngineOnSampleCallback2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10719,7 +10719,7 @@ impl IMFCapturePhotoConfirmation {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFCapturePhotoConfirmation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCapturePhotoConfirmation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCapturePhotoConfirmation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10792,7 +10792,7 @@ impl IMFCapturePhotoSink {
         (::windows::core::Vtable::vtable(self).SetOutputByteStream)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCapturePhotoSink, ::windows::core::IUnknown, IMFCaptureSink);
+::windows::imp::interface_hierarchy!(IMFCapturePhotoSink, ::windows::core::IUnknown, IMFCaptureSink);
 impl ::core::cmp::PartialEq for IMFCapturePhotoSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10899,7 +10899,7 @@ impl IMFCapturePreviewSink {
         (::windows::core::Vtable::vtable(self).SetCustomSink)(::windows::core::Vtable::as_raw(self), pmediasink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCapturePreviewSink, ::windows::core::IUnknown, IMFCaptureSink);
+::windows::imp::interface_hierarchy!(IMFCapturePreviewSink, ::windows::core::IUnknown, IMFCaptureSink);
 impl ::core::cmp::PartialEq for IMFCapturePreviewSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11003,7 +11003,7 @@ impl IMFCaptureRecordSink {
         (::windows::core::Vtable::vtable(self).SetRotation)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwrotationvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCaptureRecordSink, ::windows::core::IUnknown, IMFCaptureSink);
+::windows::imp::interface_hierarchy!(IMFCaptureRecordSink, ::windows::core::IUnknown, IMFCaptureSink);
 impl ::core::cmp::PartialEq for IMFCaptureRecordSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11061,7 +11061,7 @@ impl IMFCaptureSink {
         (::windows::core::Vtable::vtable(self).RemoveAllStreams)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCaptureSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCaptureSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCaptureSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11125,7 +11125,7 @@ impl IMFCaptureSink2 {
         (::windows::core::Vtable::vtable(self).SetOutputMediaType)(::windows::core::Vtable::as_raw(self), dwstreamindex, pmediatype.into().abi(), pencodingattributes.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCaptureSink2, ::windows::core::IUnknown, IMFCaptureSink);
+::windows::imp::interface_hierarchy!(IMFCaptureSink2, ::windows::core::IUnknown, IMFCaptureSink);
 impl ::core::cmp::PartialEq for IMFCaptureSink2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11222,7 +11222,7 @@ impl IMFCaptureSource {
         (::windows::core::Vtable::vtable(self).GetStreamIndexFromFriendlyName)(::windows::core::Vtable::as_raw(self), uifriendlyname, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFCaptureSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCaptureSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCaptureSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11281,7 +11281,7 @@ impl IMFCdmSuspendNotify {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCdmSuspendNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCdmSuspendNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCdmSuspendNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11334,7 +11334,7 @@ impl IMFClock {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pclockproperties).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFClock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFClock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFClock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11382,7 +11382,7 @@ impl IMFClockConsumer {
         (::windows::core::Vtable::vtable(self).GetPresentationClock)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFClockConsumer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFClockConsumer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFClockConsumer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11432,7 +11432,7 @@ impl IMFClockStateSink {
         (::windows::core::Vtable::vtable(self).OnClockSetRate)(::windows::core::Vtable::as_raw(self), hnssystemtime, flrate).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFClockStateSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFClockStateSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFClockStateSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11497,7 +11497,7 @@ impl IMFCollection {
         (::windows::core::Vtable::vtable(self).RemoveAllElements)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11570,7 +11570,7 @@ impl IMFContentDecryptionModule {
         (::windows::core::Vtable::vtable(self).GetProtectionSystemIds)(::windows::core::Vtable::as_raw(self), systemids, count).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFContentDecryptionModule, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFContentDecryptionModule, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFContentDecryptionModule {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11629,7 +11629,7 @@ impl IMFContentDecryptionModuleAccess {
         (::windows::core::Vtable::vtable(self).GetKeySystem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFContentDecryptionModuleAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFContentDecryptionModuleAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFContentDecryptionModuleAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11689,7 +11689,7 @@ impl IMFContentDecryptionModuleFactory {
         (::windows::core::Vtable::vtable(self).CreateContentDecryptionModuleAccess)(::windows::core::Vtable::as_raw(self), keysystem.into().abi(), ::core::mem::transmute(configurations.as_ptr()), configurations.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFContentDecryptionModuleFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFContentDecryptionModuleFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFContentDecryptionModuleFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11765,7 +11765,7 @@ impl IMFContentDecryptionModuleSession {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFContentDecryptionModuleSession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFContentDecryptionModuleSession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFContentDecryptionModuleSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11818,7 +11818,7 @@ impl IMFContentDecryptionModuleSessionCallbacks {
         (::windows::core::Vtable::vtable(self).KeyStatusChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFContentDecryptionModuleSessionCallbacks, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFContentDecryptionModuleSessionCallbacks, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFContentDecryptionModuleSessionCallbacks {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11857,7 +11857,7 @@ impl IMFContentDecryptorContext {
         (::windows::core::Vtable::vtable(self).InitializeHardwareKey)(::windows::core::Vtable::as_raw(self), inputprivatedata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(inputprivatedata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFContentDecryptorContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFContentDecryptorContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFContentDecryptorContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11916,7 +11916,7 @@ impl IMFContentEnabler {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFContentEnabler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFContentEnabler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFContentEnabler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11965,7 +11965,7 @@ impl IMFContentProtectionDevice {
         (::windows::core::Vtable::vtable(self).GetPrivateDataByteCount)(::windows::core::Vtable::as_raw(self), privateinputbytecount, privateoutputbytecount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFContentProtectionDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFContentProtectionDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFContentProtectionDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12015,7 +12015,7 @@ impl IMFContentProtectionManager {
         (::windows::core::Vtable::vtable(self).EndEnableContent)(::windows::core::Vtable::as_raw(self), presult.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFContentProtectionManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFContentProtectionManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFContentProtectionManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12061,7 +12061,7 @@ impl IMFD3D12SynchronizationObject {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFD3D12SynchronizationObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFD3D12SynchronizationObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFD3D12SynchronizationObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12131,7 +12131,7 @@ impl IMFD3D12SynchronizationObjectCommands {
         (::windows::core::Vtable::vtable(self).EnqueueResourceRelease)(::windows::core::Vtable::as_raw(self), pconsumercommandqueue.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFD3D12SynchronizationObjectCommands, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFD3D12SynchronizationObjectCommands, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFD3D12SynchronizationObjectCommands {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12189,7 +12189,7 @@ impl IMFDLNASinkInit {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), fpal.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFDLNASinkInit, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFDLNASinkInit, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFDLNASinkInit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12232,7 +12232,7 @@ impl IMFDRMNetHelper {
         (::windows::core::Vtable::vtable(self).GetChainedLicenseResponse)(::windows::core::Vtable::as_raw(self), pplicenseresponse, pcblicenseresponse).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFDRMNetHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFDRMNetHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFDRMNetHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12283,7 +12283,7 @@ impl IMFDXGIBuffer {
         (::windows::core::Vtable::vtable(self).SetUnknown)(::windows::core::Vtable::as_raw(self), guid, punkdata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFDXGIBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFDXGIBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFDXGIBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12374,7 +12374,7 @@ impl IMFDXGIDeviceManager {
         (::windows::core::Vtable::vtable(self).UnlockDevice)(::windows::core::Vtable::as_raw(self), hdevice.into(), fsavestate.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFDXGIDeviceManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFDXGIDeviceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFDXGIDeviceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12436,7 +12436,7 @@ impl IMFDXGIDeviceManagerSource {
         (::windows::core::Vtable::vtable(self).GetManager)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFDXGIDeviceManagerSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFDXGIDeviceManagerSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFDXGIDeviceManagerSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12479,7 +12479,7 @@ impl IMFDesiredSample {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFDesiredSample, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFDesiredSample, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFDesiredSample {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12598,7 +12598,7 @@ impl IMFDeviceTransform {
         (::windows::core::Vtable::vtable(self).FlushOutputStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFDeviceTransform, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFDeviceTransform, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFDeviceTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12657,7 +12657,7 @@ impl IMFDeviceTransformCallback {
         (::windows::core::Vtable::vtable(self).OnBufferSent)(::windows::core::Vtable::as_raw(self), pcallbackattributes.into().abi(), pinid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFDeviceTransformCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFDeviceTransformCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFDeviceTransformCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12709,7 +12709,7 @@ impl IMFExtendedCameraControl {
         (::windows::core::Vtable::vtable(self).CommitSettings)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFExtendedCameraControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFExtendedCameraControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFExtendedCameraControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12752,7 +12752,7 @@ impl IMFExtendedCameraController {
         (::windows::core::Vtable::vtable(self).GetExtendedCameraControl)(::windows::core::Vtable::as_raw(self), dwstreamindex, ulpropertyid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFExtendedCameraController, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFExtendedCameraController, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFExtendedCameraController {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12796,7 +12796,7 @@ impl IMFExtendedCameraIntrinsicModel {
         (::windows::core::Vtable::vtable(self).GetDistortionModelType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsicModel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFExtendedCameraIntrinsicModel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFExtendedCameraIntrinsicModel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12856,7 +12856,7 @@ impl IMFExtendedCameraIntrinsics {
         (::windows::core::Vtable::vtable(self).AddIntrinsicModel)(::windows::core::Vtable::as_raw(self), pintrinsicmodel.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsics, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFExtendedCameraIntrinsics, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFExtendedCameraIntrinsics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12901,7 +12901,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModel6KT {
         (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), pdistortionmodel).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsicsDistortionModel6KT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFExtendedCameraIntrinsicsDistortionModel6KT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFExtendedCameraIntrinsicsDistortionModel6KT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12942,7 +12942,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModelArcTan {
         (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), pdistortionmodel).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsicsDistortionModelArcTan, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFExtendedCameraIntrinsicsDistortionModelArcTan, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFExtendedCameraIntrinsicsDistortionModelArcTan {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12981,7 +12981,7 @@ impl IMFExtendedDRMTypeSupport {
         (::windows::core::Vtable::vtable(self).IsTypeSupportedEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(keysystem), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFExtendedDRMTypeSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFExtendedDRMTypeSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFExtendedDRMTypeSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13021,7 +13021,7 @@ impl IMFFieldOfUseMFTUnlock {
         (::windows::core::Vtable::vtable(self).Unlock)(::windows::core::Vtable::as_raw(self), punkmft.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFFieldOfUseMFTUnlock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFFieldOfUseMFTUnlock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFFieldOfUseMFTUnlock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13107,7 +13107,7 @@ impl IMFFinalizableMediaSink {
         (::windows::core::Vtable::vtable(self).EndFinalize)(::windows::core::Vtable::as_raw(self), presult.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFFinalizableMediaSink, ::windows::core::IUnknown, IMFMediaSink);
+::windows::imp::interface_hierarchy!(IMFFinalizableMediaSink, ::windows::core::IUnknown, IMFMediaSink);
 impl ::core::cmp::PartialEq for IMFFinalizableMediaSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13149,7 +13149,7 @@ impl IMFGetService {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), guidservice, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFGetService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFGetService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFGetService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13191,7 +13191,7 @@ impl IMFHDCPStatus {
         (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFHDCPStatus, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFHDCPStatus, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFHDCPStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13315,7 +13315,7 @@ impl IMFHttpDownloadRequest {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFHttpDownloadRequest, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFHttpDownloadRequest, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFHttpDownloadRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13392,7 +13392,7 @@ impl IMFHttpDownloadSession {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFHttpDownloadSession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFHttpDownloadSession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFHttpDownloadSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13438,7 +13438,7 @@ impl IMFHttpDownloadSessionProvider {
         (::windows::core::Vtable::vtable(self).CreateHttpDownloadSession)(::windows::core::Vtable::as_raw(self), wszscheme.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFHttpDownloadSessionProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFHttpDownloadSessionProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFHttpDownloadSessionProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13484,7 +13484,7 @@ impl IMFImageSharingEngine {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFImageSharingEngine, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFImageSharingEngine, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFImageSharingEngine {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13524,7 +13524,7 @@ impl IMFImageSharingEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstanceFromUDN)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(puniquedevicename), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFImageSharingEngineClassFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFImageSharingEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFImageSharingEngineClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13578,7 +13578,7 @@ impl IMFInputTrustAuthority {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFInputTrustAuthority, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFInputTrustAuthority, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFInputTrustAuthority {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13620,7 +13620,7 @@ impl IMFLocalMFTRegistration {
         (::windows::core::Vtable::vtable(self).RegisterMFTs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmfts.as_ptr()), pmfts.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFLocalMFTRegistration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFLocalMFTRegistration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFLocalMFTRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13671,7 +13671,7 @@ impl IMFMediaBuffer {
         (::windows::core::Vtable::vtable(self).GetMaxLength)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13881,7 +13881,7 @@ impl IMFMediaEngine {
         (::windows::core::Vtable::vtable(self).OnVideoStreamTick)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngine, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngine, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngine {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14002,7 +14002,7 @@ impl IMFMediaEngineAudioEndpointId {
         (::windows::core::Vtable::vtable(self).GetAudioEndpointId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineAudioEndpointId, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineAudioEndpointId, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineAudioEndpointId {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14052,7 +14052,7 @@ impl IMFMediaEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateError)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineClassFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14092,7 +14092,7 @@ impl IMFMediaEngineClassFactory2 {
         (::windows::core::Vtable::vtable(self).CreateMediaKeys2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute_copy(defaultcdmstorepath), ::core::mem::transmute_copy(inprivatecdmstorepath), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineClassFactory2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineClassFactory2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineClassFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14132,7 +14132,7 @@ impl IMFMediaEngineClassFactory3 {
         (::windows::core::Vtable::vtable(self).CreateMediaKeySystemAccess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute(ppsupportedconfigurationsarray.as_ptr()), ppsupportedconfigurationsarray.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineClassFactory3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineClassFactory3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineClassFactory3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14175,7 +14175,7 @@ impl IMFMediaEngineClassFactory4 {
         (::windows::core::Vtable::vtable(self).CreateContentDecryptionModuleFactory)(::windows::core::Vtable::as_raw(self), keysystem.into().abi(), riid, ppvobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineClassFactory4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineClassFactory4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineClassFactory4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14241,7 +14241,7 @@ impl IMFMediaEngineClassFactoryEx {
         (::windows::core::Vtable::vtable(self).IsTypeSupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(keysystem), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineClassFactoryEx, ::windows::core::IUnknown, IMFMediaEngineClassFactory);
+::windows::imp::interface_hierarchy!(IMFMediaEngineClassFactoryEx, ::windows::core::IUnknown, IMFMediaEngineClassFactory);
 impl ::core::cmp::PartialEq for IMFMediaEngineClassFactoryEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14290,7 +14290,7 @@ impl IMFMediaEngineEME {
         (::windows::core::Vtable::vtable(self).SetMediaKeys)(::windows::core::Vtable::as_raw(self), keys.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineEME, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineEME, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineEME {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14331,7 +14331,7 @@ impl IMFMediaEngineEMENotify {
         (::windows::core::Vtable::vtable(self).WaitingForKey)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineEMENotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineEMENotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineEMENotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14728,7 +14728,7 @@ impl IMFMediaEngineEx {
         (::windows::core::Vtable::vtable(self).EnableTimeUpdateTimer)(::windows::core::Vtable::as_raw(self), fenabletimer.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineEx, ::windows::core::IUnknown, IMFMediaEngine);
+::windows::imp::interface_hierarchy!(IMFMediaEngineEx, ::windows::core::IUnknown, IMFMediaEngine);
 impl ::core::cmp::PartialEq for IMFMediaEngineEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14882,7 +14882,7 @@ impl IMFMediaEngineExtension {
         (::windows::core::Vtable::vtable(self).EndCreateObject)(::windows::core::Vtable::as_raw(self), presult.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineExtension, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineExtension, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineExtension {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14925,7 +14925,7 @@ impl IMFMediaEngineNeedKeyNotify {
         (::windows::core::Vtable::vtable(self).NeedKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(initdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len() as _))
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineNeedKeyNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineNeedKeyNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineNeedKeyNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14962,7 +14962,7 @@ impl IMFMediaEngineNotify {
         (::windows::core::Vtable::vtable(self).EventNotify)(::windows::core::Vtable::as_raw(self), event, param1, param2).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15001,7 +15001,7 @@ impl IMFMediaEngineOPMInfo {
         (::windows::core::Vtable::vtable(self).GetOPMInfo)(::windows::core::Vtable::as_raw(self), pstatus, pconstricted).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineOPMInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineOPMInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineOPMInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15074,7 +15074,7 @@ impl IMFMediaEngineProtectedContent {
         (::windows::core::Vtable::vtable(self).SetApplicationCertificate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbblob.as_ptr()), pbblob.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineProtectedContent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineProtectedContent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineProtectedContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15140,7 +15140,7 @@ impl IMFMediaEngineSrcElements {
         (::windows::core::Vtable::vtable(self).RemoveAllElements)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineSrcElements, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineSrcElements, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineSrcElements {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15207,7 +15207,7 @@ impl IMFMediaEngineSrcElementsEx {
         (::windows::core::Vtable::vtable(self).GetKeySystem)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineSrcElementsEx, ::windows::core::IUnknown, IMFMediaEngineSrcElements);
+::windows::imp::interface_hierarchy!(IMFMediaEngineSrcElementsEx, ::windows::core::IUnknown, IMFMediaEngineSrcElements);
 impl ::core::cmp::PartialEq for IMFMediaEngineSrcElementsEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15259,7 +15259,7 @@ impl IMFMediaEngineSupportsSourceTransfer {
         (::windows::core::Vtable::vtable(self).AttachMediaSource)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), pmediasource.into().abi(), pmse.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineSupportsSourceTransfer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineSupportsSourceTransfer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineSupportsSourceTransfer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15304,7 +15304,7 @@ impl IMFMediaEngineTransferSource {
         (::windows::core::Vtable::vtable(self).TransferSourceToMediaEngine)(::windows::core::Vtable::as_raw(self), destination.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineTransferSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineTransferSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineTransferSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15350,7 +15350,7 @@ impl IMFMediaEngineWebSupport {
         (::windows::core::Vtable::vtable(self).DisconnectWebAudio)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEngineWebSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEngineWebSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEngineWebSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15401,7 +15401,7 @@ impl IMFMediaError {
         (::windows::core::Vtable::vtable(self).SetExtendedErrorCode)(::windows::core::Vtable::as_raw(self), error).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaError, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaError, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaError {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15582,7 +15582,7 @@ impl IMFMediaEvent {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEvent, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFMediaEvent, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFMediaEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15645,7 +15645,7 @@ impl IMFMediaEventGenerator {
         (::windows::core::Vtable::vtable(self).QueueEvent)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEventGenerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEventGenerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEventGenerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15723,7 +15723,7 @@ impl IMFMediaEventQueue {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaEventQueue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaEventQueue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaEventQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15783,7 +15783,7 @@ impl IMFMediaKeySession {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaKeySession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaKeySession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaKeySession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15860,7 +15860,7 @@ impl IMFMediaKeySession2 {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaKeySession2, ::windows::core::IUnknown, IMFMediaKeySession);
+::windows::imp::interface_hierarchy!(IMFMediaKeySession2, ::windows::core::IUnknown, IMFMediaKeySession);
 impl ::core::cmp::PartialEq for IMFMediaKeySession2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15911,7 +15911,7 @@ impl IMFMediaKeySessionNotify {
         (::windows::core::Vtable::vtable(self).KeyError)(::windows::core::Vtable::as_raw(self), code, systemcode)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaKeySessionNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaKeySessionNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaKeySessionNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15962,7 +15962,7 @@ impl IMFMediaKeySessionNotify2 {
         (::windows::core::Vtable::vtable(self).KeyStatusChange)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaKeySessionNotify2, ::windows::core::IUnknown, IMFMediaKeySessionNotify);
+::windows::imp::interface_hierarchy!(IMFMediaKeySessionNotify2, ::windows::core::IUnknown, IMFMediaKeySessionNotify);
 impl ::core::cmp::PartialEq for IMFMediaKeySessionNotify2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16016,7 +16016,7 @@ impl IMFMediaKeySystemAccess {
         (::windows::core::Vtable::vtable(self).KeySystem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaKeySystemAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaKeySystemAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaKeySystemAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16076,7 +16076,7 @@ impl IMFMediaKeys {
         (::windows::core::Vtable::vtable(self).GetSuspendNotify)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaKeys, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaKeys, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaKeys {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16145,7 +16145,7 @@ impl IMFMediaKeys2 {
         (::windows::core::Vtable::vtable(self).GetDOMException)(::windows::core::Vtable::as_raw(self), systemcode, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaKeys2, ::windows::core::IUnknown, IMFMediaKeys);
+::windows::imp::interface_hierarchy!(IMFMediaKeys2, ::windows::core::IUnknown, IMFMediaKeys);
 impl ::core::cmp::PartialEq for IMFMediaKeys2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16242,7 +16242,7 @@ impl IMFMediaSession {
         (::windows::core::Vtable::vtable(self).GetFullTopology)(::windows::core::Vtable::as_raw(self), dwgetfulltopologyflags, topoid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSession, ::windows::core::IUnknown, IMFMediaEventGenerator);
+::windows::imp::interface_hierarchy!(IMFMediaSession, ::windows::core::IUnknown, IMFMediaEventGenerator);
 impl ::core::cmp::PartialEq for IMFMediaSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16463,7 +16463,7 @@ impl IMFMediaSharingEngine {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), pdevice).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSharingEngine, ::windows::core::IUnknown, IMFMediaEngine);
+::windows::imp::interface_hierarchy!(IMFMediaSharingEngine, ::windows::core::IUnknown, IMFMediaEngine);
 impl ::core::cmp::PartialEq for IMFMediaSharingEngine {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16504,7 +16504,7 @@ impl IMFMediaSharingEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), dwflags, pattr.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSharingEngineClassFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaSharingEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaSharingEngineClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16577,7 +16577,7 @@ impl IMFMediaSink {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16622,7 +16622,7 @@ impl IMFMediaSinkPreroll {
         (::windows::core::Vtable::vtable(self).NotifyPreroll)(::windows::core::Vtable::as_raw(self), hnsupcomingstarttime).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSinkPreroll, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaSinkPreroll, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaSinkPreroll {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16704,7 +16704,7 @@ impl IMFMediaSource {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSource, ::windows::core::IUnknown, IMFMediaEventGenerator);
+::windows::imp::interface_hierarchy!(IMFMediaSource, ::windows::core::IUnknown, IMFMediaEventGenerator);
 impl ::core::cmp::PartialEq for IMFMediaSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16814,7 +16814,7 @@ impl IMFMediaSource2 {
         (::windows::core::Vtable::vtable(self).SetMediaType)(::windows::core::Vtable::as_raw(self), dwstreamid, pmediatype.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSource2, ::windows::core::IUnknown, IMFMediaEventGenerator, IMFMediaSource, IMFMediaSourceEx);
+::windows::imp::interface_hierarchy!(IMFMediaSource2, ::windows::core::IUnknown, IMFMediaEventGenerator, IMFMediaSource, IMFMediaSourceEx);
 impl ::core::cmp::PartialEq for IMFMediaSource2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16910,7 +16910,7 @@ impl IMFMediaSourceEx {
         (::windows::core::Vtable::vtable(self).SetD3DManager)(::windows::core::Vtable::as_raw(self), pmanager.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSourceEx, ::windows::core::IUnknown, IMFMediaEventGenerator, IMFMediaSource);
+::windows::imp::interface_hierarchy!(IMFMediaSourceEx, ::windows::core::IUnknown, IMFMediaEventGenerator, IMFMediaSource);
 impl ::core::cmp::PartialEq for IMFMediaSourceEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16985,7 +16985,7 @@ impl IMFMediaSourceExtension {
         (::windows::core::Vtable::vtable(self).GetSourceBuffer)(::windows::core::Vtable::as_raw(self), dwstreamindex)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSourceExtension, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaSourceExtension, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaSourceExtension {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17037,7 +17037,7 @@ impl IMFMediaSourceExtensionLiveSeekableRange {
         (::windows::core::Vtable::vtable(self).ClearLiveSeekableRange)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSourceExtensionLiveSeekableRange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaSourceExtensionLiveSeekableRange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaSourceExtensionLiveSeekableRange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17081,7 +17081,7 @@ impl IMFMediaSourceExtensionNotify {
         (::windows::core::Vtable::vtable(self).OnSourceClose)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSourceExtensionNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaSourceExtensionNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaSourceExtensionNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17123,7 +17123,7 @@ impl IMFMediaSourcePresentationProvider {
         (::windows::core::Vtable::vtable(self).ForceEndOfPresentation)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSourcePresentationProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaSourcePresentationProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaSourcePresentationProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17164,7 +17164,7 @@ impl IMFMediaSourceTopologyProvider {
         (::windows::core::Vtable::vtable(self).GetMediaSourceTopology)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaSourceTopologyProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaSourceTopologyProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaSourceTopologyProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17235,7 +17235,7 @@ impl IMFMediaStream {
         (::windows::core::Vtable::vtable(self).RequestSample)(::windows::core::Vtable::as_raw(self), ptoken.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaStream, ::windows::core::IUnknown, IMFMediaEventGenerator);
+::windows::imp::interface_hierarchy!(IMFMediaStream, ::windows::core::IUnknown, IMFMediaEventGenerator);
 impl ::core::cmp::PartialEq for IMFMediaStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17315,7 +17315,7 @@ impl IMFMediaStream2 {
         (::windows::core::Vtable::vtable(self).GetStreamState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaStream2, ::windows::core::IUnknown, IMFMediaEventGenerator, IMFMediaStream);
+::windows::imp::interface_hierarchy!(IMFMediaStream2, ::windows::core::IUnknown, IMFMediaEventGenerator, IMFMediaStream);
 impl ::core::cmp::PartialEq for IMFMediaStream2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17356,7 +17356,7 @@ impl IMFMediaStreamSourceSampleRequest {
         (::windows::core::Vtable::vtable(self).SetSample)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaStreamSourceSampleRequest, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaStreamSourceSampleRequest, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaStreamSourceSampleRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17412,7 +17412,7 @@ impl IMFMediaTimeRange {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaTimeRange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaTimeRange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaTimeRange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17603,7 +17603,7 @@ impl IMFMediaType {
         (::windows::core::Vtable::vtable(self).FreeRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), pvrepresentation).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaType, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFMediaType, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFMediaType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17672,7 +17672,7 @@ impl IMFMediaTypeHandler {
         (::windows::core::Vtable::vtable(self).GetMajorType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMediaTypeHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMediaTypeHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMediaTypeHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17756,7 +17756,7 @@ impl IMFMetadata {
         (::windows::core::Vtable::vtable(self).GetAllPropertyNames)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMetadata, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMetadata, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMetadata {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17815,7 +17815,7 @@ impl IMFMetadataProvider {
         (::windows::core::Vtable::vtable(self).GetMFMetadata)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), dwstreamidentifier, dwflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMetadataProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMetadataProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMetadataProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17857,7 +17857,7 @@ impl IMFMuxStreamAttributesManager {
         (::windows::core::Vtable::vtable(self).GetAttributes)(::windows::core::Vtable::as_raw(self), dwmuxstreamindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMuxStreamAttributesManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMuxStreamAttributesManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMuxStreamAttributesManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17914,7 +17914,7 @@ impl IMFMuxStreamMediaTypeManager {
         (::windows::core::Vtable::vtable(self).GetStreamConfiguration)(::windows::core::Vtable::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFMuxStreamMediaTypeManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMuxStreamMediaTypeManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMuxStreamMediaTypeManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17964,7 +17964,7 @@ impl IMFMuxStreamSampleManager {
         (::windows::core::Vtable::vtable(self).GetStreamConfiguration)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFMuxStreamSampleManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFMuxStreamSampleManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFMuxStreamSampleManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18038,7 +18038,7 @@ impl IMFNetCredential {
         (::windows::core::Vtable::vtable(self).LoggedOnUser)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFNetCredential, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFNetCredential, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFNetCredential {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18113,7 +18113,7 @@ impl IMFNetCredentialCache {
         (::windows::core::Vtable::vtable(self).SetUserOptions)(::windows::core::Vtable::as_raw(self), pcred.into().abi(), dwoptionsflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFNetCredentialCache, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFNetCredentialCache, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFNetCredentialCache {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18177,7 +18177,7 @@ impl IMFNetCredentialManager {
         (::windows::core::Vtable::vtable(self).SetGood)(::windows::core::Vtable::as_raw(self), pcred.into().abi(), fgood.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFNetCredentialManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFNetCredentialManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFNetCredentialManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18236,7 +18236,7 @@ impl IMFNetCrossOriginSupport {
         (::windows::core::Vtable::vtable(self).IsSameOrigin)(::windows::core::Vtable::as_raw(self), wszurl.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFNetCrossOriginSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFNetCrossOriginSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFNetCrossOriginSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18298,7 +18298,7 @@ impl IMFNetProxyLocator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFNetProxyLocator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFNetProxyLocator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFNetProxyLocator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18346,7 +18346,7 @@ impl IMFNetProxyLocatorFactory {
         (::windows::core::Vtable::vtable(self).CreateProxyLocator)(::windows::core::Vtable::as_raw(self), pszprotocol.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFNetProxyLocatorFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFNetProxyLocatorFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFNetProxyLocatorFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18395,7 +18395,7 @@ impl IMFNetResourceFilter {
         (::windows::core::Vtable::vtable(self).OnSendingRequest)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFNetResourceFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFNetResourceFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFNetResourceFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18444,7 +18444,7 @@ impl IMFNetSchemeHandlerConfig {
         (::windows::core::Vtable::vtable(self).ResetProtocolRolloverSettings)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFNetSchemeHandlerConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFNetSchemeHandlerConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFNetSchemeHandlerConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18489,7 +18489,7 @@ impl IMFObjectReferenceStream {
         (::windows::core::Vtable::vtable(self).LoadReference)(::windows::core::Vtable::as_raw(self), riid, ppv).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFObjectReferenceStream, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFObjectReferenceStream, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFObjectReferenceStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18662,7 +18662,7 @@ impl IMFOutputPolicy {
         (::windows::core::Vtable::vtable(self).GetMinimumGRLVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFOutputPolicy, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFOutputPolicy, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFOutputPolicy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18836,7 +18836,7 @@ impl IMFOutputSchema {
         (::windows::core::Vtable::vtable(self).GetOriginatorID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFOutputSchema, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFOutputSchema, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFOutputSchema {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18879,7 +18879,7 @@ impl IMFOutputTrustAuthority {
         (::windows::core::Vtable::vtable(self).SetPolicy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppolicy.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pppolicy.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppbticket.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbticket.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFOutputTrustAuthority, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFOutputTrustAuthority, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFOutputTrustAuthority {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18920,7 +18920,7 @@ impl IMFPMPClient {
         (::windows::core::Vtable::vtable(self).SetPMPHost)(::windows::core::Vtable::as_raw(self), ppmphost.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFPMPClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFPMPClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFPMPClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18960,7 +18960,7 @@ impl IMFPMPClientApp {
         (::windows::core::Vtable::vtable(self).SetPMPHost)(::windows::core::Vtable::as_raw(self), ppmphost.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFPMPClientApp, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFPMPClientApp, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFPMPClientApp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19010,7 +19010,7 @@ impl IMFPMPHost {
         (::windows::core::Vtable::vtable(self).CreateObjectByCLSID)(::windows::core::Vtable::as_raw(self), clsid, pstream.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFPMPHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFPMPHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFPMPHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19066,7 +19066,7 @@ impl IMFPMPHostApp {
         (::windows::core::Vtable::vtable(self).ActivateClassById)(::windows::core::Vtable::as_raw(self), id.into().abi(), pstream.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFPMPHostApp, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFPMPHostApp, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFPMPHostApp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19118,7 +19118,7 @@ impl IMFPMPServer {
         (::windows::core::Vtable::vtable(self).CreateObjectByCLSID)(::windows::core::Vtable::as_raw(self), clsid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFPMPServer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFPMPServer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFPMPServer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19251,7 +19251,7 @@ impl IMFPMediaItem {
         (::windows::core::Vtable::vtable(self).GetMetadata)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFPMediaItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFPMediaItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFPMediaItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19511,7 +19511,7 @@ impl IMFPMediaPlayer {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFPMediaPlayer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFPMediaPlayer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFPMediaPlayer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19627,7 +19627,7 @@ impl IMFPMediaPlayerCallback {
         (::windows::core::Vtable::vtable(self).OnMediaPlayerEvent)(::windows::core::Vtable::as_raw(self), peventheader)
     }
 }
-::windows::core::interface_hierarchy!(IMFPMediaPlayerCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFPMediaPlayerCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFPMediaPlayerCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19695,7 +19695,7 @@ impl IMFPluginControl {
         (::windows::core::Vtable::vtable(self).SetDisabled)(::windows::core::Vtable::as_raw(self), plugintype, clsid, disabled.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFPluginControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFPluginControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFPluginControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19771,7 +19771,7 @@ impl IMFPluginControl2 {
         (::windows::core::Vtable::vtable(self).SetPolicy)(::windows::core::Vtable::as_raw(self), policy).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFPluginControl2, ::windows::core::IUnknown, IMFPluginControl);
+::windows::imp::interface_hierarchy!(IMFPluginControl2, ::windows::core::IUnknown, IMFPluginControl);
 impl ::core::cmp::PartialEq for IMFPluginControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19858,7 +19858,7 @@ impl IMFPresentationClock {
         (::windows::core::Vtable::vtable(self).Pause)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFPresentationClock, ::windows::core::IUnknown, IMFClock);
+::windows::imp::interface_hierarchy!(IMFPresentationClock, ::windows::core::IUnknown, IMFClock);
 impl ::core::cmp::PartialEq for IMFPresentationClock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20044,7 +20044,7 @@ impl IMFPresentationDescriptor {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFPresentationDescriptor, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFPresentationDescriptor, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFPresentationDescriptor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20107,7 +20107,7 @@ impl IMFPresentationTimeSource {
         (::windows::core::Vtable::vtable(self).GetUnderlyingClock)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFPresentationTimeSource, ::windows::core::IUnknown, IMFClock);
+::windows::imp::interface_hierarchy!(IMFPresentationTimeSource, ::windows::core::IUnknown, IMFClock);
 impl ::core::cmp::PartialEq for IMFPresentationTimeSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20147,7 +20147,7 @@ impl IMFProtectedEnvironmentAccess {
         (::windows::core::Vtable::vtable(self).ReadGRL)(::windows::core::Vtable::as_raw(self), outputlength, output).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFProtectedEnvironmentAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFProtectedEnvironmentAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFProtectedEnvironmentAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20199,7 +20199,7 @@ impl IMFQualityAdvise {
         (::windows::core::Vtable::vtable(self).DropTime)(::windows::core::Vtable::as_raw(self), hnsamounttodrop).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFQualityAdvise, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFQualityAdvise, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFQualityAdvise {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20261,7 +20261,7 @@ impl IMFQualityAdvise2 {
         (::windows::core::Vtable::vtable(self).NotifyQualityEvent)(::windows::core::Vtable::as_raw(self), pevent.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFQualityAdvise2, ::windows::core::IUnknown, IMFQualityAdvise);
+::windows::imp::interface_hierarchy!(IMFQualityAdvise2, ::windows::core::IUnknown, IMFQualityAdvise);
 impl ::core::cmp::PartialEq for IMFQualityAdvise2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20303,7 +20303,7 @@ impl IMFQualityAdviseLimits {
         (::windows::core::Vtable::vtable(self).GetMinimumQualityLevel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFQualityAdviseLimits, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFQualityAdviseLimits, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFQualityAdviseLimits {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20374,7 +20374,7 @@ impl IMFQualityManager {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFQualityManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFQualityManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFQualityManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20426,7 +20426,7 @@ impl IMFRateControl {
         (::windows::core::Vtable::vtable(self).GetRate)(::windows::core::Vtable::as_raw(self), pfthin, pflrate).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFRateControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFRateControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFRateControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20493,7 +20493,7 @@ impl IMFRateSupport {
         (::windows::core::Vtable::vtable(self).IsRateSupported)(::windows::core::Vtable::as_raw(self), fthin.into(), flrate, pflnearestsupportedrate).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFRateSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFRateSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFRateSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20556,7 +20556,7 @@ impl IMFReadWriteClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstanceFromObject)(::windows::core::Vtable::as_raw(self), clsid, punkobject.into().abi(), pattributes.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFReadWriteClassFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFReadWriteClassFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFReadWriteClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20603,7 +20603,7 @@ impl IMFRealTimeClient {
         (::windows::core::Vtable::vtable(self).SetWorkQueue)(::windows::core::Vtable::as_raw(self), dwworkqueueid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFRealTimeClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFRealTimeClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFRealTimeClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20651,7 +20651,7 @@ impl IMFRealTimeClientEx {
         (::windows::core::Vtable::vtable(self).SetWorkQueueEx)(::windows::core::Vtable::as_raw(self), dwmultithreadedworkqueueid, lworkitembasepriority).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFRealTimeClientEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFRealTimeClientEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFRealTimeClientEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20691,7 +20691,7 @@ impl IMFRelativePanelReport {
         (::windows::core::Vtable::vtable(self).GetRelativePanel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFRelativePanelReport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFRelativePanelReport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFRelativePanelReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20750,7 +20750,7 @@ impl IMFRelativePanelWatcher {
         (::windows::core::Vtable::vtable(self).GetReport)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFRelativePanelWatcher, ::windows::core::IUnknown, IMFShutdown);
+::windows::imp::interface_hierarchy!(IMFRelativePanelWatcher, ::windows::core::IUnknown, IMFShutdown);
 impl ::core::cmp::PartialEq for IMFRelativePanelWatcher {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20792,7 +20792,7 @@ impl IMFRemoteAsyncCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), hr, premoteresult.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFRemoteAsyncCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFRemoteAsyncCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFRemoteAsyncCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20832,7 +20832,7 @@ impl IMFRemoteDesktopPlugin {
         (::windows::core::Vtable::vtable(self).UpdateTopology)(::windows::core::Vtable::as_raw(self), ptopology.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFRemoteDesktopPlugin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFRemoteDesktopPlugin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFRemoteDesktopPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20872,7 +20872,7 @@ impl IMFRemoteProxy {
         (::windows::core::Vtable::vtable(self).GetRemoteHost)(::windows::core::Vtable::as_raw(self), riid, ppv).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFRemoteProxy, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFRemoteProxy, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFRemoteProxy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20927,7 +20927,7 @@ impl IMFSAMIStyle {
         (::windows::core::Vtable::vtable(self).GetSelectedStyle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSAMIStyle, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSAMIStyle, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSAMIStyle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21004,7 +21004,7 @@ impl IMFSSLCertificateManager {
         (::windows::core::Vtable::vtable(self).OnServerCertificate)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSSLCertificateManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSSLCertificateManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSSLCertificateManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21229,7 +21229,7 @@ impl IMFSample {
         (::windows::core::Vtable::vtable(self).CopyToBuffer)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSample, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFSample, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFSample {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21285,7 +21285,7 @@ impl IMFSampleAllocatorControl {
         (::windows::core::Vtable::vtable(self).GetAllocatorUsage)(::windows::core::Vtable::as_raw(self), dwoutputstreamid, pdwinputstreamid, peusage).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSampleAllocatorControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSampleAllocatorControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSampleAllocatorControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21347,7 +21347,7 @@ impl IMFSampleGrabberSinkCallback {
         (::windows::core::Vtable::vtable(self).OnShutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSampleGrabberSinkCallback, ::windows::core::IUnknown, IMFClockStateSink);
+::windows::imp::interface_hierarchy!(IMFSampleGrabberSinkCallback, ::windows::core::IUnknown, IMFClockStateSink);
 impl ::core::cmp::PartialEq for IMFSampleGrabberSinkCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21416,7 +21416,7 @@ impl IMFSampleGrabberSinkCallback2 {
         (::windows::core::Vtable::vtable(self).OnProcessSampleEx)(::windows::core::Vtable::as_raw(self), guidmajormediatype, dwsampleflags, llsampletime, llsampleduration, ::core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len() as _, pattributes.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSampleGrabberSinkCallback2, ::windows::core::IUnknown, IMFClockStateSink, IMFSampleGrabberSinkCallback);
+::windows::imp::interface_hierarchy!(IMFSampleGrabberSinkCallback2, ::windows::core::IUnknown, IMFClockStateSink, IMFSampleGrabberSinkCallback);
 impl ::core::cmp::PartialEq for IMFSampleGrabberSinkCallback2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21467,7 +21467,7 @@ impl IMFSampleOutputStream {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSampleOutputStream, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSampleOutputStream, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSampleOutputStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21520,7 +21520,7 @@ impl IMFSampleProtection {
         (::windows::core::Vtable::vtable(self).InitInputProtection)(::windows::core::Vtable::as_raw(self), dwversion, dwinputid, pbseed, cbseed).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSampleProtection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSampleProtection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSampleProtection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21579,7 +21579,7 @@ impl IMFSaveJob {
         (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSaveJob, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSaveJob, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSaveJob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21639,7 +21639,7 @@ impl IMFSchemeHandler {
         (::windows::core::Vtable::vtable(self).CancelObjectCreation)(::windows::core::Vtable::as_raw(self), piunknowncancelcookie.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSchemeHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSchemeHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSchemeHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21682,7 +21682,7 @@ impl IMFSecureBuffer {
         (::windows::core::Vtable::vtable(self).GetIdentifier)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSecureBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSecureBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSecureBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21722,7 +21722,7 @@ impl IMFSecureChannel {
         (::windows::core::Vtable::vtable(self).SetupSession)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbencryptedsessionkey.as_ptr()), pbencryptedsessionkey.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSecureChannel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSecureChannel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSecureChannel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21762,7 +21762,7 @@ impl IMFSeekInfo {
         (::windows::core::Vtable::vtable(self).GetNearestKeyFrames)(::windows::core::Vtable::as_raw(self), pguidtimeformat, pvarstartposition, pvarpreviouskeyframe, pvarnextkeyframe).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSeekInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSeekInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSeekInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21814,7 +21814,7 @@ impl IMFSensorActivitiesReport {
         (::windows::core::Vtable::vtable(self).GetActivityReportByDeviceName)(::windows::core::Vtable::as_raw(self), symbolicname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorActivitiesReport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorActivitiesReport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorActivitiesReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21856,7 +21856,7 @@ impl IMFSensorActivitiesReportCallback {
         (::windows::core::Vtable::vtable(self).OnActivitiesReport)(::windows::core::Vtable::as_raw(self), sensoractivitiesreport.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorActivitiesReportCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorActivitiesReportCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorActivitiesReportCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21896,7 +21896,7 @@ impl IMFSensorActivityMonitor {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorActivityMonitor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorActivityMonitor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorActivityMonitor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21945,7 +21945,7 @@ impl IMFSensorActivityReport {
         (::windows::core::Vtable::vtable(self).GetProcessActivity)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorActivityReport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorActivityReport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorActivityReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22016,7 +22016,7 @@ impl IMFSensorDevice {
         (::windows::core::Vtable::vtable(self).GetSensorDeviceMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22088,7 +22088,7 @@ impl IMFSensorGroup {
         (::windows::core::Vtable::vtable(self).CreateMediaSource)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22149,7 +22149,7 @@ impl IMFSensorProcessActivity {
         (::windows::core::Vtable::vtable(self).GetReportTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorProcessActivity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorProcessActivity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorProcessActivity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22216,7 +22216,7 @@ impl IMFSensorProfile {
         (::windows::core::Vtable::vtable(self).AddBlockedControl)(::windows::core::Vtable::as_raw(self), wzblockedcontrol.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorProfile, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorProfile, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorProfile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22279,7 +22279,7 @@ impl IMFSensorProfileCollection {
         (::windows::core::Vtable::vtable(self).RemoveProfile)(::windows::core::Vtable::as_raw(self), profileid)
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorProfileCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorProfileCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorProfileCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22456,7 +22456,7 @@ impl IMFSensorStream {
         (::windows::core::Vtable::vtable(self).CloneSensorStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorStream, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFSensorStream, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFSensorStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22517,7 +22517,7 @@ impl IMFSensorTransformFactory {
         (::windows::core::Vtable::vtable(self).CreateTransform)(::windows::core::Vtable::as_raw(self), guidsensortransformid, pattributes.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSensorTransformFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSensorTransformFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSensorTransformFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22580,7 +22580,7 @@ impl IMFSequencerSource {
         (::windows::core::Vtable::vtable(self).UpdateTopologyFlags)(::windows::core::Vtable::as_raw(self), dwid, dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSequencerSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSequencerSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSequencerSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22625,7 +22625,7 @@ impl IMFSharingEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), dwflags, pattr.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSharingEngineClassFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSharingEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSharingEngineClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22666,7 +22666,7 @@ impl IMFShutdown {
         (::windows::core::Vtable::vtable(self).GetShutdownStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFShutdown, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFShutdown, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFShutdown {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22707,7 +22707,7 @@ impl IMFSignedLibrary {
         (::windows::core::Vtable::vtable(self).GetProcedureAddress)(::windows::core::Vtable::as_raw(self), name.into().abi(), address).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSignedLibrary, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSignedLibrary, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSignedLibrary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22762,7 +22762,7 @@ impl IMFSimpleAudioVolume {
         (::windows::core::Vtable::vtable(self).GetMute)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSimpleAudioVolume, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSimpleAudioVolume, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSimpleAudioVolume {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22849,7 +22849,7 @@ impl IMFSinkWriter {
         (::windows::core::Vtable::vtable(self).GetStatistics)(::windows::core::Vtable::as_raw(self), dwstreamindex, pstats).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSinkWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSinkWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSinkWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22899,7 +22899,7 @@ impl IMFSinkWriterCallback {
         (::windows::core::Vtable::vtable(self).OnMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSinkWriterCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSinkWriterCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSinkWriterCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22946,7 +22946,7 @@ impl IMFSinkWriterCallback2 {
         (::windows::core::Vtable::vtable(self).OnStreamError)(::windows::core::Vtable::as_raw(self), dwstreamindex, hrstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSinkWriterCallback2, ::windows::core::IUnknown, IMFSinkWriterCallback);
+::windows::imp::interface_hierarchy!(IMFSinkWriterCallback2, ::windows::core::IUnknown, IMFSinkWriterCallback);
 impl ::core::cmp::PartialEq for IMFSinkWriterCallback2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22994,7 +22994,7 @@ impl IMFSinkWriterEncoderConfig {
         (::windows::core::Vtable::vtable(self).PlaceEncodingParameters)(::windows::core::Vtable::as_raw(self), dwstreamindex, pencodingparameters.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSinkWriterEncoderConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSinkWriterEncoderConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSinkWriterEncoderConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23076,7 +23076,7 @@ impl IMFSinkWriterEx {
         (::windows::core::Vtable::vtable(self).GetTransformForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwtransformindex, ::core::mem::transmute(pguidcategory.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pptransform)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSinkWriterEx, ::windows::core::IUnknown, IMFSinkWriter);
+::windows::imp::interface_hierarchy!(IMFSinkWriterEx, ::windows::core::IUnknown, IMFSinkWriter);
 impl ::core::cmp::PartialEq for IMFSinkWriterEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23152,7 +23152,7 @@ impl IMFSourceBuffer {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), start, end).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSourceBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSourceBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23206,7 +23206,7 @@ impl IMFSourceBufferAppendMode {
         (::windows::core::Vtable::vtable(self).SetAppendMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceBufferAppendMode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSourceBufferAppendMode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSourceBufferAppendMode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23247,7 +23247,7 @@ impl IMFSourceBufferList {
         (::windows::core::Vtable::vtable(self).GetSourceBuffer)(::windows::core::Vtable::as_raw(self), index)
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceBufferList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSourceBufferList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSourceBufferList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23297,7 +23297,7 @@ impl IMFSourceBufferNotify {
         (::windows::core::Vtable::vtable(self).OnUpdateEnd)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceBufferNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSourceBufferNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSourceBufferNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23341,7 +23341,7 @@ impl IMFSourceOpenMonitor {
         (::windows::core::Vtable::vtable(self).OnSourceEvent)(::windows::core::Vtable::as_raw(self), pevent.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceOpenMonitor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSourceOpenMonitor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSourceOpenMonitor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23423,7 +23423,7 @@ impl IMFSourceReader {
         (::windows::core::Vtable::vtable(self).GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidattribute, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSourceReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSourceReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23493,7 +23493,7 @@ impl IMFSourceReaderCallback {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), dwstreamindex, pevent.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceReaderCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSourceReaderCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSourceReaderCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23550,7 +23550,7 @@ impl IMFSourceReaderCallback2 {
         (::windows::core::Vtable::vtable(self).OnStreamError)(::windows::core::Vtable::as_raw(self), dwstreamindex, hrstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceReaderCallback2, ::windows::core::IUnknown, IMFSourceReaderCallback);
+::windows::imp::interface_hierarchy!(IMFSourceReaderCallback2, ::windows::core::IUnknown, IMFSourceReaderCallback);
 impl ::core::cmp::PartialEq for IMFSourceReaderCallback2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23652,7 +23652,7 @@ impl IMFSourceReaderEx {
         (::windows::core::Vtable::vtable(self).GetTransformForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwtransformindex, ::core::mem::transmute(pguidcategory.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pptransform)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceReaderEx, ::windows::core::IUnknown, IMFSourceReader);
+::windows::imp::interface_hierarchy!(IMFSourceReaderEx, ::windows::core::IUnknown, IMFSourceReader);
 impl ::core::cmp::PartialEq for IMFSourceReaderEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23749,7 +23749,7 @@ impl IMFSourceResolver {
         (::windows::core::Vtable::vtable(self).CancelObjectCreation)(::windows::core::Vtable::as_raw(self), piunknowncancelcookie.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSourceResolver, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSourceResolver, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSourceResolver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23842,7 +23842,7 @@ impl IMFSpatialAudioObjectBuffer {
         (::windows::core::Vtable::vtable(self).GetMetadataItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSpatialAudioObjectBuffer, ::windows::core::IUnknown, IMFMediaBuffer);
+::windows::imp::interface_hierarchy!(IMFSpatialAudioObjectBuffer, ::windows::core::IUnknown, IMFMediaBuffer);
 impl ::core::cmp::PartialEq for IMFSpatialAudioObjectBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24084,7 +24084,7 @@ impl IMFSpatialAudioSample {
         (::windows::core::Vtable::vtable(self).GetSpatialAudioObjectByIndex)(::windows::core::Vtable::as_raw(self), dwindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFSpatialAudioSample, ::windows::core::IUnknown, IMFAttributes, IMFSample);
+::windows::imp::interface_hierarchy!(IMFSpatialAudioSample, ::windows::core::IUnknown, IMFAttributes, IMFSample);
 impl ::core::cmp::PartialEq for IMFSpatialAudioSample {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24254,7 +24254,7 @@ impl IMFStreamDescriptor {
         (::windows::core::Vtable::vtable(self).GetMediaTypeHandler)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFStreamDescriptor, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFStreamDescriptor, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFStreamDescriptor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24338,7 +24338,7 @@ impl IMFStreamSink {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFStreamSink, ::windows::core::IUnknown, IMFMediaEventGenerator);
+::windows::imp::interface_hierarchy!(IMFStreamSink, ::windows::core::IUnknown, IMFMediaEventGenerator);
 impl ::core::cmp::PartialEq for IMFStreamSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24388,7 +24388,7 @@ impl IMFStreamingSinkConfig {
         (::windows::core::Vtable::vtable(self).StartStreaming)(::windows::core::Vtable::as_raw(self), fseekoffsetisbyteoffset.into(), qwseekoffset).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFStreamingSinkConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFStreamingSinkConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFStreamingSinkConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24431,7 +24431,7 @@ impl IMFSystemId {
         (::windows::core::Vtable::vtable(self).Setup)(::windows::core::Vtable::as_raw(self), stage, pbin.len() as _, ::core::mem::transmute(pbin.as_ptr()), pcbout, ppbout).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFSystemId, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFSystemId, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFSystemId {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24498,7 +24498,7 @@ impl IMFTimecodeTranslate {
         (::windows::core::Vtable::vtable(self).EndConvertHNSToTimecode)(::windows::core::Vtable::as_raw(self), presult.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTimecodeTranslate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimecodeTranslate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimecodeTranslate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24629,7 +24629,7 @@ impl IMFTimedText {
         (::windows::core::Vtable::vtable(self).IsInBandEnabled)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedText, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedText, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedText {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24694,7 +24694,7 @@ impl IMFTimedTextBinary {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), data, length).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextBinary, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextBinary, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextBinary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24740,7 +24740,7 @@ impl IMFTimedTextBouten {
         (::windows::core::Vtable::vtable(self).GetBoutenPosition)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextBouten, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextBouten, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextBouten {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24814,7 +24814,7 @@ impl IMFTimedTextCue {
         (::windows::core::Vtable::vtable(self).GetLine)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextCue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextCue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextCue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24891,7 +24891,7 @@ impl IMFTimedTextCueList {
         (::windows::core::Vtable::vtable(self).RemoveCue)(::windows::core::Vtable::as_raw(self), cue.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextCueList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextCueList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextCueList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24941,7 +24941,7 @@ impl IMFTimedTextFormattedText {
         (::windows::core::Vtable::vtable(self).GetSubformatting)(::windows::core::Vtable::as_raw(self), index, firstchar, charlength, ::core::mem::transmute(style)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextFormattedText, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextFormattedText, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextFormattedText {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25006,7 +25006,7 @@ impl IMFTimedTextNotify {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25097,7 +25097,7 @@ impl IMFTimedTextRegion {
         (::windows::core::Vtable::vtable(self).GetScrollMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextRegion, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextRegion, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextRegion {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25164,7 +25164,7 @@ impl IMFTimedTextRuby {
         (::windows::core::Vtable::vtable(self).GetRubyReserve)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextRuby, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextRuby, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextRuby {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25258,7 +25258,7 @@ impl IMFTimedTextStyle {
         (::windows::core::Vtable::vtable(self).GetTextOutline)(::windows::core::Vtable::as_raw(self), color, thickness, blurradius, unittype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextStyle, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextStyle, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextStyle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25334,7 +25334,7 @@ impl IMFTimedTextStyle2 {
         (::windows::core::Vtable::vtable(self).GetFontAngleInDegrees)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextStyle2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextStyle2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextStyle2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25425,7 +25425,7 @@ impl IMFTimedTextTrack {
         (::windows::core::Vtable::vtable(self).GetCueList)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextTrack, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextTrack, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextTrack {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25488,7 +25488,7 @@ impl IMFTimedTextTrackList {
         (::windows::core::Vtable::vtable(self).GetTrackById)(::windows::core::Vtable::as_raw(self), trackid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTimedTextTrackList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimedTextTrackList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimedTextTrackList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25538,7 +25538,7 @@ impl IMFTimer {
         (::windows::core::Vtable::vtable(self).CancelTimer)(::windows::core::Vtable::as_raw(self), punkkey.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTimer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTimer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTimer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25580,7 +25580,7 @@ impl IMFTopoLoader {
         (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pinputtopo.into().abi(), ::core::mem::transmute(ppoutputtopo), pcurrenttopo.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTopoLoader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTopoLoader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTopoLoader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25785,7 +25785,7 @@ impl IMFTopology {
         (::windows::core::Vtable::vtable(self).GetOutputNodeCollection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTopology, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFTopology, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFTopology {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26024,7 +26024,7 @@ impl IMFTopologyNode {
         (::windows::core::Vtable::vtable(self).CloneFrom)(::windows::core::Vtable::as_raw(self), pnode.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTopologyNode, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFTopologyNode, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFTopologyNode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26076,7 +26076,7 @@ impl IMFTopologyNodeAttributeEditor {
         (::windows::core::Vtable::vtable(self).UpdateNodeAttributes)(::windows::core::Vtable::as_raw(self), topoid, pupdates.len() as _, ::core::mem::transmute(pupdates.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTopologyNodeAttributeEditor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTopologyNodeAttributeEditor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTopologyNodeAttributeEditor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26113,7 +26113,7 @@ impl IMFTopologyServiceLookup {
         (::windows::core::Vtable::vtable(self).LookupService)(::windows::core::Vtable::as_raw(self), r#type, dwindex, guidservice, riid, ppvobjects, pnobjects).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTopologyServiceLookup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTopologyServiceLookup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTopologyServiceLookup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26156,7 +26156,7 @@ impl IMFTopologyServiceLookupClient {
         (::windows::core::Vtable::vtable(self).ReleaseServicePointers)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTopologyServiceLookupClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTopologyServiceLookupClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTopologyServiceLookupClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26198,7 +26198,7 @@ impl IMFTrackedSample {
         (::windows::core::Vtable::vtable(self).SetAllocator)(::windows::core::Vtable::as_raw(self), psampleallocator.into().abi(), punkstate.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTrackedSample, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTrackedSample, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTrackedSample {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26262,7 +26262,7 @@ impl IMFTranscodeProfile {
         (::windows::core::Vtable::vtable(self).GetContainerAttributes)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTranscodeProfile, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTranscodeProfile, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTranscodeProfile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26323,7 +26323,7 @@ impl IMFTranscodeSinkInfoProvider {
         (::windows::core::Vtable::vtable(self).GetSinkInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTranscodeSinkInfoProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTranscodeSinkInfoProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTranscodeSinkInfoProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26451,7 +26451,7 @@ impl IMFTransform {
         (::windows::core::Vtable::vtable(self).ProcessOutput)(::windows::core::Vtable::as_raw(self), dwflags, poutputsamples.len() as _, ::core::mem::transmute(poutputsamples.as_ptr()), pdwstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFTransform, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTransform, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26511,7 +26511,7 @@ impl IMFTrustedInput {
         (::windows::core::Vtable::vtable(self).GetInputTrustAuthority)(::windows::core::Vtable::as_raw(self), dwstreamid, riid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTrustedInput, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTrustedInput, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTrustedInput {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26559,7 +26559,7 @@ impl IMFTrustedOutput {
         (::windows::core::Vtable::vtable(self).IsFinal)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFTrustedOutput, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFTrustedOutput, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFTrustedOutput {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26624,7 +26624,7 @@ impl IMFVideoCaptureSampleAllocator {
         (::windows::core::Vtable::vtable(self).InitializeCaptureSampleAllocator)(::windows::core::Vtable::as_raw(self), cbsamplesize, cbcapturemetadatasize, cbalignment, cminimumsamples, pattributes.into().abi(), pmediatype.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoCaptureSampleAllocator, ::windows::core::IUnknown, IMFVideoSampleAllocator);
+::windows::imp::interface_hierarchy!(IMFVideoCaptureSampleAllocator, ::windows::core::IUnknown, IMFVideoSampleAllocator);
 impl ::core::cmp::PartialEq for IMFVideoCaptureSampleAllocator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26662,7 +26662,7 @@ impl IMFVideoDeviceID {
         (::windows::core::Vtable::vtable(self).GetDeviceID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoDeviceID, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoDeviceID, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoDeviceID {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26780,7 +26780,7 @@ impl IMFVideoDisplayControl {
         (::windows::core::Vtable::vtable(self).GetFullscreen)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoDisplayControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoDisplayControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoDisplayControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27019,7 +27019,7 @@ impl IMFVideoMediaType {
         (::windows::core::Vtable::vtable(self).GetVideoRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ppvrepresentation, lstride).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoMediaType, ::windows::core::IUnknown, IMFAttributes, IMFMediaType);
+::windows::imp::interface_hierarchy!(IMFVideoMediaType, ::windows::core::IUnknown, IMFAttributes, IMFMediaType);
 impl ::core::cmp::PartialEq for IMFVideoMediaType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27075,7 +27075,7 @@ impl IMFVideoMixerBitmap {
         (::windows::core::Vtable::vtable(self).GetAlphaBitmapParameters)(::windows::core::Vtable::as_raw(self), pbmpparms).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoMixerBitmap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoMixerBitmap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoMixerBitmap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27135,7 +27135,7 @@ impl IMFVideoMixerControl {
         (::windows::core::Vtable::vtable(self).GetStreamOutputRect)(::windows::core::Vtable::as_raw(self), dwstreamid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoMixerControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoMixerControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoMixerControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27193,7 +27193,7 @@ impl IMFVideoMixerControl2 {
         (::windows::core::Vtable::vtable(self).GetMixingPrefs)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoMixerControl2, ::windows::core::IUnknown, IMFVideoMixerControl);
+::windows::imp::interface_hierarchy!(IMFVideoMixerControl2, ::windows::core::IUnknown, IMFVideoMixerControl);
 impl ::core::cmp::PartialEq for IMFVideoMixerControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27231,7 +27231,7 @@ impl IMFVideoPositionMapper {
         (::windows::core::Vtable::vtable(self).MapOutputCoordinateToInputStream)(::windows::core::Vtable::as_raw(self), xout, yout, dwoutputstreamindex, dwinputstreamindex, pxin, pyin).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoPositionMapper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoPositionMapper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoPositionMapper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27287,7 +27287,7 @@ impl IMFVideoPresenter {
         (::windows::core::Vtable::vtable(self).GetCurrentMediaType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoPresenter, ::windows::core::IUnknown, IMFClockStateSink);
+::windows::imp::interface_hierarchy!(IMFVideoPresenter, ::windows::core::IUnknown, IMFClockStateSink);
 impl ::core::cmp::PartialEq for IMFVideoPresenter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27373,7 +27373,7 @@ impl IMFVideoProcessor {
         (::windows::core::Vtable::vtable(self).SetBackgroundColor)(::windows::core::Vtable::as_raw(self), clrbkg.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoProcessor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoProcessor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoProcessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27451,7 +27451,7 @@ impl IMFVideoProcessorControl {
         (::windows::core::Vtable::vtable(self).SetConstrictionSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pconstrictionsize.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoProcessorControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoProcessorControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoProcessorControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27538,7 +27538,7 @@ impl IMFVideoProcessorControl2 {
         (::windows::core::Vtable::vtable(self).GetSupportedHardwareEffects)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoProcessorControl2, ::windows::core::IUnknown, IMFVideoProcessorControl);
+::windows::imp::interface_hierarchy!(IMFVideoProcessorControl2, ::windows::core::IUnknown, IMFVideoProcessorControl);
 impl ::core::cmp::PartialEq for IMFVideoProcessorControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27637,7 +27637,7 @@ impl IMFVideoProcessorControl3 {
         (::windows::core::Vtable::vtable(self).SetOutputDevice)(::windows::core::Vtable::as_raw(self), poutputdevice.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoProcessorControl3, ::windows::core::IUnknown, IMFVideoProcessorControl, IMFVideoProcessorControl2);
+::windows::imp::interface_hierarchy!(IMFVideoProcessorControl3, ::windows::core::IUnknown, IMFVideoProcessorControl, IMFVideoProcessorControl2);
 impl ::core::cmp::PartialEq for IMFVideoProcessorControl3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27684,7 +27684,7 @@ impl IMFVideoRenderer {
         (::windows::core::Vtable::vtable(self).InitializeRenderer)(::windows::core::Vtable::as_raw(self), pvideomixer.into().abi(), pvideopresenter.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoRenderer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoRenderer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoRenderer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27724,7 +27724,7 @@ impl IMFVideoRendererEffectControl {
         (::windows::core::Vtable::vtable(self).OnAppServiceConnectionEstablished)(::windows::core::Vtable::as_raw(self), pappserviceconnection.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoRendererEffectControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoRendererEffectControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoRendererEffectControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27777,7 +27777,7 @@ impl IMFVideoSampleAllocator {
         (::windows::core::Vtable::vtable(self).AllocateSample)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoSampleAllocator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoSampleAllocator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoSampleAllocator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27824,7 +27824,7 @@ impl IMFVideoSampleAllocatorCallback {
         (::windows::core::Vtable::vtable(self).GetFreeSampleCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoSampleAllocatorCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoSampleAllocatorCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoSampleAllocatorCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27885,7 +27885,7 @@ impl IMFVideoSampleAllocatorEx {
         (::windows::core::Vtable::vtable(self).InitializeSampleAllocatorEx)(::windows::core::Vtable::as_raw(self), cinitialsamples, cmaximumsamples, pattributes.into().abi(), pmediatype.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoSampleAllocatorEx, ::windows::core::IUnknown, IMFVideoSampleAllocator);
+::windows::imp::interface_hierarchy!(IMFVideoSampleAllocatorEx, ::windows::core::IUnknown, IMFVideoSampleAllocator);
 impl ::core::cmp::PartialEq for IMFVideoSampleAllocatorEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27922,7 +27922,7 @@ impl IMFVideoSampleAllocatorNotify {
         (::windows::core::Vtable::vtable(self).NotifyRelease)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoSampleAllocatorNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFVideoSampleAllocatorNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFVideoSampleAllocatorNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27965,7 +27965,7 @@ impl IMFVideoSampleAllocatorNotifyEx {
         (::windows::core::Vtable::vtable(self).NotifyPrune)(::windows::core::Vtable::as_raw(self), __midl__imfvideosampleallocatornotifyex0000.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVideoSampleAllocatorNotifyEx, ::windows::core::IUnknown, IMFVideoSampleAllocatorNotify);
+::windows::imp::interface_hierarchy!(IMFVideoSampleAllocatorNotifyEx, ::windows::core::IUnknown, IMFVideoSampleAllocatorNotify);
 impl ::core::cmp::PartialEq for IMFVideoSampleAllocatorNotifyEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28183,7 +28183,7 @@ impl IMFVirtualCamera {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMFVirtualCamera, ::windows::core::IUnknown, IMFAttributes);
+::windows::imp::interface_hierarchy!(IMFVirtualCamera, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::cmp::PartialEq for IMFVirtualCamera {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28304,7 +28304,7 @@ impl IMFWorkQueueServices {
         (::windows::core::Vtable::vtable(self).GetPlatformWorkQueueMMCSSTaskId)(::windows::core::Vtable::as_raw(self), dwplatformworkqueueid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFWorkQueueServices, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMFWorkQueueServices, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMFWorkQueueServices {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28433,7 +28433,7 @@ impl IMFWorkQueueServicesEx {
         (::windows::core::Vtable::vtable(self).GetPlatformWorkQueueMMCSSPriority)(::windows::core::Vtable::as_raw(self), dwplatformworkqueueid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMFWorkQueueServicesEx, ::windows::core::IUnknown, IMFWorkQueueServices);
+::windows::imp::interface_hierarchy!(IMFWorkQueueServicesEx, ::windows::core::IUnknown, IMFWorkQueueServices);
 impl ::core::cmp::PartialEq for IMFWorkQueueServicesEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28484,7 +28484,7 @@ impl IOPMVideoOutput {
         (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), pparameters, pbadditionalparameters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbadditionalparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOPMVideoOutput, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOPMVideoOutput, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOPMVideoOutput {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28531,7 +28531,7 @@ impl IPlayToControl {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPlayToControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPlayToControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPlayToControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28579,7 +28579,7 @@ impl IPlayToControlWithCapabilities {
         (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPlayToControlWithCapabilities, ::windows::core::IUnknown, IPlayToControl);
+::windows::imp::interface_hierarchy!(IPlayToControlWithCapabilities, ::windows::core::IUnknown, IPlayToControl);
 impl ::core::cmp::PartialEq for IPlayToControlWithCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28620,7 +28620,7 @@ impl IPlayToSourceClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), dwflags, pcontrol.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPlayToSourceClassFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPlayToSourceClassFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPlayToSourceClassFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28697,7 +28697,7 @@ impl IToc {
         (::windows::core::Vtable::vtable(self).RemoveEntryListByIndex)(::windows::core::Vtable::as_raw(self), wentrylistindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IToc, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IToc, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IToc {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28763,7 +28763,7 @@ impl ITocCollection {
         (::windows::core::Vtable::vtable(self).RemoveEntryByIndex)(::windows::core::Vtable::as_raw(self), dwentryindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITocCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITocCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITocCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28828,7 +28828,7 @@ impl ITocEntry {
         (::windows::core::Vtable::vtable(self).GetDescriptionData)(::windows::core::Vtable::as_raw(self), pdwdescriptiondatasize, pbtdescriptiondata, pguidtype).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITocEntry, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITocEntry, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITocEntry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28891,7 +28891,7 @@ impl ITocEntryList {
         (::windows::core::Vtable::vtable(self).RemoveEntryByIndex)(::windows::core::Vtable::as_raw(self), dwentryindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITocEntryList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITocEntryList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITocEntryList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28961,7 +28961,7 @@ impl ITocParser {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITocParser, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITocParser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITocParser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29005,7 +29005,7 @@ impl IValidateBinding {
         (::windows::core::Vtable::vtable(self).GetIdentifier)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidlicensorid), ::core::mem::transmute(pbephemeron.as_ptr()), pbephemeron.len() as _, ppbblobvalidationid, pcbblobsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IValidateBinding, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IValidateBinding, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IValidateBinding {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29051,7 +29051,7 @@ impl IWMCodecLeakyBucket {
         (::windows::core::Vtable::vtable(self).GetBufferFullnessBits)(::windows::core::Vtable::as_raw(self), pulbufferfullness).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMCodecLeakyBucket, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMCodecLeakyBucket, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMCodecLeakyBucket {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29091,7 +29091,7 @@ impl IWMCodecOutputTimestamp {
         (::windows::core::Vtable::vtable(self).GetNextOutputTime)(::windows::core::Vtable::as_raw(self), prttime).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMCodecOutputTimestamp, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMCodecOutputTimestamp, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMCodecOutputTimestamp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29133,7 +29133,7 @@ impl IWMCodecPrivateData {
         (::windows::core::Vtable::vtable(self).GetPrivateData)(::windows::core::Vtable::as_raw(self), pbdata, pcbdata).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMCodecPrivateData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMCodecPrivateData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMCodecPrivateData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29185,7 +29185,7 @@ impl IWMCodecProps {
         (::windows::core::Vtable::vtable(self).GetCodecProp)(::windows::core::Vtable::as_raw(self), dwformat, pszname.into().abi(), ptype, pvalue, pdwsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMCodecProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMCodecProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMCodecProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29233,7 +29233,7 @@ impl IWMCodecStrings {
         (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), pmt, szdescription.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(szdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchlength).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMCodecStrings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMCodecStrings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMCodecStrings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29280,7 +29280,7 @@ impl IWMColorConvProps {
         (::windows::core::Vtable::vtable(self).SetFullCroppingParam)(::windows::core::Vtable::as_raw(self), lsrccropleft, lsrccroptop, ldstcropleft, ldstcroptop, lcropwidth, lcropheight).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMColorConvProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMColorConvProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMColorConvProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29318,7 +29318,7 @@ impl IWMColorLegalizerProps {
         (::windows::core::Vtable::vtable(self).SetColorLegalizerQuality)(::windows::core::Vtable::as_raw(self), lquality).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMColorLegalizerProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMColorLegalizerProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMColorLegalizerProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29369,7 +29369,7 @@ impl IWMFrameInterpProps {
         (::windows::core::Vtable::vtable(self).SetComplexityLevel)(::windows::core::Vtable::as_raw(self), icomplexity).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMFrameInterpProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMFrameInterpProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMFrameInterpProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29418,7 +29418,7 @@ impl IWMInterlaceProps {
         (::windows::core::Vtable::vtable(self).SetLastFrame)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMInterlaceProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMInterlaceProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMInterlaceProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29460,7 +29460,7 @@ impl IWMResamplerProps {
         (::windows::core::Vtable::vtable(self).SetUserChannelMtx)(::windows::core::Vtable::as_raw(self), userchannelmtx).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMResamplerProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMResamplerProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMResamplerProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29510,7 +29510,7 @@ impl IWMResizerProps {
         (::windows::core::Vtable::vtable(self).GetFullCropRegion)(::windows::core::Vtable::as_raw(self), lcliporixsrc, lcliporiysrc, lclipwidthsrc, lclipheightsrc, lcliporixdst, lcliporiydst, lclipwidthdst, lclipheightdst).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMResizerProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMResizerProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMResizerProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29556,7 +29556,7 @@ impl IWMSampleExtensionSupport {
         (::windows::core::Vtable::vtable(self).SetUseSampleExtensions)(::windows::core::Vtable::as_raw(self), fuseextensions.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMSampleExtensionSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMSampleExtensionSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMSampleExtensionSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29596,7 +29596,7 @@ impl IWMValidate {
         (::windows::core::Vtable::vtable(self).SetIdentifier)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidvalidationid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMValidate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMValidate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMValidate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29636,7 +29636,7 @@ impl IWMVideoDecoderHurryup {
         (::windows::core::Vtable::vtable(self).GetHurryup)(::windows::core::Vtable::as_raw(self), plhurryup).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMVideoDecoderHurryup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMVideoDecoderHurryup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMVideoDecoderHurryup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29690,7 +29690,7 @@ impl IWMVideoDecoderReconBuffer {
         (::windows::core::Vtable::vtable(self).SetReconstructedVideoFrame)(::windows::core::Vtable::as_raw(self), pbuf.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMVideoDecoderReconBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMVideoDecoderReconBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMVideoDecoderReconBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29735,7 +29735,7 @@ impl IWMVideoForceKeyFrame {
         (::windows::core::Vtable::vtable(self).SetKeyFrame)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMVideoForceKeyFrame, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMVideoForceKeyFrame, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMVideoForceKeyFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29786,7 +29786,7 @@ impl MFASYNCRESULT {
         (::windows::core::Vtable::vtable(self).base__.GetStateNoAddRef)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(MFASYNCRESULT, ::windows::core::IUnknown, IMFAsyncResult);
+::windows::imp::interface_hierarchy!(MFASYNCRESULT, ::windows::core::IUnknown, IMFAsyncResult);
 impl ::core::cmp::PartialEq for MFASYNCRESULT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

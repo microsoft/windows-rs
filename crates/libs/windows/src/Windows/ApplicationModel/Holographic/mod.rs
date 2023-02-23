@@ -74,7 +74,7 @@ impl HolographicKeyboard {
     }
     #[doc(hidden)]
     pub fn IHolographicKeyboardStatics<R, F: FnOnce(&IHolographicKeyboardStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HolographicKeyboard, IHolographicKeyboardStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HolographicKeyboard, IHolographicKeyboardStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -90,7 +90,7 @@ impl ::core::fmt::Debug for HolographicKeyboard {
     }
 }
 impl ::windows::core::RuntimeType for HolographicKeyboard {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Holographic.HolographicKeyboard;{07dd0893-aa21-5e6f-a91b-11b2b3fd7be3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Holographic.HolographicKeyboard;{07dd0893-aa21-5e6f-a91b-11b2b3fd7be3})");
 }
 impl ::core::clone::Clone for HolographicKeyboard {
     fn clone(&self) -> Self {
@@ -106,7 +106,7 @@ unsafe impl ::windows::core::Interface for HolographicKeyboard {
 impl ::windows::core::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
 }
-::windows::core::interface_hierarchy!(HolographicKeyboard, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HolographicKeyboard, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicKeyboard {}
 unsafe impl ::core::marker::Sync for HolographicKeyboard {}
 #[cfg(feature = "implement")]

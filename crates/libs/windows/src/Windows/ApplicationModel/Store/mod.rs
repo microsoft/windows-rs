@@ -772,27 +772,27 @@ impl CurrentApp {
     }
     #[doc(hidden)]
     pub fn ICurrentApp<R, F: FnOnce(&ICurrentApp) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrentApp, ICurrentApp> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrentApp, ICurrentApp> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICurrentApp2Statics<R, F: FnOnce(&ICurrentApp2Statics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrentApp, ICurrentApp2Statics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrentApp, ICurrentApp2Statics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICurrentAppStaticsWithFiltering<R, F: FnOnce(&ICurrentAppStaticsWithFiltering) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrentApp, ICurrentAppStaticsWithFiltering> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrentApp, ICurrentAppStaticsWithFiltering> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICurrentAppWithCampaignId<R, F: FnOnce(&ICurrentAppWithCampaignId) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrentApp, ICurrentAppWithCampaignId> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrentApp, ICurrentAppWithCampaignId> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICurrentAppWithConsumables<R, F: FnOnce(&ICurrentAppWithConsumables) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrentApp, ICurrentAppWithConsumables> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrentApp, ICurrentAppWithConsumables> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -936,22 +936,22 @@ impl CurrentAppSimulator {
     }
     #[doc(hidden)]
     pub fn ICurrentAppSimulator<R, F: FnOnce(&ICurrentAppSimulator) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrentAppSimulator, ICurrentAppSimulator> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrentAppSimulator, ICurrentAppSimulator> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICurrentAppSimulatorStaticsWithFiltering<R, F: FnOnce(&ICurrentAppSimulatorStaticsWithFiltering) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrentAppSimulator, ICurrentAppSimulatorStaticsWithFiltering> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrentAppSimulator, ICurrentAppSimulatorStaticsWithFiltering> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICurrentAppSimulatorWithCampaignId<R, F: FnOnce(&ICurrentAppSimulatorWithCampaignId) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrentAppSimulator, ICurrentAppSimulatorWithCampaignId> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrentAppSimulator, ICurrentAppSimulatorWithCampaignId> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICurrentAppSimulatorWithConsumables<R, F: FnOnce(&ICurrentAppSimulatorWithConsumables) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CurrentAppSimulator, ICurrentAppSimulatorWithConsumables> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CurrentAppSimulator, ICurrentAppSimulatorWithConsumables> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1022,7 +1022,7 @@ impl ::core::fmt::Debug for LicenseInformation {
     }
 }
 impl ::windows::core::RuntimeType for LicenseInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseInformation;{8eb7dc30-f170-4ed5-8e21-1516da3fd367})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseInformation;{8eb7dc30-f170-4ed5-8e21-1516da3fd367})");
 }
 impl ::core::clone::Clone for LicenseInformation {
     fn clone(&self) -> Self {
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::Interface for LicenseInformation {
 impl ::windows::core::RuntimeName for LicenseInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseInformation";
 }
-::windows::core::interface_hierarchy!(LicenseInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LicenseInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LicenseInformation {}
 unsafe impl ::core::marker::Sync for LicenseInformation {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1132,7 +1132,7 @@ impl ::core::fmt::Debug for ListingInformation {
     }
 }
 impl ::windows::core::RuntimeType for ListingInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ListingInformation;{588b4abf-bc74-4383-b78c-99606323dece})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ListingInformation;{588b4abf-bc74-4383-b78c-99606323dece})");
 }
 impl ::core::clone::Clone for ListingInformation {
     fn clone(&self) -> Self {
@@ -1148,7 +1148,7 @@ unsafe impl ::windows::core::Interface for ListingInformation {
 impl ::windows::core::RuntimeName for ListingInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ListingInformation";
 }
-::windows::core::interface_hierarchy!(ListingInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ListingInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ListingInformation {}
 unsafe impl ::core::marker::Sync for ListingInformation {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1198,7 +1198,7 @@ impl ::core::fmt::Debug for ProductLicense {
     }
 }
 impl ::windows::core::RuntimeType for ProductLicense {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductLicense;{363308c7-2bcf-4c0e-8f2f-e808aaa8f99d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductLicense;{363308c7-2bcf-4c0e-8f2f-e808aaa8f99d})");
 }
 impl ::core::clone::Clone for ProductLicense {
     fn clone(&self) -> Self {
@@ -1214,7 +1214,7 @@ unsafe impl ::windows::core::Interface for ProductLicense {
 impl ::windows::core::RuntimeName for ProductLicense {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductLicense";
 }
-::windows::core::interface_hierarchy!(ProductLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProductLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProductLicense {}
 unsafe impl ::core::marker::Sync for ProductLicense {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1324,7 +1324,7 @@ impl ::core::fmt::Debug for ProductListing {
     }
 }
 impl ::windows::core::RuntimeType for ProductListing {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductListing;{45a7d6ad-c750-4d9c-947c-b00dcbf9e9c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductListing;{45a7d6ad-c750-4d9c-947c-b00dcbf9e9c2})");
 }
 impl ::core::clone::Clone for ProductListing {
     fn clone(&self) -> Self {
@@ -1340,7 +1340,7 @@ unsafe impl ::windows::core::Interface for ProductListing {
 impl ::windows::core::RuntimeName for ProductListing {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductListing";
 }
-::windows::core::interface_hierarchy!(ProductListing, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProductListing, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProductListing {}
 unsafe impl ::core::marker::Sync for ProductListing {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1350,8 +1350,8 @@ impl ProductPurchaseDisplayProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProductPurchaseDisplayProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ProductPurchaseDisplayProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1399,7 +1399,7 @@ impl ProductPurchaseDisplayProperties {
     }
     #[doc(hidden)]
     pub fn IProductPurchaseDisplayPropertiesFactory<R, F: FnOnce(&IProductPurchaseDisplayPropertiesFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProductPurchaseDisplayProperties, IProductPurchaseDisplayPropertiesFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProductPurchaseDisplayProperties, IProductPurchaseDisplayPropertiesFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1415,7 +1415,7 @@ impl ::core::fmt::Debug for ProductPurchaseDisplayProperties {
     }
 }
 impl ::windows::core::RuntimeType for ProductPurchaseDisplayProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties;{d70b7420-bc92-401b-a809-c9b2e5dbbdaf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties;{d70b7420-bc92-401b-a809-c9b2e5dbbdaf})");
 }
 impl ::core::clone::Clone for ProductPurchaseDisplayProperties {
     fn clone(&self) -> Self {
@@ -1431,7 +1431,7 @@ unsafe impl ::windows::core::Interface for ProductPurchaseDisplayProperties {
 impl ::windows::core::RuntimeName for ProductPurchaseDisplayProperties {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties";
 }
-::windows::core::interface_hierarchy!(ProductPurchaseDisplayProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProductPurchaseDisplayProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProductPurchaseDisplayProperties {}
 unsafe impl ::core::marker::Sync for ProductPurchaseDisplayProperties {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1479,7 +1479,7 @@ impl ::core::fmt::Debug for PurchaseResults {
     }
 }
 impl ::windows::core::RuntimeType for PurchaseResults {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.PurchaseResults;{ed50b37e-8656-4f65-b8c8-ac7e0cb1a1c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.PurchaseResults;{ed50b37e-8656-4f65-b8c8-ac7e0cb1a1c2})");
 }
 impl ::core::clone::Clone for PurchaseResults {
     fn clone(&self) -> Self {
@@ -1495,7 +1495,7 @@ unsafe impl ::windows::core::Interface for PurchaseResults {
 impl ::windows::core::RuntimeName for PurchaseResults {
     const NAME: &'static str = "Windows.ApplicationModel.Store.PurchaseResults";
 }
-::windows::core::interface_hierarchy!(PurchaseResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PurchaseResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PurchaseResults {}
 unsafe impl ::core::marker::Sync for PurchaseResults {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1536,7 +1536,7 @@ impl ::core::fmt::Debug for UnfulfilledConsumable {
     }
 }
 impl ::windows::core::RuntimeType for UnfulfilledConsumable {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.UnfulfilledConsumable;{2df7fbbb-1cdd-4cb8-a014-7b9cf8986927})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.UnfulfilledConsumable;{2df7fbbb-1cdd-4cb8-a014-7b9cf8986927})");
 }
 impl ::core::clone::Clone for UnfulfilledConsumable {
     fn clone(&self) -> Self {
@@ -1552,7 +1552,7 @@ unsafe impl ::windows::core::Interface for UnfulfilledConsumable {
 impl ::windows::core::RuntimeName for UnfulfilledConsumable {
     const NAME: &'static str = "Windows.ApplicationModel.Store.UnfulfilledConsumable";
 }
-::windows::core::interface_hierarchy!(UnfulfilledConsumable, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UnfulfilledConsumable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnfulfilledConsumable {}
 unsafe impl ::core::marker::Sync for UnfulfilledConsumable {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1586,7 +1586,7 @@ impl ::core::fmt::Debug for FulfillmentResult {
     }
 }
 impl ::windows::core::RuntimeType for FulfillmentResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.FulfillmentResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.FulfillmentResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
@@ -1618,7 +1618,7 @@ impl ::core::fmt::Debug for ProductPurchaseStatus {
     }
 }
 impl ::windows::core::RuntimeType for ProductPurchaseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductPurchaseStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductPurchaseStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
@@ -1649,15 +1649,15 @@ impl ::core::fmt::Debug for ProductType {
     }
 }
 impl ::windows::core::RuntimeType for ProductType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 pub struct LicenseChangedEventHandler(pub ::windows::core::IUnknown);
 impl LicenseChangedEventHandler {
     pub fn new<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = LicenseChangedEventHandlerBox::<F> { vtable: &LicenseChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = LicenseChangedEventHandlerBox::<F> { vtable: &LicenseChangedEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -1668,7 +1668,7 @@ impl LicenseChangedEventHandler {
 struct LicenseChangedEventHandlerBox<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const LicenseChangedEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static> LicenseChangedEventHandlerBox<F> {
     const VTABLE: LicenseChangedEventHandler_Vtbl = LicenseChangedEventHandler_Vtbl {
@@ -1677,7 +1677,7 @@ impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<LicenseChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<LicenseChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -1693,7 +1693,7 @@ impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1725,7 +1725,7 @@ unsafe impl ::windows::core::Interface for LicenseChangedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a50255_1369_4c36_832f_6f2d88e3659b);
 }
 impl ::windows::core::RuntimeType for LicenseChangedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d4a50255-1369-4c36-832f-6f2d88e3659b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d4a50255-1369-4c36-832f-6f2d88e3659b}");
 }
 #[repr(C)]
 #[doc(hidden)]

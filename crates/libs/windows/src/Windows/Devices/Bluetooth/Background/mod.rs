@@ -321,7 +321,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementPublisherTriggerDetails;{610eca86-3480-41c9-a918-7ddadf207e00})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementPublisherTriggerDetails;{610eca86-3480-41c9-a918-7ddadf207e00})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherTriggerDetails {
     fn clone(&self) -> Self {
@@ -337,7 +337,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherTrig
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementPublisherTriggerDetails";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementPublisherTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherTriggerDetails {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -380,7 +380,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementWatcherTriggerDetails;{a7db5ad7-2257-4e69-9784-fee645c1dce0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementWatcherTriggerDetails;{a7db5ad7-2257-4e69-9784-fee645c1dce0})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherTriggerDetails {
     fn clone(&self) -> Self {
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherTrigge
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementWatcherTriggerDetails";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementWatcherTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherTriggerDetails {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -457,7 +457,7 @@ impl ::core::fmt::Debug for GattCharacteristicNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for GattCharacteristicNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattCharacteristicNotificationTriggerDetails;{9ba03b18-0fec-436a-93b1-f46c697532a2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattCharacteristicNotificationTriggerDetails;{9ba03b18-0fec-436a-93b1-f46c697532a2})");
 }
 impl ::core::clone::Clone for GattCharacteristicNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -473,7 +473,7 @@ unsafe impl ::windows::core::Interface for GattCharacteristicNotificationTrigger
 impl ::windows::core::RuntimeName for GattCharacteristicNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattCharacteristicNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(GattCharacteristicNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattCharacteristicNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattCharacteristicNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for GattCharacteristicNotificationTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -510,7 +510,7 @@ impl GattServiceProviderConnection {
     }
     #[doc(hidden)]
     pub fn IGattServiceProviderConnectionStatics<R, F: FnOnce(&IGattServiceProviderConnectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GattServiceProviderConnection, IGattServiceProviderConnectionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GattServiceProviderConnection, IGattServiceProviderConnectionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -526,7 +526,7 @@ impl ::core::fmt::Debug for GattServiceProviderConnection {
     }
 }
 impl ::windows::core::RuntimeType for GattServiceProviderConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattServiceProviderConnection;{7fa1b9b9-2f13-40b5-9582-8eb78e98ef13})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattServiceProviderConnection;{7fa1b9b9-2f13-40b5-9582-8eb78e98ef13})");
 }
 impl ::core::clone::Clone for GattServiceProviderConnection {
     fn clone(&self) -> Self {
@@ -542,7 +542,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderConnection {
 impl ::windows::core::RuntimeName for GattServiceProviderConnection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderConnection";
 }
-::windows::core::interface_hierarchy!(GattServiceProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattServiceProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderConnection {}
 unsafe impl ::core::marker::Sync for GattServiceProviderConnection {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -569,7 +569,7 @@ impl ::core::fmt::Debug for GattServiceProviderTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for GattServiceProviderTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattServiceProviderTriggerDetails;{ae8c0625-05ff-4afb-b16a-de95f3cf0158})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattServiceProviderTriggerDetails;{ae8c0625-05ff-4afb-b16a-de95f3cf0158})");
 }
 impl ::core::clone::Clone for GattServiceProviderTriggerDetails {
     fn clone(&self) -> Self {
@@ -585,7 +585,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderTriggerDetails {
 impl ::windows::core::RuntimeName for GattServiceProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderTriggerDetails";
 }
-::windows::core::interface_hierarchy!(GattServiceProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GattServiceProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for GattServiceProviderTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -628,7 +628,7 @@ impl ::core::fmt::Debug for RfcommConnectionTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for RfcommConnectionTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommConnectionTriggerDetails;{f922734d-2e3c-4efc-ab59-fc5cf96f97e3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommConnectionTriggerDetails;{f922734d-2e3c-4efc-ab59-fc5cf96f97e3})");
 }
 impl ::core::clone::Clone for RfcommConnectionTriggerDetails {
     fn clone(&self) -> Self {
@@ -644,7 +644,7 @@ unsafe impl ::windows::core::Interface for RfcommConnectionTriggerDetails {
 impl ::windows::core::RuntimeName for RfcommConnectionTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommConnectionTriggerDetails";
 }
-::windows::core::interface_hierarchy!(RfcommConnectionTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RfcommConnectionTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommConnectionTriggerDetails {}
 unsafe impl ::core::marker::Sync for RfcommConnectionTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -709,7 +709,7 @@ impl ::core::fmt::Debug for RfcommInboundConnectionInformation {
     }
 }
 impl ::windows::core::RuntimeType for RfcommInboundConnectionInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommInboundConnectionInformation;{6d3e75a8-5429-4059-92e3-1e8b65528707})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommInboundConnectionInformation;{6d3e75a8-5429-4059-92e3-1e8b65528707})");
 }
 impl ::core::clone::Clone for RfcommInboundConnectionInformation {
     fn clone(&self) -> Self {
@@ -725,7 +725,7 @@ unsafe impl ::windows::core::Interface for RfcommInboundConnectionInformation {
 impl ::windows::core::RuntimeName for RfcommInboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommInboundConnectionInformation";
 }
-::windows::core::interface_hierarchy!(RfcommInboundConnectionInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RfcommInboundConnectionInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommInboundConnectionInformation {}
 unsafe impl ::core::marker::Sync for RfcommInboundConnectionInformation {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -760,7 +760,7 @@ impl ::core::fmt::Debug for RfcommOutboundConnectionInformation {
     }
 }
 impl ::windows::core::RuntimeType for RfcommOutboundConnectionInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommOutboundConnectionInformation;{b091227b-f434-4cb0-99b1-4ab8cedaedd7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommOutboundConnectionInformation;{b091227b-f434-4cb0-99b1-4ab8cedaedd7})");
 }
 impl ::core::clone::Clone for RfcommOutboundConnectionInformation {
     fn clone(&self) -> Self {
@@ -776,7 +776,7 @@ unsafe impl ::windows::core::Interface for RfcommOutboundConnectionInformation {
 impl ::windows::core::RuntimeName for RfcommOutboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommOutboundConnectionInformation";
 }
-::windows::core::interface_hierarchy!(RfcommOutboundConnectionInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RfcommOutboundConnectionInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommOutboundConnectionInformation {}
 unsafe impl ::core::marker::Sync for RfcommOutboundConnectionInformation {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -808,7 +808,7 @@ impl ::core::fmt::Debug for BluetoothEventTriggeringMode {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothEventTriggeringMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

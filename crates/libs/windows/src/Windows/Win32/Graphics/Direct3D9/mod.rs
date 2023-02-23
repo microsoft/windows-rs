@@ -4,26 +4,26 @@ pub unsafe fn D3DPERF_BeginEvent<P0>(col: u32, wszname: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_BeginEvent ( col : u32 , wszname : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_BeginEvent ( col : u32 , wszname : :: windows::core::PCWSTR ) -> i32 );
     D3DPERF_BeginEvent(col, wszname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_EndEvent() -> i32 {
-    ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_EndEvent ( ) -> i32 );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_EndEvent ( ) -> i32 );
     D3DPERF_EndEvent()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_GetStatus() -> u32 {
-    ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_GetStatus ( ) -> u32 );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_GetStatus ( ) -> u32 );
     D3DPERF_GetStatus()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_QueryRepeatFrame ( ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_QueryRepeatFrame ( ) -> super::super::Foundation:: BOOL );
     D3DPERF_QueryRepeatFrame()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -32,13 +32,13 @@ pub unsafe fn D3DPERF_SetMarker<P0>(col: u32, wszname: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_SetMarker ( col : u32 , wszname : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_SetMarker ( col : u32 , wszname : :: windows::core::PCWSTR ) -> ( ) );
     D3DPERF_SetMarker(col, wszname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
-    ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_SetOptions ( dwoptions : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_SetOptions ( dwoptions : u32 ) -> ( ) );
     D3DPERF_SetOptions(dwoptions)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -47,19 +47,19 @@ pub unsafe fn D3DPERF_SetRegion<P0>(col: u32, wszname: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "d3d9.dll""system" fn D3DPERF_SetRegion ( col : u32 , wszname : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn D3DPERF_SetRegion ( col : u32 , wszname : :: windows::core::PCWSTR ) -> ( ) );
     D3DPERF_SetRegion(col, wszname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect3D9> {
-    ::windows::core::link ! ( "d3d9.dll""system" fn Direct3DCreate9 ( sdkversion : u32 ) -> ::core::option::Option < IDirect3D9 > );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn Direct3DCreate9 ( sdkversion : u32 ) -> ::core::option::Option < IDirect3D9 > );
     Direct3DCreate9(sdkversion)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::core::Result<IDirect3D9Ex> {
-    ::windows::core::link ! ( "d3d9.dll""system" fn Direct3DCreate9Ex ( sdkversion : u32 , param1 : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d9.dll""system" fn Direct3DCreate9Ex ( sdkversion : u32 , param1 : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IDirect3D9Ex>();
     Direct3DCreate9Ex(sdkversion, &mut result__).from_abi(result__)
 }
@@ -129,7 +129,7 @@ impl IDirect3D9 {
         (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), adapter, devicetype, hfocuswindow.into(), behaviorflags, ppresentationparameters, ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3D9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3D9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3D9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -274,7 +274,7 @@ impl IDirect3D9Ex {
         (::windows::core::Vtable::vtable(self).GetAdapterLUID)(::windows::core::Vtable::as_raw(self), adapter, pluid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3D9Ex, ::windows::core::IUnknown, IDirect3D9);
+::windows::imp::interface_hierarchy!(IDirect3D9Ex, ::windows::core::IUnknown, IDirect3D9);
 impl ::core::cmp::PartialEq for IDirect3D9Ex {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -361,7 +361,7 @@ impl IDirect3DBaseTexture9 {
         (::windows::core::Vtable::vtable(self).GenerateMipSubLevels)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DBaseTexture9, ::windows::core::IUnknown, IDirect3DResource9);
+::windows::imp::interface_hierarchy!(IDirect3DBaseTexture9, ::windows::core::IUnknown, IDirect3DResource9);
 impl ::core::cmp::PartialEq for IDirect3DBaseTexture9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -463,7 +463,7 @@ impl IDirect3DCubeTexture9 {
         (::windows::core::Vtable::vtable(self).AddDirtyRect)(::windows::core::Vtable::as_raw(self), facetype, pdirtyrect).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DCubeTexture9, ::windows::core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
+::windows::imp::interface_hierarchy!(IDirect3DCubeTexture9, ::windows::core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
 impl ::core::cmp::PartialEq for IDirect3DCubeTexture9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1015,7 +1015,7 @@ impl IDirect3DDevice9 {
         (::windows::core::Vtable::vtable(self).CreateQuery)(::windows::core::Vtable::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DDevice9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DDevice9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DDevice9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1852,7 +1852,7 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Vtable::vtable(self).GetDisplayModeEx)(::windows::core::Vtable::as_raw(self), iswapchain, pmode, protation).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DDevice9Ex, ::windows::core::IUnknown, IDirect3DDevice9);
+::windows::imp::interface_hierarchy!(IDirect3DDevice9Ex, ::windows::core::IUnknown, IDirect3DDevice9);
 impl ::core::cmp::PartialEq for IDirect3DDevice9Ex {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1952,7 +1952,7 @@ impl IDirect3DIndexBuffer9 {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DIndexBuffer9, ::windows::core::IUnknown, IDirect3DResource9);
+::windows::imp::interface_hierarchy!(IDirect3DIndexBuffer9, ::windows::core::IUnknown, IDirect3DResource9);
 impl ::core::cmp::PartialEq for IDirect3DIndexBuffer9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1995,7 +1995,7 @@ impl IDirect3DPixelShader9 {
         (::windows::core::Vtable::vtable(self).GetFunction)(::windows::core::Vtable::as_raw(self), param0, psizeofdata).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DPixelShader9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DPixelShader9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DPixelShader9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2046,7 +2046,7 @@ impl IDirect3DQuery9 {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), pdata, dwsize, dwgetdataflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DQuery9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DQuery9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DQuery9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2109,7 +2109,7 @@ impl IDirect3DResource9 {
         (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DResource9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DResource9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DResource9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2160,7 +2160,7 @@ impl IDirect3DStateBlock9 {
         (::windows::core::Vtable::vtable(self).Apply)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DStateBlock9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DStateBlock9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DStateBlock9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2248,7 +2248,7 @@ impl IDirect3DSurface9 {
         (::windows::core::Vtable::vtable(self).ReleaseDC)(::windows::core::Vtable::as_raw(self), hdc.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DSurface9, ::windows::core::IUnknown, IDirect3DResource9);
+::windows::imp::interface_hierarchy!(IDirect3DSurface9, ::windows::core::IUnknown, IDirect3DResource9);
 impl ::core::cmp::PartialEq for IDirect3DSurface9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2331,7 +2331,7 @@ impl IDirect3DSwapChain9 {
         (::windows::core::Vtable::vtable(self).GetPresentParameters)(::windows::core::Vtable::as_raw(self), ppresentationparameters).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DSwapChain9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DSwapChain9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DSwapChain9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2424,7 +2424,7 @@ impl IDirect3DSwapChain9Ex {
         (::windows::core::Vtable::vtable(self).GetDisplayModeEx)(::windows::core::Vtable::as_raw(self), pmode, protation).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DSwapChain9Ex, ::windows::core::IUnknown, IDirect3DSwapChain9);
+::windows::imp::interface_hierarchy!(IDirect3DSwapChain9Ex, ::windows::core::IUnknown, IDirect3DSwapChain9);
 impl ::core::cmp::PartialEq for IDirect3DSwapChain9Ex {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2523,7 +2523,7 @@ impl IDirect3DTexture9 {
         (::windows::core::Vtable::vtable(self).AddDirtyRect)(::windows::core::Vtable::as_raw(self), pdirtyrect).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DTexture9, ::windows::core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
+::windows::imp::interface_hierarchy!(IDirect3DTexture9, ::windows::core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
 impl ::core::cmp::PartialEq for IDirect3DTexture9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2601,7 +2601,7 @@ impl IDirect3DVertexBuffer9 {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DVertexBuffer9, ::windows::core::IUnknown, IDirect3DResource9);
+::windows::imp::interface_hierarchy!(IDirect3DVertexBuffer9, ::windows::core::IUnknown, IDirect3DResource9);
 impl ::core::cmp::PartialEq for IDirect3DVertexBuffer9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2644,7 +2644,7 @@ impl IDirect3DVertexDeclaration9 {
         (::windows::core::Vtable::vtable(self).GetDeclaration)(::windows::core::Vtable::as_raw(self), pelement, pnumelements).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DVertexDeclaration9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DVertexDeclaration9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DVertexDeclaration9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2686,7 +2686,7 @@ impl IDirect3DVertexShader9 {
         (::windows::core::Vtable::vtable(self).GetFunction)(::windows::core::Vtable::as_raw(self), param0, psizeofdata).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DVertexShader9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DVertexShader9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DVertexShader9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2746,7 +2746,7 @@ impl IDirect3DVolume9 {
         (::windows::core::Vtable::vtable(self).UnlockBox)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DVolume9, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirect3DVolume9, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirect3DVolume9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2846,7 +2846,7 @@ impl IDirect3DVolumeTexture9 {
         (::windows::core::Vtable::vtable(self).AddDirtyBox)(::windows::core::Vtable::as_raw(self), pdirtybox).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirect3DVolumeTexture9, ::windows::core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
+::windows::imp::interface_hierarchy!(IDirect3DVolumeTexture9, ::windows::core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
 impl ::core::cmp::PartialEq for IDirect3DVolumeTexture9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

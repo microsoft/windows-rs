@@ -24,7 +24,7 @@ impl ICatalog {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ICatalog, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ICatalog, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICatalog {
     fn eq(&self, other: &Self) -> bool {
@@ -91,7 +91,7 @@ impl IComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IComponentUtil, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IComponentUtil, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IComponentUtil {
     fn eq(&self, other: &Self) -> bool {
@@ -150,7 +150,7 @@ impl IPackageUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPackageUtil, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IPackageUtil, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPackageUtil {
     fn eq(&self, other: &Self) -> bool {
@@ -202,7 +202,7 @@ impl IRemoteComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRemoteComponentUtil, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRemoteComponentUtil, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteComponentUtil {
     fn eq(&self, other: &Self) -> bool {
@@ -253,7 +253,7 @@ impl IRoleAssociationUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRoleAssociationUtil, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRoleAssociationUtil, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRoleAssociationUtil {
     fn eq(&self, other: &Self) -> bool {

@@ -182,7 +182,7 @@ impl ISpiDeviceStatics {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISpiDeviceStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISpiDeviceStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISpiDeviceStatics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -195,7 +195,7 @@ impl ::core::fmt::Debug for ISpiDeviceStatics {
     }
 }
 impl ::windows::core::RuntimeType for ISpiDeviceStatics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a278e559-5720-4d3f-bd93-56f5ff5a5879}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a278e559-5720-4d3f-bd93-56f5ff5a5879}");
 }
 unsafe impl ::windows::core::Vtable for ISpiDeviceStatics {
     type Vtable = ISpiDeviceStatics_Vtbl;
@@ -267,7 +267,7 @@ impl ::core::fmt::Debug for SpiBusInfo {
     }
 }
 impl ::windows::core::RuntimeType for SpiBusInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiBusInfo;{9929444a-54f2-48c6-b952-9c32fc02c669})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiBusInfo;{9929444a-54f2-48c6-b952-9c32fc02c669})");
 }
 impl ::core::clone::Clone for SpiBusInfo {
     fn clone(&self) -> Self {
@@ -283,7 +283,7 @@ unsafe impl ::windows::core::Interface for SpiBusInfo {
 impl ::windows::core::RuntimeName for SpiBusInfo {
     const NAME: &'static str = "Windows.Devices.Spi.SpiBusInfo";
 }
-::windows::core::interface_hierarchy!(SpiBusInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpiBusInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpiBusInfo {}
 unsafe impl ::core::marker::Sync for SpiBusInfo {}
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
@@ -353,7 +353,7 @@ impl SpiConnectionSettings {
     }
     #[doc(hidden)]
     pub fn ISpiConnectionSettingsFactory<R, F: FnOnce(&ISpiConnectionSettingsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpiConnectionSettings, ISpiConnectionSettingsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpiConnectionSettings, ISpiConnectionSettingsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -369,7 +369,7 @@ impl ::core::fmt::Debug for SpiConnectionSettings {
     }
 }
 impl ::windows::core::RuntimeType for SpiConnectionSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiConnectionSettings;{5283a37f-f935-4b9f-a7a7-3a7890afa5ce})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiConnectionSettings;{5283a37f-f935-4b9f-a7a7-3a7890afa5ce})");
 }
 impl ::core::clone::Clone for SpiConnectionSettings {
     fn clone(&self) -> Self {
@@ -385,7 +385,7 @@ unsafe impl ::windows::core::Interface for SpiConnectionSettings {
 impl ::windows::core::RuntimeName for SpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.SpiConnectionSettings";
 }
-::windows::core::interface_hierarchy!(SpiConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpiConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for SpiConnectionSettings {}
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
@@ -421,7 +421,7 @@ impl SpiController {
     }
     #[doc(hidden)]
     pub fn ISpiControllerStatics<R, F: FnOnce(&ISpiControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpiController, ISpiControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpiController, ISpiControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -437,7 +437,7 @@ impl ::core::fmt::Debug for SpiController {
     }
 }
 impl ::windows::core::RuntimeType for SpiController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiController;{a8d3c829-9895-4159-a934-8741f1ee6d27})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiController;{a8d3c829-9895-4159-a934-8741f1ee6d27})");
 }
 impl ::core::clone::Clone for SpiController {
     fn clone(&self) -> Self {
@@ -453,7 +453,7 @@ unsafe impl ::windows::core::Interface for SpiController {
 impl ::windows::core::RuntimeName for SpiController {
     const NAME: &'static str = "Windows.Devices.Spi.SpiController";
 }
-::windows::core::interface_hierarchy!(SpiController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpiController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpiController {}
 unsafe impl ::core::marker::Sync for SpiController {}
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
@@ -524,7 +524,7 @@ impl SpiDevice {
     }
     #[doc(hidden)]
     pub fn ISpiDeviceStatics<R, F: FnOnce(&ISpiDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpiDevice, ISpiDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpiDevice, ISpiDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -540,7 +540,7 @@ impl ::core::fmt::Debug for SpiDevice {
     }
 }
 impl ::windows::core::RuntimeType for SpiDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiDevice;{05d5356d-11b6-4d39-84d5-95dfb4c9f2ce})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiDevice;{05d5356d-11b6-4d39-84d5-95dfb4c9f2ce})");
 }
 impl ::core::clone::Clone for SpiDevice {
     fn clone(&self) -> Self {
@@ -556,7 +556,7 @@ unsafe impl ::windows::core::Interface for SpiDevice {
 impl ::windows::core::RuntimeName for SpiDevice {
     const NAME: &'static str = "Windows.Devices.Spi.SpiDevice";
 }
-::windows::core::interface_hierarchy!(SpiDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpiDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SpiDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -611,7 +611,7 @@ impl ::core::fmt::Debug for SpiMode {
     }
 }
 impl ::windows::core::RuntimeType for SpiMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
 #[repr(transparent)]
@@ -641,7 +641,7 @@ impl ::core::fmt::Debug for SpiSharingMode {
     }
 }
 impl ::windows::core::RuntimeType for SpiSharingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiSharingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiSharingMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

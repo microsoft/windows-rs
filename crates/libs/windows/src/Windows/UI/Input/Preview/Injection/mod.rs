@@ -282,8 +282,8 @@ impl InjectedInputGamepadInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InjectedInputGamepadInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InjectedInputGamepadInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
@@ -377,7 +377,7 @@ impl InjectedInputGamepadInfo {
     }
     #[doc(hidden)]
     pub fn IInjectedInputGamepadInfoFactory<R, F: FnOnce(&IInjectedInputGamepadInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InjectedInputGamepadInfo, IInjectedInputGamepadInfoFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InjectedInputGamepadInfo, IInjectedInputGamepadInfoFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -393,7 +393,7 @@ impl ::core::fmt::Debug for InjectedInputGamepadInfo {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputGamepadInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo;{20ae9a3f-df11-4572-a9ab-d75b8a5e48ad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo;{20ae9a3f-df11-4572-a9ab-d75b8a5e48ad})");
 }
 impl ::core::clone::Clone for InjectedInputGamepadInfo {
     fn clone(&self) -> Self {
@@ -409,7 +409,7 @@ unsafe impl ::windows::core::Interface for InjectedInputGamepadInfo {
 impl ::windows::core::RuntimeName for InjectedInputGamepadInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo";
 }
-::windows::core::interface_hierarchy!(InjectedInputGamepadInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InjectedInputGamepadInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputKeyboardInfo(::windows::core::IUnknown);
@@ -417,8 +417,8 @@ impl InjectedInputKeyboardInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InjectedInputKeyboardInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InjectedInputKeyboardInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn KeyOptions(&self) -> ::windows::core::Result<InjectedInputKeyOptions> {
@@ -467,7 +467,7 @@ impl ::core::fmt::Debug for InjectedInputKeyboardInfo {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputKeyboardInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo;{4b46d140-2b6a-5ffa-7eae-bd077b052acd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo;{4b46d140-2b6a-5ffa-7eae-bd077b052acd})");
 }
 impl ::core::clone::Clone for InjectedInputKeyboardInfo {
     fn clone(&self) -> Self {
@@ -483,7 +483,7 @@ unsafe impl ::windows::core::Interface for InjectedInputKeyboardInfo {
 impl ::windows::core::RuntimeName for InjectedInputKeyboardInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo";
 }
-::windows::core::interface_hierarchy!(InjectedInputKeyboardInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InjectedInputKeyboardInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputMouseInfo(::windows::core::IUnknown);
@@ -491,8 +491,8 @@ impl InjectedInputMouseInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InjectedInputMouseInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InjectedInputMouseInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn MouseOptions(&self) -> ::windows::core::Result<InjectedInputMouseOptions> {
@@ -563,7 +563,7 @@ impl ::core::fmt::Debug for InjectedInputMouseInfo {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputMouseInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo;{96f56e6b-e47a-5cf4-418d-8a5fb9670c7d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo;{96f56e6b-e47a-5cf4-418d-8a5fb9670c7d})");
 }
 impl ::core::clone::Clone for InjectedInputMouseInfo {
     fn clone(&self) -> Self {
@@ -579,7 +579,7 @@ unsafe impl ::windows::core::Interface for InjectedInputMouseInfo {
 impl ::windows::core::RuntimeName for InjectedInputMouseInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo";
 }
-::windows::core::interface_hierarchy!(InjectedInputMouseInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InjectedInputMouseInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputPenInfo(::windows::core::IUnknown);
@@ -587,8 +587,8 @@ impl InjectedInputPenInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InjectedInputPenInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InjectedInputPenInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn PointerInfo(&self) -> ::windows::core::Result<InjectedInputPointerInfo> {
@@ -681,7 +681,7 @@ impl ::core::fmt::Debug for InjectedInputPenInfo {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputPenInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputPenInfo;{6b40ad03-ca1e-5527-7e02-2828540bb1d4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputPenInfo;{6b40ad03-ca1e-5527-7e02-2828540bb1d4})");
 }
 impl ::core::clone::Clone for InjectedInputPenInfo {
     fn clone(&self) -> Self {
@@ -697,7 +697,7 @@ unsafe impl ::windows::core::Interface for InjectedInputPenInfo {
 impl ::windows::core::RuntimeName for InjectedInputPenInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputPenInfo";
 }
-::windows::core::interface_hierarchy!(InjectedInputPenInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InjectedInputPenInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputTouchInfo(::windows::core::IUnknown);
@@ -705,8 +705,8 @@ impl InjectedInputTouchInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InjectedInputTouchInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InjectedInputTouchInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Contact(&self) -> ::windows::core::Result<InjectedInputRectangle> {
@@ -777,7 +777,7 @@ impl ::core::fmt::Debug for InjectedInputTouchInfo {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputTouchInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo;{224fd1df-43e8-5ef5-510a-69ca8c9b4c28})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo;{224fd1df-43e8-5ef5-510a-69ca8c9b4c28})");
 }
 impl ::core::clone::Clone for InjectedInputTouchInfo {
     fn clone(&self) -> Self {
@@ -793,7 +793,7 @@ unsafe impl ::windows::core::Interface for InjectedInputTouchInfo {
 impl ::windows::core::RuntimeName for InjectedInputTouchInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo";
 }
-::windows::core::interface_hierarchy!(InjectedInputTouchInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InjectedInputTouchInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InputInjector(::windows::core::IUnknown);
@@ -878,12 +878,12 @@ impl InputInjector {
     }
     #[doc(hidden)]
     pub fn IInputInjectorStatics<R, F: FnOnce(&IInputInjectorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InputInjector, IInputInjectorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InputInjector, IInputInjectorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IInputInjectorStatics2<R, F: FnOnce(&IInputInjectorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InputInjector, IInputInjectorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InputInjector, IInputInjectorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -899,7 +899,7 @@ impl ::core::fmt::Debug for InputInjector {
     }
 }
 impl ::windows::core::RuntimeType for InputInjector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InputInjector;{8ec26f84-0b02-4bd2-ad7a-3d4658be3e18})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InputInjector;{8ec26f84-0b02-4bd2-ad7a-3d4658be3e18})");
 }
 impl ::core::clone::Clone for InputInjector {
     fn clone(&self) -> Self {
@@ -915,7 +915,7 @@ unsafe impl ::windows::core::Interface for InputInjector {
 impl ::windows::core::RuntimeName for InputInjector {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InputInjector";
 }
-::windows::core::interface_hierarchy!(InputInjector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InputInjector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -953,7 +953,7 @@ impl ::core::fmt::Debug for InjectedInputButtonChangeKind {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputButtonChangeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
@@ -1019,7 +1019,7 @@ impl ::core::ops::Not for InjectedInputKeyOptions {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputKeyOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
@@ -1095,7 +1095,7 @@ impl ::core::ops::Not for InjectedInputMouseOptions {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputMouseOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
@@ -1160,7 +1160,7 @@ impl ::core::ops::Not for InjectedInputPenButtons {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputPenButtons {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
@@ -1226,7 +1226,7 @@ impl ::core::ops::Not for InjectedInputPenParameters {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputPenParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
@@ -1300,7 +1300,7 @@ impl ::core::ops::Not for InjectedInputPointerOptions {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputPointerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
@@ -1331,7 +1331,7 @@ impl ::core::fmt::Debug for InjectedInputShortcut {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputShortcut {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
@@ -1396,7 +1396,7 @@ impl ::core::ops::Not for InjectedInputTouchParameters {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputTouchParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
@@ -1427,7 +1427,7 @@ impl ::core::fmt::Debug for InjectedInputVisualizationMode {
     }
 }
 impl ::windows::core::RuntimeType for InjectedInputVisualizationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1450,7 +1450,7 @@ impl ::windows::core::TypeKind for InjectedInputPoint {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for InjectedInputPoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
 }
 impl ::core::cmp::PartialEq for InjectedInputPoint {
     fn eq(&self, other: &Self) -> bool {
@@ -1487,7 +1487,7 @@ impl ::windows::core::TypeKind for InjectedInputPointerInfo {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for InjectedInputPointerInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
 }
 impl ::core::cmp::PartialEq for InjectedInputPointerInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -1523,7 +1523,7 @@ impl ::windows::core::TypeKind for InjectedInputRectangle {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for InjectedInputRectangle {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
 }
 impl ::core::cmp::PartialEq for InjectedInputRectangle {
     fn eq(&self, other: &Self) -> bool {

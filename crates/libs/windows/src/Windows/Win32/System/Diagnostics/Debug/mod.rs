@@ -2,21 +2,21 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AddVectoredContinueHandler ( first : u32 , handler : PVECTORED_EXCEPTION_HANDLER ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AddVectoredContinueHandler ( first : u32 , handler : PVECTORED_EXCEPTION_HANDLER ) -> *mut ::core::ffi::c_void );
     AddVectoredContinueHandler(first, handler)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AddVectoredExceptionHandler ( first : u32 , handler : PVECTORED_EXCEPTION_HANDLER ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AddVectoredExceptionHandler ( first : u32 , handler : PVECTORED_EXCEPTION_HANDLER ) -> *mut ::core::ffi::c_void );
     AddVectoredExceptionHandler(first, handler)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Beep(dwfreq: u32, dwduration: u32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Beep ( dwfreq : u32 , dwduration : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Beep ( dwfreq : u32 , dwduration : u32 ) -> super::super::super::Foundation:: BOOL );
     Beep(dwfreq, dwduration)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -28,7 +28,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn BindImage ( imagename : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn BindImage ( imagename : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
     BindImage(imagename.into().abi(), dllpath.into().abi(), symbolpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -40,7 +40,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn BindImageEx ( flags : u32 , imagename : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , statusroutine : PIMAGEHLP_STATUS_ROUTINE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn BindImageEx ( flags : u32 , imagename : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , statusroutine : PIMAGEHLP_STATUS_ROUTINE ) -> super::super::super::Foundation:: BOOL );
     BindImageEx(flags, imagename.into().abi(), dllpath.into().abi(), symbolpath.into().abi(), statusroutine)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -50,7 +50,7 @@ pub unsafe fn CheckRemoteDebuggerPresent<P0>(hprocess: P0, pbdebuggerpresent: *m
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CheckRemoteDebuggerPresent ( hprocess : super::super::super::Foundation:: HANDLE , pbdebuggerpresent : *mut super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CheckRemoteDebuggerPresent ( hprocess : super::super::super::Foundation:: HANDLE , pbdebuggerpresent : *mut super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     CheckRemoteDebuggerPresent(hprocess.into(), pbdebuggerpresent)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -58,7 +58,7 @@ where
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS64 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn CheckSumMappedFile ( baseaddress : *const ::core::ffi::c_void , filelength : u32 , headersum : *mut u32 , checksum : *mut u32 ) -> *mut IMAGE_NT_HEADERS64 );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn CheckSumMappedFile ( baseaddress : *const ::core::ffi::c_void , filelength : u32 , headersum : *mut u32 , checksum : *mut u32 ) -> *mut IMAGE_NT_HEADERS64 );
     CheckSumMappedFile(baseaddress, filelength, headersum, checksum)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -66,13 +66,13 @@ pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filele
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS32 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn CheckSumMappedFile ( baseaddress : *const ::core::ffi::c_void , filelength : u32 , headersum : *mut u32 , checksum : *mut u32 ) -> *mut IMAGE_NT_HEADERS32 );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn CheckSumMappedFile ( baseaddress : *const ::core::ffi::c_void , filelength : u32 , headersum : *mut u32 , checksum : *mut u32 ) -> *mut IMAGE_NT_HEADERS32 );
     CheckSumMappedFile(baseaddress, filelength, headersum, checksum)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void) {
-    ::windows::core::link ! ( "advapi32.dll""system" fn CloseThreadWaitChainSession ( wcthandle : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn CloseThreadWaitChainSession ( wcthandle : *const ::core::ffi::c_void ) -> ( ) );
     CloseThreadWaitChainSession(wcthandle)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -82,14 +82,14 @@ pub unsafe fn ContinueDebugEvent<P0>(dwprocessid: u32, dwthreadid: u32, dwcontin
 where
     P0: ::std::convert::Into<super::super::super::Foundation::NTSTATUS>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ContinueDebugEvent ( dwprocessid : u32 , dwthreadid : u32 , dwcontinuestatus : super::super::super::Foundation:: NTSTATUS ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ContinueDebugEvent ( dwprocessid : u32 , dwthreadid : u32 , dwcontinuestatus : super::super::super::Foundation:: NTSTATUS ) -> super::super::super::Foundation:: BOOL );
     ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: *const CONTEXT) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CopyContext ( destination : *mut CONTEXT , contextflags : u32 , source : *const CONTEXT ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CopyContext ( destination : *mut CONTEXT , contextflags : u32 , source : *const CONTEXT ) -> super::super::super::Foundation:: BOOL );
     CopyContext(destination, contextflags, source)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -98,7 +98,7 @@ pub unsafe fn CreateDataModelManager<P0>(debughost: P0) -> ::windows::core::Resu
 where
     P0: ::std::convert::Into<::windows::core::InParam<IDebugHost>>,
 {
-    ::windows::core::link ! ( "dbgmodel.dll""system" fn CreateDataModelManager ( debughost : * mut::core::ffi::c_void , manager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgmodel.dll""system" fn CreateDataModelManager ( debughost : * mut::core::ffi::c_void , manager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IDataModelManager>();
     CreateDataModelManager(debughost.into().abi(), &mut result__).from_abi(result__)
 }
@@ -109,7 +109,7 @@ pub unsafe fn DbgHelpCreateUserDump<P0>(filename: P0, callback: PDBGHELP_CREATE_
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn DbgHelpCreateUserDump ( filename : :: windows::core::PCSTR , callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK , userdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn DbgHelpCreateUserDump ( filename : :: windows::core::PCSTR , callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK , userdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     DbgHelpCreateUserDump(filename.into().abi(), callback, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -119,27 +119,27 @@ pub unsafe fn DbgHelpCreateUserDumpW<P0>(filename: P0, callback: PDBGHELP_CREATE
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn DbgHelpCreateUserDumpW ( filename : :: windows::core::PCWSTR , callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK , userdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn DbgHelpCreateUserDumpW ( filename : :: windows::core::PCWSTR , callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK , userdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     DbgHelpCreateUserDumpW(filename.into().abi(), callback, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DebugActiveProcess ( dwprocessid : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DebugActiveProcess ( dwprocessid : u32 ) -> super::super::super::Foundation:: BOOL );
     DebugActiveProcess(dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DebugActiveProcessStop(dwprocessid: u32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DebugActiveProcessStop ( dwprocessid : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DebugActiveProcessStop ( dwprocessid : u32 ) -> super::super::super::Foundation:: BOOL );
     DebugActiveProcessStop(dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn DebugBreak() {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DebugBreak ( ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DebugBreak ( ) -> ( ) );
     DebugBreak()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -149,7 +149,7 @@ pub unsafe fn DebugBreakProcess<P0>(process: P0) -> super::super::super::Foundat
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DebugBreakProcess ( process : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DebugBreakProcess ( process : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: BOOL );
     DebugBreakProcess(process.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -158,7 +158,7 @@ pub unsafe fn DebugConnect<P0>(remoteoptions: P0, interfaceid: *const ::windows:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbgeng.dll""system" fn DebugConnect ( remoteoptions : :: windows::core::PCSTR , interfaceid : *const :: windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugConnect ( remoteoptions : :: windows::core::PCSTR , interfaceid : *const :: windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DebugConnect(remoteoptions.into().abi(), interfaceid, interface).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -167,7 +167,7 @@ pub unsafe fn DebugConnectWide<P0>(remoteoptions: P0, interfaceid: *const ::wind
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbgeng.dll""system" fn DebugConnectWide ( remoteoptions : :: windows::core::PCWSTR , interfaceid : *const :: windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugConnectWide ( remoteoptions : :: windows::core::PCWSTR , interfaceid : *const :: windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DebugConnectWide(remoteoptions.into().abi(), interfaceid, interface).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -176,7 +176,7 @@ pub unsafe fn DebugCreate<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dbgeng.dll""system" fn DebugCreate ( interfaceid : *const :: windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugCreate ( interfaceid : *const :: windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DebugCreate(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -186,7 +186,7 @@ pub unsafe fn DebugCreateEx<T>(dbgengoptions: u32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dbgeng.dll""system" fn DebugCreateEx ( interfaceid : *const :: windows::core::GUID , dbgengoptions : u32 , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugCreateEx ( interfaceid : *const :: windows::core::GUID , dbgengoptions : u32 , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DebugCreateEx(&<T as ::windows::core::Interface>::IID, dbgengoptions, &mut result__).from_abi(result__)
 }
@@ -197,13 +197,13 @@ pub unsafe fn DebugSetProcessKillOnExit<P0>(killonexit: P0) -> super::super::sup
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DebugSetProcessKillOnExit ( killonexit : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DebugSetProcessKillOnExit ( killonexit : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     DebugSetProcessKillOnExit(killonexit.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn DecodePointer(ptr: ::core::option::Option<*const ::core::ffi::c_void>) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DecodePointer ( ptr : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DecodePointer ( ptr : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
     DecodePointer(::core::mem::transmute(ptr.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -213,19 +213,19 @@ pub unsafe fn DecodeRemotePointer<P0>(processhandle: P0, ptr: ::core::option::Op
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-util-l1-1-1.dll""system" fn DecodeRemotePointer ( processhandle : super::super::super::Foundation:: HANDLE , ptr : *const ::core::ffi::c_void , decodedptr : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-util-l1-1-1.dll""system" fn DecodeRemotePointer ( processhandle : super::super::super::Foundation:: HANDLE , ptr : *const ::core::ffi::c_void , decodedptr : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DecodeRemotePointer(processhandle.into(), ::core::mem::transmute(ptr.unwrap_or(::std::ptr::null())), decodedptr).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn DecodeSystemPointer(ptr: ::core::option::Option<*const ::core::ffi::c_void>) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DecodeSystemPointer ( ptr : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DecodeSystemPointer ( ptr : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
     DecodeSystemPointer(::core::mem::transmute(ptr.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn EncodePointer(ptr: ::core::option::Option<*const ::core::ffi::c_void>) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "kernel32.dll""system" fn EncodePointer ( ptr : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn EncodePointer ( ptr : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
     EncodePointer(::core::mem::transmute(ptr.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -235,13 +235,13 @@ pub unsafe fn EncodeRemotePointer<P0>(processhandle: P0, ptr: ::core::option::Op
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-util-l1-1-1.dll""system" fn EncodeRemotePointer ( processhandle : super::super::super::Foundation:: HANDLE , ptr : *const ::core::ffi::c_void , encodedptr : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-util-l1-1-1.dll""system" fn EncodeRemotePointer ( processhandle : super::super::super::Foundation:: HANDLE , ptr : *const ::core::ffi::c_void , encodedptr : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     EncodeRemotePointer(processhandle.into(), ::core::mem::transmute(ptr.unwrap_or(::std::ptr::null())), encodedptr).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn EncodeSystemPointer(ptr: ::core::option::Option<*const ::core::ffi::c_void>) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "kernel32.dll""system" fn EncodeSystemPointer ( ptr : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn EncodeSystemPointer ( ptr : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
     EncodeSystemPointer(::core::mem::transmute(ptr.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -253,7 +253,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn EnumDirTree ( hprocess : super::super::super::Foundation:: HANDLE , rootpath : :: windows::core::PCSTR , inputpathname : :: windows::core::PCSTR , outputpathbuffer : :: windows::core::PSTR , cb : PENUMDIRTREE_CALLBACK , data : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumDirTree ( hprocess : super::super::super::Foundation:: HANDLE , rootpath : :: windows::core::PCSTR , inputpathname : :: windows::core::PCSTR , outputpathbuffer : :: windows::core::PSTR , cb : PENUMDIRTREE_CALLBACK , data : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EnumDirTree(hprocess.into(), rootpath.into().abi(), inputpathname.into().abi(), ::core::mem::transmute(outputpathbuffer), cb, ::core::mem::transmute(data.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -265,7 +265,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn EnumDirTreeW ( hprocess : super::super::super::Foundation:: HANDLE , rootpath : :: windows::core::PCWSTR , inputpathname : :: windows::core::PCWSTR , outputpathbuffer : :: windows::core::PWSTR , cb : PENUMDIRTREE_CALLBACKW , data : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumDirTreeW ( hprocess : super::super::super::Foundation:: HANDLE , rootpath : :: windows::core::PCWSTR , inputpathname : :: windows::core::PCWSTR , outputpathbuffer : :: windows::core::PWSTR , cb : PENUMDIRTREE_CALLBACKW , data : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EnumDirTreeW(hprocess.into(), rootpath.into().abi(), inputpathname.into().abi(), ::core::mem::transmute(outputpathbuffer), cb, ::core::mem::transmute(data.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -276,7 +276,7 @@ pub unsafe fn EnumerateLoadedModules<P0>(hprocess: P0, enumloadedmodulescallback
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModules ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModules ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EnumerateLoadedModules(hprocess.into(), enumloadedmodulescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -286,7 +286,7 @@ pub unsafe fn EnumerateLoadedModules64<P0>(hprocess: P0, enumloadedmodulescallba
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModules64 ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModules64 ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EnumerateLoadedModules64(hprocess.into(), enumloadedmodulescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -296,7 +296,7 @@ pub unsafe fn EnumerateLoadedModulesEx<P0>(hprocess: P0, enumloadedmodulescallba
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModulesEx ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModulesEx ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EnumerateLoadedModulesEx(hprocess.into(), enumloadedmodulescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -306,7 +306,7 @@ pub unsafe fn EnumerateLoadedModulesExW<P0>(hprocess: P0, enumloadedmodulescallb
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModulesExW ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModulesExW ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EnumerateLoadedModulesExW(hprocess.into(), enumloadedmodulescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -316,7 +316,7 @@ pub unsafe fn EnumerateLoadedModulesW64<P0>(hprocess: P0, enumloadedmodulescallb
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModulesW64 ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumerateLoadedModulesW64 ( hprocess : super::super::super::Foundation:: HANDLE , enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EnumerateLoadedModulesW64(hprocess.into(), enumloadedmodulescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -325,7 +325,7 @@ pub unsafe fn FatalAppExitA<P0>(uaction: u32, lpmessagetext: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FatalAppExitA ( uaction : u32 , lpmessagetext : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FatalAppExitA ( uaction : u32 , lpmessagetext : :: windows::core::PCSTR ) -> ( ) );
     FatalAppExitA(uaction, lpmessagetext.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -334,13 +334,13 @@ pub unsafe fn FatalAppExitW<P0>(uaction: u32, lpmessagetext: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FatalAppExitW ( uaction : u32 , lpmessagetext : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FatalAppExitW ( uaction : u32 , lpmessagetext : :: windows::core::PCWSTR ) -> ( ) );
     FatalAppExitW(uaction, lpmessagetext.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn FatalExit(exitcode: i32) -> ! {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FatalExit ( exitcode : i32 ) -> ! );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FatalExit ( exitcode : i32 ) -> ! );
     FatalExit(exitcode)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -351,9 +351,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn FindDebugInfoFile ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindDebugInfoFile ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindDebugInfoFile(filename.into().abi(), symbolpath.into().abi(), ::core::mem::transmute(debugfilepath));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -363,9 +363,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn FindDebugInfoFileEx ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , callback : PFIND_DEBUG_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindDebugInfoFileEx ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , callback : PFIND_DEBUG_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindDebugInfoFileEx(filename.into().abi(), symbolpath.into().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -375,9 +375,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn FindDebugInfoFileExW ( filename : :: windows::core::PCWSTR , symbolpath : :: windows::core::PCWSTR , debugfilepath : :: windows::core::PWSTR , callback : PFIND_DEBUG_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindDebugInfoFileExW ( filename : :: windows::core::PCWSTR , symbolpath : :: windows::core::PCWSTR , debugfilepath : :: windows::core::PWSTR , callback : PFIND_DEBUG_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindDebugInfoFileExW(filename.into().abi(), symbolpath.into().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -387,9 +387,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn FindExecutableImage ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , imagefilepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindExecutableImage ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , imagefilepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindExecutableImage(filename.into().abi(), symbolpath.into().abi(), ::core::mem::transmute(imagefilepath));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -399,9 +399,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn FindExecutableImageEx ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , imagefilepath : :: windows::core::PSTR , callback : PFIND_EXE_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindExecutableImageEx ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , imagefilepath : :: windows::core::PSTR , callback : PFIND_EXE_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindExecutableImageEx(filename.into().abi(), symbolpath.into().abi(), ::core::mem::transmute(imagefilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -411,9 +411,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn FindExecutableImageExW ( filename : :: windows::core::PCWSTR , symbolpath : :: windows::core::PCWSTR , imagefilepath : :: windows::core::PWSTR , callback : PFIND_EXE_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindExecutableImageExW ( filename : :: windows::core::PCWSTR , symbolpath : :: windows::core::PCWSTR , imagefilepath : :: windows::core::PWSTR , callback : PFIND_EXE_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindExecutableImageExW(filename.into().abi(), symbolpath.into().abi(), ::core::mem::transmute(imagefilepath), callback, callerdata);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -424,7 +424,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn FindFileInPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : u32 , filepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindFileInPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : u32 , filepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
     FindFileInPath(hprocess.into(), searchpatha.into().abi(), filename.into().abi(), id, two, three, flags, ::core::mem::transmute(filepath))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -436,7 +436,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn FindFileInSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , one : u32 , two : u32 , three : u32 , filepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindFileInSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , one : u32 , two : u32 , three : u32 , filepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
     FindFileInSearchPath(hprocess.into(), searchpatha.into().abi(), filename.into().abi(), one, two, three, ::core::mem::transmute(filepath))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -446,32 +446,32 @@ pub unsafe fn FlushInstructionCache<P0>(hprocess: P0, lpbaseaddress: ::core::opt
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FlushInstructionCache ( hprocess : super::super::super::Foundation:: HANDLE , lpbaseaddress : *const ::core::ffi::c_void , dwsize : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FlushInstructionCache ( hprocess : super::super::super::Foundation:: HANDLE , lpbaseaddress : *const ::core::ffi::c_void , dwsize : usize ) -> super::super::super::Foundation:: BOOL );
     FlushInstructionCache(hprocess.into(), ::core::mem::transmute(lpbaseaddress.unwrap_or(::std::ptr::null())), dwsize)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: ::core::option::Option<*const ::core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PSTR, nsize: u32, arguments: ::core::option::Option<*const *const i8>) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FormatMessageA ( dwflags : FORMAT_MESSAGE_OPTIONS , lpsource : *const ::core::ffi::c_void , dwmessageid : u32 , dwlanguageid : u32 , lpbuffer : :: windows::core::PSTR , nsize : u32 , arguments : *const *const i8 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FormatMessageA ( dwflags : FORMAT_MESSAGE_OPTIONS , lpsource : *const ::core::ffi::c_void , dwmessageid : u32 , dwlanguageid : u32 , lpbuffer : :: windows::core::PSTR , nsize : u32 , arguments : *const *const i8 ) -> u32 );
     FormatMessageA(dwflags, ::core::mem::transmute(lpsource.unwrap_or(::std::ptr::null())), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: ::core::option::Option<*const ::core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: ::core::option::Option<*const *const i8>) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FormatMessageW ( dwflags : FORMAT_MESSAGE_OPTIONS , lpsource : *const ::core::ffi::c_void , dwmessageid : u32 , dwlanguageid : u32 , lpbuffer : :: windows::core::PWSTR , nsize : u32 , arguments : *const *const i8 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FormatMessageW ( dwflags : FORMAT_MESSAGE_OPTIONS , lpsource : *const ::core::ffi::c_void , dwmessageid : u32 , dwlanguageid : u32 , lpbuffer : :: windows::core::PWSTR , nsize : u32 , arguments : *const *const i8 ) -> u32 );
     FormatMessageW(dwflags, ::core::mem::transmute(lpsource.unwrap_or(::std::ptr::null())), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn GetEnabledXStateFeatures() -> u64 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetEnabledXStateFeatures ( ) -> u64 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetEnabledXStateFeatures ( ) -> u64 );
     GetEnabledXStateFeatures()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn GetErrorMode() -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetErrorMode ( ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetErrorMode ( ) -> u32 );
     GetErrorMode()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -479,7 +479,7 @@ pub unsafe fn GetErrorMode() -> u32 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn GetImageConfigInformation ( loadedimage : *const LOADED_IMAGE , imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn GetImageConfigInformation ( loadedimage : *const LOADED_IMAGE , imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY64 ) -> super::super::super::Foundation:: BOOL );
     GetImageConfigInformation(loadedimage, imageconfiginformation)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -487,20 +487,20 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn GetImageConfigInformation ( loadedimage : *const LOADED_IMAGE , imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn GetImageConfigInformation ( loadedimage : *const LOADED_IMAGE , imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY32 ) -> super::super::super::Foundation:: BOOL );
     GetImageConfigInformation(loadedimage, imageconfiginformation)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeunusedheaderbytes: *mut u32) -> u32 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn GetImageUnusedHeaderBytes ( loadedimage : *const LOADED_IMAGE , sizeunusedheaderbytes : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn GetImageUnusedHeaderBytes ( loadedimage : *const LOADED_IMAGE , sizeunusedheaderbytes : *mut u32 ) -> u32 );
     GetImageUnusedHeaderBytes(loadedimage, sizeunusedheaderbytes)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn GetSymLoadError() -> u32 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn GetSymLoadError ( ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn GetSymLoadError ( ) -> u32 );
     GetSymLoadError()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -510,13 +510,13 @@ pub unsafe fn GetThreadContext<P0>(hthread: P0, lpcontext: *mut CONTEXT) -> supe
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetThreadContext ( hthread : super::super::super::Foundation:: HANDLE , lpcontext : *mut CONTEXT ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetThreadContext ( hthread : super::super::super::Foundation:: HANDLE , lpcontext : *mut CONTEXT ) -> super::super::super::Foundation:: BOOL );
     GetThreadContext(hthread.into(), lpcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn GetThreadErrorMode() -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetThreadErrorMode ( ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetThreadErrorMode ( ) -> u32 );
     GetThreadErrorMode()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -526,14 +526,14 @@ pub unsafe fn GetThreadSelectorEntry<P0>(hthread: P0, dwselector: u32, lpselecto
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetThreadSelectorEntry ( hthread : super::super::super::Foundation:: HANDLE , dwselector : u32 , lpselectorentry : *mut LDT_ENTRY ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetThreadSelectorEntry ( hthread : super::super::super::Foundation:: HANDLE , dwselector : u32 , lpselectorentry : *mut LDT_ENTRY ) -> super::super::super::Foundation:: BOOL );
     GetThreadSelectorEntry(hthread.into(), dwselector, lpselectorentry)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadWaitChain(wcthandle: *const ::core::ffi::c_void, context: usize, flags: WAIT_CHAIN_THREAD_OPTIONS, threadid: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "advapi32.dll""system" fn GetThreadWaitChain ( wcthandle : *const ::core::ffi::c_void , context : usize , flags : WAIT_CHAIN_THREAD_OPTIONS , threadid : u32 , nodecount : *mut u32 , nodeinfoarray : *mut WAITCHAIN_NODE_INFO , iscycle : *mut i32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn GetThreadWaitChain ( wcthandle : *const ::core::ffi::c_void , context : usize , flags : WAIT_CHAIN_THREAD_OPTIONS , threadid : u32 , nodecount : *mut u32 , nodeinfoarray : *mut WAITCHAIN_NODE_INFO , iscycle : *mut i32 ) -> super::super::super::Foundation:: BOOL );
     GetThreadWaitChain(wcthandle, context, flags, threadid, nodecount, nodeinfoarray, iscycle)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -543,7 +543,7 @@ pub unsafe fn GetTimestampForLoadedLibrary<P0>(module: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn GetTimestampForLoadedLibrary ( module : super::super::super::Foundation:: HINSTANCE ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn GetTimestampForLoadedLibrary ( module : super::super::super::Foundation:: HINSTANCE ) -> u32 );
     GetTimestampForLoadedLibrary(module.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -551,7 +551,7 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u64) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetXStateFeaturesMask ( context : *const CONTEXT , featuremask : *mut u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetXStateFeaturesMask ( context : *const CONTEXT , featuremask : *mut u64 ) -> super::super::super::Foundation:: BOOL );
     GetXStateFeaturesMask(context, featuremask)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Security_WinTrust\"`*"]
@@ -561,7 +561,7 @@ pub unsafe fn ImageAddCertificate<P0>(filehandle: P0, certificate: *const super:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ImageAddCertificate ( filehandle : super::super::super::Foundation:: HANDLE , certificate : *const super::super::super::Security::WinTrust:: WIN_CERTIFICATE , index : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageAddCertificate ( filehandle : super::super::super::Foundation:: HANDLE , certificate : *const super::super::super::Security::WinTrust:: WIN_CERTIFICATE , index : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     ImageAddCertificate(filehandle.into(), certificate, index)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -571,7 +571,7 @@ pub unsafe fn ImageDirectoryEntryToData<P0>(base: *const ::core::ffi::c_void, ma
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImageDirectoryEntryToData ( base : *const ::core::ffi::c_void , mappedasimage : super::super::super::Foundation:: BOOLEAN , directoryentry : IMAGE_DIRECTORY_ENTRY , size : *mut u32 ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImageDirectoryEntryToData ( base : *const ::core::ffi::c_void , mappedasimage : super::super::super::Foundation:: BOOLEAN , directoryentry : IMAGE_DIRECTORY_ENTRY , size : *mut u32 ) -> *mut ::core::ffi::c_void );
     ImageDirectoryEntryToData(base, mappedasimage.into(), directoryentry, size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -581,7 +581,7 @@ pub unsafe fn ImageDirectoryEntryToDataEx<P0>(base: *const ::core::ffi::c_void, 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImageDirectoryEntryToDataEx ( base : *const ::core::ffi::c_void , mappedasimage : super::super::super::Foundation:: BOOLEAN , directoryentry : IMAGE_DIRECTORY_ENTRY , size : *mut u32 , foundheader : *mut *mut IMAGE_SECTION_HEADER ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImageDirectoryEntryToDataEx ( base : *const ::core::ffi::c_void , mappedasimage : super::super::super::Foundation:: BOOLEAN , directoryentry : IMAGE_DIRECTORY_ENTRY , size : *mut u32 , foundheader : *mut *mut IMAGE_SECTION_HEADER ) -> *mut ::core::ffi::c_void );
     ImageDirectoryEntryToDataEx(base, mappedasimage.into(), directoryentry, size, ::core::mem::transmute(foundheader.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -591,7 +591,7 @@ pub unsafe fn ImageEnumerateCertificates<P0>(filehandle: P0, typefilter: u16, ce
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ImageEnumerateCertificates ( filehandle : super::super::super::Foundation:: HANDLE , typefilter : u16 , certificatecount : *mut u32 , indices : *mut u32 , indexcount : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageEnumerateCertificates ( filehandle : super::super::super::Foundation:: HANDLE , typefilter : u16 , certificatecount : *mut u32 , indices : *mut u32 , indexcount : u32 ) -> super::super::super::Foundation:: BOOL );
     ImageEnumerateCertificates(filehandle.into(), typefilter, certificatecount, ::core::mem::transmute(indices.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), indices.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Security_WinTrust\"`*"]
@@ -601,7 +601,7 @@ pub unsafe fn ImageGetCertificateData<P0>(filehandle: P0, certificateindex: u32,
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ImageGetCertificateData ( filehandle : super::super::super::Foundation:: HANDLE , certificateindex : u32 , certificate : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE , requiredlength : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageGetCertificateData ( filehandle : super::super::super::Foundation:: HANDLE , certificateindex : u32 , certificate : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE , requiredlength : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     ImageGetCertificateData(filehandle.into(), certificateindex, certificate, requiredlength)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Security_WinTrust\"`*"]
@@ -611,7 +611,7 @@ pub unsafe fn ImageGetCertificateHeader<P0>(filehandle: P0, certificateindex: u3
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ImageGetCertificateHeader ( filehandle : super::super::super::Foundation:: HANDLE , certificateindex : u32 , certificateheader : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageGetCertificateHeader ( filehandle : super::super::super::Foundation:: HANDLE , certificateindex : u32 , certificateheader : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE ) -> super::super::super::Foundation:: BOOL );
     ImageGetCertificateHeader(filehandle.into(), certificateindex, certificateheader)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -621,7 +621,7 @@ pub unsafe fn ImageGetDigestStream<P0>(filehandle: P0, digestlevel: u32, digestf
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ImageGetDigestStream ( filehandle : super::super::super::Foundation:: HANDLE , digestlevel : u32 , digestfunction : DIGEST_FUNCTION , digesthandle : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageGetDigestStream ( filehandle : super::super::super::Foundation:: HANDLE , digestlevel : u32 , digestfunction : DIGEST_FUNCTION , digesthandle : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     ImageGetDigestStream(filehandle.into(), digestlevel, digestfunction, digesthandle)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -632,7 +632,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ImageLoad ( dllname : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR ) -> *mut LOADED_IMAGE );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageLoad ( dllname : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR ) -> *mut LOADED_IMAGE );
     ImageLoad(dllname.into().abi(), dllpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -640,7 +640,7 @@ where
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImageNtHeader ( base : *const ::core::ffi::c_void ) -> *mut IMAGE_NT_HEADERS64 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImageNtHeader ( base : *const ::core::ffi::c_void ) -> *mut IMAGE_NT_HEADERS64 );
     ImageNtHeader(base)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -648,7 +648,7 @@ pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_H
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImageNtHeader ( base : *const ::core::ffi::c_void ) -> *mut IMAGE_NT_HEADERS32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImageNtHeader ( base : *const ::core::ffi::c_void ) -> *mut IMAGE_NT_HEADERS32 );
     ImageNtHeader(base)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -658,7 +658,7 @@ pub unsafe fn ImageRemoveCertificate<P0>(filehandle: P0, index: u32) -> super::s
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ImageRemoveCertificate ( filehandle : super::super::super::Foundation:: HANDLE , index : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageRemoveCertificate ( filehandle : super::super::super::Foundation:: HANDLE , index : u32 ) -> super::super::super::Foundation:: BOOL );
     ImageRemoveCertificate(filehandle.into(), index)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -666,7 +666,7 @@ where
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImageRvaToSection ( ntheaders : *const IMAGE_NT_HEADERS64 , base : *const ::core::ffi::c_void , rva : u32 ) -> *mut IMAGE_SECTION_HEADER );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImageRvaToSection ( ntheaders : *const IMAGE_NT_HEADERS64 , base : *const ::core::ffi::c_void , rva : u32 ) -> *mut IMAGE_SECTION_HEADER );
     ImageRvaToSection(ntheaders, base, rva)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -674,7 +674,7 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *con
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImageRvaToSection ( ntheaders : *const IMAGE_NT_HEADERS32 , base : *const ::core::ffi::c_void , rva : u32 ) -> *mut IMAGE_SECTION_HEADER );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImageRvaToSection ( ntheaders : *const IMAGE_NT_HEADERS32 , base : *const ::core::ffi::c_void , rva : u32 ) -> *mut IMAGE_SECTION_HEADER );
     ImageRvaToSection(ntheaders, base, rva)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -682,7 +682,7 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *con
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: ::core::option::Option<*const *const IMAGE_SECTION_HEADER>) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImageRvaToVa ( ntheaders : *const IMAGE_NT_HEADERS64 , base : *const ::core::ffi::c_void , rva : u32 , lastrvasection : *const *const IMAGE_SECTION_HEADER ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImageRvaToVa ( ntheaders : *const IMAGE_NT_HEADERS64 , base : *const ::core::ffi::c_void , rva : u32 , lastrvasection : *const *const IMAGE_SECTION_HEADER ) -> *mut ::core::ffi::c_void );
     ImageRvaToVa(ntheaders, base, rva, ::core::mem::transmute(lastrvasection.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -690,47 +690,47 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: ::core::option::Option<*const *const IMAGE_SECTION_HEADER>) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImageRvaToVa ( ntheaders : *const IMAGE_NT_HEADERS32 , base : *const ::core::ffi::c_void , rva : u32 , lastrvasection : *const *const IMAGE_SECTION_HEADER ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImageRvaToVa ( ntheaders : *const IMAGE_NT_HEADERS32 , base : *const ::core::ffi::c_void , rva : u32 , lastrvasection : *const *const IMAGE_SECTION_HEADER ) -> *mut ::core::ffi::c_void );
     ImageRvaToVa(ntheaders, base, rva, ::core::mem::transmute(lastrvasection.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ImageUnload ( loadedimage : *mut LOADED_IMAGE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageUnload ( loadedimage : *mut LOADED_IMAGE ) -> super::super::super::Foundation:: BOOL );
     ImageUnload(loadedimage)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImagehlpApiVersion ( ) -> *mut API_VERSION );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImagehlpApiVersion ( ) -> *mut API_VERSION );
     ImagehlpApiVersion()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_VERSION {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ImagehlpApiVersionEx ( appversion : *const API_VERSION ) -> *mut API_VERSION );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ImagehlpApiVersionEx ( appversion : *const API_VERSION ) -> *mut API_VERSION );
     ImagehlpApiVersionEx(appversion)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn InitializeContext(buffer: ::core::option::Option<*mut ::core::ffi::c_void>, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn InitializeContext ( buffer : *mut ::core::ffi::c_void , contextflags : u32 , context : *mut *mut CONTEXT , contextlength : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn InitializeContext ( buffer : *mut ::core::ffi::c_void , contextflags : u32 , context : *mut *mut CONTEXT , contextlength : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     InitializeContext(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), contextflags, context, contextlength)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn InitializeContext2(buffer: ::core::option::Option<*mut ::core::ffi::c_void>, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn InitializeContext2 ( buffer : *mut ::core::ffi::c_void , contextflags : u32 , context : *mut *mut CONTEXT , contextlength : *mut u32 , xstatecompactionmask : u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn InitializeContext2 ( buffer : *mut ::core::ffi::c_void , contextflags : u32 , context : *mut *mut CONTEXT , contextlength : *mut u32 , xstatecompactionmask : u64 ) -> super::super::super::Foundation:: BOOL );
     InitializeContext2(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), contextflags, context, contextlength, xstatecompactionmask)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn IsDebuggerPresent ( ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IsDebuggerPresent ( ) -> super::super::super::Foundation:: BOOL );
     IsDebuggerPresent()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
@@ -738,7 +738,7 @@ pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn LocateXStateFeature(context: *const CONTEXT, featureid: u32, length: ::core::option::Option<*mut u32>) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LocateXStateFeature ( context : *const CONTEXT , featureid : u32 , length : *mut u32 ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LocateXStateFeature ( context : *const CONTEXT , featureid : u32 , length : *mut u32 ) -> *mut ::core::ffi::c_void );
     LocateXStateFeature(context, featureid, ::core::mem::transmute(length.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -748,7 +748,7 @@ pub unsafe fn MakeSureDirectoryPathExists<P0>(dirpath: P0) -> super::super::supe
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn MakeSureDirectoryPathExists ( dirpath : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn MakeSureDirectoryPathExists ( dirpath : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
     MakeSureDirectoryPathExists(dirpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -761,7 +761,7 @@ where
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     P3: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn MapAndLoad ( imagename : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR , loadedimage : *mut LOADED_IMAGE , dotdll : super::super::super::Foundation:: BOOL , readonly : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn MapAndLoad ( imagename : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR , loadedimage : *mut LOADED_IMAGE , dotdll : super::super::super::Foundation:: BOOL , readonly : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     MapAndLoad(imagename.into().abi(), dllpath.into().abi(), loadedimage, dotdll.into(), readonly.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -770,7 +770,7 @@ pub unsafe fn MapFileAndCheckSumA<P0>(filename: P0, headersum: *mut u32, checksu
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn MapFileAndCheckSumA ( filename : :: windows::core::PCSTR , headersum : *mut u32 , checksum : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn MapFileAndCheckSumA ( filename : :: windows::core::PCSTR , headersum : *mut u32 , checksum : *mut u32 ) -> u32 );
     MapFileAndCheckSumA(filename.into().abi(), headersum, checksum)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -779,21 +779,21 @@ pub unsafe fn MapFileAndCheckSumW<P0>(filename: P0, headersum: *mut u32, checksu
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn MapFileAndCheckSumW ( filename : :: windows::core::PCWSTR , headersum : *mut u32 , checksum : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn MapFileAndCheckSumW ( filename : :: windows::core::PCWSTR , headersum : *mut u32 , checksum : *mut u32 ) -> u32 );
     MapFileAndCheckSumW(filename.into().abi(), headersum, checksum)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn MessageBeep(utype: super::super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "user32.dll""system" fn MessageBeep ( utype : super::super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn MessageBeep ( utype : super::super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> super::super::super::Foundation:: BOOL );
     MessageBeep(utype)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, streamnumber: u32, dir: *mut *mut MINIDUMP_DIRECTORY, streampointer: *mut *mut ::core::ffi::c_void, streamsize: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn MiniDumpReadDumpStream ( baseofdump : *const ::core::ffi::c_void , streamnumber : u32 , dir : *mut *mut MINIDUMP_DIRECTORY , streampointer : *mut *mut ::core::ffi::c_void , streamsize : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn MiniDumpReadDumpStream ( baseofdump : *const ::core::ffi::c_void , streamnumber : u32 , dir : *mut *mut MINIDUMP_DIRECTORY , streampointer : *mut *mut ::core::ffi::c_void , streamsize : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     MiniDumpReadDumpStream(baseofdump, streamnumber, dir, streampointer, ::core::mem::transmute(streamsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`*"]
@@ -804,14 +804,14 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn MiniDumpWriteDump ( hprocess : super::super::super::Foundation:: HANDLE , processid : u32 , hfile : super::super::super::Foundation:: HANDLE , dumptype : MINIDUMP_TYPE , exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION , userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION , callbackparam : *const MINIDUMP_CALLBACK_INFORMATION ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn MiniDumpWriteDump ( hprocess : super::super::super::Foundation:: HANDLE , processid : u32 , hfile : super::super::super::Foundation:: HANDLE , dumptype : MINIDUMP_TYPE , exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION , userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION , callbackparam : *const MINIDUMP_CALLBACK_INFORMATION ) -> super::super::super::Foundation:: BOOL );
     MiniDumpWriteDump(hprocess.into(), processid, hfile.into(), dumptype, ::core::mem::transmute(exceptionparam.unwrap_or(::std::ptr::null())), ::core::mem::transmute(userstreamparam.unwrap_or(::std::ptr::null())), ::core::mem::transmute(callbackparam.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "advapi32.dll""system" fn OpenThreadWaitChainSession ( flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS , callback : PWAITCHAINCALLBACK ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn OpenThreadWaitChainSession ( flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS , callback : PWAITCHAINCALLBACK ) -> *mut ::core::ffi::c_void );
     OpenThreadWaitChainSession(flags, callback)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -820,7 +820,7 @@ pub unsafe fn OutputDebugStringA<P0>(lpoutputstring: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn OutputDebugStringA ( lpoutputstring : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OutputDebugStringA ( lpoutputstring : :: windows::core::PCSTR ) -> ( ) );
     OutputDebugStringA(lpoutputstring.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -829,20 +829,20 @@ pub unsafe fn OutputDebugStringW<P0>(lpoutputstring: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn OutputDebugStringW ( lpoutputstring : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OutputDebugStringW ( lpoutputstring : :: windows::core::PCWSTR ) -> ( ) );
     OutputDebugStringW(lpoutputstring.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lparguments: ::core::option::Option<&[usize]>) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RaiseException ( dwexceptioncode : u32 , dwexceptionflags : u32 , nnumberofarguments : u32 , lparguments : *const usize ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RaiseException ( dwexceptioncode : u32 , dwexceptionflags : u32 , nnumberofarguments : u32 , lparguments : *const usize ) -> ( ) );
     RaiseException(dwexceptioncode, dwexceptionflags, lparguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lparguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RaiseFailFastException(pexceptionrecord: ::core::option::Option<*const EXCEPTION_RECORD>, pcontextrecord: ::core::option::Option<*const CONTEXT>, dwflags: u32) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RaiseFailFastException ( pexceptionrecord : *const EXCEPTION_RECORD , pcontextrecord : *const CONTEXT , dwflags : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RaiseFailFastException ( pexceptionrecord : *const EXCEPTION_RECORD , pcontextrecord : *const CONTEXT , dwflags : u32 ) -> ( ) );
     RaiseFailFastException(::core::mem::transmute(pexceptionrecord.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pcontextrecord.unwrap_or(::std::ptr::null())), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -852,40 +852,40 @@ pub unsafe fn RangeMapAddPeImageSections<P0>(rmaphandle: *const ::core::ffi::c_v
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn RangeMapAddPeImageSections ( rmaphandle : *const ::core::ffi::c_void , imagename : :: windows::core::PCWSTR , mappedimage : *const ::core::ffi::c_void , mappingbytes : u32 , imagebase : u64 , usertag : u64 , mappingflags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn RangeMapAddPeImageSections ( rmaphandle : *const ::core::ffi::c_void , imagename : :: windows::core::PCWSTR , mappedimage : *const ::core::ffi::c_void , mappingbytes : u32 , imagebase : u64 , usertag : u64 , mappingflags : u32 ) -> super::super::super::Foundation:: BOOL );
     RangeMapAddPeImageSections(rmaphandle, imagename.into().abi(), mappedimage, mappingbytes, imagebase, usertag, mappingflags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn RangeMapCreate() -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn RangeMapCreate ( ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn RangeMapCreate ( ) -> *mut ::core::ffi::c_void );
     RangeMapCreate()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn RangeMapFree(rmaphandle: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn RangeMapFree ( rmaphandle : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn RangeMapFree ( rmaphandle : *const ::core::ffi::c_void ) -> ( ) );
     RangeMapFree(::core::mem::transmute(rmaphandle.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RangeMapRead(rmaphandle: *const ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn RangeMapRead ( rmaphandle : *const ::core::ffi::c_void , offset : u64 , buffer : *mut ::core::ffi::c_void , requestbytes : u32 , flags : u32 , donebytes : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn RangeMapRead ( rmaphandle : *const ::core::ffi::c_void , offset : u64 , buffer : *mut ::core::ffi::c_void , requestbytes : u32 , flags : u32 , donebytes : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     RangeMapRead(rmaphandle, offset, buffer, requestbytes, flags, ::core::mem::transmute(donebytes.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RangeMapRemove(rmaphandle: *const ::core::ffi::c_void, usertag: u64) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn RangeMapRemove ( rmaphandle : *const ::core::ffi::c_void , usertag : u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn RangeMapRemove ( rmaphandle : *const ::core::ffi::c_void , usertag : u64 ) -> super::super::super::Foundation:: BOOL );
     RangeMapRemove(rmaphandle, usertag)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RangeMapWrite(rmaphandle: *const ::core::ffi::c_void, offset: u64, buffer: *const ::core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn RangeMapWrite ( rmaphandle : *const ::core::ffi::c_void , offset : u64 , buffer : *const ::core::ffi::c_void , requestbytes : u32 , flags : u32 , donebytes : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn RangeMapWrite ( rmaphandle : *const ::core::ffi::c_void , offset : u64 , buffer : *const ::core::ffi::c_void , requestbytes : u32 , flags : u32 , donebytes : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     RangeMapWrite(rmaphandle, offset, buffer, requestbytes, flags, ::core::mem::transmute(donebytes.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -899,7 +899,7 @@ where
     P3: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     P4: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ReBaseImage ( currentimagename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , frebase : super::super::super::Foundation:: BOOL , frebasesysfileok : super::super::super::Foundation:: BOOL , fgoingdown : super::super::super::Foundation:: BOOL , checkimagesize : u32 , oldimagesize : *mut u32 , oldimagebase : *mut usize , newimagesize : *mut u32 , newimagebase : *mut usize , timestamp : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ReBaseImage ( currentimagename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , frebase : super::super::super::Foundation:: BOOL , frebasesysfileok : super::super::super::Foundation:: BOOL , fgoingdown : super::super::super::Foundation:: BOOL , checkimagesize : u32 , oldimagesize : *mut u32 , oldimagebase : *mut usize , newimagesize : *mut u32 , newimagebase : *mut usize , timestamp : u32 ) -> super::super::super::Foundation:: BOOL );
     ReBaseImage(currentimagename.into().abi(), symbolpath.into().abi(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -913,7 +913,7 @@ where
     P3: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     P4: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn ReBaseImage64 ( currentimagename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , frebase : super::super::super::Foundation:: BOOL , frebasesysfileok : super::super::super::Foundation:: BOOL , fgoingdown : super::super::super::Foundation:: BOOL , checkimagesize : u32 , oldimagesize : *mut u32 , oldimagebase : *mut u64 , newimagesize : *mut u32 , newimagebase : *mut u64 , timestamp : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ReBaseImage64 ( currentimagename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , frebase : super::super::super::Foundation:: BOOL , frebasesysfileok : super::super::super::Foundation:: BOOL , fgoingdown : super::super::super::Foundation:: BOOL , checkimagesize : u32 , oldimagesize : *mut u32 , oldimagebase : *mut u64 , newimagesize : *mut u32 , newimagebase : *mut u64 , timestamp : u32 ) -> super::super::super::Foundation:: BOOL );
     ReBaseImage64(currentimagename.into().abi(), symbolpath.into().abi(), frebase.into(), frebasesysfileok.into(), fgoingdown.into(), checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -923,13 +923,13 @@ pub unsafe fn ReadProcessMemory<P0>(hprocess: P0, lpbaseaddress: *const ::core::
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReadProcessMemory ( hprocess : super::super::super::Foundation:: HANDLE , lpbaseaddress : *const ::core::ffi::c_void , lpbuffer : *mut ::core::ffi::c_void , nsize : usize , lpnumberofbytesread : *mut usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReadProcessMemory ( hprocess : super::super::super::Foundation:: HANDLE , lpbaseaddress : *const ::core::ffi::c_void , lpbuffer : *mut ::core::ffi::c_void , nsize : usize , lpnumberofbytesread : *mut usize ) -> super::super::super::Foundation:: BOOL );
     ReadProcessMemory(hprocess.into(), lpbaseaddress, lpbuffer, nsize, ::core::mem::transmute(lpnumberofbytesread.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
-    ::windows::core::link ! ( "advapi32.dll""system" fn RegisterWaitChainCOMCallback ( callstatecallback : PCOGETCALLSTATE , activationstatecallback : PCOGETACTIVATIONSTATE ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RegisterWaitChainCOMCallback ( callstatecallback : PCOGETCALLSTATE , activationstatecallback : PCOGETACTIVATIONSTATE ) -> ( ) );
     RegisterWaitChainCOMCallback(callstatecallback, activationstatecallback)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -939,19 +939,19 @@ pub unsafe fn RemoveInvalidModuleList<P0>(hprocess: P0)
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn RemoveInvalidModuleList ( hprocess : super::super::super::Foundation:: HANDLE ) -> ( ) );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn RemoveInvalidModuleList ( hprocess : super::super::super::Foundation:: HANDLE ) -> ( ) );
     RemoveInvalidModuleList(hprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn RemoveVectoredContinueHandler(handle: *const ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RemoveVectoredContinueHandler ( handle : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RemoveVectoredContinueHandler ( handle : *const ::core::ffi::c_void ) -> u32 );
     RemoveVectoredContinueHandler(handle)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn RemoveVectoredExceptionHandler(handle: *const ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RemoveVectoredExceptionHandler ( handle : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RemoveVectoredExceptionHandler ( handle : *const ::core::ffi::c_void ) -> u32 );
     RemoveVectoredExceptionHandler(handle)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -962,7 +962,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn ReportSymbolLoadSummary ( hprocess : super::super::super::Foundation:: HANDLE , ploadmodule : :: windows::core::PCWSTR , psymboldata : *const DBGHELP_DATA_REPORT_STRUCT ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ReportSymbolLoadSummary ( hprocess : super::super::super::Foundation:: HANDLE , ploadmodule : :: windows::core::PCWSTR , psymboldata : *const DBGHELP_DATA_REPORT_STRUCT ) -> super::super::super::Foundation:: BOOL );
     ReportSymbolLoadSummary(hprocess.into(), ploadmodule.into().abi(), psymboldata)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -970,7 +970,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], baseaddress: usize) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlAddFunctionTable ( functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY , entrycount : u32 , baseaddress : usize ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlAddFunctionTable ( functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY , entrycount : u32 , baseaddress : usize ) -> super::super::super::Foundation:: BOOLEAN );
     RtlAddFunctionTable(::core::mem::transmute(functiontable.as_ptr()), functiontable.len() as _, baseaddress)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -978,28 +978,28 @@ pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: u64) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlAddFunctionTable ( functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY , entrycount : u32 , baseaddress : u64 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlAddFunctionTable ( functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY , entrycount : u32 , baseaddress : u64 ) -> super::super::super::Foundation:: BOOLEAN );
     RtlAddFunctionTable(::core::mem::transmute(functiontable.as_ptr()), functiontable.len() as _, baseaddress)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
-    ::windows::core::link ! ( "ntdll.dll""system" fn RtlAddGrowableFunctionTable ( dynamictable : *mut *mut ::core::ffi::c_void , functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY , entrycount : u32 , maximumentrycount : u32 , rangebase : usize , rangeend : usize ) -> u32 );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlAddGrowableFunctionTable ( dynamictable : *mut *mut ::core::ffi::c_void , functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY , entrycount : u32 , maximumentrycount : u32 , rangebase : usize , rangeend : usize ) -> u32 );
     RtlAddGrowableFunctionTable(dynamictable, ::core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len() as _, rangebase, rangeend)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86_64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
-    ::windows::core::link ! ( "ntdll.dll""system" fn RtlAddGrowableFunctionTable ( dynamictable : *mut *mut ::core::ffi::c_void , functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY , entrycount : u32 , maximumentrycount : u32 , rangebase : usize , rangeend : usize ) -> u32 );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlAddGrowableFunctionTable ( dynamictable : *mut *mut ::core::ffi::c_void , functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY , entrycount : u32 , maximumentrycount : u32 , rangebase : usize , rangeend : usize ) -> u32 );
     RtlAddGrowableFunctionTable(dynamictable, ::core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len() as _, rangebase, rangeend)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlCaptureContext ( contextrecord : *mut CONTEXT ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlCaptureContext ( contextrecord : *mut CONTEXT ) -> ( ) );
     RtlCaptureContext(contextrecord)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
@@ -1007,13 +1007,13 @@ pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlCaptureContext2 ( contextrecord : *mut CONTEXT ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlCaptureContext2 ( contextrecord : *mut CONTEXT ) -> ( ) );
     RtlCaptureContext2(contextrecord)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut ::core::ffi::c_void], backtracehash: ::core::option::Option<*mut u32>) -> u16 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlCaptureStackBackTrace ( framestoskip : u32 , framestocapture : u32 , backtrace : *mut *mut ::core::ffi::c_void , backtracehash : *mut u32 ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlCaptureStackBackTrace ( framestoskip : u32 , framestocapture : u32 , backtrace : *mut *mut ::core::ffi::c_void , backtracehash : *mut u32 ) -> u16 );
     RtlCaptureStackBackTrace(framestoskip, backtrace.len() as _, ::core::mem::transmute(backtrace.as_ptr()), ::core::mem::transmute(backtracehash.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1021,7 +1021,7 @@ pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut 
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlDeleteFunctionTable ( functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlDeleteFunctionTable ( functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY ) -> super::super::super::Foundation:: BOOLEAN );
     RtlDeleteFunctionTable(functiontable)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1029,21 +1029,21 @@ pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_F
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlDeleteFunctionTable ( functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlDeleteFunctionTable ( functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY ) -> super::super::super::Foundation:: BOOLEAN );
     RtlDeleteFunctionTable(functiontable)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c_void) {
-    ::windows::core::link ! ( "ntdll.dll""system" fn RtlDeleteGrowableFunctionTable ( dynamictable : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlDeleteGrowableFunctionTable ( dynamictable : *const ::core::ffi::c_void ) -> ( ) );
     RtlDeleteGrowableFunctionTable(dynamictable)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newentrycount: u32) {
-    ::windows::core::link ! ( "ntdll.dll""system" fn RtlGrowFunctionTable ( dynamictable : *mut ::core::ffi::c_void , newentrycount : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlGrowFunctionTable ( dynamictable : *mut ::core::ffi::c_void , newentrycount : u32 ) -> ( ) );
     RtlGrowFunctionTable(dynamictable, newentrycount)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1054,7 +1054,7 @@ pub unsafe fn RtlInstallFunctionTableCallback<P0>(tableidentifier: u64, baseaddr
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlInstallFunctionTableCallback ( tableidentifier : u64 , baseaddress : u64 , length : u32 , callback : PGET_RUNTIME_FUNCTION_CALLBACK , context : *const ::core::ffi::c_void , outofprocesscallbackdll : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlInstallFunctionTableCallback ( tableidentifier : u64 , baseaddress : u64 , length : u32 , callback : PGET_RUNTIME_FUNCTION_CALLBACK , context : *const ::core::ffi::c_void , outofprocesscallbackdll : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOLEAN );
     RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), outofprocesscallbackdll.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1065,48 +1065,48 @@ pub unsafe fn RtlInstallFunctionTableCallback<P0>(tableidentifier: u64, baseaddr
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlInstallFunctionTableCallback ( tableidentifier : u64 , baseaddress : u64 , length : u32 , callback : PGET_RUNTIME_FUNCTION_CALLBACK , context : *const ::core::ffi::c_void , outofprocesscallbackdll : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlInstallFunctionTableCallback ( tableidentifier : u64 , baseaddress : u64 , length : u32 , callback : PGET_RUNTIME_FUNCTION_CALLBACK , context : *const ::core::ffi::c_void , outofprocesscallbackdll : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOLEAN );
     RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), outofprocesscallbackdll.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: ::core::option::Option<*mut UNWIND_HISTORY_TABLE>) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlLookupFunctionEntry ( controlpc : usize , imagebase : *mut usize , historytable : *mut UNWIND_HISTORY_TABLE ) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlLookupFunctionEntry ( controlpc : usize , imagebase : *mut usize , historytable : *mut UNWIND_HISTORY_TABLE ) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY );
     RtlLookupFunctionEntry(controlpc, imagebase, ::core::mem::transmute(historytable.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86_64")]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, historytable: ::core::option::Option<*mut UNWIND_HISTORY_TABLE>) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlLookupFunctionEntry ( controlpc : u64 , imagebase : *mut u64 , historytable : *mut UNWIND_HISTORY_TABLE ) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlLookupFunctionEntry ( controlpc : u64 , imagebase : *mut u64 , historytable : *mut UNWIND_HISTORY_TABLE ) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY );
     RtlLookupFunctionEntry(controlpc, imagebase, ::core::mem::transmute(historytable.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn RtlPcToFileHeader(pcvalue: *const ::core::ffi::c_void, baseofimage: *mut *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlPcToFileHeader ( pcvalue : *const ::core::ffi::c_void , baseofimage : *mut *mut ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlPcToFileHeader ( pcvalue : *const ::core::ffi::c_void , baseofimage : *mut *mut ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
     RtlPcToFileHeader(pcvalue, baseofimage)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlRaiseException ( exceptionrecord : *const EXCEPTION_RECORD ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlRaiseException ( exceptionrecord : *const EXCEPTION_RECORD ) -> ( ) );
     RtlRaiseException(exceptionrecord)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: ::core::option::Option<*const EXCEPTION_RECORD>) {
-    ::windows::core::link ! ( "kernel32.dll""cdecl" fn RtlRestoreContext ( contextrecord : *const CONTEXT , exceptionrecord : *const EXCEPTION_RECORD ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""cdecl" fn RtlRestoreContext ( contextrecord : *const CONTEXT , exceptionrecord : *const EXCEPTION_RECORD ) -> ( ) );
     RtlRestoreContext(contextrecord, ::core::mem::transmute(exceptionrecord.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlUnwind(targetframe: ::core::option::Option<*const ::core::ffi::c_void>, targetip: ::core::option::Option<*const ::core::ffi::c_void>, exceptionrecord: ::core::option::Option<*const EXCEPTION_RECORD>, returnvalue: *const ::core::ffi::c_void) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlUnwind ( targetframe : *const ::core::ffi::c_void , targetip : *const ::core::ffi::c_void , exceptionrecord : *const EXCEPTION_RECORD , returnvalue : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlUnwind ( targetframe : *const ::core::ffi::c_void , targetip : *const ::core::ffi::c_void , exceptionrecord : *const EXCEPTION_RECORD , returnvalue : *const ::core::ffi::c_void ) -> ( ) );
     RtlUnwind(::core::mem::transmute(targetframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(targetip.unwrap_or(::std::ptr::null())), ::core::mem::transmute(exceptionrecord.unwrap_or(::std::ptr::null())), returnvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -1114,7 +1114,7 @@ pub unsafe fn RtlUnwind(targetframe: ::core::option::Option<*const ::core::ffi::
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RtlUnwindEx(targetframe: ::core::option::Option<*const ::core::ffi::c_void>, targetip: ::core::option::Option<*const ::core::ffi::c_void>, exceptionrecord: ::core::option::Option<*const EXCEPTION_RECORD>, returnvalue: *const ::core::ffi::c_void, contextrecord: *const CONTEXT, historytable: ::core::option::Option<*const UNWIND_HISTORY_TABLE>) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlUnwindEx ( targetframe : *const ::core::ffi::c_void , targetip : *const ::core::ffi::c_void , exceptionrecord : *const EXCEPTION_RECORD , returnvalue : *const ::core::ffi::c_void , contextrecord : *const CONTEXT , historytable : *const UNWIND_HISTORY_TABLE ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlUnwindEx ( targetframe : *const ::core::ffi::c_void , targetip : *const ::core::ffi::c_void , exceptionrecord : *const EXCEPTION_RECORD , returnvalue : *const ::core::ffi::c_void , contextrecord : *const CONTEXT , historytable : *const UNWIND_HISTORY_TABLE ) -> ( ) );
     RtlUnwindEx(::core::mem::transmute(targetframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(targetip.unwrap_or(::std::ptr::null())), ::core::mem::transmute(exceptionrecord.unwrap_or(::std::ptr::null())), returnvalue, contextrecord, ::core::mem::transmute(historytable.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -1122,7 +1122,7 @@ pub unsafe fn RtlUnwindEx(targetframe: ::core::option::Option<*const ::core::ffi
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: ::core::option::Option<*mut KNONVOLATILE_CONTEXT_POINTERS_ARM64>) -> super::super::Kernel::EXCEPTION_ROUTINE {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlVirtualUnwind ( handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE , imagebase : usize , controlpc : usize , functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY , contextrecord : *mut CONTEXT , handlerdata : *mut *mut ::core::ffi::c_void , establisherframe : *mut usize , contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64 ) -> super::super::Kernel:: EXCEPTION_ROUTINE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlVirtualUnwind ( handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE , imagebase : usize , controlpc : usize , functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY , contextrecord : *mut CONTEXT , handlerdata : *mut *mut ::core::ffi::c_void , establisherframe : *mut usize , contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64 ) -> super::super::Kernel:: EXCEPTION_ROUTINE );
     RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, ::core::mem::transmute(contextpointers.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -1130,7 +1130,7 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: ::core::option::Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> super::super::Kernel::EXCEPTION_ROUTINE {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RtlVirtualUnwind ( handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE , imagebase : u64 , controlpc : u64 , functionentry : *const IMAGE_RUNTIME_FUNCTION_ENTRY , contextrecord : *mut CONTEXT , handlerdata : *mut *mut ::core::ffi::c_void , establisherframe : *mut u64 , contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS ) -> super::super::Kernel:: EXCEPTION_ROUTINE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlVirtualUnwind ( handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE , imagebase : u64 , controlpc : u64 , functionentry : *const IMAGE_RUNTIME_FUNCTION_ENTRY , contextrecord : *mut CONTEXT , handlerdata : *mut *mut ::core::ffi::c_void , establisherframe : *mut u64 , contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS ) -> super::super::Kernel:: EXCEPTION_ROUTINE );
     RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, ::core::mem::transmute(contextpointers.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1141,7 +1141,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SearchTreeForFile ( rootpath : :: windows::core::PCSTR , inputpathname : :: windows::core::PCSTR , outputpathbuffer : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SearchTreeForFile ( rootpath : :: windows::core::PCSTR , inputpathname : :: windows::core::PCSTR , outputpathbuffer : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
     SearchTreeForFile(rootpath.into().abi(), inputpathname.into().abi(), ::core::mem::transmute(outputpathbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1152,19 +1152,19 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SearchTreeForFileW ( rootpath : :: windows::core::PCWSTR , inputpathname : :: windows::core::PCWSTR , outputpathbuffer : :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SearchTreeForFileW ( rootpath : :: windows::core::PCWSTR , inputpathname : :: windows::core::PCWSTR , outputpathbuffer : :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
     SearchTreeForFileW(rootpath.into().abi(), inputpathname.into().abi(), ::core::mem::transmute(outputpathbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE) {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SetCheckUserInterruptShared ( lpstartaddress : LPCALL_BACK_USER_INTERRUPT_ROUTINE ) -> ( ) );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SetCheckUserInterruptShared ( lpstartaddress : LPCALL_BACK_USER_INTERRUPT_ROUTINE ) -> ( ) );
     SetCheckUserInterruptShared(lpstartaddress)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetErrorMode ( umode : THREAD_ERROR_MODE ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetErrorMode ( umode : THREAD_ERROR_MODE ) -> u32 );
     SetErrorMode(umode)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -1172,7 +1172,7 @@ pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn SetImageConfigInformation ( loadedimage : *mut LOADED_IMAGE , imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn SetImageConfigInformation ( loadedimage : *mut LOADED_IMAGE , imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY64 ) -> super::super::super::Foundation:: BOOL );
     SetImageConfigInformation(loadedimage, imageconfiginformation)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -1180,13 +1180,13 @@ pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imagecon
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn SetImageConfigInformation ( loadedimage : *mut LOADED_IMAGE , imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn SetImageConfigInformation ( loadedimage : *mut LOADED_IMAGE , imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY32 ) -> super::super::super::Foundation:: BOOL );
     SetImageConfigInformation(loadedimage, imageconfiginformation)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn SetSymLoadError(error: u32) {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SetSymLoadError ( error : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SetSymLoadError ( error : u32 ) -> ( ) );
     SetSymLoadError(error)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -1196,21 +1196,21 @@ pub unsafe fn SetThreadContext<P0>(hthread: P0, lpcontext: *const CONTEXT) -> su
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetThreadContext ( hthread : super::super::super::Foundation:: HANDLE , lpcontext : *const CONTEXT ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadContext ( hthread : super::super::super::Foundation:: HANDLE , lpcontext : *const CONTEXT ) -> super::super::super::Foundation:: BOOL );
     SetThreadContext(hthread.into(), lpcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: ::core::option::Option<*const THREAD_ERROR_MODE>) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetThreadErrorMode ( dwnewmode : THREAD_ERROR_MODE , lpoldmode : *const THREAD_ERROR_MODE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadErrorMode ( dwnewmode : THREAD_ERROR_MODE , lpoldmode : *const THREAD_ERROR_MODE ) -> super::super::super::Foundation:: BOOL );
     SetThreadErrorMode(dwnewmode, ::core::mem::transmute(lpoldmode.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetUnhandledExceptionFilter ( lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER ) -> LPTOP_LEVEL_EXCEPTION_FILTER );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetUnhandledExceptionFilter ( lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER ) -> LPTOP_LEVEL_EXCEPTION_FILTER );
     SetUnhandledExceptionFilter(lptoplevelexceptionfilter)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -1218,7 +1218,7 @@ pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetXStateFeaturesMask ( context : *mut CONTEXT , featuremask : u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetXStateFeaturesMask ( context : *mut CONTEXT , featuremask : u64 ) -> super::super::super::Foundation:: BOOL );
     SetXStateFeaturesMask(context, featuremask)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1230,7 +1230,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn StackWalk ( machinetype : u32 , hprocess : super::super::super::Foundation:: HANDLE , hthread : super::super::super::Foundation:: HANDLE , stackframe : *mut STACKFRAME , contextrecord : *mut ::core::ffi::c_void , readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE , functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE , getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE , translateaddress : PTRANSLATE_ADDRESS_ROUTINE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn StackWalk ( machinetype : u32 , hprocess : super::super::super::Foundation:: HANDLE , hthread : super::super::super::Foundation:: HANDLE , stackframe : *mut STACKFRAME , contextrecord : *mut ::core::ffi::c_void , readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE , functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE , getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE , translateaddress : PTRANSLATE_ADDRESS_ROUTINE ) -> super::super::super::Foundation:: BOOL );
     StackWalk(machinetype, hprocess.into(), hthread.into(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1241,7 +1241,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn StackWalk64 ( machinetype : u32 , hprocess : super::super::super::Foundation:: HANDLE , hthread : super::super::super::Foundation:: HANDLE , stackframe : *mut STACKFRAME64 , contextrecord : *mut ::core::ffi::c_void , readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64 , functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64 , getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64 , translateaddress : PTRANSLATE_ADDRESS_ROUTINE64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn StackWalk64 ( machinetype : u32 , hprocess : super::super::super::Foundation:: HANDLE , hthread : super::super::super::Foundation:: HANDLE , stackframe : *mut STACKFRAME64 , contextrecord : *mut ::core::ffi::c_void , readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64 , functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64 , getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64 , translateaddress : PTRANSLATE_ADDRESS_ROUTINE64 ) -> super::super::super::Foundation:: BOOL );
     StackWalk64(machinetype, hprocess.into(), hthread.into(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1252,7 +1252,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn StackWalkEx ( machinetype : u32 , hprocess : super::super::super::Foundation:: HANDLE , hthread : super::super::super::Foundation:: HANDLE , stackframe : *mut STACKFRAME_EX , contextrecord : *mut ::core::ffi::c_void , readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64 , functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64 , getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64 , translateaddress : PTRANSLATE_ADDRESS_ROUTINE64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn StackWalkEx ( machinetype : u32 , hprocess : super::super::super::Foundation:: HANDLE , hthread : super::super::super::Foundation:: HANDLE , stackframe : *mut STACKFRAME_EX , contextrecord : *mut ::core::ffi::c_void , readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64 , functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64 , getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64 , translateaddress : PTRANSLATE_ADDRESS_ROUTINE64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     StackWalkEx(machinetype, hprocess.into(), hthread.into(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1263,7 +1263,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymAddSourceStream ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , streamfile : :: windows::core::PCSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSourceStream ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , streamfile : :: windows::core::PCSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
     SymAddSourceStream(hprocess.into(), base, streamfile.into().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1274,7 +1274,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymAddSourceStreamA ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , streamfile : :: windows::core::PCSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSourceStreamA ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , streamfile : :: windows::core::PCSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
     SymAddSourceStreamA(hprocess.into(), base, streamfile.into().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1285,7 +1285,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymAddSourceStreamW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSourceStreamW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
     SymAddSourceStreamW(hprocess.into(), base, filespec.into().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1296,7 +1296,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymAddSymbol ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCSTR , address : u64 , size : u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSymbol ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCSTR , address : u64 , size : u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymAddSymbol(hprocess.into(), baseofdll, name.into().abi(), address, size, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1307,7 +1307,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymAddSymbolW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCWSTR , address : u64 , size : u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSymbolW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCWSTR , address : u64 , size : u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymAddSymbolW(hprocess.into(), baseofdll, name.into().abi(), address, size, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1317,7 +1317,7 @@ pub unsafe fn SymAddrIncludeInlineTrace<P0>(hprocess: P0, address: u64) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymAddrIncludeInlineTrace ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddrIncludeInlineTrace ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 ) -> u32 );
     SymAddrIncludeInlineTrace(hprocess.into(), address)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1327,7 +1327,7 @@ pub unsafe fn SymCleanup<P0>(hprocess: P0) -> super::super::super::Foundation::B
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymCleanup ( hprocess : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymCleanup ( hprocess : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: BOOL );
     SymCleanup(hprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1337,7 +1337,7 @@ pub unsafe fn SymCompareInlineTrace<P0>(hprocess: P0, address1: u64, inlineconte
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymCompareInlineTrace ( hprocess : super::super::super::Foundation:: HANDLE , address1 : u64 , inlinecontext1 : u32 , retaddress1 : u64 , address2 : u64 , retaddress2 : u64 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymCompareInlineTrace ( hprocess : super::super::super::Foundation:: HANDLE , address1 : u64 , inlinecontext1 : u32 , retaddress1 : u64 , address2 : u64 , retaddress2 : u64 ) -> u32 );
     SymCompareInlineTrace(hprocess.into(), address1, inlinecontext1, retaddress1, address2, retaddress2)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1348,7 +1348,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymDeleteSymbol ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCSTR , address : u64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymDeleteSymbol ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCSTR , address : u64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymDeleteSymbol(hprocess.into(), baseofdll, name.into().abi(), address, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1359,7 +1359,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymDeleteSymbolW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCWSTR , address : u64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymDeleteSymbolW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCWSTR , address : u64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymDeleteSymbolW(hprocess.into(), baseofdll, name.into().abi(), address, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1371,7 +1371,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumLines ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCSTR , file : :: windows::core::PCSTR , enumlinescallback : PSYM_ENUMLINES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumLines ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCSTR , file : :: windows::core::PCSTR , enumlinescallback : PSYM_ENUMLINES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumLines(hprocess.into(), base, obj.into().abi(), file.into().abi(), enumlinescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1383,14 +1383,14 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumLinesW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , enumlinescallback : PSYM_ENUMLINES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumLinesW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , enumlinescallback : PSYM_ENUMLINES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumLinesW(hprocess.into(), base, obj.into().abi(), file.into().abi(), enumlinescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumProcesses ( enumprocessescallback : PSYM_ENUMPROCESSES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumProcesses ( enumprocessescallback : PSYM_ENUMPROCESSES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumProcesses(enumprocessescallback, usercontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1400,7 +1400,7 @@ pub unsafe fn SymEnumSourceFileTokens<P0>(hprocess: P0, base: u64, callback: PEN
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSourceFileTokens ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , callback : PENUMSOURCEFILETOKENSCALLBACK ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceFileTokens ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , callback : PENUMSOURCEFILETOKENSCALLBACK ) -> super::super::super::Foundation:: BOOL );
     SymEnumSourceFileTokens(hprocess.into(), base, callback)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1411,7 +1411,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSourceFiles ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , mask : :: windows::core::PCSTR , cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceFiles ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , mask : :: windows::core::PCSTR , cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSourceFiles(hprocess.into(), modbase, mask.into().abi(), cbsrcfiles, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1422,7 +1422,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSourceFilesW ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , mask : :: windows::core::PCWSTR , cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceFilesW ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , mask : :: windows::core::PCWSTR , cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSourceFilesW(hprocess.into(), modbase, mask.into().abi(), cbsrcfiles, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1434,7 +1434,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSourceLines ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCSTR , file : :: windows::core::PCSTR , line : u32 , flags : u32 , enumlinescallback : PSYM_ENUMLINES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceLines ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCSTR , file : :: windows::core::PCSTR , line : u32 , flags : u32 , enumlinescallback : PSYM_ENUMLINES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSourceLines(hprocess.into(), base, obj.into().abi(), file.into().abi(), line, flags, enumlinescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1446,7 +1446,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSourceLinesW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , line : u32 , flags : u32 , enumlinescallback : PSYM_ENUMLINES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceLinesW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , line : u32 , flags : u32 , enumlinescallback : PSYM_ENUMLINES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSourceLinesW(hprocess.into(), base, obj.into().abi(), file.into().abi(), line, flags, enumlinescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1456,7 +1456,7 @@ pub unsafe fn SymEnumSym<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSym ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSym ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSym(hprocess.into(), baseofdll, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1467,7 +1467,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSymbols ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbols ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbols(hprocess.into(), baseofdll, mask.into().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1478,7 +1478,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsEx ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsEx ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbolsEx(hprocess.into(), baseofdll, mask.into().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1489,7 +1489,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsExW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsExW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbolsExW(hprocess.into(), baseofdll, mask.into().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1499,7 +1499,7 @@ pub unsafe fn SymEnumSymbolsForAddr<P0>(hprocess: P0, address: u64, enumsymbolsc
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsForAddr ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsForAddr ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbolsForAddr(hprocess.into(), address, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1509,7 +1509,7 @@ pub unsafe fn SymEnumSymbolsForAddrW<P0>(hprocess: P0, address: u64, enumsymbols
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsForAddrW ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsForAddrW ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbolsForAddrW(hprocess.into(), address, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1520,7 +1520,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbolsW(hprocess.into(), baseofdll, mask.into().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1530,7 +1530,7 @@ pub unsafe fn SymEnumTypes<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumTypes ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumTypes ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumTypes(hprocess.into(), baseofdll, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1541,7 +1541,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumTypesByName ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumTypesByName ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumTypesByName(hprocess.into(), baseofdll, mask.into().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1552,7 +1552,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumTypesByNameW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumTypesByNameW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumTypesByNameW(hprocess.into(), baseofdll, mask.into().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1562,7 +1562,7 @@ pub unsafe fn SymEnumTypesW<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallbac
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumTypesW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumTypesW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumTypesW(hprocess.into(), baseofdll, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1573,7 +1573,7 @@ pub unsafe fn SymEnumerateModules<P0>(hprocess: P0, enummodulescallback: PSYM_EN
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumerateModules ( hprocess : super::super::super::Foundation:: HANDLE , enummodulescallback : PSYM_ENUMMODULES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumerateModules ( hprocess : super::super::super::Foundation:: HANDLE , enummodulescallback : PSYM_ENUMMODULES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumerateModules(hprocess.into(), enummodulescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1583,7 +1583,7 @@ pub unsafe fn SymEnumerateModules64<P0>(hprocess: P0, enummodulescallback: PSYM_
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumerateModules64 ( hprocess : super::super::super::Foundation:: HANDLE , enummodulescallback : PSYM_ENUMMODULES_CALLBACK64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumerateModules64 ( hprocess : super::super::super::Foundation:: HANDLE , enummodulescallback : PSYM_ENUMMODULES_CALLBACK64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumerateModules64(hprocess.into(), enummodulescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1593,7 +1593,7 @@ pub unsafe fn SymEnumerateModulesW64<P0>(hprocess: P0, enummodulescallback: PSYM
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumerateModulesW64 ( hprocess : super::super::super::Foundation:: HANDLE , enummodulescallback : PSYM_ENUMMODULES_CALLBACKW64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumerateModulesW64 ( hprocess : super::super::super::Foundation:: HANDLE , enummodulescallback : PSYM_ENUMMODULES_CALLBACKW64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumerateModulesW64(hprocess.into(), enummodulescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1604,7 +1604,7 @@ pub unsafe fn SymEnumerateSymbols<P0>(hprocess: P0, baseofdll: u32, enumsymbolsc
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumerateSymbols ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u32 , enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumerateSymbols ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u32 , enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumerateSymbols(hprocess.into(), baseofdll, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1614,7 +1614,7 @@ pub unsafe fn SymEnumerateSymbols64<P0>(hprocess: P0, baseofdll: u64, enumsymbol
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumerateSymbols64 ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumerateSymbols64 ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64 , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumerateSymbols64(hprocess.into(), baseofdll, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1625,7 +1625,7 @@ pub unsafe fn SymEnumerateSymbolsW<P0>(hprocess: P0, baseofdll: u32, enumsymbols
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumerateSymbolsW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u32 , enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumerateSymbolsW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u32 , enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumerateSymbolsW(hprocess.into(), baseofdll, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1635,7 +1635,7 @@ pub unsafe fn SymEnumerateSymbolsW64<P0>(hprocess: P0, baseofdll: u64, enumsymbo
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymEnumerateSymbolsW64 ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumerateSymbolsW64 ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumerateSymbolsW64(hprocess.into(), baseofdll, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1646,9 +1646,9 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFindDebugInfoFile ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , callback : PFIND_DEBUG_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindDebugInfoFile ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , callback : PFIND_DEBUG_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = SymFindDebugInfoFile(hprocess.into(), filename.into().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1658,9 +1658,9 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFindDebugInfoFileW ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , debugfilepath : :: windows::core::PWSTR , callback : PFIND_DEBUG_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindDebugInfoFileW ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , debugfilepath : :: windows::core::PWSTR , callback : PFIND_DEBUG_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = SymFindDebugInfoFileW(hprocess.into(), filename.into().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1670,9 +1670,9 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFindExecutableImage ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , imagefilepath : :: windows::core::PSTR , callback : PFIND_EXE_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindExecutableImage ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , imagefilepath : :: windows::core::PSTR , callback : PFIND_EXE_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = SymFindExecutableImage(hprocess.into(), filename.into().abi(), ::core::mem::transmute(imagefilepath), callback, callerdata);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1682,9 +1682,9 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFindExecutableImageW ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , imagefilepath : :: windows::core::PWSTR , callback : PFIND_EXE_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindExecutableImageW ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , imagefilepath : :: windows::core::PWSTR , callback : PFIND_EXE_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = SymFindExecutableImageW(hprocess.into(), filename.into().abi(), ::core::mem::transmute(imagefilepath), callback, callerdata);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1695,7 +1695,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFindFileInPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : SYM_FIND_ID_OPTION , foundfile : :: windows::core::PSTR , callback : PFINDFILEINPATHCALLBACK , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindFileInPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : SYM_FIND_ID_OPTION , foundfile : :: windows::core::PSTR , callback : PFINDFILEINPATHCALLBACK , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymFindFileInPath(hprocess.into(), searchpatha.into().abi(), filename.into().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null())), two, three, flags, ::core::mem::transmute(foundfile), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1707,7 +1707,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFindFileInPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCWSTR , filename : :: windows::core::PCWSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : SYM_FIND_ID_OPTION , foundfile : :: windows::core::PWSTR , callback : PFINDFILEINPATHCALLBACKW , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindFileInPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCWSTR , filename : :: windows::core::PCWSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : SYM_FIND_ID_OPTION , foundfile : :: windows::core::PWSTR , callback : PFINDFILEINPATHCALLBACKW , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymFindFileInPathW(hprocess.into(), searchpatha.into().abi(), filename.into().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null())), two, three, flags, ::core::mem::transmute(foundfile), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1717,7 +1717,7 @@ pub unsafe fn SymFromAddr<P0>(hprocess: P0, address: u64, displacement: ::core::
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromAddr ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , displacement : *mut u64 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromAddr ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , displacement : *mut u64 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymFromAddr(hprocess.into(), address, ::core::mem::transmute(displacement.unwrap_or(::std::ptr::null_mut())), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1727,7 +1727,7 @@ pub unsafe fn SymFromAddrW<P0>(hprocess: P0, address: u64, displacement: ::core:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromAddrW ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , displacement : *mut u64 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromAddrW ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , displacement : *mut u64 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymFromAddrW(hprocess.into(), address, ::core::mem::transmute(displacement.unwrap_or(::std::ptr::null_mut())), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1737,7 +1737,7 @@ pub unsafe fn SymFromIndex<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromIndex ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromIndex ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymFromIndex(hprocess.into(), baseofdll, index, symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1747,7 +1747,7 @@ pub unsafe fn SymFromIndexW<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromIndexW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromIndexW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymFromIndexW(hprocess.into(), baseofdll, index, symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1757,7 +1757,7 @@ pub unsafe fn SymFromInlineContext<P0>(hprocess: P0, address: u64, inlinecontext
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromInlineContext ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , inlinecontext : u32 , displacement : *mut u64 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromInlineContext ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , inlinecontext : u32 , displacement : *mut u64 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymFromInlineContext(hprocess.into(), address, inlinecontext, ::core::mem::transmute(displacement.unwrap_or(::std::ptr::null_mut())), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1767,7 +1767,7 @@ pub unsafe fn SymFromInlineContextW<P0>(hprocess: P0, address: u64, inlinecontex
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromInlineContextW ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , inlinecontext : u32 , displacement : *mut u64 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromInlineContextW ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , inlinecontext : u32 , displacement : *mut u64 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymFromInlineContextW(hprocess.into(), address, inlinecontext, ::core::mem::transmute(displacement.unwrap_or(::std::ptr::null_mut())), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1778,7 +1778,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromName ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCSTR , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromName ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCSTR , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymFromName(hprocess.into(), name.into().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1789,7 +1789,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromNameW ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCWSTR , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromNameW ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCWSTR , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymFromNameW(hprocess.into(), name.into().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1799,7 +1799,7 @@ pub unsafe fn SymFromToken<P0>(hprocess: P0, base: u64, token: u32, symbol: *mut
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromToken ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , token : u32 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromToken ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , token : u32 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymFromToken(hprocess.into(), base, token, symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1809,7 +1809,7 @@ pub unsafe fn SymFromTokenW<P0>(hprocess: P0, base: u64, token: u32, symbol: *mu
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , token : u32 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , token : u32 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymFromTokenW(hprocess.into(), base, token, symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1820,7 +1820,7 @@ pub unsafe fn SymFunctionTableAccess<P0>(hprocess: P0, addrbase: u32) -> *mut ::
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFunctionTableAccess ( hprocess : super::super::super::Foundation:: HANDLE , addrbase : u32 ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFunctionTableAccess ( hprocess : super::super::super::Foundation:: HANDLE , addrbase : u32 ) -> *mut ::core::ffi::c_void );
     SymFunctionTableAccess(hprocess.into(), addrbase)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1830,7 +1830,7 @@ pub unsafe fn SymFunctionTableAccess64<P0>(hprocess: P0, addrbase: u64) -> *mut 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFunctionTableAccess64 ( hprocess : super::super::super::Foundation:: HANDLE , addrbase : u64 ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFunctionTableAccess64 ( hprocess : super::super::super::Foundation:: HANDLE , addrbase : u64 ) -> *mut ::core::ffi::c_void );
     SymFunctionTableAccess64(hprocess.into(), addrbase)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1840,14 +1840,14 @@ pub unsafe fn SymFunctionTableAccess64AccessRoutines<P0>(hprocess: P0, addrbase:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymFunctionTableAccess64AccessRoutines ( hprocess : super::super::super::Foundation:: HANDLE , addrbase : u64 , readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64 , getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64 ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFunctionTableAccess64AccessRoutines ( hprocess : super::super::super::Foundation:: HANDLE , addrbase : u64 , readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64 , getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64 ) -> *mut ::core::ffi::c_void );
     SymFunctionTableAccess64AccessRoutines(hprocess.into(), addrbase, readmemoryroutine, getmodulebaseroutine)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetExtendedOption ( option : IMAGEHLP_EXTENDED_OPTIONS ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetExtendedOption ( option : IMAGEHLP_EXTENDED_OPTIONS ) -> super::super::super::Foundation:: BOOL );
     SymGetExtendedOption(option)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1859,19 +1859,19 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetFileLineOffsets64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , buffer : *mut u64 , bufferlines : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetFileLineOffsets64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , buffer : *mut u64 , bufferlines : u32 ) -> u32 );
     SymGetFileLineOffsets64(hprocess.into(), modulename.into().abi(), filename.into().abi(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u8]) -> ::windows::core::PSTR {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetHomeDirectory ( r#type : IMAGEHLP_HD_TYPE , dir : :: windows::core::PSTR , size : usize ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetHomeDirectory ( r#type : IMAGEHLP_HD_TYPE , dir : :: windows::core::PSTR , size : usize ) -> :: windows::core::PSTR );
     SymGetHomeDirectory(r#type, ::core::mem::transmute(dir.as_ptr()), dir.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u16]) -> ::windows::core::PWSTR {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetHomeDirectoryW ( r#type : IMAGEHLP_HD_TYPE , dir : :: windows::core::PWSTR , size : usize ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetHomeDirectoryW ( r#type : IMAGEHLP_HD_TYPE , dir : :: windows::core::PWSTR , size : usize ) -> :: windows::core::PWSTR );
     SymGetHomeDirectoryW(r#type, ::core::mem::transmute(dir.as_ptr()), dir.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1882,7 +1882,7 @@ pub unsafe fn SymGetLineFromAddr<P0>(hprocess: P0, dwaddr: u32, pdwdisplacement:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineFromAddr ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 , pdwdisplacement : *mut u32 , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromAddr ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 , pdwdisplacement : *mut u32 , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromAddr(hprocess.into(), dwaddr, pdwdisplacement, line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1892,7 +1892,7 @@ pub unsafe fn SymGetLineFromAddr64<P0>(hprocess: P0, qwaddr: u64, pdwdisplacemen
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineFromAddr64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , pdwdisplacement : *mut u32 , line64 : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromAddr64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , pdwdisplacement : *mut u32 , line64 : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromAddr64(hprocess.into(), qwaddr, pdwdisplacement, line64)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1902,7 +1902,7 @@ pub unsafe fn SymGetLineFromAddrW64<P0>(hprocess: P0, dwaddr: u64, pdwdisplaceme
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineFromAddrW64 ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u64 , pdwdisplacement : *mut u32 , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromAddrW64 ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u64 , pdwdisplacement : *mut u32 , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromAddrW64(hprocess.into(), dwaddr, pdwdisplacement, line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1912,7 +1912,7 @@ pub unsafe fn SymGetLineFromInlineContext<P0>(hprocess: P0, qwaddr: u64, inlinec
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineFromInlineContext ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , inlinecontext : u32 , qwmodulebaseaddress : u64 , pdwdisplacement : *mut u32 , line64 : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromInlineContext ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , inlinecontext : u32 , qwmodulebaseaddress : u64 , pdwdisplacement : *mut u32 , line64 : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromInlineContext(hprocess.into(), qwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line64)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1922,7 +1922,7 @@ pub unsafe fn SymGetLineFromInlineContextW<P0>(hprocess: P0, dwaddr: u64, inline
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineFromInlineContextW ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u64 , inlinecontext : u32 , qwmodulebaseaddress : u64 , pdwdisplacement : *mut u32 , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromInlineContextW ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u64 , inlinecontext : u32 , qwmodulebaseaddress : u64 , pdwdisplacement : *mut u32 , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromInlineContextW(hprocess.into(), dwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1935,7 +1935,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineFromName ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromName ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromName(hprocess.into(), modulename.into().abi(), filename.into().abi(), dwlinenumber, pldisplacement, line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1947,7 +1947,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineFromName64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromName64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromName64(hprocess.into(), modulename.into().abi(), filename.into().abi(), dwlinenumber, pldisplacement, line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1959,7 +1959,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineFromNameW64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCWSTR , filename : :: windows::core::PCWSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromNameW64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCWSTR , filename : :: windows::core::PCWSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromNameW64(hprocess.into(), modulename.into().abi(), filename.into().abi(), dwlinenumber, pldisplacement, line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1970,7 +1970,7 @@ pub unsafe fn SymGetLineNext<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE) -> supe
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineNext ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineNext ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
     SymGetLineNext(hprocess.into(), line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1980,7 +1980,7 @@ pub unsafe fn SymGetLineNext64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE64) -> 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineNext64 ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineNext64 ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineNext64(hprocess.into(), line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1990,7 +1990,7 @@ pub unsafe fn SymGetLineNextW64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINEW64) -
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLineNextW64 ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineNextW64 ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineNextW64(hprocess.into(), line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2001,7 +2001,7 @@ pub unsafe fn SymGetLinePrev<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE) -> supe
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLinePrev ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLinePrev ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
     SymGetLinePrev(hprocess.into(), line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2011,7 +2011,7 @@ pub unsafe fn SymGetLinePrev64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE64) -> 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLinePrev64 ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLinePrev64 ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLinePrev64(hprocess.into(), line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2021,7 +2021,7 @@ pub unsafe fn SymGetLinePrevW64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINEW64) -
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetLinePrevW64 ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLinePrevW64 ( hprocess : super::super::super::Foundation:: HANDLE , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLinePrevW64(hprocess.into(), line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2032,7 +2032,7 @@ pub unsafe fn SymGetModuleBase<P0>(hprocess: P0, dwaddr: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetModuleBase ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetModuleBase ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 ) -> u32 );
     SymGetModuleBase(hprocess.into(), dwaddr)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2042,7 +2042,7 @@ pub unsafe fn SymGetModuleBase64<P0>(hprocess: P0, qwaddr: u64) -> u64
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetModuleBase64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 ) -> u64 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetModuleBase64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 ) -> u64 );
     SymGetModuleBase64(hprocess.into(), qwaddr)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2053,7 +2053,7 @@ pub unsafe fn SymGetModuleInfo<P0>(hprocess: P0, dwaddr: u32, moduleinfo: *mut I
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetModuleInfo ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 , moduleinfo : *mut IMAGEHLP_MODULE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetModuleInfo ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 , moduleinfo : *mut IMAGEHLP_MODULE ) -> super::super::super::Foundation:: BOOL );
     SymGetModuleInfo(hprocess.into(), dwaddr, moduleinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2063,7 +2063,7 @@ pub unsafe fn SymGetModuleInfo64<P0>(hprocess: P0, qwaddr: u64, moduleinfo: *mut
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetModuleInfo64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , moduleinfo : *mut IMAGEHLP_MODULE64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetModuleInfo64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , moduleinfo : *mut IMAGEHLP_MODULE64 ) -> super::super::super::Foundation:: BOOL );
     SymGetModuleInfo64(hprocess.into(), qwaddr, moduleinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2074,7 +2074,7 @@ pub unsafe fn SymGetModuleInfoW<P0>(hprocess: P0, dwaddr: u32, moduleinfo: *mut 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetModuleInfoW ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 , moduleinfo : *mut IMAGEHLP_MODULEW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetModuleInfoW ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 , moduleinfo : *mut IMAGEHLP_MODULEW ) -> super::super::super::Foundation:: BOOL );
     SymGetModuleInfoW(hprocess.into(), dwaddr, moduleinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2084,7 +2084,7 @@ pub unsafe fn SymGetModuleInfoW64<P0>(hprocess: P0, qwaddr: u64, moduleinfo: *mu
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetModuleInfoW64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , moduleinfo : *mut IMAGEHLP_MODULEW64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetModuleInfoW64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , moduleinfo : *mut IMAGEHLP_MODULEW64 ) -> super::super::super::Foundation:: BOOL );
     SymGetModuleInfoW64(hprocess.into(), qwaddr, moduleinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2094,13 +2094,13 @@ pub unsafe fn SymGetOmaps<P0>(hprocess: P0, baseofdll: u64, omapto: *mut *mut OM
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetOmaps ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , omapto : *mut *mut OMAP , comapto : *mut u64 , omapfrom : *mut *mut OMAP , comapfrom : *mut u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetOmaps ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , omapto : *mut *mut OMAP , comapto : *mut u64 , omapfrom : *mut *mut OMAP , comapfrom : *mut u64 ) -> super::super::super::Foundation:: BOOL );
     SymGetOmaps(hprocess.into(), baseofdll, omapto, comapto, omapfrom, comapfrom)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn SymGetOptions() -> u32 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetOptions ( ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetOptions ( ) -> u32 );
     SymGetOptions()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2110,7 +2110,7 @@ pub unsafe fn SymGetScope<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetScope ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetScope ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymGetScope(hprocess.into(), baseofdll, index, symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2120,7 +2120,7 @@ pub unsafe fn SymGetScopeW<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetScopeW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetScopeW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymGetScopeW(hprocess.into(), baseofdll, index, symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2130,7 +2130,7 @@ pub unsafe fn SymGetSearchPath<P0>(hprocess: P0, searchpatha: &mut [u8]) -> supe
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PSTR , searchpathlength : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PSTR , searchpathlength : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSearchPath(hprocess.into(), ::core::mem::transmute(searchpatha.as_ptr()), searchpatha.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2140,7 +2140,7 @@ pub unsafe fn SymGetSearchPathW<P0>(hprocess: P0, searchpatha: &mut [u16]) -> su
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSearchPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PWSTR , searchpathlength : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSearchPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PWSTR , searchpathlength : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSearchPathW(hprocess.into(), ::core::mem::transmute(searchpatha.as_ptr()), searchpatha.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2152,7 +2152,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFile ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , params : :: windows::core::PCSTR , filespec : :: windows::core::PCSTR , filepath : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFile ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , params : :: windows::core::PCSTR , filespec : :: windows::core::PCSTR , filepath : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFile(hprocess.into(), base, params.into().abi(), filespec.into().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2163,7 +2163,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileChecksum ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCSTR , pchecksumtype : *mut u32 , pchecksum : *mut u8 , checksumsize : u32 , pactualbyteswritten : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileChecksum ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCSTR , pchecksumtype : *mut u32 , pchecksum : *mut u8 , checksumsize : u32 , pactualbyteswritten : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileChecksum(hprocess.into(), base, filespec.into().abi(), pchecksumtype, ::core::mem::transmute(pchecksum.as_ptr()), pchecksum.len() as _, pactualbyteswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2174,7 +2174,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileChecksumW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , pchecksumtype : *mut u32 , pchecksum : *mut u8 , checksumsize : u32 , pactualbyteswritten : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileChecksumW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , pchecksumtype : *mut u32 , pchecksum : *mut u8 , checksumsize : u32 , pactualbyteswritten : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileChecksumW(hprocess.into(), base, filespec.into().abi(), pchecksumtype, ::core::mem::transmute(pchecksum.as_ptr()), pchecksum.len() as _, pactualbyteswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2185,7 +2185,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromToken ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCSTR , filepath : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromToken ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCSTR , filepath : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileFromToken(hprocess.into(), token, params.into().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2197,7 +2197,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenByTokenName ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , tokenname : :: windows::core::PCSTR , params : :: windows::core::PCSTR , filepath : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenByTokenName ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , tokenname : :: windows::core::PCSTR , params : :: windows::core::PCSTR , filepath : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileFromTokenByTokenName(hprocess.into(), token, tokenname.into().abi(), params.into().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2209,7 +2209,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenByTokenNameW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , tokenname : :: windows::core::PCWSTR , params : :: windows::core::PCWSTR , filepath : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenByTokenNameW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , tokenname : :: windows::core::PCWSTR , params : :: windows::core::PCWSTR , filepath : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileFromTokenByTokenNameW(hprocess.into(), token, tokenname.into().abi(), params.into().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2220,7 +2220,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCWSTR , filepath : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCWSTR , filepath : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileFromTokenW(hprocess.into(), token, params.into().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2231,7 +2231,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileToken ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileToken ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileToken(hprocess.into(), base, filespec.into().abi(), token, size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2244,7 +2244,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenByTokenName ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCSTR , tokenname : :: windows::core::PCSTR , tokenparameters : :: windows::core::PCSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenByTokenName ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCSTR , tokenname : :: windows::core::PCSTR , tokenparameters : :: windows::core::PCSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileTokenByTokenName(hprocess.into(), base, filespec.into().abi(), tokenname.into().abi(), tokenparameters.into().abi(), token, size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2257,7 +2257,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenByTokenNameW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , tokenname : :: windows::core::PCWSTR , tokenparameters : :: windows::core::PCWSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenByTokenNameW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , tokenname : :: windows::core::PCWSTR , tokenparameters : :: windows::core::PCWSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileTokenByTokenNameW(hprocess.into(), base, filespec.into().abi(), tokenname.into().abi(), tokenparameters.into().abi(), token, size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2268,7 +2268,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileTokenW(hprocess.into(), base, filespec.into().abi(), token, size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2280,7 +2280,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceFileW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , params : :: windows::core::PCWSTR , filespec : :: windows::core::PCWSTR , filepath : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , params : :: windows::core::PCWSTR , filespec : :: windows::core::PCWSTR , filepath : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileW(hprocess.into(), base, params.into().abi(), filespec.into().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2292,7 +2292,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceVarFromToken ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCSTR , varname : :: windows::core::PCSTR , value : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceVarFromToken ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCSTR , varname : :: windows::core::PCSTR , value : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceVarFromToken(hprocess.into(), token, params.into().abi(), varname.into().abi(), ::core::mem::transmute(value.as_ptr()), value.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2304,7 +2304,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSourceVarFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCWSTR , varname : :: windows::core::PCWSTR , value : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceVarFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCWSTR , varname : :: windows::core::PCWSTR , value : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceVarFromTokenW(hprocess.into(), token, params.into().abi(), varname.into().abi(), ::core::mem::transmute(value.as_ptr()), value.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2315,7 +2315,7 @@ pub unsafe fn SymGetSymFromAddr<P0>(hprocess: P0, dwaddr: u32, pdwdisplacement: 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymFromAddr ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 , pdwdisplacement : *mut u32 , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymFromAddr ( hprocess : super::super::super::Foundation:: HANDLE , dwaddr : u32 , pdwdisplacement : *mut u32 , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
     SymGetSymFromAddr(hprocess.into(), dwaddr, ::core::mem::transmute(pdwdisplacement.unwrap_or(::std::ptr::null_mut())), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2325,7 +2325,7 @@ pub unsafe fn SymGetSymFromAddr64<P0>(hprocess: P0, qwaddr: u64, pdwdisplacement
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymFromAddr64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , pdwdisplacement : *mut u64 , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymFromAddr64 ( hprocess : super::super::super::Foundation:: HANDLE , qwaddr : u64 , pdwdisplacement : *mut u64 , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
     SymGetSymFromAddr64(hprocess.into(), qwaddr, ::core::mem::transmute(pdwdisplacement.unwrap_or(::std::ptr::null_mut())), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2337,7 +2337,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymFromName ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCSTR , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymFromName ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCSTR , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
     SymGetSymFromName(hprocess.into(), name.into().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2348,7 +2348,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymFromName64 ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCSTR , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymFromName64 ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCSTR , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
     SymGetSymFromName64(hprocess.into(), name.into().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2359,7 +2359,7 @@ pub unsafe fn SymGetSymNext<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL) -> s
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymNext ( hprocess : super::super::super::Foundation:: HANDLE , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymNext ( hprocess : super::super::super::Foundation:: HANDLE , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
     SymGetSymNext(hprocess.into(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2369,7 +2369,7 @@ pub unsafe fn SymGetSymNext64<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL64) 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymNext64 ( hprocess : super::super::super::Foundation:: HANDLE , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymNext64 ( hprocess : super::super::super::Foundation:: HANDLE , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
     SymGetSymNext64(hprocess.into(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2380,7 +2380,7 @@ pub unsafe fn SymGetSymPrev<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL) -> s
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymPrev ( hprocess : super::super::super::Foundation:: HANDLE , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymPrev ( hprocess : super::super::super::Foundation:: HANDLE , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
     SymGetSymPrev(hprocess.into(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2390,7 +2390,7 @@ pub unsafe fn SymGetSymPrev64<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL64) 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymPrev64 ( hprocess : super::super::super::Foundation:: HANDLE , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymPrev64 ( hprocess : super::super::super::Foundation:: HANDLE , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
     SymGetSymPrev64(hprocess.into(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2402,7 +2402,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymbolFile ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCSTR , imagefile : :: windows::core::PCSTR , r#type : IMAGEHLP_SF_TYPE , symbolfile : :: windows::core::PSTR , csymbolfile : usize , dbgfile : :: windows::core::PSTR , cdbgfile : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymbolFile ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCSTR , imagefile : :: windows::core::PCSTR , r#type : IMAGEHLP_SF_TYPE , symbolfile : :: windows::core::PSTR , csymbolfile : usize , dbgfile : :: windows::core::PSTR , cdbgfile : usize ) -> super::super::super::Foundation:: BOOL );
     SymGetSymbolFile(hprocess.into(), sympath.into().abi(), imagefile.into().abi(), r#type, ::core::mem::transmute(symbolfile.as_ptr()), symbolfile.len() as _, ::core::mem::transmute(dbgfile.as_ptr()), dbgfile.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2414,7 +2414,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetSymbolFileW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , imagefile : :: windows::core::PCWSTR , r#type : IMAGEHLP_SF_TYPE , symbolfile : :: windows::core::PWSTR , csymbolfile : usize , dbgfile : :: windows::core::PWSTR , cdbgfile : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymbolFileW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , imagefile : :: windows::core::PCWSTR , r#type : IMAGEHLP_SF_TYPE , symbolfile : :: windows::core::PWSTR , csymbolfile : usize , dbgfile : :: windows::core::PWSTR , cdbgfile : usize ) -> super::super::super::Foundation:: BOOL );
     SymGetSymbolFileW(hprocess.into(), sympath.into().abi(), imagefile.into().abi(), r#type, ::core::mem::transmute(symbolfile.as_ptr()), symbolfile.len() as _, ::core::mem::transmute(dbgfile.as_ptr()), dbgfile.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2425,7 +2425,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetTypeFromName ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCSTR , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetTypeFromName ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCSTR , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymGetTypeFromName(hprocess.into(), baseofdll, name.into().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2436,7 +2436,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetTypeFromNameW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCWSTR , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetTypeFromNameW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCWSTR , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymGetTypeFromNameW(hprocess.into(), baseofdll, name.into().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2446,7 +2446,7 @@ pub unsafe fn SymGetTypeInfo<P0>(hprocess: P0, modbase: u64, typeid: u32, gettyp
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetTypeInfo ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , typeid : u32 , gettype : IMAGEHLP_SYMBOL_TYPE_INFO , pinfo : *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetTypeInfo ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , typeid : u32 , gettype : IMAGEHLP_SYMBOL_TYPE_INFO , pinfo : *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymGetTypeInfo(hprocess.into(), modbase, typeid, gettype, pinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2456,7 +2456,7 @@ pub unsafe fn SymGetTypeInfoEx<P0>(hprocess: P0, modbase: u64, params: *mut IMAG
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetTypeInfoEx ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , params : *mut IMAGEHLP_GET_TYPE_INFO_PARAMS ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetTypeInfoEx ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , params : *mut IMAGEHLP_GET_TYPE_INFO_PARAMS ) -> super::super::super::Foundation:: BOOL );
     SymGetTypeInfoEx(hprocess.into(), modbase, params)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2466,7 +2466,7 @@ pub unsafe fn SymGetUnwindInfo<P0>(hprocess: P0, address: u64, buffer: ::core::o
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymGetUnwindInfo ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , buffer : *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetUnwindInfo ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , buffer : *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetUnwindInfo(hprocess.into(), address, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2478,7 +2478,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymInitialize ( hprocess : super::super::super::Foundation:: HANDLE , usersearchpath : :: windows::core::PCSTR , finvadeprocess : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymInitialize ( hprocess : super::super::super::Foundation:: HANDLE , usersearchpath : :: windows::core::PCSTR , finvadeprocess : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymInitialize(hprocess.into(), usersearchpath.into().abi(), finvadeprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2490,7 +2490,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymInitializeW ( hprocess : super::super::super::Foundation:: HANDLE , usersearchpath : :: windows::core::PCWSTR , finvadeprocess : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymInitializeW ( hprocess : super::super::super::Foundation:: HANDLE , usersearchpath : :: windows::core::PCWSTR , finvadeprocess : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymInitializeW(hprocess.into(), usersearchpath.into().abi(), finvadeprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2504,7 +2504,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymLoadModule ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCSTR , modulename : :: windows::core::PCSTR , baseofdll : u32 , sizeofdll : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModule ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCSTR , modulename : :: windows::core::PCSTR , baseofdll : u32 , sizeofdll : u32 ) -> u32 );
     SymLoadModule(hprocess.into(), hfile.into(), imagename.into().abi(), modulename.into().abi(), baseofdll, sizeofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2517,7 +2517,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymLoadModule64 ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCSTR , modulename : :: windows::core::PCSTR , baseofdll : u64 , sizeofdll : u32 ) -> u64 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModule64 ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCSTR , modulename : :: windows::core::PCSTR , baseofdll : u64 , sizeofdll : u32 ) -> u64 );
     SymLoadModule64(hprocess.into(), hfile.into(), imagename.into().abi(), modulename.into().abi(), baseofdll, sizeofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2530,7 +2530,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymLoadModuleEx ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCSTR , modulename : :: windows::core::PCSTR , baseofdll : u64 , dllsize : u32 , data : *const MODLOAD_DATA , flags : SYM_LOAD_FLAGS ) -> u64 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModuleEx ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCSTR , modulename : :: windows::core::PCSTR , baseofdll : u64 , dllsize : u32 , data : *const MODLOAD_DATA , flags : SYM_LOAD_FLAGS ) -> u64 );
     SymLoadModuleEx(hprocess.into(), hfile.into(), imagename.into().abi(), modulename.into().abi(), baseofdll, dllsize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2543,7 +2543,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymLoadModuleExW ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCWSTR , modulename : :: windows::core::PCWSTR , baseofdll : u64 , dllsize : u32 , data : *const MODLOAD_DATA , flags : SYM_LOAD_FLAGS ) -> u64 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModuleExW ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCWSTR , modulename : :: windows::core::PCWSTR , baseofdll : u64 , dllsize : u32 , data : *const MODLOAD_DATA , flags : SYM_LOAD_FLAGS ) -> u64 );
     SymLoadModuleExW(hprocess.into(), hfile.into(), imagename.into().abi(), modulename.into().abi(), baseofdll, dllsize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2554,7 +2554,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymMatchFileName ( filename : :: windows::core::PCSTR , r#match : :: windows::core::PCSTR , filenamestop : *mut :: windows::core::PSTR , matchstop : *mut :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchFileName ( filename : :: windows::core::PCSTR , r#match : :: windows::core::PCSTR , filenamestop : *mut :: windows::core::PSTR , matchstop : *mut :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
     SymMatchFileName(filename.into().abi(), r#match.into().abi(), ::core::mem::transmute(filenamestop.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(matchstop.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2565,7 +2565,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymMatchFileNameW ( filename : :: windows::core::PCWSTR , r#match : :: windows::core::PCWSTR , filenamestop : *mut :: windows::core::PWSTR , matchstop : *mut :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchFileNameW ( filename : :: windows::core::PCWSTR , r#match : :: windows::core::PCWSTR , filenamestop : *mut :: windows::core::PWSTR , matchstop : *mut :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
     SymMatchFileNameW(filename.into().abi(), r#match.into().abi(), ::core::mem::transmute(filenamestop.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(matchstop.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2577,7 +2577,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymMatchString ( string : :: windows::core::PCSTR , expression : :: windows::core::PCSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchString ( string : :: windows::core::PCSTR , expression : :: windows::core::PCSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymMatchString(string.into().abi(), expression.into().abi(), fcase.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2589,7 +2589,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymMatchStringA ( string : :: windows::core::PCSTR , expression : :: windows::core::PCSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchStringA ( string : :: windows::core::PCSTR , expression : :: windows::core::PCSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymMatchStringA(string.into().abi(), expression.into().abi(), fcase.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2601,7 +2601,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymMatchStringW ( string : :: windows::core::PCWSTR , expression : :: windows::core::PCWSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchStringW ( string : :: windows::core::PCWSTR , expression : :: windows::core::PCWSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymMatchStringW(string.into().abi(), expression.into().abi(), fcase.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2611,7 +2611,7 @@ pub unsafe fn SymNext<P0>(hprocess: P0, si: *mut SYMBOL_INFO) -> super::super::s
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymNext ( hprocess : super::super::super::Foundation:: HANDLE , si : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymNext ( hprocess : super::super::super::Foundation:: HANDLE , si : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymNext(hprocess.into(), si)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2621,7 +2621,7 @@ pub unsafe fn SymNextW<P0>(hprocess: P0, siw: *mut SYMBOL_INFOW) -> super::super
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymNextW ( hprocess : super::super::super::Foundation:: HANDLE , siw : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymNextW ( hprocess : super::super::super::Foundation:: HANDLE , siw : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymNextW(hprocess.into(), siw)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2631,7 +2631,7 @@ pub unsafe fn SymPrev<P0>(hprocess: P0, si: *mut SYMBOL_INFO) -> super::super::s
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymPrev ( hprocess : super::super::super::Foundation:: HANDLE , si : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymPrev ( hprocess : super::super::super::Foundation:: HANDLE , si : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymPrev(hprocess.into(), si)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2641,7 +2641,7 @@ pub unsafe fn SymPrevW<P0>(hprocess: P0, siw: *mut SYMBOL_INFOW) -> super::super
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymPrevW ( hprocess : super::super::super::Foundation:: HANDLE , siw : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymPrevW ( hprocess : super::super::super::Foundation:: HANDLE , siw : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymPrevW(hprocess.into(), siw)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2651,7 +2651,7 @@ pub unsafe fn SymQueryInlineTrace<P0>(hprocess: P0, startaddress: u64, startcont
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymQueryInlineTrace ( hprocess : super::super::super::Foundation:: HANDLE , startaddress : u64 , startcontext : u32 , startretaddress : u64 , curaddress : u64 , curcontext : *mut u32 , curframeindex : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymQueryInlineTrace ( hprocess : super::super::super::Foundation:: HANDLE , startaddress : u64 , startcontext : u32 , startretaddress : u64 , curaddress : u64 , curcontext : *mut u32 , curframeindex : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymQueryInlineTrace(hprocess.into(), startaddress, startcontext, startretaddress, curaddress, curcontext, curframeindex)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2661,7 +2661,7 @@ pub unsafe fn SymRefreshModuleList<P0>(hprocess: P0) -> super::super::super::Fou
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymRefreshModuleList ( hprocess : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymRefreshModuleList ( hprocess : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: BOOL );
     SymRefreshModuleList(hprocess.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2672,7 +2672,7 @@ pub unsafe fn SymRegisterCallback<P0>(hprocess: P0, callbackfunction: PSYMBOL_RE
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymRegisterCallback ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_REGISTERED_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymRegisterCallback ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_REGISTERED_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymRegisterCallback(hprocess.into(), callbackfunction, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2682,7 +2682,7 @@ pub unsafe fn SymRegisterCallback64<P0>(hprocess: P0, callbackfunction: PSYMBOL_
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymRegisterCallback64 ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_REGISTERED_CALLBACK64 , usercontext : u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymRegisterCallback64 ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_REGISTERED_CALLBACK64 , usercontext : u64 ) -> super::super::super::Foundation:: BOOL );
     SymRegisterCallback64(hprocess.into(), callbackfunction, usercontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2692,7 +2692,7 @@ pub unsafe fn SymRegisterCallbackW64<P0>(hprocess: P0, callbackfunction: PSYMBOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymRegisterCallbackW64 ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_REGISTERED_CALLBACK64 , usercontext : u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymRegisterCallbackW64 ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_REGISTERED_CALLBACK64 , usercontext : u64 ) -> super::super::super::Foundation:: BOOL );
     SymRegisterCallbackW64(hprocess.into(), callbackfunction, usercontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2703,7 +2703,7 @@ pub unsafe fn SymRegisterFunctionEntryCallback<P0>(hprocess: P0, callbackfunctio
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymRegisterFunctionEntryCallback ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymRegisterFunctionEntryCallback ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymRegisterFunctionEntryCallback(hprocess.into(), callbackfunction, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2713,7 +2713,7 @@ pub unsafe fn SymRegisterFunctionEntryCallback64<P0>(hprocess: P0, callbackfunct
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymRegisterFunctionEntryCallback64 ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64 , usercontext : u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymRegisterFunctionEntryCallback64 ( hprocess : super::super::super::Foundation:: HANDLE , callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64 , usercontext : u64 ) -> super::super::super::Foundation:: BOOL );
     SymRegisterFunctionEntryCallback64(hprocess.into(), callbackfunction, usercontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2724,7 +2724,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSearch ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symtag : u32 , mask : :: windows::core::PCSTR , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSearch ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symtag : u32 , mask : :: windows::core::PCSTR , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSearch(hprocess.into(), baseofdll, index, symtag, mask.into().abi(), address, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2735,7 +2735,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSearchW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symtag : u32 , mask : :: windows::core::PCWSTR , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSearchW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symtag : u32 , mask : :: windows::core::PCWSTR , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSearchW(hprocess.into(), baseofdll, index, symtag, mask.into().abi(), address, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2745,7 +2745,7 @@ pub unsafe fn SymSetContext<P0>(hprocess: P0, stackframe: *const IMAGEHLP_STACK_
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetContext ( hprocess : super::super::super::Foundation:: HANDLE , stackframe : *const IMAGEHLP_STACK_FRAME , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetContext ( hprocess : super::super::super::Foundation:: HANDLE , stackframe : *const IMAGEHLP_STACK_FRAME , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymSetContext(hprocess.into(), stackframe, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2755,7 +2755,7 @@ pub unsafe fn SymSetExtendedOption<P0>(option: IMAGEHLP_EXTENDED_OPTIONS, value:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetExtendedOption ( option : IMAGEHLP_EXTENDED_OPTIONS , value : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetExtendedOption ( option : IMAGEHLP_EXTENDED_OPTIONS , value : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymSetExtendedOption(option, value.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2766,7 +2766,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetHomeDirectory ( hprocess : super::super::super::Foundation:: HANDLE , dir : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetHomeDirectory ( hprocess : super::super::super::Foundation:: HANDLE , dir : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     SymSetHomeDirectory(hprocess.into(), dir.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2777,13 +2777,13 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetHomeDirectoryW ( hprocess : super::super::super::Foundation:: HANDLE , dir : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetHomeDirectoryW ( hprocess : super::super::super::Foundation:: HANDLE , dir : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     SymSetHomeDirectoryW(hprocess.into(), dir.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn SymSetOptions(symoptions: u32) -> u32 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetOptions ( symoptions : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetOptions ( symoptions : u32 ) -> u32 );
     SymSetOptions(symoptions)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2793,7 +2793,7 @@ pub unsafe fn SymSetParentWindow<P0>(hwnd: P0) -> super::super::super::Foundatio
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetParentWindow ( hwnd : super::super::super::Foundation:: HWND ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetParentWindow ( hwnd : super::super::super::Foundation:: HWND ) -> super::super::super::Foundation:: BOOL );
     SymSetParentWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2803,7 +2803,7 @@ pub unsafe fn SymSetScopeFromAddr<P0>(hprocess: P0, address: u64) -> super::supe
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetScopeFromAddr ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetScopeFromAddr ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 ) -> super::super::super::Foundation:: BOOL );
     SymSetScopeFromAddr(hprocess.into(), address)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2813,7 +2813,7 @@ pub unsafe fn SymSetScopeFromIndex<P0>(hprocess: P0, baseofdll: u64, index: u32)
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetScopeFromIndex ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetScopeFromIndex ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSetScopeFromIndex(hprocess.into(), baseofdll, index)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2823,7 +2823,7 @@ pub unsafe fn SymSetScopeFromInlineContext<P0>(hprocess: P0, address: u64, inlin
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetScopeFromInlineContext ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , inlinecontext : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetScopeFromInlineContext ( hprocess : super::super::super::Foundation:: HANDLE , address : u64 , inlinecontext : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSetScopeFromInlineContext(hprocess.into(), address, inlinecontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2834,7 +2834,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
     SymSetSearchPath(hprocess.into(), searchpatha.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2845,7 +2845,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSetSearchPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetSearchPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
     SymSetSearchPathW(hprocess.into(), searchpatha.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2859,7 +2859,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvDeltaName ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCSTR , r#type : :: windows::core::PCSTR , file1 : :: windows::core::PCSTR , file2 : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvDeltaName ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCSTR , r#type : :: windows::core::PCSTR , file1 : :: windows::core::PCSTR , file2 : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     SymSrvDeltaName(hprocess.into(), sympath.into().abi(), r#type.into().abi(), file1.into().abi(), file2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2873,7 +2873,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvDeltaNameW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , r#type : :: windows::core::PCWSTR , file1 : :: windows::core::PCWSTR , file2 : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvDeltaNameW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , r#type : :: windows::core::PCWSTR , file1 : :: windows::core::PCWSTR , file2 : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     SymSrvDeltaNameW(hprocess.into(), sympath.into().abi(), r#type.into().abi(), file1.into().abi(), file2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2883,7 +2883,7 @@ pub unsafe fn SymSrvGetFileIndexInfo<P0>(file: P0, info: *mut SYMSRV_INDEX_INFO,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexInfo ( file : :: windows::core::PCSTR , info : *mut SYMSRV_INDEX_INFO , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexInfo ( file : :: windows::core::PCSTR , info : *mut SYMSRV_INDEX_INFO , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexInfo(file.into().abi(), info, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2893,7 +2893,7 @@ pub unsafe fn SymSrvGetFileIndexInfoW<P0>(file: P0, info: *mut SYMSRV_INDEX_INFO
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexInfoW ( file : :: windows::core::PCWSTR , info : *mut SYMSRV_INDEX_INFOW , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexInfoW ( file : :: windows::core::PCWSTR , info : *mut SYMSRV_INDEX_INFOW , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexInfoW(file.into().abi(), info, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2905,7 +2905,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexString ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCSTR , file : :: windows::core::PCSTR , index : :: windows::core::PSTR , size : usize , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexString ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCSTR , file : :: windows::core::PCSTR , index : :: windows::core::PSTR , size : usize , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexString(hprocess.into(), srvpath.into().abi(), file.into().abi(), ::core::mem::transmute(index.as_ptr()), index.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2917,7 +2917,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexStringW ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , index : :: windows::core::PWSTR , size : usize , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexStringW ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , index : :: windows::core::PWSTR , size : usize , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexStringW(hprocess.into(), srvpath.into().abi(), file.into().abi(), ::core::mem::transmute(index.as_ptr()), index.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2927,7 +2927,7 @@ pub unsafe fn SymSrvGetFileIndexes<P0>(file: P0, id: *mut ::windows::core::GUID,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexes ( file : :: windows::core::PCSTR , id : *mut :: windows::core::GUID , val1 : *mut u32 , val2 : *mut u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexes ( file : :: windows::core::PCSTR , id : *mut :: windows::core::GUID , val1 : *mut u32 , val2 : *mut u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexes(file.into().abi(), id, val1, ::core::mem::transmute(val2.unwrap_or(::std::ptr::null_mut())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2937,7 +2937,7 @@ pub unsafe fn SymSrvGetFileIndexesW<P0>(file: P0, id: *mut ::windows::core::GUID
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexesW ( file : :: windows::core::PCWSTR , id : *mut :: windows::core::GUID , val1 : *mut u32 , val2 : *mut u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexesW ( file : :: windows::core::PCWSTR , id : *mut :: windows::core::GUID , val1 : *mut u32 , val2 : *mut u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexesW(file.into().abi(), id, val1, ::core::mem::transmute(val2.unwrap_or(::std::ptr::null_mut())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2950,7 +2950,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvGetSupplement ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCSTR , node : :: windows::core::PCSTR , file : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetSupplement ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCSTR , node : :: windows::core::PCSTR , file : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     SymSrvGetSupplement(hprocess.into(), sympath.into().abi(), node.into().abi(), file.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2963,7 +2963,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvGetSupplementW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , node : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetSupplementW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , node : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     SymSrvGetSupplementW(hprocess.into(), sympath.into().abi(), node.into().abi(), file.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2974,7 +2974,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvIsStore ( hprocess : super::super::super::Foundation:: HANDLE , path : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvIsStore ( hprocess : super::super::super::Foundation:: HANDLE , path : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
     SymSrvIsStore(hprocess.into(), path.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2985,7 +2985,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvIsStoreW ( hprocess : super::super::super::Foundation:: HANDLE , path : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvIsStoreW ( hprocess : super::super::super::Foundation:: HANDLE , path : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
     SymSrvIsStoreW(hprocess.into(), path.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2997,7 +2997,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvStoreFile ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCSTR , file : :: windows::core::PCSTR , flags : SYM_SRV_STORE_FILE_FLAGS ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreFile ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCSTR , file : :: windows::core::PCSTR , flags : SYM_SRV_STORE_FILE_FLAGS ) -> :: windows::core::PSTR );
     SymSrvStoreFile(hprocess.into(), srvpath.into().abi(), file.into().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3009,7 +3009,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvStoreFileW ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , flags : SYM_SRV_STORE_FILE_FLAGS ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreFileW ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , flags : SYM_SRV_STORE_FILE_FLAGS ) -> :: windows::core::PWSTR );
     SymSrvStoreFileW(hprocess.into(), srvpath.into().abi(), file.into().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3022,7 +3022,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvStoreSupplement ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCSTR , node : :: windows::core::PCSTR , file : :: windows::core::PCSTR , flags : u32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreSupplement ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCSTR , node : :: windows::core::PCSTR , file : :: windows::core::PCSTR , flags : u32 ) -> :: windows::core::PSTR );
     SymSrvStoreSupplement(hprocess.into(), srvpath.into().abi(), node.into().abi(), file.into().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3035,7 +3035,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymSrvStoreSupplementW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , node : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , flags : u32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreSupplementW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , node : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , flags : u32 ) -> :: windows::core::PWSTR );
     SymSrvStoreSupplementW(hprocess.into(), sympath.into().abi(), node.into().abi(), file.into().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3043,14 +3043,14 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: &mut [u8]) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymUnDName ( sym : *const IMAGEHLP_SYMBOL , undecname : :: windows::core::PSTR , undecnamelength : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymUnDName ( sym : *const IMAGEHLP_SYMBOL , undecname : :: windows::core::PSTR , undecnamelength : u32 ) -> super::super::super::Foundation:: BOOL );
     SymUnDName(sym, ::core::mem::transmute(undecname.as_ptr()), undecname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: &mut [u8]) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymUnDName64 ( sym : *const IMAGEHLP_SYMBOL64 , undecname : :: windows::core::PSTR , undecnamelength : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymUnDName64 ( sym : *const IMAGEHLP_SYMBOL64 , undecname : :: windows::core::PSTR , undecnamelength : u32 ) -> super::super::super::Foundation:: BOOL );
     SymUnDName64(sym, ::core::mem::transmute(undecname.as_ptr()), undecname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3061,7 +3061,7 @@ pub unsafe fn SymUnloadModule<P0>(hprocess: P0, baseofdll: u32) -> super::super:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymUnloadModule ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymUnloadModule ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u32 ) -> super::super::super::Foundation:: BOOL );
     SymUnloadModule(hprocess.into(), baseofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3071,13 +3071,13 @@ pub unsafe fn SymUnloadModule64<P0>(hprocess: P0, baseofdll: u64) -> super::supe
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn SymUnloadModule64 ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymUnloadModule64 ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 ) -> super::super::super::Foundation:: BOOL );
     SymUnloadModule64(hprocess.into(), baseofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize) {
-    ::windows::core::link ! ( "api-ms-win-core-errorhandling-l1-1-3.dll""system" fn TerminateProcessOnMemoryExhaustion ( failedallocationsize : usize ) -> ( ) );
+    ::windows::imp::link ! ( "api-ms-win-core-errorhandling-l1-1-3.dll""system" fn TerminateProcessOnMemoryExhaustion ( failedallocationsize : usize ) -> ( ) );
     TerminateProcessOnMemoryExhaustion(failedallocationsize)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3087,7 +3087,7 @@ pub unsafe fn TouchFileTimes<P0>(filehandle: P0, psystemtime: ::core::option::Op
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn TouchFileTimes ( filehandle : super::super::super::Foundation:: HANDLE , psystemtime : *const super::super::super::Foundation:: SYSTEMTIME ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn TouchFileTimes ( filehandle : super::super::super::Foundation:: HANDLE , psystemtime : *const super::super::super::Foundation:: SYSTEMTIME ) -> super::super::super::Foundation:: BOOL );
     TouchFileTimes(filehandle.into(), ::core::mem::transmute(psystemtime.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -3096,7 +3096,7 @@ pub unsafe fn UnDecorateSymbolName<P0>(name: P0, outputstring: &mut [u8], flags:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn UnDecorateSymbolName ( name : :: windows::core::PCSTR , outputstring : :: windows::core::PSTR , maxstringlength : u32 , flags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn UnDecorateSymbolName ( name : :: windows::core::PCSTR , outputstring : :: windows::core::PSTR , maxstringlength : u32 , flags : u32 ) -> u32 );
     UnDecorateSymbolName(name.into().abi(), ::core::mem::transmute(outputstring.as_ptr()), outputstring.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -3105,21 +3105,21 @@ pub unsafe fn UnDecorateSymbolNameW<P0>(name: P0, outputstring: &mut [u16], flag
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "dbghelp.dll""system" fn UnDecorateSymbolNameW ( name : :: windows::core::PCWSTR , outputstring : :: windows::core::PWSTR , maxstringlength : u32 , flags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn UnDecorateSymbolNameW ( name : :: windows::core::PCWSTR , outputstring : :: windows::core::PWSTR , maxstringlength : u32 , flags : u32 ) -> u32 );
     UnDecorateSymbolNameW(name.into().abi(), ::core::mem::transmute(outputstring.as_ptr()), outputstring.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn UnMapAndLoad ( loadedimage : *mut LOADED_IMAGE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn UnMapAndLoad ( loadedimage : *mut LOADED_IMAGE ) -> super::super::super::Foundation:: BOOL );
     UnMapAndLoad(loadedimage)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS) -> i32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn UnhandledExceptionFilter ( exceptioninfo : *const EXCEPTION_POINTERS ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn UnhandledExceptionFilter ( exceptioninfo : *const EXCEPTION_POINTERS ) -> i32 );
     UnhandledExceptionFilter(exceptioninfo)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -3130,7 +3130,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn UpdateDebugInfoFile ( imagefilename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , ntheaders : *const IMAGE_NT_HEADERS32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn UpdateDebugInfoFile ( imagefilename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , ntheaders : *const IMAGE_NT_HEADERS32 ) -> super::super::super::Foundation:: BOOL );
     UpdateDebugInfoFile(imagefilename.into().abi(), symbolpath.into().abi(), ::core::mem::transmute(debugfilepath), ntheaders)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -3141,21 +3141,21 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "imagehlp.dll""system" fn UpdateDebugInfoFileEx ( imagefilename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , ntheaders : *const IMAGE_NT_HEADERS32 , oldchecksum : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn UpdateDebugInfoFileEx ( imagefilename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , ntheaders : *const IMAGE_NT_HEADERS32 , oldchecksum : u32 ) -> super::super::super::Foundation:: BOOL );
     UpdateDebugInfoFileEx(imagefilename.into().abi(), symbolpath.into().abi(), ::core::mem::transmute(debugfilepath), ntheaders, oldchecksum)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn WaitForDebugEvent ( lpdebugevent : *mut DEBUG_EVENT , dwmilliseconds : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForDebugEvent ( lpdebugevent : *mut DEBUG_EVENT , dwmilliseconds : u32 ) -> super::super::super::Foundation:: BOOL );
     WaitForDebugEvent(lpdebugevent, dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn WaitForDebugEventEx ( lpdebugevent : *mut DEBUG_EVENT , dwmilliseconds : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForDebugEventEx ( lpdebugevent : *mut DEBUG_EVENT , dwmilliseconds : u32 ) -> super::super::super::Foundation:: BOOL );
     WaitForDebugEventEx(lpdebugevent, dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3165,7 +3165,7 @@ pub unsafe fn Wow64GetThreadContext<P0>(hthread: P0, lpcontext: *mut WOW64_CONTE
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Wow64GetThreadContext ( hthread : super::super::super::Foundation:: HANDLE , lpcontext : *mut WOW64_CONTEXT ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Wow64GetThreadContext ( hthread : super::super::super::Foundation:: HANDLE , lpcontext : *mut WOW64_CONTEXT ) -> super::super::super::Foundation:: BOOL );
     Wow64GetThreadContext(hthread.into(), lpcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3175,7 +3175,7 @@ pub unsafe fn Wow64GetThreadSelectorEntry<P0>(hthread: P0, dwselector: u32, lpse
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Wow64GetThreadSelectorEntry ( hthread : super::super::super::Foundation:: HANDLE , dwselector : u32 , lpselectorentry : *mut WOW64_LDT_ENTRY ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Wow64GetThreadSelectorEntry ( hthread : super::super::super::Foundation:: HANDLE , dwselector : u32 , lpselectorentry : *mut WOW64_LDT_ENTRY ) -> super::super::super::Foundation:: BOOL );
     Wow64GetThreadSelectorEntry(hthread.into(), dwselector, lpselectorentry)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3185,7 +3185,7 @@ pub unsafe fn Wow64SetThreadContext<P0>(hthread: P0, lpcontext: *const WOW64_CON
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Wow64SetThreadContext ( hthread : super::super::super::Foundation:: HANDLE , lpcontext : *const WOW64_CONTEXT ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Wow64SetThreadContext ( hthread : super::super::super::Foundation:: HANDLE , lpcontext : *const WOW64_CONTEXT ) -> super::super::super::Foundation:: BOOL );
     Wow64SetThreadContext(hthread.into(), lpcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3195,7 +3195,7 @@ pub unsafe fn WriteProcessMemory<P0>(hprocess: P0, lpbaseaddress: *const ::core:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn WriteProcessMemory ( hprocess : super::super::super::Foundation:: HANDLE , lpbaseaddress : *const ::core::ffi::c_void , lpbuffer : *const ::core::ffi::c_void , nsize : usize , lpnumberofbyteswritten : *mut usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WriteProcessMemory ( hprocess : super::super::super::Foundation:: HANDLE , lpbaseaddress : *const ::core::ffi::c_void , lpbuffer : *const ::core::ffi::c_void , nsize : usize , lpnumberofbyteswritten : *mut usize ) -> super::super::super::Foundation:: BOOL );
     WriteProcessMemory(hprocess.into(), lpbaseaddress, lpbuffer, nsize, ::core::mem::transmute(lpnumberofbyteswritten.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -3236,7 +3236,7 @@ impl AsyncIDebugApplicationNodeEvents {
         (::windows::core::Vtable::vtable(self).Finish_onAttach)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIDebugApplicationNodeEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIDebugApplicationNodeEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIDebugApplicationNodeEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3336,7 +3336,7 @@ impl DebugBaseEventCallbacks {
         (::windows::core::Vtable::vtable(self).base__.ChangeSymbolState)(::windows::core::Vtable::as_raw(self), flags, argument).ok()
     }
 }
-::windows::core::interface_hierarchy!(DebugBaseEventCallbacks, ::windows::core::IUnknown, IDebugEventCallbacks);
+::windows::imp::interface_hierarchy!(DebugBaseEventCallbacks, ::windows::core::IUnknown, IDebugEventCallbacks);
 impl ::core::cmp::PartialEq for DebugBaseEventCallbacks {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3428,7 +3428,7 @@ impl DebugBaseEventCallbacksWide {
         (::windows::core::Vtable::vtable(self).base__.ChangeSymbolState)(::windows::core::Vtable::as_raw(self), flags, argument).ok()
     }
 }
-::windows::core::interface_hierarchy!(DebugBaseEventCallbacksWide, ::windows::core::IUnknown, IDebugEventCallbacksWide);
+::windows::imp::interface_hierarchy!(DebugBaseEventCallbacksWide, ::windows::core::IUnknown, IDebugEventCallbacksWide);
 impl ::core::cmp::PartialEq for DebugBaseEventCallbacksWide {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3523,7 +3523,7 @@ impl IActiveScript {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScript, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScript, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScript {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3665,7 +3665,7 @@ impl IActiveScriptAuthor {
         (::windows::core::Vtable::vtable(self).IsCommitChar)(::windows::core::Vtable::as_raw(self), ch, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptAuthor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptAuthor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptAuthor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3734,7 +3734,7 @@ impl IActiveScriptAuthorProcedure {
         (::windows::core::Vtable::vtable(self).ParseProcedureText)(::windows::core::Vtable::as_raw(self), pszcode.into().abi(), pszformalparams.into().abi(), pszprocedurename.into().abi(), pszitemname.into().abi(), pszdelimiter.into().abi(), dwcookie, dwflags, pdispfor.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptAuthorProcedure, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptAuthorProcedure, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptAuthorProcedure {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3789,7 +3789,7 @@ impl IActiveScriptDebug32 {
         (::windows::core::Vtable::vtable(self).EnumCodeContextsOfPosition)(::windows::core::Vtable::as_raw(self), dwsourcecontext, ucharacteroffset, unumchars, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptDebug32, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptDebug32, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptDebug32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3843,7 +3843,7 @@ impl IActiveScriptDebug64 {
         (::windows::core::Vtable::vtable(self).EnumCodeContextsOfPosition)(::windows::core::Vtable::as_raw(self), dwsourcecontext, ucharacteroffset, unumchars, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptDebug64, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptDebug64, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptDebug64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3894,7 +3894,7 @@ impl IActiveScriptEncode {
         (::windows::core::Vtable::vtable(self).GetEncodeProgId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrout)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptEncode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptEncode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptEncode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3942,7 +3942,7 @@ impl IActiveScriptError {
         (::windows::core::Vtable::vtable(self).GetSourceLineText)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptError, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptError, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptError {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3996,7 +3996,7 @@ impl IActiveScriptError64 {
         (::windows::core::Vtable::vtable(self).GetSourcePosition64)(::windows::core::Vtable::as_raw(self), pdwsourcecontext, pullinenumber, plcharacterposition).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptError64, ::windows::core::IUnknown, IActiveScriptError);
+::windows::imp::interface_hierarchy!(IActiveScriptError64, ::windows::core::IUnknown, IActiveScriptError);
 impl ::core::cmp::PartialEq for IActiveScriptError64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4050,7 +4050,7 @@ impl IActiveScriptErrorDebug {
         (::windows::core::Vtable::vtable(self).GetStackFrame)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptErrorDebug, ::windows::core::IUnknown, IActiveScriptError);
+::windows::imp::interface_hierarchy!(IActiveScriptErrorDebug, ::windows::core::IUnknown, IActiveScriptError);
 impl ::core::cmp::PartialEq for IActiveScriptErrorDebug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4089,7 +4089,7 @@ impl IActiveScriptErrorDebug110 {
         (::windows::core::Vtable::vtable(self).GetExceptionThrownKind)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptErrorDebug110, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptErrorDebug110, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptErrorDebug110 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4126,7 +4126,7 @@ impl IActiveScriptGarbageCollector {
         (::windows::core::Vtable::vtable(self).CollectGarbage)(::windows::core::Vtable::as_raw(self), scriptgctype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptGarbageCollector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptGarbageCollector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptGarbageCollector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4163,7 +4163,7 @@ impl IActiveScriptHostEncode {
         (::windows::core::Vtable::vtable(self).EncodeScriptHostFile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinfile), ::core::mem::transmute(pbstroutfile), cflags, ::core::mem::transmute_copy(bstrdefaultlang)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptHostEncode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptHostEncode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptHostEncode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4224,7 +4224,7 @@ impl IActiveScriptParse32 {
         (::windows::core::Vtable::vtable(self).ParseScriptText)(::windows::core::Vtable::as_raw(self), pstrcode.into().abi(), pstritemname.into().abi(), punkcontext.into().abi(), pstrdelimiter.into().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, pvarresult, pexcepinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptParse32, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptParse32, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptParse32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4293,7 +4293,7 @@ impl IActiveScriptParse64 {
         (::windows::core::Vtable::vtable(self).ParseScriptText)(::windows::core::Vtable::as_raw(self), pstrcode.into().abi(), pstritemname.into().abi(), punkcontext.into().abi(), pstrdelimiter.into().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, pvarresult, pexcepinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptParse64, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptParse64, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptParse64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4349,7 +4349,7 @@ impl IActiveScriptParseProcedure2_32 {
         (::windows::core::Vtable::vtable(self).base__.ParseProcedureText)(::windows::core::Vtable::as_raw(self), pstrcode.into().abi(), pstrformalparams.into().abi(), pstrprocedurename.into().abi(), pstritemname.into().abi(), punkcontext.into().abi(), pstrdelimiter.into().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptParseProcedure2_32, ::windows::core::IUnknown, IActiveScriptParseProcedure32);
+::windows::imp::interface_hierarchy!(IActiveScriptParseProcedure2_32, ::windows::core::IUnknown, IActiveScriptParseProcedure32);
 impl ::core::cmp::PartialEq for IActiveScriptParseProcedure2_32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4396,7 +4396,7 @@ impl IActiveScriptParseProcedure2_64 {
         (::windows::core::Vtable::vtable(self).base__.ParseProcedureText)(::windows::core::Vtable::as_raw(self), pstrcode.into().abi(), pstrformalparams.into().abi(), pstrprocedurename.into().abi(), pstritemname.into().abi(), punkcontext.into().abi(), pstrdelimiter.into().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptParseProcedure2_64, ::windows::core::IUnknown, IActiveScriptParseProcedure64);
+::windows::imp::interface_hierarchy!(IActiveScriptParseProcedure2_64, ::windows::core::IUnknown, IActiveScriptParseProcedure64);
 impl ::core::cmp::PartialEq for IActiveScriptParseProcedure2_64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4443,7 +4443,7 @@ impl IActiveScriptParseProcedure32 {
         (::windows::core::Vtable::vtable(self).ParseProcedureText)(::windows::core::Vtable::as_raw(self), pstrcode.into().abi(), pstrformalparams.into().abi(), pstrprocedurename.into().abi(), pstritemname.into().abi(), punkcontext.into().abi(), pstrdelimiter.into().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptParseProcedure32, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptParseProcedure32, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptParseProcedure32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4494,7 +4494,7 @@ impl IActiveScriptParseProcedure64 {
         (::windows::core::Vtable::vtable(self).ParseProcedureText)(::windows::core::Vtable::as_raw(self), pstrcode.into().abi(), pstrformalparams.into().abi(), pstrprocedurename.into().abi(), pstritemname.into().abi(), punkcontext.into().abi(), pstrdelimiter.into().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptParseProcedure64, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptParseProcedure64, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptParseProcedure64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4544,7 +4544,7 @@ impl IActiveScriptParseProcedureOld32 {
         (::windows::core::Vtable::vtable(self).ParseProcedureText)(::windows::core::Vtable::as_raw(self), pstrcode.into().abi(), pstrformalparams.into().abi(), pstritemname.into().abi(), punkcontext.into().abi(), pstrdelimiter.into().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptParseProcedureOld32, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptParseProcedureOld32, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptParseProcedureOld32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4594,7 +4594,7 @@ impl IActiveScriptParseProcedureOld64 {
         (::windows::core::Vtable::vtable(self).ParseProcedureText)(::windows::core::Vtable::as_raw(self), pstrcode.into().abi(), pstrformalparams.into().abi(), pstritemname.into().abi(), punkcontext.into().abi(), pstrdelimiter.into().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptParseProcedureOld64, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptParseProcedureOld64, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptParseProcedureOld64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4657,7 +4657,7 @@ impl IActiveScriptProfilerCallback {
         (::windows::core::Vtable::vtable(self).OnFunctionExit)(::windows::core::Vtable::as_raw(self), scriptid, functionid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProfilerCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptProfilerCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptProfilerCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4734,7 +4734,7 @@ impl IActiveScriptProfilerCallback2 {
         (::windows::core::Vtable::vtable(self).OnFunctionExitByName)(::windows::core::Vtable::as_raw(self), pwszfunctionname.into().abi(), r#type).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProfilerCallback2, ::windows::core::IUnknown, IActiveScriptProfilerCallback);
+::windows::imp::interface_hierarchy!(IActiveScriptProfilerCallback2, ::windows::core::IUnknown, IActiveScriptProfilerCallback);
 impl ::core::cmp::PartialEq for IActiveScriptProfilerCallback2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4810,7 +4810,7 @@ impl IActiveScriptProfilerCallback3 {
         (::windows::core::Vtable::vtable(self).SetWebWorkerId)(::windows::core::Vtable::as_raw(self), webworkerid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProfilerCallback3, ::windows::core::IUnknown, IActiveScriptProfilerCallback, IActiveScriptProfilerCallback2);
+::windows::imp::interface_hierarchy!(IActiveScriptProfilerCallback3, ::windows::core::IUnknown, IActiveScriptProfilerCallback, IActiveScriptProfilerCallback2);
 impl ::core::cmp::PartialEq for IActiveScriptProfilerCallback3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4853,7 +4853,7 @@ impl IActiveScriptProfilerControl {
         (::windows::core::Vtable::vtable(self).StopProfiling)(::windows::core::Vtable::as_raw(self), hrshutdownreason).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProfilerControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptProfilerControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptProfilerControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4904,7 +4904,7 @@ impl IActiveScriptProfilerControl2 {
         (::windows::core::Vtable::vtable(self).PrepareProfilerStop)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProfilerControl2, ::windows::core::IUnknown, IActiveScriptProfilerControl);
+::windows::imp::interface_hierarchy!(IActiveScriptProfilerControl2, ::windows::core::IUnknown, IActiveScriptProfilerControl);
 impl ::core::cmp::PartialEq for IActiveScriptProfilerControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4958,7 +4958,7 @@ impl IActiveScriptProfilerControl3 {
         (::windows::core::Vtable::vtable(self).EnumHeap)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProfilerControl3, ::windows::core::IUnknown, IActiveScriptProfilerControl, IActiveScriptProfilerControl2);
+::windows::imp::interface_hierarchy!(IActiveScriptProfilerControl3, ::windows::core::IUnknown, IActiveScriptProfilerControl, IActiveScriptProfilerControl2);
 impl ::core::cmp::PartialEq for IActiveScriptProfilerControl3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5014,7 +5014,7 @@ impl IActiveScriptProfilerControl4 {
         (::windows::core::Vtable::vtable(self).SummarizeHeap)(::windows::core::Vtable::as_raw(self), heapsummary).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProfilerControl4, ::windows::core::IUnknown, IActiveScriptProfilerControl, IActiveScriptProfilerControl2, IActiveScriptProfilerControl3);
+::windows::imp::interface_hierarchy!(IActiveScriptProfilerControl4, ::windows::core::IUnknown, IActiveScriptProfilerControl, IActiveScriptProfilerControl2, IActiveScriptProfilerControl3);
 impl ::core::cmp::PartialEq for IActiveScriptProfilerControl4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5074,7 +5074,7 @@ impl IActiveScriptProfilerControl5 {
         (::windows::core::Vtable::vtable(self).EnumHeap2)(::windows::core::Vtable::as_raw(self), enumflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProfilerControl5, ::windows::core::IUnknown, IActiveScriptProfilerControl, IActiveScriptProfilerControl2, IActiveScriptProfilerControl3, IActiveScriptProfilerControl4);
+::windows::imp::interface_hierarchy!(IActiveScriptProfilerControl5, ::windows::core::IUnknown, IActiveScriptProfilerControl, IActiveScriptProfilerControl2, IActiveScriptProfilerControl3, IActiveScriptProfilerControl4);
 impl ::core::cmp::PartialEq for IActiveScriptProfilerControl5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5120,7 +5120,7 @@ impl IActiveScriptProfilerHeapEnum {
         (::windows::core::Vtable::vtable(self).GetNameIdMap)(::windows::core::Vtable::as_raw(self), pnamelist, pcelt).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProfilerHeapEnum, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptProfilerHeapEnum, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptProfilerHeapEnum {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5168,7 +5168,7 @@ impl IActiveScriptProperty {
         (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), dwproperty, pvarindex, pvarvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptProperty, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptProperty, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5213,7 +5213,7 @@ impl IActiveScriptSIPInfo {
         (::windows::core::Vtable::vtable(self).GetSIPOID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptSIPInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptSIPInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptSIPInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5283,7 +5283,7 @@ impl IActiveScriptSite {
         (::windows::core::Vtable::vtable(self).OnLeaveScript)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5350,7 +5350,7 @@ impl IActiveScriptSiteDebug32 {
         (::windows::core::Vtable::vtable(self).OnScriptErrorDebug)(::windows::core::Vtable::as_raw(self), perrordebug.into().abi(), pfenterdebugger, pfcallonscripterrorwhencontinuing).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptSiteDebug32, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptSiteDebug32, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptSiteDebug32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5410,7 +5410,7 @@ impl IActiveScriptSiteDebug64 {
         (::windows::core::Vtable::vtable(self).OnScriptErrorDebug)(::windows::core::Vtable::as_raw(self), perrordebug.into().abi(), pfenterdebugger, pfcallonscripterrorwhencontinuing).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptSiteDebug64, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptSiteDebug64, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptSiteDebug64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5459,7 +5459,7 @@ impl IActiveScriptSiteDebugEx {
         (::windows::core::Vtable::vtable(self).OnCanNotJITScriptErrorDebug)(::windows::core::Vtable::as_raw(self), perrordebug.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptSiteDebugEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptSiteDebugEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptSiteDebugEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5499,7 +5499,7 @@ impl IActiveScriptSiteInterruptPoll {
         (::windows::core::Vtable::vtable(self).QueryContinue)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptSiteInterruptPoll, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptSiteInterruptPoll, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptSiteInterruptPoll {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5536,7 +5536,7 @@ impl IActiveScriptSiteTraceInfo {
         (::windows::core::Vtable::vtable(self).SendScriptTraceInfo)(::windows::core::Vtable::as_raw(self), stieventtype, ::core::mem::transmute(guidcontextid), dwscriptcontextcookie, lscriptstatementstart, lscriptstatementend, dwreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptSiteTraceInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptSiteTraceInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptSiteTraceInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5574,7 +5574,7 @@ impl IActiveScriptSiteUIControl {
         (::windows::core::Vtable::vtable(self).GetUIBehavior)(::windows::core::Vtable::as_raw(self), uicitem, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptSiteUIControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptSiteUIControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptSiteUIControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5622,7 +5622,7 @@ impl IActiveScriptSiteWindow {
         (::windows::core::Vtable::vtable(self).EnableModeless)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptSiteWindow, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptSiteWindow, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptSiteWindow {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5672,7 +5672,7 @@ impl IActiveScriptStats {
         (::windows::core::Vtable::vtable(self).ResetStats)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptStats, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptStats, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptStats {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5712,7 +5712,7 @@ impl IActiveScriptStringCompare {
         (::windows::core::Vtable::vtable(self).StrComp)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bszstr1), ::core::mem::transmute_copy(bszstr2), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptStringCompare, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptStringCompare, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptStringCompare {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5755,7 +5755,7 @@ impl IActiveScriptTraceInfo {
         (::windows::core::Vtable::vtable(self).StopScriptTracing)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptTraceInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveScriptTraceInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveScriptTraceInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5814,7 +5814,7 @@ impl IActiveScriptWinRTErrorDebug {
         (::windows::core::Vtable::vtable(self).GetCapabilitySid)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IActiveScriptWinRTErrorDebug, ::windows::core::IUnknown, IActiveScriptError);
+::windows::imp::interface_hierarchy!(IActiveScriptWinRTErrorDebug, ::windows::core::IUnknown, IActiveScriptError);
 impl ::core::cmp::PartialEq for IActiveScriptWinRTErrorDebug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5882,7 +5882,7 @@ impl IApplicationDebugger {
         (::windows::core::Vtable::vtable(self).onDebuggerEvent)(::windows::core::Vtable::as_raw(self), riid, punk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IApplicationDebugger, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApplicationDebugger, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApplicationDebugger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5933,7 +5933,7 @@ impl IApplicationDebuggerUI {
         (::windows::core::Vtable::vtable(self).BringDocumentContextToTop)(::windows::core::Vtable::as_raw(self), pddc.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IApplicationDebuggerUI, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApplicationDebuggerUI, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApplicationDebuggerUI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5977,7 +5977,7 @@ impl IBindEventHandler {
         (::windows::core::Vtable::vtable(self).BindHandler)(::windows::core::Vtable::as_raw(self), pstrevent.into().abi(), pdisp.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBindEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBindEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBindEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6021,7 +6021,7 @@ impl ICodeAddressConcept {
         (::windows::core::Vtable::vtable(self).GetContainingSymbol)(::windows::core::Vtable::as_raw(self), pcontextobject.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICodeAddressConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICodeAddressConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICodeAddressConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6063,7 +6063,7 @@ impl IComparableConcept {
         (::windows::core::Vtable::vtable(self).CompareObjects)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), otherobject.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IComparableConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComparableConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComparableConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6109,7 +6109,7 @@ impl IDataModelConcept {
         (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6275,7 +6275,7 @@ impl IDataModelManager {
         (::windows::core::Vtable::vtable(self).AcquireNamedModel)(::windows::core::Vtable::as_raw(self), modelname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6485,7 +6485,7 @@ impl IDataModelManager2 {
         (::windows::core::Vtable::vtable(self).CreateTypedIntrinsicObjectEx)(::windows::core::Vtable::as_raw(self), context.into().abi(), intrinsicdata, r#type.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelManager2, ::windows::core::IUnknown, IDataModelManager);
+::windows::imp::interface_hierarchy!(IDataModelManager2, ::windows::core::IUnknown, IDataModelManager);
 impl ::core::cmp::PartialEq for IDataModelManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6551,7 +6551,7 @@ impl IDataModelNameBinder {
         (::windows::core::Vtable::vtable(self).EnumerateReferences)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelNameBinder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelNameBinder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelNameBinder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6625,7 +6625,7 @@ impl IDataModelScript {
         (::windows::core::Vtable::vtable(self).InvokeMain)(::windows::core::Vtable::as_raw(self), client.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScript, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScript, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScript {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6674,7 +6674,7 @@ impl IDataModelScriptClient {
         (::windows::core::Vtable::vtable(self).ReportError)(::windows::core::Vtable::as_raw(self), errclass, hrfail, message.into().abi(), line, position).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6749,7 +6749,7 @@ impl IDataModelScriptDebug {
         (::windows::core::Vtable::vtable(self).StopDebugging)(::windows::core::Vtable::as_raw(self), debugclient.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptDebug, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptDebug, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptDebug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6840,7 +6840,7 @@ impl IDataModelScriptDebug2 {
         (::windows::core::Vtable::vtable(self).SetBreakpointAtFunction)(::windows::core::Vtable::as_raw(self), functionname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptDebug2, ::windows::core::IUnknown, IDataModelScriptDebug);
+::windows::imp::interface_hierarchy!(IDataModelScriptDebug2, ::windows::core::IUnknown, IDataModelScriptDebug);
 impl ::core::cmp::PartialEq for IDataModelScriptDebug2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6892,7 +6892,7 @@ impl IDataModelScriptDebugBreakpoint {
         (::windows::core::Vtable::vtable(self).GetPosition)(::windows::core::Vtable::as_raw(self), position, ::core::mem::transmute(positionspanend.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(linetext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptDebugBreakpoint, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptDebugBreakpoint, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptDebugBreakpoint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6938,7 +6938,7 @@ impl IDataModelScriptDebugBreakpointEnumerator {
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptDebugBreakpointEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptDebugBreakpointEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptDebugBreakpointEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6980,7 +6980,7 @@ impl IDataModelScriptDebugClient {
         (::windows::core::Vtable::vtable(self).NotifyDebugEvent)(::windows::core::Vtable::as_raw(self), peventinfo, pscript.into().abi(), peventdataobject.into().abi(), resumeeventkind).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptDebugClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptDebugClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptDebugClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7021,7 +7021,7 @@ impl IDataModelScriptDebugStack {
         (::windows::core::Vtable::vtable(self).GetStackFrame)(::windows::core::Vtable::as_raw(self), framenumber, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptDebugStack, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptDebugStack, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptDebugStack {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7085,7 +7085,7 @@ impl IDataModelScriptDebugStackFrame {
         (::windows::core::Vtable::vtable(self).EnumerateArguments)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptDebugStackFrame, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptDebugStackFrame, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptDebugStackFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7131,7 +7131,7 @@ impl IDataModelScriptDebugVariableSetEnumerator {
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(variablename), ::core::mem::transmute(variablevalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(variablemetadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptDebugVariableSetEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptDebugVariableSetEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptDebugVariableSetEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7176,7 +7176,7 @@ impl IDataModelScriptHostContext {
         (::windows::core::Vtable::vtable(self).GetNamespaceObject)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptHostContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptHostContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptHostContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7245,7 +7245,7 @@ impl IDataModelScriptManager {
         (::windows::core::Vtable::vtable(self).EnumerateScriptProviders)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7304,7 +7304,7 @@ impl IDataModelScriptProvider {
         (::windows::core::Vtable::vtable(self).EnumerateTemplates)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7349,7 +7349,7 @@ impl IDataModelScriptProviderEnumerator {
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptProviderEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptProviderEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptProviderEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7398,7 +7398,7 @@ impl IDataModelScriptTemplate {
         (::windows::core::Vtable::vtable(self).GetContent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptTemplate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptTemplate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptTemplate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7444,7 +7444,7 @@ impl IDataModelScriptTemplateEnumerator {
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDataModelScriptTemplateEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataModelScriptTemplateEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataModelScriptTemplateEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7485,7 +7485,7 @@ impl IDebugAdvanced {
         (::windows::core::Vtable::vtable(self).SetThreadContext)(::windows::core::Vtable::as_raw(self), context, contextsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugAdvanced, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugAdvanced, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugAdvanced {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7547,7 +7547,7 @@ impl IDebugAdvanced2 {
         (::windows::core::Vtable::vtable(self).GetSystemObjectInformation)(::windows::core::Vtable::as_raw(self), which, arg64, arg32, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(infosize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugAdvanced2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugAdvanced2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugAdvanced2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7629,7 +7629,7 @@ impl IDebugAdvanced3 {
         (::windows::core::Vtable::vtable(self).GetSymbolInformationWide)(::windows::core::Vtable::as_raw(self), which, arg64, arg32, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(infosize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(stringbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugAdvanced3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugAdvanced3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugAdvanced3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7730,7 +7730,7 @@ impl IDebugAdvanced4 {
         .ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugAdvanced4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugAdvanced4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugAdvanced4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7803,7 +7803,7 @@ impl IDebugApplication11032 {
         (::windows::core::Vtable::vtable(self).CallableWaitForHandles)(::windows::core::Vtable::as_raw(self), phandles.len() as _, ::core::mem::transmute(phandles.as_ptr()), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplication11032, ::windows::core::IUnknown, IRemoteDebugApplication110);
+::windows::imp::interface_hierarchy!(IDebugApplication11032, ::windows::core::IUnknown, IRemoteDebugApplication110);
 impl ::core::cmp::PartialEq for IDebugApplication11032 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7871,7 +7871,7 @@ impl IDebugApplication11064 {
         (::windows::core::Vtable::vtable(self).CallableWaitForHandles)(::windows::core::Vtable::as_raw(self), phandles.len() as _, ::core::mem::transmute(phandles.as_ptr()), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplication11064, ::windows::core::IUnknown, IRemoteDebugApplication110);
+::windows::imp::interface_hierarchy!(IDebugApplication11064, ::windows::core::IUnknown, IRemoteDebugApplication110);
 impl ::core::cmp::PartialEq for IDebugApplication11064 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8055,7 +8055,7 @@ impl IDebugApplication32 {
         (::windows::core::Vtable::vtable(self).RemoveGlobalExpressionContextProvider)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplication32, ::windows::core::IUnknown, IRemoteDebugApplication);
+::windows::imp::interface_hierarchy!(IDebugApplication32, ::windows::core::IUnknown, IRemoteDebugApplication);
 impl ::core::cmp::PartialEq for IDebugApplication32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8262,7 +8262,7 @@ impl IDebugApplication64 {
         (::windows::core::Vtable::vtable(self).RemoveGlobalExpressionContextProvider)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplication64, ::windows::core::IUnknown, IRemoteDebugApplication);
+::windows::imp::interface_hierarchy!(IDebugApplication64, ::windows::core::IUnknown, IRemoteDebugApplication);
 impl ::core::cmp::PartialEq for IDebugApplication64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8362,7 +8362,7 @@ impl IDebugApplicationNode {
         (::windows::core::Vtable::vtable(self).Detach)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplicationNode, ::windows::core::IUnknown, IDebugDocumentInfo, IDebugDocumentProvider);
+::windows::imp::interface_hierarchy!(IDebugApplicationNode, ::windows::core::IUnknown, IDebugDocumentInfo, IDebugDocumentProvider);
 impl ::core::cmp::PartialEq for IDebugApplicationNode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8414,7 +8414,7 @@ impl IDebugApplicationNode100 {
         (::windows::core::Vtable::vtable(self).QueryIsChildNode)(::windows::core::Vtable::as_raw(self), psearchkey.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplicationNode100, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugApplicationNode100, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugApplicationNode100 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8471,7 +8471,7 @@ impl IDebugApplicationNodeEvents {
         (::windows::core::Vtable::vtable(self).onAttach)(::windows::core::Vtable::as_raw(self), prddpparent.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplicationNodeEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugApplicationNodeEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugApplicationNodeEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8570,7 +8570,7 @@ impl IDebugApplicationThread {
         (::windows::core::Vtable::vtable(self).SetStateString)(::windows::core::Vtable::as_raw(self), pstrstate.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplicationThread, ::windows::core::IUnknown, IRemoteDebugApplicationThread);
+::windows::imp::interface_hierarchy!(IDebugApplicationThread, ::windows::core::IUnknown, IRemoteDebugApplicationThread);
 impl ::core::cmp::PartialEq for IDebugApplicationThread {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8630,7 +8630,7 @@ impl IDebugApplicationThread11032 {
         (::windows::core::Vtable::vtable(self).AsynchronousCallIntoThread)(::windows::core::Vtable::as_raw(self), pptc.into().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplicationThread11032, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugApplicationThread11032, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugApplicationThread11032 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8695,7 +8695,7 @@ impl IDebugApplicationThread11064 {
         (::windows::core::Vtable::vtable(self).AsynchronousCallIntoThread)(::windows::core::Vtable::as_raw(self), pptc.into().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplicationThread11064, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugApplicationThread11064, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugApplicationThread11064 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8806,7 +8806,7 @@ impl IDebugApplicationThread64 {
         (::windows::core::Vtable::vtable(self).SynchronousCallIntoThread64)(::windows::core::Vtable::as_raw(self), pstcb.into().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplicationThread64, ::windows::core::IUnknown, IRemoteDebugApplicationThread, IDebugApplicationThread);
+::windows::imp::interface_hierarchy!(IDebugApplicationThread64, ::windows::core::IUnknown, IRemoteDebugApplicationThread, IDebugApplicationThread);
 impl ::core::cmp::PartialEq for IDebugApplicationThread64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8852,7 +8852,7 @@ impl IDebugApplicationThreadEvents110 {
         (::windows::core::Vtable::vtable(self).OnBeginThreadRequest)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugApplicationThreadEvents110, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugApplicationThreadEvents110, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugApplicationThreadEvents110 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8908,7 +8908,7 @@ impl IDebugAsyncOperation {
         (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), phrresult, ::core::mem::transmute(ppunkresult)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugAsyncOperation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugAsyncOperation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugAsyncOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8949,7 +8949,7 @@ impl IDebugAsyncOperationCallBack {
         (::windows::core::Vtable::vtable(self).onComplete)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugAsyncOperationCallBack, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugAsyncOperationCallBack, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugAsyncOperationCallBack {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9059,7 +9059,7 @@ impl IDebugBreakpoint {
         (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), params).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugBreakpoint, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugBreakpoint, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugBreakpoint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9207,7 +9207,7 @@ impl IDebugBreakpoint2 {
         (::windows::core::Vtable::vtable(self).SetOffsetExpressionWide)(::windows::core::Vtable::as_raw(self), expression.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugBreakpoint2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugBreakpoint2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugBreakpoint2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9363,7 +9363,7 @@ impl IDebugBreakpoint3 {
         (::windows::core::Vtable::vtable(self).GetGuid)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugBreakpoint3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugBreakpoint3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugBreakpoint3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9637,7 +9637,7 @@ impl IDebugClient {
         (::windows::core::Vtable::vtable(self).FlushCallbacks)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9961,7 +9961,7 @@ impl IDebugClient2 {
         (::windows::core::Vtable::vtable(self).AbandonCurrentProcess)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugClient2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugClient2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugClient2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10327,7 +10327,7 @@ impl IDebugClient3 {
         (::windows::core::Vtable::vtable(self).CreateProcessAndAttachWide)(::windows::core::Vtable::as_raw(self), server, commandline.into().abi(), createflags, processid, attachflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugClient3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugClient3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugClient3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10726,7 +10726,7 @@ impl IDebugClient4 {
         (::windows::core::Vtable::vtable(self).GetDumpFileWide)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(handle.unwrap_or(::std::ptr::null_mut())), r#type).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugClient4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugClient4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugClient4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11288,7 +11288,7 @@ impl IDebugClient5 {
         (::windows::core::Vtable::vtable(self).SetQuitLockStringWide)(::windows::core::Vtable::as_raw(self), string.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugClient5, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugClient5, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugClient5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11885,7 +11885,7 @@ impl IDebugClient6 {
         (::windows::core::Vtable::vtable(self).SetEventContextCallbacks)(::windows::core::Vtable::as_raw(self), callbacks.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugClient6, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugClient6, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugClient6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12486,7 +12486,7 @@ impl IDebugClient7 {
         (::windows::core::Vtable::vtable(self).SetClientContext)(::windows::core::Vtable::as_raw(self), context, contextsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugClient7, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugClient7, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugClient7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13094,7 +13094,7 @@ impl IDebugClient8 {
         (::windows::core::Vtable::vtable(self).OpenDumpFileWide2)(::windows::core::Vtable::as_raw(self), filename.into().abi(), filehandle, alternatearch).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugClient8, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugClient8, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugClient8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13229,7 +13229,7 @@ impl IDebugCodeContext {
         (::windows::core::Vtable::vtable(self).SetBreakPoint)(::windows::core::Vtable::as_raw(self), bps).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugCodeContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugCodeContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugCodeContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13673,7 +13673,7 @@ impl IDebugControl {
         (::windows::core::Vtable::vtable(self).GetLastEventInformation)(::windows::core::Vtable::as_raw(self), r#type, processid, threadid, ::core::mem::transmute(extrainformation.unwrap_or(::std::ptr::null_mut())), extrainformationsize, ::core::mem::transmute(extrainformationused.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(description.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(descriptionused.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14283,7 +14283,7 @@ impl IDebugControl2 {
         (::windows::core::Vtable::vtable(self).OutputTextReplacements)(::windows::core::Vtable::as_raw(self), outputcontrol, flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugControl2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugControl2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14962,7 +14962,7 @@ impl IDebugControl3 {
         (::windows::core::Vtable::vtable(self).SetNextEventIndex)(::windows::core::Vtable::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugControl3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugControl3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugControl3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15946,7 +15946,7 @@ impl IDebugControl4 {
         (::windows::core::Vtable::vtable(self).ResetManagedStatus)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugControl4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugControl4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugControl4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17025,7 +17025,7 @@ impl IDebugControl5 {
         (::windows::core::Vtable::vtable(self).GetBreakpointByGuid)(::windows::core::Vtable::as_raw(self), guid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugControl5, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugControl5, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugControl5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18128,7 +18128,7 @@ impl IDebugControl6 {
         (::windows::core::Vtable::vtable(self).GetSynchronizationStatus)(::windows::core::Vtable::as_raw(self), sendsattempted, secondssincelastresponse).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugControl6, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugControl6, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugControl6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19236,7 +19236,7 @@ impl IDebugControl7 {
         (::windows::core::Vtable::vtable(self).GetDebuggeeType2)(::windows::core::Vtable::as_raw(self), flags, class, qualifier).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugControl7, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugControl7, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugControl7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19506,7 +19506,7 @@ impl IDebugCookie {
         (::windows::core::Vtable::vtable(self).SetDebugCookie)(::windows::core::Vtable::as_raw(self), dwdebugappcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugCookie, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugCookie, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugCookie {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19602,7 +19602,7 @@ impl IDebugDataSpaces {
         (::windows::core::Vtable::vtable(self).ReadProcessorSystemData)(::windows::core::Vtable::as_raw(self), processor, index, buffer, buffersize, ::core::mem::transmute(datasize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDataSpaces, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDataSpaces, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDataSpaces {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19738,7 +19738,7 @@ impl IDebugDataSpaces2 {
         (::windows::core::Vtable::vtable(self).QueryVirtual)(::windows::core::Vtable::as_raw(self), offset, info).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDataSpaces2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDataSpaces2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDataSpaces2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19901,7 +19901,7 @@ impl IDebugDataSpaces3 {
         (::windows::core::Vtable::vtable(self).EndEnumTagged)(::windows::core::Vtable::as_raw(self), handle).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDataSpaces3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDataSpaces3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDataSpaces3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20104,7 +20104,7 @@ impl IDebugDataSpaces4 {
         (::windows::core::Vtable::vtable(self).WritePhysical2)(::windows::core::Vtable::as_raw(self), offset, flags, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDataSpaces4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDataSpaces4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDataSpaces4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20192,7 +20192,7 @@ impl IDebugDocument {
         (::windows::core::Vtable::vtable(self).base__.GetDocumentClassId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocument, ::windows::core::IUnknown, IDebugDocumentInfo);
+::windows::imp::interface_hierarchy!(IDebugDocument, ::windows::core::IUnknown, IDebugDocumentInfo);
 impl ::core::cmp::PartialEq for IDebugDocument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20233,7 +20233,7 @@ impl IDebugDocumentContext {
         (::windows::core::Vtable::vtable(self).EnumCodeContexts)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDocumentContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDocumentContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20357,7 +20357,7 @@ impl IDebugDocumentHelper32 {
         (::windows::core::Vtable::vtable(self).BringDocumentContextToTop)(::windows::core::Vtable::as_raw(self), pddc.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentHelper32, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDocumentHelper32, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDocumentHelper32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20500,7 +20500,7 @@ impl IDebugDocumentHelper64 {
         (::windows::core::Vtable::vtable(self).BringDocumentContextToTop)(::windows::core::Vtable::as_raw(self), pddc.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentHelper64, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDocumentHelper64, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDocumentHelper64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20580,7 +20580,7 @@ impl IDebugDocumentHost {
         (::windows::core::Vtable::vtable(self).NotifyChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDocumentHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDocumentHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20630,7 +20630,7 @@ impl IDebugDocumentInfo {
         (::windows::core::Vtable::vtable(self).GetDocumentClassId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDocumentInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDocumentInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20677,7 +20677,7 @@ impl IDebugDocumentProvider {
         (::windows::core::Vtable::vtable(self).GetDocument)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentProvider, ::windows::core::IUnknown, IDebugDocumentInfo);
+::windows::imp::interface_hierarchy!(IDebugDocumentProvider, ::windows::core::IUnknown, IDebugDocumentInfo);
 impl ::core::cmp::PartialEq for IDebugDocumentProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20746,7 +20746,7 @@ impl IDebugDocumentText {
         (::windows::core::Vtable::vtable(self).GetContextOfPosition)(::windows::core::Vtable::as_raw(self), ccharacterposition, cnumchars, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentText, ::windows::core::IUnknown, IDebugDocumentInfo, IDebugDocument);
+::windows::imp::interface_hierarchy!(IDebugDocumentText, ::windows::core::IUnknown, IDebugDocumentInfo, IDebugDocument);
 impl ::core::cmp::PartialEq for IDebugDocumentText {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20830,7 +20830,7 @@ impl IDebugDocumentTextAuthor {
         (::windows::core::Vtable::vtable(self).ReplaceText)(::windows::core::Vtable::as_raw(self), ccharacterposition, pchartext.len() as _, ::core::mem::transmute(pchartext.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentTextAuthor, ::windows::core::IUnknown, IDebugDocumentInfo, IDebugDocument, IDebugDocumentText);
+::windows::imp::interface_hierarchy!(IDebugDocumentTextAuthor, ::windows::core::IUnknown, IDebugDocumentInfo, IDebugDocument, IDebugDocumentText);
 impl ::core::cmp::PartialEq for IDebugDocumentTextAuthor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20884,7 +20884,7 @@ impl IDebugDocumentTextEvents {
         (::windows::core::Vtable::vtable(self).onUpdateDocumentAttributes)(::windows::core::Vtable::as_raw(self), textdocattr).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentTextEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDocumentTextEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDocumentTextEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20935,7 +20935,7 @@ impl IDebugDocumentTextExternalAuthor {
         (::windows::core::Vtable::vtable(self).NotifyChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugDocumentTextExternalAuthor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugDocumentTextExternalAuthor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugDocumentTextExternalAuthor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21033,7 +21033,7 @@ impl IDebugEventCallbacks {
         (::windows::core::Vtable::vtable(self).ChangeSymbolState)(::windows::core::Vtable::as_raw(self), flags, argument).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugEventCallbacks, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugEventCallbacks, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugEventCallbacks {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21142,7 +21142,7 @@ impl IDebugEventCallbacksWide {
         (::windows::core::Vtable::vtable(self).ChangeSymbolState)(::windows::core::Vtable::as_raw(self), flags, argument).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugEventCallbacksWide, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugEventCallbacksWide, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugEventCallbacksWide {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21251,7 +21251,7 @@ impl IDebugEventContextCallbacks {
         (::windows::core::Vtable::vtable(self).ChangeSymbolState)(::windows::core::Vtable::as_raw(self), flags, argument).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugEventContextCallbacks, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugEventContextCallbacks, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugEventContextCallbacks {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21319,7 +21319,7 @@ impl IDebugExpression {
         (::windows::core::Vtable::vtable(self).GetResultAsDebugProperty)(::windows::core::Vtable::as_raw(self), phrresult, ::core::mem::transmute(ppdp)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugExpression, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugExpression, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugExpression {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21360,7 +21360,7 @@ impl IDebugExpressionCallBack {
         (::windows::core::Vtable::vtable(self).onComplete)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugExpressionCallBack, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugExpressionCallBack, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugExpressionCallBack {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21405,7 +21405,7 @@ impl IDebugExpressionContext {
         (::windows::core::Vtable::vtable(self).GetLanguageInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrlanguagename), planguageid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugExpressionContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugExpressionContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugExpressionContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21471,7 +21471,7 @@ impl IDebugExtendedProperty {
         (::windows::core::Vtable::vtable(self).EnumExtendedMembers)(::windows::core::Vtable::as_raw(self), dwfieldspec, nradix, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugExtendedProperty, ::windows::core::IUnknown, IDebugProperty);
+::windows::imp::interface_hierarchy!(IDebugExtendedProperty, ::windows::core::IUnknown, IDebugProperty);
 impl ::core::cmp::PartialEq for IDebugExtendedProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21530,7 +21530,7 @@ impl IDebugFormatter {
         (::windows::core::Vtable::vtable(self).GetStringForVarType)(::windows::core::Vtable::as_raw(self), vt, ptdescarraytype, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugFormatter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugFormatter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugFormatter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21605,7 +21605,7 @@ impl IDebugHelper {
         (::windows::core::Vtable::vtable(self).CreateSimpleConnectionPoint)(::windows::core::Vtable::as_raw(self), pdisp.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21662,7 +21662,7 @@ impl IDebugHost {
         (::windows::core::Vtable::vtable(self).GetDefaultMetadata)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21736,7 +21736,7 @@ impl IDebugHostBaseClass {
         (::windows::core::Vtable::vtable(self).GetOffset)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostBaseClass, ::windows::core::IUnknown, IDebugHostSymbol);
+::windows::imp::interface_hierarchy!(IDebugHostBaseClass, ::windows::core::IUnknown, IDebugHostSymbol);
 impl ::core::cmp::PartialEq for IDebugHostBaseClass {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21810,7 +21810,7 @@ impl IDebugHostConstant {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostConstant, ::windows::core::IUnknown, IDebugHostSymbol);
+::windows::imp::interface_hierarchy!(IDebugHostConstant, ::windows::core::IUnknown, IDebugHostSymbol);
 impl ::core::cmp::PartialEq for IDebugHostConstant {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21854,7 +21854,7 @@ impl IDebugHostContext {
         (::windows::core::Vtable::vtable(self).IsEqualTo)(::windows::core::Vtable::as_raw(self), pcontext.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21936,7 +21936,7 @@ impl IDebugHostData {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostData, ::windows::core::IUnknown, IDebugHostSymbol);
+::windows::imp::interface_hierarchy!(IDebugHostData, ::windows::core::IUnknown, IDebugHostSymbol);
 impl ::core::cmp::PartialEq for IDebugHostData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21981,7 +21981,7 @@ impl IDebugHostErrorSink {
         (::windows::core::Vtable::vtable(self).ReportError)(::windows::core::Vtable::as_raw(self), errclass, hrerror, message.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostErrorSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostErrorSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostErrorSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22031,7 +22031,7 @@ impl IDebugHostEvaluator {
         (::windows::core::Vtable::vtable(self).EvaluateExtendedExpression)(::windows::core::Vtable::as_raw(self), context.into().abi(), expression.into().abi(), bindingcontext.into().abi(), ::core::mem::transmute(result), ::core::mem::transmute(metadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostEvaluator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostEvaluator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostEvaluator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22089,7 +22089,7 @@ impl IDebugHostEvaluator2 {
         (::windows::core::Vtable::vtable(self).AssignTo)(::windows::core::Vtable::as_raw(self), assignmentreference.into().abi(), assignmentvalue.into().abi(), ::core::mem::transmute(assignmentresult), ::core::mem::transmute(assignmentmetadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostEvaluator2, ::windows::core::IUnknown, IDebugHostEvaluator);
+::windows::imp::interface_hierarchy!(IDebugHostEvaluator2, ::windows::core::IUnknown, IDebugHostEvaluator);
 impl ::core::cmp::PartialEq for IDebugHostEvaluator2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22136,7 +22136,7 @@ impl IDebugHostExtensibility {
         (::windows::core::Vtable::vtable(self).DestroyFunctionAlias)(::windows::core::Vtable::as_raw(self), aliasname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostExtensibility, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostExtensibility, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostExtensibility {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22223,7 +22223,7 @@ impl IDebugHostField {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostField, ::windows::core::IUnknown, IDebugHostSymbol);
+::windows::imp::interface_hierarchy!(IDebugHostField, ::windows::core::IUnknown, IDebugHostSymbol);
 impl ::core::cmp::PartialEq for IDebugHostField {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22294,7 +22294,7 @@ impl IDebugHostMemory {
         (::windows::core::Vtable::vtable(self).GetDisplayStringForLocation)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(location), verbose, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostMemory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostMemory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostMemory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22370,7 +22370,7 @@ impl IDebugHostMemory2 {
         (::windows::core::Vtable::vtable(self).LinearizeLocation)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(location), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostMemory2, ::windows::core::IUnknown, IDebugHostMemory);
+::windows::imp::interface_hierarchy!(IDebugHostMemory2, ::windows::core::IUnknown, IDebugHostMemory);
 impl ::core::cmp::PartialEq for IDebugHostMemory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22467,7 +22467,7 @@ impl IDebugHostModule {
         (::windows::core::Vtable::vtable(self).FindSymbolByName)(::windows::core::Vtable::as_raw(self), symbolname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostModule, ::windows::core::IUnknown, IDebugHostSymbol);
+::windows::imp::interface_hierarchy!(IDebugHostModule, ::windows::core::IUnknown, IDebugHostSymbol);
 impl ::core::cmp::PartialEq for IDebugHostModule {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22572,7 +22572,7 @@ impl IDebugHostModule2 {
         (::windows::core::Vtable::vtable(self).FindContainingSymbolByRVA)(::windows::core::Vtable::as_raw(self), rva, ::core::mem::transmute(symbol), offset).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostModule2, ::windows::core::IUnknown, IDebugHostSymbol, IDebugHostModule);
+::windows::imp::interface_hierarchy!(IDebugHostModule2, ::windows::core::IUnknown, IDebugHostSymbol, IDebugHostModule);
 impl ::core::cmp::PartialEq for IDebugHostModule2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22613,7 +22613,7 @@ impl IDebugHostModuleSignature {
         (::windows::core::Vtable::vtable(self).IsMatch)(::windows::core::Vtable::as_raw(self), pmodule.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostModuleSignature, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostModuleSignature, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostModuleSignature {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22689,7 +22689,7 @@ impl IDebugHostPublic {
         (::windows::core::Vtable::vtable(self).GetLocation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostPublic, ::windows::core::IUnknown, IDebugHostSymbol);
+::windows::imp::interface_hierarchy!(IDebugHostPublic, ::windows::core::IUnknown, IDebugHostSymbol);
 impl ::core::cmp::PartialEq for IDebugHostPublic {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22731,7 +22731,7 @@ impl IDebugHostScriptHost {
         (::windows::core::Vtable::vtable(self).CreateContext)(::windows::core::Vtable::as_raw(self), script.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostScriptHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostScriptHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostScriptHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22769,7 +22769,7 @@ impl IDebugHostStatus {
         (::windows::core::Vtable::vtable(self).PollUserInterrupt)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostStatus, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostStatus, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22837,7 +22837,7 @@ impl IDebugHostSymbol {
         (::windows::core::Vtable::vtable(self).CompareAgainst)(::windows::core::Vtable::as_raw(self), pcomparisonsymbol.into().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostSymbol, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostSymbol, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostSymbol {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22915,7 +22915,7 @@ impl IDebugHostSymbol2 {
         (::windows::core::Vtable::vtable(self).GetLanguage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostSymbol2, ::windows::core::IUnknown, IDebugHostSymbol);
+::windows::imp::interface_hierarchy!(IDebugHostSymbol2, ::windows::core::IUnknown, IDebugHostSymbol);
 impl ::core::cmp::PartialEq for IDebugHostSymbol2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22956,7 +22956,7 @@ impl IDebugHostSymbolEnumerator {
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostSymbolEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostSymbolEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostSymbolEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23047,7 +23047,7 @@ impl IDebugHostSymbols {
         (::windows::core::Vtable::vtable(self).GetMostDerivedObject)(::windows::core::Vtable::as_raw(self), pcontext.into().abi(), ::core::mem::transmute(location), objecttype.into().abi(), derivedlocation, ::core::mem::transmute(derivedtype)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostSymbols, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostSymbols, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostSymbols {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23194,7 +23194,7 @@ impl IDebugHostType {
         (::windows::core::Vtable::vtable(self).GetGenericArgumentAt)(::windows::core::Vtable::as_raw(self), i, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostType, ::windows::core::IUnknown, IDebugHostSymbol);
+::windows::imp::interface_hierarchy!(IDebugHostType, ::windows::core::IUnknown, IDebugHostSymbol);
 impl ::core::cmp::PartialEq for IDebugHostType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23373,7 +23373,7 @@ impl IDebugHostType2 {
         (::windows::core::Vtable::vtable(self).GetFunctionInstancePointerType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostType2, ::windows::core::IUnknown, IDebugHostSymbol, IDebugHostType);
+::windows::imp::interface_hierarchy!(IDebugHostType2, ::windows::core::IUnknown, IDebugHostSymbol, IDebugHostType);
 impl ::core::cmp::PartialEq for IDebugHostType2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23428,7 +23428,7 @@ impl IDebugHostTypeSignature {
         (::windows::core::Vtable::vtable(self).CompareAgainst)(::windows::core::Vtable::as_raw(self), typesignature.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugHostTypeSignature, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugHostTypeSignature, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugHostTypeSignature {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23470,7 +23470,7 @@ impl IDebugInputCallbacks {
         (::windows::core::Vtable::vtable(self).EndInput)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugInputCallbacks, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugInputCallbacks, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugInputCallbacks {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23511,7 +23511,7 @@ impl IDebugOutputCallbacks {
         (::windows::core::Vtable::vtable(self).Output)(::windows::core::Vtable::as_raw(self), mask, text.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugOutputCallbacks, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugOutputCallbacks, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugOutputCallbacks {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23561,7 +23561,7 @@ impl IDebugOutputCallbacks2 {
         (::windows::core::Vtable::vtable(self).Output2)(::windows::core::Vtable::as_raw(self), which, flags, arg, text.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugOutputCallbacks2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugOutputCallbacks2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugOutputCallbacks2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23603,7 +23603,7 @@ impl IDebugOutputCallbacksWide {
         (::windows::core::Vtable::vtable(self).Output)(::windows::core::Vtable::as_raw(self), mask, text.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugOutputCallbacksWide, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugOutputCallbacksWide, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugOutputCallbacksWide {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23643,7 +23643,7 @@ impl IDebugOutputStream {
         (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), psz.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugOutputStream, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugOutputStream, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugOutputStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23685,7 +23685,7 @@ impl IDebugPlmClient {
         (::windows::core::Vtable::vtable(self).LaunchPlmPackageForDebugWide)(::windows::core::Vtable::as_raw(self), server, timeout, packagefullname.into().abi(), appname.into().abi(), arguments.into().abi(), processid, threadid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugPlmClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugPlmClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugPlmClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23734,7 +23734,7 @@ impl IDebugPlmClient2 {
         (::windows::core::Vtable::vtable(self).LaunchPlmBgTaskForDebugWide)(::windows::core::Vtable::as_raw(self), server, timeout, packagefullname.into().abi(), backgroundtaskid.into().abi(), processid, threadid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugPlmClient2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugPlmClient2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugPlmClient2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23842,7 +23842,7 @@ impl IDebugPlmClient3 {
         (::windows::core::Vtable::vtable(self).ActivateAndDebugPlmBgTaskWide)(::windows::core::Vtable::as_raw(self), server, packagefullname.into().abi(), backgroundtaskid.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugPlmClient3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugPlmClient3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugPlmClient3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23908,7 +23908,7 @@ impl IDebugProperty {
         (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugProperty, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugProperty, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23953,7 +23953,7 @@ impl IDebugPropertyEnumType_All {
         (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugPropertyEnumType_All, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugPropertyEnumType_All, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugPropertyEnumType_All {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23991,7 +23991,7 @@ impl IDebugPropertyEnumType_Arguments {
         (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugPropertyEnumType_Arguments, ::windows::core::IUnknown, IDebugPropertyEnumType_All);
+::windows::imp::interface_hierarchy!(IDebugPropertyEnumType_Arguments, ::windows::core::IUnknown, IDebugPropertyEnumType_All);
 impl ::core::cmp::PartialEq for IDebugPropertyEnumType_Arguments {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24028,7 +24028,7 @@ impl IDebugPropertyEnumType_Locals {
         (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugPropertyEnumType_Locals, ::windows::core::IUnknown, IDebugPropertyEnumType_All);
+::windows::imp::interface_hierarchy!(IDebugPropertyEnumType_Locals, ::windows::core::IUnknown, IDebugPropertyEnumType_All);
 impl ::core::cmp::PartialEq for IDebugPropertyEnumType_Locals {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24065,7 +24065,7 @@ impl IDebugPropertyEnumType_LocalsPlusArgs {
         (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugPropertyEnumType_LocalsPlusArgs, ::windows::core::IUnknown, IDebugPropertyEnumType_All);
+::windows::imp::interface_hierarchy!(IDebugPropertyEnumType_LocalsPlusArgs, ::windows::core::IUnknown, IDebugPropertyEnumType_All);
 impl ::core::cmp::PartialEq for IDebugPropertyEnumType_LocalsPlusArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24102,7 +24102,7 @@ impl IDebugPropertyEnumType_Registers {
         (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugPropertyEnumType_Registers, ::windows::core::IUnknown, IDebugPropertyEnumType_All);
+::windows::imp::interface_hierarchy!(IDebugPropertyEnumType_Registers, ::windows::core::IUnknown, IDebugPropertyEnumType_All);
 impl ::core::cmp::PartialEq for IDebugPropertyEnumType_Registers {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24184,7 +24184,7 @@ impl IDebugRegisters {
         (::windows::core::Vtable::vtable(self).GetFrameOffset)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugRegisters, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugRegisters, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugRegisters {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24358,7 +24358,7 @@ impl IDebugRegisters2 {
         (::windows::core::Vtable::vtable(self).GetFrameOffset2)(::windows::core::Vtable::as_raw(self), source, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugRegisters2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugRegisters2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugRegisters2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24447,7 +24447,7 @@ impl IDebugSessionProvider {
         (::windows::core::Vtable::vtable(self).StartDebugSession)(::windows::core::Vtable::as_raw(self), pda.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSessionProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSessionProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSessionProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24511,7 +24511,7 @@ impl IDebugStackFrame {
         (::windows::core::Vtable::vtable(self).GetDebugProperty)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugStackFrame, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugStackFrame, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugStackFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24593,7 +24593,7 @@ impl IDebugStackFrame110 {
         (::windows::core::Vtable::vtable(self).GetScriptInvocationContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugStackFrame110, ::windows::core::IUnknown, IDebugStackFrame);
+::windows::imp::interface_hierarchy!(IDebugStackFrame110, ::windows::core::IUnknown, IDebugStackFrame);
 impl ::core::cmp::PartialEq for IDebugStackFrame110 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24632,7 +24632,7 @@ impl IDebugStackFrameSniffer {
         (::windows::core::Vtable::vtable(self).EnumStackFrames)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugStackFrameSniffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugStackFrameSniffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugStackFrameSniffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24674,7 +24674,7 @@ impl IDebugStackFrameSnifferEx32 {
         (::windows::core::Vtable::vtable(self).EnumStackFramesEx32)(::windows::core::Vtable::as_raw(self), dwspmin, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugStackFrameSnifferEx32, ::windows::core::IUnknown, IDebugStackFrameSniffer);
+::windows::imp::interface_hierarchy!(IDebugStackFrameSnifferEx32, ::windows::core::IUnknown, IDebugStackFrameSniffer);
 impl ::core::cmp::PartialEq for IDebugStackFrameSnifferEx32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24716,7 +24716,7 @@ impl IDebugStackFrameSnifferEx64 {
         (::windows::core::Vtable::vtable(self).EnumStackFramesEx64)(::windows::core::Vtable::as_raw(self), dwspmin, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDebugStackFrameSnifferEx64, ::windows::core::IUnknown, IDebugStackFrameSniffer);
+::windows::imp::interface_hierarchy!(IDebugStackFrameSnifferEx64, ::windows::core::IUnknown, IDebugStackFrameSniffer);
 impl ::core::cmp::PartialEq for IDebugStackFrameSnifferEx64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24798,7 +24798,7 @@ impl IDebugSymbolGroup {
         (::windows::core::Vtable::vtable(self).OutputAsType)(::windows::core::Vtable::as_raw(self), index, r#type.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSymbolGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSymbolGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSymbolGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24946,7 +24946,7 @@ impl IDebugSymbolGroup2 {
         (::windows::core::Vtable::vtable(self).GetSymbolEntryInformation)(::windows::core::Vtable::as_raw(self), index, entry).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSymbolGroup2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSymbolGroup2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSymbolGroup2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25235,7 +25235,7 @@ impl IDebugSymbols {
         (::windows::core::Vtable::vtable(self).GetSourceFileLineOffsets)(::windows::core::Vtable::as_raw(self), file.into().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(filelines.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSymbols, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSymbols, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSymbols {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25581,7 +25581,7 @@ impl IDebugSymbols2 {
         (::windows::core::Vtable::vtable(self).SetTypeOptions)(::windows::core::Vtable::as_raw(self), options).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSymbols2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSymbols2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSymbols2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26239,7 +26239,7 @@ impl IDebugSymbols3 {
         (::windows::core::Vtable::vtable(self).GetSourceEntryBySourceEntry)(::windows::core::Vtable::as_raw(self), fromentry, flags, toentry).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSymbols3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSymbols3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSymbols3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26988,7 +26988,7 @@ impl IDebugSymbols4 {
         (::windows::core::Vtable::vtable(self).OutputSymbolByInlineContext)(::windows::core::Vtable::as_raw(self), outputcontrol, flags, offset, inlinecontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSymbols4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSymbols4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSymbols4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27757,7 +27757,7 @@ impl IDebugSymbols5 {
         (::windows::core::Vtable::vtable(self).SetScopeFrameByIndexEx)(::windows::core::Vtable::as_raw(self), flags, index).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSymbols5, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSymbols5, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSymbols5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27945,7 +27945,7 @@ impl IDebugSyncOperation {
         (::windows::core::Vtable::vtable(self).InProgressAbort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSyncOperation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSyncOperation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSyncOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28091,7 +28091,7 @@ impl IDebugSystemObjects {
         (::windows::core::Vtable::vtable(self).GetCurrentProcessExecutableName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(exesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSystemObjects, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSystemObjects, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSystemObjects {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28281,7 +28281,7 @@ impl IDebugSystemObjects2 {
         (::windows::core::Vtable::vtable(self).SetImplicitProcessDataOffset)(::windows::core::Vtable::as_raw(self), offset).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSystemObjects2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSystemObjects2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSystemObjects2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28508,7 +28508,7 @@ impl IDebugSystemObjects3 {
         (::windows::core::Vtable::vtable(self).GetCurrentSystemServerName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSystemObjects3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSystemObjects3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSystemObjects3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28750,7 +28750,7 @@ impl IDebugSystemObjects4 {
         (::windows::core::Vtable::vtable(self).GetCurrentSystemServerNameWide)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugSystemObjects4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugSystemObjects4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugSystemObjects4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28831,7 +28831,7 @@ impl IDebugThreadCall32 {
         (::windows::core::Vtable::vtable(self).ThreadCallHandler)(::windows::core::Vtable::as_raw(self), dwparam1, dwparam2, dwparam3).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugThreadCall32, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugThreadCall32, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugThreadCall32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28868,7 +28868,7 @@ impl IDebugThreadCall64 {
         (::windows::core::Vtable::vtable(self).ThreadCallHandler)(::windows::core::Vtable::as_raw(self), dwparam1, dwparam2, dwparam3).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDebugThreadCall64, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDebugThreadCall64, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDebugThreadCall64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28931,7 +28931,7 @@ impl IDynamicConceptProviderConcept {
         (::windows::core::Vtable::vtable(self).NotifyDestruct)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDynamicConceptProviderConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDynamicConceptProviderConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDynamicConceptProviderConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28992,7 +28992,7 @@ impl IDynamicKeyProviderConcept {
         (::windows::core::Vtable::vtable(self).EnumerateKeys)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDynamicKeyProviderConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDynamicKeyProviderConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDynamicKeyProviderConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29041,7 +29041,7 @@ impl IEnumDebugApplicationNodes {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDebugApplicationNodes, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumDebugApplicationNodes, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDebugApplicationNodes {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29091,7 +29091,7 @@ impl IEnumDebugCodeContexts {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDebugCodeContexts, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumDebugCodeContexts, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDebugCodeContexts {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29141,7 +29141,7 @@ impl IEnumDebugExpressionContexts {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDebugExpressionContexts, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumDebugExpressionContexts, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDebugExpressionContexts {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29197,7 +29197,7 @@ impl IEnumDebugExtendedPropertyInfo {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDebugExtendedPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29255,7 +29255,7 @@ impl IEnumDebugPropertyInfo {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDebugPropertyInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumDebugPropertyInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDebugPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29308,7 +29308,7 @@ impl IEnumDebugStackFrames {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDebugStackFrames, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumDebugStackFrames, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDebugStackFrames {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29368,7 +29368,7 @@ impl IEnumDebugStackFrames64 {
         (::windows::core::Vtable::vtable(self).Next64)(::windows::core::Vtable::as_raw(self), celt, prgdsfd, pceltfetched).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumDebugStackFrames64, ::windows::core::IUnknown, IEnumDebugStackFrames);
+::windows::imp::interface_hierarchy!(IEnumDebugStackFrames64, ::windows::core::IUnknown, IEnumDebugStackFrames);
 impl ::core::cmp::PartialEq for IEnumDebugStackFrames64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29411,7 +29411,7 @@ impl IEnumJsStackFrames {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumJsStackFrames, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumJsStackFrames, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumJsStackFrames {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29459,7 +29459,7 @@ impl IEnumRemoteDebugApplicationThreads {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumRemoteDebugApplicationThreads, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumRemoteDebugApplicationThreads, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumRemoteDebugApplicationThreads {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29509,7 +29509,7 @@ impl IEnumRemoteDebugApplications {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumRemoteDebugApplications, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumRemoteDebugApplications, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumRemoteDebugApplications {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29554,7 +29554,7 @@ impl IEquatableConcept {
         (::windows::core::Vtable::vtable(self).AreObjectsEqual)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), otherobject.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEquatableConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEquatableConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEquatableConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29591,7 +29591,7 @@ impl IHostDataModelAccess {
         (::windows::core::Vtable::vtable(self).GetDataModel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(manager), ::core::mem::transmute(host)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHostDataModelAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHostDataModelAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHostDataModelAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29645,7 +29645,7 @@ impl IIndexableConcept {
         (::windows::core::Vtable::vtable(self).SetAt)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), indexers.len() as _, ::core::mem::transmute(indexers.as_ptr()), value.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IIndexableConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IIndexableConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IIndexableConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29695,7 +29695,7 @@ impl IIterableConcept {
         (::windows::core::Vtable::vtable(self).GetIterator)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IIterableConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IIterableConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IIterableConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29737,7 +29737,7 @@ impl IJsDebug {
         (::windows::core::Vtable::vtable(self).OpenVirtualProcess)(::windows::core::Vtable::as_raw(self), processid, runtimejsbaseaddress, pdatatarget.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IJsDebug, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IJsDebug, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IJsDebug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29789,7 +29789,7 @@ impl IJsDebugBreakPoint {
         (::windows::core::Vtable::vtable(self).GetDocumentPosition)(::windows::core::Vtable::as_raw(self), pdocumentid, pcharacteroffset, pstatementcharcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IJsDebugBreakPoint, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IJsDebugBreakPoint, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IJsDebugBreakPoint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29862,7 +29862,7 @@ impl IJsDebugDataTarget {
         (::windows::core::Vtable::vtable(self).GetThreadContext)(::windows::core::Vtable::as_raw(self), threadid, contextflags, pcontext.len() as _, ::core::mem::transmute(pcontext.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IJsDebugDataTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IJsDebugDataTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IJsDebugDataTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29931,7 +29931,7 @@ impl IJsDebugFrame {
         (::windows::core::Vtable::vtable(self).Evaluate)(::windows::core::Vtable::as_raw(self), pexpressiontext.into().abi(), ::core::mem::transmute(ppdebugproperty), ::core::mem::transmute(perror)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IJsDebugFrame, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IJsDebugFrame, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IJsDebugFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29991,7 +29991,7 @@ impl IJsDebugProcess {
         (::windows::core::Vtable::vtable(self).GetExternalStepAddress)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IJsDebugProcess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IJsDebugProcess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IJsDebugProcess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30038,7 +30038,7 @@ impl IJsDebugProperty {
         (::windows::core::Vtable::vtable(self).GetMembers)(::windows::core::Vtable::as_raw(self), members, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IJsDebugProperty, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IJsDebugProperty, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IJsDebugProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30077,7 +30077,7 @@ impl IJsDebugStackWalker {
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IJsDebugStackWalker, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IJsDebugStackWalker, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IJsDebugStackWalker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30118,7 +30118,7 @@ impl IJsEnumDebugProperty {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IJsEnumDebugProperty, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IJsEnumDebugProperty, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IJsEnumDebugProperty {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30159,7 +30159,7 @@ impl IKeyEnumerator {
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(metadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKeyEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKeyEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKeyEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30224,7 +30224,7 @@ impl IKeyStore {
         (::windows::core::Vtable::vtable(self).ClearKeys)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKeyStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKeyStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKeyStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30276,7 +30276,7 @@ impl IMachineDebugManager {
         (::windows::core::Vtable::vtable(self).EnumApplications)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMachineDebugManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMachineDebugManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMachineDebugManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30326,7 +30326,7 @@ impl IMachineDebugManagerCookie {
         (::windows::core::Vtable::vtable(self).EnumApplications)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMachineDebugManagerCookie, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMachineDebugManagerCookie, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMachineDebugManagerCookie {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30374,7 +30374,7 @@ impl IMachineDebugManagerEvents {
         (::windows::core::Vtable::vtable(self).onRemoveApplication)(::windows::core::Vtable::as_raw(self), pda.into().abi(), dwappcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMachineDebugManagerEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMachineDebugManagerEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMachineDebugManagerEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30415,7 +30415,7 @@ impl IModelIterator {
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(object), indexers.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(indexers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(metadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IModelIterator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IModelIterator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IModelIterator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30481,7 +30481,7 @@ impl IModelKeyReference {
         (::windows::core::Vtable::vtable(self).SetKeyValue)(::windows::core::Vtable::as_raw(self), object.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IModelKeyReference, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IModelKeyReference, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IModelKeyReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30558,7 +30558,7 @@ impl IModelKeyReference2 {
         (::windows::core::Vtable::vtable(self).OverrideContextObject)(::windows::core::Vtable::as_raw(self), newcontextobject.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IModelKeyReference2, ::windows::core::IUnknown, IModelKeyReference);
+::windows::imp::interface_hierarchy!(IModelKeyReference2, ::windows::core::IUnknown, IModelKeyReference);
 impl ::core::cmp::PartialEq for IModelKeyReference2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30598,7 +30598,7 @@ impl IModelMethod {
         (::windows::core::Vtable::vtable(self).Call)(::windows::core::Vtable::as_raw(self), pcontextobject.into().abi(), pparguments.len() as _, ::core::mem::transmute(pparguments.as_ptr()), ::core::mem::transmute(ppresult), ::core::mem::transmute(ppmetadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IModelMethod, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IModelMethod, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IModelMethod {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30801,7 +30801,7 @@ impl IModelObject {
         (::windows::core::Vtable::vtable(self).IsEqualTo)(::windows::core::Vtable::as_raw(self), other.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IModelObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IModelObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IModelObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30889,7 +30889,7 @@ impl IModelPropertyAccessor {
         (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), key.into().abi(), contextobject.into().abi(), value.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IModelPropertyAccessor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IModelPropertyAccessor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IModelPropertyAccessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30930,7 +30930,7 @@ impl IObjectSafety {
         (::windows::core::Vtable::vtable(self).SetInterfaceSafetyOptions)(::windows::core::Vtable::as_raw(self), riid, dwoptionsetmask, dwenabledoptions).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjectSafety, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectSafety, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectSafety {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30981,7 +30981,7 @@ impl IPerPropertyBrowsing2 {
         (::windows::core::Vtable::vtable(self).SetPredefinedValue)(::windows::core::Vtable::as_raw(self), dispid, dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPerPropertyBrowsing2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPerPropertyBrowsing2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPerPropertyBrowsing2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31028,7 +31028,7 @@ impl IPreferredRuntimeTypeConcept {
         (::windows::core::Vtable::vtable(self).CastToPreferredRuntimeType)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPreferredRuntimeTypeConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPreferredRuntimeTypeConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPreferredRuntimeTypeConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31087,7 +31087,7 @@ impl IProcessDebugManager32 {
         (::windows::core::Vtable::vtable(self).CreateDebugDocumentHelper)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IProcessDebugManager32, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProcessDebugManager32, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProcessDebugManager32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31150,7 +31150,7 @@ impl IProcessDebugManager64 {
         (::windows::core::Vtable::vtable(self).CreateDebugDocumentHelper)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IProcessDebugManager64, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProcessDebugManager64, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProcessDebugManager64 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31192,7 +31192,7 @@ impl IProvideExpressionContexts {
         (::windows::core::Vtable::vtable(self).EnumExpressionContexts)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IProvideExpressionContexts, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProvideExpressionContexts, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProvideExpressionContexts {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31232,7 +31232,7 @@ impl IRawEnumerator {
         (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(kind.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRawEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRawEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRawEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31315,7 +31315,7 @@ impl IRemoteDebugApplication {
         (::windows::core::Vtable::vtable(self).EnumGlobalExpressionContexts)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRemoteDebugApplication, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRemoteDebugApplication, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRemoteDebugApplication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31370,7 +31370,7 @@ impl IRemoteDebugApplication110 {
         (::windows::core::Vtable::vtable(self).GetMainThread)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRemoteDebugApplication110, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRemoteDebugApplication110, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRemoteDebugApplication110 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31460,7 +31460,7 @@ impl IRemoteDebugApplicationEvents {
         (::windows::core::Vtable::vtable(self).OnBreakFlagChange)(::windows::core::Vtable::as_raw(self), abf, prdatsteppingthread.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRemoteDebugApplicationEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRemoteDebugApplicationEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRemoteDebugApplicationEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31541,7 +31541,7 @@ impl IRemoteDebugApplicationThread {
         (::windows::core::Vtable::vtable(self).GetSuspendCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRemoteDebugApplicationThread, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRemoteDebugApplicationThread, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRemoteDebugApplicationThread {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31586,7 +31586,7 @@ impl IRemoteDebugCriticalErrorEvent110 {
         (::windows::core::Vtable::vtable(self).GetErrorInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrsource), pmessageid, ::core::mem::transmute(pbstrmessage), ::core::mem::transmute(pplocation)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRemoteDebugCriticalErrorEvent110, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRemoteDebugCriticalErrorEvent110, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRemoteDebugCriticalErrorEvent110 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31623,7 +31623,7 @@ impl IRemoteDebugInfoEvent110 {
         (::windows::core::Vtable::vtable(self).GetEventInfo)(::windows::core::Vtable::as_raw(self), pmessagetype, ::core::mem::transmute(pbstrmessage), ::core::mem::transmute(pbstrurl), ::core::mem::transmute(pplocation)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRemoteDebugInfoEvent110, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRemoteDebugInfoEvent110, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRemoteDebugInfoEvent110 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31762,7 +31762,7 @@ impl IScriptEntry {
         (::windows::core::Vtable::vtable(self).GetRange)(::windows::core::Vtable::as_raw(self), pichmin, pcch).ok()
     }
 }
-::windows::core::interface_hierarchy!(IScriptEntry, ::windows::core::IUnknown, IScriptNode);
+::windows::imp::interface_hierarchy!(IScriptEntry, ::windows::core::IUnknown, IScriptNode);
 impl ::core::cmp::PartialEq for IScriptEntry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31824,7 +31824,7 @@ impl IScriptInvocationContext {
         (::windows::core::Vtable::vtable(self).GetContextObject)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IScriptInvocationContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IScriptInvocationContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IScriptInvocationContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31909,7 +31909,7 @@ impl IScriptNode {
         (::windows::core::Vtable::vtable(self).CreateChildHandler)(::windows::core::Vtable::as_raw(self), pszdefaultname.into().abi(), ::core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len() as _, pszevent.into().abi(), pszdelimiter.into().abi(), ptisignature.into().abi(), imethodsignature, isn, dwcookie, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IScriptNode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IScriptNode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IScriptNode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32090,7 +32090,7 @@ impl IScriptScriptlet {
         (::windows::core::Vtable::vtable(self).SetSimpleEventName)(::windows::core::Vtable::as_raw(self), psz.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IScriptScriptlet, ::windows::core::IUnknown, IScriptNode, IScriptEntry);
+::windows::imp::interface_hierarchy!(IScriptScriptlet, ::windows::core::IUnknown, IScriptNode, IScriptEntry);
 impl ::core::cmp::PartialEq for IScriptScriptlet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32148,7 +32148,7 @@ impl ISimpleConnectionPoint {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISimpleConnectionPoint, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISimpleConnectionPoint, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISimpleConnectionPoint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32196,7 +32196,7 @@ impl IStringDisplayableConcept {
         (::windows::core::Vtable::vtable(self).ToDisplayString)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), metadata.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStringDisplayableConcept, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStringDisplayableConcept, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStringDisplayableConcept {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32238,7 +32238,7 @@ impl ITridentEventSink {
         (::windows::core::Vtable::vtable(self).FireEvent)(::windows::core::Vtable::as_raw(self), pstrevent.into().abi(), pdp, pvarres, pei).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITridentEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITridentEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITridentEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32284,7 +32284,7 @@ impl IWebAppDiagnosticsObjectInitialization {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), hpassedhandle.into(), pdebugapplication.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWebAppDiagnosticsObjectInitialization, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWebAppDiagnosticsObjectInitialization, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWebAppDiagnosticsObjectInitialization {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32330,7 +32330,7 @@ impl IWebAppDiagnosticsSetup {
         (::windows::core::Vtable::vtable(self).CreateObjectWithSiteAtWebApp)(::windows::core::Vtable::as_raw(self), rclsid, dwclscontext, riid, hpasstoobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWebAppDiagnosticsSetup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWebAppDiagnosticsSetup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWebAppDiagnosticsSetup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

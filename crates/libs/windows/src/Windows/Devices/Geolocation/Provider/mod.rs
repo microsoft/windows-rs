@@ -35,8 +35,8 @@ impl GeolocationProvider {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GeolocationProvider, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GeolocationProvider, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn IsOverridden(&self) -> ::windows::core::Result<bool> {
@@ -85,7 +85,7 @@ impl ::core::fmt::Debug for GeolocationProvider {
     }
 }
 impl ::windows::core::RuntimeType for GeolocationProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Provider.GeolocationProvider;{e4cf071d-3f64-509f-8dc2-0b74a059829d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Provider.GeolocationProvider;{e4cf071d-3f64-509f-8dc2-0b74a059829d})");
 }
 impl ::core::clone::Clone for GeolocationProvider {
     fn clone(&self) -> Self {
@@ -101,7 +101,7 @@ unsafe impl ::windows::core::Interface for GeolocationProvider {
 impl ::windows::core::RuntimeName for GeolocationProvider {
     const NAME: &'static str = "Windows.Devices.Geolocation.Provider.GeolocationProvider";
 }
-::windows::core::interface_hierarchy!(GeolocationProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GeolocationProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeolocationProvider {}
 unsafe impl ::core::marker::Sync for GeolocationProvider {}
 #[doc = "*Required features: `\"Devices_Geolocation_Provider\"`*"]
@@ -134,7 +134,7 @@ impl ::core::fmt::Debug for LocationOverrideStatus {
     }
 }
 impl ::windows::core::RuntimeType for LocationOverrideStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Provider.LocationOverrideStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Provider.LocationOverrideStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

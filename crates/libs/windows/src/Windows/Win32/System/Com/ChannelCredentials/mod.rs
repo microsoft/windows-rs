@@ -42,7 +42,7 @@ impl IChannelCredentials {
         (::windows::core::Vtable::vtable(self).SetIssuedToken)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(localissueraddres), ::core::mem::transmute_copy(localissuerbindingtype), ::core::mem::transmute_copy(localissuerbinding)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IChannelCredentials, ::windows::core::IUnknown, super::IDispatch);
+::windows::imp::interface_hierarchy!(IChannelCredentials, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::cmp::PartialEq for IChannelCredentials {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

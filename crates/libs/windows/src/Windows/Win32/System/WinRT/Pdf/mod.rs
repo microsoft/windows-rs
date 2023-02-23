@@ -5,7 +5,7 @@ pub unsafe fn PdfCreateRenderer<P0>(pdevice: P0) -> ::windows::core::Result<IPdf
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Dxgi::IDXGIDevice>>,
 {
-    ::windows::core::link ! ( "windows.data.pdf.dll""system" fn PdfCreateRenderer ( pdevice : * mut::core::ffi::c_void , pprenderer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.data.pdf.dll""system" fn PdfCreateRenderer ( pdevice : * mut::core::ffi::c_void , pprenderer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IPdfRendererNative>();
     PdfCreateRenderer(pdevice.into().abi(), &mut result__).from_abi(result__)
 }
@@ -32,7 +32,7 @@ impl IPdfRendererNative {
         (::windows::core::Vtable::vtable(self).RenderPageToDeviceContext)(::windows::core::Vtable::as_raw(self), pdfpage.into().abi(), pd2ddevicecontext.into().abi(), ::core::mem::transmute(prenderparams.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPdfRendererNative, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPdfRendererNative, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPdfRendererNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

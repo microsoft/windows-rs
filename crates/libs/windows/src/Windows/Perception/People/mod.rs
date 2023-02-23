@@ -214,7 +214,7 @@ impl EyesPose {
     }
     #[doc(hidden)]
     pub fn IEyesPoseStatics<R, F: FnOnce(&IEyesPoseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EyesPose, IEyesPoseStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EyesPose, IEyesPoseStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -230,7 +230,7 @@ impl ::core::fmt::Debug for EyesPose {
     }
 }
 impl ::windows::core::RuntimeType for EyesPose {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.EyesPose;{682a9b23-8a1e-5b86-a060-906ffacb62a4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.People.EyesPose;{682a9b23-8a1e-5b86-a060-906ffacb62a4})");
 }
 impl ::core::clone::Clone for EyesPose {
     fn clone(&self) -> Self {
@@ -246,7 +246,7 @@ unsafe impl ::windows::core::Interface for EyesPose {
 impl ::windows::core::RuntimeName for EyesPose {
     const NAME: &'static str = "Windows.Perception.People.EyesPose";
 }
-::windows::core::interface_hierarchy!(EyesPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EyesPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EyesPose {}
 unsafe impl ::core::marker::Sync for EyesPose {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -321,7 +321,7 @@ impl ::core::fmt::Debug for HandMeshObserver {
     }
 }
 impl ::windows::core::RuntimeType for HandMeshObserver {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandMeshObserver;{85ae30cb-6fc3-55c4-a7b4-29e33896ca69})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandMeshObserver;{85ae30cb-6fc3-55c4-a7b4-29e33896ca69})");
 }
 impl ::core::clone::Clone for HandMeshObserver {
     fn clone(&self) -> Self {
@@ -337,7 +337,7 @@ unsafe impl ::windows::core::Interface for HandMeshObserver {
 impl ::windows::core::RuntimeName for HandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.HandMeshObserver";
 }
-::windows::core::interface_hierarchy!(HandMeshObserver, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HandMeshObserver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HandMeshObserver {}
 unsafe impl ::core::marker::Sync for HandMeshObserver {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -379,7 +379,7 @@ impl ::core::fmt::Debug for HandMeshVertexState {
     }
 }
 impl ::windows::core::RuntimeType for HandMeshVertexState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandMeshVertexState;{046c5fef-1d8b-55de-ab2c-1cd424886d8f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandMeshVertexState;{046c5fef-1d8b-55de-ab2c-1cd424886d8f})");
 }
 impl ::core::clone::Clone for HandMeshVertexState {
     fn clone(&self) -> Self {
@@ -395,7 +395,7 @@ unsafe impl ::windows::core::Interface for HandMeshVertexState {
 impl ::windows::core::RuntimeName for HandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.HandMeshVertexState";
 }
-::windows::core::interface_hierarchy!(HandMeshVertexState, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HandMeshVertexState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HandMeshVertexState {}
 unsafe impl ::core::marker::Sync for HandMeshVertexState {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -448,7 +448,7 @@ impl ::core::fmt::Debug for HandPose {
     }
 }
 impl ::windows::core::RuntimeType for HandPose {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandPose;{4d98e79a-bb08-5d09-91de-df0dd3fae46c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandPose;{4d98e79a-bb08-5d09-91de-df0dd3fae46c})");
 }
 impl ::core::clone::Clone for HandPose {
     fn clone(&self) -> Self {
@@ -464,7 +464,7 @@ unsafe impl ::windows::core::Interface for HandPose {
 impl ::windows::core::RuntimeName for HandPose {
     const NAME: &'static str = "Windows.Perception.People.HandPose";
 }
-::windows::core::interface_hierarchy!(HandPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HandPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HandPose {}
 unsafe impl ::core::marker::Sync for HandPose {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -511,7 +511,7 @@ impl ::core::fmt::Debug for HeadPose {
     }
 }
 impl ::windows::core::RuntimeType for HeadPose {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HeadPose;{7f5ac5a5-49db-379f-9429-32a2faf34fa6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HeadPose;{7f5ac5a5-49db-379f-9429-32a2faf34fa6})");
 }
 impl ::core::clone::Clone for HeadPose {
     fn clone(&self) -> Self {
@@ -527,7 +527,7 @@ unsafe impl ::windows::core::Interface for HeadPose {
 impl ::windows::core::RuntimeName for HeadPose {
     const NAME: &'static str = "Windows.Perception.People.HeadPose";
 }
-::windows::core::interface_hierarchy!(HeadPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HeadPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HeadPose {}
 unsafe impl ::core::marker::Sync for HeadPose {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -582,7 +582,7 @@ impl ::core::fmt::Debug for HandJointKind {
     }
 }
 impl ::windows::core::RuntimeType for HandJointKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
 }
 #[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
@@ -612,7 +612,7 @@ impl ::core::fmt::Debug for JointPoseAccuracy {
     }
 }
 impl ::windows::core::RuntimeType for JointPoseAccuracy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
@@ -641,7 +641,7 @@ impl ::windows::core::TypeKind for HandMeshVertex {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeType for HandMeshVertex {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for HandMeshVertex {
@@ -686,7 +686,7 @@ impl ::windows::core::TypeKind for JointPose {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeType for JointPose {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.People.JointPose;struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4;enum(Windows.Perception.People.JointPoseAccuracy;i4))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.JointPose;struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4;enum(Windows.Perception.People.JointPoseAccuracy;i4))");
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for JointPose {

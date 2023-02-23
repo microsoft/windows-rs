@@ -26,7 +26,7 @@ impl IXMLGraphBuilder {
         (::windows::core::Vtable::vtable(self).BuildFromXMLFile)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), wszfilename.into().abi(), wszbaseurl.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXMLGraphBuilder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXMLGraphBuilder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXMLGraphBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

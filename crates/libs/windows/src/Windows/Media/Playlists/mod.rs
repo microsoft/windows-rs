@@ -63,8 +63,8 @@ impl Playlist {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Playlist, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Playlist, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
@@ -125,7 +125,7 @@ impl Playlist {
     }
     #[doc(hidden)]
     pub fn IPlaylistStatics<R, F: FnOnce(&IPlaylistStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Playlist, IPlaylistStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Playlist, IPlaylistStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -141,7 +141,7 @@ impl ::core::fmt::Debug for Playlist {
     }
 }
 impl ::windows::core::RuntimeType for Playlist {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playlists.Playlist;{803736f5-cf44-4d97-83b3-7a089e9ab663})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playlists.Playlist;{803736f5-cf44-4d97-83b3-7a089e9ab663})");
 }
 impl ::core::clone::Clone for Playlist {
     fn clone(&self) -> Self {
@@ -157,7 +157,7 @@ unsafe impl ::windows::core::Interface for Playlist {
 impl ::windows::core::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";
 }
-::windows::core::interface_hierarchy!(Playlist, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Playlist, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Playlists\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -187,7 +187,7 @@ impl ::core::fmt::Debug for PlaylistFormat {
     }
 }
 impl ::windows::core::RuntimeType for PlaylistFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playlists.PlaylistFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playlists.PlaylistFormat;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

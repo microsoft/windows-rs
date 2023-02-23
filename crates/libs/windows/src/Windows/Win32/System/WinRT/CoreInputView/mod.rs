@@ -13,7 +13,7 @@ impl ICoreFrameworkInputViewInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICoreFrameworkInputViewInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICoreFrameworkInputViewInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICoreFrameworkInputViewInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

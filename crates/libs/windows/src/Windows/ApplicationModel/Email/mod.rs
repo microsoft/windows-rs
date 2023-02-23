@@ -1798,8 +1798,8 @@ impl EmailAttachment {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailAttachment, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailAttachment, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn FileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1938,12 +1938,12 @@ impl EmailAttachment {
     }
     #[doc(hidden)]
     pub fn IEmailAttachmentFactory<R, F: FnOnce(&IEmailAttachmentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailAttachment, IEmailAttachmentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EmailAttachment, IEmailAttachmentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IEmailAttachmentFactory2<R, F: FnOnce(&IEmailAttachmentFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailAttachment, IEmailAttachmentFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EmailAttachment, IEmailAttachmentFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1959,7 +1959,7 @@ impl ::core::fmt::Debug for EmailAttachment {
     }
 }
 impl ::windows::core::RuntimeType for EmailAttachment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailAttachment;{f353caf9-57c8-4adb-b992-60fceb584f54})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailAttachment;{f353caf9-57c8-4adb-b992-60fceb584f54})");
 }
 impl ::core::clone::Clone for EmailAttachment {
     fn clone(&self) -> Self {
@@ -1975,7 +1975,7 @@ unsafe impl ::windows::core::Interface for EmailAttachment {
 impl ::windows::core::RuntimeName for EmailAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailAttachment";
 }
-::windows::core::interface_hierarchy!(EmailAttachment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailAttachment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailAttachment {}
 unsafe impl ::core::marker::Sync for EmailAttachment {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -2106,7 +2106,7 @@ impl ::core::fmt::Debug for EmailConversation {
     }
 }
 impl ::windows::core::RuntimeType for EmailConversation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailConversation;{da18c248-a0bc-4349-902d-90f66389f51b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailConversation;{da18c248-a0bc-4349-902d-90f66389f51b})");
 }
 impl ::core::clone::Clone for EmailConversation {
     fn clone(&self) -> Self {
@@ -2122,7 +2122,7 @@ unsafe impl ::windows::core::Interface for EmailConversation {
 impl ::windows::core::RuntimeName for EmailConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversation";
 }
-::windows::core::interface_hierarchy!(EmailConversation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailConversation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailConversation {}
 unsafe impl ::core::marker::Sync for EmailConversation {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -2158,7 +2158,7 @@ impl ::core::fmt::Debug for EmailConversationBatch {
     }
 }
 impl ::windows::core::RuntimeType for EmailConversationBatch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailConversationBatch;{b8c1ab81-01c5-432a-9df1-fe85d98a279a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailConversationBatch;{b8c1ab81-01c5-432a-9df1-fe85d98a279a})");
 }
 impl ::core::clone::Clone for EmailConversationBatch {
     fn clone(&self) -> Self {
@@ -2174,7 +2174,7 @@ unsafe impl ::windows::core::Interface for EmailConversationBatch {
 impl ::windows::core::RuntimeName for EmailConversationBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationBatch";
 }
-::windows::core::interface_hierarchy!(EmailConversationBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailConversationBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailConversationBatch {}
 unsafe impl ::core::marker::Sync for EmailConversationBatch {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -2203,7 +2203,7 @@ impl ::core::fmt::Debug for EmailConversationReader {
     }
 }
 impl ::windows::core::RuntimeType for EmailConversationReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailConversationReader;{b4630f82-2875-44c8-9b8c-85beb3a3c653})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailConversationReader;{b4630f82-2875-44c8-9b8c-85beb3a3c653})");
 }
 impl ::core::clone::Clone for EmailConversationReader {
     fn clone(&self) -> Self {
@@ -2219,7 +2219,7 @@ unsafe impl ::windows::core::Interface for EmailConversationReader {
 impl ::windows::core::RuntimeName for EmailConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationReader";
 }
-::windows::core::interface_hierarchy!(EmailConversationReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailConversationReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailConversationReader {}
 unsafe impl ::core::marker::Sync for EmailConversationReader {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -2424,7 +2424,7 @@ impl ::core::fmt::Debug for EmailFolder {
     }
 }
 impl ::windows::core::RuntimeType for EmailFolder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailFolder;{a24f7771-996c-4864-b1ba-ed1240e57d11})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailFolder;{a24f7771-996c-4864-b1ba-ed1240e57d11})");
 }
 impl ::core::clone::Clone for EmailFolder {
     fn clone(&self) -> Self {
@@ -2440,7 +2440,7 @@ unsafe impl ::windows::core::Interface for EmailFolder {
 impl ::windows::core::RuntimeName for EmailFolder {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailFolder";
 }
-::windows::core::interface_hierarchy!(EmailFolder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailFolder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailFolder {}
 unsafe impl ::core::marker::Sync for EmailFolder {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -2450,8 +2450,8 @@ impl EmailIrmInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailIrmInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailIrmInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CanEdit(&self) -> ::windows::core::Result<bool> {
@@ -2600,7 +2600,7 @@ impl EmailIrmInfo {
     }
     #[doc(hidden)]
     pub fn IEmailIrmInfoFactory<R, F: FnOnce(&IEmailIrmInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailIrmInfo, IEmailIrmInfoFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EmailIrmInfo, IEmailIrmInfoFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2616,7 +2616,7 @@ impl ::core::fmt::Debug for EmailIrmInfo {
     }
 }
 impl ::windows::core::RuntimeType for EmailIrmInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailIrmInfo;{90f52193-b1a0-4ebd-a6b6-ddca55606e0e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailIrmInfo;{90f52193-b1a0-4ebd-a6b6-ddca55606e0e})");
 }
 impl ::core::clone::Clone for EmailIrmInfo {
     fn clone(&self) -> Self {
@@ -2632,7 +2632,7 @@ unsafe impl ::windows::core::Interface for EmailIrmInfo {
 impl ::windows::core::RuntimeName for EmailIrmInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmInfo";
 }
-::windows::core::interface_hierarchy!(EmailIrmInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailIrmInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailIrmInfo {}
 unsafe impl ::core::marker::Sync for EmailIrmInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -2642,8 +2642,8 @@ impl EmailIrmTemplate {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailIrmTemplate, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailIrmTemplate, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2687,7 +2687,7 @@ impl EmailIrmTemplate {
     }
     #[doc(hidden)]
     pub fn IEmailIrmTemplateFactory<R, F: FnOnce(&IEmailIrmTemplateFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailIrmTemplate, IEmailIrmTemplateFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EmailIrmTemplate, IEmailIrmTemplateFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2703,7 +2703,7 @@ impl ::core::fmt::Debug for EmailIrmTemplate {
     }
 }
 impl ::windows::core::RuntimeType for EmailIrmTemplate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailIrmTemplate;{f327758d-546d-4bea-a963-54a38b2cc016})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailIrmTemplate;{f327758d-546d-4bea-a963-54a38b2cc016})");
 }
 impl ::core::clone::Clone for EmailIrmTemplate {
     fn clone(&self) -> Self {
@@ -2719,7 +2719,7 @@ unsafe impl ::windows::core::Interface for EmailIrmTemplate {
 impl ::windows::core::RuntimeName for EmailIrmTemplate {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmTemplate";
 }
-::windows::core::interface_hierarchy!(EmailIrmTemplate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailIrmTemplate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailIrmTemplate {}
 unsafe impl ::core::marker::Sync for EmailIrmTemplate {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -2767,7 +2767,7 @@ impl ::core::fmt::Debug for EmailItemCounts {
     }
 }
 impl ::windows::core::RuntimeType for EmailItemCounts {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailItemCounts;{5bd13321-fec8-4bab-83ba-0baf3c1f6cbd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailItemCounts;{5bd13321-fec8-4bab-83ba-0baf3c1f6cbd})");
 }
 impl ::core::clone::Clone for EmailItemCounts {
     fn clone(&self) -> Self {
@@ -2783,7 +2783,7 @@ unsafe impl ::windows::core::Interface for EmailItemCounts {
 impl ::windows::core::RuntimeName for EmailItemCounts {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailItemCounts";
 }
-::windows::core::interface_hierarchy!(EmailItemCounts, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailItemCounts, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailItemCounts {}
 unsafe impl ::core::marker::Sync for EmailItemCounts {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3290,7 +3290,7 @@ impl ::core::fmt::Debug for EmailMailbox {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailbox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailbox;{a8790649-cf5b-411b-80b1-4a6a1484ce25})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailbox;{a8790649-cf5b-411b-80b1-4a6a1484ce25})");
 }
 impl ::core::clone::Clone for EmailMailbox {
     fn clone(&self) -> Self {
@@ -3306,7 +3306,7 @@ unsafe impl ::windows::core::Interface for EmailMailbox {
 impl ::windows::core::RuntimeName for EmailMailbox {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailbox";
 }
-::windows::core::interface_hierarchy!(EmailMailbox, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailbox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailbox {}
 unsafe impl ::core::marker::Sync for EmailMailbox {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3340,7 +3340,7 @@ impl ::core::fmt::Debug for EmailMailboxAction {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxAction;{ac9889fa-21fa-4927-9210-d410582fdf3e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxAction;{ac9889fa-21fa-4927-9210-d410582fdf3e})");
 }
 impl ::core::clone::Clone for EmailMailboxAction {
     fn clone(&self) -> Self {
@@ -3356,7 +3356,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxAction {
 impl ::windows::core::RuntimeName for EmailMailboxAction {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAction";
 }
-::windows::core::interface_hierarchy!(EmailMailboxAction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxAction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxAction {}
 unsafe impl ::core::marker::Sync for EmailMailboxAction {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3398,7 +3398,7 @@ impl ::core::fmt::Debug for EmailMailboxAutoReply {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxAutoReply {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxAutoReply;{e223254c-8ab4-485b-b31f-04d15476bd59})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxAutoReply;{e223254c-8ab4-485b-b31f-04d15476bd59})");
 }
 impl ::core::clone::Clone for EmailMailboxAutoReply {
     fn clone(&self) -> Self {
@@ -3414,7 +3414,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxAutoReply {
 impl ::windows::core::RuntimeName for EmailMailboxAutoReply {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReply";
 }
-::windows::core::interface_hierarchy!(EmailMailboxAutoReply, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxAutoReply, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxAutoReply {}
 unsafe impl ::core::marker::Sync for EmailMailboxAutoReply {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3424,8 +3424,8 @@ impl EmailMailboxAutoReplySettings {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailMailboxAutoReplySettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailMailboxAutoReplySettings, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
@@ -3522,7 +3522,7 @@ impl ::core::fmt::Debug for EmailMailboxAutoReplySettings {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxAutoReplySettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings;{a87a9fa8-0ac6-4b77-ba77-a6b99e9a27b8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings;{a87a9fa8-0ac6-4b77-ba77-a6b99e9a27b8})");
 }
 impl ::core::clone::Clone for EmailMailboxAutoReplySettings {
     fn clone(&self) -> Self {
@@ -3538,7 +3538,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxAutoReplySettings {
 impl ::windows::core::RuntimeName for EmailMailboxAutoReplySettings {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings";
 }
-::windows::core::interface_hierarchy!(EmailMailboxAutoReplySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxAutoReplySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxAutoReplySettings {}
 unsafe impl ::core::marker::Sync for EmailMailboxAutoReplySettings {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3712,7 +3712,7 @@ impl ::core::fmt::Debug for EmailMailboxCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxCapabilities;{eedec3a6-89db-4305-82c4-439e0a33da11})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxCapabilities;{eedec3a6-89db-4305-82c4-439e0a33da11})");
 }
 impl ::core::clone::Clone for EmailMailboxCapabilities {
     fn clone(&self) -> Self {
@@ -3728,7 +3728,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxCapabilities {
 impl ::windows::core::RuntimeName for EmailMailboxCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCapabilities";
 }
-::windows::core::interface_hierarchy!(EmailMailboxCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxCapabilities {}
 unsafe impl ::core::marker::Sync for EmailMailboxCapabilities {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3778,7 +3778,7 @@ impl ::core::fmt::Debug for EmailMailboxChange {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChange;{61edf54b-11ef-400c-adde-8cde65c85e66})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChange;{61edf54b-11ef-400c-adde-8cde65c85e66})");
 }
 impl ::core::clone::Clone for EmailMailboxChange {
     fn clone(&self) -> Self {
@@ -3794,7 +3794,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxChange {
 impl ::windows::core::RuntimeName for EmailMailboxChange {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChange";
 }
-::windows::core::interface_hierarchy!(EmailMailboxChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxChange {}
 unsafe impl ::core::marker::Sync for EmailMailboxChange {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3831,7 +3831,7 @@ impl ::core::fmt::Debug for EmailMailboxChangeReader {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxChangeReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangeReader;{bdbd0ebb-c53d-4331-97be-be75a2146a75})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangeReader;{bdbd0ebb-c53d-4331-97be-be75a2146a75})");
 }
 impl ::core::clone::Clone for EmailMailboxChangeReader {
     fn clone(&self) -> Self {
@@ -3847,7 +3847,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxChangeReader {
 impl ::windows::core::RuntimeName for EmailMailboxChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeReader";
 }
-::windows::core::interface_hierarchy!(EmailMailboxChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxChangeReader {}
 unsafe impl ::core::marker::Sync for EmailMailboxChangeReader {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3889,7 +3889,7 @@ impl ::core::fmt::Debug for EmailMailboxChangeTracker {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxChangeTracker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangeTracker;{7ae48638-5166-42b7-8882-fd21c92bdd4b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangeTracker;{7ae48638-5166-42b7-8882-fd21c92bdd4b})");
 }
 impl ::core::clone::Clone for EmailMailboxChangeTracker {
     fn clone(&self) -> Self {
@@ -3905,7 +3905,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxChangeTracker {
 impl ::windows::core::RuntimeName for EmailMailboxChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeTracker";
 }
-::windows::core::interface_hierarchy!(EmailMailboxChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxChangeTracker {}
 unsafe impl ::core::marker::Sync for EmailMailboxChangeTracker {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3929,7 +3929,7 @@ impl ::core::fmt::Debug for EmailMailboxChangedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxChangedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangedDeferral;{779a74c1-97c5-4b54-b30d-306232623e6d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangedDeferral;{779a74c1-97c5-4b54-b30d-306232623e6d})");
 }
 impl ::core::clone::Clone for EmailMailboxChangedDeferral {
     fn clone(&self) -> Self {
@@ -3945,7 +3945,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxChangedDeferral {
 impl ::windows::core::RuntimeName for EmailMailboxChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedDeferral";
 }
-::windows::core::interface_hierarchy!(EmailMailboxChangedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxChangedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxChangedDeferral {}
 unsafe impl ::core::marker::Sync for EmailMailboxChangedDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -3972,7 +3972,7 @@ impl ::core::fmt::Debug for EmailMailboxChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangedEventArgs;{3cfd5f6e-01d4-4e4a-a44c-b22dd42ec207})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangedEventArgs;{3cfd5f6e-01d4-4e4a-a44c-b22dd42ec207})");
 }
 impl ::core::clone::Clone for EmailMailboxChangedEventArgs {
     fn clone(&self) -> Self {
@@ -3988,7 +3988,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxChangedEventArgs {
 impl ::windows::core::RuntimeName for EmailMailboxChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(EmailMailboxChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxChangedEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -4022,7 +4022,7 @@ impl ::core::fmt::Debug for EmailMailboxCreateFolderResult {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxCreateFolderResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxCreateFolderResult;{b228557f-2885-4998-b595-8a2d374ce950})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxCreateFolderResult;{b228557f-2885-4998-b595-8a2d374ce950})");
 }
 impl ::core::clone::Clone for EmailMailboxCreateFolderResult {
     fn clone(&self) -> Self {
@@ -4038,7 +4038,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxCreateFolderResult {
 impl ::windows::core::RuntimeName for EmailMailboxCreateFolderResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCreateFolderResult";
 }
-::windows::core::interface_hierarchy!(EmailMailboxCreateFolderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxCreateFolderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxCreateFolderResult {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderResult {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -4140,7 +4140,7 @@ impl ::core::fmt::Debug for EmailMailboxPolicies {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxPolicies {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxPolicies;{1f3345c5-1c3b-4dc7-b410-6373783e545d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxPolicies;{1f3345c5-1c3b-4dc7-b410-6373783e545d})");
 }
 impl ::core::clone::Clone for EmailMailboxPolicies {
     fn clone(&self) -> Self {
@@ -4156,7 +4156,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxPolicies {
 impl ::windows::core::RuntimeName for EmailMailboxPolicies {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxPolicies";
 }
-::windows::core::interface_hierarchy!(EmailMailboxPolicies, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxPolicies, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxPolicies {}
 unsafe impl ::core::marker::Sync for EmailMailboxPolicies {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -4241,7 +4241,7 @@ impl ::core::fmt::Debug for EmailMailboxSyncManager {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxSyncManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxSyncManager;{517ac55a-3591-4b5d-85bc-c71dde862263})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxSyncManager;{517ac55a-3591-4b5d-85bc-c71dde862263})");
 }
 impl ::core::clone::Clone for EmailMailboxSyncManager {
     fn clone(&self) -> Self {
@@ -4257,7 +4257,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxSyncManager {
 impl ::windows::core::RuntimeName for EmailMailboxSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxSyncManager";
 }
-::windows::core::interface_hierarchy!(EmailMailboxSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMailboxSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxSyncManager {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -4289,17 +4289,17 @@ impl EmailManager {
     }
     #[doc(hidden)]
     pub fn IEmailManagerStatics<R, F: FnOnce(&IEmailManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailManager, IEmailManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EmailManager, IEmailManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IEmailManagerStatics2<R, F: FnOnce(&IEmailManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailManager, IEmailManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EmailManager, IEmailManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IEmailManagerStatics3<R, F: FnOnce(&IEmailManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailManager, IEmailManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EmailManager, IEmailManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4350,7 +4350,7 @@ impl ::core::fmt::Debug for EmailManagerForUser {
     }
 }
 impl ::windows::core::RuntimeType for EmailManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailManagerForUser;{f773de9f-3ca5-4b0f-90c1-156e40174ce5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailManagerForUser;{f773de9f-3ca5-4b0f-90c1-156e40174ce5})");
 }
 impl ::core::clone::Clone for EmailManagerForUser {
     fn clone(&self) -> Self {
@@ -4366,7 +4366,7 @@ unsafe impl ::windows::core::Interface for EmailManagerForUser {
 impl ::windows::core::RuntimeName for EmailManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailManagerForUser";
 }
-::windows::core::interface_hierarchy!(EmailManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailManagerForUser {}
 unsafe impl ::core::marker::Sync for EmailManagerForUser {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -4376,8 +4376,8 @@ impl EmailMeetingInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailMeetingInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailMeetingInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn AllowNewTimeProposal(&self) -> ::windows::core::Result<bool> {
@@ -4587,7 +4587,7 @@ impl ::core::fmt::Debug for EmailMeetingInfo {
     }
 }
 impl ::windows::core::RuntimeType for EmailMeetingInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMeetingInfo;{31c03fa9-7933-415f-a275-d165ba07026b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMeetingInfo;{31c03fa9-7933-415f-a275-d165ba07026b})");
 }
 impl ::core::clone::Clone for EmailMeetingInfo {
     fn clone(&self) -> Self {
@@ -4603,7 +4603,7 @@ unsafe impl ::windows::core::Interface for EmailMeetingInfo {
 impl ::windows::core::RuntimeName for EmailMeetingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMeetingInfo";
 }
-::windows::core::interface_hierarchy!(EmailMeetingInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMeetingInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMeetingInfo {}
 unsafe impl ::core::marker::Sync for EmailMeetingInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -4613,8 +4613,8 @@ impl EmailMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5018,7 +5018,7 @@ impl ::core::fmt::Debug for EmailMessage {
     }
 }
 impl ::windows::core::RuntimeType for EmailMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMessage;{6c6d948d-80b5-48f8-b0b1-e04e430f44e5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMessage;{6c6d948d-80b5-48f8-b0b1-e04e430f44e5})");
 }
 impl ::core::clone::Clone for EmailMessage {
     fn clone(&self) -> Self {
@@ -5034,7 +5034,7 @@ unsafe impl ::windows::core::Interface for EmailMessage {
 impl ::windows::core::RuntimeName for EmailMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessage";
 }
-::windows::core::interface_hierarchy!(EmailMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMessage {}
 unsafe impl ::core::marker::Sync for EmailMessage {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -5070,7 +5070,7 @@ impl ::core::fmt::Debug for EmailMessageBatch {
     }
 }
 impl ::windows::core::RuntimeType for EmailMessageBatch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMessageBatch;{605cd08f-25d9-4f1b-9e51-0514c0149653})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMessageBatch;{605cd08f-25d9-4f1b-9e51-0514c0149653})");
 }
 impl ::core::clone::Clone for EmailMessageBatch {
     fn clone(&self) -> Self {
@@ -5086,7 +5086,7 @@ unsafe impl ::windows::core::Interface for EmailMessageBatch {
 impl ::windows::core::RuntimeName for EmailMessageBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageBatch";
 }
-::windows::core::interface_hierarchy!(EmailMessageBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMessageBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMessageBatch {}
 unsafe impl ::core::marker::Sync for EmailMessageBatch {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -5115,7 +5115,7 @@ impl ::core::fmt::Debug for EmailMessageReader {
     }
 }
 impl ::windows::core::RuntimeType for EmailMessageReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMessageReader;{2f4abe9f-6213-4a85-a3b0-f92d1a839d19})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMessageReader;{2f4abe9f-6213-4a85-a3b0-f92d1a839d19})");
 }
 impl ::core::clone::Clone for EmailMessageReader {
     fn clone(&self) -> Self {
@@ -5131,7 +5131,7 @@ unsafe impl ::windows::core::Interface for EmailMessageReader {
 impl ::windows::core::RuntimeName for EmailMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageReader";
 }
-::windows::core::interface_hierarchy!(EmailMessageReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailMessageReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMessageReader {}
 unsafe impl ::core::marker::Sync for EmailMessageReader {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -5141,8 +5141,8 @@ impl EmailQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailQueryOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailQueryOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn TextSearch(&self) -> ::windows::core::Result<EmailQueryTextSearch> {
@@ -5208,7 +5208,7 @@ impl EmailQueryOptions {
     }
     #[doc(hidden)]
     pub fn IEmailQueryOptionsFactory<R, F: FnOnce(&IEmailQueryOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailQueryOptions, IEmailQueryOptionsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EmailQueryOptions, IEmailQueryOptionsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5224,7 +5224,7 @@ impl ::core::fmt::Debug for EmailQueryOptions {
     }
 }
 impl ::windows::core::RuntimeType for EmailQueryOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailQueryOptions;{45504b9b-3e7f-4d52-b6dd-d6fd4e1fbd9a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailQueryOptions;{45504b9b-3e7f-4d52-b6dd-d6fd4e1fbd9a})");
 }
 impl ::core::clone::Clone for EmailQueryOptions {
     fn clone(&self) -> Self {
@@ -5240,7 +5240,7 @@ unsafe impl ::windows::core::Interface for EmailQueryOptions {
 impl ::windows::core::RuntimeName for EmailQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryOptions";
 }
-::windows::core::interface_hierarchy!(EmailQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailQueryOptions {}
 unsafe impl ::core::marker::Sync for EmailQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -5293,7 +5293,7 @@ impl ::core::fmt::Debug for EmailQueryTextSearch {
     }
 }
 impl ::windows::core::RuntimeType for EmailQueryTextSearch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailQueryTextSearch;{9fa0a288-3c5d-46a5-a6e2-31d6fd17e540})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailQueryTextSearch;{9fa0a288-3c5d-46a5-a6e2-31d6fd17e540})");
 }
 impl ::core::clone::Clone for EmailQueryTextSearch {
     fn clone(&self) -> Self {
@@ -5309,7 +5309,7 @@ unsafe impl ::windows::core::Interface for EmailQueryTextSearch {
 impl ::windows::core::RuntimeName for EmailQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryTextSearch";
 }
-::windows::core::interface_hierarchy!(EmailQueryTextSearch, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailQueryTextSearch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailQueryTextSearch {}
 unsafe impl ::core::marker::Sync for EmailQueryTextSearch {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -5319,8 +5319,8 @@ impl EmailRecipient {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailRecipient, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailRecipient, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5359,7 +5359,7 @@ impl EmailRecipient {
     }
     #[doc(hidden)]
     pub fn IEmailRecipientFactory<R, F: FnOnce(&IEmailRecipientFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailRecipient, IEmailRecipientFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EmailRecipient, IEmailRecipientFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5375,7 +5375,7 @@ impl ::core::fmt::Debug for EmailRecipient {
     }
 }
 impl ::windows::core::RuntimeType for EmailRecipient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailRecipient;{cae825b3-4478-4814-b900-c902b5e19b53})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailRecipient;{cae825b3-4478-4814-b900-c902b5e19b53})");
 }
 impl ::core::clone::Clone for EmailRecipient {
     fn clone(&self) -> Self {
@@ -5391,7 +5391,7 @@ unsafe impl ::windows::core::Interface for EmailRecipient {
 impl ::windows::core::RuntimeName for EmailRecipient {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipient";
 }
-::windows::core::interface_hierarchy!(EmailRecipient, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailRecipient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailRecipient {}
 unsafe impl ::core::marker::Sync for EmailRecipient {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -5401,8 +5401,8 @@ impl EmailRecipientResolutionResult {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EmailRecipientResolutionResult, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EmailRecipientResolutionResult, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Status(&self) -> ::windows::core::Result<EmailRecipientResolutionStatus> {
@@ -5448,7 +5448,7 @@ impl ::core::fmt::Debug for EmailRecipientResolutionResult {
     }
 }
 impl ::windows::core::RuntimeType for EmailRecipientResolutionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailRecipientResolutionResult;{918338fa-8d8d-4573-80d1-07172a34b98d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailRecipientResolutionResult;{918338fa-8d8d-4573-80d1-07172a34b98d})");
 }
 impl ::core::clone::Clone for EmailRecipientResolutionResult {
     fn clone(&self) -> Self {
@@ -5464,7 +5464,7 @@ unsafe impl ::windows::core::Interface for EmailRecipientResolutionResult {
 impl ::windows::core::RuntimeName for EmailRecipientResolutionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipientResolutionResult";
 }
-::windows::core::interface_hierarchy!(EmailRecipientResolutionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailRecipientResolutionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailRecipientResolutionResult {}
 unsafe impl ::core::marker::Sync for EmailRecipientResolutionResult {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -5575,7 +5575,7 @@ impl ::core::fmt::Debug for EmailStore {
     }
 }
 impl ::windows::core::RuntimeType for EmailStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailStore;{f803226e-9137-4f8b-a470-279ac3058eb6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailStore;{f803226e-9137-4f8b-a470-279ac3058eb6})");
 }
 impl ::core::clone::Clone for EmailStore {
     fn clone(&self) -> Self {
@@ -5591,7 +5591,7 @@ unsafe impl ::windows::core::Interface for EmailStore {
 impl ::windows::core::RuntimeName for EmailStore {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStore";
 }
-::windows::core::interface_hierarchy!(EmailStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailStore {}
 unsafe impl ::core::marker::Sync for EmailStore {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -5610,7 +5610,7 @@ impl ::core::fmt::Debug for EmailStoreNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for EmailStoreNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails;{ce17563c-46e6-43c9-96f7-facf7dd710cb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails;{ce17563c-46e6-43c9-96f7-facf7dd710cb})");
 }
 impl ::core::clone::Clone for EmailStoreNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -5626,7 +5626,7 @@ unsafe impl ::windows::core::Interface for EmailStoreNotificationTriggerDetails 
 impl ::windows::core::RuntimeName for EmailStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(EmailStoreNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EmailStoreNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailStoreNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for EmailStoreNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -5659,7 +5659,7 @@ impl ::core::fmt::Debug for EmailAttachmentDownloadState {
     }
 }
 impl ::windows::core::RuntimeType for EmailAttachmentDownloadState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5690,7 +5690,7 @@ impl ::core::fmt::Debug for EmailBatchStatus {
     }
 }
 impl ::windows::core::RuntimeType for EmailBatchStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5729,7 +5729,7 @@ impl ::core::fmt::Debug for EmailCertificateValidationStatus {
     }
 }
 impl ::windows::core::RuntimeType for EmailCertificateValidationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5761,7 +5761,7 @@ impl ::core::fmt::Debug for EmailFlagState {
     }
 }
 impl ::windows::core::RuntimeType for EmailFlagState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5792,7 +5792,7 @@ impl ::core::fmt::Debug for EmailImportance {
     }
 }
 impl ::windows::core::RuntimeType for EmailImportance {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5831,7 +5831,7 @@ impl ::core::fmt::Debug for EmailMailboxActionKind {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxActionKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5862,7 +5862,7 @@ impl ::core::fmt::Debug for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiati
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5892,7 +5892,7 @@ impl ::core::fmt::Debug for EmailMailboxAutoReplyMessageResponseKind {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxAutoReplyMessageResponseKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5927,7 +5927,7 @@ impl ::core::fmt::Debug for EmailMailboxChangeType {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxChangeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5962,7 +5962,7 @@ impl ::core::fmt::Debug for EmailMailboxCreateFolderStatus {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxCreateFolderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -5996,7 +5996,7 @@ impl ::core::fmt::Debug for EmailMailboxDeleteFolderStatus {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxDeleteFolderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6030,7 +6030,7 @@ impl ::core::fmt::Debug for EmailMailboxEmptyFolderStatus {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxEmptyFolderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6061,7 +6061,7 @@ impl ::core::fmt::Debug for EmailMailboxOtherAppReadAccess {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxOtherAppReadAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6091,7 +6091,7 @@ impl ::core::fmt::Debug for EmailMailboxOtherAppWriteAccess {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxOtherAppWriteAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6125,7 +6125,7 @@ impl ::core::fmt::Debug for EmailMailboxSmimeEncryptionAlgorithm {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6156,7 +6156,7 @@ impl ::core::fmt::Debug for EmailMailboxSmimeSigningAlgorithm {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6191,7 +6191,7 @@ impl ::core::fmt::Debug for EmailMailboxSyncStatus {
     }
 }
 impl ::windows::core::RuntimeType for EmailMailboxSyncStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6222,7 +6222,7 @@ impl ::core::fmt::Debug for EmailMeetingResponseType {
     }
 }
 impl ::windows::core::RuntimeType for EmailMeetingResponseType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6252,7 +6252,7 @@ impl ::core::fmt::Debug for EmailMessageBodyKind {
     }
 }
 impl ::windows::core::RuntimeType for EmailMessageBodyKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6284,7 +6284,7 @@ impl ::core::fmt::Debug for EmailMessageDownloadState {
     }
 }
 impl ::windows::core::RuntimeType for EmailMessageDownloadState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6316,7 +6316,7 @@ impl ::core::fmt::Debug for EmailMessageResponseKind {
     }
 }
 impl ::windows::core::RuntimeType for EmailMessageResponseKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6348,7 +6348,7 @@ impl ::core::fmt::Debug for EmailMessageSmimeKind {
     }
 }
 impl ::windows::core::RuntimeType for EmailMessageSmimeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6382,7 +6382,7 @@ impl ::core::fmt::Debug for EmailQueryKind {
     }
 }
 impl ::windows::core::RuntimeType for EmailQueryKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6449,7 +6449,7 @@ impl ::core::ops::Not for EmailQuerySearchFields {
     }
 }
 impl ::windows::core::RuntimeType for EmailQuerySearchFields {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchFields;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchFields;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6479,7 +6479,7 @@ impl ::core::fmt::Debug for EmailQuerySearchScope {
     }
 }
 impl ::windows::core::RuntimeType for EmailQuerySearchScope {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6509,7 +6509,7 @@ impl ::core::fmt::Debug for EmailQuerySortDirection {
     }
 }
 impl ::windows::core::RuntimeType for EmailQuerySortDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6538,7 +6538,7 @@ impl ::core::fmt::Debug for EmailQuerySortProperty {
     }
 }
 impl ::windows::core::RuntimeType for EmailQuerySortProperty {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6574,7 +6574,7 @@ impl ::core::fmt::Debug for EmailRecipientResolutionStatus {
     }
 }
 impl ::windows::core::RuntimeType for EmailRecipientResolutionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6609,7 +6609,7 @@ impl ::core::fmt::Debug for EmailSpecialFolderKind {
     }
 }
 impl ::windows::core::RuntimeType for EmailSpecialFolderKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
 #[repr(transparent)]
@@ -6639,7 +6639,7 @@ impl ::core::fmt::Debug for EmailStoreAccessType {
     }
 }
 impl ::windows::core::RuntimeType for EmailStoreAccessType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailStoreAccessType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailStoreAccessType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

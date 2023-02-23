@@ -26,7 +26,7 @@ impl IAsynchronousDataRetriever {
         (::windows::core::Vtable::vtable(self).LoadChangeData)(::windows::core::Vtable::as_raw(self), ploadchangecontext.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAsynchronousDataRetriever, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAsynchronousDataRetriever, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAsynchronousDataRetriever {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -100,7 +100,7 @@ impl IChangeConflict {
         (::windows::core::Vtable::vtable(self).SetResolveActionForChangeUnit)(::windows::core::Vtable::as_raw(self), pchangeunit.into().abi(), resolveaction).ok()
     }
 }
-::windows::core::interface_hierarchy!(IChangeConflict, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IChangeConflict, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IChangeConflict {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -150,7 +150,7 @@ impl IChangeUnitException {
         (::windows::core::Vtable::vtable(self).GetClockVector)(::windows::core::Vtable::as_raw(self), riid, ppunk).ok()
     }
 }
-::windows::core::interface_hierarchy!(IChangeUnitException, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IChangeUnitException, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IChangeUnitException {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -198,7 +198,7 @@ impl IChangeUnitListFilterInfo {
         (::windows::core::Vtable::vtable(self).GetChangeUnitId)(::windows::core::Vtable::as_raw(self), dwchangeunitidindex, pbchangeunitid, pcbidsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IChangeUnitListFilterInfo, ::windows::core::IUnknown, ISyncFilterInfo);
+::windows::imp::interface_hierarchy!(IChangeUnitListFilterInfo, ::windows::core::IUnknown, ISyncFilterInfo);
 impl ::core::cmp::PartialEq for IChangeUnitListFilterInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -240,7 +240,7 @@ impl IClockVector {
         (::windows::core::Vtable::vtable(self).GetClockVectorElementCount)(::windows::core::Vtable::as_raw(self), pdwcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IClockVector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IClockVector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IClockVector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -281,7 +281,7 @@ impl IClockVectorElement {
         (::windows::core::Vtable::vtable(self).GetTickCount)(::windows::core::Vtable::as_raw(self), pulltickcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IClockVectorElement, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IClockVectorElement, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IClockVectorElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -329,7 +329,7 @@ impl ICombinedFilterInfo {
         (::windows::core::Vtable::vtable(self).GetFilterCombinationType)(::windows::core::Vtable::as_raw(self), pfiltercombinationtype).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICombinedFilterInfo, ::windows::core::IUnknown, ISyncFilterInfo);
+::windows::imp::interface_hierarchy!(ICombinedFilterInfo, ::windows::core::IUnknown, ISyncFilterInfo);
 impl ::core::cmp::PartialEq for ICombinedFilterInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -413,7 +413,7 @@ impl IConstraintConflict {
         (::windows::core::Vtable::vtable(self).IsTemporary)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConstraintConflict, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConstraintConflict, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConstraintConflict {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -461,7 +461,7 @@ impl IConstructReplicaKeyMap {
         (::windows::core::Vtable::vtable(self).FindOrAddReplica)(::windows::core::Vtable::as_raw(self), pbreplicaid, pdwreplicakey).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConstructReplicaKeyMap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConstructReplicaKeyMap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConstructReplicaKeyMap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -510,7 +510,7 @@ impl ICoreFragment {
         (::windows::core::Vtable::vtable(self).GetRangeCount)(::windows::core::Vtable::as_raw(self), prangecount).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICoreFragment, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICoreFragment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICoreFragment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -554,7 +554,7 @@ impl ICoreFragmentInspector {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICoreFragmentInspector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICoreFragmentInspector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICoreFragmentInspector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -596,7 +596,7 @@ impl ICustomFilterInfo {
         (::windows::core::Vtable::vtable(self).GetSyncFilter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICustomFilterInfo, ::windows::core::IUnknown, ISyncFilterInfo);
+::windows::imp::interface_hierarchy!(ICustomFilterInfo, ::windows::core::IUnknown, ISyncFilterInfo);
 impl ::core::cmp::PartialEq for ICustomFilterInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -639,7 +639,7 @@ impl IDataRetrieverCallback {
         (::windows::core::Vtable::vtable(self).LoadChangeDataError)(::windows::core::Vtable::as_raw(self), hrerror).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataRetrieverCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataRetrieverCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataRetrieverCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -687,7 +687,7 @@ impl IEnumChangeUnitExceptions {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumChangeUnitExceptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumChangeUnitExceptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumChangeUnitExceptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -737,7 +737,7 @@ impl IEnumClockVector {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumClockVector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumClockVector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumClockVector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -787,7 +787,7 @@ impl IEnumFeedClockVector {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumFeedClockVector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumFeedClockVector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumFeedClockVector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -827,7 +827,7 @@ impl IEnumItemIds {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), pbitemid, pcbitemidsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumItemIds, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumItemIds, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumItemIds {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -874,7 +874,7 @@ impl IEnumRangeExceptions {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumRangeExceptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumRangeExceptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumRangeExceptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -924,7 +924,7 @@ impl IEnumSingleItemExceptions {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumSingleItemExceptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSingleItemExceptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSingleItemExceptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -974,7 +974,7 @@ impl IEnumSyncChangeUnits {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumSyncChangeUnits, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSyncChangeUnits, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSyncChangeUnits {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1024,7 +1024,7 @@ impl IEnumSyncChanges {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumSyncChanges, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSyncChanges, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSyncChanges {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1076,7 +1076,7 @@ impl IEnumSyncProviderConfigUIInfos {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumSyncProviderConfigUIInfos, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSyncProviderConfigUIInfos, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSyncProviderConfigUIInfos {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1131,7 +1131,7 @@ impl IEnumSyncProviderInfos {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumSyncProviderInfos, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSyncProviderInfos, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSyncProviderInfos {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1185,7 +1185,7 @@ impl IFeedClockVector {
         (::windows::core::Vtable::vtable(self).IsNoConflictsSpecified)(::windows::core::Vtable::as_raw(self), pfisnoconflictsspecified).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFeedClockVector, ::windows::core::IUnknown, IClockVector);
+::windows::imp::interface_hierarchy!(IFeedClockVector, ::windows::core::IUnknown, IClockVector);
 impl ::core::cmp::PartialEq for IFeedClockVector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1235,7 +1235,7 @@ impl IFeedClockVectorElement {
         (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), pbflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFeedClockVectorElement, ::windows::core::IUnknown, IClockVectorElement);
+::windows::imp::interface_hierarchy!(IFeedClockVectorElement, ::windows::core::IUnknown, IClockVectorElement);
 impl ::core::cmp::PartialEq for IFeedClockVectorElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1286,7 +1286,7 @@ impl IFilterKeyMap {
         (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), pbfilterkeymap, pcbfilterkeymap).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFilterKeyMap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFilterKeyMap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFilterKeyMap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1329,7 +1329,7 @@ impl IFilterRequestCallback {
         (::windows::core::Vtable::vtable(self).RequestFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), filteringtype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFilterRequestCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFilterRequestCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFilterRequestCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1375,7 +1375,7 @@ impl IFilterTrackingProvider {
         (::windows::core::Vtable::vtable(self).AddTrackedFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFilterTrackingProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFilterTrackingProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFilterTrackingProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1416,7 +1416,7 @@ impl IFilterTrackingRequestCallback {
         (::windows::core::Vtable::vtable(self).RequestTrackedFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFilterTrackingRequestCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFilterTrackingRequestCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFilterTrackingRequestCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1458,7 +1458,7 @@ impl IFilterTrackingSyncChangeBuilder {
         (::windows::core::Vtable::vtable(self).SetAllChangeUnitsPresentFlag)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFilterTrackingSyncChangeBuilder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFilterTrackingSyncChangeBuilder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFilterTrackingSyncChangeBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1597,7 +1597,7 @@ impl IForgottenKnowledge {
         (::windows::core::Vtable::vtable(self).ForgetToVersion)(::windows::core::Vtable::as_raw(self), pknowledge.into().abi(), pversion).ok()
     }
 }
-::windows::core::interface_hierarchy!(IForgottenKnowledge, ::windows::core::IUnknown, ISyncKnowledge);
+::windows::imp::interface_hierarchy!(IForgottenKnowledge, ::windows::core::IUnknown, ISyncKnowledge);
 impl ::core::cmp::PartialEq for IForgottenKnowledge {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1679,7 +1679,7 @@ impl IKnowledgeSyncProvider {
         (::windows::core::Vtable::vtable(self).EndSession)(::windows::core::Vtable::as_raw(self), psessionstate.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKnowledgeSyncProvider, ::windows::core::IUnknown, ISyncProvider);
+::windows::imp::interface_hierarchy!(IKnowledgeSyncProvider, ::windows::core::IUnknown, ISyncProvider);
 impl ::core::cmp::PartialEq for IKnowledgeSyncProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1736,7 +1736,7 @@ impl ILoadChangeContext {
         (::windows::core::Vtable::vtable(self).SetRecoverableErrorOnChangeUnit)(::windows::core::Vtable::as_raw(self), hrerror, pchangeunit.into().abi(), perrordata.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILoadChangeContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILoadChangeContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILoadChangeContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1778,7 +1778,7 @@ impl IProviderConverter {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisyncprovider.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProviderConverter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProviderConverter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProviderConverter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1821,7 +1821,7 @@ impl IRangeException {
         (::windows::core::Vtable::vtable(self).GetClockVector)(::windows::core::Vtable::as_raw(self), riid, ppunk).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRangeException, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRangeException, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRangeException {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1876,7 +1876,7 @@ impl IRecoverableError {
         (::windows::core::Vtable::vtable(self).GetRecoverableErrorDataForChangeUnit)(::windows::core::Vtable::as_raw(self), pchangeunit.into().abi(), phrerror, ::core::mem::transmute(pperrordata)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRecoverableError, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRecoverableError, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRecoverableError {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1933,7 +1933,7 @@ impl IRecoverableErrorData {
         (::windows::core::Vtable::vtable(self).GetErrorDescription)(::windows::core::Vtable::as_raw(self), pszerrordescription.into().abi(), pccherrordescription).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRecoverableErrorData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRecoverableErrorData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRecoverableErrorData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1984,7 +1984,7 @@ impl IRegisteredSyncProvider {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRegisteredSyncProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRegisteredSyncProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRegisteredSyncProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2032,7 +2032,7 @@ impl IReplicaKeyMap {
         (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), pbreplicakeymap, pcbreplicakeymap).ok()
     }
 }
-::windows::core::interface_hierarchy!(IReplicaKeyMap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IReplicaKeyMap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IReplicaKeyMap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2074,7 +2074,7 @@ impl IRequestFilteredSync {
         (::windows::core::Vtable::vtable(self).SpecifyFilter)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRequestFilteredSync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRequestFilteredSync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRequestFilteredSync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2114,7 +2114,7 @@ impl ISingleItemException {
         (::windows::core::Vtable::vtable(self).GetClockVector)(::windows::core::Vtable::as_raw(self), riid, ppunk).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISingleItemException, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISingleItemException, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISingleItemException {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2155,7 +2155,7 @@ impl ISupportFilteredSync {
         (::windows::core::Vtable::vtable(self).AddFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), filteringtype).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISupportFilteredSync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISupportFilteredSync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISupportFilteredSync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2195,7 +2195,7 @@ impl ISupportLastWriteTime {
         (::windows::core::Vtable::vtable(self).GetChangeUnitChangeTime)(::windows::core::Vtable::as_raw(self), pbitemid, pbchangeunitid, pulltimestamp).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISupportLastWriteTime, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISupportLastWriteTime, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISupportLastWriteTime {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2254,7 +2254,7 @@ impl ISyncCallback {
         (::windows::core::Vtable::vtable(self).OnRecoverableError)(::windows::core::Vtable::as_raw(self), precoverableerror.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2322,7 +2322,7 @@ impl ISyncCallback2 {
         (::windows::core::Vtable::vtable(self).OnChangeFailed)(::windows::core::Vtable::as_raw(self), dwchangesapplied, dwchangesfailed).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncCallback2, ::windows::core::IUnknown, ISyncCallback);
+::windows::imp::interface_hierarchy!(ISyncCallback2, ::windows::core::IUnknown, ISyncCallback);
 impl ::core::cmp::PartialEq for ISyncCallback2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2390,7 +2390,7 @@ impl ISyncChange {
         (::windows::core::Vtable::vtable(self).SetWorkEstimate)(::windows::core::Vtable::as_raw(self), dwwork).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncChange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncChange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncChange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2504,7 +2504,7 @@ impl ISyncChangeBatch {
         (::windows::core::Vtable::vtable(self).AddLoggedConflict)(::windows::core::Vtable::as_raw(self), pbownerreplicaid, pbitemid, pchangeversion, pcreationversion, dwflags, dwworkforchange, pconflictknowledge.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeBatch, ::windows::core::IUnknown, ISyncChangeBatchBase);
+::windows::imp::interface_hierarchy!(ISyncChangeBatch, ::windows::core::IUnknown, ISyncChangeBatchBase);
 impl ::core::cmp::PartialEq for ISyncChangeBatch {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2625,7 +2625,7 @@ impl ISyncChangeBatch2 {
         (::windows::core::Vtable::vtable(self).AddMergeTombstoneLoggedConflict)(::windows::core::Vtable::as_raw(self), pbownerreplicaid, pbwinneritemid, pbitemid, pchangeversion, pcreationversion, dwworkforchange, pconflictknowledge.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeBatch2, ::windows::core::IUnknown, ISyncChangeBatchBase, ISyncChangeBatch);
+::windows::imp::interface_hierarchy!(ISyncChangeBatch2, ::windows::core::IUnknown, ISyncChangeBatchBase, ISyncChangeBatch);
 impl ::core::cmp::PartialEq for ISyncChangeBatch2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2676,7 +2676,7 @@ impl ISyncChangeBatchAdvanced {
         (::windows::core::Vtable::vtable(self).GetBatchLevelKnowledgeShouldBeApplied)(::windows::core::Vtable::as_raw(self), pfbatchknowledgeshouldbeapplied).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeBatchAdvanced, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncChangeBatchAdvanced, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncChangeBatchAdvanced {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2768,7 +2768,7 @@ impl ISyncChangeBatchBase {
         (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), pbchangebatch, pcbchangebatch).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeBatchBase, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncChangeBatchBase, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncChangeBatchBase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2873,7 +2873,7 @@ impl ISyncChangeBatchBase2 {
         (::windows::core::Vtable::vtable(self).SerializeWithOptions)(::windows::core::Vtable::as_raw(self), targetformatversion, dwflags, pbbuffer, pdwserializedsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeBatchBase2, ::windows::core::IUnknown, ISyncChangeBatchBase);
+::windows::imp::interface_hierarchy!(ISyncChangeBatchBase2, ::windows::core::IUnknown, ISyncChangeBatchBase);
 impl ::core::cmp::PartialEq for ISyncChangeBatchBase2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2963,7 +2963,7 @@ impl ISyncChangeBatchWithFilterKeyMap {
         (::windows::core::Vtable::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Vtable::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), dwfilterkey, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeBatchWithFilterKeyMap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncChangeBatchWithFilterKeyMap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncChangeBatchWithFilterKeyMap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3073,7 +3073,7 @@ impl ISyncChangeBatchWithPrerequisite {
         (::windows::core::Vtable::vtable(self).GetLearnedForgottenKnowledge)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeBatchWithPrerequisite, ::windows::core::IUnknown, ISyncChangeBatchBase);
+::windows::imp::interface_hierarchy!(ISyncChangeBatchWithPrerequisite, ::windows::core::IUnknown, ISyncChangeBatchBase);
 impl ::core::cmp::PartialEq for ISyncChangeBatchWithPrerequisite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3112,7 +3112,7 @@ impl ISyncChangeBuilder {
         (::windows::core::Vtable::vtable(self).AddChangeUnitMetadata)(::windows::core::Vtable::as_raw(self), pbchangeunitid, pchangeunitversion).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeBuilder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncChangeBuilder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncChangeBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3156,7 +3156,7 @@ impl ISyncChangeUnit {
         (::windows::core::Vtable::vtable(self).GetChangeUnitVersion)(::windows::core::Vtable::as_raw(self), pbcurrentreplicaid, pversion).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeUnit, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncChangeUnit, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncChangeUnit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3249,7 +3249,7 @@ impl ISyncChangeWithFilterKeyMap {
         (::windows::core::Vtable::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Vtable::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), dwfilterkey, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeWithFilterKeyMap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncChangeWithFilterKeyMap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncChangeWithFilterKeyMap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3308,7 +3308,7 @@ impl ISyncChangeWithPrerequisite {
         (::windows::core::Vtable::vtable(self).GetLearnedKnowledgeWithPrerequisite)(::windows::core::Vtable::as_raw(self), pdestinationknowledge.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncChangeWithPrerequisite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncChangeWithPrerequisite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncChangeWithPrerequisite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3349,7 +3349,7 @@ impl ISyncConstraintCallback {
         (::windows::core::Vtable::vtable(self).OnConstraintConflict)(::windows::core::Vtable::as_raw(self), pconflict.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncConstraintCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncConstraintCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncConstraintCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3415,7 +3415,7 @@ impl ISyncDataConverter {
         (::windows::core::Vtable::vtable(self).ConvertDataToProviderFormat)(::windows::core::Vtable::as_raw(self), pdatacontext.into().abi(), punkdataout.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncDataConverter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncDataConverter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncDataConverter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3461,7 +3461,7 @@ impl ISyncFilter {
         (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), pbsyncfilter, pcbsyncfilter).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3500,7 +3500,7 @@ impl ISyncFilterDeserializer {
         (::windows::core::Vtable::vtable(self).DeserializeSyncFilter)(::windows::core::Vtable::as_raw(self), pbsyncfilter, dwcbsyncfilter, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncFilterDeserializer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncFilterDeserializer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncFilterDeserializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3537,7 +3537,7 @@ impl ISyncFilterInfo {
         (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), pbbuffer, pcbbuffer).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncFilterInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncFilterInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncFilterInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3577,7 +3577,7 @@ impl ISyncFilterInfo2 {
         (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncFilterInfo2, ::windows::core::IUnknown, ISyncFilterInfo);
+::windows::imp::interface_hierarchy!(ISyncFilterInfo2, ::windows::core::IUnknown, ISyncFilterInfo);
 impl ::core::cmp::PartialEq for ISyncFilterInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3619,7 +3619,7 @@ impl ISyncFullEnumerationChange {
         (::windows::core::Vtable::vtable(self).GetLearnedForgottenKnowledge)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncFullEnumerationChange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncFullEnumerationChange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncFullEnumerationChange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3716,7 +3716,7 @@ impl ISyncFullEnumerationChangeBatch {
         (::windows::core::Vtable::vtable(self).GetClosedUpperBoundItemId)(::windows::core::Vtable::as_raw(self), pbclosedupperbounditemid, pcbidsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncFullEnumerationChangeBatch, ::windows::core::IUnknown, ISyncChangeBatchBase);
+::windows::imp::interface_hierarchy!(ISyncFullEnumerationChangeBatch, ::windows::core::IUnknown, ISyncChangeBatchBase);
 impl ::core::cmp::PartialEq for ISyncFullEnumerationChangeBatch {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3818,7 +3818,7 @@ impl ISyncFullEnumerationChangeBatch2 {
         (::windows::core::Vtable::vtable(self).AddMergeTombstoneMetadataToGroup)(::windows::core::Vtable::as_raw(self), pbownerreplicaid, pbwinneritemid, pbitemid, pchangeversion, pcreationversion, dwworkforchange, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncFullEnumerationChangeBatch2, ::windows::core::IUnknown, ISyncChangeBatchBase, ISyncFullEnumerationChangeBatch);
+::windows::imp::interface_hierarchy!(ISyncFullEnumerationChangeBatch2, ::windows::core::IUnknown, ISyncChangeBatchBase, ISyncFullEnumerationChangeBatch);
 impl ::core::cmp::PartialEq for ISyncFullEnumerationChangeBatch2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3947,7 +3947,7 @@ impl ISyncKnowledge {
         (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), pdwversion).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncKnowledge, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncKnowledge, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncKnowledge {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4172,7 +4172,7 @@ impl ISyncKnowledge2 {
         (::windows::core::Vtable::vtable(self).CompareToKnowledgeCookie)(::windows::core::Vtable::as_raw(self), pknowledgecookie.into().abi(), presult).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncKnowledge2, ::windows::core::IUnknown, ISyncKnowledge);
+::windows::imp::interface_hierarchy!(ISyncKnowledge2, ::windows::core::IUnknown, ISyncKnowledge);
 impl ::core::cmp::PartialEq for ISyncKnowledge2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4225,7 +4225,7 @@ impl ISyncMergeTombstoneChange {
         (::windows::core::Vtable::vtable(self).GetWinnerItemId)(::windows::core::Vtable::as_raw(self), pbwinneritemid, pcbidsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMergeTombstoneChange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMergeTombstoneChange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMergeTombstoneChange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4264,7 +4264,7 @@ impl ISyncProvider {
         (::windows::core::Vtable::vtable(self).GetIdParameters)(::windows::core::Vtable::as_raw(self), pidparameters).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4335,7 +4335,7 @@ impl ISyncProviderConfigUI {
         (::windows::core::Vtable::vtable(self).ModifySyncProvider)(::windows::core::Vtable::as_raw(self), hwndparent.into(), punkcontext.into().abi(), pproviderinfo.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncProviderConfigUI, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncProviderConfigUI, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncProviderConfigUI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4418,7 +4418,7 @@ impl ISyncProviderConfigUIInfo {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-::windows::core::interface_hierarchy!(ISyncProviderConfigUIInfo, ::windows::core::IUnknown, super::super::UI::Shell::PropertiesSystem::IPropertyStore);
+::windows::imp::interface_hierarchy!(ISyncProviderConfigUIInfo, ::windows::core::IUnknown, super::super::UI::Shell::PropertiesSystem::IPropertyStore);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for ISyncProviderConfigUIInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -4493,7 +4493,7 @@ impl ISyncProviderInfo {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-::windows::core::interface_hierarchy!(ISyncProviderInfo, ::windows::core::IUnknown, super::super::UI::Shell::PropertiesSystem::IPropertyStore);
+::windows::imp::interface_hierarchy!(ISyncProviderInfo, ::windows::core::IUnknown, super::super::UI::Shell::PropertiesSystem::IPropertyStore);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for ISyncProviderInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -4615,7 +4615,7 @@ impl ISyncProviderRegistration {
         (::windows::core::Vtable::vtable(self).GetChange)(::windows::core::Vtable::as_raw(self), hevent.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncProviderRegistration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncProviderRegistration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncProviderRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4696,7 +4696,7 @@ impl ISyncRegistrationChange {
         (::windows::core::Vtable::vtable(self).GetInstanceId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncRegistrationChange, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncRegistrationChange, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncRegistrationChange {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4735,7 +4735,7 @@ impl ISyncSessionExtendedErrorInfo {
         (::windows::core::Vtable::vtable(self).GetSyncProviderWithError)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncSessionExtendedErrorInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncSessionExtendedErrorInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncSessionExtendedErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4792,7 +4792,7 @@ impl ISyncSessionState {
         (::windows::core::Vtable::vtable(self).OnProgress)(::windows::core::Vtable::as_raw(self), provider, syncstage, dwcompletedwork, dwtotalwork).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncSessionState, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncSessionState, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncSessionState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4869,7 +4869,7 @@ impl ISyncSessionState2 {
         (::windows::core::Vtable::vtable(self).GetSessionErrorStatus)(::windows::core::Vtable::as_raw(self), phrsessionerror).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncSessionState2, ::windows::core::IUnknown, ISyncSessionState);
+::windows::imp::interface_hierarchy!(ISyncSessionState2, ::windows::core::IUnknown, ISyncSessionState);
 impl ::core::cmp::PartialEq for ISyncSessionState2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4919,7 +4919,7 @@ impl ISynchronousDataRetriever {
         (::windows::core::Vtable::vtable(self).LoadChangeData)(::windows::core::Vtable::as_raw(self), ploadchangecontext.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISynchronousDataRetriever, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISynchronousDataRetriever, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISynchronousDataRetriever {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

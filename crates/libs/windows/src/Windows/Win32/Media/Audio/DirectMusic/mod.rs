@@ -49,7 +49,7 @@ impl IDirectMusic {
         (::windows::core::Vtable::vtable(self).SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), hwnd.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusic, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusic, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusic {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -152,7 +152,7 @@ impl IDirectMusic8 {
         (::windows::core::Vtable::vtable(self).SetExternalMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusic8, ::windows::core::IUnknown, IDirectMusic);
+::windows::imp::interface_hierarchy!(IDirectMusic8, ::windows::core::IUnknown, IDirectMusic);
 impl ::core::cmp::PartialEq for IDirectMusic8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -225,7 +225,7 @@ impl IDirectMusicBuffer {
         (::windows::core::Vtable::vtable(self).SetUsedBytes)(::windows::core::Vtable::as_raw(self), cb).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -281,7 +281,7 @@ impl IDirectMusicCollection {
         (::windows::core::Vtable::vtable(self).EnumInstrument)(::windows::core::Vtable::as_raw(self), dwindex, pdwpatch, pwszname.into().abi(), dwnamelen).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -319,7 +319,7 @@ impl IDirectMusicDownload {
         (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), ppvbuffer, pdwsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicDownload, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicDownload, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicDownload {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -352,7 +352,7 @@ pub struct IDirectMusicDownload_Vtbl {
 #[repr(transparent)]
 pub struct IDirectMusicDownloadedInstrument(::windows::core::IUnknown);
 impl IDirectMusicDownloadedInstrument {}
-::windows::core::interface_hierarchy!(IDirectMusicDownloadedInstrument, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicDownloadedInstrument, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicDownloadedInstrument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -391,7 +391,7 @@ impl IDirectMusicInstrument {
         (::windows::core::Vtable::vtable(self).SetPatch)(::windows::core::Vtable::as_raw(self), dwpatch).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicInstrument, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicInstrument, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicInstrument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -508,7 +508,7 @@ impl IDirectMusicPort {
         (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), pwaveformatex, pdwwaveformatexsize, pdwbuffersize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicPort, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicPort, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -596,7 +596,7 @@ impl IDirectMusicPortDownload {
         (::windows::core::Vtable::vtable(self).Unload)(::windows::core::Vtable::as_raw(self), pidmdownload.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicPortDownload, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicPortDownload, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicPortDownload {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -708,7 +708,7 @@ impl IDirectMusicSynth {
         (::windows::core::Vtable::vtable(self).GetAppend)(::windows::core::Vtable::as_raw(self), pdwappend).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicSynth, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicSynth, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicSynth {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -860,7 +860,7 @@ impl IDirectMusicSynth8 {
         (::windows::core::Vtable::vtable(self).AssignChannelToBuses)(::windows::core::Vtable::as_raw(self), dwchannelgroup, dwchannel, pdwbuses, cbuses).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicSynth8, ::windows::core::IUnknown, IDirectMusicSynth);
+::windows::imp::interface_hierarchy!(IDirectMusicSynth8, ::windows::core::IUnknown, IDirectMusicSynth);
 impl ::core::cmp::PartialEq for IDirectMusicSynth8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -943,7 +943,7 @@ impl IDirectMusicSynthSink {
         (::windows::core::Vtable::vtable(self).GetDesiredBufferSize)(::windows::core::Vtable::as_raw(self), pdwbuffersizeinsamples).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicSynthSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicSynthSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicSynthSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -996,7 +996,7 @@ impl IDirectMusicThru {
         (::windows::core::Vtable::vtable(self).ThruChannel)(::windows::core::Vtable::as_raw(self), dwsourcechannelgroup, dwsourcechannel, dwdestinationchannelgroup, dwdestinationchannel, pdestinationport.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicThru, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectMusicThru, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicThru {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

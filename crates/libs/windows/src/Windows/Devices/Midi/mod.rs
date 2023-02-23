@@ -163,7 +163,7 @@ impl IMidiMessage {
         }
     }
 }
-::windows::core::interface_hierarchy!(IMidiMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IMidiMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IMidiMessage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -176,7 +176,7 @@ impl ::core::fmt::Debug for IMidiMessage {
     }
 }
 impl ::windows::core::RuntimeType for IMidiMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79767945-1094-4283-9be0-289fc0ee8334}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{79767945-1094-4283-9be0-289fc0ee8334}");
 }
 unsafe impl ::windows::core::Vtable for IMidiMessage {
     type Vtable = IMidiMessage_Vtbl;
@@ -343,7 +343,7 @@ impl IMidiOutPort {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IMidiOutPort, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IMidiOutPort, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IMidiOutPort> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -378,7 +378,7 @@ impl ::core::fmt::Debug for IMidiOutPort {
     }
 }
 impl ::windows::core::RuntimeType for IMidiOutPort {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{931d6d9f-57a2-4a3a-adb8-4640886f6693}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{931d6d9f-57a2-4a3a-adb8-4640886f6693}");
 }
 unsafe impl ::windows::core::Vtable for IMidiOutPort {
     type Vtable = IMidiOutPort_Vtbl;
@@ -757,8 +757,8 @@ impl MidiActiveSensingMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiActiveSensingMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MidiActiveSensingMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -799,7 +799,7 @@ impl ::core::fmt::Debug for MidiActiveSensingMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiActiveSensingMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiActiveSensingMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiActiveSensingMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
 impl ::core::clone::Clone for MidiActiveSensingMessage {
     fn clone(&self) -> Self {
@@ -815,7 +815,7 @@ unsafe impl ::windows::core::Interface for MidiActiveSensingMessage {
 impl ::windows::core::RuntimeName for MidiActiveSensingMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiActiveSensingMessage";
 }
-::windows::core::interface_hierarchy!(MidiActiveSensingMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiActiveSensingMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiActiveSensingMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiActiveSensingMessage) -> ::windows::core::Result<Self> {
@@ -888,7 +888,7 @@ impl MidiChannelPressureMessage {
     }
     #[doc(hidden)]
     pub fn IMidiChannelPressureMessageFactory<R, F: FnOnce(&IMidiChannelPressureMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiChannelPressureMessage, IMidiChannelPressureMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiChannelPressureMessage, IMidiChannelPressureMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -904,7 +904,7 @@ impl ::core::fmt::Debug for MidiChannelPressureMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiChannelPressureMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiChannelPressureMessage;{be1fa860-62b4-4d52-a37e-92e54d35b909})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiChannelPressureMessage;{be1fa860-62b4-4d52-a37e-92e54d35b909})");
 }
 impl ::core::clone::Clone for MidiChannelPressureMessage {
     fn clone(&self) -> Self {
@@ -920,7 +920,7 @@ unsafe impl ::windows::core::Interface for MidiChannelPressureMessage {
 impl ::windows::core::RuntimeName for MidiChannelPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiChannelPressureMessage";
 }
-::windows::core::interface_hierarchy!(MidiChannelPressureMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiChannelPressureMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiChannelPressureMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiChannelPressureMessage) -> ::windows::core::Result<Self> {
@@ -949,8 +949,8 @@ impl MidiContinueMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiContinueMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MidiContinueMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -991,7 +991,7 @@ impl ::core::fmt::Debug for MidiContinueMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiContinueMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiContinueMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiContinueMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
 impl ::core::clone::Clone for MidiContinueMessage {
     fn clone(&self) -> Self {
@@ -1007,7 +1007,7 @@ unsafe impl ::windows::core::Interface for MidiContinueMessage {
 impl ::windows::core::RuntimeName for MidiContinueMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiContinueMessage";
 }
-::windows::core::interface_hierarchy!(MidiContinueMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiContinueMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiContinueMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiContinueMessage) -> ::windows::core::Result<Self> {
@@ -1087,7 +1087,7 @@ impl MidiControlChangeMessage {
     }
     #[doc(hidden)]
     pub fn IMidiControlChangeMessageFactory<R, F: FnOnce(&IMidiControlChangeMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiControlChangeMessage, IMidiControlChangeMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiControlChangeMessage, IMidiControlChangeMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1103,7 +1103,7 @@ impl ::core::fmt::Debug for MidiControlChangeMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiControlChangeMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiControlChangeMessage;{b7e15f83-780d-405f-b781-3e1598c97f40})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiControlChangeMessage;{b7e15f83-780d-405f-b781-3e1598c97f40})");
 }
 impl ::core::clone::Clone for MidiControlChangeMessage {
     fn clone(&self) -> Self {
@@ -1119,7 +1119,7 @@ unsafe impl ::windows::core::Interface for MidiControlChangeMessage {
 impl ::windows::core::RuntimeName for MidiControlChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiControlChangeMessage";
 }
-::windows::core::interface_hierarchy!(MidiControlChangeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiControlChangeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiControlChangeMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiControlChangeMessage) -> ::windows::core::Result<Self> {
@@ -1189,7 +1189,7 @@ impl MidiInPort {
     }
     #[doc(hidden)]
     pub fn IMidiInPortStatics<R, F: FnOnce(&IMidiInPortStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiInPort, IMidiInPortStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiInPort, IMidiInPortStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1205,7 +1205,7 @@ impl ::core::fmt::Debug for MidiInPort {
     }
 }
 impl ::windows::core::RuntimeType for MidiInPort {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiInPort;{d5c1d9db-971a-4eaf-a23d-ea19fe607ff9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiInPort;{d5c1d9db-971a-4eaf-a23d-ea19fe607ff9})");
 }
 impl ::core::clone::Clone for MidiInPort {
     fn clone(&self) -> Self {
@@ -1221,7 +1221,7 @@ unsafe impl ::windows::core::Interface for MidiInPort {
 impl ::windows::core::RuntimeName for MidiInPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiInPort";
 }
-::windows::core::interface_hierarchy!(MidiInPort, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiInPort, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MidiInPort> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1270,7 +1270,7 @@ impl ::core::fmt::Debug for MidiMessageReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MidiMessageReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiMessageReceivedEventArgs;{76566e56-f328-4b51-907d-b3a8ce96bf80})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiMessageReceivedEventArgs;{76566e56-f328-4b51-907d-b3a8ce96bf80})");
 }
 impl ::core::clone::Clone for MidiMessageReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -1286,7 +1286,7 @@ unsafe impl ::windows::core::Interface for MidiMessageReceivedEventArgs {
 impl ::windows::core::RuntimeName for MidiMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Midi.MidiMessageReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MidiMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MidiMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MidiMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1347,7 +1347,7 @@ impl MidiNoteOffMessage {
     }
     #[doc(hidden)]
     pub fn IMidiNoteOffMessageFactory<R, F: FnOnce(&IMidiNoteOffMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiNoteOffMessage, IMidiNoteOffMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiNoteOffMessage, IMidiNoteOffMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1363,7 +1363,7 @@ impl ::core::fmt::Debug for MidiNoteOffMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiNoteOffMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiNoteOffMessage;{16fd8af4-198e-4d8f-a654-d305a293548f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiNoteOffMessage;{16fd8af4-198e-4d8f-a654-d305a293548f})");
 }
 impl ::core::clone::Clone for MidiNoteOffMessage {
     fn clone(&self) -> Self {
@@ -1379,7 +1379,7 @@ unsafe impl ::windows::core::Interface for MidiNoteOffMessage {
 impl ::windows::core::RuntimeName for MidiNoteOffMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOffMessage";
 }
-::windows::core::interface_hierarchy!(MidiNoteOffMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiNoteOffMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiNoteOffMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiNoteOffMessage) -> ::windows::core::Result<Self> {
@@ -1459,7 +1459,7 @@ impl MidiNoteOnMessage {
     }
     #[doc(hidden)]
     pub fn IMidiNoteOnMessageFactory<R, F: FnOnce(&IMidiNoteOnMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiNoteOnMessage, IMidiNoteOnMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiNoteOnMessage, IMidiNoteOnMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1475,7 +1475,7 @@ impl ::core::fmt::Debug for MidiNoteOnMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiNoteOnMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiNoteOnMessage;{e0224af5-6181-46dd-afa2-410004c057aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiNoteOnMessage;{e0224af5-6181-46dd-afa2-410004c057aa})");
 }
 impl ::core::clone::Clone for MidiNoteOnMessage {
     fn clone(&self) -> Self {
@@ -1491,7 +1491,7 @@ unsafe impl ::windows::core::Interface for MidiNoteOnMessage {
 impl ::windows::core::RuntimeName for MidiNoteOnMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOnMessage";
 }
-::windows::core::interface_hierarchy!(MidiNoteOnMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiNoteOnMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiNoteOnMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiNoteOnMessage) -> ::windows::core::Result<Self> {
@@ -1564,7 +1564,7 @@ impl MidiOutPort {
     }
     #[doc(hidden)]
     pub fn IMidiOutPortStatics<R, F: FnOnce(&IMidiOutPortStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiOutPort, IMidiOutPortStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiOutPort, IMidiOutPortStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1580,7 +1580,7 @@ impl ::core::fmt::Debug for MidiOutPort {
     }
 }
 impl ::windows::core::RuntimeType for MidiOutPort {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiOutPort;{931d6d9f-57a2-4a3a-adb8-4640886f6693})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiOutPort;{931d6d9f-57a2-4a3a-adb8-4640886f6693})");
 }
 impl ::core::clone::Clone for MidiOutPort {
     fn clone(&self) -> Self {
@@ -1596,7 +1596,7 @@ unsafe impl ::windows::core::Interface for MidiOutPort {
 impl ::windows::core::RuntimeName for MidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiOutPort";
 }
-::windows::core::interface_hierarchy!(MidiOutPort, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiOutPort, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MidiOutPort> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1691,7 +1691,7 @@ impl MidiPitchBendChangeMessage {
     }
     #[doc(hidden)]
     pub fn IMidiPitchBendChangeMessageFactory<R, F: FnOnce(&IMidiPitchBendChangeMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiPitchBendChangeMessage, IMidiPitchBendChangeMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiPitchBendChangeMessage, IMidiPitchBendChangeMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1707,7 +1707,7 @@ impl ::core::fmt::Debug for MidiPitchBendChangeMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiPitchBendChangeMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiPitchBendChangeMessage;{29df4cb1-2e9f-4faf-8c2b-9cb82a9079ca})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiPitchBendChangeMessage;{29df4cb1-2e9f-4faf-8c2b-9cb82a9079ca})");
 }
 impl ::core::clone::Clone for MidiPitchBendChangeMessage {
     fn clone(&self) -> Self {
@@ -1723,7 +1723,7 @@ unsafe impl ::windows::core::Interface for MidiPitchBendChangeMessage {
 impl ::windows::core::RuntimeName for MidiPitchBendChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPitchBendChangeMessage";
 }
-::windows::core::interface_hierarchy!(MidiPitchBendChangeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiPitchBendChangeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiPitchBendChangeMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiPitchBendChangeMessage) -> ::windows::core::Result<Self> {
@@ -1803,7 +1803,7 @@ impl MidiPolyphonicKeyPressureMessage {
     }
     #[doc(hidden)]
     pub fn IMidiPolyphonicKeyPressureMessageFactory<R, F: FnOnce(&IMidiPolyphonicKeyPressureMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiPolyphonicKeyPressureMessage, IMidiPolyphonicKeyPressureMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiPolyphonicKeyPressureMessage, IMidiPolyphonicKeyPressureMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1819,7 +1819,7 @@ impl ::core::fmt::Debug for MidiPolyphonicKeyPressureMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiPolyphonicKeyPressureMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage;{1f7337fe-ace8-48a0-868e-7cdbf20f04d6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage;{1f7337fe-ace8-48a0-868e-7cdbf20f04d6})");
 }
 impl ::core::clone::Clone for MidiPolyphonicKeyPressureMessage {
     fn clone(&self) -> Self {
@@ -1835,7 +1835,7 @@ unsafe impl ::windows::core::Interface for MidiPolyphonicKeyPressureMessage {
 impl ::windows::core::RuntimeName for MidiPolyphonicKeyPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage";
 }
-::windows::core::interface_hierarchy!(MidiPolyphonicKeyPressureMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiPolyphonicKeyPressureMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiPolyphonicKeyPressureMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiPolyphonicKeyPressureMessage) -> ::windows::core::Result<Self> {
@@ -1908,7 +1908,7 @@ impl MidiProgramChangeMessage {
     }
     #[doc(hidden)]
     pub fn IMidiProgramChangeMessageFactory<R, F: FnOnce(&IMidiProgramChangeMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiProgramChangeMessage, IMidiProgramChangeMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiProgramChangeMessage, IMidiProgramChangeMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1924,7 +1924,7 @@ impl ::core::fmt::Debug for MidiProgramChangeMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiProgramChangeMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiProgramChangeMessage;{9cbb3c78-7a3e-4327-aa98-20b8e4485af8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiProgramChangeMessage;{9cbb3c78-7a3e-4327-aa98-20b8e4485af8})");
 }
 impl ::core::clone::Clone for MidiProgramChangeMessage {
     fn clone(&self) -> Self {
@@ -1940,7 +1940,7 @@ unsafe impl ::windows::core::Interface for MidiProgramChangeMessage {
 impl ::windows::core::RuntimeName for MidiProgramChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiProgramChangeMessage";
 }
-::windows::core::interface_hierarchy!(MidiProgramChangeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiProgramChangeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiProgramChangeMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiProgramChangeMessage) -> ::windows::core::Result<Self> {
@@ -2006,7 +2006,7 @@ impl MidiSongPositionPointerMessage {
     }
     #[doc(hidden)]
     pub fn IMidiSongPositionPointerMessageFactory<R, F: FnOnce(&IMidiSongPositionPointerMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiSongPositionPointerMessage, IMidiSongPositionPointerMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiSongPositionPointerMessage, IMidiSongPositionPointerMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2022,7 +2022,7 @@ impl ::core::fmt::Debug for MidiSongPositionPointerMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiSongPositionPointerMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSongPositionPointerMessage;{4ca50c56-ec5e-4ae4-a115-88dc57cc2b79})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSongPositionPointerMessage;{4ca50c56-ec5e-4ae4-a115-88dc57cc2b79})");
 }
 impl ::core::clone::Clone for MidiSongPositionPointerMessage {
     fn clone(&self) -> Self {
@@ -2038,7 +2038,7 @@ unsafe impl ::windows::core::Interface for MidiSongPositionPointerMessage {
 impl ::windows::core::RuntimeName for MidiSongPositionPointerMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongPositionPointerMessage";
 }
-::windows::core::interface_hierarchy!(MidiSongPositionPointerMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiSongPositionPointerMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiSongPositionPointerMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiSongPositionPointerMessage) -> ::windows::core::Result<Self> {
@@ -2104,7 +2104,7 @@ impl MidiSongSelectMessage {
     }
     #[doc(hidden)]
     pub fn IMidiSongSelectMessageFactory<R, F: FnOnce(&IMidiSongSelectMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiSongSelectMessage, IMidiSongSelectMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiSongSelectMessage, IMidiSongSelectMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2120,7 +2120,7 @@ impl ::core::fmt::Debug for MidiSongSelectMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiSongSelectMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSongSelectMessage;{49f0f27f-6d83-4741-a5bf-4629f6be974f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSongSelectMessage;{49f0f27f-6d83-4741-a5bf-4629f6be974f})");
 }
 impl ::core::clone::Clone for MidiSongSelectMessage {
     fn clone(&self) -> Self {
@@ -2136,7 +2136,7 @@ unsafe impl ::windows::core::Interface for MidiSongSelectMessage {
 impl ::windows::core::RuntimeName for MidiSongSelectMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongSelectMessage";
 }
-::windows::core::interface_hierarchy!(MidiSongSelectMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiSongSelectMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiSongSelectMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiSongSelectMessage) -> ::windows::core::Result<Self> {
@@ -2165,8 +2165,8 @@ impl MidiStartMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiStartMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MidiStartMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2207,7 +2207,7 @@ impl ::core::fmt::Debug for MidiStartMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiStartMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiStartMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiStartMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
 impl ::core::clone::Clone for MidiStartMessage {
     fn clone(&self) -> Self {
@@ -2223,7 +2223,7 @@ unsafe impl ::windows::core::Interface for MidiStartMessage {
 impl ::windows::core::RuntimeName for MidiStartMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStartMessage";
 }
-::windows::core::interface_hierarchy!(MidiStartMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiStartMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiStartMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiStartMessage) -> ::windows::core::Result<Self> {
@@ -2252,8 +2252,8 @@ impl MidiStopMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiStopMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MidiStopMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2294,7 +2294,7 @@ impl ::core::fmt::Debug for MidiStopMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiStopMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiStopMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiStopMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
 impl ::core::clone::Clone for MidiStopMessage {
     fn clone(&self) -> Self {
@@ -2310,7 +2310,7 @@ unsafe impl ::windows::core::Interface for MidiStopMessage {
 impl ::windows::core::RuntimeName for MidiStopMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStopMessage";
 }
-::windows::core::interface_hierarchy!(MidiStopMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiStopMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiStopMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiStopMessage) -> ::windows::core::Result<Self> {
@@ -2413,7 +2413,7 @@ impl MidiSynthesizer {
     }
     #[doc(hidden)]
     pub fn IMidiSynthesizerStatics<R, F: FnOnce(&IMidiSynthesizerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiSynthesizer, IMidiSynthesizerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiSynthesizer, IMidiSynthesizerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2429,7 +2429,7 @@ impl ::core::fmt::Debug for MidiSynthesizer {
     }
 }
 impl ::windows::core::RuntimeType for MidiSynthesizer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSynthesizer;{f0da155e-db90-405f-b8ae-21d2e17f2e45})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSynthesizer;{f0da155e-db90-405f-b8ae-21d2e17f2e45})");
 }
 impl ::core::clone::Clone for MidiSynthesizer {
     fn clone(&self) -> Self {
@@ -2445,7 +2445,7 @@ unsafe impl ::windows::core::Interface for MidiSynthesizer {
 impl ::windows::core::RuntimeName for MidiSynthesizer {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSynthesizer";
 }
-::windows::core::interface_hierarchy!(MidiSynthesizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiSynthesizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MidiSynthesizer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2532,7 +2532,7 @@ impl MidiSystemExclusiveMessage {
     }
     #[doc(hidden)]
     pub fn IMidiSystemExclusiveMessageFactory<R, F: FnOnce(&IMidiSystemExclusiveMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiSystemExclusiveMessage, IMidiSystemExclusiveMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiSystemExclusiveMessage, IMidiSystemExclusiveMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2548,7 +2548,7 @@ impl ::core::fmt::Debug for MidiSystemExclusiveMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiSystemExclusiveMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSystemExclusiveMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSystemExclusiveMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
 impl ::core::clone::Clone for MidiSystemExclusiveMessage {
     fn clone(&self) -> Self {
@@ -2564,7 +2564,7 @@ unsafe impl ::windows::core::Interface for MidiSystemExclusiveMessage {
 impl ::windows::core::RuntimeName for MidiSystemExclusiveMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemExclusiveMessage";
 }
-::windows::core::interface_hierarchy!(MidiSystemExclusiveMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiSystemExclusiveMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiSystemExclusiveMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiSystemExclusiveMessage) -> ::windows::core::Result<Self> {
@@ -2593,8 +2593,8 @@ impl MidiSystemResetMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiSystemResetMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MidiSystemResetMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2635,7 +2635,7 @@ impl ::core::fmt::Debug for MidiSystemResetMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiSystemResetMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSystemResetMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSystemResetMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
 impl ::core::clone::Clone for MidiSystemResetMessage {
     fn clone(&self) -> Self {
@@ -2651,7 +2651,7 @@ unsafe impl ::windows::core::Interface for MidiSystemResetMessage {
 impl ::windows::core::RuntimeName for MidiSystemResetMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemResetMessage";
 }
-::windows::core::interface_hierarchy!(MidiSystemResetMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiSystemResetMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiSystemResetMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiSystemResetMessage) -> ::windows::core::Result<Self> {
@@ -2724,7 +2724,7 @@ impl MidiTimeCodeMessage {
     }
     #[doc(hidden)]
     pub fn IMidiTimeCodeMessageFactory<R, F: FnOnce(&IMidiTimeCodeMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiTimeCodeMessage, IMidiTimeCodeMessageFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MidiTimeCodeMessage, IMidiTimeCodeMessageFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2740,7 +2740,7 @@ impl ::core::fmt::Debug for MidiTimeCodeMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiTimeCodeMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTimeCodeMessage;{0bf7087d-fa63-4a1c-8deb-c0e87796a6d7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTimeCodeMessage;{0bf7087d-fa63-4a1c-8deb-c0e87796a6d7})");
 }
 impl ::core::clone::Clone for MidiTimeCodeMessage {
     fn clone(&self) -> Self {
@@ -2756,7 +2756,7 @@ unsafe impl ::windows::core::Interface for MidiTimeCodeMessage {
 impl ::windows::core::RuntimeName for MidiTimeCodeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimeCodeMessage";
 }
-::windows::core::interface_hierarchy!(MidiTimeCodeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiTimeCodeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiTimeCodeMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiTimeCodeMessage) -> ::windows::core::Result<Self> {
@@ -2785,8 +2785,8 @@ impl MidiTimingClockMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiTimingClockMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MidiTimingClockMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2827,7 +2827,7 @@ impl ::core::fmt::Debug for MidiTimingClockMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiTimingClockMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTimingClockMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTimingClockMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
 impl ::core::clone::Clone for MidiTimingClockMessage {
     fn clone(&self) -> Self {
@@ -2843,7 +2843,7 @@ unsafe impl ::windows::core::Interface for MidiTimingClockMessage {
 impl ::windows::core::RuntimeName for MidiTimingClockMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimingClockMessage";
 }
-::windows::core::interface_hierarchy!(MidiTimingClockMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiTimingClockMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiTimingClockMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiTimingClockMessage) -> ::windows::core::Result<Self> {
@@ -2872,8 +2872,8 @@ impl MidiTuneRequestMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MidiTuneRequestMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MidiTuneRequestMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2914,7 +2914,7 @@ impl ::core::fmt::Debug for MidiTuneRequestMessage {
     }
 }
 impl ::windows::core::RuntimeType for MidiTuneRequestMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTuneRequestMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTuneRequestMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
 }
 impl ::core::clone::Clone for MidiTuneRequestMessage {
     fn clone(&self) -> Self {
@@ -2930,7 +2930,7 @@ unsafe impl ::windows::core::Interface for MidiTuneRequestMessage {
 impl ::windows::core::RuntimeName for MidiTuneRequestMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTuneRequestMessage";
 }
-::windows::core::interface_hierarchy!(MidiTuneRequestMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MidiTuneRequestMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiTuneRequestMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiTuneRequestMessage) -> ::windows::core::Result<Self> {
@@ -2998,7 +2998,7 @@ impl ::core::fmt::Debug for MidiMessageType {
     }
 }
 impl ::windows::core::RuntimeType for MidiMessageType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

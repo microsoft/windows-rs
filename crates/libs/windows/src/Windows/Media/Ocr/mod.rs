@@ -194,7 +194,7 @@ impl OcrEngine {
     }
     #[doc(hidden)]
     pub fn IOcrEngineStatics<R, F: FnOnce(&IOcrEngineStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<OcrEngine, IOcrEngineStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<OcrEngine, IOcrEngineStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -210,7 +210,7 @@ impl ::core::fmt::Debug for OcrEngine {
     }
 }
 impl ::windows::core::RuntimeType for OcrEngine {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrEngine;{5a14bc41-5b76-3140-b680-8825562683ac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrEngine;{5a14bc41-5b76-3140-b680-8825562683ac})");
 }
 impl ::core::clone::Clone for OcrEngine {
     fn clone(&self) -> Self {
@@ -226,7 +226,7 @@ unsafe impl ::windows::core::Interface for OcrEngine {
 impl ::windows::core::RuntimeName for OcrEngine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrEngine";
 }
-::windows::core::interface_hierarchy!(OcrEngine, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OcrEngine, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OcrEngine {}
 unsafe impl ::core::marker::Sync for OcrEngine {}
 #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -262,7 +262,7 @@ impl ::core::fmt::Debug for OcrLine {
     }
 }
 impl ::windows::core::RuntimeType for OcrLine {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrLine;{0043a16f-e31f-3a24-899c-d444bd088124})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrLine;{0043a16f-e31f-3a24-899c-d444bd088124})");
 }
 impl ::core::clone::Clone for OcrLine {
     fn clone(&self) -> Self {
@@ -278,7 +278,7 @@ unsafe impl ::windows::core::Interface for OcrLine {
 impl ::windows::core::RuntimeName for OcrLine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrLine";
 }
-::windows::core::interface_hierarchy!(OcrLine, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OcrLine, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OcrLine {}
 unsafe impl ::core::marker::Sync for OcrLine {}
 #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -323,7 +323,7 @@ impl ::core::fmt::Debug for OcrResult {
     }
 }
 impl ::windows::core::RuntimeType for OcrResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrResult;{9bd235b2-175b-3d6a-92e2-388c206e2f63})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrResult;{9bd235b2-175b-3d6a-92e2-388c206e2f63})");
 }
 impl ::core::clone::Clone for OcrResult {
     fn clone(&self) -> Self {
@@ -339,7 +339,7 @@ unsafe impl ::windows::core::Interface for OcrResult {
 impl ::windows::core::RuntimeName for OcrResult {
     const NAME: &'static str = "Windows.Media.Ocr.OcrResult";
 }
-::windows::core::interface_hierarchy!(OcrResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OcrResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OcrResult {}
 unsafe impl ::core::marker::Sync for OcrResult {}
 #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -375,7 +375,7 @@ impl ::core::fmt::Debug for OcrWord {
     }
 }
 impl ::windows::core::RuntimeType for OcrWord {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrWord;{3c2a477a-5cd9-3525-ba2a-23d1e0a68a1d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrWord;{3c2a477a-5cd9-3525-ba2a-23d1e0a68a1d})");
 }
 impl ::core::clone::Clone for OcrWord {
     fn clone(&self) -> Self {
@@ -391,7 +391,7 @@ unsafe impl ::windows::core::Interface for OcrWord {
 impl ::windows::core::RuntimeName for OcrWord {
     const NAME: &'static str = "Windows.Media.Ocr.OcrWord";
 }
-::windows::core::interface_hierarchy!(OcrWord, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OcrWord, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OcrWord {}
 unsafe impl ::core::marker::Sync for OcrWord {}
 #[cfg(feature = "implement")]

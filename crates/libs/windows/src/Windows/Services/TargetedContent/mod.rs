@@ -463,7 +463,7 @@ impl ::core::fmt::Debug for TargetedContentAction {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAction;{d75b691e-6cd6-4ca0-9d8f-4728b0b7e6b6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAction;{d75b691e-6cd6-4ca0-9d8f-4728b0b7e6b6})");
 }
 impl ::core::clone::Clone for TargetedContentAction {
     fn clone(&self) -> Self {
@@ -479,7 +479,7 @@ unsafe impl ::windows::core::Interface for TargetedContentAction {
 impl ::windows::core::RuntimeName for TargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAction";
 }
-::windows::core::interface_hierarchy!(TargetedContentAction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentAction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentAction {}
 unsafe impl ::core::marker::Sync for TargetedContentAction {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -508,7 +508,7 @@ impl ::core::fmt::Debug for TargetedContentAvailabilityChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentAvailabilityChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs;{e0f59d26-5927-4450-965c-1ceb7becde65})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs;{e0f59d26-5927-4450-965c-1ceb7becde65})");
 }
 impl ::core::clone::Clone for TargetedContentAvailabilityChangedEventArgs {
     fn clone(&self) -> Self {
@@ -524,7 +524,7 @@ unsafe impl ::windows::core::Interface for TargetedContentAvailabilityChangedEve
 impl ::windows::core::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(TargetedContentAvailabilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentAvailabilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -560,7 +560,7 @@ impl ::core::fmt::Debug for TargetedContentChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentChangedEventArgs;{99d488c9-587e-4586-8ef7-b54ca9453a16})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentChangedEventArgs;{99d488c9-587e-4586-8ef7-b54ca9453a16})");
 }
 impl ::core::clone::Clone for TargetedContentChangedEventArgs {
     fn clone(&self) -> Self {
@@ -576,7 +576,7 @@ unsafe impl ::windows::core::Interface for TargetedContentChangedEventArgs {
 impl ::windows::core::RuntimeName for TargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(TargetedContentChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentChangedEventArgs {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -645,7 +645,7 @@ impl ::core::fmt::Debug for TargetedContentCollection {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentCollection;{2d4b66c5-f163-44ba-9f6e-e1a4c2bb559d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentCollection;{2d4b66c5-f163-44ba-9f6e-e1a4c2bb559d})");
 }
 impl ::core::clone::Clone for TargetedContentCollection {
     fn clone(&self) -> Self {
@@ -661,7 +661,7 @@ unsafe impl ::windows::core::Interface for TargetedContentCollection {
 impl ::windows::core::RuntimeName for TargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentCollection";
 }
-::windows::core::interface_hierarchy!(TargetedContentCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentCollection {}
 unsafe impl ::core::marker::Sync for TargetedContentCollection {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -715,7 +715,7 @@ impl TargetedContentContainer {
     }
     #[doc(hidden)]
     pub fn ITargetedContentContainerStatics<R, F: FnOnce(&ITargetedContentContainerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TargetedContentContainer, ITargetedContentContainerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TargetedContentContainer, ITargetedContentContainerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -731,7 +731,7 @@ impl ::core::fmt::Debug for TargetedContentContainer {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentContainer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentContainer;{bc2494c9-8837-47c2-850f-d79d64595926})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentContainer;{bc2494c9-8837-47c2-850f-d79d64595926})");
 }
 impl ::core::clone::Clone for TargetedContentContainer {
     fn clone(&self) -> Self {
@@ -747,7 +747,7 @@ unsafe impl ::windows::core::Interface for TargetedContentContainer {
 impl ::windows::core::RuntimeName for TargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentContainer";
 }
-::windows::core::interface_hierarchy!(TargetedContentContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentContainer {}
 unsafe impl ::core::marker::Sync for TargetedContentContainer {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Storage_Streams\"`*"]
@@ -782,7 +782,7 @@ impl ::core::fmt::Debug for TargetedContentFile {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeType for TargetedContentFile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentFile;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentFile;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::core::clone::Clone for TargetedContentFile {
@@ -803,7 +803,7 @@ impl ::windows::core::RuntimeName for TargetedContentFile {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentFile";
 }
 #[cfg(feature = "Storage_Streams")]
-::windows::core::interface_hierarchy!(TargetedContentFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
     type Error = ::windows::core::Error;
@@ -870,7 +870,7 @@ impl ::core::fmt::Debug for TargetedContentImage {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentImage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentImage;{a7a585d9-779f-4b1e-bbb1-8eaf53fbeab2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentImage;{a7a585d9-779f-4b1e-bbb1-8eaf53fbeab2})");
 }
 impl ::core::clone::Clone for TargetedContentImage {
     fn clone(&self) -> Self {
@@ -886,7 +886,7 @@ unsafe impl ::windows::core::Interface for TargetedContentImage {
 impl ::windows::core::RuntimeName for TargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentImage";
 }
-::windows::core::interface_hierarchy!(TargetedContentImage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentImage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<TargetedContentImage> for super::super::Storage::Streams::IRandomAccessStreamReference {
     type Error = ::windows::core::Error;
@@ -968,7 +968,7 @@ impl ::core::fmt::Debug for TargetedContentItem {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItem;{38168dc4-276c-4c32-96ba-565c6e406e74})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItem;{38168dc4-276c-4c32-96ba-565c6e406e74})");
 }
 impl ::core::clone::Clone for TargetedContentItem {
     fn clone(&self) -> Self {
@@ -984,7 +984,7 @@ unsafe impl ::windows::core::Interface for TargetedContentItem {
 impl ::windows::core::RuntimeName for TargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItem";
 }
-::windows::core::interface_hierarchy!(TargetedContentItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentItem {}
 unsafe impl ::core::marker::Sync for TargetedContentItem {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1018,7 +1018,7 @@ impl ::core::fmt::Debug for TargetedContentItemState {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentItemState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItemState;{73935454-4c65-4b47-a441-472de53c79b6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItemState;{73935454-4c65-4b47-a441-472de53c79b6})");
 }
 impl ::core::clone::Clone for TargetedContentItemState {
     fn clone(&self) -> Self {
@@ -1034,7 +1034,7 @@ unsafe impl ::windows::core::Interface for TargetedContentItemState {
 impl ::windows::core::RuntimeName for TargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItemState";
 }
-::windows::core::interface_hierarchy!(TargetedContentItemState, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentItemState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentItemState {}
 unsafe impl ::core::marker::Sync for TargetedContentItemState {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1082,7 +1082,7 @@ impl ::core::fmt::Debug for TargetedContentObject {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentObject {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentObject;{041d7969-2212-42d1-9dfa-88a8e3033aa3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentObject;{041d7969-2212-42d1-9dfa-88a8e3033aa3})");
 }
 impl ::core::clone::Clone for TargetedContentObject {
     fn clone(&self) -> Self {
@@ -1098,7 +1098,7 @@ unsafe impl ::windows::core::Interface for TargetedContentObject {
 impl ::windows::core::RuntimeName for TargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentObject";
 }
-::windows::core::interface_hierarchy!(TargetedContentObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentObject {}
 unsafe impl ::core::marker::Sync for TargetedContentObject {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1127,7 +1127,7 @@ impl ::core::fmt::Debug for TargetedContentStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs;{9a1cef3d-8073-4416-8df2-546835a6414f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs;{9a1cef3d-8073-4416-8df2-546835a6414f})");
 }
 impl ::core::clone::Clone for TargetedContentStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1143,7 +1143,7 @@ unsafe impl ::windows::core::Interface for TargetedContentStateChangedEventArgs 
 impl ::windows::core::RuntimeName for TargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(TargetedContentStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentStateChangedEventArgs {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1227,7 +1227,7 @@ impl TargetedContentSubscription {
     }
     #[doc(hidden)]
     pub fn ITargetedContentSubscriptionStatics<R, F: FnOnce(&ITargetedContentSubscriptionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TargetedContentSubscription, ITargetedContentSubscriptionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TargetedContentSubscription, ITargetedContentSubscriptionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1243,7 +1243,7 @@ impl ::core::fmt::Debug for TargetedContentSubscription {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentSubscription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscription;{882c2c49-c652-4c7a-acad-1f7fa2986c73})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscription;{882c2c49-c652-4c7a-acad-1f7fa2986c73})");
 }
 impl ::core::clone::Clone for TargetedContentSubscription {
     fn clone(&self) -> Self {
@@ -1259,7 +1259,7 @@ unsafe impl ::windows::core::Interface for TargetedContentSubscription {
 impl ::windows::core::RuntimeName for TargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscription";
 }
-::windows::core::interface_hierarchy!(TargetedContentSubscription, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentSubscription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentSubscription {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscription {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1319,7 +1319,7 @@ impl ::core::fmt::Debug for TargetedContentSubscriptionOptions {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentSubscriptionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscriptionOptions;{61ee6ad0-2c83-421b-8467-413eaf1aeb97})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscriptionOptions;{61ee6ad0-2c83-421b-8467-413eaf1aeb97})");
 }
 impl ::core::clone::Clone for TargetedContentSubscriptionOptions {
     fn clone(&self) -> Self {
@@ -1335,7 +1335,7 @@ unsafe impl ::windows::core::Interface for TargetedContentSubscriptionOptions {
 impl ::windows::core::RuntimeName for TargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
 }
-::windows::core::interface_hierarchy!(TargetedContentSubscriptionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentSubscriptionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentSubscriptionOptions {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscriptionOptions {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1485,7 +1485,7 @@ impl ::core::fmt::Debug for TargetedContentValue {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentValue;{aafde4b3-4215-4bf8-867f-43f04865f9bf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentValue;{aafde4b3-4215-4bf8-867f-43f04865f9bf})");
 }
 impl ::core::clone::Clone for TargetedContentValue {
     fn clone(&self) -> Self {
@@ -1501,7 +1501,7 @@ unsafe impl ::windows::core::Interface for TargetedContentValue {
 impl ::windows::core::RuntimeName for TargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentValue";
 }
-::windows::core::interface_hierarchy!(TargetedContentValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetedContentValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentValue {}
 unsafe impl ::core::marker::Sync for TargetedContentValue {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1533,7 +1533,7 @@ impl ::core::fmt::Debug for TargetedContentAppInstallationState {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentAppInstallationState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
 }
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
@@ -1564,7 +1564,7 @@ impl ::core::fmt::Debug for TargetedContentAvailability {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentAvailability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
 }
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
@@ -1605,7 +1605,7 @@ impl ::core::fmt::Debug for TargetedContentInteraction {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentInteraction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
 }
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
@@ -1636,7 +1636,7 @@ impl ::core::fmt::Debug for TargetedContentObjectKind {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentObjectKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
 }
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
@@ -1678,7 +1678,7 @@ impl ::core::fmt::Debug for TargetedContentValueKind {
     }
 }
 impl ::windows::core::RuntimeType for TargetedContentValueKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentValueKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentValueKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

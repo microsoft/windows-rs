@@ -94,7 +94,7 @@ impl IToastNotificationManagerStatics3 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IToastNotificationManagerStatics3, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IToastNotificationManagerStatics3, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IToastNotificationManagerStatics3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -107,7 +107,7 @@ impl ::core::fmt::Debug for IToastNotificationManagerStatics3 {
     }
 }
 impl ::windows::core::RuntimeType for IToastNotificationManagerStatics3 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2717f54b-50df-4455-8e6e-41e0fc8e13ce}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2717f54b-50df-4455-8e6e-41e0fc8e13ce}");
 }
 unsafe impl ::windows::core::Vtable for IToastNotificationManagerStatics3 {
     type Vtable = IToastNotificationManagerStatics3_Vtbl;
@@ -136,8 +136,8 @@ impl DualSimTile {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DualSimTile, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DualSimTile, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -249,7 +249,7 @@ impl DualSimTile {
     }
     #[doc(hidden)]
     pub fn IDualSimTileStatics<R, F: FnOnce(&IDualSimTileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DualSimTile, IDualSimTileStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DualSimTile, IDualSimTileStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -265,7 +265,7 @@ impl ::core::fmt::Debug for DualSimTile {
     }
 }
 impl ::windows::core::RuntimeType for DualSimTile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.StartScreen.DualSimTile;{143ab213-d05f-4041-a18c-3e3fcb75b41e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.StartScreen.DualSimTile;{143ab213-d05f-4041-a18c-3e3fcb75b41e})");
 }
 impl ::core::clone::Clone for DualSimTile {
     fn clone(&self) -> Self {
@@ -281,6 +281,6 @@ unsafe impl ::windows::core::Interface for DualSimTile {
 impl ::windows::core::RuntimeName for DualSimTile {
     const NAME: &'static str = "Windows.Phone.StartScreen.DualSimTile";
 }
-::windows::core::interface_hierarchy!(DualSimTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DualSimTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

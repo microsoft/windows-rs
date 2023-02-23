@@ -161,12 +161,12 @@ impl GameService {
     }
     #[doc(hidden)]
     pub fn IGameService<R, F: FnOnce(&IGameService) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameService, IGameService> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameService, IGameService> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGameService2<R, F: FnOnce(&IGameService2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameService, IGameService2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameService, IGameService2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -199,7 +199,7 @@ impl ::core::fmt::Debug for GameServicePropertyCollection {
     }
 }
 impl ::windows::core::RuntimeType for GameServicePropertyCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection;{07e57fc8-debb-4609-9cc8-529d16bc2bd9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection;{07e57fc8-debb-4609-9cc8-529d16bc2bd9})");
 }
 impl ::core::clone::Clone for GameServicePropertyCollection {
     fn clone(&self) -> Self {
@@ -215,7 +215,7 @@ unsafe impl ::windows::core::Interface for GameServicePropertyCollection {
 impl ::windows::core::RuntimeName for GameServicePropertyCollection {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection";
 }
-::windows::core::interface_hierarchy!(GameServicePropertyCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameServicePropertyCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameServicePropertyCollection {}
 unsafe impl ::core::marker::Sync for GameServicePropertyCollection {}
 #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]
@@ -248,7 +248,7 @@ impl ::core::fmt::Debug for GameServiceGameOutcome {
     }
 }
 impl ::windows::core::RuntimeType for GameServiceGameOutcome {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome;i4)");
 }
 #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]
 #[repr(transparent)]
@@ -278,7 +278,7 @@ impl ::core::fmt::Debug for GameServiceScoreKind {
     }
 }
 impl ::windows::core::RuntimeType for GameServiceScoreKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceScoreKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceScoreKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

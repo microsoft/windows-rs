@@ -209,7 +209,7 @@ impl AppCapability {
     }
     #[doc(hidden)]
     pub fn IAppCapabilityStatics<R, F: FnOnce(&IAppCapabilityStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppCapability, IAppCapabilityStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppCapability, IAppCapabilityStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -225,7 +225,7 @@ impl ::core::fmt::Debug for AppCapability {
     }
 }
 impl ::windows::core::RuntimeType for AppCapability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapability;{4c49d915-8a2a-4295-9437-2df7c396aff4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapability;{4c49d915-8a2a-4295-9437-2df7c396aff4})");
 }
 impl ::core::clone::Clone for AppCapability {
     fn clone(&self) -> Self {
@@ -241,7 +241,7 @@ unsafe impl ::windows::core::Interface for AppCapability {
 impl ::windows::core::RuntimeName for AppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapability";
 }
-::windows::core::interface_hierarchy!(AppCapability, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCapability, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCapability {}
 unsafe impl ::core::marker::Sync for AppCapability {}
 #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
@@ -260,7 +260,7 @@ impl ::core::fmt::Debug for AppCapabilityAccessChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppCapabilityAccessChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs;{0a578d15-bdd7-457e-8cca-6f53bd2e5944})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs;{0a578d15-bdd7-457e-8cca-6f53bd2e5944})");
 }
 impl ::core::clone::Clone for AppCapabilityAccessChangedEventArgs {
     fn clone(&self) -> Self {
@@ -276,7 +276,7 @@ unsafe impl ::windows::core::Interface for AppCapabilityAccessChangedEventArgs {
 impl ::windows::core::RuntimeName for AppCapabilityAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCapabilityAccessChangedEventArgs {}
 #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
@@ -310,7 +310,7 @@ impl ::core::fmt::Debug for AppCapabilityAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for AppCapabilityAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

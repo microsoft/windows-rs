@@ -12,7 +12,7 @@ impl IDummyHICONIncluder {
         (::windows::core::Vtable::vtable(self).Dummy)(::windows::core::Vtable::as_raw(self), h1.into(), h2.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDummyHICONIncluder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDummyHICONIncluder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDummyHICONIncluder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -65,7 +65,7 @@ impl IThumbnailExtractor {
         (::windows::core::Vtable::vtable(self).OnFileUpdated)(::windows::core::Vtable::as_raw(self), pstg.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IThumbnailExtractor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IThumbnailExtractor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IThumbnailExtractor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

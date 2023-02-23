@@ -92,7 +92,7 @@ impl ApiInformation {
     }
     #[doc(hidden)]
     pub fn IApiInformationStatics<R, F: FnOnce(&IApiInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApiInformation, IApiInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApiInformation, IApiInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -171,7 +171,7 @@ impl ::core::ops::Not for AttributeTargets {
     }
 }
 impl ::windows::core::RuntimeType for AttributeTargets {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
@@ -201,7 +201,7 @@ impl ::core::fmt::Debug for CompositionType {
     }
 }
 impl ::windows::core::RuntimeType for CompositionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
@@ -231,7 +231,7 @@ impl ::core::fmt::Debug for DeprecationType {
     }
 }
 impl ::windows::core::RuntimeType for DeprecationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
@@ -263,7 +263,7 @@ impl ::core::fmt::Debug for FeatureStage {
     }
 }
 impl ::windows::core::RuntimeType for FeatureStage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
@@ -294,7 +294,7 @@ impl ::core::fmt::Debug for GCPressureAmount {
     }
 }
 impl ::windows::core::RuntimeType for GCPressureAmount {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
@@ -326,7 +326,7 @@ impl ::core::fmt::Debug for MarshalingType {
     }
 }
 impl ::windows::core::RuntimeType for MarshalingType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
@@ -356,7 +356,7 @@ impl ::core::fmt::Debug for Platform {
     }
 }
 impl ::windows::core::RuntimeType for Platform {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
@@ -388,7 +388,7 @@ impl ::core::fmt::Debug for ThreadingModel {
     }
 }
 impl ::windows::core::RuntimeType for ThreadingModel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

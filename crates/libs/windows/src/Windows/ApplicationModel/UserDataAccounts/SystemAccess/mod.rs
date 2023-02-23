@@ -213,8 +213,8 @@ impl DeviceAccountConfiguration {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeviceAccountConfiguration, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DeviceAccountConfiguration, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn AccountName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -733,7 +733,7 @@ impl ::core::fmt::Debug for DeviceAccountConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccountConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration;{ad0123a3-fbdc-4d1b-be43-5a27ea4a1b63})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration;{ad0123a3-fbdc-4d1b-be43-5a27ea4a1b63})");
 }
 impl ::core::clone::Clone for DeviceAccountConfiguration {
     fn clone(&self) -> Self {
@@ -749,7 +749,7 @@ unsafe impl ::windows::core::Interface for DeviceAccountConfiguration {
 impl ::windows::core::RuntimeName for DeviceAccountConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration";
 }
-::windows::core::interface_hierarchy!(DeviceAccountConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeviceAccountConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceAccountConfiguration {}
 unsafe impl ::core::marker::Sync for DeviceAccountConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
@@ -801,12 +801,12 @@ impl UserDataAccountSystemAccessManager {
     }
     #[doc(hidden)]
     pub fn IUserDataAccountSystemAccessManagerStatics<R, F: FnOnce(&IUserDataAccountSystemAccessManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserDataAccountSystemAccessManager, IUserDataAccountSystemAccessManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserDataAccountSystemAccessManager, IUserDataAccountSystemAccessManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IUserDataAccountSystemAccessManagerStatics2<R, F: FnOnce(&IUserDataAccountSystemAccessManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserDataAccountSystemAccessManager, IUserDataAccountSystemAccessManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserDataAccountSystemAccessManager, IUserDataAccountSystemAccessManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -842,7 +842,7 @@ impl ::core::fmt::Debug for DeviceAccountAuthenticationType {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccountAuthenticationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
@@ -874,7 +874,7 @@ impl ::core::fmt::Debug for DeviceAccountIconId {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccountIconId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
@@ -909,7 +909,7 @@ impl ::core::fmt::Debug for DeviceAccountMailAgeFilter {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccountMailAgeFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
@@ -940,7 +940,7 @@ impl ::core::fmt::Debug for DeviceAccountServerType {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccountServerType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
@@ -975,7 +975,7 @@ impl ::core::fmt::Debug for DeviceAccountSyncScheduleKind {
     }
 }
 impl ::windows::core::RuntimeType for DeviceAccountSyncScheduleKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn AddLogContainer ( hlog : super::super::Foundation:: HANDLE , pcbcontainer : *const u64 , pwszcontainerpath : :: windows::core::PCWSTR , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn AddLogContainer ( hlog : super::super::Foundation:: HANDLE , pcbcontainer : *const u64 , pwszcontainerpath : :: windows::core::PCWSTR , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     AddLogContainer(hlog.into(), ::core::mem::transmute(pcbcontainer.unwrap_or(::std::ptr::null())), pwszcontainerpath.into().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -16,7 +16,7 @@ pub unsafe fn AddLogContainerSet<P0>(hlog: P0, pcbcontainer: ::core::option::Opt
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn AddLogContainerSet ( hlog : super::super::Foundation:: HANDLE , ccontainer : u16 , pcbcontainer : *const u64 , rgwszcontainerpath : *const :: windows::core::PCWSTR , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn AddLogContainerSet ( hlog : super::super::Foundation:: HANDLE , ccontainer : u16 , pcbcontainer : *const u64 , rgwszcontainerpath : *const :: windows::core::PCWSTR , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     AddLogContainerSet(hlog.into(), rgwszcontainerpath.len() as _, ::core::mem::transmute(pcbcontainer.unwrap_or(::std::ptr::null())), ::core::mem::transmute(rgwszcontainerpath.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
@@ -26,35 +26,35 @@ pub unsafe fn AddUsersToEncryptedFile<P0>(lpfilename: P0, pencryptioncertificate
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AddUsersToEncryptedFile ( lpfilename : :: windows::core::PCWSTR , pencryptioncertificates : *const ENCRYPTION_CERTIFICATE_LIST ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AddUsersToEncryptedFile ( lpfilename : :: windows::core::PCWSTR , pencryptioncertificates : *const ENCRYPTION_CERTIFICATE_LIST ) -> u32 );
     AddUsersToEncryptedFile(lpfilename.into().abi(), pencryptioncertificates)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn AdvanceLogBase ( pvmarshal : *mut ::core::ffi::c_void , plsnbase : *mut CLS_LSN , fflags : u32 , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn AdvanceLogBase ( pvmarshal : *mut ::core::ffi::c_void , plsnbase : *mut CLS_LSN , fflags : u32 , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     AdvanceLogBase(pvmarshal, plsnbase, fflags, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn AlignReservedLog ( pvmarshal : *mut ::core::ffi::c_void , creservedrecords : u32 , rgcbreservation : *mut i64 , pcbalignreservation : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn AlignReservedLog ( pvmarshal : *mut ::core::ffi::c_void , creservedrecords : u32 , rgcbreservation : *mut i64 , pcbalignreservation : *mut i64 ) -> super::super::Foundation:: BOOL );
     AlignReservedLog(pvmarshal, creservedrecords, rgcbreservation, pcbalignreservation)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn AllocReservedLog ( pvmarshal : *mut ::core::ffi::c_void , creservedrecords : u32 , pcbadjustment : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn AllocReservedLog ( pvmarshal : *mut ::core::ffi::c_void , creservedrecords : u32 , pcbadjustment : *mut i64 ) -> super::super::Foundation:: BOOL );
     AllocReservedLog(pvmarshal, creservedrecords, pcbadjustment)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AreFileApisANSI ( ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AreFileApisANSI ( ) -> super::super::Foundation:: BOOL );
     AreFileApisANSI()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -64,7 +64,7 @@ pub unsafe fn AreShortNamesEnabled<P0>(handle: P0, enabled: *mut super::super::F
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AreShortNamesEnabled ( handle : super::super::Foundation:: HANDLE , enabled : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AreShortNamesEnabled ( handle : super::super::Foundation:: HANDLE , enabled : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     AreShortNamesEnabled(handle.into(), enabled)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -76,7 +76,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn BackupRead ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *mut u8 , nnumberofbytestoread : u32 , lpnumberofbytesread : *mut u32 , babort : super::super::Foundation:: BOOL , bprocesssecurity : super::super::Foundation:: BOOL , lpcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn BackupRead ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *mut u8 , nnumberofbytestoread : u32 , lpnumberofbytesread : *mut u32 , babort : super::super::Foundation:: BOOL , bprocesssecurity : super::super::Foundation:: BOOL , lpcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     BackupRead(hfile.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofbytesread, babort.into(), bprocesssecurity.into(), lpcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -86,7 +86,7 @@ pub unsafe fn BackupSeek<P0>(hfile: P0, dwlowbytestoseek: u32, dwhighbytestoseek
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn BackupSeek ( hfile : super::super::Foundation:: HANDLE , dwlowbytestoseek : u32 , dwhighbytestoseek : u32 , lpdwlowbyteseeked : *mut u32 , lpdwhighbyteseeked : *mut u32 , lpcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn BackupSeek ( hfile : super::super::Foundation:: HANDLE , dwlowbytestoseek : u32 , dwhighbytestoseek : u32 , lpdwlowbyteseeked : *mut u32 , lpdwhighbyteseeked : *mut u32 , lpcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     BackupSeek(hfile.into(), dwlowbytestoseek, dwhighbytestoseek, lpdwlowbyteseeked, lpdwhighbyteseeked, lpcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -98,34 +98,34 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn BackupWrite ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const u8 , nnumberofbytestowrite : u32 , lpnumberofbyteswritten : *mut u32 , babort : super::super::Foundation:: BOOL , bprocesssecurity : super::super::Foundation:: BOOL , lpcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn BackupWrite ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const u8 , nnumberofbytestowrite : u32 , lpnumberofbyteswritten : *mut u32 , babort : super::super::Foundation:: BOOL , bprocesssecurity : super::super::Foundation:: BOOL , lpcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     BackupWrite(hfile.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofbyteswritten, babort.into(), bprocesssecurity.into(), lpcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildIoRingCancelRequest(ioring: *const HIORING__, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn BuildIoRingCancelRequest ( ioring : *const HIORING__ , file : IORING_HANDLE_REF , optocancel : usize , userdata : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn BuildIoRingCancelRequest ( ioring : *const HIORING__ , file : IORING_HANDLE_REF , optocancel : usize , userdata : usize ) -> :: windows::core::HRESULT );
     BuildIoRingCancelRequest(ioring, ::core::mem::transmute(file), optocancel, userdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildIoRingReadFile(ioring: *const HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn BuildIoRingReadFile ( ioring : *const HIORING__ , fileref : IORING_HANDLE_REF , dataref : IORING_BUFFER_REF , numberofbytestoread : u32 , fileoffset : u64 , userdata : usize , flags : IORING_SQE_FLAGS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn BuildIoRingReadFile ( ioring : *const HIORING__ , fileref : IORING_HANDLE_REF , dataref : IORING_BUFFER_REF , numberofbytestoread : u32 , fileoffset : u64 , userdata : usize , flags : IORING_SQE_FLAGS ) -> :: windows::core::HRESULT );
     BuildIoRingReadFile(ioring, ::core::mem::transmute(fileref), ::core::mem::transmute(dataref), numberofbytestoread, fileoffset, userdata, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, buffers: &[IORING_BUFFER_INFO], userdata: usize) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn BuildIoRingRegisterBuffers ( ioring : *const HIORING__ , count : u32 , buffers : *const IORING_BUFFER_INFO , userdata : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn BuildIoRingRegisterBuffers ( ioring : *const HIORING__ , count : u32 , buffers : *const IORING_BUFFER_INFO , userdata : usize ) -> :: windows::core::HRESULT );
     BuildIoRingRegisterBuffers(ioring, buffers.len() as _, ::core::mem::transmute(buffers.as_ptr()), userdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, handles: &[super::super::Foundation::HANDLE], userdata: usize) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn BuildIoRingRegisterFileHandles ( ioring : *const HIORING__ , count : u32 , handles : *const super::super::Foundation:: HANDLE , userdata : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn BuildIoRingRegisterFileHandles ( ioring : *const HIORING__ , count : u32 , handles : *const super::super::Foundation:: HANDLE , userdata : usize ) -> :: windows::core::HRESULT );
     BuildIoRingRegisterFileHandles(ioring, handles.len() as _, ::core::mem::transmute(handles.as_ptr()), userdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -135,7 +135,7 @@ pub unsafe fn CheckNameLegalDOS8Dot3A<P0>(lpname: P0, lpoemname: ::core::option:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CheckNameLegalDOS8Dot3A ( lpname : :: windows::core::PCSTR , lpoemname : :: windows::core::PSTR , oemnamesize : u32 , pbnamecontainsspaces : *mut super::super::Foundation:: BOOL , pbnamelegal : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CheckNameLegalDOS8Dot3A ( lpname : :: windows::core::PCSTR , lpoemname : :: windows::core::PSTR , oemnamesize : u32 , pbnamecontainsspaces : *mut super::super::Foundation:: BOOL , pbnamelegal : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     CheckNameLegalDOS8Dot3A(lpname.into().abi(), ::core::mem::transmute(lpoemname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbnamecontainsspaces.unwrap_or(::std::ptr::null_mut())), pbnamelegal)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -145,7 +145,7 @@ pub unsafe fn CheckNameLegalDOS8Dot3W<P0>(lpname: P0, lpoemname: ::core::option:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CheckNameLegalDOS8Dot3W ( lpname : :: windows::core::PCWSTR , lpoemname : :: windows::core::PSTR , oemnamesize : u32 , pbnamecontainsspaces : *mut super::super::Foundation:: BOOL , pbnamelegal : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CheckNameLegalDOS8Dot3W ( lpname : :: windows::core::PCWSTR , lpoemname : :: windows::core::PSTR , oemnamesize : u32 , pbnamecontainsspaces : *mut super::super::Foundation:: BOOL , pbnamelegal : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     CheckNameLegalDOS8Dot3W(lpname.into().abi(), ::core::mem::transmute(lpoemname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbnamecontainsspaces.unwrap_or(::std::ptr::null_mut())), pbnamelegal)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -155,19 +155,19 @@ pub unsafe fn CloseAndResetLogFile<P0>(hlog: P0) -> super::super::Foundation::BO
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn CloseAndResetLogFile ( hlog : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn CloseAndResetLogFile ( hlog : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CloseAndResetLogFile(hlog.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void) {
-    ::windows::core::link ! ( "advapi32.dll""system" fn CloseEncryptedFileRaw ( pvcontext : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn CloseEncryptedFileRaw ( pvcontext : *const ::core::ffi::c_void ) -> ( ) );
     CloseEncryptedFileRaw(pvcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn CloseIoRing ( ioring : *const HIORING__ ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn CloseIoRing ( ioring : *const HIORING__ ) -> :: windows::core::HRESULT );
     CloseIoRing(ioring).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -177,7 +177,7 @@ pub unsafe fn CommitComplete<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn CommitComplete ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn CommitComplete ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     CommitComplete(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -187,7 +187,7 @@ pub unsafe fn CommitEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i6
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn CommitEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn CommitEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     CommitEnlistment(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -197,7 +197,7 @@ pub unsafe fn CommitTransaction<P0>(transactionhandle: P0) -> super::super::Foun
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn CommitTransaction ( transactionhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn CommitTransaction ( transactionhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CommitTransaction(transactionhandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -207,14 +207,14 @@ pub unsafe fn CommitTransactionAsync<P0>(transactionhandle: P0) -> super::super:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn CommitTransactionAsync ( transactionhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn CommitTransactionAsync ( transactionhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CommitTransactionAsync(transactionhandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompareFileTime(lpfiletime1: *const super::super::Foundation::FILETIME, lpfiletime2: *const super::super::Foundation::FILETIME) -> i32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CompareFileTime ( lpfiletime1 : *const super::super::Foundation:: FILETIME , lpfiletime2 : *const super::super::Foundation:: FILETIME ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CompareFileTime ( lpfiletime1 : *const super::super::Foundation:: FILETIME , lpfiletime2 : *const super::super::Foundation:: FILETIME ) -> i32 );
     CompareFileTime(lpfiletime1, lpfiletime2)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -225,7 +225,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CopyFile2 ( pwszexistingfilename : :: windows::core::PCWSTR , pwsznewfilename : :: windows::core::PCWSTR , pextendedparameters : *const COPYFILE2_EXTENDED_PARAMETERS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CopyFile2 ( pwszexistingfilename : :: windows::core::PCWSTR , pwsznewfilename : :: windows::core::PCWSTR , pextendedparameters : *const COPYFILE2_EXTENDED_PARAMETERS ) -> :: windows::core::HRESULT );
     CopyFile2(pwszexistingfilename.into().abi(), pwsznewfilename.into().abi(), ::core::mem::transmute(pextendedparameters.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -237,7 +237,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CopyFileA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , bfailifexists : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CopyFileA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , bfailifexists : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     CopyFileA(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), bfailifexists.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -248,7 +248,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CopyFileExA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , pbcancel : *mut i32 , dwcopyflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CopyFileExA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , pbcancel : *mut i32 , dwcopyflags : u32 ) -> super::super::Foundation:: BOOL );
     CopyFileExA(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbcancel.unwrap_or(::std::ptr::null_mut())), dwcopyflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -259,7 +259,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CopyFileExW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , pbcancel : *mut i32 , dwcopyflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CopyFileExW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , pbcancel : *mut i32 , dwcopyflags : u32 ) -> super::super::Foundation:: BOOL );
     CopyFileExW(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbcancel.unwrap_or(::std::ptr::null_mut())), dwcopyflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -271,7 +271,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn CopyFileFromAppW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , bfailifexists : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn CopyFileFromAppW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , bfailifexists : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     CopyFileFromAppW(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), bfailifexists.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -283,7 +283,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CopyFileTransactedA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , pbcancel : *const i32 , dwcopyflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CopyFileTransactedA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , pbcancel : *const i32 , dwcopyflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CopyFileTransactedA(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbcancel.unwrap_or(::std::ptr::null())), dwcopyflags, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -295,7 +295,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CopyFileTransactedW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , pbcancel : *const i32 , dwcopyflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CopyFileTransactedW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , pbcancel : *const i32 , dwcopyflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CopyFileTransactedW(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbcancel.unwrap_or(::std::ptr::null())), dwcopyflags, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -307,13 +307,13 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CopyFileW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , bfailifexists : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CopyFileW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , bfailifexists : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     CopyFileW(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), bfailifexists.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CopyLZFile ( hfsource : i32 , hfdest : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CopyLZFile ( hfsource : i32 , hfdest : i32 ) -> i32 );
     CopyLZFile(hfsource, hfdest)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -323,7 +323,7 @@ pub unsafe fn CreateDirectoryA<P0>(lppathname: P0, lpsecurityattributes: ::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateDirectoryA ( lppathname : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateDirectoryA ( lppathname : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     CreateDirectoryA(lppathname.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -334,7 +334,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateDirectoryExA ( lptemplatedirectory : :: windows::core::PCSTR , lpnewdirectory : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateDirectoryExA ( lptemplatedirectory : :: windows::core::PCSTR , lpnewdirectory : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     CreateDirectoryExA(lptemplatedirectory.into().abi(), lpnewdirectory.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -345,7 +345,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateDirectoryExW ( lptemplatedirectory : :: windows::core::PCWSTR , lpnewdirectory : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateDirectoryExW ( lptemplatedirectory : :: windows::core::PCWSTR , lpnewdirectory : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     CreateDirectoryExW(lptemplatedirectory.into().abi(), lpnewdirectory.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -355,7 +355,7 @@ pub unsafe fn CreateDirectoryFromAppW<P0>(lppathname: P0, lpsecurityattributes: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn CreateDirectoryFromAppW ( lppathname : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn CreateDirectoryFromAppW ( lppathname : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     CreateDirectoryFromAppW(lppathname.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -367,7 +367,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateDirectoryTransactedA ( lptemplatedirectory : :: windows::core::PCSTR , lpnewdirectory : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateDirectoryTransactedA ( lptemplatedirectory : :: windows::core::PCSTR , lpnewdirectory : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CreateDirectoryTransactedA(lptemplatedirectory.into().abi(), lpnewdirectory.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -379,7 +379,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateDirectoryTransactedW ( lptemplatedirectory : :: windows::core::PCWSTR , lpnewdirectory : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateDirectoryTransactedW ( lptemplatedirectory : :: windows::core::PCWSTR , lpnewdirectory : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CreateDirectoryTransactedW(lptemplatedirectory.into().abi(), lpnewdirectory.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -389,7 +389,7 @@ pub unsafe fn CreateDirectoryW<P0>(lppathname: P0, lpsecurityattributes: ::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateDirectoryW ( lppathname : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateDirectoryW ( lppathname : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     CreateDirectoryW(lppathname.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -400,9 +400,9 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn CreateEnlistment ( lpenlistmentattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES , resourcemanagerhandle : super::super::Foundation:: HANDLE , transactionhandle : super::super::Foundation:: HANDLE , notificationmask : u32 , createoptions : u32 , enlistmentkey : *mut ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn CreateEnlistment ( lpenlistmentattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES , resourcemanagerhandle : super::super::Foundation:: HANDLE , transactionhandle : super::super::Foundation:: HANDLE , notificationmask : u32 , createoptions : u32 , enlistmentkey : *mut ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateEnlistment(lpenlistmentattributes, resourcemanagerhandle.into(), transactionhandle.into(), notificationmask, createoptions, enlistmentkey);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -411,9 +411,9 @@ pub unsafe fn CreateFile2<P0>(lpfilename: P0, dwdesiredaccess: FILE_ACCESS_FLAGS
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateFile2 ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , dwcreationdisposition : FILE_CREATION_DISPOSITION , pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFile2 ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , dwcreationdisposition : FILE_CREATION_DISPOSITION , pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFile2(lpfilename.into().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, ::core::mem::transmute(pcreateexparams.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -422,7 +422,7 @@ pub unsafe fn CreateFile2FromAppW<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsh
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn CreateFile2FromAppW ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , dwcreationdisposition : u32 , pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn CreateFile2FromAppW ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , dwcreationdisposition : u32 , pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS ) -> super::super::Foundation:: HANDLE );
     CreateFile2FromAppW(lpfilename.into().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, ::core::mem::transmute(pcreateexparams.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -433,9 +433,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateFileA ( lpfilename : :: windows::core::PCSTR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileA ( lpfilename : :: windows::core::PCSTR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileA(lpfilename.into().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -445,7 +445,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn CreateFileFromAppW ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : u32 , dwflagsandattributes : u32 , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn CreateFileFromAppW ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : u32 , dwflagsandattributes : u32 , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
     CreateFileFromAppW(lpfilename.into().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -457,9 +457,9 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateFileTransactedA ( lpfilename : :: windows::core::PCSTR , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE , htransaction : super::super::Foundation:: HANDLE , pusminiversion : *const TXFS_MINIVERSION , lpextendedparameter : *const ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileTransactedA ( lpfilename : :: windows::core::PCSTR , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE , htransaction : super::super::Foundation:: HANDLE , pusminiversion : *const TXFS_MINIVERSION , lpextendedparameter : *const ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileTransactedA(lpfilename.into().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpextendedparameter.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -470,9 +470,9 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateFileTransactedW ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE , htransaction : super::super::Foundation:: HANDLE , pusminiversion : *const TXFS_MINIVERSION , lpextendedparameter : *const ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileTransactedW ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE , htransaction : super::super::Foundation:: HANDLE , pusminiversion : *const TXFS_MINIVERSION , lpextendedparameter : *const ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileTransactedW(lpfilename.into().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpextendedparameter.unwrap_or(::std::ptr::null())));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -482,9 +482,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateFileW ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateFileW ( lpfilename : :: windows::core::PCWSTR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileW(lpfilename.into().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -494,7 +494,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateHardLinkA ( lpfilename : :: windows::core::PCSTR , lpexistingfilename : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateHardLinkA ( lpfilename : :: windows::core::PCSTR , lpexistingfilename : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     CreateHardLinkA(lpfilename.into().abi(), lpexistingfilename.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -506,7 +506,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateHardLinkTransactedA ( lpfilename : :: windows::core::PCSTR , lpexistingfilename : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateHardLinkTransactedA ( lpfilename : :: windows::core::PCSTR , lpexistingfilename : :: windows::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CreateHardLinkTransactedA(lpfilename.into().abi(), lpexistingfilename.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -518,7 +518,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateHardLinkTransactedW ( lpfilename : :: windows::core::PCWSTR , lpexistingfilename : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateHardLinkTransactedW ( lpfilename : :: windows::core::PCWSTR , lpexistingfilename : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CreateHardLinkTransactedW(lpfilename.into().abi(), lpexistingfilename.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -529,13 +529,13 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateHardLinkW ( lpfilename : :: windows::core::PCWSTR , lpexistingfilename : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateHardLinkW ( lpfilename : :: windows::core::PCWSTR , lpexistingfilename : :: windows::core::PCWSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     CreateHardLinkW(lpfilename.into().abi(), lpexistingfilename.into().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows::core::Result<*mut HIORING__> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn CreateIoRing ( ioringversion : IORING_VERSION , flags : IORING_CREATE_FLAGS , submissionqueuesize : u32 , completionqueuesize : u32 , h : *mut *mut HIORING__ ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn CreateIoRing ( ioringversion : IORING_VERSION , flags : IORING_CREATE_FLAGS , submissionqueuesize : u32 , completionqueuesize : u32 , h : *mut *mut HIORING__ ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut HIORING__>();
     CreateIoRing(ioringversion, ::core::mem::transmute(flags), submissionqueuesize, completionqueuesize, &mut result__).from_abi(result__)
 }
@@ -546,7 +546,7 @@ pub unsafe fn CreateLogContainerScanContext<P0>(hlog: P0, cfromcontainer: u32, c
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn CreateLogContainerScanContext ( hlog : super::super::Foundation:: HANDLE , cfromcontainer : u32 , ccontainers : u32 , escanmode : u8 , pcxscan : *mut CLS_SCAN_CONTEXT , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn CreateLogContainerScanContext ( hlog : super::super::Foundation:: HANDLE , cfromcontainer : u32 , ccontainers : u32 , escanmode : u8 , pcxscan : *mut CLS_SCAN_CONTEXT , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     CreateLogContainerScanContext(hlog.into(), cfromcontainer, ccontainers, escanmode, pcxscan, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -556,9 +556,9 @@ pub unsafe fn CreateLogFile<P0>(pszlogfilename: P0, fdesiredaccess: FILE_ACCESS_
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn CreateLogFile ( pszlogfilename : :: windows::core::PCWSTR , fdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES , fcreatedisposition : FILE_CREATION_DISPOSITION , fflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn CreateLogFile ( pszlogfilename : :: windows::core::PCWSTR , fdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES , fcreatedisposition : FILE_CREATION_DISPOSITION , fflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateLogFile(pszlogfilename.into().abi(), fdesiredaccess, dwsharemode, psalogfile, fcreatedisposition, fflagsandattributes);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -567,7 +567,7 @@ pub unsafe fn CreateLogMarshallingArea<P0>(hlog: P0, pfnallocbuffer: CLFS_BLOCK_
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn CreateLogMarshallingArea ( hlog : super::super::Foundation:: HANDLE , pfnallocbuffer : CLFS_BLOCK_ALLOCATION , pfnfreebuffer : CLFS_BLOCK_DEALLOCATION , pvblockalloccontext : *mut ::core::ffi::c_void , cbmarshallingbuffer : u32 , cmaxwritebuffers : u32 , cmaxreadbuffers : u32 , ppvmarshal : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn CreateLogMarshallingArea ( hlog : super::super::Foundation:: HANDLE , pfnallocbuffer : CLFS_BLOCK_ALLOCATION , pfnfreebuffer : CLFS_BLOCK_DEALLOCATION , pvblockalloccontext : *mut ::core::ffi::c_void , cbmarshallingbuffer : u32 , cmaxwritebuffers : u32 , cmaxreadbuffers : u32 , ppvmarshal : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     CreateLogMarshallingArea(hlog.into(), pfnallocbuffer, pfnfreebuffer, pvblockalloccontext, cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ppvmarshal)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -578,9 +578,9 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn CreateResourceManager ( lpresourcemanagerattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES , resourcemanagerid : *mut :: windows::core::GUID , createoptions : u32 , tmhandle : super::super::Foundation:: HANDLE , description : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn CreateResourceManager ( lpresourcemanagerattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES , resourcemanagerid : *mut :: windows::core::GUID , createoptions : u32 , tmhandle : super::super::Foundation:: HANDLE , description : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateResourceManager(lpresourcemanagerattributes, resourcemanagerid, createoptions, tmhandle.into(), description.into().abi());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -590,7 +590,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateSymbolicLinkA ( lpsymlinkfilename : :: windows::core::PCSTR , lptargetfilename : :: windows::core::PCSTR , dwflags : SYMBOLIC_LINK_FLAGS ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateSymbolicLinkA ( lpsymlinkfilename : :: windows::core::PCSTR , lptargetfilename : :: windows::core::PCSTR , dwflags : SYMBOLIC_LINK_FLAGS ) -> super::super::Foundation:: BOOLEAN );
     CreateSymbolicLinkA(lpsymlinkfilename.into().abi(), lptargetfilename.into().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -602,7 +602,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateSymbolicLinkTransactedA ( lpsymlinkfilename : :: windows::core::PCSTR , lptargetfilename : :: windows::core::PCSTR , dwflags : SYMBOLIC_LINK_FLAGS , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateSymbolicLinkTransactedA ( lpsymlinkfilename : :: windows::core::PCSTR , lptargetfilename : :: windows::core::PCSTR , dwflags : SYMBOLIC_LINK_FLAGS , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOLEAN );
     CreateSymbolicLinkTransactedA(lpsymlinkfilename.into().abi(), lptargetfilename.into().abi(), dwflags, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -614,7 +614,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateSymbolicLinkTransactedW ( lpsymlinkfilename : :: windows::core::PCWSTR , lptargetfilename : :: windows::core::PCWSTR , dwflags : SYMBOLIC_LINK_FLAGS , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateSymbolicLinkTransactedW ( lpsymlinkfilename : :: windows::core::PCWSTR , lptargetfilename : :: windows::core::PCWSTR , dwflags : SYMBOLIC_LINK_FLAGS , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOLEAN );
     CreateSymbolicLinkTransactedW(lpsymlinkfilename.into().abi(), lptargetfilename.into().abi(), dwflags, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -625,7 +625,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateSymbolicLinkW ( lpsymlinkfilename : :: windows::core::PCWSTR , lptargetfilename : :: windows::core::PCWSTR , dwflags : SYMBOLIC_LINK_FLAGS ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateSymbolicLinkW ( lpsymlinkfilename : :: windows::core::PCWSTR , lptargetfilename : :: windows::core::PCWSTR , dwflags : SYMBOLIC_LINK_FLAGS ) -> super::super::Foundation:: BOOLEAN );
     CreateSymbolicLinkW(lpsymlinkfilename.into().abi(), lptargetfilename.into().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -635,7 +635,7 @@ pub unsafe fn CreateTapePartition<P0>(hdevice: P0, dwpartitionmethod: CREATE_TAP
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateTapePartition ( hdevice : super::super::Foundation:: HANDLE , dwpartitionmethod : CREATE_TAPE_PARTITION_METHOD , dwcount : u32 , dwsize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateTapePartition ( hdevice : super::super::Foundation:: HANDLE , dwpartitionmethod : CREATE_TAPE_PARTITION_METHOD , dwcount : u32 , dwsize : u32 ) -> u32 );
     CreateTapePartition(hdevice.into(), dwpartitionmethod, dwcount, dwsize)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -645,9 +645,9 @@ pub unsafe fn CreateTransaction<P0>(lptransactionattributes: *mut super::super::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn CreateTransaction ( lptransactionattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES , uow : *mut :: windows::core::GUID , createoptions : u32 , isolationlevel : u32 , isolationflags : u32 , timeout : u32 , description : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn CreateTransaction ( lptransactionattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES , uow : *mut :: windows::core::GUID , createoptions : u32 , isolationlevel : u32 , isolationflags : u32 , timeout : u32 , description : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateTransaction(lptransactionattributes, uow, createoptions, isolationlevel, isolationflags, timeout, description.into().abi());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -656,9 +656,9 @@ pub unsafe fn CreateTransactionManager<P0>(lptransactionattributes: *mut super::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn CreateTransactionManager ( lptransactionattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES , logfilename : :: windows::core::PCWSTR , createoptions : u32 , commitstrength : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn CreateTransactionManager ( lptransactionattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES , logfilename : :: windows::core::PCWSTR , createoptions : u32 , commitstrength : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateTransactionManager(lptransactionattributes, logfilename.into().abi(), createoptions, commitstrength);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -667,7 +667,7 @@ pub unsafe fn DecryptFileA<P0>(lpfilename: P0, dwreserved: u32) -> super::super:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn DecryptFileA ( lpfilename : :: windows::core::PCSTR , dwreserved : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn DecryptFileA ( lpfilename : :: windows::core::PCSTR , dwreserved : u32 ) -> super::super::Foundation:: BOOL );
     DecryptFileA(lpfilename.into().abi(), dwreserved)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -677,7 +677,7 @@ pub unsafe fn DecryptFileW<P0>(lpfilename: P0, dwreserved: u32) -> super::super:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn DecryptFileW ( lpfilename : :: windows::core::PCWSTR , dwreserved : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn DecryptFileW ( lpfilename : :: windows::core::PCWSTR , dwreserved : u32 ) -> super::super::Foundation:: BOOL );
     DecryptFileW(lpfilename.into().abi(), dwreserved)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -688,7 +688,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DefineDosDeviceA ( dwflags : DEFINE_DOS_DEVICE_FLAGS , lpdevicename : :: windows::core::PCSTR , lptargetpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DefineDosDeviceA ( dwflags : DEFINE_DOS_DEVICE_FLAGS , lpdevicename : :: windows::core::PCSTR , lptargetpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     DefineDosDeviceA(dwflags, lpdevicename.into().abi(), lptargetpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -699,7 +699,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DefineDosDeviceW ( dwflags : DEFINE_DOS_DEVICE_FLAGS , lpdevicename : :: windows::core::PCWSTR , lptargetpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DefineDosDeviceW ( dwflags : DEFINE_DOS_DEVICE_FLAGS , lpdevicename : :: windows::core::PCWSTR , lptargetpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     DefineDosDeviceW(dwflags, lpdevicename.into().abi(), lptargetpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -709,7 +709,7 @@ pub unsafe fn DeleteFileA<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DeleteFileA ( lpfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DeleteFileA ( lpfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     DeleteFileA(lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -719,7 +719,7 @@ pub unsafe fn DeleteFileFromAppW<P0>(lpfilename: P0) -> super::super::Foundation
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn DeleteFileFromAppW ( lpfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn DeleteFileFromAppW ( lpfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     DeleteFileFromAppW(lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -730,7 +730,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DeleteFileTransactedA ( lpfilename : :: windows::core::PCSTR , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DeleteFileTransactedA ( lpfilename : :: windows::core::PCSTR , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     DeleteFileTransactedA(lpfilename.into().abi(), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -741,7 +741,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DeleteFileTransactedW ( lpfilename : :: windows::core::PCWSTR , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DeleteFileTransactedW ( lpfilename : :: windows::core::PCWSTR , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     DeleteFileTransactedW(lpfilename.into().abi(), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -751,7 +751,7 @@ pub unsafe fn DeleteFileW<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DeleteFileW ( lpfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DeleteFileW ( lpfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     DeleteFileW(lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -761,7 +761,7 @@ pub unsafe fn DeleteLogByHandle<P0>(hlog: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn DeleteLogByHandle ( hlog : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn DeleteLogByHandle ( hlog : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     DeleteLogByHandle(hlog.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -771,14 +771,14 @@ pub unsafe fn DeleteLogFile<P0>(pszlogfilename: P0, pvreserved: *mut ::core::ffi
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn DeleteLogFile ( pszlogfilename : :: windows::core::PCWSTR , pvreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn DeleteLogFile ( pszlogfilename : :: windows::core::PCWSTR , pvreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     DeleteLogFile(pszlogfilename.into().abi(), pvreserved)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn DeleteLogMarshallingArea ( pvmarshal : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn DeleteLogMarshallingArea ( pvmarshal : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     DeleteLogMarshallingArea(pvmarshal)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -788,7 +788,7 @@ pub unsafe fn DeleteVolumeMountPointA<P0>(lpszvolumemountpoint: P0) -> super::su
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DeleteVolumeMountPointA ( lpszvolumemountpoint : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DeleteVolumeMountPointA ( lpszvolumemountpoint : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     DeleteVolumeMountPointA(lpszvolumemountpoint.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -798,7 +798,7 @@ pub unsafe fn DeleteVolumeMountPointW<P0>(lpszvolumemountpoint: P0) -> super::su
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DeleteVolumeMountPointW ( lpszvolumemountpoint : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DeleteVolumeMountPointW ( lpszvolumemountpoint : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     DeleteVolumeMountPointW(lpszvolumemountpoint.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -808,7 +808,7 @@ pub unsafe fn DeregisterManageableLogClient<P0>(hlog: P0) -> super::super::Found
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn DeregisterManageableLogClient ( hlog : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn DeregisterManageableLogClient ( hlog : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     DeregisterManageableLogClient(hlog.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -819,7 +819,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn DuplicateEncryptionInfoFile ( srcfilename : :: windows::core::PCWSTR , dstfilename : :: windows::core::PCWSTR , dwcreationdistribution : u32 , dwattributes : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn DuplicateEncryptionInfoFile ( srcfilename : :: windows::core::PCWSTR , dstfilename : :: windows::core::PCWSTR , dwcreationdistribution : u32 , dwattributes : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> u32 );
     DuplicateEncryptionInfoFile(srcfilename.into().abi(), dstfilename.into().abi(), dwcreationdistribution, dwattributes, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -829,7 +829,7 @@ pub unsafe fn EncryptFileA<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn EncryptFileA ( lpfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn EncryptFileA ( lpfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     EncryptFileA(lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -839,7 +839,7 @@ pub unsafe fn EncryptFileW<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn EncryptFileW ( lpfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn EncryptFileW ( lpfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     EncryptFileW(lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -850,7 +850,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn EncryptionDisable ( dirpath : :: windows::core::PCWSTR , disable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn EncryptionDisable ( dirpath : :: windows::core::PCWSTR , disable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     EncryptionDisable(dirpath.into().abi(), disable.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -861,7 +861,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn EraseTape ( hdevice : super::super::Foundation:: HANDLE , dwerasetype : ERASE_TAPE_TYPE , bimmediate : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn EraseTape ( hdevice : super::super::Foundation:: HANDLE , dwerasetype : ERASE_TAPE_TYPE , bimmediate : super::super::Foundation:: BOOL ) -> u32 );
     EraseTape(hdevice.into(), dwerasetype, bimmediate.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -871,7 +871,7 @@ pub unsafe fn FileEncryptionStatusA<P0>(lpfilename: P0, lpstatus: *mut u32) -> s
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn FileEncryptionStatusA ( lpfilename : :: windows::core::PCSTR , lpstatus : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn FileEncryptionStatusA ( lpfilename : :: windows::core::PCSTR , lpstatus : *mut u32 ) -> super::super::Foundation:: BOOL );
     FileEncryptionStatusA(lpfilename.into().abi(), lpstatus)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -881,14 +881,14 @@ pub unsafe fn FileEncryptionStatusW<P0>(lpfilename: P0, lpstatus: *mut u32) -> s
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn FileEncryptionStatusW ( lpfilename : :: windows::core::PCWSTR , lpstatus : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn FileEncryptionStatusW ( lpfilename : :: windows::core::PCWSTR , lpstatus : *mut u32 ) -> super::super::Foundation:: BOOL );
     FileEncryptionStatusW(lpfilename.into().abi(), lpstatus)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundation::FILETIME, lplocalfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FileTimeToLocalFileTime ( lpfiletime : *const super::super::Foundation:: FILETIME , lplocalfiletime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FileTimeToLocalFileTime ( lpfiletime : *const super::super::Foundation:: FILETIME , lplocalfiletime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
     FileTimeToLocalFileTime(lpfiletime, lplocalfiletime)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -898,7 +898,7 @@ pub unsafe fn FindClose<P0>(hfindfile: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<FindFileHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindClose ( hfindfile : FindFileHandle ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindClose ( hfindfile : FindFileHandle ) -> super::super::Foundation:: BOOL );
     FindClose(hfindfile.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -908,7 +908,7 @@ pub unsafe fn FindCloseChangeNotification<P0>(hchangehandle: P0) -> super::super
 where
     P0: ::std::convert::Into<FindChangeNotificationHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindCloseChangeNotification ( hchangehandle : FindChangeNotificationHandle ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindCloseChangeNotification ( hchangehandle : FindChangeNotificationHandle ) -> super::super::Foundation:: BOOL );
     FindCloseChangeNotification(hchangehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -919,9 +919,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstChangeNotificationA ( lppathname : :: windows::core::PCSTR , bwatchsubtree : super::super::Foundation:: BOOL , dwnotifyfilter : FILE_NOTIFY_CHANGE ) -> FindChangeNotificationHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstChangeNotificationA ( lppathname : :: windows::core::PCSTR , bwatchsubtree : super::super::Foundation:: BOOL , dwnotifyfilter : FILE_NOTIFY_CHANGE ) -> FindChangeNotificationHandle );
     let result__ = FindFirstChangeNotificationA(lppathname.into().abi(), bwatchsubtree.into(), dwnotifyfilter);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -931,9 +931,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstChangeNotificationW ( lppathname : :: windows::core::PCWSTR , bwatchsubtree : super::super::Foundation:: BOOL , dwnotifyfilter : FILE_NOTIFY_CHANGE ) -> FindChangeNotificationHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstChangeNotificationW ( lppathname : :: windows::core::PCWSTR , bwatchsubtree : super::super::Foundation:: BOOL , dwnotifyfilter : FILE_NOTIFY_CHANGE ) -> FindChangeNotificationHandle );
     let result__ = FindFirstChangeNotificationW(lppathname.into().abi(), bwatchsubtree.into(), dwnotifyfilter);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -942,9 +942,9 @@ pub unsafe fn FindFirstFileA<P0>(lpfilename: P0, lpfindfiledata: *mut WIN32_FIND
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstFileA ( lpfilename : :: windows::core::PCSTR , lpfindfiledata : *mut WIN32_FIND_DATAA ) -> FindFileHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstFileA ( lpfilename : :: windows::core::PCSTR , lpfindfiledata : *mut WIN32_FIND_DATAA ) -> FindFileHandle );
     let result__ = FindFirstFileA(lpfilename.into().abi(), lpfindfiledata);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -952,9 +952,9 @@ pub unsafe fn FindFirstFileExA<P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEV
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstFileExA ( lpfilename : :: windows::core::PCSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : FIND_FIRST_EX_FLAGS ) -> FindFileHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstFileExA ( lpfilename : :: windows::core::PCSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : FIND_FIRST_EX_FLAGS ) -> FindFileHandle );
     let result__ = FindFirstFileExA(lpfilename.into().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -963,7 +963,7 @@ pub unsafe fn FindFirstFileExFromAppW<P0>(lpfilename: P0, finfolevelid: FINDEX_I
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn FindFirstFileExFromAppW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn FindFirstFileExFromAppW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : u32 ) -> super::super::Foundation:: HANDLE );
     FindFirstFileExFromAppW(lpfilename.into().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -972,9 +972,9 @@ pub unsafe fn FindFirstFileExW<P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEV
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstFileExW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : FIND_FIRST_EX_FLAGS ) -> FindFileHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstFileExW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : FIND_FIRST_EX_FLAGS ) -> FindFileHandle );
     let result__ = FindFirstFileExW(lpfilename.into().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -984,9 +984,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstFileNameTransactedW ( lpfilename : :: windows::core::PCWSTR , dwflags : u32 , stringlength : *mut u32 , linkname : :: windows::core::PWSTR , htransaction : super::super::Foundation:: HANDLE ) -> FindFileNameHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstFileNameTransactedW ( lpfilename : :: windows::core::PCWSTR , dwflags : u32 , stringlength : *mut u32 , linkname : :: windows::core::PWSTR , htransaction : super::super::Foundation:: HANDLE ) -> FindFileNameHandle );
     let result__ = FindFirstFileNameTransactedW(lpfilename.into().abi(), dwflags, stringlength, ::core::mem::transmute(linkname), htransaction.into());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -994,9 +994,9 @@ pub unsafe fn FindFirstFileNameW<P0>(lpfilename: P0, dwflags: u32, stringlength:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstFileNameW ( lpfilename : :: windows::core::PCWSTR , dwflags : u32 , stringlength : *mut u32 , linkname : :: windows::core::PWSTR ) -> FindFileNameHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstFileNameW ( lpfilename : :: windows::core::PCWSTR , dwflags : u32 , stringlength : *mut u32 , linkname : :: windows::core::PWSTR ) -> FindFileNameHandle );
     let result__ = FindFirstFileNameW(lpfilename.into().abi(), dwflags, stringlength, ::core::mem::transmute(linkname));
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1006,9 +1006,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstFileTransactedA ( lpfilename : :: windows::core::PCSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> FindFileHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstFileTransactedA ( lpfilename : :: windows::core::PCSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> FindFileHandle );
     let result__ = FindFirstFileTransactedA(lpfilename.into().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags, htransaction.into());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1018,9 +1018,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstFileTransactedW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> FindFileHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstFileTransactedW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : FINDEX_INFO_LEVELS , lpfindfiledata : *mut ::core::ffi::c_void , fsearchop : FINDEX_SEARCH_OPS , lpsearchfilter : *const ::core::ffi::c_void , dwadditionalflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> FindFileHandle );
     let result__ = FindFirstFileTransactedW(lpfilename.into().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags, htransaction.into());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1029,9 +1029,9 @@ pub unsafe fn FindFirstFileW<P0>(lpfilename: P0, lpfindfiledata: *mut WIN32_FIND
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstFileW ( lpfilename : :: windows::core::PCWSTR , lpfindfiledata : *mut WIN32_FIND_DATAW ) -> FindFileHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstFileW ( lpfilename : :: windows::core::PCWSTR , lpfindfiledata : *mut WIN32_FIND_DATAW ) -> FindFileHandle );
     let result__ = FindFirstFileW(lpfilename.into().abi(), lpfindfiledata);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1041,9 +1041,9 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstStreamTransactedW ( lpfilename : :: windows::core::PCWSTR , infolevel : STREAM_INFO_LEVELS , lpfindstreamdata : *mut ::core::ffi::c_void , dwflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> FindStreamHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstStreamTransactedW ( lpfilename : :: windows::core::PCWSTR , infolevel : STREAM_INFO_LEVELS , lpfindstreamdata : *mut ::core::ffi::c_void , dwflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> FindStreamHandle );
     let result__ = FindFirstStreamTransactedW(lpfilename.into().abi(), infolevel, lpfindstreamdata, dwflags, htransaction.into());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -1051,16 +1051,16 @@ pub unsafe fn FindFirstStreamW<P0>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstStreamW ( lpfilename : :: windows::core::PCWSTR , infolevel : STREAM_INFO_LEVELS , lpfindstreamdata : *mut ::core::ffi::c_void , dwflags : u32 ) -> FindStreamHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstStreamW ( lpfilename : :: windows::core::PCWSTR , infolevel : STREAM_INFO_LEVELS , lpfindstreamdata : *mut ::core::ffi::c_void , dwflags : u32 ) -> FindStreamHandle );
     let result__ = FindFirstStreamW(lpfilename.into().abi(), infolevel, lpfindstreamdata, dwflags);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstVolumeA(lpszvolumename: &mut [u8]) -> ::windows::core::Result<FindVolumeHandle> {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstVolumeA ( lpszvolumename : :: windows::core::PSTR , cchbufferlength : u32 ) -> FindVolumeHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstVolumeA ( lpszvolumename : :: windows::core::PSTR , cchbufferlength : u32 ) -> FindVolumeHandle );
     let result__ = FindFirstVolumeA(::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -1068,9 +1068,9 @@ pub unsafe fn FindFirstVolumeMountPointA<P0>(lpszrootpathname: P0, lpszvolumemou
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstVolumeMountPointA ( lpszrootpathname : :: windows::core::PCSTR , lpszvolumemountpoint : :: windows::core::PSTR , cchbufferlength : u32 ) -> FindVolumeMointPointHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstVolumeMountPointA ( lpszrootpathname : :: windows::core::PCSTR , lpszvolumemountpoint : :: windows::core::PSTR , cchbufferlength : u32 ) -> FindVolumeMointPointHandle );
     let result__ = FindFirstVolumeMountPointA(lpszrootpathname.into().abi(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -1078,16 +1078,16 @@ pub unsafe fn FindFirstVolumeMountPointW<P0>(lpszrootpathname: P0, lpszvolumemou
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstVolumeMountPointW ( lpszrootpathname : :: windows::core::PCWSTR , lpszvolumemountpoint : :: windows::core::PWSTR , cchbufferlength : u32 ) -> FindVolumeMointPointHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstVolumeMountPointW ( lpszrootpathname : :: windows::core::PCWSTR , lpszvolumemountpoint : :: windows::core::PWSTR , cchbufferlength : u32 ) -> FindVolumeMointPointHandle );
     let result__ = FindFirstVolumeMountPointW(lpszrootpathname.into().abi(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstVolumeW(lpszvolumename: &mut [u16]) -> ::windows::core::Result<FindVolumeHandle> {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindFirstVolumeW ( lpszvolumename : :: windows::core::PWSTR , cchbufferlength : u32 ) -> FindVolumeHandle );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindFirstVolumeW ( lpszvolumename : :: windows::core::PWSTR , cchbufferlength : u32 ) -> FindVolumeHandle );
     let result__ = FindFirstVolumeW(::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1096,7 +1096,7 @@ pub unsafe fn FindNextChangeNotification<P0>(hchangehandle: P0) -> super::super:
 where
     P0: ::std::convert::Into<FindChangeNotificationHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindNextChangeNotification ( hchangehandle : FindChangeNotificationHandle ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNextChangeNotification ( hchangehandle : FindChangeNotificationHandle ) -> super::super::Foundation:: BOOL );
     FindNextChangeNotification(hchangehandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1106,7 +1106,7 @@ pub unsafe fn FindNextFileA<P0>(hfindfile: P0, lpfindfiledata: *mut WIN32_FIND_D
 where
     P0: ::std::convert::Into<FindFileHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindNextFileA ( hfindfile : FindFileHandle , lpfindfiledata : *mut WIN32_FIND_DATAA ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNextFileA ( hfindfile : FindFileHandle , lpfindfiledata : *mut WIN32_FIND_DATAA ) -> super::super::Foundation:: BOOL );
     FindNextFileA(hfindfile.into(), lpfindfiledata)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1116,7 +1116,7 @@ pub unsafe fn FindNextFileNameW<P0>(hfindstream: P0, stringlength: *mut u32, lin
 where
     P0: ::std::convert::Into<FindFileNameHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindNextFileNameW ( hfindstream : FindFileNameHandle , stringlength : *mut u32 , linkname : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNextFileNameW ( hfindstream : FindFileNameHandle , stringlength : *mut u32 , linkname : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     FindNextFileNameW(hfindstream.into(), stringlength, ::core::mem::transmute(linkname))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1126,7 +1126,7 @@ pub unsafe fn FindNextFileW<P0>(hfindfile: P0, lpfindfiledata: *mut WIN32_FIND_D
 where
     P0: ::std::convert::Into<FindFileHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindNextFileW ( hfindfile : FindFileHandle , lpfindfiledata : *mut WIN32_FIND_DATAW ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNextFileW ( hfindfile : FindFileHandle , lpfindfiledata : *mut WIN32_FIND_DATAW ) -> super::super::Foundation:: BOOL );
     FindNextFileW(hfindfile.into(), lpfindfiledata)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1136,7 +1136,7 @@ pub unsafe fn FindNextStreamW<P0>(hfindstream: P0, lpfindstreamdata: *mut ::core
 where
     P0: ::std::convert::Into<FindStreamHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindNextStreamW ( hfindstream : FindStreamHandle , lpfindstreamdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNextStreamW ( hfindstream : FindStreamHandle , lpfindstreamdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     FindNextStreamW(hfindstream.into(), lpfindstreamdata)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1146,7 +1146,7 @@ pub unsafe fn FindNextVolumeA<P0>(hfindvolume: P0, lpszvolumename: &mut [u8]) ->
 where
     P0: ::std::convert::Into<FindVolumeHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindNextVolumeA ( hfindvolume : FindVolumeHandle , lpszvolumename : :: windows::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNextVolumeA ( hfindvolume : FindVolumeHandle , lpszvolumename : :: windows::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     FindNextVolumeA(hfindvolume.into(), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1156,7 +1156,7 @@ pub unsafe fn FindNextVolumeMountPointA<P0>(hfindvolumemountpoint: P0, lpszvolum
 where
     P0: ::std::convert::Into<FindVolumeMointPointHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindNextVolumeMountPointA ( hfindvolumemountpoint : FindVolumeMointPointHandle , lpszvolumemountpoint : :: windows::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNextVolumeMountPointA ( hfindvolumemountpoint : FindVolumeMointPointHandle , lpszvolumemountpoint : :: windows::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     FindNextVolumeMountPointA(hfindvolumemountpoint.into(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1166,7 +1166,7 @@ pub unsafe fn FindNextVolumeMountPointW<P0>(hfindvolumemountpoint: P0, lpszvolum
 where
     P0: ::std::convert::Into<FindVolumeMointPointHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindNextVolumeMountPointW ( hfindvolumemountpoint : FindVolumeMointPointHandle , lpszvolumemountpoint : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNextVolumeMountPointW ( hfindvolumemountpoint : FindVolumeMointPointHandle , lpszvolumemountpoint : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     FindNextVolumeMountPointW(hfindvolumemountpoint.into(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1176,7 +1176,7 @@ pub unsafe fn FindNextVolumeW<P0>(hfindvolume: P0, lpszvolumename: &mut [u16]) -
 where
     P0: ::std::convert::Into<FindVolumeHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindNextVolumeW ( hfindvolume : FindVolumeHandle , lpszvolumename : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNextVolumeW ( hfindvolume : FindVolumeHandle , lpszvolumename : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     FindNextVolumeW(hfindvolume.into(), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1186,7 +1186,7 @@ pub unsafe fn FindVolumeClose<P0>(hfindvolume: P0) -> super::super::Foundation::
 where
     P0: ::std::convert::Into<FindVolumeHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindVolumeClose ( hfindvolume : FindVolumeHandle ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindVolumeClose ( hfindvolume : FindVolumeHandle ) -> super::super::Foundation:: BOOL );
     FindVolumeClose(hfindvolume.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1196,7 +1196,7 @@ pub unsafe fn FindVolumeMountPointClose<P0>(hfindvolumemountpoint: P0) -> super:
 where
     P0: ::std::convert::Into<FindVolumeMointPointHandle>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindVolumeMountPointClose ( hfindvolumemountpoint : FindVolumeMointPointHandle ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindVolumeMountPointClose ( hfindvolumemountpoint : FindVolumeMointPointHandle ) -> super::super::Foundation:: BOOL );
     FindVolumeMountPointClose(hfindvolumemountpoint.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1206,41 +1206,41 @@ pub unsafe fn FlushFileBuffers<P0>(hfile: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FlushFileBuffers ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FlushFileBuffers ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     FlushFileBuffers(hfile.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn FlushLogBuffers(pvmarshal: *const ::core::ffi::c_void, poverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn FlushLogBuffers ( pvmarshal : *const ::core::ffi::c_void , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn FlushLogBuffers ( pvmarshal : *const ::core::ffi::c_void , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     FlushLogBuffers(pvmarshal, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn FlushLogToLsn ( pvmarshalcontext : *mut ::core::ffi::c_void , plsnflush : *mut CLS_LSN , plsnlastflushed : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn FlushLogToLsn ( pvmarshalcontext : *mut ::core::ffi::c_void , plsnflush : *mut CLS_LSN , plsnlastflushed : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     FlushLogToLsn(pvmarshalcontext, plsnflush, plsnlastflushed, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
-    ::windows::core::link ! ( "advapi32.dll""system" fn FreeEncryptedFileMetadata ( pbmetadata : *const u8 ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn FreeEncryptedFileMetadata ( pbmetadata : *const u8 ) -> ( ) );
     FreeEncryptedFileMetadata(pbmetadata)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST) {
-    ::windows::core::link ! ( "advapi32.dll""system" fn FreeEncryptionCertificateHashList ( pusers : *const ENCRYPTION_CERTIFICATE_HASH_LIST ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn FreeEncryptionCertificateHashList ( pusers : *const ENCRYPTION_CERTIFICATE_HASH_LIST ) -> ( ) );
     FreeEncryptionCertificateHashList(pusers)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn FreeReservedLog ( pvmarshal : *mut ::core::ffi::c_void , creservedrecords : u32 , pcbadjustment : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn FreeReservedLog ( pvmarshal : *mut ::core::ffi::c_void , creservedrecords : u32 , pcbadjustment : *mut i64 ) -> super::super::Foundation:: BOOL );
     FreeReservedLog(pvmarshal, creservedrecords, pcbadjustment)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1250,7 +1250,7 @@ pub unsafe fn GetBinaryTypeA<P0>(lpapplicationname: P0, lpbinarytype: *mut u32) 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetBinaryTypeA ( lpapplicationname : :: windows::core::PCSTR , lpbinarytype : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetBinaryTypeA ( lpapplicationname : :: windows::core::PCSTR , lpbinarytype : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetBinaryTypeA(lpapplicationname.into().abi(), lpbinarytype)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1260,7 +1260,7 @@ pub unsafe fn GetBinaryTypeW<P0>(lpapplicationname: P0, lpbinarytype: *mut u32) 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetBinaryTypeW ( lpapplicationname : :: windows::core::PCWSTR , lpbinarytype : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetBinaryTypeW ( lpapplicationname : :: windows::core::PCWSTR , lpbinarytype : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetBinaryTypeW(lpapplicationname.into().abi(), lpbinarytype)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1269,7 +1269,7 @@ pub unsafe fn GetCompressedFileSizeA<P0>(lpfilename: P0, lpfilesizehigh: ::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCompressedFileSizeA ( lpfilename : :: windows::core::PCSTR , lpfilesizehigh : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCompressedFileSizeA ( lpfilename : :: windows::core::PCSTR , lpfilesizehigh : *mut u32 ) -> u32 );
     GetCompressedFileSizeA(lpfilename.into().abi(), ::core::mem::transmute(lpfilesizehigh.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1280,7 +1280,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCompressedFileSizeTransactedA ( lpfilename : :: windows::core::PCSTR , lpfilesizehigh : *mut u32 , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCompressedFileSizeTransactedA ( lpfilename : :: windows::core::PCSTR , lpfilesizehigh : *mut u32 , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
     GetCompressedFileSizeTransactedA(lpfilename.into().abi(), ::core::mem::transmute(lpfilesizehigh.unwrap_or(::std::ptr::null_mut())), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1291,7 +1291,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCompressedFileSizeTransactedW ( lpfilename : :: windows::core::PCWSTR , lpfilesizehigh : *mut u32 , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCompressedFileSizeTransactedW ( lpfilename : :: windows::core::PCWSTR , lpfilesizehigh : *mut u32 , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
     GetCompressedFileSizeTransactedW(lpfilename.into().abi(), ::core::mem::transmute(lpfilesizehigh.unwrap_or(::std::ptr::null_mut())), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1300,7 +1300,7 @@ pub unsafe fn GetCompressedFileSizeW<P0>(lpfilename: P0, lpfilesizehigh: ::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCompressedFileSizeW ( lpfilename : :: windows::core::PCWSTR , lpfilesizehigh : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCompressedFileSizeW ( lpfilename : :: windows::core::PCWSTR , lpfilesizehigh : *mut u32 ) -> u32 );
     GetCompressedFileSizeW(lpfilename.into().abi(), ::core::mem::transmute(lpfilesizehigh.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1310,7 +1310,7 @@ pub unsafe fn GetCurrentClockTransactionManager<P0>(transactionmanagerhandle: P0
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn GetCurrentClockTransactionManager ( transactionmanagerhandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn GetCurrentClockTransactionManager ( transactionmanagerhandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     GetCurrentClockTransactionManager(transactionmanagerhandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1320,7 +1320,7 @@ pub unsafe fn GetDiskFreeSpaceA<P0>(lprootpathname: P0, lpsectorspercluster: ::c
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetDiskFreeSpaceA ( lprootpathname : :: windows::core::PCSTR , lpsectorspercluster : *mut u32 , lpbytespersector : *mut u32 , lpnumberoffreeclusters : *mut u32 , lptotalnumberofclusters : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDiskFreeSpaceA ( lprootpathname : :: windows::core::PCSTR , lpsectorspercluster : *mut u32 , lpbytespersector : *mut u32 , lpnumberoffreeclusters : *mut u32 , lptotalnumberofclusters : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetDiskFreeSpaceA(lprootpathname.into().abi(), ::core::mem::transmute(lpsectorspercluster.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpbytespersector.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpnumberoffreeclusters.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptotalnumberofclusters.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1330,7 +1330,7 @@ pub unsafe fn GetDiskFreeSpaceExA<P0>(lpdirectoryname: P0, lpfreebytesavailablet
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetDiskFreeSpaceExA ( lpdirectoryname : :: windows::core::PCSTR , lpfreebytesavailabletocaller : *mut u64 , lptotalnumberofbytes : *mut u64 , lptotalnumberoffreebytes : *mut u64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDiskFreeSpaceExA ( lpdirectoryname : :: windows::core::PCSTR , lpfreebytesavailabletocaller : *mut u64 , lptotalnumberofbytes : *mut u64 , lptotalnumberoffreebytes : *mut u64 ) -> super::super::Foundation:: BOOL );
     GetDiskFreeSpaceExA(lpdirectoryname.into().abi(), ::core::mem::transmute(lpfreebytesavailabletocaller.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptotalnumberofbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptotalnumberoffreebytes.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1340,7 +1340,7 @@ pub unsafe fn GetDiskFreeSpaceExW<P0>(lpdirectoryname: P0, lpfreebytesavailablet
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetDiskFreeSpaceExW ( lpdirectoryname : :: windows::core::PCWSTR , lpfreebytesavailabletocaller : *mut u64 , lptotalnumberofbytes : *mut u64 , lptotalnumberoffreebytes : *mut u64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDiskFreeSpaceExW ( lpdirectoryname : :: windows::core::PCWSTR , lpfreebytesavailabletocaller : *mut u64 , lptotalnumberofbytes : *mut u64 , lptotalnumberoffreebytes : *mut u64 ) -> super::super::Foundation:: BOOL );
     GetDiskFreeSpaceExW(lpdirectoryname.into().abi(), ::core::mem::transmute(lpfreebytesavailabletocaller.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptotalnumberofbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptotalnumberoffreebytes.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1350,7 +1350,7 @@ pub unsafe fn GetDiskFreeSpaceW<P0>(lprootpathname: P0, lpsectorspercluster: ::c
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetDiskFreeSpaceW ( lprootpathname : :: windows::core::PCWSTR , lpsectorspercluster : *mut u32 , lpbytespersector : *mut u32 , lpnumberoffreeclusters : *mut u32 , lptotalnumberofclusters : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDiskFreeSpaceW ( lprootpathname : :: windows::core::PCWSTR , lpsectorspercluster : *mut u32 , lpbytespersector : *mut u32 , lpnumberoffreeclusters : *mut u32 , lptotalnumberofclusters : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetDiskFreeSpaceW(lprootpathname.into().abi(), ::core::mem::transmute(lpsectorspercluster.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpbytespersector.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpnumberoffreeclusters.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptotalnumberofclusters.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1359,7 +1359,7 @@ pub unsafe fn GetDiskSpaceInformationA<P0>(rootpath: P0, diskspaceinfo: *mut DIS
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetDiskSpaceInformationA ( rootpath : :: windows::core::PCSTR , diskspaceinfo : *mut DISK_SPACE_INFORMATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDiskSpaceInformationA ( rootpath : :: windows::core::PCSTR , diskspaceinfo : *mut DISK_SPACE_INFORMATION ) -> :: windows::core::HRESULT );
     GetDiskSpaceInformationA(rootpath.into().abi(), diskspaceinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1368,7 +1368,7 @@ pub unsafe fn GetDiskSpaceInformationW<P0>(rootpath: P0, diskspaceinfo: *mut DIS
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetDiskSpaceInformationW ( rootpath : :: windows::core::PCWSTR , diskspaceinfo : *mut DISK_SPACE_INFORMATION ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDiskSpaceInformationW ( rootpath : :: windows::core::PCWSTR , diskspaceinfo : *mut DISK_SPACE_INFORMATION ) -> :: windows::core::HRESULT );
     GetDiskSpaceInformationW(rootpath.into().abi(), diskspaceinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1377,7 +1377,7 @@ pub unsafe fn GetDriveTypeA<P0>(lprootpathname: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetDriveTypeA ( lprootpathname : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDriveTypeA ( lprootpathname : :: windows::core::PCSTR ) -> u32 );
     GetDriveTypeA(lprootpathname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1386,7 +1386,7 @@ pub unsafe fn GetDriveTypeW<P0>(lprootpathname: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetDriveTypeW ( lprootpathname : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDriveTypeW ( lprootpathname : :: windows::core::PCWSTR ) -> u32 );
     GetDriveTypeW(lprootpathname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1395,7 +1395,7 @@ pub unsafe fn GetEncryptedFileMetadata<P0>(lpfilename: P0, pcbmetadata: *mut u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn GetEncryptedFileMetadata ( lpfilename : :: windows::core::PCWSTR , pcbmetadata : *mut u32 , ppbmetadata : *mut *mut u8 ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn GetEncryptedFileMetadata ( lpfilename : :: windows::core::PCWSTR , pcbmetadata : *mut u32 , ppbmetadata : *mut *mut u8 ) -> u32 );
     GetEncryptedFileMetadata(lpfilename.into().abi(), pcbmetadata, ppbmetadata)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1405,7 +1405,7 @@ pub unsafe fn GetEnlistmentId<P0>(enlistmenthandle: P0, enlistmentid: *mut ::win
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn GetEnlistmentId ( enlistmenthandle : super::super::Foundation:: HANDLE , enlistmentid : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn GetEnlistmentId ( enlistmenthandle : super::super::Foundation:: HANDLE , enlistmentid : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
     GetEnlistmentId(enlistmenthandle.into(), enlistmentid)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1415,7 +1415,7 @@ pub unsafe fn GetEnlistmentRecoveryInformation<P0>(enlistmenthandle: P0, buffers
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn GetEnlistmentRecoveryInformation ( enlistmenthandle : super::super::Foundation:: HANDLE , buffersize : u32 , buffer : *mut ::core::ffi::c_void , bufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn GetEnlistmentRecoveryInformation ( enlistmenthandle : super::super::Foundation:: HANDLE , buffersize : u32 , buffer : *mut ::core::ffi::c_void , bufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetEnlistmentRecoveryInformation(enlistmenthandle.into(), buffersize, buffer, bufferused)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1424,7 +1424,7 @@ pub unsafe fn GetExpandedNameA<P0>(lpszsource: P0, lpszbuffer: &mut [u8; 260]) -
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetExpandedNameA ( lpszsource : :: windows::core::PCSTR , lpszbuffer : :: windows::core::PSTR ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetExpandedNameA ( lpszsource : :: windows::core::PCSTR , lpszbuffer : :: windows::core::PSTR ) -> i32 );
     GetExpandedNameA(lpszsource.into().abi(), ::core::mem::transmute(lpszbuffer.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1433,7 +1433,7 @@ pub unsafe fn GetExpandedNameW<P0>(lpszsource: P0, lpszbuffer: &mut [u16; 260]) 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetExpandedNameW ( lpszsource : :: windows::core::PCWSTR , lpszbuffer : :: windows::core::PWSTR ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetExpandedNameW ( lpszsource : :: windows::core::PCWSTR , lpszbuffer : :: windows::core::PWSTR ) -> i32 );
     GetExpandedNameW(lpszsource.into().abi(), ::core::mem::transmute(lpszbuffer.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1442,7 +1442,7 @@ pub unsafe fn GetFileAttributesA<P0>(lpfilename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileAttributesA ( lpfilename : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileAttributesA ( lpfilename : :: windows::core::PCSTR ) -> u32 );
     GetFileAttributesA(lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1452,7 +1452,7 @@ pub unsafe fn GetFileAttributesExA<P0>(lpfilename: P0, finfolevelid: GET_FILEEX_
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileAttributesExA ( lpfilename : :: windows::core::PCSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileAttributesExA ( lpfilename : :: windows::core::PCSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     GetFileAttributesExA(lpfilename.into().abi(), finfolevelid, lpfileinformation)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1462,7 +1462,7 @@ pub unsafe fn GetFileAttributesExFromAppW<P0>(lpfilename: P0, finfolevelid: GET_
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn GetFileAttributesExFromAppW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn GetFileAttributesExFromAppW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     GetFileAttributesExFromAppW(lpfilename.into().abi(), finfolevelid, lpfileinformation)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1472,7 +1472,7 @@ pub unsafe fn GetFileAttributesExW<P0>(lpfilename: P0, finfolevelid: GET_FILEEX_
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileAttributesExW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileAttributesExW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     GetFileAttributesExW(lpfilename.into().abi(), finfolevelid, lpfileinformation)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1483,7 +1483,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileAttributesTransactedA ( lpfilename : :: windows::core::PCSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileAttributesTransactedA ( lpfilename : :: windows::core::PCSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     GetFileAttributesTransactedA(lpfilename.into().abi(), finfolevelid, lpfileinformation, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1494,7 +1494,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileAttributesTransactedW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileAttributesTransactedW ( lpfilename : :: windows::core::PCWSTR , finfolevelid : GET_FILEEX_INFO_LEVELS , lpfileinformation : *mut ::core::ffi::c_void , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     GetFileAttributesTransactedW(lpfilename.into().abi(), finfolevelid, lpfileinformation, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1503,7 +1503,7 @@ pub unsafe fn GetFileAttributesW<P0>(lpfilename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileAttributesW ( lpfilename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileAttributesW ( lpfilename : :: windows::core::PCWSTR ) -> u32 );
     GetFileAttributesW(lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1513,7 +1513,7 @@ pub unsafe fn GetFileBandwidthReservation<P0>(hfile: P0, lpperiodmilliseconds: *
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileBandwidthReservation ( hfile : super::super::Foundation:: HANDLE , lpperiodmilliseconds : *mut u32 , lpbytesperperiod : *mut u32 , pdiscardable : *mut i32 , lptransfersize : *mut u32 , lpnumoutstandingrequests : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileBandwidthReservation ( hfile : super::super::Foundation:: HANDLE , lpperiodmilliseconds : *mut u32 , lpbytesperperiod : *mut u32 , pdiscardable : *mut i32 , lptransfersize : *mut u32 , lpnumoutstandingrequests : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetFileBandwidthReservation(hfile.into(), lpperiodmilliseconds, lpbytesperperiod, pdiscardable, lptransfersize, lpnumoutstandingrequests)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1523,7 +1523,7 @@ pub unsafe fn GetFileInformationByHandle<P0>(hfile: P0, lpfileinformation: *mut 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileInformationByHandle ( hfile : super::super::Foundation:: HANDLE , lpfileinformation : *mut BY_HANDLE_FILE_INFORMATION ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileInformationByHandle ( hfile : super::super::Foundation:: HANDLE , lpfileinformation : *mut BY_HANDLE_FILE_INFORMATION ) -> super::super::Foundation:: BOOL );
     GetFileInformationByHandle(hfile.into(), lpfileinformation)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1533,7 +1533,7 @@ pub unsafe fn GetFileInformationByHandleEx<P0>(hfile: P0, fileinformationclass: 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileInformationByHandleEx ( hfile : super::super::Foundation:: HANDLE , fileinformationclass : FILE_INFO_BY_HANDLE_CLASS , lpfileinformation : *mut ::core::ffi::c_void , dwbuffersize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileInformationByHandleEx ( hfile : super::super::Foundation:: HANDLE , fileinformationclass : FILE_INFO_BY_HANDLE_CLASS , lpfileinformation : *mut ::core::ffi::c_void , dwbuffersize : u32 ) -> super::super::Foundation:: BOOL );
     GetFileInformationByHandleEx(hfile.into(), fileinformationclass, lpfileinformation, dwbuffersize)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1543,7 +1543,7 @@ pub unsafe fn GetFileSize<P0>(hfile: P0, lpfilesizehigh: ::core::option::Option<
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileSize ( hfile : super::super::Foundation:: HANDLE , lpfilesizehigh : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileSize ( hfile : super::super::Foundation:: HANDLE , lpfilesizehigh : *mut u32 ) -> u32 );
     GetFileSize(hfile.into(), ::core::mem::transmute(lpfilesizehigh.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1553,7 +1553,7 @@ pub unsafe fn GetFileSizeEx<P0>(hfile: P0, lpfilesize: *mut i64) -> super::super
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileSizeEx ( hfile : super::super::Foundation:: HANDLE , lpfilesize : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileSizeEx ( hfile : super::super::Foundation:: HANDLE , lpfilesize : *mut i64 ) -> super::super::Foundation:: BOOL );
     GetFileSizeEx(hfile.into(), lpfilesize)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1563,7 +1563,7 @@ pub unsafe fn GetFileTime<P0>(hfile: P0, lpcreationtime: ::core::option::Option<
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileTime ( hfile : super::super::Foundation:: HANDLE , lpcreationtime : *mut super::super::Foundation:: FILETIME , lplastaccesstime : *mut super::super::Foundation:: FILETIME , lplastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileTime ( hfile : super::super::Foundation:: HANDLE , lpcreationtime : *mut super::super::Foundation:: FILETIME , lplastaccesstime : *mut super::super::Foundation:: FILETIME , lplastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
     GetFileTime(hfile.into(), ::core::mem::transmute(lpcreationtime.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lplastaccesstime.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lplastwritetime.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1573,7 +1573,7 @@ pub unsafe fn GetFileType<P0>(hfile: P0) -> FILE_TYPE
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileType ( hfile : super::super::Foundation:: HANDLE ) -> FILE_TYPE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileType ( hfile : super::super::Foundation:: HANDLE ) -> FILE_TYPE );
     GetFileType(hfile.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1583,7 +1583,7 @@ pub unsafe fn GetFileVersionInfoA<P0>(lptstrfilename: P0, dwhandle: u32, dwlen: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn GetFileVersionInfoA ( lptstrfilename : :: windows::core::PCSTR , dwhandle : u32 , dwlen : u32 , lpdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "version.dll""system" fn GetFileVersionInfoA ( lptstrfilename : :: windows::core::PCSTR , dwhandle : u32 , dwlen : u32 , lpdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     GetFileVersionInfoA(lptstrfilename.into().abi(), dwhandle, dwlen, lpdata)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1593,7 +1593,7 @@ pub unsafe fn GetFileVersionInfoExA<P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lp
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn GetFileVersionInfoExA ( dwflags : GET_FILE_VERSION_INFO_FLAGS , lpwstrfilename : :: windows::core::PCSTR , dwhandle : u32 , dwlen : u32 , lpdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "version.dll""system" fn GetFileVersionInfoExA ( dwflags : GET_FILE_VERSION_INFO_FLAGS , lpwstrfilename : :: windows::core::PCSTR , dwhandle : u32 , dwlen : u32 , lpdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     GetFileVersionInfoExA(dwflags, lpwstrfilename.into().abi(), dwhandle, dwlen, lpdata)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1603,7 +1603,7 @@ pub unsafe fn GetFileVersionInfoExW<P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lp
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn GetFileVersionInfoExW ( dwflags : GET_FILE_VERSION_INFO_FLAGS , lpwstrfilename : :: windows::core::PCWSTR , dwhandle : u32 , dwlen : u32 , lpdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "version.dll""system" fn GetFileVersionInfoExW ( dwflags : GET_FILE_VERSION_INFO_FLAGS , lpwstrfilename : :: windows::core::PCWSTR , dwhandle : u32 , dwlen : u32 , lpdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     GetFileVersionInfoExW(dwflags, lpwstrfilename.into().abi(), dwhandle, dwlen, lpdata)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1612,7 +1612,7 @@ pub unsafe fn GetFileVersionInfoSizeA<P0>(lptstrfilename: P0, lpdwhandle: ::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn GetFileVersionInfoSizeA ( lptstrfilename : :: windows::core::PCSTR , lpdwhandle : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "version.dll""system" fn GetFileVersionInfoSizeA ( lptstrfilename : :: windows::core::PCSTR , lpdwhandle : *mut u32 ) -> u32 );
     GetFileVersionInfoSizeA(lptstrfilename.into().abi(), ::core::mem::transmute(lpdwhandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1621,7 +1621,7 @@ pub unsafe fn GetFileVersionInfoSizeExA<P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn GetFileVersionInfoSizeExA ( dwflags : GET_FILE_VERSION_INFO_FLAGS , lpwstrfilename : :: windows::core::PCSTR , lpdwhandle : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "version.dll""system" fn GetFileVersionInfoSizeExA ( dwflags : GET_FILE_VERSION_INFO_FLAGS , lpwstrfilename : :: windows::core::PCSTR , lpdwhandle : *mut u32 ) -> u32 );
     GetFileVersionInfoSizeExA(dwflags, lpwstrfilename.into().abi(), lpdwhandle)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1630,7 +1630,7 @@ pub unsafe fn GetFileVersionInfoSizeExW<P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn GetFileVersionInfoSizeExW ( dwflags : GET_FILE_VERSION_INFO_FLAGS , lpwstrfilename : :: windows::core::PCWSTR , lpdwhandle : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "version.dll""system" fn GetFileVersionInfoSizeExW ( dwflags : GET_FILE_VERSION_INFO_FLAGS , lpwstrfilename : :: windows::core::PCWSTR , lpdwhandle : *mut u32 ) -> u32 );
     GetFileVersionInfoSizeExW(dwflags, lpwstrfilename.into().abi(), lpdwhandle)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1639,7 +1639,7 @@ pub unsafe fn GetFileVersionInfoSizeW<P0>(lptstrfilename: P0, lpdwhandle: ::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn GetFileVersionInfoSizeW ( lptstrfilename : :: windows::core::PCWSTR , lpdwhandle : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "version.dll""system" fn GetFileVersionInfoSizeW ( lptstrfilename : :: windows::core::PCWSTR , lpdwhandle : *mut u32 ) -> u32 );
     GetFileVersionInfoSizeW(lptstrfilename.into().abi(), ::core::mem::transmute(lpdwhandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1649,7 +1649,7 @@ pub unsafe fn GetFileVersionInfoW<P0>(lptstrfilename: P0, dwhandle: u32, dwlen: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn GetFileVersionInfoW ( lptstrfilename : :: windows::core::PCWSTR , dwhandle : u32 , dwlen : u32 , lpdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "version.dll""system" fn GetFileVersionInfoW ( lptstrfilename : :: windows::core::PCWSTR , dwhandle : u32 , dwlen : u32 , lpdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     GetFileVersionInfoW(lptstrfilename.into().abi(), dwhandle, dwlen, lpdata)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1659,7 +1659,7 @@ pub unsafe fn GetFinalPathNameByHandleA<P0>(hfile: P0, lpszfilepath: &mut [u8], 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFinalPathNameByHandleA ( hfile : super::super::Foundation:: HANDLE , lpszfilepath : :: windows::core::PSTR , cchfilepath : u32 , dwflags : FILE_NAME ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFinalPathNameByHandleA ( hfile : super::super::Foundation:: HANDLE , lpszfilepath : :: windows::core::PSTR , cchfilepath : u32 , dwflags : FILE_NAME ) -> u32 );
     GetFinalPathNameByHandleA(hfile.into(), ::core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len() as _, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1669,7 +1669,7 @@ pub unsafe fn GetFinalPathNameByHandleW<P0>(hfile: P0, lpszfilepath: &mut [u16],
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFinalPathNameByHandleW ( hfile : super::super::Foundation:: HANDLE , lpszfilepath : :: windows::core::PWSTR , cchfilepath : u32 , dwflags : FILE_NAME ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFinalPathNameByHandleW ( hfile : super::super::Foundation:: HANDLE , lpszfilepath : :: windows::core::PWSTR , cchfilepath : u32 , dwflags : FILE_NAME ) -> u32 );
     GetFinalPathNameByHandleW(hfile.into(), ::core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len() as _, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1678,7 +1678,7 @@ pub unsafe fn GetFullPathNameA<P0>(lpfilename: P0, lpbuffer: ::core::option::Opt
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFullPathNameA ( lpfilename : :: windows::core::PCSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PSTR , lpfilepart : *mut :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFullPathNameA ( lpfilename : :: windows::core::PCSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PSTR , lpfilepart : *mut :: windows::core::PSTR ) -> u32 );
     GetFullPathNameA(lpfilename.into().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1689,7 +1689,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFullPathNameTransactedA ( lpfilename : :: windows::core::PCSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PSTR , lpfilepart : *mut :: windows::core::PSTR , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFullPathNameTransactedA ( lpfilename : :: windows::core::PCSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PSTR , lpfilepart : *mut :: windows::core::PSTR , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
     GetFullPathNameTransactedA(lpfilename.into().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart.unwrap_or(::std::ptr::null_mut())), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1700,7 +1700,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFullPathNameTransactedW ( lpfilename : :: windows::core::PCWSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR , lpfilepart : *mut :: windows::core::PWSTR , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFullPathNameTransactedW ( lpfilename : :: windows::core::PCWSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR , lpfilepart : *mut :: windows::core::PWSTR , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
     GetFullPathNameTransactedW(lpfilename.into().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart.unwrap_or(::std::ptr::null_mut())), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1709,13 +1709,13 @@ pub unsafe fn GetFullPathNameW<P0>(lpfilename: P0, lpbuffer: ::core::option::Opt
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFullPathNameW ( lpfilename : :: windows::core::PCWSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR , lpfilepart : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFullPathNameW ( lpfilename : :: windows::core::PCWSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR , lpfilepart : *mut :: windows::core::PWSTR ) -> u32 );
     GetFullPathNameW(lpfilename.into().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetIoRingInfo(ioring: *const HIORING__, info: *mut IORING_INFO) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn GetIoRingInfo ( ioring : *const HIORING__ , info : *mut IORING_INFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn GetIoRingInfo ( ioring : *const HIORING__ , info : *mut IORING_INFO ) -> :: windows::core::HRESULT );
     GetIoRingInfo(ioring, info).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1726,7 +1726,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn GetLogContainerName ( hlog : super::super::Foundation:: HANDLE , cidlogicalcontainer : u32 , pwstrcontainername : :: windows::core::PCWSTR , clencontainername : u32 , pcactuallencontainername : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn GetLogContainerName ( hlog : super::super::Foundation:: HANDLE , cidlogicalcontainer : u32 , pwstrcontainername : :: windows::core::PCWSTR , clencontainername : u32 , pcactuallencontainername : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetLogContainerName(hlog.into(), cidlogicalcontainer, pwstrcontainername.into().abi(), clencontainername, pcactuallencontainername)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1736,7 +1736,7 @@ pub unsafe fn GetLogFileInformation<P0>(hlog: P0, pinfobuffer: *mut CLS_INFORMAT
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn GetLogFileInformation ( hlog : super::super::Foundation:: HANDLE , pinfobuffer : *mut CLS_INFORMATION , cbbuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn GetLogFileInformation ( hlog : super::super::Foundation:: HANDLE , pinfobuffer : *mut CLS_INFORMATION , cbbuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetLogFileInformation(hlog.into(), pinfobuffer, cbbuffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1746,32 +1746,32 @@ pub unsafe fn GetLogIoStatistics<P0>(hlog: P0, pvstatsbuffer: *mut ::core::ffi::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn GetLogIoStatistics ( hlog : super::super::Foundation:: HANDLE , pvstatsbuffer : *mut ::core::ffi::c_void , cbstatsbuffer : u32 , estatsclass : CLFS_IOSTATS_CLASS , pcbstatswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn GetLogIoStatistics ( hlog : super::super::Foundation:: HANDLE , pvstatsbuffer : *mut ::core::ffi::c_void , cbstatsbuffer : u32 , estatsclass : CLFS_IOSTATS_CLASS , pcbstatswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetLogIoStatistics(hlog.into(), pvstatsbuffer, cbstatsbuffer, estatsclass, pcbstatswritten)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogReservationInfo(pvmarshal: *const ::core::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn GetLogReservationInfo ( pvmarshal : *const ::core::ffi::c_void , pcbrecordnumber : *mut u32 , pcbuserreservation : *mut i64 , pcbcommitreservation : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn GetLogReservationInfo ( pvmarshal : *const ::core::ffi::c_void , pcbrecordnumber : *mut u32 , pcbuserreservation : *mut i64 , pcbcommitreservation : *mut i64 ) -> super::super::Foundation:: BOOL );
     GetLogReservationInfo(pvmarshal, pcbrecordnumber, pcbuserreservation, pcbcommitreservation)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetLogicalDriveStringsA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetLogicalDriveStringsA ( nbufferlength : u32 , lpbuffer : :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLogicalDriveStringsA ( nbufferlength : u32 , lpbuffer : :: windows::core::PSTR ) -> u32 );
     GetLogicalDriveStringsA(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetLogicalDriveStringsW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetLogicalDriveStringsW ( nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLogicalDriveStringsW ( nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR ) -> u32 );
     GetLogicalDriveStringsW(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetLogicalDrives() -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetLogicalDrives ( ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLogicalDrives ( ) -> u32 );
     GetLogicalDrives()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1780,7 +1780,7 @@ pub unsafe fn GetLongPathNameA<P0>(lpszshortpath: P0, lpszlongpath: ::core::opti
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetLongPathNameA ( lpszshortpath : :: windows::core::PCSTR , lpszlongpath : :: windows::core::PSTR , cchbuffer : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLongPathNameA ( lpszshortpath : :: windows::core::PCSTR , lpszlongpath : :: windows::core::PSTR , cchbuffer : u32 ) -> u32 );
     GetLongPathNameA(lpszshortpath.into().abi(), ::core::mem::transmute(lpszlongpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1791,7 +1791,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetLongPathNameTransactedA ( lpszshortpath : :: windows::core::PCSTR , lpszlongpath : :: windows::core::PSTR , cchbuffer : u32 , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLongPathNameTransactedA ( lpszshortpath : :: windows::core::PCSTR , lpszlongpath : :: windows::core::PSTR , cchbuffer : u32 , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
     GetLongPathNameTransactedA(lpszshortpath.into().abi(), ::core::mem::transmute(lpszlongpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len() as _), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1802,7 +1802,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetLongPathNameTransactedW ( lpszshortpath : :: windows::core::PCWSTR , lpszlongpath : :: windows::core::PWSTR , cchbuffer : u32 , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLongPathNameTransactedW ( lpszshortpath : :: windows::core::PCWSTR , lpszlongpath : :: windows::core::PWSTR , cchbuffer : u32 , htransaction : super::super::Foundation:: HANDLE ) -> u32 );
     GetLongPathNameTransactedW(lpszshortpath.into().abi(), ::core::mem::transmute(lpszlongpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len() as _), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1811,14 +1811,14 @@ pub unsafe fn GetLongPathNameW<P0>(lpszshortpath: P0, lpszlongpath: ::core::opti
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetLongPathNameW ( lpszshortpath : :: windows::core::PCWSTR , lpszlongpath : :: windows::core::PWSTR , cchbuffer : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLongPathNameW ( lpszshortpath : :: windows::core::PCWSTR , lpszlongpath : :: windows::core::PWSTR , cchbuffer : u32 ) -> u32 );
     GetLongPathNameW(lpszshortpath.into().abi(), ::core::mem::transmute(lpszlongpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn GetNextLogArchiveExtent ( pvarchivecontext : *mut ::core::ffi::c_void , rgadextent : *mut CLS_ARCHIVE_DESCRIPTOR , cdescriptors : u32 , pcdescriptorsreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn GetNextLogArchiveExtent ( pvarchivecontext : *mut ::core::ffi::c_void , rgadextent : *mut CLS_ARCHIVE_DESCRIPTOR , cdescriptors : u32 , pcdescriptorsreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetNextLogArchiveExtent(pvarchivecontext, rgadextent, cdescriptors, pcdescriptorsreturned)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1828,7 +1828,7 @@ pub unsafe fn GetNotificationResourceManager<P0>(resourcemanagerhandle: P0, tran
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn GetNotificationResourceManager ( resourcemanagerhandle : super::super::Foundation:: HANDLE , transactionnotification : *mut TRANSACTION_NOTIFICATION , notificationlength : u32 , dwmilliseconds : u32 , returnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn GetNotificationResourceManager ( resourcemanagerhandle : super::super::Foundation:: HANDLE , transactionnotification : *mut TRANSACTION_NOTIFICATION , notificationlength : u32 , dwmilliseconds : u32 , returnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetNotificationResourceManager(resourcemanagerhandle.into(), transactionnotification, notificationlength, dwmilliseconds, returnlength)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -1838,7 +1838,7 @@ pub unsafe fn GetNotificationResourceManagerAsync<P0>(resourcemanagerhandle: P0,
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn GetNotificationResourceManagerAsync ( resourcemanagerhandle : super::super::Foundation:: HANDLE , transactionnotification : *mut TRANSACTION_NOTIFICATION , transactionnotificationlength : u32 , returnlength : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn GetNotificationResourceManagerAsync ( resourcemanagerhandle : super::super::Foundation:: HANDLE , transactionnotification : *mut TRANSACTION_NOTIFICATION , transactionnotificationlength : u32 , returnlength : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     GetNotificationResourceManagerAsync(resourcemanagerhandle.into(), transactionnotification, transactionnotificationlength, returnlength, lpoverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1847,7 +1847,7 @@ pub unsafe fn GetShortPathNameA<P0>(lpszlongpath: P0, lpszshortpath: ::core::opt
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetShortPathNameA ( lpszlongpath : :: windows::core::PCSTR , lpszshortpath : :: windows::core::PSTR , cchbuffer : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetShortPathNameA ( lpszlongpath : :: windows::core::PCSTR , lpszshortpath : :: windows::core::PSTR , cchbuffer : u32 ) -> u32 );
     GetShortPathNameA(lpszlongpath.into().abi(), ::core::mem::transmute(lpszshortpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszshortpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1856,7 +1856,7 @@ pub unsafe fn GetShortPathNameW<P0>(lpszlongpath: P0, lpszshortpath: ::core::opt
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetShortPathNameW ( lpszlongpath : :: windows::core::PCWSTR , lpszshortpath : :: windows::core::PWSTR , cchbuffer : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetShortPathNameW ( lpszlongpath : :: windows::core::PCWSTR , lpszshortpath : :: windows::core::PWSTR , cchbuffer : u32 ) -> u32 );
     GetShortPathNameW(lpszlongpath.into().abi(), ::core::mem::transmute(lpszshortpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszshortpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1866,7 +1866,7 @@ pub unsafe fn GetTapeParameters<P0>(hdevice: P0, dwoperation: GET_TAPE_DRIVE_PAR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetTapeParameters ( hdevice : super::super::Foundation:: HANDLE , dwoperation : GET_TAPE_DRIVE_PARAMETERS_OPERATION , lpdwsize : *mut u32 , lptapeinformation : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTapeParameters ( hdevice : super::super::Foundation:: HANDLE , dwoperation : GET_TAPE_DRIVE_PARAMETERS_OPERATION , lpdwsize : *mut u32 , lptapeinformation : *mut ::core::ffi::c_void ) -> u32 );
     GetTapeParameters(hdevice.into(), dwoperation, lpdwsize, lptapeinformation)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1876,7 +1876,7 @@ pub unsafe fn GetTapePosition<P0>(hdevice: P0, dwpositiontype: TAPE_POSITION_TYP
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetTapePosition ( hdevice : super::super::Foundation:: HANDLE , dwpositiontype : TAPE_POSITION_TYPE , lpdwpartition : *mut u32 , lpdwoffsetlow : *mut u32 , lpdwoffsethigh : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTapePosition ( hdevice : super::super::Foundation:: HANDLE , dwpositiontype : TAPE_POSITION_TYPE , lpdwpartition : *mut u32 , lpdwoffsetlow : *mut u32 , lpdwoffsethigh : *mut u32 ) -> u32 );
     GetTapePosition(hdevice.into(), dwpositiontype, lpdwpartition, lpdwoffsetlow, lpdwoffsethigh)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1886,7 +1886,7 @@ pub unsafe fn GetTapeStatus<P0>(hdevice: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetTapeStatus ( hdevice : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTapeStatus ( hdevice : super::super::Foundation:: HANDLE ) -> u32 );
     GetTapeStatus(hdevice.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1896,7 +1896,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetTempFileNameA ( lppathname : :: windows::core::PCSTR , lpprefixstring : :: windows::core::PCSTR , uunique : u32 , lptempfilename : :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTempFileNameA ( lppathname : :: windows::core::PCSTR , lpprefixstring : :: windows::core::PCSTR , uunique : u32 , lptempfilename : :: windows::core::PSTR ) -> u32 );
     GetTempFileNameA(lppathname.into().abi(), lpprefixstring.into().abi(), uunique, ::core::mem::transmute(lptempfilename.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1906,31 +1906,31 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetTempFileNameW ( lppathname : :: windows::core::PCWSTR , lpprefixstring : :: windows::core::PCWSTR , uunique : u32 , lptempfilename : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTempFileNameW ( lppathname : :: windows::core::PCWSTR , lpprefixstring : :: windows::core::PCWSTR , uunique : u32 , lptempfilename : :: windows::core::PWSTR ) -> u32 );
     GetTempFileNameW(lppathname.into().abi(), lpprefixstring.into().abi(), uunique, ::core::mem::transmute(lptempfilename.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempPath2A(buffer: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetTempPath2A ( bufferlength : u32 , buffer : :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTempPath2A ( bufferlength : u32 , buffer : :: windows::core::PSTR ) -> u32 );
     GetTempPath2A(buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempPath2W(buffer: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetTempPath2W ( bufferlength : u32 , buffer : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTempPath2W ( bufferlength : u32 , buffer : :: windows::core::PWSTR ) -> u32 );
     GetTempPath2W(buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempPathA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetTempPathA ( nbufferlength : u32 , lpbuffer : :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTempPathA ( nbufferlength : u32 , lpbuffer : :: windows::core::PSTR ) -> u32 );
     GetTempPathA(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempPathW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetTempPathW ( nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTempPathW ( nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR ) -> u32 );
     GetTempPathW(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1940,7 +1940,7 @@ pub unsafe fn GetTransactionId<P0>(transactionhandle: P0, transactionid: *mut ::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn GetTransactionId ( transactionhandle : super::super::Foundation:: HANDLE , transactionid : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn GetTransactionId ( transactionhandle : super::super::Foundation:: HANDLE , transactionid : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
     GetTransactionId(transactionhandle.into(), transactionid)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1950,7 +1950,7 @@ pub unsafe fn GetTransactionInformation<P0>(transactionhandle: P0, outcome: *mut
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn GetTransactionInformation ( transactionhandle : super::super::Foundation:: HANDLE , outcome : *mut u32 , isolationlevel : *mut u32 , isolationflags : *mut u32 , timeout : *mut u32 , bufferlength : u32 , description : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn GetTransactionInformation ( transactionhandle : super::super::Foundation:: HANDLE , outcome : *mut u32 , isolationlevel : *mut u32 , isolationflags : *mut u32 , timeout : *mut u32 , bufferlength : u32 , description : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     GetTransactionInformation(transactionhandle.into(), outcome, isolationlevel, isolationflags, timeout, description.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(description.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1960,7 +1960,7 @@ pub unsafe fn GetTransactionManagerId<P0>(transactionmanagerhandle: P0, transact
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn GetTransactionManagerId ( transactionmanagerhandle : super::super::Foundation:: HANDLE , transactionmanagerid : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn GetTransactionManagerId ( transactionmanagerhandle : super::super::Foundation:: HANDLE , transactionmanagerid : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
     GetTransactionManagerId(transactionmanagerhandle.into(), transactionmanagerid)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1970,7 +1970,7 @@ pub unsafe fn GetVolumeInformationA<P0>(lprootpathname: P0, lpvolumenamebuffer: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetVolumeInformationA ( lprootpathname : :: windows::core::PCSTR , lpvolumenamebuffer : :: windows::core::PSTR , nvolumenamesize : u32 , lpvolumeserialnumber : *mut u32 , lpmaximumcomponentlength : *mut u32 , lpfilesystemflags : *mut u32 , lpfilesystemnamebuffer : :: windows::core::PSTR , nfilesystemnamesize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetVolumeInformationA ( lprootpathname : :: windows::core::PCSTR , lpvolumenamebuffer : :: windows::core::PSTR , nvolumenamesize : u32 , lpvolumeserialnumber : *mut u32 , lpmaximumcomponentlength : *mut u32 , lpfilesystemflags : *mut u32 , lpfilesystemnamebuffer : :: windows::core::PSTR , nfilesystemnamesize : u32 ) -> super::super::Foundation:: BOOL );
     GetVolumeInformationA(
         lprootpathname.into().abi(),
         ::core::mem::transmute(lpvolumenamebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -1989,7 +1989,7 @@ pub unsafe fn GetVolumeInformationByHandleW<P0>(hfile: P0, lpvolumenamebuffer: :
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetVolumeInformationByHandleW ( hfile : super::super::Foundation:: HANDLE , lpvolumenamebuffer : :: windows::core::PWSTR , nvolumenamesize : u32 , lpvolumeserialnumber : *mut u32 , lpmaximumcomponentlength : *mut u32 , lpfilesystemflags : *mut u32 , lpfilesystemnamebuffer : :: windows::core::PWSTR , nfilesystemnamesize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetVolumeInformationByHandleW ( hfile : super::super::Foundation:: HANDLE , lpvolumenamebuffer : :: windows::core::PWSTR , nvolumenamesize : u32 , lpvolumeserialnumber : *mut u32 , lpmaximumcomponentlength : *mut u32 , lpfilesystemflags : *mut u32 , lpfilesystemnamebuffer : :: windows::core::PWSTR , nfilesystemnamesize : u32 ) -> super::super::Foundation:: BOOL );
     GetVolumeInformationByHandleW(
         hfile.into(),
         ::core::mem::transmute(lpvolumenamebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -2008,7 +2008,7 @@ pub unsafe fn GetVolumeInformationW<P0>(lprootpathname: P0, lpvolumenamebuffer: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetVolumeInformationW ( lprootpathname : :: windows::core::PCWSTR , lpvolumenamebuffer : :: windows::core::PWSTR , nvolumenamesize : u32 , lpvolumeserialnumber : *mut u32 , lpmaximumcomponentlength : *mut u32 , lpfilesystemflags : *mut u32 , lpfilesystemnamebuffer : :: windows::core::PWSTR , nfilesystemnamesize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetVolumeInformationW ( lprootpathname : :: windows::core::PCWSTR , lpvolumenamebuffer : :: windows::core::PWSTR , nvolumenamesize : u32 , lpvolumeserialnumber : *mut u32 , lpmaximumcomponentlength : *mut u32 , lpfilesystemflags : *mut u32 , lpfilesystemnamebuffer : :: windows::core::PWSTR , nfilesystemnamesize : u32 ) -> super::super::Foundation:: BOOL );
     GetVolumeInformationW(
         lprootpathname.into().abi(),
         ::core::mem::transmute(lpvolumenamebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -2027,7 +2027,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointA<P0>(lpszvolumemountpoint: P0, lp
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetVolumeNameForVolumeMountPointA ( lpszvolumemountpoint : :: windows::core::PCSTR , lpszvolumename : :: windows::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetVolumeNameForVolumeMountPointA ( lpszvolumemountpoint : :: windows::core::PCSTR , lpszvolumename : :: windows::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint.into().abi(), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2037,7 +2037,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointW<P0>(lpszvolumemountpoint: P0, lp
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetVolumeNameForVolumeMountPointW ( lpszvolumemountpoint : :: windows::core::PCWSTR , lpszvolumename : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetVolumeNameForVolumeMountPointW ( lpszvolumemountpoint : :: windows::core::PCWSTR , lpszvolumename : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint.into().abi(), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2047,7 +2047,7 @@ pub unsafe fn GetVolumePathNameA<P0>(lpszfilename: P0, lpszvolumepathname: &mut 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetVolumePathNameA ( lpszfilename : :: windows::core::PCSTR , lpszvolumepathname : :: windows::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetVolumePathNameA ( lpszfilename : :: windows::core::PCSTR , lpszvolumepathname : :: windows::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     GetVolumePathNameA(lpszfilename.into().abi(), ::core::mem::transmute(lpszvolumepathname.as_ptr()), lpszvolumepathname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2057,7 +2057,7 @@ pub unsafe fn GetVolumePathNameW<P0>(lpszfilename: P0, lpszvolumepathname: &mut 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetVolumePathNameW ( lpszfilename : :: windows::core::PCWSTR , lpszvolumepathname : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetVolumePathNameW ( lpszfilename : :: windows::core::PCWSTR , lpszvolumepathname : :: windows::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
     GetVolumePathNameW(lpszfilename.into().abi(), ::core::mem::transmute(lpszvolumepathname.as_ptr()), lpszvolumepathname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2067,7 +2067,7 @@ pub unsafe fn GetVolumePathNamesForVolumeNameA<P0>(lpszvolumename: P0, lpszvolum
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetVolumePathNamesForVolumeNameA ( lpszvolumename : :: windows::core::PCSTR , lpszvolumepathnames : :: windows::core::PSTR , cchbufferlength : u32 , lpcchreturnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetVolumePathNamesForVolumeNameA ( lpszvolumename : :: windows::core::PCSTR , lpszvolumepathnames : :: windows::core::PSTR , cchbufferlength : u32 , lpcchreturnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetVolumePathNamesForVolumeNameA(lpszvolumename.into().abi(), ::core::mem::transmute(lpszvolumepathnames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len() as _), lpcchreturnlength)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2077,7 +2077,7 @@ pub unsafe fn GetVolumePathNamesForVolumeNameW<P0>(lpszvolumename: P0, lpszvolum
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetVolumePathNamesForVolumeNameW ( lpszvolumename : :: windows::core::PCWSTR , lpszvolumepathnames : :: windows::core::PWSTR , cchbufferlength : u32 , lpcchreturnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetVolumePathNamesForVolumeNameW ( lpszvolumename : :: windows::core::PCWSTR , lpszvolumepathnames : :: windows::core::PWSTR , cchbufferlength : u32 , lpcchreturnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetVolumePathNamesForVolumeNameW(lpszvolumename.into().abi(), ::core::mem::transmute(lpszvolumepathnames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len() as _), lpcchreturnlength)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2087,7 +2087,7 @@ pub unsafe fn HandleLogFull<P0>(hlog: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn HandleLogFull ( hlog : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn HandleLogFull ( hlog : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     HandleLogFull(hlog.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2097,38 +2097,38 @@ pub unsafe fn InstallLogPolicy<P0>(hlog: P0, ppolicy: *mut CLFS_MGMT_POLICY) -> 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn InstallLogPolicy ( hlog : super::super::Foundation:: HANDLE , ppolicy : *mut CLFS_MGMT_POLICY ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn InstallLogPolicy ( hlog : super::super::Foundation:: HANDLE , ppolicy : *mut CLFS_MGMT_POLICY ) -> super::super::Foundation:: BOOL );
     InstallLogPolicy(hlog.into(), ppolicy)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn IsIoRingOpSupported ( ioring : *const HIORING__ , op : IORING_OP_CODE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn IsIoRingOpSupported ( ioring : *const HIORING__ , op : IORING_OP_CODE ) -> super::super::Foundation:: BOOL );
     IsIoRingOpSupported(ioring, op)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZClose(hfile: i32) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LZClose ( hfile : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LZClose ( hfile : i32 ) -> ( ) );
     LZClose(hfile)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LZCopy ( hfsource : i32 , hfdest : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LZCopy ( hfsource : i32 , hfdest : i32 ) -> i32 );
     LZCopy(hfsource, hfdest)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZDone() {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LZDone ( ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LZDone ( ) -> ( ) );
     LZDone()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZInit(hfsource: i32) -> i32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LZInit ( hfsource : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LZInit ( hfsource : i32 ) -> i32 );
     LZInit(hfsource)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2138,7 +2138,7 @@ pub unsafe fn LZOpenFileA<P0>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LZOpenFileA ( lpfilename : :: windows::core::PCSTR , lpreopenbuf : *mut OFSTRUCT , wstyle : LZOPENFILE_STYLE ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LZOpenFileA ( lpfilename : :: windows::core::PCSTR , lpreopenbuf : *mut OFSTRUCT , wstyle : LZOPENFILE_STYLE ) -> i32 );
     LZOpenFileA(lpfilename.into().abi(), lpreopenbuf, wstyle)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2148,32 +2148,32 @@ pub unsafe fn LZOpenFileW<P0>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LZOpenFileW ( lpfilename : :: windows::core::PCWSTR , lpreopenbuf : *mut OFSTRUCT , wstyle : LZOPENFILE_STYLE ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LZOpenFileW ( lpfilename : :: windows::core::PCWSTR , lpreopenbuf : *mut OFSTRUCT , wstyle : LZOPENFILE_STYLE ) -> i32 );
     LZOpenFileW(lpfilename.into().abi(), lpreopenbuf, wstyle)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZRead(hfile: i32, lpbuffer: &mut [u8]) -> i32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LZRead ( hfile : i32 , lpbuffer : :: windows::core::PSTR , cbread : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LZRead ( hfile : i32 , lpbuffer : :: windows::core::PSTR , cbread : i32 ) -> i32 );
     LZRead(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LZSeek ( hfile : i32 , loffset : i32 , iorigin : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LZSeek ( hfile : i32 , loffset : i32 , iorigin : i32 ) -> i32 );
     LZSeek(hfile, loffset, iorigin)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZStart() -> i32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LZStart ( ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LZStart ( ) -> i32 );
     LZStart()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: *const super::super::Foundation::FILETIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LocalFileTimeToFileTime ( lplocalfiletime : *const super::super::Foundation:: FILETIME , lpfiletime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LocalFileTimeToFileTime ( lplocalfiletime : *const super::super::Foundation:: FILETIME , lpfiletime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
     LocalFileTimeToFileTime(lplocalfiletime, lpfiletime)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2183,7 +2183,7 @@ pub unsafe fn LockFile<P0>(hfile: P0, dwfileoffsetlow: u32, dwfileoffsethigh: u3
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LockFile ( hfile : super::super::Foundation:: HANDLE , dwfileoffsetlow : u32 , dwfileoffsethigh : u32 , nnumberofbytestolocklow : u32 , nnumberofbytestolockhigh : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LockFile ( hfile : super::super::Foundation:: HANDLE , dwfileoffsetlow : u32 , dwfileoffsethigh : u32 , nnumberofbytestolocklow : u32 , nnumberofbytestolockhigh : u32 ) -> super::super::Foundation:: BOOL );
     LockFile(hfile.into(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestolocklow, nnumberofbytestolockhigh)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -2193,7 +2193,7 @@ pub unsafe fn LockFileEx<P0>(hfile: P0, dwflags: LOCK_FILE_FLAGS, dwreserved: u3
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn LockFileEx ( hfile : super::super::Foundation:: HANDLE , dwflags : LOCK_FILE_FLAGS , dwreserved : u32 , nnumberofbytestolocklow : u32 , nnumberofbytestolockhigh : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LockFileEx ( hfile : super::super::Foundation:: HANDLE , dwflags : LOCK_FILE_FLAGS , dwreserved : u32 , nnumberofbytestolocklow : u32 , nnumberofbytestolockhigh : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     LockFileEx(hfile.into(), dwflags, dwreserved, nnumberofbytestolocklow, nnumberofbytestolockhigh, lpoverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2203,72 +2203,72 @@ pub unsafe fn LogTailAdvanceFailure<P0>(hlog: P0, dwreason: u32) -> super::super
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LogTailAdvanceFailure ( hlog : super::super::Foundation:: HANDLE , dwreason : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LogTailAdvanceFailure ( hlog : super::super::Foundation:: HANDLE , dwreason : u32 ) -> super::super::Foundation:: BOOL );
     LogTailAdvanceFailure(hlog.into(), dwreason)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnBlockOffset ( plsn : *const CLS_LSN ) -> u32 );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnBlockOffset ( plsn : *const CLS_LSN ) -> u32 );
     LsnBlockOffset(plsn)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnContainer(plsn: *const CLS_LSN) -> u32 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnContainer ( plsn : *const CLS_LSN ) -> u32 );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnContainer ( plsn : *const CLS_LSN ) -> u32 );
     LsnContainer(plsn)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnCreate ( cidcontainer : u32 , offblock : u32 , crecord : u32 ) -> CLS_LSN );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnCreate ( cidcontainer : u32 , offblock : u32 , crecord : u32 ) -> CLS_LSN );
     LsnCreate(cidcontainer, offblock, crecord)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnEqual(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnEqual ( plsn1 : *const CLS_LSN , plsn2 : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnEqual ( plsn1 : *const CLS_LSN , plsn2 : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
     LsnEqual(plsn1, plsn2)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnGreater(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnGreater ( plsn1 : *const CLS_LSN , plsn2 : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnGreater ( plsn1 : *const CLS_LSN , plsn2 : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
     LsnGreater(plsn1, plsn2)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnIncrement ( plsn : *const CLS_LSN ) -> CLS_LSN );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnIncrement ( plsn : *const CLS_LSN ) -> CLS_LSN );
     LsnIncrement(plsn)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnInvalid ( plsn : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnInvalid ( plsn : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
     LsnInvalid(plsn)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnLess(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnLess ( plsn1 : *const CLS_LSN , plsn2 : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnLess ( plsn1 : *const CLS_LSN , plsn2 : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
     LsnLess(plsn1, plsn2)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnNull ( plsn : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnNull ( plsn : *const CLS_LSN ) -> super::super::Foundation:: BOOLEAN );
     LsnNull(plsn)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn LsnRecordSequence ( plsn : *const CLS_LSN ) -> u32 );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn LsnRecordSequence ( plsn : *const CLS_LSN ) -> u32 );
     LsnRecordSequence(plsn)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2279,7 +2279,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn MoveFileA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MoveFileA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     MoveFileA(lpexistingfilename.into().abi(), lpnewfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2290,7 +2290,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn MoveFileExA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , dwflags : MOVE_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MoveFileExA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , dwflags : MOVE_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
     MoveFileExA(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2301,7 +2301,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn MoveFileExW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , dwflags : MOVE_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MoveFileExW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , dwflags : MOVE_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
     MoveFileExW(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2312,7 +2312,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn MoveFileFromAppW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn MoveFileFromAppW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     MoveFileFromAppW(lpexistingfilename.into().abi(), lpnewfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2324,7 +2324,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn MoveFileTransactedA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , dwflags : MOVE_FILE_FLAGS , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MoveFileTransactedA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , dwflags : MOVE_FILE_FLAGS , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     MoveFileTransactedA(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), dwflags, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2336,7 +2336,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn MoveFileTransactedW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , dwflags : MOVE_FILE_FLAGS , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MoveFileTransactedW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , dwflags : MOVE_FILE_FLAGS , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     MoveFileTransactedW(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), dwflags, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2347,7 +2347,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn MoveFileW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MoveFileW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     MoveFileW(lpexistingfilename.into().abi(), lpnewfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2358,7 +2358,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn MoveFileWithProgressA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , dwflags : MOVE_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MoveFileWithProgressA ( lpexistingfilename : :: windows::core::PCSTR , lpnewfilename : :: windows::core::PCSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , dwflags : MOVE_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
     MoveFileWithProgressA(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2369,7 +2369,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn MoveFileWithProgressW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , dwflags : MOVE_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MoveFileWithProgressW ( lpexistingfilename : :: windows::core::PCWSTR , lpnewfilename : :: windows::core::PCWSTR , lpprogressroutine : LPPROGRESS_ROUTINE , lpdata : *const ::core::ffi::c_void , dwflags : MOVE_FILE_FLAGS ) -> super::super::Foundation:: BOOL );
     MoveFileWithProgressW(lpexistingfilename.into().abi(), lpnewfilename.into().abi(), lpprogressroutine, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2379,7 +2379,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetConnectionEnum ( servername : :: windows::core::PCWSTR , qualifier : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetConnectionEnum ( servername : :: windows::core::PCWSTR , qualifier : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
     NetConnectionEnum(servername.into().abi(), qualifier.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2388,7 +2388,7 @@ pub unsafe fn NetFileClose<P0>(servername: P0, fileid: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetFileClose ( servername : :: windows::core::PCWSTR , fileid : u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetFileClose ( servername : :: windows::core::PCWSTR , fileid : u32 ) -> u32 );
     NetFileClose(servername.into().abi(), fileid)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2399,7 +2399,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetFileEnum ( servername : :: windows::core::PCWSTR , basepath : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut usize ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetFileEnum ( servername : :: windows::core::PCWSTR , basepath : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut usize ) -> u32 );
     NetFileEnum(servername.into().abi(), basepath.into().abi(), username.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2408,7 +2408,7 @@ pub unsafe fn NetFileGetInfo<P0>(servername: P0, fileid: u32, level: u32, bufptr
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetFileGetInfo ( servername : :: windows::core::PCWSTR , fileid : u32 , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetFileGetInfo ( servername : :: windows::core::PCWSTR , fileid : u32 , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
     NetFileGetInfo(servername.into().abi(), fileid, level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2417,7 +2417,7 @@ pub unsafe fn NetServerAliasAdd<P0>(servername: P0, level: u32, buf: *const u8) 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetServerAliasAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetServerAliasAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 ) -> u32 );
     NetServerAliasAdd(servername.into().abi(), level, buf)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2426,7 +2426,7 @@ pub unsafe fn NetServerAliasDel<P0>(servername: P0, level: u32, buf: *const u8) 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetServerAliasDel ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetServerAliasDel ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 ) -> u32 );
     NetServerAliasDel(servername.into().abi(), level, buf)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2435,7 +2435,7 @@ pub unsafe fn NetServerAliasEnum<P0>(servername: P0, level: u32, bufptr: *mut *m
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetServerAliasEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetServerAliasEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resumehandle : *mut u32 ) -> u32 );
     NetServerAliasEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2446,7 +2446,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetSessionDel ( servername : :: windows::core::PCWSTR , uncclientname : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetSessionDel ( servername : :: windows::core::PCWSTR , uncclientname : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR ) -> u32 );
     NetSessionDel(servername.into().abi(), uncclientname.into().abi(), username.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2457,7 +2457,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetSessionEnum ( servername : :: windows::core::PCWSTR , uncclientname : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetSessionEnum ( servername : :: windows::core::PCWSTR , uncclientname : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
     NetSessionEnum(servername.into().abi(), uncclientname.into().abi(), username.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2468,7 +2468,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetSessionGetInfo ( servername : :: windows::core::PCWSTR , uncclientname : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetSessionGetInfo ( servername : :: windows::core::PCWSTR , uncclientname : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
     NetSessionGetInfo(servername.into().abi(), uncclientname.into().abi(), username.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2477,7 +2477,7 @@ pub unsafe fn NetShareAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_e
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetShareAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetShareAdd ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
     NetShareAdd(servername.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2487,7 +2487,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetShareCheck ( servername : :: windows::core::PCWSTR , device : :: windows::core::PCWSTR , r#type : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetShareCheck ( servername : :: windows::core::PCWSTR , device : :: windows::core::PCWSTR , r#type : *mut u32 ) -> u32 );
     NetShareCheck(servername.into().abi(), device.into().abi(), r#type)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2497,7 +2497,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetShareDel ( servername : :: windows::core::PCWSTR , netname : :: windows::core::PCWSTR , reserved : u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetShareDel ( servername : :: windows::core::PCWSTR , netname : :: windows::core::PCWSTR , reserved : u32 ) -> u32 );
     NetShareDel(servername.into().abi(), netname.into().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2506,7 +2506,7 @@ pub unsafe fn NetShareDelEx<P0>(servername: P0, level: u32, buf: *const u8) -> u
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetShareDelEx ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetShareDelEx ( servername : :: windows::core::PCWSTR , level : u32 , buf : *const u8 ) -> u32 );
     NetShareDelEx(servername.into().abi(), level, buf)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2516,7 +2516,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetShareDelSticky ( servername : :: windows::core::PCWSTR , netname : :: windows::core::PCWSTR , reserved : u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetShareDelSticky ( servername : :: windows::core::PCWSTR , netname : :: windows::core::PCWSTR , reserved : u32 ) -> u32 );
     NetShareDelSticky(servername.into().abi(), netname.into().abi(), reserved)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2525,7 +2525,7 @@ pub unsafe fn NetShareEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetShareEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetShareEnum ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
     NetShareEnum(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2534,7 +2534,7 @@ pub unsafe fn NetShareEnumSticky<P0>(servername: P0, level: u32, bufptr: *mut *m
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetShareEnumSticky ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetShareEnumSticky ( servername : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 , prefmaxlen : u32 , entriesread : *mut u32 , totalentries : *mut u32 , resume_handle : *mut u32 ) -> u32 );
     NetShareEnumSticky(servername.into().abi(), level, bufptr, prefmaxlen, entriesread, totalentries, ::core::mem::transmute(resume_handle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2544,7 +2544,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetShareGetInfo ( servername : :: windows::core::PCWSTR , netname : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetShareGetInfo ( servername : :: windows::core::PCWSTR , netname : :: windows::core::PCWSTR , level : u32 , bufptr : *mut *mut u8 ) -> u32 );
     NetShareGetInfo(servername.into().abi(), netname.into().abi(), level, bufptr)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2554,20 +2554,20 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetShareSetInfo ( servername : :: windows::core::PCWSTR , netname : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetShareSetInfo ( servername : :: windows::core::PCWSTR , netname : :: windows::core::PCWSTR , level : u32 , buf : *const u8 , parm_err : *mut u32 ) -> u32 );
     NetShareSetInfo(servername.into().abi(), netname.into().abi(), level, buf, ::core::mem::transmute(parm_err.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetStatisticsGet ( servername : *const i8 , service : *const i8 , level : u32 , options : u32 , buffer : *mut *mut u8 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn NetStatisticsGet ( servername : *const i8 , service : *const i8 , level : u32 , options : u32 , buffer : *mut *mut u8 ) -> u32 );
     NetStatisticsGet(servername, service, level, options, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ntdll.dll""system" fn NtCreateFile ( filehandle : *mut super::super::Foundation:: HANDLE , desiredaccess : u32 , objectattributes : *mut super::super::System::WindowsProgramming:: OBJECT_ATTRIBUTES , iostatusblock : *mut super::super::System::WindowsProgramming:: IO_STATUS_BLOCK , allocationsize : *mut i64 , fileattributes : u32 , shareaccess : FILE_SHARE_MODE , createdisposition : NT_CREATE_FILE_DISPOSITION , createoptions : u32 , eabuffer : *mut ::core::ffi::c_void , ealength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn NtCreateFile ( filehandle : *mut super::super::Foundation:: HANDLE , desiredaccess : u32 , objectattributes : *mut super::super::System::WindowsProgramming:: OBJECT_ATTRIBUTES , iostatusblock : *mut super::super::System::WindowsProgramming:: IO_STATUS_BLOCK , allocationsize : *mut i64 , fileattributes : u32 , shareaccess : FILE_SHARE_MODE , createdisposition : NT_CREATE_FILE_DISPOSITION , createoptions : u32 , eabuffer : *mut ::core::ffi::c_void , ealength : u32 ) -> super::super::Foundation:: NTSTATUS );
     NtCreateFile(filehandle, desiredaccess, objectattributes, iostatusblock, allocationsize, fileattributes, shareaccess, createdisposition, createoptions, eabuffer, ealength).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2576,7 +2576,7 @@ pub unsafe fn OpenEncryptedFileRawA<P0>(lpfilename: P0, ulflags: u32, pvcontext:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn OpenEncryptedFileRawA ( lpfilename : :: windows::core::PCSTR , ulflags : u32 , pvcontext : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn OpenEncryptedFileRawA ( lpfilename : :: windows::core::PCSTR , ulflags : u32 , pvcontext : *mut *mut ::core::ffi::c_void ) -> u32 );
     OpenEncryptedFileRawA(lpfilename.into().abi(), ulflags, pvcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2585,7 +2585,7 @@ pub unsafe fn OpenEncryptedFileRawW<P0>(lpfilename: P0, ulflags: u32, pvcontext:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn OpenEncryptedFileRawW ( lpfilename : :: windows::core::PCWSTR , ulflags : u32 , pvcontext : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn OpenEncryptedFileRawW ( lpfilename : :: windows::core::PCWSTR , ulflags : u32 , pvcontext : *mut *mut ::core::ffi::c_void ) -> u32 );
     OpenEncryptedFileRawW(lpfilename.into().abi(), ulflags, pvcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2595,9 +2595,9 @@ pub unsafe fn OpenEnlistment<P0>(dwdesiredaccess: u32, resourcemanagerhandle: P0
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn OpenEnlistment ( dwdesiredaccess : u32 , resourcemanagerhandle : super::super::Foundation:: HANDLE , enlistmentid : *mut :: windows::core::GUID ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn OpenEnlistment ( dwdesiredaccess : u32 , resourcemanagerhandle : super::super::Foundation:: HANDLE , enlistmentid : *mut :: windows::core::GUID ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenEnlistment(dwdesiredaccess, resourcemanagerhandle.into(), enlistmentid);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2606,7 +2606,7 @@ pub unsafe fn OpenFile<P0>(lpfilename: P0, lpreopenbuff: *mut OFSTRUCT, ustyle: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn OpenFile ( lpfilename : :: windows::core::PCSTR , lpreopenbuff : *mut OFSTRUCT , ustyle : u32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenFile ( lpfilename : :: windows::core::PCSTR , lpreopenbuff : *mut OFSTRUCT , ustyle : u32 ) -> i32 );
     OpenFile(lpfilename.into().abi(), lpreopenbuff, ustyle)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2616,9 +2616,9 @@ pub unsafe fn OpenFileById<P0>(hvolumehint: P0, lpfileid: *const FILE_ID_DESCRIP
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn OpenFileById ( hvolumehint : super::super::Foundation:: HANDLE , lpfileid : *const FILE_ID_DESCRIPTOR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenFileById ( hvolumehint : super::super::Foundation:: HANDLE , lpfileid : *const FILE_ID_DESCRIPTOR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenFileById(hvolumehint.into(), lpfileid, dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwflagsandattributes);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2627,17 +2627,17 @@ pub unsafe fn OpenResourceManager<P0>(dwdesiredaccess: u32, tmhandle: P0, resour
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn OpenResourceManager ( dwdesiredaccess : u32 , tmhandle : super::super::Foundation:: HANDLE , resourcemanagerid : *mut :: windows::core::GUID ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn OpenResourceManager ( dwdesiredaccess : u32 , tmhandle : super::super::Foundation:: HANDLE , resourcemanagerid : *mut :: windows::core::GUID ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenResourceManager(dwdesiredaccess, tmhandle.into(), resourcemanagerid);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn OpenTransaction ( dwdesiredaccess : u32 , transactionid : *mut :: windows::core::GUID ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn OpenTransaction ( dwdesiredaccess : u32 , transactionid : *mut :: windows::core::GUID ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenTransaction(dwdesiredaccess, transactionid);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2646,22 +2646,22 @@ pub unsafe fn OpenTransactionManager<P0>(logfilename: P0, desiredaccess: u32, op
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn OpenTransactionManager ( logfilename : :: windows::core::PCWSTR , desiredaccess : u32 , openoptions : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn OpenTransactionManager ( logfilename : :: windows::core::PCWSTR , desiredaccess : u32 , openoptions : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenTransactionManager(logfilename.into().abi(), desiredaccess, openoptions);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows::core::GUID, desiredaccess: u32, openoptions: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn OpenTransactionManagerById ( transactionmanagerid : *const :: windows::core::GUID , desiredaccess : u32 , openoptions : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn OpenTransactionManagerById ( transactionmanagerid : *const :: windows::core::GUID , desiredaccess : u32 , openoptions : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenTransactionManagerById(transactionmanagerid, desiredaccess, openoptions);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows::core::Result<IORING_CQE> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn PopIoRingCompletion ( ioring : *const HIORING__ , cqe : *mut IORING_CQE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn PopIoRingCompletion ( ioring : *const HIORING__ , cqe : *mut IORING_CQE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IORING_CQE>();
     PopIoRingCompletion(ioring, &mut result__).from_abi(result__)
 }
@@ -2672,7 +2672,7 @@ pub unsafe fn PrePrepareComplete<P0>(enlistmenthandle: P0, tmvirtualclock: *mut 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn PrePrepareComplete ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn PrePrepareComplete ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     PrePrepareComplete(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2682,7 +2682,7 @@ pub unsafe fn PrePrepareEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mu
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn PrePrepareEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn PrePrepareEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     PrePrepareEnlistment(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2692,7 +2692,7 @@ pub unsafe fn PrepareComplete<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn PrepareComplete ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn PrepareComplete ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     PrepareComplete(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2702,7 +2702,7 @@ pub unsafe fn PrepareEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn PrepareEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn PrepareEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     PrepareEnlistment(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2712,7 +2712,7 @@ pub unsafe fn PrepareLogArchive<P0>(hlog: P0, pszbaselogfilename: &mut [u16], pl
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn PrepareLogArchive ( hlog : super::super::Foundation:: HANDLE , pszbaselogfilename : :: windows::core::PWSTR , clen : u32 , plsnlow : *const CLS_LSN , plsnhigh : *const CLS_LSN , pcactuallength : *mut u32 , poffbaselogfiledata : *mut u64 , pcbbaselogfilelength : *mut u64 , plsnbase : *mut CLS_LSN , plsnlast : *mut CLS_LSN , plsncurrentarchivetail : *mut CLS_LSN , ppvarchivecontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn PrepareLogArchive ( hlog : super::super::Foundation:: HANDLE , pszbaselogfilename : :: windows::core::PWSTR , clen : u32 , plsnlow : *const CLS_LSN , plsnhigh : *const CLS_LSN , pcactuallength : *mut u32 , poffbaselogfiledata : *mut u64 , pcbbaselogfilelength : *mut u64 , plsnbase : *mut CLS_LSN , plsnlast : *mut CLS_LSN , plsncurrentarchivetail : *mut CLS_LSN , ppvarchivecontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     PrepareLogArchive(hlog.into(), ::core::mem::transmute(pszbaselogfilename.as_ptr()), pszbaselogfilename.len() as _, ::core::mem::transmute(plsnlow.unwrap_or(::std::ptr::null())), ::core::mem::transmute(plsnhigh.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pcactuallength.unwrap_or(::std::ptr::null_mut())), poffbaselogfiledata, pcbbaselogfilelength, plsnbase, plsnlast, plsncurrentarchivetail, ppvarchivecontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2723,7 +2723,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PrepareTape ( hdevice : super::super::Foundation:: HANDLE , dwoperation : PREPARE_TAPE_OPERATION , bimmediate : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PrepareTape ( hdevice : super::super::Foundation:: HANDLE , dwoperation : PREPARE_TAPE_OPERATION , bimmediate : super::super::Foundation:: BOOL ) -> u32 );
     PrepareTape(hdevice.into(), dwoperation, bimmediate.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2732,7 +2732,7 @@ pub unsafe fn QueryDosDeviceA<P0>(lpdevicename: P0, lptargetpath: ::core::option
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn QueryDosDeviceA ( lpdevicename : :: windows::core::PCSTR , lptargetpath : :: windows::core::PSTR , ucchmax : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn QueryDosDeviceA ( lpdevicename : :: windows::core::PCSTR , lptargetpath : :: windows::core::PSTR , ucchmax : u32 ) -> u32 );
     QueryDosDeviceA(lpdevicename.into().abi(), ::core::mem::transmute(lptargetpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptargetpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2741,13 +2741,13 @@ pub unsafe fn QueryDosDeviceW<P0>(lpdevicename: P0, lptargetpath: ::core::option
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn QueryDosDeviceW ( lpdevicename : :: windows::core::PCWSTR , lptargetpath : :: windows::core::PWSTR , ucchmax : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn QueryDosDeviceW ( lpdevicename : :: windows::core::PCWSTR , lptargetpath : :: windows::core::PWSTR , ucchmax : u32 ) -> u32 );
     QueryDosDeviceW(lpdevicename.into().abi(), ::core::mem::transmute(lptargetpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptargetpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn QueryIoRingCapabilities() -> ::windows::core::Result<IORING_CAPABILITIES> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn QueryIoRingCapabilities ( capabilities : *mut IORING_CAPABILITIES ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn QueryIoRingCapabilities ( capabilities : *mut IORING_CAPABILITIES ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IORING_CAPABILITIES>();
     QueryIoRingCapabilities(&mut result__).from_abi(result__)
 }
@@ -2758,7 +2758,7 @@ pub unsafe fn QueryLogPolicy<P0>(hlog: P0, epolicytype: CLFS_MGMT_POLICY_TYPE, p
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn QueryLogPolicy ( hlog : super::super::Foundation:: HANDLE , epolicytype : CLFS_MGMT_POLICY_TYPE , ppolicybuffer : *mut CLFS_MGMT_POLICY , pcbpolicybuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn QueryLogPolicy ( hlog : super::super::Foundation:: HANDLE , epolicytype : CLFS_MGMT_POLICY_TYPE , ppolicybuffer : *mut CLFS_MGMT_POLICY , pcbpolicybuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
     QueryLogPolicy(hlog.into(), epolicytype, ppolicybuffer, pcbpolicybuffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
@@ -2768,7 +2768,7 @@ pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<P0>(lpfilename: P0, precoveryag
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn QueryRecoveryAgentsOnEncryptedFile ( lpfilename : :: windows::core::PCWSTR , precoveryagents : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn QueryRecoveryAgentsOnEncryptedFile ( lpfilename : :: windows::core::PCWSTR , precoveryagents : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST ) -> u32 );
     QueryRecoveryAgentsOnEncryptedFile(lpfilename.into().abi(), precoveryagents)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
@@ -2778,7 +2778,7 @@ pub unsafe fn QueryUsersOnEncryptedFile<P0>(lpfilename: P0, pusers: *mut *mut EN
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn QueryUsersOnEncryptedFile ( lpfilename : :: windows::core::PCWSTR , pusers : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn QueryUsersOnEncryptedFile ( lpfilename : :: windows::core::PCWSTR , pusers : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST ) -> u32 );
     QueryUsersOnEncryptedFile(lpfilename.into().abi(), pusers)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2788,9 +2788,9 @@ pub unsafe fn ReOpenFile<P0>(horiginalfile: P0, dwdesiredaccess: FILE_ACCESS_FLA
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReOpenFile ( horiginalfile : super::super::Foundation:: HANDLE , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReOpenFile ( horiginalfile : super::super::Foundation:: HANDLE , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
     let result__ = ReOpenFile(horiginalfile.into(), dwdesiredaccess, dwsharemode, dwflagsandattributes);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -2800,7 +2800,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReadDirectoryChangesExW ( hdirectory : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nbufferlength : u32 , bwatchsubtree : super::super::Foundation:: BOOL , dwnotifyfilter : FILE_NOTIFY_CHANGE , lpbytesreturned : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE , readdirectorynotifyinformationclass : READ_DIRECTORY_NOTIFY_INFORMATION_CLASS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReadDirectoryChangesExW ( hdirectory : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nbufferlength : u32 , bwatchsubtree : super::super::Foundation:: BOOL , dwnotifyfilter : FILE_NOTIFY_CHANGE , lpbytesreturned : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE , readdirectorynotifyinformationclass : READ_DIRECTORY_NOTIFY_INFORMATION_CLASS ) -> super::super::Foundation:: BOOL );
     ReadDirectoryChangesExW(hdirectory.into(), lpbuffer, nbufferlength, bwatchsubtree.into(), dwnotifyfilter, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine, readdirectorynotifyinformationclass)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -2811,13 +2811,13 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReadDirectoryChangesW ( hdirectory : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nbufferlength : u32 , bwatchsubtree : super::super::Foundation:: BOOL , dwnotifyfilter : FILE_NOTIFY_CHANGE , lpbytesreturned : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReadDirectoryChangesW ( hdirectory : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nbufferlength : u32 , bwatchsubtree : super::super::Foundation:: BOOL , dwnotifyfilter : FILE_NOTIFY_CHANGE , lpbytesreturned : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE ) -> super::super::Foundation:: BOOL );
     ReadDirectoryChangesW(hdirectory.into(), lpbuffer, nbufferlength, bwatchsubtree.into(), dwnotifyfilter, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, pvcontext: *const ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn ReadEncryptedFileRaw ( pfexportcallback : PFE_EXPORT_FUNC , pvcallbackcontext : *const ::core::ffi::c_void , pvcontext : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn ReadEncryptedFileRaw ( pfexportcallback : PFE_EXPORT_FUNC , pvcallbackcontext : *const ::core::ffi::c_void , pvcontext : *const ::core::ffi::c_void ) -> u32 );
     ReadEncryptedFileRaw(pfexportcallback, ::core::mem::transmute(pvcallbackcontext.unwrap_or(::std::ptr::null())), pvcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -2827,7 +2827,7 @@ pub unsafe fn ReadFile<P0>(hfile: P0, lpbuffer: ::core::option::Option<*mut ::co
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReadFile ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nnumberofbytestoread : u32 , lpnumberofbytesread : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReadFile ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nnumberofbytestoread : u32 , lpnumberofbytesread : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     ReadFile(hfile.into(), ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null_mut())), nnumberofbytestoread, ::core::mem::transmute(lpnumberofbytesread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -2837,7 +2837,7 @@ pub unsafe fn ReadFileEx<P0>(hfile: P0, lpbuffer: ::core::option::Option<*mut ::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReadFileEx ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nnumberofbytestoread : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReadFileEx ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nnumberofbytestoread : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE ) -> super::super::Foundation:: BOOL );
     ReadFileEx(hfile.into(), ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null_mut())), nnumberofbytestoread, lpoverlapped, lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -2847,14 +2847,14 @@ pub unsafe fn ReadFileScatter<P0>(hfile: P0, asegmentarray: *const FILE_SEGMENT_
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReadFileScatter ( hfile : super::super::Foundation:: HANDLE , asegmentarray : *const FILE_SEGMENT_ELEMENT , nnumberofbytestoread : u32 , lpreserved : *const u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReadFileScatter ( hfile : super::super::Foundation:: HANDLE , asegmentarray : *const FILE_SEGMENT_ELEMENT , nnumberofbytestoread : u32 , lpreserved : *const u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     ReadFileScatter(hfile.into(), asegmentarray, nnumberofbytestoread, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), lpoverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ReadLogArchiveMetadata ( pvarchivecontext : *mut ::core::ffi::c_void , cboffset : u32 , cbbytestoread : u32 , pbreadbuffer : *mut u8 , pcbbytesread : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ReadLogArchiveMetadata ( pvarchivecontext : *mut ::core::ffi::c_void , cboffset : u32 , cbbytestoread : u32 , pbreadbuffer : *mut u8 , pcbbytesread : *mut u32 ) -> super::super::Foundation:: BOOL );
     ReadLogArchiveMetadata(pvarchivecontext, cboffset, cbbytestoread, pbreadbuffer, pcbbytesread)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -2864,28 +2864,28 @@ pub unsafe fn ReadLogNotification<P0>(hlog: P0, pnotification: *mut CLFS_MGMT_NO
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ReadLogNotification ( hlog : super::super::Foundation:: HANDLE , pnotification : *mut CLFS_MGMT_NOTIFICATION , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ReadLogNotification ( hlog : super::super::Foundation:: HANDLE , pnotification : *mut CLFS_MGMT_NOTIFICATION , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     ReadLogNotification(hlog.into(), pnotification, lpoverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ReadLogRecord ( pvmarshal : *mut ::core::ffi::c_void , plsnfirst : *mut CLS_LSN , econtextmode : CLFS_CONTEXT_MODE , ppvreadbuffer : *mut *mut ::core::ffi::c_void , pcbreadbuffer : *mut u32 , perecordtype : *mut u8 , plsnundonext : *mut CLS_LSN , plsnprevious : *mut CLS_LSN , ppvreadcontext : *mut *mut ::core::ffi::c_void , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ReadLogRecord ( pvmarshal : *mut ::core::ffi::c_void , plsnfirst : *mut CLS_LSN , econtextmode : CLFS_CONTEXT_MODE , ppvreadbuffer : *mut *mut ::core::ffi::c_void , pcbreadbuffer : *mut u32 , perecordtype : *mut u8 , plsnundonext : *mut CLS_LSN , plsnprevious : *mut CLS_LSN , ppvreadcontext : *mut *mut ::core::ffi::c_void , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     ReadLogRecord(pvmarshal, plsnfirst, econtextmode, ppvreadbuffer, pcbreadbuffer, perecordtype, plsnundonext, plsnprevious, ppvreadcontext, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ReadLogRestartArea ( pvmarshal : *mut ::core::ffi::c_void , ppvrestartbuffer : *mut *mut ::core::ffi::c_void , pcbrestartbuffer : *mut u32 , plsn : *mut CLS_LSN , ppvcontext : *mut *mut ::core::ffi::c_void , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ReadLogRestartArea ( pvmarshal : *mut ::core::ffi::c_void , ppvrestartbuffer : *mut *mut ::core::ffi::c_void , pcbrestartbuffer : *mut u32 , plsn : *mut CLS_LSN , ppvcontext : *mut *mut ::core::ffi::c_void , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     ReadLogRestartArea(pvmarshal, ppvrestartbuffer, pcbrestartbuffer, plsn, ppvcontext, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ReadNextLogRecord ( pvreadcontext : *mut ::core::ffi::c_void , ppvbuffer : *mut *mut ::core::ffi::c_void , pcbbuffer : *mut u32 , perecordtype : *mut u8 , plsnuser : *mut CLS_LSN , plsnundonext : *mut CLS_LSN , plsnprevious : *mut CLS_LSN , plsnrecord : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ReadNextLogRecord ( pvreadcontext : *mut ::core::ffi::c_void , ppvbuffer : *mut *mut ::core::ffi::c_void , pcbbuffer : *mut u32 , perecordtype : *mut u8 , plsnuser : *mut CLS_LSN , plsnundonext : *mut CLS_LSN , plsnprevious : *mut CLS_LSN , plsnrecord : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     ReadNextLogRecord(pvreadcontext, ppvbuffer, pcbbuffer, perecordtype, plsnuser, plsnundonext, plsnprevious, plsnrecord, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2895,14 +2895,14 @@ pub unsafe fn ReadOnlyEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mut 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn ReadOnlyEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn ReadOnlyEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     ReadOnlyEnlistment(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ReadPreviousLogRestartArea ( pvreadcontext : *mut ::core::ffi::c_void , ppvrestartbuffer : *mut *mut ::core::ffi::c_void , pcbrestartbuffer : *mut u32 , plsnrestart : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ReadPreviousLogRestartArea ( pvreadcontext : *mut ::core::ffi::c_void , ppvrestartbuffer : *mut *mut ::core::ffi::c_void , pcbrestartbuffer : *mut u32 , plsnrestart : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     ReadPreviousLogRestartArea(pvreadcontext, ppvrestartbuffer, pcbrestartbuffer, plsnrestart, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2912,7 +2912,7 @@ pub unsafe fn RecoverEnlistment<P0>(enlistmenthandle: P0, enlistmentkey: *mut ::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn RecoverEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , enlistmentkey : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn RecoverEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , enlistmentkey : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     RecoverEnlistment(enlistmenthandle.into(), enlistmentkey)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2922,7 +2922,7 @@ pub unsafe fn RecoverResourceManager<P0>(resourcemanagerhandle: P0) -> super::su
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn RecoverResourceManager ( resourcemanagerhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn RecoverResourceManager ( resourcemanagerhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     RecoverResourceManager(resourcemanagerhandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2932,7 +2932,7 @@ pub unsafe fn RecoverTransactionManager<P0>(transactionmanagerhandle: P0) -> sup
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn RecoverTransactionManager ( transactionmanagerhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn RecoverTransactionManager ( transactionmanagerhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     RecoverTransactionManager(transactionmanagerhandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2943,7 +2943,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn RegisterForLogWriteNotification ( hlog : super::super::Foundation:: HANDLE , cbthreshold : u32 , fenable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn RegisterForLogWriteNotification ( hlog : super::super::Foundation:: HANDLE , cbthreshold : u32 , fenable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     RegisterForLogWriteNotification(hlog.into(), cbthreshold, fenable.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2953,7 +2953,7 @@ pub unsafe fn RegisterManageableLogClient<P0>(hlog: P0, pcallbacks: *mut LOG_MAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn RegisterManageableLogClient ( hlog : super::super::Foundation:: HANDLE , pcallbacks : *mut LOG_MANAGEMENT_CALLBACKS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn RegisterManageableLogClient ( hlog : super::super::Foundation:: HANDLE , pcallbacks : *mut LOG_MANAGEMENT_CALLBACKS ) -> super::super::Foundation:: BOOL );
     RegisterManageableLogClient(hlog.into(), pcallbacks)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2963,7 +2963,7 @@ pub unsafe fn RemoveDirectoryA<P0>(lppathname: P0) -> super::super::Foundation::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RemoveDirectoryA ( lppathname : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RemoveDirectoryA ( lppathname : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     RemoveDirectoryA(lppathname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2973,7 +2973,7 @@ pub unsafe fn RemoveDirectoryFromAppW<P0>(lppathname: P0) -> super::super::Found
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn RemoveDirectoryFromAppW ( lppathname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn RemoveDirectoryFromAppW ( lppathname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     RemoveDirectoryFromAppW(lppathname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2984,7 +2984,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RemoveDirectoryTransactedA ( lppathname : :: windows::core::PCSTR , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RemoveDirectoryTransactedA ( lppathname : :: windows::core::PCSTR , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     RemoveDirectoryTransactedA(lppathname.into().abi(), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2995,7 +2995,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RemoveDirectoryTransactedW ( lppathname : :: windows::core::PCWSTR , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RemoveDirectoryTransactedW ( lppathname : :: windows::core::PCWSTR , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     RemoveDirectoryTransactedW(lppathname.into().abi(), htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3005,7 +3005,7 @@ pub unsafe fn RemoveDirectoryW<P0>(lppathname: P0) -> super::super::Foundation::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn RemoveDirectoryW ( lppathname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RemoveDirectoryW ( lppathname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     RemoveDirectoryW(lppathname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3017,7 +3017,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn RemoveLogContainer ( hlog : super::super::Foundation:: HANDLE , pwszcontainerpath : :: windows::core::PCWSTR , fforce : super::super::Foundation:: BOOL , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn RemoveLogContainer ( hlog : super::super::Foundation:: HANDLE , pwszcontainerpath : :: windows::core::PCWSTR , fforce : super::super::Foundation:: BOOL , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     RemoveLogContainer(hlog.into(), pwszcontainerpath.into().abi(), fforce.into(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3028,7 +3028,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn RemoveLogContainerSet ( hlog : super::super::Foundation:: HANDLE , ccontainer : u16 , rgwszcontainerpath : *const :: windows::core::PCWSTR , fforce : super::super::Foundation:: BOOL , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn RemoveLogContainerSet ( hlog : super::super::Foundation:: HANDLE , ccontainer : u16 , rgwszcontainerpath : *const :: windows::core::PCWSTR , fforce : super::super::Foundation:: BOOL , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     RemoveLogContainerSet(hlog.into(), rgwszcontainerpath.len() as _, ::core::mem::transmute(rgwszcontainerpath.as_ptr()), fforce.into(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3038,7 +3038,7 @@ pub unsafe fn RemoveLogPolicy<P0>(hlog: P0, epolicytype: CLFS_MGMT_POLICY_TYPE) 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn RemoveLogPolicy ( hlog : super::super::Foundation:: HANDLE , epolicytype : CLFS_MGMT_POLICY_TYPE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn RemoveLogPolicy ( hlog : super::super::Foundation:: HANDLE , epolicytype : CLFS_MGMT_POLICY_TYPE ) -> super::super::Foundation:: BOOL );
     RemoveLogPolicy(hlog.into(), epolicytype)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
@@ -3048,7 +3048,7 @@ pub unsafe fn RemoveUsersFromEncryptedFile<P0>(lpfilename: P0, phashes: *const E
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn RemoveUsersFromEncryptedFile ( lpfilename : :: windows::core::PCWSTR , phashes : *const ENCRYPTION_CERTIFICATE_HASH_LIST ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn RemoveUsersFromEncryptedFile ( lpfilename : :: windows::core::PCWSTR , phashes : *const ENCRYPTION_CERTIFICATE_HASH_LIST ) -> u32 );
     RemoveUsersFromEncryptedFile(lpfilename.into().abi(), phashes)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3058,7 +3058,7 @@ pub unsafe fn RenameTransactionManager<P0>(logfilename: P0, existingtransactionm
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn RenameTransactionManager ( logfilename : :: windows::core::PCWSTR , existingtransactionmanagerguid : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn RenameTransactionManager ( logfilename : :: windows::core::PCWSTR , existingtransactionmanagerguid : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
     RenameTransactionManager(logfilename.into().abi(), existingtransactionmanagerguid)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3070,7 +3070,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReplaceFileA ( lpreplacedfilename : :: windows::core::PCSTR , lpreplacementfilename : :: windows::core::PCSTR , lpbackupfilename : :: windows::core::PCSTR , dwreplaceflags : REPLACE_FILE_FLAGS , lpexclude : *const ::core::ffi::c_void , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReplaceFileA ( lpreplacedfilename : :: windows::core::PCSTR , lpreplacementfilename : :: windows::core::PCSTR , lpbackupfilename : :: windows::core::PCSTR , dwreplaceflags : REPLACE_FILE_FLAGS , lpexclude : *const ::core::ffi::c_void , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     ReplaceFileA(lpreplacedfilename.into().abi(), lpreplacementfilename.into().abi(), lpbackupfilename.into().abi(), dwreplaceflags, ::core::mem::transmute(lpexclude.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3082,7 +3082,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn ReplaceFileFromAppW ( lpreplacedfilename : :: windows::core::PCWSTR , lpreplacementfilename : :: windows::core::PCWSTR , lpbackupfilename : :: windows::core::PCWSTR , dwreplaceflags : u32 , lpexclude : *const ::core::ffi::c_void , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn ReplaceFileFromAppW ( lpreplacedfilename : :: windows::core::PCWSTR , lpreplacementfilename : :: windows::core::PCWSTR , lpbackupfilename : :: windows::core::PCWSTR , dwreplaceflags : u32 , lpexclude : *const ::core::ffi::c_void , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     ReplaceFileFromAppW(lpreplacedfilename.into().abi(), lpreplacementfilename.into().abi(), lpbackupfilename.into().abi(), dwreplaceflags, ::core::mem::transmute(lpexclude.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3094,21 +3094,21 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReplaceFileW ( lpreplacedfilename : :: windows::core::PCWSTR , lpreplacementfilename : :: windows::core::PCWSTR , lpbackupfilename : :: windows::core::PCWSTR , dwreplaceflags : REPLACE_FILE_FLAGS , lpexclude : *const ::core::ffi::c_void , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReplaceFileW ( lpreplacedfilename : :: windows::core::PCWSTR , lpreplacementfilename : :: windows::core::PCWSTR , lpbackupfilename : :: windows::core::PCWSTR , dwreplaceflags : REPLACE_FILE_FLAGS , lpexclude : *const ::core::ffi::c_void , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     ReplaceFileW(lpreplacedfilename.into().abi(), lpreplacementfilename.into().abi(), lpbackupfilename.into().abi(), dwreplaceflags, ::core::mem::transmute(lpexclude.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ReserveAndAppendLog ( pvmarshal : *mut ::core::ffi::c_void , rgwriteentries : *mut CLS_WRITE_ENTRY , cwriteentries : u32 , plsnundonext : *mut CLS_LSN , plsnprevious : *mut CLS_LSN , creserverecords : u32 , rgcbreservation : *mut i64 , fflags : CLFS_FLAG , plsn : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ReserveAndAppendLog ( pvmarshal : *mut ::core::ffi::c_void , rgwriteentries : *mut CLS_WRITE_ENTRY , cwriteentries : u32 , plsnundonext : *mut CLS_LSN , plsnprevious : *mut CLS_LSN , creserverecords : u32 , rgcbreservation : *mut i64 , fflags : CLFS_FLAG , plsn : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     ReserveAndAppendLog(pvmarshal, rgwriteentries, cwriteentries, plsnundonext, plsnprevious, creserverecords, rgcbreservation, fflags, plsn, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ReserveAndAppendLogAligned ( pvmarshal : *mut ::core::ffi::c_void , rgwriteentries : *mut CLS_WRITE_ENTRY , cwriteentries : u32 , cbentryalignment : u32 , plsnundonext : *mut CLS_LSN , plsnprevious : *mut CLS_LSN , creserverecords : u32 , rgcbreservation : *mut i64 , fflags : CLFS_FLAG , plsn : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ReserveAndAppendLogAligned ( pvmarshal : *mut ::core::ffi::c_void , rgwriteentries : *mut CLS_WRITE_ENTRY , cwriteentries : u32 , cbentryalignment : u32 , plsnundonext : *mut CLS_LSN , plsnprevious : *mut CLS_LSN , creserverecords : u32 , rgcbreservation : *mut i64 , fflags : CLFS_FLAG , plsn : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     ReserveAndAppendLogAligned(pvmarshal, rgwriteentries, cwriteentries, cbentryalignment, plsnundonext, plsnprevious, creserverecords, rgcbreservation, fflags, plsn, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3118,7 +3118,7 @@ pub unsafe fn RollbackComplete<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i6
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn RollbackComplete ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn RollbackComplete ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     RollbackComplete(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3128,7 +3128,7 @@ pub unsafe fn RollbackEnlistment<P0>(enlistmenthandle: P0, tmvirtualclock: *mut 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn RollbackEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn RollbackEnlistment ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     RollbackEnlistment(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3138,7 +3138,7 @@ pub unsafe fn RollbackTransaction<P0>(transactionhandle: P0) -> super::super::Fo
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn RollbackTransaction ( transactionhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn RollbackTransaction ( transactionhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     RollbackTransaction(transactionhandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3148,7 +3148,7 @@ pub unsafe fn RollbackTransactionAsync<P0>(transactionhandle: P0) -> super::supe
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn RollbackTransactionAsync ( transactionhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn RollbackTransactionAsync ( transactionhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     RollbackTransactionAsync(transactionhandle.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3158,14 +3158,14 @@ pub unsafe fn RollforwardTransactionManager<P0>(transactionmanagerhandle: P0, tm
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn RollforwardTransactionManager ( transactionmanagerhandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn RollforwardTransactionManager ( transactionmanagerhandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     RollforwardTransactionManager(transactionmanagerhandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ScanLogContainers ( pcxscan : *mut CLS_SCAN_CONTEXT , escanmode : u8 , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ScanLogContainers ( pcxscan : *mut CLS_SCAN_CONTEXT , escanmode : u8 , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     ScanLogContainers(pcxscan, escanmode, preserved)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3176,7 +3176,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SearchPathA ( lppath : :: windows::core::PCSTR , lpfilename : :: windows::core::PCSTR , lpextension : :: windows::core::PCSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PSTR , lpfilepart : *mut :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SearchPathA ( lppath : :: windows::core::PCSTR , lpfilename : :: windows::core::PCSTR , lpextension : :: windows::core::PCSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PSTR , lpfilepart : *mut :: windows::core::PSTR ) -> u32 );
     SearchPathA(lppath.into().abi(), lpfilename.into().abi(), lpextension.into().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3187,7 +3187,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SearchPathW ( lppath : :: windows::core::PCWSTR , lpfilename : :: windows::core::PCWSTR , lpextension : :: windows::core::PCWSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR , lpfilepart : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SearchPathW ( lppath : :: windows::core::PCWSTR , lpfilename : :: windows::core::PCWSTR , lpextension : :: windows::core::PCWSTR , nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR , lpfilepart : *mut :: windows::core::PWSTR ) -> u32 );
     SearchPathW(lppath.into().abi(), lpfilename.into().abi(), lpextension.into().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
@@ -3197,7 +3197,7 @@ pub unsafe fn SetEncryptedFileMetadata<P0>(lpfilename: P0, pboldmetadata: ::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn SetEncryptedFileMetadata ( lpfilename : :: windows::core::PCWSTR , pboldmetadata : *const u8 , pbnewmetadata : *const u8 , pownerhash : *const ENCRYPTION_CERTIFICATE_HASH , dwoperation : u32 , pcertificatesadded : *const ENCRYPTION_CERTIFICATE_HASH_LIST ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SetEncryptedFileMetadata ( lpfilename : :: windows::core::PCWSTR , pboldmetadata : *const u8 , pbnewmetadata : *const u8 , pownerhash : *const ENCRYPTION_CERTIFICATE_HASH , dwoperation : u32 , pcertificatesadded : *const ENCRYPTION_CERTIFICATE_HASH_LIST ) -> u32 );
     SetEncryptedFileMetadata(lpfilename.into().abi(), ::core::mem::transmute(pboldmetadata.unwrap_or(::std::ptr::null())), pbnewmetadata, pownerhash, dwoperation, ::core::mem::transmute(pcertificatesadded.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3207,7 +3207,7 @@ pub unsafe fn SetEndOfFile<P0>(hfile: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetEndOfFile ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetEndOfFile ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     SetEndOfFile(hfile.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -3217,7 +3217,7 @@ pub unsafe fn SetEndOfLog<P0>(hlog: P0, plsnend: *mut CLS_LSN, lpoverlapped: *mu
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn SetEndOfLog ( hlog : super::super::Foundation:: HANDLE , plsnend : *mut CLS_LSN , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn SetEndOfLog ( hlog : super::super::Foundation:: HANDLE , plsnend : *mut CLS_LSN , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     SetEndOfLog(hlog.into(), plsnend, lpoverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3227,19 +3227,19 @@ pub unsafe fn SetEnlistmentRecoveryInformation<P0>(enlistmenthandle: P0, buffers
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn SetEnlistmentRecoveryInformation ( enlistmenthandle : super::super::Foundation:: HANDLE , buffersize : u32 , buffer : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn SetEnlistmentRecoveryInformation ( enlistmenthandle : super::super::Foundation:: HANDLE , buffersize : u32 , buffer : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     SetEnlistmentRecoveryInformation(enlistmenthandle.into(), buffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn SetFileApisToANSI() {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileApisToANSI ( ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileApisToANSI ( ) -> ( ) );
     SetFileApisToANSI()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn SetFileApisToOEM() {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileApisToOEM ( ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileApisToOEM ( ) -> ( ) );
     SetFileApisToOEM()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3249,7 +3249,7 @@ pub unsafe fn SetFileAttributesA<P0>(lpfilename: P0, dwfileattributes: FILE_FLAG
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileAttributesA ( lpfilename : :: windows::core::PCSTR , dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileAttributesA ( lpfilename : :: windows::core::PCSTR , dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     SetFileAttributesA(lpfilename.into().abi(), dwfileattributes)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3259,7 +3259,7 @@ pub unsafe fn SetFileAttributesFromAppW<P0>(lpfilename: P0, dwfileattributes: u3
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn SetFileAttributesFromAppW ( lpfilename : :: windows::core::PCWSTR , dwfileattributes : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" fn SetFileAttributesFromAppW ( lpfilename : :: windows::core::PCWSTR , dwfileattributes : u32 ) -> super::super::Foundation:: BOOL );
     SetFileAttributesFromAppW(lpfilename.into().abi(), dwfileattributes)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3270,7 +3270,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileAttributesTransactedA ( lpfilename : :: windows::core::PCSTR , dwfileattributes : u32 , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileAttributesTransactedA ( lpfilename : :: windows::core::PCSTR , dwfileattributes : u32 , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     SetFileAttributesTransactedA(lpfilename.into().abi(), dwfileattributes, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3281,7 +3281,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileAttributesTransactedW ( lpfilename : :: windows::core::PCWSTR , dwfileattributes : u32 , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileAttributesTransactedW ( lpfilename : :: windows::core::PCWSTR , dwfileattributes : u32 , htransaction : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     SetFileAttributesTransactedW(lpfilename.into().abi(), dwfileattributes, htransaction.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3291,7 +3291,7 @@ pub unsafe fn SetFileAttributesW<P0>(lpfilename: P0, dwfileattributes: FILE_FLAG
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileAttributesW ( lpfilename : :: windows::core::PCWSTR , dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileAttributesW ( lpfilename : :: windows::core::PCWSTR , dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
     SetFileAttributesW(lpfilename.into().abi(), dwfileattributes)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3302,7 +3302,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileBandwidthReservation ( hfile : super::super::Foundation:: HANDLE , nperiodmilliseconds : u32 , nbytesperperiod : u32 , bdiscardable : super::super::Foundation:: BOOL , lptransfersize : *mut u32 , lpnumoutstandingrequests : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileBandwidthReservation ( hfile : super::super::Foundation:: HANDLE , nperiodmilliseconds : u32 , nbytesperperiod : u32 , bdiscardable : super::super::Foundation:: BOOL , lptransfersize : *mut u32 , lpnumoutstandingrequests : *mut u32 ) -> super::super::Foundation:: BOOL );
     SetFileBandwidthReservation(hfile.into(), nperiodmilliseconds, nbytesperperiod, bdiscardable.into(), lptransfersize, lpnumoutstandingrequests)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3312,7 +3312,7 @@ pub unsafe fn SetFileCompletionNotificationModes<P0>(filehandle: P0, flags: u8) 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileCompletionNotificationModes ( filehandle : super::super::Foundation:: HANDLE , flags : u8 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileCompletionNotificationModes ( filehandle : super::super::Foundation:: HANDLE , flags : u8 ) -> super::super::Foundation:: BOOL );
     SetFileCompletionNotificationModes(filehandle.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3322,7 +3322,7 @@ pub unsafe fn SetFileInformationByHandle<P0>(hfile: P0, fileinformationclass: FI
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileInformationByHandle ( hfile : super::super::Foundation:: HANDLE , fileinformationclass : FILE_INFO_BY_HANDLE_CLASS , lpfileinformation : *const ::core::ffi::c_void , dwbuffersize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileInformationByHandle ( hfile : super::super::Foundation:: HANDLE , fileinformationclass : FILE_INFO_BY_HANDLE_CLASS , lpfileinformation : *const ::core::ffi::c_void , dwbuffersize : u32 ) -> super::super::Foundation:: BOOL );
     SetFileInformationByHandle(hfile.into(), fileinformationclass, lpfileinformation, dwbuffersize)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3332,7 +3332,7 @@ pub unsafe fn SetFileIoOverlappedRange<P0>(filehandle: P0, overlappedrangestart:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileIoOverlappedRange ( filehandle : super::super::Foundation:: HANDLE , overlappedrangestart : *const u8 , length : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileIoOverlappedRange ( filehandle : super::super::Foundation:: HANDLE , overlappedrangestart : *const u8 , length : u32 ) -> super::super::Foundation:: BOOL );
     SetFileIoOverlappedRange(filehandle.into(), overlappedrangestart, length)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3342,7 +3342,7 @@ pub unsafe fn SetFilePointer<P0>(hfile: P0, ldistancetomove: i32, lpdistancetomo
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFilePointer ( hfile : super::super::Foundation:: HANDLE , ldistancetomove : i32 , lpdistancetomovehigh : *mut i32 , dwmovemethod : SET_FILE_POINTER_MOVE_METHOD ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFilePointer ( hfile : super::super::Foundation:: HANDLE , ldistancetomove : i32 , lpdistancetomovehigh : *mut i32 , dwmovemethod : SET_FILE_POINTER_MOVE_METHOD ) -> u32 );
     SetFilePointer(hfile.into(), ldistancetomove, ::core::mem::transmute(lpdistancetomovehigh.unwrap_or(::std::ptr::null_mut())), dwmovemethod)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3352,7 +3352,7 @@ pub unsafe fn SetFilePointerEx<P0>(hfile: P0, lidistancetomove: i64, lpnewfilepo
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFilePointerEx ( hfile : super::super::Foundation:: HANDLE , lidistancetomove : i64 , lpnewfilepointer : *mut i64 , dwmovemethod : SET_FILE_POINTER_MOVE_METHOD ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFilePointerEx ( hfile : super::super::Foundation:: HANDLE , lidistancetomove : i64 , lpnewfilepointer : *mut i64 , dwmovemethod : SET_FILE_POINTER_MOVE_METHOD ) -> super::super::Foundation:: BOOL );
     SetFilePointerEx(hfile.into(), lidistancetomove, ::core::mem::transmute(lpnewfilepointer.unwrap_or(::std::ptr::null_mut())), dwmovemethod)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3363,7 +3363,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileShortNameA ( hfile : super::super::Foundation:: HANDLE , lpshortname : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileShortNameA ( hfile : super::super::Foundation:: HANDLE , lpshortname : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     SetFileShortNameA(hfile.into(), lpshortname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3374,7 +3374,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileShortNameW ( hfile : super::super::Foundation:: HANDLE , lpshortname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileShortNameW ( hfile : super::super::Foundation:: HANDLE , lpshortname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SetFileShortNameW(hfile.into(), lpshortname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3384,7 +3384,7 @@ pub unsafe fn SetFileTime<P0>(hfile: P0, lpcreationtime: ::core::option::Option<
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileTime ( hfile : super::super::Foundation:: HANDLE , lpcreationtime : *const super::super::Foundation:: FILETIME , lplastaccesstime : *const super::super::Foundation:: FILETIME , lplastwritetime : *const super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileTime ( hfile : super::super::Foundation:: HANDLE , lpcreationtime : *const super::super::Foundation:: FILETIME , lplastaccesstime : *const super::super::Foundation:: FILETIME , lplastwritetime : *const super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
     SetFileTime(hfile.into(), ::core::mem::transmute(lpcreationtime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lplastaccesstime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lplastwritetime.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3394,7 +3394,7 @@ pub unsafe fn SetFileValidData<P0>(hfile: P0, validdatalength: i64) -> super::su
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetFileValidData ( hfile : super::super::Foundation:: HANDLE , validdatalength : i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetFileValidData ( hfile : super::super::Foundation:: HANDLE , validdatalength : i64 ) -> super::super::Foundation:: BOOL );
     SetFileValidData(hfile.into(), validdatalength)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3404,7 +3404,7 @@ pub unsafe fn SetIoRingCompletionEvent<P0>(ioring: *const HIORING__, hevent: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn SetIoRingCompletionEvent ( ioring : *const HIORING__ , hevent : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn SetIoRingCompletionEvent ( ioring : *const HIORING__ , hevent : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     SetIoRingCompletionEvent(ioring, hevent.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3414,7 +3414,7 @@ pub unsafe fn SetLogArchiveMode<P0>(hlog: P0, emode: CLFS_LOG_ARCHIVE_MODE) -> s
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn SetLogArchiveMode ( hlog : super::super::Foundation:: HANDLE , emode : CLFS_LOG_ARCHIVE_MODE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn SetLogArchiveMode ( hlog : super::super::Foundation:: HANDLE , emode : CLFS_LOG_ARCHIVE_MODE ) -> super::super::Foundation:: BOOL );
     SetLogArchiveMode(hlog.into(), emode)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3424,7 +3424,7 @@ pub unsafe fn SetLogArchiveTail<P0>(hlog: P0, plsnarchivetail: *mut CLS_LSN, pre
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn SetLogArchiveTail ( hlog : super::super::Foundation:: HANDLE , plsnarchivetail : *mut CLS_LSN , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn SetLogArchiveTail ( hlog : super::super::Foundation:: HANDLE , plsnarchivetail : *mut CLS_LSN , preserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     SetLogArchiveTail(hlog.into(), plsnarchivetail, preserved)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3434,7 +3434,7 @@ pub unsafe fn SetLogFileSizeWithPolicy<P0>(hlog: P0, pdesiredsize: *const u64, p
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn SetLogFileSizeWithPolicy ( hlog : super::super::Foundation:: HANDLE , pdesiredsize : *const u64 , presultingsize : *mut u64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn SetLogFileSizeWithPolicy ( hlog : super::super::Foundation:: HANDLE , pdesiredsize : *const u64 , presultingsize : *mut u64 ) -> super::super::Foundation:: BOOL );
     SetLogFileSizeWithPolicy(hlog.into(), pdesiredsize, presultingsize)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3445,14 +3445,14 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn SetResourceManagerCompletionPort ( resourcemanagerhandle : super::super::Foundation:: HANDLE , iocompletionporthandle : super::super::Foundation:: HANDLE , completionkey : usize ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn SetResourceManagerCompletionPort ( resourcemanagerhandle : super::super::Foundation:: HANDLE , iocompletionporthandle : super::super::Foundation:: HANDLE , completionkey : usize ) -> super::super::Foundation:: BOOL );
     SetResourceManagerCompletionPort(resourcemanagerhandle.into(), iocompletionporthandle.into(), completionkey)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetSearchPathMode ( flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetSearchPathMode ( flags : u32 ) -> super::super::Foundation:: BOOL );
     SetSearchPathMode(flags)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3462,7 +3462,7 @@ pub unsafe fn SetTapeParameters<P0>(hdevice: P0, dwoperation: TAPE_INFORMATION_T
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetTapeParameters ( hdevice : super::super::Foundation:: HANDLE , dwoperation : TAPE_INFORMATION_TYPE , lptapeinformation : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetTapeParameters ( hdevice : super::super::Foundation:: HANDLE , dwoperation : TAPE_INFORMATION_TYPE , lptapeinformation : *const ::core::ffi::c_void ) -> u32 );
     SetTapeParameters(hdevice.into(), dwoperation, lptapeinformation)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3473,7 +3473,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetTapePosition ( hdevice : super::super::Foundation:: HANDLE , dwpositionmethod : TAPE_POSITION_METHOD , dwpartition : u32 , dwoffsetlow : u32 , dwoffsethigh : u32 , bimmediate : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetTapePosition ( hdevice : super::super::Foundation:: HANDLE , dwpositionmethod : TAPE_POSITION_METHOD , dwpartition : u32 , dwoffsetlow : u32 , dwoffsethigh : u32 , bimmediate : super::super::Foundation:: BOOL ) -> u32 );
     SetTapePosition(hdevice.into(), dwpositionmethod, dwpartition, dwoffsetlow, dwoffsethigh, bimmediate.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3484,21 +3484,21 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn SetTransactionInformation ( transactionhandle : super::super::Foundation:: HANDLE , isolationlevel : u32 , isolationflags : u32 , timeout : u32 , description : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn SetTransactionInformation ( transactionhandle : super::super::Foundation:: HANDLE , isolationlevel : u32 , isolationflags : u32 , timeout : u32 , description : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SetTransactionInformation(transactionhandle.into(), isolationlevel, isolationflags, timeout, description.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: ::core::option::Option<*const ENCRYPTION_CERTIFICATE>) -> u32 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn SetUserFileEncryptionKey ( pencryptioncertificate : *const ENCRYPTION_CERTIFICATE ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SetUserFileEncryptionKey ( pencryptioncertificate : *const ENCRYPTION_CERTIFICATE ) -> u32 );
     SetUserFileEncryptionKey(::core::mem::transmute(pencryptioncertificate.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: ::core::option::Option<*const ENCRYPTION_CERTIFICATE>, dwcapabilities: u32, dwflags: u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn SetUserFileEncryptionKeyEx ( pencryptioncertificate : *const ENCRYPTION_CERTIFICATE , dwcapabilities : u32 , dwflags : u32 , pvreserved : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SetUserFileEncryptionKeyEx ( pencryptioncertificate : *const ENCRYPTION_CERTIFICATE , dwcapabilities : u32 , dwflags : u32 , pvreserved : *const ::core::ffi::c_void ) -> u32 );
     SetUserFileEncryptionKeyEx(::core::mem::transmute(pencryptioncertificate.unwrap_or(::std::ptr::null())), dwcapabilities, dwflags, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3509,7 +3509,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetVolumeLabelA ( lprootpathname : :: windows::core::PCSTR , lpvolumename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetVolumeLabelA ( lprootpathname : :: windows::core::PCSTR , lpvolumename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     SetVolumeLabelA(lprootpathname.into().abi(), lpvolumename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3520,7 +3520,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetVolumeLabelW ( lprootpathname : :: windows::core::PCWSTR , lpvolumename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetVolumeLabelW ( lprootpathname : :: windows::core::PCWSTR , lpvolumename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SetVolumeLabelW(lprootpathname.into().abi(), lpvolumename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3531,7 +3531,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetVolumeMountPointA ( lpszvolumemountpoint : :: windows::core::PCSTR , lpszvolumename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetVolumeMountPointA ( lpszvolumemountpoint : :: windows::core::PCSTR , lpszvolumename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     SetVolumeMountPointA(lpszvolumemountpoint.into().abi(), lpszvolumename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3542,7 +3542,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn SetVolumeMountPointW ( lpszvolumemountpoint : :: windows::core::PCWSTR , lpszvolumename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetVolumeMountPointW ( lpszvolumemountpoint : :: windows::core::PCWSTR , lpszvolumename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SetVolumeMountPointW(lpszvolumemountpoint.into().abi(), lpszvolumename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3552,40 +3552,40 @@ pub unsafe fn SinglePhaseReject<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ktmw32.dll""system" fn SinglePhaseReject ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "ktmw32.dll""system" fn SinglePhaseReject ( enlistmenthandle : super::super::Foundation:: HANDLE , tmvirtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     SinglePhaseReject(enlistmenthandle.into(), tmvirtualclock)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, milliseconds: u32, submittedentries: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn SubmitIoRing ( ioring : *const HIORING__ , waitoperations : u32 , milliseconds : u32 , submittedentries : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn SubmitIoRing ( ioring : *const HIORING__ , waitoperations : u32 , milliseconds : u32 , submittedentries : *mut u32 ) -> :: windows::core::HRESULT );
     SubmitIoRing(ioring, waitoperations, milliseconds, ::core::mem::transmute(submittedentries.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn TerminateLogArchive ( pvarchivecontext : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn TerminateLogArchive ( pvarchivecontext : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     TerminateLogArchive(pvarchivecontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateReadLog(pvcursorcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn TerminateReadLog ( pvcursorcontext : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn TerminateReadLog ( pvcursorcontext : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     TerminateReadLog(pvcursorcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn TruncateLog ( pvmarshal : *const ::core::ffi::c_void , plsnend : *const CLS_LSN , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn TruncateLog ( pvmarshal : *const ::core::ffi::c_void , plsnend : *const CLS_LSN , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     TruncateLog(pvmarshal, plsnend, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn TxfGetThreadMiniVersionForCreate() -> u16 {
-    ::windows::core::link ! ( "txfw32.dll""system" fn TxfGetThreadMiniVersionForCreate ( miniversion : *mut u16 ) -> ( ) );
+    ::windows::imp::link ! ( "txfw32.dll""system" fn TxfGetThreadMiniVersionForCreate ( miniversion : *mut u16 ) -> ( ) );
     let mut result__ = ::windows::core::zeroed::<u16>();
     TxfGetThreadMiniVersionForCreate(&mut result__);
     ::std::mem::transmute(result__)
@@ -3597,7 +3597,7 @@ pub unsafe fn TxfLogCreateFileReadContext<P0>(logpath: P0, beginninglsn: CLS_LSN
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "txfw32.dll""system" fn TxfLogCreateFileReadContext ( logpath : :: windows::core::PCWSTR , beginninglsn : CLS_LSN , endinglsn : CLS_LSN , txffileid : *const TXF_ID , txflogcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "txfw32.dll""system" fn TxfLogCreateFileReadContext ( logpath : :: windows::core::PCWSTR , beginninglsn : CLS_LSN , endinglsn : CLS_LSN , txffileid : *const TXF_ID , txflogcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     TxfLogCreateFileReadContext(logpath.into().abi(), ::core::mem::transmute(beginninglsn), ::core::mem::transmute(endinglsn), txffileid, txflogcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3607,35 +3607,35 @@ pub unsafe fn TxfLogCreateRangeReadContext<P0>(logpath: P0, beginninglsn: CLS_LS
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "txfw32.dll""system" fn TxfLogCreateRangeReadContext ( logpath : :: windows::core::PCWSTR , beginninglsn : CLS_LSN , endinglsn : CLS_LSN , beginningvirtualclock : *const i64 , endingvirtualclock : *const i64 , recordtypemask : u32 , txflogcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "txfw32.dll""system" fn TxfLogCreateRangeReadContext ( logpath : :: windows::core::PCWSTR , beginninglsn : CLS_LSN , endinglsn : CLS_LSN , beginningvirtualclock : *const i64 , endingvirtualclock : *const i64 , recordtypemask : u32 , txflogcontext : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     TxfLogCreateRangeReadContext(logpath.into().abi(), ::core::mem::transmute(beginninglsn), ::core::mem::transmute(endinglsn), beginningvirtualclock, endingvirtualclock, recordtypemask, txflogcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "txfw32.dll""system" fn TxfLogDestroyReadContext ( txflogcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "txfw32.dll""system" fn TxfLogDestroyReadContext ( txflogcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     TxfLogDestroyReadContext(txflogcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, bufferlength: u32, buffer: *mut ::core::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "txfw32.dll""system" fn TxfLogReadRecords ( txflogcontext : *const ::core::ffi::c_void , bufferlength : u32 , buffer : *mut ::core::ffi::c_void , bytesused : *mut u32 , recordcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "txfw32.dll""system" fn TxfLogReadRecords ( txflogcontext : *const ::core::ffi::c_void , bufferlength : u32 , buffer : *mut ::core::ffi::c_void , bytesused : *mut u32 , recordcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     TxfLogReadRecords(txflogcontext, bufferlength, buffer, bytesused, recordcount)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogRecordGetFileName(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: ::windows::core::PWSTR, namebufferlengthinbytes: *mut u32, txfid: ::core::option::Option<*mut TXF_ID>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "txfw32.dll""system" fn TxfLogRecordGetFileName ( recordbuffer : *const ::core::ffi::c_void , recordbufferlengthinbytes : u32 , namebuffer : :: windows::core::PWSTR , namebufferlengthinbytes : *mut u32 , txfid : *mut TXF_ID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "txfw32.dll""system" fn TxfLogRecordGetFileName ( recordbuffer : *const ::core::ffi::c_void , recordbufferlengthinbytes : u32 , namebuffer : :: windows::core::PWSTR , namebufferlengthinbytes : *mut u32 , txfid : *mut TXF_ID ) -> super::super::Foundation:: BOOL );
     TxfLogRecordGetFileName(recordbuffer, recordbufferlengthinbytes, ::core::mem::transmute(namebuffer), namebufferlengthinbytes, ::core::mem::transmute(txfid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: ::core::option::Option<*mut i64>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "txfw32.dll""system" fn TxfLogRecordGetGenericType ( recordbuffer : *const ::core::ffi::c_void , recordbufferlengthinbytes : u32 , generictype : *mut u32 , virtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "txfw32.dll""system" fn TxfLogRecordGetGenericType ( recordbuffer : *const ::core::ffi::c_void , recordbufferlengthinbytes : u32 , generictype : *mut u32 , virtualclock : *mut i64 ) -> super::super::Foundation:: BOOL );
     TxfLogRecordGetGenericType(recordbuffer, recordbufferlengthinbytes, generictype, ::core::mem::transmute(virtualclock.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3645,13 +3645,13 @@ pub unsafe fn TxfReadMetadataInfo<P0>(filehandle: P0, txffileid: *mut TXF_ID, la
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "txfw32.dll""system" fn TxfReadMetadataInfo ( filehandle : super::super::Foundation:: HANDLE , txffileid : *mut TXF_ID , lastlsn : *mut CLS_LSN , transactionstate : *mut u32 , lockingtransaction : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "txfw32.dll""system" fn TxfReadMetadataInfo ( filehandle : super::super::Foundation:: HANDLE , txffileid : *mut TXF_ID , lastlsn : *mut CLS_LSN , transactionstate : *mut u32 , lockingtransaction : *mut :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
     TxfReadMetadataInfo(filehandle.into(), txffileid, lastlsn, transactionstate, lockingtransaction)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
-    ::windows::core::link ! ( "txfw32.dll""system" fn TxfSetThreadMiniVersionForCreate ( miniversion : u16 ) -> ( ) );
+    ::windows::imp::link ! ( "txfw32.dll""system" fn TxfSetThreadMiniVersionForCreate ( miniversion : u16 ) -> ( ) );
     TxfSetThreadMiniVersionForCreate(miniversion)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3661,7 +3661,7 @@ pub unsafe fn UnlockFile<P0>(hfile: P0, dwfileoffsetlow: u32, dwfileoffsethigh: 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn UnlockFile ( hfile : super::super::Foundation:: HANDLE , dwfileoffsetlow : u32 , dwfileoffsethigh : u32 , nnumberofbytestounlocklow : u32 , nnumberofbytestounlockhigh : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn UnlockFile ( hfile : super::super::Foundation:: HANDLE , dwfileoffsetlow : u32 , dwfileoffsethigh : u32 , nnumberofbytestounlocklow : u32 , nnumberofbytestounlockhigh : u32 ) -> super::super::Foundation:: BOOL );
     UnlockFile(hfile.into(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestounlocklow, nnumberofbytestounlockhigh)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -3671,7 +3671,7 @@ pub unsafe fn UnlockFileEx<P0>(hfile: P0, dwreserved: u32, nnumberofbytestounloc
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn UnlockFileEx ( hfile : super::super::Foundation:: HANDLE , dwreserved : u32 , nnumberofbytestounlocklow : u32 , nnumberofbytestounlockhigh : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn UnlockFileEx ( hfile : super::super::Foundation:: HANDLE , dwreserved : u32 , nnumberofbytestounlocklow : u32 , nnumberofbytestounlockhigh : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     UnlockFileEx(hfile.into(), dwreserved, nnumberofbytestounlocklow, nnumberofbytestounlockhigh, lpoverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -3681,7 +3681,7 @@ pub unsafe fn ValidateLog<P0>(pszlogfilename: P0, psalogfile: *mut super::super:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn ValidateLog ( pszlogfilename : :: windows::core::PCWSTR , psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES , pinfobuffer : *mut CLS_INFORMATION , pcbbuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn ValidateLog ( pszlogfilename : :: windows::core::PCWSTR , psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES , pinfobuffer : *mut CLS_INFORMATION , pcbbuffer : *mut u32 ) -> super::super::Foundation:: BOOL );
     ValidateLog(pszlogfilename.into().abi(), psalogfile, pinfobuffer, pcbbuffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3692,7 +3692,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn VerFindFileA ( uflags : VER_FIND_FILE_FLAGS , szfilename : :: windows::core::PCSTR , szwindir : :: windows::core::PCSTR , szappdir : :: windows::core::PCSTR , szcurdir : :: windows::core::PSTR , pucurdirlen : *mut u32 , szdestdir : :: windows::core::PSTR , pudestdirlen : *mut u32 ) -> VER_FIND_FILE_STATUS );
+    ::windows::imp::link ! ( "version.dll""system" fn VerFindFileA ( uflags : VER_FIND_FILE_FLAGS , szfilename : :: windows::core::PCSTR , szwindir : :: windows::core::PCSTR , szappdir : :: windows::core::PCSTR , szcurdir : :: windows::core::PSTR , pucurdirlen : *mut u32 , szdestdir : :: windows::core::PSTR , pudestdirlen : *mut u32 ) -> VER_FIND_FILE_STATUS );
     VerFindFileA(uflags, szfilename.into().abi(), szwindir.into().abi(), szappdir.into().abi(), ::core::mem::transmute(szcurdir), pucurdirlen, ::core::mem::transmute(szdestdir), pudestdirlen)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3703,7 +3703,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn VerFindFileW ( uflags : VER_FIND_FILE_FLAGS , szfilename : :: windows::core::PCWSTR , szwindir : :: windows::core::PCWSTR , szappdir : :: windows::core::PCWSTR , szcurdir : :: windows::core::PWSTR , pucurdirlen : *mut u32 , szdestdir : :: windows::core::PWSTR , pudestdirlen : *mut u32 ) -> VER_FIND_FILE_STATUS );
+    ::windows::imp::link ! ( "version.dll""system" fn VerFindFileW ( uflags : VER_FIND_FILE_FLAGS , szfilename : :: windows::core::PCWSTR , szwindir : :: windows::core::PCWSTR , szappdir : :: windows::core::PCWSTR , szcurdir : :: windows::core::PWSTR , pucurdirlen : *mut u32 , szdestdir : :: windows::core::PWSTR , pudestdirlen : *mut u32 ) -> VER_FIND_FILE_STATUS );
     VerFindFileW(uflags, szfilename.into().abi(), szwindir.into().abi(), szappdir.into().abi(), ::core::mem::transmute(szcurdir), pucurdirlen, ::core::mem::transmute(szdestdir), pudestdirlen)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3716,7 +3716,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn VerInstallFileA ( uflags : VER_INSTALL_FILE_FLAGS , szsrcfilename : :: windows::core::PCSTR , szdestfilename : :: windows::core::PCSTR , szsrcdir : :: windows::core::PCSTR , szdestdir : :: windows::core::PCSTR , szcurdir : :: windows::core::PCSTR , sztmpfile : :: windows::core::PSTR , putmpfilelen : *mut u32 ) -> VER_INSTALL_FILE_STATUS );
+    ::windows::imp::link ! ( "version.dll""system" fn VerInstallFileA ( uflags : VER_INSTALL_FILE_FLAGS , szsrcfilename : :: windows::core::PCSTR , szdestfilename : :: windows::core::PCSTR , szsrcdir : :: windows::core::PCSTR , szdestdir : :: windows::core::PCSTR , szcurdir : :: windows::core::PCSTR , sztmpfile : :: windows::core::PSTR , putmpfilelen : *mut u32 ) -> VER_INSTALL_FILE_STATUS );
     VerInstallFileA(uflags, szsrcfilename.into().abi(), szdestfilename.into().abi(), szsrcdir.into().abi(), szdestdir.into().abi(), szcurdir.into().abi(), ::core::mem::transmute(sztmpfile), putmpfilelen)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3729,19 +3729,19 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn VerInstallFileW ( uflags : VER_INSTALL_FILE_FLAGS , szsrcfilename : :: windows::core::PCWSTR , szdestfilename : :: windows::core::PCWSTR , szsrcdir : :: windows::core::PCWSTR , szdestdir : :: windows::core::PCWSTR , szcurdir : :: windows::core::PCWSTR , sztmpfile : :: windows::core::PWSTR , putmpfilelen : *mut u32 ) -> VER_INSTALL_FILE_STATUS );
+    ::windows::imp::link ! ( "version.dll""system" fn VerInstallFileW ( uflags : VER_INSTALL_FILE_FLAGS , szsrcfilename : :: windows::core::PCWSTR , szdestfilename : :: windows::core::PCWSTR , szsrcdir : :: windows::core::PCWSTR , szdestdir : :: windows::core::PCWSTR , szcurdir : :: windows::core::PCWSTR , sztmpfile : :: windows::core::PWSTR , putmpfilelen : *mut u32 ) -> VER_INSTALL_FILE_STATUS );
     VerInstallFileW(uflags, szsrcfilename.into().abi(), szdestfilename.into().abi(), szsrcdir.into().abi(), szdestdir.into().abi(), szcurdir.into().abi(), ::core::mem::transmute(sztmpfile), putmpfilelen)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn VerLanguageNameA(wlang: u32, szlang: &mut [u8]) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn VerLanguageNameA ( wlang : u32 , szlang : :: windows::core::PSTR , cchlang : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn VerLanguageNameA ( wlang : u32 , szlang : :: windows::core::PSTR , cchlang : u32 ) -> u32 );
     VerLanguageNameA(wlang, ::core::mem::transmute(szlang.as_ptr()), szlang.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn VerLanguageNameW(wlang: u32, szlang: &mut [u16]) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn VerLanguageNameW ( wlang : u32 , szlang : :: windows::core::PWSTR , cchlang : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn VerLanguageNameW ( wlang : u32 , szlang : :: windows::core::PWSTR , cchlang : u32 ) -> u32 );
     VerLanguageNameW(wlang, ::core::mem::transmute(szlang.as_ptr()), szlang.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3751,7 +3751,7 @@ pub unsafe fn VerQueryValueA<P0>(pblock: *const ::core::ffi::c_void, lpsubblock:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn VerQueryValueA ( pblock : *const ::core::ffi::c_void , lpsubblock : :: windows::core::PCSTR , lplpbuffer : *mut *mut ::core::ffi::c_void , pulen : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "version.dll""system" fn VerQueryValueA ( pblock : *const ::core::ffi::c_void , lpsubblock : :: windows::core::PCSTR , lplpbuffer : *mut *mut ::core::ffi::c_void , pulen : *mut u32 ) -> super::super::Foundation:: BOOL );
     VerQueryValueA(pblock, lpsubblock.into().abi(), lplpbuffer, pulen)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3761,7 +3761,7 @@ pub unsafe fn VerQueryValueW<P0>(pblock: *const ::core::ffi::c_void, lpsubblock:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "version.dll""system" fn VerQueryValueW ( pblock : *const ::core::ffi::c_void , lpsubblock : :: windows::core::PCWSTR , lplpbuffer : *mut *mut ::core::ffi::c_void , pulen : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "version.dll""system" fn VerQueryValueW ( pblock : *const ::core::ffi::c_void , lpsubblock : :: windows::core::PCWSTR , lplpbuffer : *mut *mut ::core::ffi::c_void , pulen : *mut u32 ) -> super::super::Foundation:: BOOL );
     VerQueryValueW(pblock, lpsubblock.into().abi(), lplpbuffer, pulen)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3771,7 +3771,7 @@ pub unsafe fn WofEnumEntries<P0>(volumename: P0, provider: u32, enumproc: WofEnu
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofEnumEntries ( volumename : :: windows::core::PCWSTR , provider : u32 , enumproc : WofEnumEntryProc , userdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofEnumEntries ( volumename : :: windows::core::PCWSTR , provider : u32 , enumproc : WofEnumEntryProc , userdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     WofEnumEntries(volumename.into().abi(), provider, enumproc, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3781,7 +3781,7 @@ pub unsafe fn WofFileEnumFiles<P0>(volumename: P0, algorithm: u32, enumproc: Wof
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofFileEnumFiles ( volumename : :: windows::core::PCWSTR , algorithm : u32 , enumproc : WofEnumFilesProc , userdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofFileEnumFiles ( volumename : :: windows::core::PCWSTR , algorithm : u32 , enumproc : WofEnumFilesProc , userdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     WofFileEnumFiles(volumename.into().abi(), algorithm, enumproc, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3791,7 +3791,7 @@ pub unsafe fn WofGetDriverVersion<P0>(fileorvolumehandle: P0, provider: u32) -> 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofGetDriverVersion ( fileorvolumehandle : super::super::Foundation:: HANDLE , provider : u32 , wofversion : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofGetDriverVersion ( fileorvolumehandle : super::super::Foundation:: HANDLE , provider : u32 , wofversion : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     WofGetDriverVersion(fileorvolumehandle.into(), provider, &mut result__).from_abi(result__)
 }
@@ -3802,7 +3802,7 @@ pub unsafe fn WofIsExternalFile<P0>(filepath: P0, isexternalfile: ::core::option
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofIsExternalFile ( filepath : :: windows::core::PCWSTR , isexternalfile : *mut super::super::Foundation:: BOOL , provider : *mut u32 , externalfileinfo : *mut ::core::ffi::c_void , bufferlength : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofIsExternalFile ( filepath : :: windows::core::PCWSTR , isexternalfile : *mut super::super::Foundation:: BOOL , provider : *mut u32 , externalfileinfo : *mut ::core::ffi::c_void , bufferlength : *mut u32 ) -> :: windows::core::HRESULT );
     WofIsExternalFile(filepath.into().abi(), ::core::mem::transmute(isexternalfile.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(provider.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(externalfileinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(bufferlength.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3812,7 +3812,7 @@ pub unsafe fn WofSetFileDataLocation<P0>(filehandle: P0, provider: u32, external
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofSetFileDataLocation ( filehandle : super::super::Foundation:: HANDLE , provider : u32 , externalfileinfo : *const ::core::ffi::c_void , length : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofSetFileDataLocation ( filehandle : super::super::Foundation:: HANDLE , provider : u32 , externalfileinfo : *const ::core::ffi::c_void , length : u32 ) -> :: windows::core::HRESULT );
     WofSetFileDataLocation(filehandle.into(), provider, externalfileinfo, length).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3822,7 +3822,7 @@ pub unsafe fn WofShouldCompressBinaries<P0>(volume: P0, algorithm: *mut u32) -> 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofShouldCompressBinaries ( volume : :: windows::core::PCWSTR , algorithm : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofShouldCompressBinaries ( volume : :: windows::core::PCWSTR , algorithm : *mut u32 ) -> super::super::Foundation:: BOOL );
     WofShouldCompressBinaries(volume.into().abi(), algorithm)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3832,7 +3832,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofWimAddEntry ( volumename : :: windows::core::PCWSTR , wimpath : :: windows::core::PCWSTR , wimtype : u32 , wimindex : u32 , datasourceid : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofWimAddEntry ( volumename : :: windows::core::PCWSTR , wimpath : :: windows::core::PCWSTR , wimtype : u32 , wimindex : u32 , datasourceid : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<i64>();
     WofWimAddEntry(volumename.into().abi(), wimpath.into().abi(), wimtype, wimindex, &mut result__).from_abi(result__)
 }
@@ -3843,7 +3843,7 @@ pub unsafe fn WofWimEnumFiles<P0>(volumename: P0, datasourceid: i64, enumproc: W
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofWimEnumFiles ( volumename : :: windows::core::PCWSTR , datasourceid : i64 , enumproc : WofEnumFilesProc , userdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofWimEnumFiles ( volumename : :: windows::core::PCWSTR , datasourceid : i64 , enumproc : WofEnumFilesProc , userdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     WofWimEnumFiles(volumename.into().abi(), datasourceid, enumproc, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3852,7 +3852,7 @@ pub unsafe fn WofWimRemoveEntry<P0>(volumename: P0, datasourceid: i64) -> ::wind
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofWimRemoveEntry ( volumename : :: windows::core::PCWSTR , datasourceid : i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofWimRemoveEntry ( volumename : :: windows::core::PCWSTR , datasourceid : i64 ) -> :: windows::core::HRESULT );
     WofWimRemoveEntry(volumename.into().abi(), datasourceid).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3861,7 +3861,7 @@ pub unsafe fn WofWimSuspendEntry<P0>(volumename: P0, datasourceid: i64) -> ::win
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofWimSuspendEntry ( volumename : :: windows::core::PCWSTR , datasourceid : i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofWimSuspendEntry ( volumename : :: windows::core::PCWSTR , datasourceid : i64 ) -> :: windows::core::HRESULT );
     WofWimSuspendEntry(volumename.into().abi(), datasourceid).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3871,14 +3871,14 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wofutil.dll""system" fn WofWimUpdateEntry ( volumename : :: windows::core::PCWSTR , datasourceid : i64 , newwimpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wofutil.dll""system" fn WofWimUpdateEntry ( volumename : :: windows::core::PCWSTR , datasourceid : i64 , newwimpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     WofWimUpdateEntry(volumename.into().abi(), datasourceid, newwimpath.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Wow64DisableWow64FsRedirection ( oldvalue : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Wow64DisableWow64FsRedirection ( oldvalue : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     Wow64DisableWow64FsRedirection(oldvalue)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3888,20 +3888,20 @@ pub unsafe fn Wow64EnableWow64FsRedirection<P0>(wow64fsenableredirection: P0) ->
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Wow64EnableWow64FsRedirection ( wow64fsenableredirection : super::super::Foundation:: BOOLEAN ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Wow64EnableWow64FsRedirection ( wow64fsenableredirection : super::super::Foundation:: BOOLEAN ) -> super::super::Foundation:: BOOLEAN );
     Wow64EnableWow64FsRedirection(wow64fsenableredirection.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Wow64RevertWow64FsRedirection ( olvalue : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Wow64RevertWow64FsRedirection ( olvalue : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     Wow64RevertWow64FsRedirection(olvalue)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, pvcontext: *const ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn WriteEncryptedFileRaw ( pfimportcallback : PFE_IMPORT_FUNC , pvcallbackcontext : *const ::core::ffi::c_void , pvcontext : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn WriteEncryptedFileRaw ( pfimportcallback : PFE_IMPORT_FUNC , pvcallbackcontext : *const ::core::ffi::c_void , pvcontext : *const ::core::ffi::c_void ) -> u32 );
     WriteEncryptedFileRaw(pfimportcallback, ::core::mem::transmute(pvcallbackcontext.unwrap_or(::std::ptr::null())), pvcontext)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -3911,7 +3911,7 @@ pub unsafe fn WriteFile<P0>(hfile: P0, lpbuffer: ::core::option::Option<*const :
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn WriteFile ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofbytestowrite : u32 , lpnumberofbyteswritten : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WriteFile ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofbytestowrite : u32 , lpnumberofbyteswritten : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     WriteFile(hfile.into(), ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null())), nnumberofbytestowrite, ::core::mem::transmute(lpnumberofbyteswritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -3921,7 +3921,7 @@ pub unsafe fn WriteFileEx<P0>(hfile: P0, lpbuffer: ::core::option::Option<*const
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn WriteFileEx ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofbytestowrite : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WriteFileEx ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofbytestowrite : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE ) -> super::super::Foundation:: BOOL );
     WriteFileEx(hfile.into(), ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null())), nnumberofbytestowrite, lpoverlapped, lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -3931,14 +3931,14 @@ pub unsafe fn WriteFileGather<P0>(hfile: P0, asegmentarray: *const FILE_SEGMENT_
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn WriteFileGather ( hfile : super::super::Foundation:: HANDLE , asegmentarray : *const FILE_SEGMENT_ELEMENT , nnumberofbytestowrite : u32 , lpreserved : *const u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WriteFileGather ( hfile : super::super::Foundation:: HANDLE , asegmentarray : *const FILE_SEGMENT_ELEMENT , nnumberofbytestowrite : u32 , lpreserved : *const u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     WriteFileGather(hfile.into(), asegmentarray, nnumberofbytestowrite, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), lpoverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "clfsw32.dll""system" fn WriteLogRestartArea ( pvmarshal : *mut ::core::ffi::c_void , pvrestartbuffer : *mut ::core::ffi::c_void , cbrestartbuffer : u32 , plsnbase : *mut CLS_LSN , fflags : CLFS_FLAG , pcbwritten : *mut u32 , plsnnext : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "clfsw32.dll""system" fn WriteLogRestartArea ( pvmarshal : *mut ::core::ffi::c_void , pvrestartbuffer : *mut ::core::ffi::c_void , cbrestartbuffer : u32 , plsnbase : *mut CLS_LSN , fflags : CLFS_FLAG , pcbwritten : *mut u32 , plsnnext : *mut CLS_LSN , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     WriteLogRestartArea(pvmarshal, pvrestartbuffer, cbrestartbuffer, plsnbase, fflags, pcbwritten, plsnnext, poverlapped)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3949,7 +3949,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn WriteTapemark ( hdevice : super::super::Foundation:: HANDLE , dwtapemarktype : TAPEMARK_TYPE , dwtapemarkcount : u32 , bimmediate : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WriteTapemark ( hdevice : super::super::Foundation:: HANDLE , dwtapemarktype : TAPEMARK_TYPE , dwtapemarkcount : u32 , bimmediate : super::super::Foundation:: BOOL ) -> u32 );
     WriteTapemark(hdevice.into(), dwtapemarktype, dwtapemarkcount, bimmediate.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Com\"`*"]
@@ -4076,7 +4076,7 @@ impl IDiskQuotaControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiskQuotaControl, ::windows::core::IUnknown, super::super::System::Com::IConnectionPointContainer);
+::windows::imp::interface_hierarchy!(IDiskQuotaControl, ::windows::core::IUnknown, super::super::System::Com::IConnectionPointContainer);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiskQuotaControl {
     fn eq(&self, other: &Self) -> bool {
@@ -4155,7 +4155,7 @@ impl IDiskQuotaEvents {
         (::windows::core::Vtable::vtable(self).OnUserNameChanged)(::windows::core::Vtable::as_raw(self), puser.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDiskQuotaEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDiskQuotaEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDiskQuotaEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4258,7 +4258,7 @@ impl IDiskQuotaUser {
         (::windows::core::Vtable::vtable(self).GetAccountStatus)(::windows::core::Vtable::as_raw(self), pdwstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDiskQuotaUser, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDiskQuotaUser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDiskQuotaUser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4330,7 +4330,7 @@ impl IDiskQuotaUserBatch {
         (::windows::core::Vtable::vtable(self).FlushToDisk)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDiskQuotaUserBatch, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDiskQuotaUserBatch, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDiskQuotaUserBatch {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4380,7 +4380,7 @@ impl IEnumDiskQuotaUsers {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDiskQuotaUsers, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumDiskQuotaUsers, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDiskQuotaUsers {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

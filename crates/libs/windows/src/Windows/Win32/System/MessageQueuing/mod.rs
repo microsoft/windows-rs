@@ -10,7 +10,7 @@ impl IMSMQApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQApplication, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQApplication, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQApplication {
     fn eq(&self, other: &Self) -> bool {
@@ -91,7 +91,7 @@ impl IMSMQApplication2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQApplication2, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQApplication);
+::windows::imp::interface_hierarchy!(IMSMQApplication2, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQApplication);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQApplication2 {
     fn eq(&self, other: &Self) -> bool {
@@ -231,7 +231,7 @@ impl IMSMQApplication3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQApplication3, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQApplication, IMSMQApplication2);
+::windows::imp::interface_hierarchy!(IMSMQApplication3, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQApplication, IMSMQApplication2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQApplication3 {
     fn eq(&self, other: &Self) -> bool {
@@ -310,7 +310,7 @@ impl IMSMQCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -365,7 +365,7 @@ impl IMSMQCoordinatedTransactionDispenser {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQCoordinatedTransactionDispenser {
     fn eq(&self, other: &Self) -> bool {
@@ -424,7 +424,7 @@ impl IMSMQCoordinatedTransactionDispenser2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQCoordinatedTransactionDispenser2 {
     fn eq(&self, other: &Self) -> bool {
@@ -487,7 +487,7 @@ impl IMSMQCoordinatedTransactionDispenser3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser3, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQCoordinatedTransactionDispenser3 {
     fn eq(&self, other: &Self) -> bool {
@@ -605,7 +605,7 @@ impl IMSMQDestination {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQDestination, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQDestination, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQDestination {
     fn eq(&self, other: &Self) -> bool {
@@ -679,7 +679,7 @@ pub struct IMSMQEvent(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQEvent {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -728,7 +728,7 @@ impl IMSMQEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQEvent);
+::windows::imp::interface_hierarchy!(IMSMQEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQEvent2 {
     fn eq(&self, other: &Self) -> bool {
@@ -781,7 +781,7 @@ impl IMSMQEvent3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQEvent3, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
+::windows::imp::interface_hierarchy!(IMSMQEvent3, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQEvent3 {
     fn eq(&self, other: &Self) -> bool {
@@ -865,7 +865,7 @@ impl IMSMQManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQManagement, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQManagement, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQManagement {
     fn eq(&self, other: &Self) -> bool {
@@ -1142,7 +1142,7 @@ impl IMSMQMessage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQMessage, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQMessage, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQMessage {
     fn eq(&self, other: &Self) -> bool {
@@ -1626,7 +1626,7 @@ impl IMSMQMessage2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQMessage2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQMessage2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQMessage2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2269,7 +2269,7 @@ impl IMSMQMessage3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQMessage3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQMessage3, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQMessage3 {
     fn eq(&self, other: &Self) -> bool {
@@ -2964,7 +2964,7 @@ impl IMSMQMessage4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQMessage4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQMessage4, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQMessage4 {
     fn eq(&self, other: &Self) -> bool {
@@ -3290,7 +3290,7 @@ impl IMSMQOutgoingQueueManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQOutgoingQueueManagement, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQManagement);
+::windows::imp::interface_hierarchy!(IMSMQOutgoingQueueManagement, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQOutgoingQueueManagement {
     fn eq(&self, other: &Self) -> bool {
@@ -3356,7 +3356,7 @@ impl IMSMQPrivateDestination {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQPrivateDestination, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQPrivateDestination, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQPrivateDestination {
     fn eq(&self, other: &Self) -> bool {
@@ -3427,7 +3427,7 @@ impl IMSMQPrivateEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQPrivateEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQPrivateEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQPrivateEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -3485,7 +3485,7 @@ impl IMSMQQuery {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQuery, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQuery, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQuery {
     fn eq(&self, other: &Self) -> bool {
@@ -3544,7 +3544,7 @@ impl IMSMQQuery2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQuery2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQuery2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQuery2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3613,7 +3613,7 @@ impl IMSMQQuery3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQuery3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQuery3, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQuery3 {
     fn eq(&self, other: &Self) -> bool {
@@ -3686,7 +3686,7 @@ impl IMSMQQuery4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQuery4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQuery4, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQuery4 {
     fn eq(&self, other: &Self) -> bool {
@@ -3807,7 +3807,7 @@ impl IMSMQQueue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueue, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueue, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueue {
     fn eq(&self, other: &Self) -> bool {
@@ -3986,7 +3986,7 @@ impl IMSMQQueue2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueue2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueue2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueue2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4264,7 +4264,7 @@ impl IMSMQQueue3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueue3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueue3, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueue3 {
     fn eq(&self, other: &Self) -> bool {
@@ -4597,7 +4597,7 @@ impl IMSMQQueue4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueue4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueue4, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueue4 {
     fn eq(&self, other: &Self) -> bool {
@@ -4865,7 +4865,7 @@ impl IMSMQQueueInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueueInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueueInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -5085,7 +5085,7 @@ impl IMSMQQueueInfo2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueueInfo2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueueInfo2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfo2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5341,7 +5341,7 @@ impl IMSMQQueueInfo3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueueInfo3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueueInfo3, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfo3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5608,7 +5608,7 @@ impl IMSMQQueueInfo4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueueInfo4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueueInfo4, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfo4 {
     fn eq(&self, other: &Self) -> bool {
@@ -5726,7 +5726,7 @@ impl IMSMQQueueInfos {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueueInfos, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueueInfos, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfos {
     fn eq(&self, other: &Self) -> bool {
@@ -5789,7 +5789,7 @@ impl IMSMQQueueInfos2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueueInfos2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueueInfos2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfos2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5856,7 +5856,7 @@ impl IMSMQQueueInfos3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueueInfos3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueueInfos3, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfos3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5923,7 +5923,7 @@ impl IMSMQQueueInfos4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueueInfos4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQQueueInfos4, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfos4 {
     fn eq(&self, other: &Self) -> bool {
@@ -6032,7 +6032,7 @@ impl IMSMQQueueManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQQueueManagement, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQManagement);
+::windows::imp::interface_hierarchy!(IMSMQQueueManagement, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueManagement {
     fn eq(&self, other: &Self) -> bool {
@@ -6098,7 +6098,7 @@ impl IMSMQTransaction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQTransaction, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQTransaction, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransaction {
     fn eq(&self, other: &Self) -> bool {
@@ -6175,7 +6175,7 @@ impl IMSMQTransaction2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQTransaction2, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQTransaction);
+::windows::imp::interface_hierarchy!(IMSMQTransaction2, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQTransaction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransaction2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6257,7 +6257,7 @@ impl IMSMQTransaction3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQTransaction3, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQTransaction, IMSMQTransaction2);
+::windows::imp::interface_hierarchy!(IMSMQTransaction3, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQTransaction, IMSMQTransaction2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransaction3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6310,7 +6310,7 @@ impl IMSMQTransactionDispenser {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQTransactionDispenser, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQTransactionDispenser, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransactionDispenser {
     fn eq(&self, other: &Self) -> bool {
@@ -6369,7 +6369,7 @@ impl IMSMQTransactionDispenser2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQTransactionDispenser2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQTransactionDispenser2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransactionDispenser2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6432,7 +6432,7 @@ impl IMSMQTransactionDispenser3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMSMQTransactionDispenser3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMSMQTransactionDispenser3, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransactionDispenser3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6482,7 +6482,7 @@ pub struct _DMSMQEventEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _DMSMQEventEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_DMSMQEventEvents, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_DMSMQEventEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _DMSMQEventEvents {
     fn eq(&self, other: &Self) -> bool {

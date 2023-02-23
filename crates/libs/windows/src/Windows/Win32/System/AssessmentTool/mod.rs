@@ -134,7 +134,7 @@ impl IAccessibleWinSAT {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-::windows::core::interface_hierarchy!(IAccessibleWinSAT, ::windows::core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
+::windows::imp::interface_hierarchy!(IAccessibleWinSAT, ::windows::core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl ::core::cmp::PartialEq for IAccessibleWinSAT {
     fn eq(&self, other: &Self) -> bool {
@@ -197,7 +197,7 @@ impl IInitiateWinSATAssessment {
         (::windows::core::Vtable::vtable(self).CancelAssessment)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInitiateWinSATAssessment, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInitiateWinSATAssessment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInitiateWinSATAssessment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -254,7 +254,7 @@ impl IProvideWinSATAssessmentInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IProvideWinSATAssessmentInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IProvideWinSATAssessmentInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IProvideWinSATAssessmentInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -324,7 +324,7 @@ impl IProvideWinSATResultsInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IProvideWinSATResultsInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IProvideWinSATResultsInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IProvideWinSATResultsInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -381,7 +381,7 @@ impl IProvideWinSATVisuals {
         (::windows::core::Vtable::vtable(self).get_Bitmap)(::windows::core::Vtable::as_raw(self), bitmapsize, state, rating, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IProvideWinSATVisuals, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProvideWinSATVisuals, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProvideWinSATVisuals {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -427,7 +427,7 @@ impl IQueryAllWinSATAssessments {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IQueryAllWinSATAssessments, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IQueryAllWinSATAssessments, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IQueryAllWinSATAssessments {
     fn eq(&self, other: &Self) -> bool {
@@ -475,7 +475,7 @@ impl IQueryOEMWinSATCustomization {
         (::windows::core::Vtable::vtable(self).GetOEMPrePopulationInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IQueryOEMWinSATCustomization, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IQueryOEMWinSATCustomization, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IQueryOEMWinSATCustomization {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -524,7 +524,7 @@ impl IQueryRecentWinSATAssessment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IQueryRecentWinSATAssessment, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IQueryRecentWinSATAssessment, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IQueryRecentWinSATAssessment {
     fn eq(&self, other: &Self) -> bool {
@@ -584,7 +584,7 @@ impl IWinSATInitiateEvents {
         (::windows::core::Vtable::vtable(self).WinSATUpdate)(::windows::core::Vtable::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWinSATInitiateEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWinSATInitiateEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWinSATInitiateEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

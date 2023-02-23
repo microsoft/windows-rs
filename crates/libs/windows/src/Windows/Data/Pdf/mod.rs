@@ -251,7 +251,7 @@ impl PdfDocument {
     }
     #[doc(hidden)]
     pub fn IPdfDocumentStatics<R, F: FnOnce(&IPdfDocumentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PdfDocument, IPdfDocumentStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PdfDocument, IPdfDocumentStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -267,7 +267,7 @@ impl ::core::fmt::Debug for PdfDocument {
     }
 }
 impl ::windows::core::RuntimeType for PdfDocument {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfDocument;{ac7ebedd-80fa-4089-846e-81b77ff5a86c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfDocument;{ac7ebedd-80fa-4089-846e-81b77ff5a86c})");
 }
 impl ::core::clone::Clone for PdfDocument {
     fn clone(&self) -> Self {
@@ -283,7 +283,7 @@ unsafe impl ::windows::core::Interface for PdfDocument {
 impl ::windows::core::RuntimeName for PdfDocument {
     const NAME: &'static str = "Windows.Data.Pdf.PdfDocument";
 }
-::windows::core::interface_hierarchy!(PdfDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PdfDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PdfDocument {}
 unsafe impl ::core::marker::Sync for PdfDocument {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
@@ -381,7 +381,7 @@ impl ::core::fmt::Debug for PdfPage {
     }
 }
 impl ::windows::core::RuntimeType for PdfPage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPage;{9db4b0c8-5320-4cfc-ad76-493fdad0e594})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPage;{9db4b0c8-5320-4cfc-ad76-493fdad0e594})");
 }
 impl ::core::clone::Clone for PdfPage {
     fn clone(&self) -> Self {
@@ -397,7 +397,7 @@ unsafe impl ::windows::core::Interface for PdfPage {
 impl ::windows::core::RuntimeName for PdfPage {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPage";
 }
-::windows::core::interface_hierarchy!(PdfPage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PdfPage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PdfPage> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -484,7 +484,7 @@ impl ::core::fmt::Debug for PdfPageDimensions {
     }
 }
 impl ::windows::core::RuntimeType for PdfPageDimensions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageDimensions;{22170471-313e-44e8-835d-63a3e7624a10})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageDimensions;{22170471-313e-44e8-835d-63a3e7624a10})");
 }
 impl ::core::clone::Clone for PdfPageDimensions {
     fn clone(&self) -> Self {
@@ -500,7 +500,7 @@ unsafe impl ::windows::core::Interface for PdfPageDimensions {
 impl ::windows::core::RuntimeName for PdfPageDimensions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageDimensions";
 }
-::windows::core::interface_hierarchy!(PdfPageDimensions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PdfPageDimensions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PdfPageDimensions {}
 unsafe impl ::core::marker::Sync for PdfPageDimensions {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
@@ -510,8 +510,8 @@ impl PdfPageRenderOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PdfPageRenderOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PdfPageRenderOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -601,7 +601,7 @@ impl ::core::fmt::Debug for PdfPageRenderOptions {
     }
 }
 impl ::windows::core::RuntimeType for PdfPageRenderOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageRenderOptions;{3c98056f-b7cf-4c29-9a04-52d90267f425})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageRenderOptions;{3c98056f-b7cf-4c29-9a04-52d90267f425})");
 }
 impl ::core::clone::Clone for PdfPageRenderOptions {
     fn clone(&self) -> Self {
@@ -617,7 +617,7 @@ unsafe impl ::windows::core::Interface for PdfPageRenderOptions {
 impl ::windows::core::RuntimeName for PdfPageRenderOptions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageRenderOptions";
 }
-::windows::core::interface_hierarchy!(PdfPageRenderOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PdfPageRenderOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PdfPageRenderOptions {}
 unsafe impl ::core::marker::Sync for PdfPageRenderOptions {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
@@ -650,7 +650,7 @@ impl ::core::fmt::Debug for PdfPageRotation {
     }
 }
 impl ::windows::core::RuntimeType for PdfPageRotation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Pdf.PdfPageRotation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Pdf.PdfPageRotation;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

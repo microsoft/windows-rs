@@ -985,12 +985,12 @@ impl AsymmetricAlgorithmNames {
     }
     #[doc(hidden)]
     pub fn IAsymmetricAlgorithmNamesStatics<R, F: FnOnce(&IAsymmetricAlgorithmNamesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AsymmetricAlgorithmNames, IAsymmetricAlgorithmNamesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AsymmetricAlgorithmNames, IAsymmetricAlgorithmNamesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAsymmetricAlgorithmNamesStatics2<R, F: FnOnce(&IAsymmetricAlgorithmNamesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AsymmetricAlgorithmNames, IAsymmetricAlgorithmNamesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AsymmetricAlgorithmNames, IAsymmetricAlgorithmNamesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1089,7 +1089,7 @@ impl AsymmetricKeyAlgorithmProvider {
     }
     #[doc(hidden)]
     pub fn IAsymmetricKeyAlgorithmProviderStatics<R, F: FnOnce(&IAsymmetricKeyAlgorithmProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AsymmetricKeyAlgorithmProvider, IAsymmetricKeyAlgorithmProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AsymmetricKeyAlgorithmProvider, IAsymmetricKeyAlgorithmProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1105,7 +1105,7 @@ impl ::core::fmt::Debug for AsymmetricKeyAlgorithmProvider {
     }
 }
 impl ::windows::core::RuntimeType for AsymmetricKeyAlgorithmProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider;{e8d2ff37-6259-4e88-b7e0-94191fde699e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider;{e8d2ff37-6259-4e88-b7e0-94191fde699e})");
 }
 impl ::core::clone::Clone for AsymmetricKeyAlgorithmProvider {
     fn clone(&self) -> Self {
@@ -1121,7 +1121,7 @@ unsafe impl ::windows::core::Interface for AsymmetricKeyAlgorithmProvider {
 impl ::windows::core::RuntimeName for AsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider";
 }
-::windows::core::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AsymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for AsymmetricKeyAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -1289,12 +1289,12 @@ impl CryptographicEngine {
     }
     #[doc(hidden)]
     pub fn ICryptographicEngineStatics<R, F: FnOnce(&ICryptographicEngineStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CryptographicEngine, ICryptographicEngineStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CryptographicEngine, ICryptographicEngineStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICryptographicEngineStatics2<R, F: FnOnce(&ICryptographicEngineStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CryptographicEngine, ICryptographicEngineStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CryptographicEngine, ICryptographicEngineStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1337,7 +1337,7 @@ impl ::core::fmt::Debug for CryptographicHash {
     }
 }
 impl ::windows::core::RuntimeType for CryptographicHash {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicHash;{5904d1b6-ad31-4603-a3a4-b1bda98e2562})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicHash;{5904d1b6-ad31-4603-a3a4-b1bda98e2562})");
 }
 impl ::core::clone::Clone for CryptographicHash {
     fn clone(&self) -> Self {
@@ -1353,7 +1353,7 @@ unsafe impl ::windows::core::Interface for CryptographicHash {
 impl ::windows::core::RuntimeName for CryptographicHash {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicHash";
 }
-::windows::core::interface_hierarchy!(CryptographicHash, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CryptographicHash, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CryptographicHash {}
 unsafe impl ::core::marker::Sync for CryptographicHash {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -1416,7 +1416,7 @@ impl ::core::fmt::Debug for CryptographicKey {
     }
 }
 impl ::windows::core::RuntimeType for CryptographicKey {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicKey;{ed2a3b70-8e7b-4009-8401-ffd1a62eeb27})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicKey;{ed2a3b70-8e7b-4009-8401-ffd1a62eeb27})");
 }
 impl ::core::clone::Clone for CryptographicKey {
     fn clone(&self) -> Self {
@@ -1432,7 +1432,7 @@ unsafe impl ::windows::core::Interface for CryptographicKey {
 impl ::windows::core::RuntimeName for CryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicKey";
 }
-::windows::core::interface_hierarchy!(CryptographicKey, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CryptographicKey, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CryptographicKey {}
 unsafe impl ::core::marker::Sync for CryptographicKey {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -1718,7 +1718,7 @@ impl EccCurveNames {
     }
     #[doc(hidden)]
     pub fn IEccCurveNamesStatics<R, F: FnOnce(&IEccCurveNamesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EccCurveNames, IEccCurveNamesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EccCurveNames, IEccCurveNamesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1760,7 +1760,7 @@ impl ::core::fmt::Debug for EncryptedAndAuthenticatedData {
     }
 }
 impl ::windows::core::RuntimeType for EncryptedAndAuthenticatedData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData;{6fa42fe7-1ecb-4b00-bea5-60b83f862f17})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData;{6fa42fe7-1ecb-4b00-bea5-60b83f862f17})");
 }
 impl ::core::clone::Clone for EncryptedAndAuthenticatedData {
     fn clone(&self) -> Self {
@@ -1776,7 +1776,7 @@ unsafe impl ::windows::core::Interface for EncryptedAndAuthenticatedData {
 impl ::windows::core::RuntimeName for EncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData";
 }
-::windows::core::interface_hierarchy!(EncryptedAndAuthenticatedData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EncryptedAndAuthenticatedData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EncryptedAndAuthenticatedData {}
 unsafe impl ::core::marker::Sync for EncryptedAndAuthenticatedData {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -1814,7 +1814,7 @@ impl HashAlgorithmNames {
     }
     #[doc(hidden)]
     pub fn IHashAlgorithmNamesStatics<R, F: FnOnce(&IHashAlgorithmNamesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HashAlgorithmNames, IHashAlgorithmNamesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HashAlgorithmNames, IHashAlgorithmNamesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1867,7 +1867,7 @@ impl HashAlgorithmProvider {
     }
     #[doc(hidden)]
     pub fn IHashAlgorithmProviderStatics<R, F: FnOnce(&IHashAlgorithmProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HashAlgorithmProvider, IHashAlgorithmProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HashAlgorithmProvider, IHashAlgorithmProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1883,7 +1883,7 @@ impl ::core::fmt::Debug for HashAlgorithmProvider {
     }
 }
 impl ::windows::core::RuntimeType for HashAlgorithmProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.HashAlgorithmProvider;{be9b3080-b2c3-422b-bce1-ec90efb5d7b5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.HashAlgorithmProvider;{be9b3080-b2c3-422b-bce1-ec90efb5d7b5})");
 }
 impl ::core::clone::Clone for HashAlgorithmProvider {
     fn clone(&self) -> Self {
@@ -1899,7 +1899,7 @@ unsafe impl ::windows::core::Interface for HashAlgorithmProvider {
 impl ::windows::core::RuntimeName for HashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmProvider";
 }
-::windows::core::interface_hierarchy!(HashAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HashAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HashAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for HashAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -2027,12 +2027,12 @@ impl KeyDerivationAlgorithmNames {
     }
     #[doc(hidden)]
     pub fn IKeyDerivationAlgorithmNamesStatics<R, F: FnOnce(&IKeyDerivationAlgorithmNamesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyDerivationAlgorithmNames, IKeyDerivationAlgorithmNamesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyDerivationAlgorithmNames, IKeyDerivationAlgorithmNamesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKeyDerivationAlgorithmNamesStatics2<R, F: FnOnce(&IKeyDerivationAlgorithmNamesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyDerivationAlgorithmNames, IKeyDerivationAlgorithmNamesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyDerivationAlgorithmNames, IKeyDerivationAlgorithmNamesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2071,7 +2071,7 @@ impl KeyDerivationAlgorithmProvider {
     }
     #[doc(hidden)]
     pub fn IKeyDerivationAlgorithmProviderStatics<R, F: FnOnce(&IKeyDerivationAlgorithmProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyDerivationAlgorithmProvider, IKeyDerivationAlgorithmProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyDerivationAlgorithmProvider, IKeyDerivationAlgorithmProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2087,7 +2087,7 @@ impl ::core::fmt::Debug for KeyDerivationAlgorithmProvider {
     }
 }
 impl ::windows::core::RuntimeType for KeyDerivationAlgorithmProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider;{e1fba83b-4671-43b7-9158-763aaa98b6bf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider;{e1fba83b-4671-43b7-9158-763aaa98b6bf})");
 }
 impl ::core::clone::Clone for KeyDerivationAlgorithmProvider {
     fn clone(&self) -> Self {
@@ -2103,7 +2103,7 @@ unsafe impl ::windows::core::Interface for KeyDerivationAlgorithmProvider {
 impl ::windows::core::RuntimeName for KeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider";
 }
-::windows::core::interface_hierarchy!(KeyDerivationAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyDerivationAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyDerivationAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for KeyDerivationAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -2201,12 +2201,12 @@ impl KeyDerivationParameters {
     }
     #[doc(hidden)]
     pub fn IKeyDerivationParametersStatics<R, F: FnOnce(&IKeyDerivationParametersStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyDerivationParameters, IKeyDerivationParametersStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyDerivationParameters, IKeyDerivationParametersStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKeyDerivationParametersStatics2<R, F: FnOnce(&IKeyDerivationParametersStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyDerivationParameters, IKeyDerivationParametersStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyDerivationParameters, IKeyDerivationParametersStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2222,7 +2222,7 @@ impl ::core::fmt::Debug for KeyDerivationParameters {
     }
 }
 impl ::windows::core::RuntimeType for KeyDerivationParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationParameters;{7bf05967-047b-4a8c-964a-469ffd5522e2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationParameters;{7bf05967-047b-4a8c-964a-469ffd5522e2})");
 }
 impl ::core::clone::Clone for KeyDerivationParameters {
     fn clone(&self) -> Self {
@@ -2238,7 +2238,7 @@ unsafe impl ::windows::core::Interface for KeyDerivationParameters {
 impl ::windows::core::RuntimeName for KeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationParameters";
 }
-::windows::core::interface_hierarchy!(KeyDerivationParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyDerivationParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyDerivationParameters {}
 unsafe impl ::core::marker::Sync for KeyDerivationParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -2282,7 +2282,7 @@ impl MacAlgorithmNames {
     }
     #[doc(hidden)]
     pub fn IMacAlgorithmNamesStatics<R, F: FnOnce(&IMacAlgorithmNamesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MacAlgorithmNames, IMacAlgorithmNamesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MacAlgorithmNames, IMacAlgorithmNamesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2341,7 +2341,7 @@ impl MacAlgorithmProvider {
     }
     #[doc(hidden)]
     pub fn IMacAlgorithmProviderStatics<R, F: FnOnce(&IMacAlgorithmProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MacAlgorithmProvider, IMacAlgorithmProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MacAlgorithmProvider, IMacAlgorithmProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2357,7 +2357,7 @@ impl ::core::fmt::Debug for MacAlgorithmProvider {
     }
 }
 impl ::windows::core::RuntimeType for MacAlgorithmProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.MacAlgorithmProvider;{4a3fc5c3-1cbd-41ce-a092-aa0bc5d2d2f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.MacAlgorithmProvider;{4a3fc5c3-1cbd-41ce-a092-aa0bc5d2d2f5})");
 }
 impl ::core::clone::Clone for MacAlgorithmProvider {
     fn clone(&self) -> Self {
@@ -2373,7 +2373,7 @@ unsafe impl ::windows::core::Interface for MacAlgorithmProvider {
 impl ::windows::core::RuntimeName for MacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmProvider";
 }
-::windows::core::interface_hierarchy!(MacAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MacAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MacAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for MacAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -2397,7 +2397,7 @@ impl PersistedKeyProvider {
     }
     #[doc(hidden)]
     pub fn IPersistedKeyProviderStatics<R, F: FnOnce(&IPersistedKeyProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PersistedKeyProvider, IPersistedKeyProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PersistedKeyProvider, IPersistedKeyProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2523,7 +2523,7 @@ impl SymmetricAlgorithmNames {
     }
     #[doc(hidden)]
     pub fn ISymmetricAlgorithmNamesStatics<R, F: FnOnce(&ISymmetricAlgorithmNamesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SymmetricAlgorithmNames, ISymmetricAlgorithmNamesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SymmetricAlgorithmNames, ISymmetricAlgorithmNamesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2569,7 +2569,7 @@ impl SymmetricKeyAlgorithmProvider {
     }
     #[doc(hidden)]
     pub fn ISymmetricKeyAlgorithmProviderStatics<R, F: FnOnce(&ISymmetricKeyAlgorithmProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SymmetricKeyAlgorithmProvider, ISymmetricKeyAlgorithmProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SymmetricKeyAlgorithmProvider, ISymmetricKeyAlgorithmProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2585,7 +2585,7 @@ impl ::core::fmt::Debug for SymmetricKeyAlgorithmProvider {
     }
 }
 impl ::windows::core::RuntimeType for SymmetricKeyAlgorithmProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider;{3d7e4a33-3bd0-4902-8ac8-470d50d21376})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider;{3d7e4a33-3bd0-4902-8ac8-470d50d21376})");
 }
 impl ::core::clone::Clone for SymmetricKeyAlgorithmProvider {
     fn clone(&self) -> Self {
@@ -2601,7 +2601,7 @@ unsafe impl ::windows::core::Interface for SymmetricKeyAlgorithmProvider {
 impl ::windows::core::RuntimeName for SymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider";
 }
-::windows::core::interface_hierarchy!(SymmetricKeyAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SymmetricKeyAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for SymmetricKeyAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -2632,7 +2632,7 @@ impl ::core::fmt::Debug for Capi1KdfTargetAlgorithm {
     }
 }
 impl ::windows::core::RuntimeType for Capi1KdfTargetAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
@@ -2664,7 +2664,7 @@ impl ::core::fmt::Debug for CryptographicPadding {
     }
 }
 impl ::windows::core::RuntimeType for CryptographicPadding {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
@@ -2697,7 +2697,7 @@ impl ::core::fmt::Debug for CryptographicPrivateKeyBlobType {
     }
 }
 impl ::windows::core::RuntimeType for CryptographicPrivateKeyBlobType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
@@ -2730,7 +2730,7 @@ impl ::core::fmt::Debug for CryptographicPublicKeyBlobType {
     }
 }
 impl ::windows::core::RuntimeType for CryptographicPublicKeyBlobType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

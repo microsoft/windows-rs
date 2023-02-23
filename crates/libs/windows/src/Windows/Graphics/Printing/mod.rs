@@ -10,7 +10,7 @@ pub mod Workflow;
 #[repr(transparent)]
 pub struct IPrintDocumentSource(::windows::core::IUnknown);
 impl IPrintDocumentSource {}
-::windows::core::interface_hierarchy!(IPrintDocumentSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintDocumentSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPrintDocumentSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23,7 +23,7 @@ impl ::core::fmt::Debug for IPrintDocumentSource {
     }
 }
 impl ::windows::core::RuntimeType for IPrintDocumentSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dedc0c30-f1eb-47df-aae6-ed5427511f01}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{dedc0c30-f1eb-47df-aae6-ed5427511f01}");
 }
 unsafe impl ::windows::core::Vtable for IPrintDocumentSource {
     type Vtable = IPrintDocumentSource_Vtbl;
@@ -375,7 +375,7 @@ impl IPrintTaskOptionsCore {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrintTaskOptionsCore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintTaskOptionsCore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPrintTaskOptionsCore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -388,7 +388,7 @@ impl ::core::fmt::Debug for IPrintTaskOptionsCore {
     }
 }
 impl ::windows::core::RuntimeType for IPrintTaskOptionsCore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1bdbb474-4ed1-41eb-be3c-72d18ed67337}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1bdbb474-4ed1-41eb-be3c-72d18ed67337}");
 }
 unsafe impl ::windows::core::Vtable for IPrintTaskOptionsCore {
     type Vtable = IPrintTaskOptionsCore_Vtbl;
@@ -550,7 +550,7 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrintTaskOptionsCoreProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintTaskOptionsCoreProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPrintTaskOptionsCoreProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -563,7 +563,7 @@ impl ::core::fmt::Debug for IPrintTaskOptionsCoreProperties {
     }
 }
 impl ::windows::core::RuntimeType for IPrintTaskOptionsCoreProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c1b71832-9e93-4e55-814b-3326a59efce1}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{c1b71832-9e93-4e55-814b-3326a59efce1}");
 }
 unsafe impl ::windows::core::Vtable for IPrintTaskOptionsCoreProperties {
     type Vtable = IPrintTaskOptionsCoreProperties_Vtbl;
@@ -619,7 +619,7 @@ impl IPrintTaskOptionsCoreUIConfiguration {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrintTaskOptionsCoreUIConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintTaskOptionsCoreUIConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPrintTaskOptionsCoreUIConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -632,7 +632,7 @@ impl ::core::fmt::Debug for IPrintTaskOptionsCoreUIConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for IPrintTaskOptionsCoreUIConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{62e69e23-9a1e-4336-b74f-3cc7f4cff709}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{62e69e23-9a1e-4336-b74f-3cc7f4cff709}");
 }
 unsafe impl ::windows::core::Vtable for IPrintTaskOptionsCoreUIConfiguration {
     type Vtable = IPrintTaskOptionsCoreUIConfiguration_Vtbl;
@@ -920,12 +920,12 @@ impl PrintManager {
     }
     #[doc(hidden)]
     pub fn IPrintManagerStatic<R, F: FnOnce(&IPrintManagerStatic) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PrintManager, IPrintManagerStatic> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PrintManager, IPrintManagerStatic> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPrintManagerStatic2<R, F: FnOnce(&IPrintManagerStatic2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PrintManager, IPrintManagerStatic2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PrintManager, IPrintManagerStatic2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -941,7 +941,7 @@ impl ::core::fmt::Debug for PrintManager {
     }
 }
 impl ::windows::core::RuntimeType for PrintManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintManager;{ff2a9694-8c99-44fd-ae4a-19d9aa9a0f0a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintManager;{ff2a9694-8c99-44fd-ae4a-19d9aa9a0f0a})");
 }
 impl ::core::clone::Clone for PrintManager {
     fn clone(&self) -> Self {
@@ -957,7 +957,7 @@ unsafe impl ::windows::core::Interface for PrintManager {
 impl ::windows::core::RuntimeName for PrintManager {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintManager";
 }
-::windows::core::interface_hierarchy!(PrintManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintManager {}
 unsafe impl ::core::marker::Sync for PrintManager {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -967,8 +967,8 @@ impl PrintPageInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PrintPageInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PrintPageInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::core::Result<()> {
@@ -1043,7 +1043,7 @@ impl ::core::fmt::Debug for PrintPageInfo {
     }
 }
 impl ::windows::core::RuntimeType for PrintPageInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageInfo;{dd4be9c9-a6a1-4ada-930e-da872a4f23d3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageInfo;{dd4be9c9-a6a1-4ada-930e-da872a4f23d3})");
 }
 impl ::core::clone::Clone for PrintPageInfo {
     fn clone(&self) -> Self {
@@ -1059,7 +1059,7 @@ unsafe impl ::windows::core::Interface for PrintPageInfo {
 impl ::windows::core::RuntimeName for PrintPageInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageInfo";
 }
-::windows::core::interface_hierarchy!(PrintPageInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintPageInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintPageInfo {}
 unsafe impl ::core::marker::Sync for PrintPageInfo {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1094,7 +1094,7 @@ impl PrintPageRange {
     }
     #[doc(hidden)]
     pub fn IPrintPageRangeFactory<R, F: FnOnce(&IPrintPageRangeFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PrintPageRange, IPrintPageRangeFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PrintPageRange, IPrintPageRangeFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1110,7 +1110,7 @@ impl ::core::fmt::Debug for PrintPageRange {
     }
 }
 impl ::windows::core::RuntimeType for PrintPageRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageRange;{f8a06c54-6e7c-51c5-57fd-0660c2d71513})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageRange;{f8a06c54-6e7c-51c5-57fd-0660c2d71513})");
 }
 impl ::core::clone::Clone for PrintPageRange {
     fn clone(&self) -> Self {
@@ -1126,7 +1126,7 @@ unsafe impl ::windows::core::Interface for PrintPageRange {
 impl ::windows::core::RuntimeName for PrintPageRange {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRange";
 }
-::windows::core::interface_hierarchy!(PrintPageRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintPageRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintPageRange {}
 unsafe impl ::core::marker::Sync for PrintPageRange {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1179,7 +1179,7 @@ impl ::core::fmt::Debug for PrintPageRangeOptions {
     }
 }
 impl ::windows::core::RuntimeType for PrintPageRangeOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageRangeOptions;{ce6db728-1357-46b2-a923-79f995f448fc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageRangeOptions;{ce6db728-1357-46b2-a923-79f995f448fc})");
 }
 impl ::core::clone::Clone for PrintPageRangeOptions {
     fn clone(&self) -> Self {
@@ -1195,7 +1195,7 @@ unsafe impl ::windows::core::Interface for PrintPageRangeOptions {
 impl ::windows::core::RuntimeName for PrintPageRangeOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRangeOptions";
 }
-::windows::core::interface_hierarchy!(PrintPageRangeOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintPageRangeOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintPageRangeOptions {}
 unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1331,7 +1331,7 @@ impl ::core::fmt::Debug for PrintTask {
     }
 }
 impl ::windows::core::RuntimeType for PrintTask {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTask;{61d80247-6cf6-4fad-84e2-a5e82e2d4ceb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTask;{61d80247-6cf6-4fad-84e2-a5e82e2d4ceb})");
 }
 impl ::core::clone::Clone for PrintTask {
     fn clone(&self) -> Self {
@@ -1347,7 +1347,7 @@ unsafe impl ::windows::core::Interface for PrintTask {
 impl ::windows::core::RuntimeName for PrintTask {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTask";
 }
-::windows::core::interface_hierarchy!(PrintTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTask {}
 unsafe impl ::core::marker::Sync for PrintTask {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1374,7 +1374,7 @@ impl ::core::fmt::Debug for PrintTaskCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskCompletedEventArgs;{5bcd34af-24e9-4c10-8d07-14c346ba3fce})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskCompletedEventArgs;{5bcd34af-24e9-4c10-8d07-14c346ba3fce})");
 }
 impl ::core::clone::Clone for PrintTaskCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -1390,7 +1390,7 @@ unsafe impl ::windows::core::Interface for PrintTaskCompletedEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintTaskCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskCompletedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1599,7 +1599,7 @@ impl ::core::fmt::Debug for PrintTaskOptions {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskOptions;{1bdbb474-4ed1-41eb-be3c-72d18ed67337})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskOptions;{1bdbb474-4ed1-41eb-be3c-72d18ed67337})");
 }
 impl ::core::clone::Clone for PrintTaskOptions {
     fn clone(&self) -> Self {
@@ -1615,7 +1615,7 @@ unsafe impl ::windows::core::Interface for PrintTaskOptions {
 impl ::windows::core::RuntimeName for PrintTaskOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskOptions";
 }
-::windows::core::interface_hierarchy!(PrintTaskOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCore {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintTaskOptions) -> ::windows::core::Result<Self> {
@@ -1699,7 +1699,7 @@ impl ::core::fmt::Debug for PrintTaskProgressingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskProgressingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskProgressingEventArgs;{810cd3cb-b410-4282-a073-5ac378234174})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskProgressingEventArgs;{810cd3cb-b410-4282-a073-5ac378234174})");
 }
 impl ::core::clone::Clone for PrintTaskProgressingEventArgs {
     fn clone(&self) -> Self {
@@ -1715,7 +1715,7 @@ unsafe impl ::windows::core::Interface for PrintTaskProgressingEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskProgressingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskProgressingEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintTaskProgressingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskProgressingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskProgressingEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskProgressingEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1758,7 +1758,7 @@ impl ::core::fmt::Debug for PrintTaskRequest {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequest;{6ff61e2e-2722-4240-a67c-f364849a17f3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequest;{6ff61e2e-2722-4240-a67c-f364849a17f3})");
 }
 impl ::core::clone::Clone for PrintTaskRequest {
     fn clone(&self) -> Self {
@@ -1774,7 +1774,7 @@ unsafe impl ::windows::core::Interface for PrintTaskRequest {
 impl ::windows::core::RuntimeName for PrintTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequest";
 }
-::windows::core::interface_hierarchy!(PrintTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskRequest {}
 unsafe impl ::core::marker::Sync for PrintTaskRequest {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1798,7 +1798,7 @@ impl ::core::fmt::Debug for PrintTaskRequestedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskRequestedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequestedDeferral;{cfefb3f0-ce3e-42c7-9496-64800c622c44})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequestedDeferral;{cfefb3f0-ce3e-42c7-9496-64800c622c44})");
 }
 impl ::core::clone::Clone for PrintTaskRequestedDeferral {
     fn clone(&self) -> Self {
@@ -1814,7 +1814,7 @@ unsafe impl ::windows::core::Interface for PrintTaskRequestedDeferral {
 impl ::windows::core::RuntimeName for PrintTaskRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedDeferral";
 }
-::windows::core::interface_hierarchy!(PrintTaskRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskRequestedDeferral {}
 unsafe impl ::core::marker::Sync for PrintTaskRequestedDeferral {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1841,7 +1841,7 @@ impl ::core::fmt::Debug for PrintTaskRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequestedEventArgs;{d0aff924-a31b-454c-a7b6-5d0cc522fc16})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequestedEventArgs;{d0aff924-a31b-454c-a7b6-5d0cc522fc16})");
 }
 impl ::core::clone::Clone for PrintTaskRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1857,7 +1857,7 @@ unsafe impl ::windows::core::Interface for PrintTaskRequestedEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintTaskRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1901,7 +1901,7 @@ impl ::core::fmt::Debug for PrintTaskSourceRequestedArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskSourceRequestedArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskSourceRequestedArgs;{f9f067be-f456-41f0-9c98-5ce73e851410})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskSourceRequestedArgs;{f9f067be-f456-41f0-9c98-5ce73e851410})");
 }
 impl ::core::clone::Clone for PrintTaskSourceRequestedArgs {
     fn clone(&self) -> Self {
@@ -1917,7 +1917,7 @@ unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedArgs {
 impl ::windows::core::RuntimeName for PrintTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedArgs";
 }
-::windows::core::interface_hierarchy!(PrintTaskSourceRequestedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskSourceRequestedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskSourceRequestedArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedArgs {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1941,7 +1941,7 @@ impl ::core::fmt::Debug for PrintTaskSourceRequestedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskSourceRequestedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral;{4a1560d1-6992-4d9d-8555-4ca4563fb166})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral;{4a1560d1-6992-4d9d-8555-4ca4563fb166})");
 }
 impl ::core::clone::Clone for PrintTaskSourceRequestedDeferral {
     fn clone(&self) -> Self {
@@ -1957,7 +1957,7 @@ unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedDeferral {
 impl ::windows::core::RuntimeName for PrintTaskSourceRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral";
 }
-::windows::core::interface_hierarchy!(PrintTaskSourceRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskSourceRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskSourceRequestedDeferral {}
 unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedDeferral {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -2055,17 +2055,17 @@ impl StandardPrintTaskOptions {
     }
     #[doc(hidden)]
     pub fn IStandardPrintTaskOptionsStatic<R, F: FnOnce(&IStandardPrintTaskOptionsStatic) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StandardPrintTaskOptions, IStandardPrintTaskOptionsStatic> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StandardPrintTaskOptions, IStandardPrintTaskOptionsStatic> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStandardPrintTaskOptionsStatic2<R, F: FnOnce(&IStandardPrintTaskOptionsStatic2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StandardPrintTaskOptions, IStandardPrintTaskOptionsStatic2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StandardPrintTaskOptions, IStandardPrintTaskOptionsStatic2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStandardPrintTaskOptionsStatic3<R, F: FnOnce(&IStandardPrintTaskOptionsStatic3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StandardPrintTaskOptions, IStandardPrintTaskOptionsStatic3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StandardPrintTaskOptions, IStandardPrintTaskOptionsStatic3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2115,7 +2115,7 @@ impl ::core::fmt::Debug for PrintBinding {
     }
 }
 impl ::windows::core::RuntimeType for PrintBinding {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBinding;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBinding;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2148,7 +2148,7 @@ impl ::core::fmt::Debug for PrintBordering {
     }
 }
 impl ::windows::core::RuntimeType for PrintBordering {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBordering;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBordering;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2181,7 +2181,7 @@ impl ::core::fmt::Debug for PrintCollation {
     }
 }
 impl ::windows::core::RuntimeType for PrintCollation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintCollation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintCollation;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2215,7 +2215,7 @@ impl ::core::fmt::Debug for PrintColorMode {
     }
 }
 impl ::windows::core::RuntimeType for PrintColorMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintColorMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintColorMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2249,7 +2249,7 @@ impl ::core::fmt::Debug for PrintDuplex {
     }
 }
 impl ::windows::core::RuntimeType for PrintDuplex {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintDuplex;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintDuplex;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2285,7 +2285,7 @@ impl ::core::fmt::Debug for PrintHolePunch {
     }
 }
 impl ::windows::core::RuntimeType for PrintHolePunch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintHolePunch;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintHolePunch;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2486,7 +2486,7 @@ impl ::core::fmt::Debug for PrintMediaSize {
     }
 }
 impl ::windows::core::RuntimeType for PrintMediaSize {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaSize;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaSize;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2546,7 +2546,7 @@ impl ::core::fmt::Debug for PrintMediaType {
     }
 }
 impl ::windows::core::RuntimeType for PrintMediaType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaType;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2581,7 +2581,7 @@ impl ::core::fmt::Debug for PrintOrientation {
     }
 }
 impl ::windows::core::RuntimeType for PrintOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintOrientation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintOrientation;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2619,7 +2619,7 @@ impl ::core::fmt::Debug for PrintQuality {
     }
 }
 impl ::windows::core::RuntimeType for PrintQuality {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintQuality;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintQuality;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2660,7 +2660,7 @@ impl ::core::fmt::Debug for PrintStaple {
     }
 }
 impl ::windows::core::RuntimeType for PrintStaple {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintStaple;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintStaple;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -2692,7 +2692,7 @@ impl ::core::fmt::Debug for PrintTaskCompletion {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskCompletion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
@@ -2723,7 +2723,7 @@ impl ::windows::core::TypeKind for PrintPageDescription {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for PrintPageDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing.PrintPageDescription;struct(Windows.Foundation.Size;f4;f4);struct(Windows.Foundation.Rect;f4;f4;f4;f4);u4;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing.PrintPageDescription;struct(Windows.Foundation.Size;f4;f4);struct(Windows.Foundation.Rect;f4;f4;f4;f4);u4;u4)");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for PrintPageDescription {
@@ -2744,8 +2744,8 @@ impl ::core::default::Default for PrintPageDescription {
 pub struct PrintTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
 impl PrintTaskSourceRequestedHandler {
     pub fn new<F: FnMut(::core::option::Option<&PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = PrintTaskSourceRequestedHandlerBox::<F> { vtable: &PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = PrintTaskSourceRequestedHandlerBox::<F> { vtable: &PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, args: &PrintTaskSourceRequestedArgs) -> ::windows::core::Result<()> {
         let this = self;
@@ -2756,7 +2756,7 @@ impl PrintTaskSourceRequestedHandler {
 struct PrintTaskSourceRequestedHandlerBox<F: FnMut(::core::option::Option<&PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const PrintTaskSourceRequestedHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> PrintTaskSourceRequestedHandlerBox<F> {
     const VTABLE: PrintTaskSourceRequestedHandler_Vtbl = PrintTaskSourceRequestedHandler_Vtbl {
@@ -2765,7 +2765,7 @@ impl<F: FnMut(::core::option::Option<&PrintTaskSourceRequestedArgs>) -> ::window
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<PrintTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<PrintTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -2781,7 +2781,7 @@ impl<F: FnMut(::core::option::Option<&PrintTaskSourceRequestedArgs>) -> ::window
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -2813,7 +2813,7 @@ unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c109fa8_5cb6_4b3a_8663_f39cb02dc9b4);
 }
 impl ::windows::core::RuntimeType for PrintTaskSourceRequestedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6c109fa8-5cb6-4b3a-8663-f39cb02dc9b4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6c109fa8-5cb6-4b3a-8663-f39cb02dc9b4}");
 }
 #[repr(C)]
 #[doc(hidden)]

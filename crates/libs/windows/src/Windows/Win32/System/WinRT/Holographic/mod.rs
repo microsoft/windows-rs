@@ -48,7 +48,7 @@ impl IHolographicCameraInterop {
         (::windows::core::Vtable::vtable(self).UnacquireDirect3D12BufferResource)(::windows::core::Vtable::as_raw(self), presourcetounacquire.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHolographicCameraInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IHolographicCameraInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IHolographicCameraInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -121,7 +121,7 @@ impl IHolographicCameraRenderingParametersInterop {
         (::windows::core::Vtable::vtable(self).CommitDirect3D12ResourceWithDepthData)(::windows::core::Vtable::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), colorresourcefencesignalvalue, pdepthresourcetocommit.into().abi(), pdepthresourcefence.into().abi(), depthresourcefencesignalvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHolographicCameraRenderingParametersInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IHolographicCameraRenderingParametersInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IHolographicCameraRenderingParametersInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -207,7 +207,7 @@ impl IHolographicQuadLayerInterop {
         (::windows::core::Vtable::vtable(self).UnacquireDirect3D12BufferResource)(::windows::core::Vtable::as_raw(self), presourcetounacquire.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHolographicQuadLayerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IHolographicQuadLayerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IHolographicQuadLayerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -269,7 +269,7 @@ impl IHolographicQuadLayerUpdateParametersInterop {
         (::windows::core::Vtable::vtable(self).CommitDirect3D12Resource)(::windows::core::Vtable::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), colorresourcefencesignalvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHolographicQuadLayerUpdateParametersInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IHolographicQuadLayerUpdateParametersInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IHolographicQuadLayerUpdateParametersInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

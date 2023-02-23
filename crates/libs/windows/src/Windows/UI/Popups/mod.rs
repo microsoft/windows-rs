@@ -132,7 +132,7 @@ impl IUICommand {
         unsafe { (::windows::core::Vtable::vtable(this).SetId)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IUICommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IUICommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IUICommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -145,7 +145,7 @@ impl ::core::fmt::Debug for IUICommand {
     }
 }
 impl ::windows::core::RuntimeType for IUICommand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f}");
 }
 unsafe impl ::windows::core::Vtable for IUICommand {
     type Vtable = IUICommand_Vtbl;
@@ -282,7 +282,7 @@ impl MessageDialog {
     }
     #[doc(hidden)]
     pub fn IMessageDialogFactory<R, F: FnOnce(&IMessageDialogFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MessageDialog, IMessageDialogFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MessageDialog, IMessageDialogFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -298,7 +298,7 @@ impl ::core::fmt::Debug for MessageDialog {
     }
 }
 impl ::windows::core::RuntimeType for MessageDialog {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.MessageDialog;{33f59b01-5325-43ab-9ab3-bdae440e4121})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.MessageDialog;{33f59b01-5325-43ab-9ab3-bdae440e4121})");
 }
 impl ::core::clone::Clone for MessageDialog {
     fn clone(&self) -> Self {
@@ -314,7 +314,7 @@ unsafe impl ::windows::core::Interface for MessageDialog {
 impl ::windows::core::RuntimeName for MessageDialog {
     const NAME: &'static str = "Windows.UI.Popups.MessageDialog";
 }
-::windows::core::interface_hierarchy!(MessageDialog, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MessageDialog, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct PopupMenu(::windows::core::IUnknown);
@@ -322,8 +322,8 @@ impl PopupMenu {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PopupMenu, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PopupMenu, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -375,7 +375,7 @@ impl ::core::fmt::Debug for PopupMenu {
     }
 }
 impl ::windows::core::RuntimeType for PopupMenu {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.PopupMenu;{4e9bc6dc-880d-47fc-a0a1-72b639e62559})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.PopupMenu;{4e9bc6dc-880d-47fc-a0a1-72b639e62559})");
 }
 impl ::core::clone::Clone for PopupMenu {
     fn clone(&self) -> Self {
@@ -391,7 +391,7 @@ unsafe impl ::windows::core::Interface for PopupMenu {
 impl ::windows::core::RuntimeName for PopupMenu {
     const NAME: &'static str = "Windows.UI.Popups.PopupMenu";
 }
-::windows::core::interface_hierarchy!(PopupMenu, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PopupMenu, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct UICommand(::windows::core::IUnknown);
@@ -399,8 +399,8 @@ impl UICommand {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UICommand, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UICommand, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -462,7 +462,7 @@ impl UICommand {
     }
     #[doc(hidden)]
     pub fn IUICommandFactory<R, F: FnOnce(&IUICommandFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UICommand, IUICommandFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UICommand, IUICommandFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -478,7 +478,7 @@ impl ::core::fmt::Debug for UICommand {
     }
 }
 impl ::windows::core::RuntimeType for UICommand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
 }
 impl ::core::clone::Clone for UICommand {
     fn clone(&self) -> Self {
@@ -494,7 +494,7 @@ unsafe impl ::windows::core::Interface for UICommand {
 impl ::windows::core::RuntimeName for UICommand {
     const NAME: &'static str = "Windows.UI.Popups.UICommand";
 }
-::windows::core::interface_hierarchy!(UICommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UICommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UICommand> for IUICommand {
     type Error = ::windows::core::Error;
     fn try_from(value: UICommand) -> ::windows::core::Result<Self> {
@@ -523,8 +523,8 @@ impl UICommandSeparator {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UICommandSeparator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UICommandSeparator, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -576,7 +576,7 @@ impl ::core::fmt::Debug for UICommandSeparator {
     }
 }
 impl ::windows::core::RuntimeType for UICommandSeparator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommandSeparator;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommandSeparator;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
 }
 impl ::core::clone::Clone for UICommandSeparator {
     fn clone(&self) -> Self {
@@ -592,7 +592,7 @@ unsafe impl ::windows::core::Interface for UICommandSeparator {
 impl ::windows::core::RuntimeName for UICommandSeparator {
     const NAME: &'static str = "Windows.UI.Popups.UICommandSeparator";
 }
-::windows::core::interface_hierarchy!(UICommandSeparator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UICommandSeparator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UICommandSeparator> for IUICommand {
     type Error = ::windows::core::Error;
     fn try_from(value: UICommandSeparator) -> ::windows::core::Result<Self> {
@@ -675,7 +675,7 @@ impl ::core::ops::Not for MessageDialogOptions {
     }
 }
 impl ::windows::core::RuntimeType for MessageDialogOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
 }
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
@@ -708,15 +708,15 @@ impl ::core::fmt::Debug for Placement {
     }
 }
 impl ::windows::core::RuntimeType for Placement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
 }
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct UICommandInvokedHandler(pub ::windows::core::IUnknown);
 impl UICommandInvokedHandler {
     pub fn new<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = UICommandInvokedHandlerBox::<F> { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = UICommandInvokedHandlerBox::<F> { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke<P0, E0>(&self, command: P0) -> ::windows::core::Result<()>
     where
@@ -731,7 +731,7 @@ impl UICommandInvokedHandler {
 struct UICommandInvokedHandlerBox<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const UICommandInvokedHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> UICommandInvokedHandlerBox<F> {
     const VTABLE: UICommandInvokedHandler_Vtbl = UICommandInvokedHandler_Vtbl {
@@ -740,7 +740,7 @@ impl<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows::core::Result<()
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<UICommandInvokedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<UICommandInvokedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -756,7 +756,7 @@ impl<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows::core::Result<()
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -788,7 +788,7 @@ unsafe impl ::windows::core::Interface for UICommandInvokedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);
 }
 impl ::windows::core::RuntimeType for UICommandInvokedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{daf77a4f-c27a-4298-9ac6-2922c45e7da6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{daf77a4f-c27a-4298-9ac6-2922c45e7da6}");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -28,7 +28,7 @@ impl IUIAnimationInterpolator {
         (::windows::core::Vtable::vtable(self).GetDependencies)(::windows::core::Vtable::as_raw(self), initialvaluedependencies, initialvelocitydependencies, durationdependencies).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationInterpolator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationInterpolator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationInterpolator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -100,7 +100,7 @@ impl IUIAnimationInterpolator2 {
         (::windows::core::Vtable::vtable(self).GetDependencies)(::windows::core::Vtable::as_raw(self), initialvaluedependencies, initialvelocitydependencies, durationdependencies).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationInterpolator2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationInterpolator2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationInterpolator2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -148,7 +148,7 @@ impl IUIAnimationLoopIterationChangeHandler2 {
         (::windows::core::Vtable::vtable(self).OnLoopIterationChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), id, newiterationcount, olditerationcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationLoopIterationChangeHandler2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationLoopIterationChangeHandler2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationLoopIterationChangeHandler2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -269,7 +269,7 @@ impl IUIAnimationManager {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -419,7 +419,7 @@ impl IUIAnimationManager2 {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationManager2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationManager2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -479,7 +479,7 @@ impl IUIAnimationManagerEventHandler {
         (::windows::core::Vtable::vtable(self).OnManagerStatusChanged)(::windows::core::Vtable::as_raw(self), newstatus, previousstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationManagerEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationManagerEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationManagerEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -516,7 +516,7 @@ impl IUIAnimationManagerEventHandler2 {
         (::windows::core::Vtable::vtable(self).OnManagerStatusChanged)(::windows::core::Vtable::as_raw(self), newstatus, previousstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationManagerEventHandler2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationManagerEventHandler2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationManagerEventHandler2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -556,7 +556,7 @@ impl IUIAnimationPrimitiveInterpolation {
         (::windows::core::Vtable::vtable(self).AddSinusoidal)(::windows::core::Vtable::as_raw(self), dimension, beginoffset, bias, amplitude, frequency, phase).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationPrimitiveInterpolation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationPrimitiveInterpolation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationPrimitiveInterpolation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -598,7 +598,7 @@ impl IUIAnimationPriorityComparison {
         (::windows::core::Vtable::vtable(self).HasPriority)(::windows::core::Vtable::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), priorityeffect).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationPriorityComparison, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationPriorityComparison, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationPriorityComparison {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -639,7 +639,7 @@ impl IUIAnimationPriorityComparison2 {
         (::windows::core::Vtable::vtable(self).HasPriority)(::windows::core::Vtable::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), priorityeffect).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationPriorityComparison2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationPriorityComparison2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationPriorityComparison2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -762,7 +762,7 @@ impl IUIAnimationStoryboard {
         (::windows::core::Vtable::vtable(self).SetStoryboardEventHandler)(::windows::core::Vtable::as_raw(self), handler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationStoryboard, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationStoryboard, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationStoryboard {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -912,7 +912,7 @@ impl IUIAnimationStoryboard2 {
         (::windows::core::Vtable::vtable(self).SetStoryboardEventHandler)(::windows::core::Vtable::as_raw(self), handler.into().abi(), fregisterstatuschangefornextanimationevent.into(), fregisterupdatefornextanimationevent.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationStoryboard2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationStoryboard2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationStoryboard2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -981,7 +981,7 @@ impl IUIAnimationStoryboardEventHandler {
         (::windows::core::Vtable::vtable(self).OnStoryboardUpdated)(::windows::core::Vtable::as_raw(self), storyboard.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationStoryboardEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationStoryboardEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationStoryboardEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1028,7 +1028,7 @@ impl IUIAnimationStoryboardEventHandler2 {
         (::windows::core::Vtable::vtable(self).OnStoryboardUpdated)(::windows::core::Vtable::as_raw(self), storyboard.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationStoryboardEventHandler2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationStoryboardEventHandler2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationStoryboardEventHandler2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1091,7 +1091,7 @@ impl IUIAnimationTimer {
         (::windows::core::Vtable::vtable(self).SetFrameRateThreshold)(::windows::core::Vtable::as_raw(self), framespersecond).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTimer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTimer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTimer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1134,7 +1134,7 @@ impl IUIAnimationTimerClientEventHandler {
         (::windows::core::Vtable::vtable(self).OnTimerClientStatusChanged)(::windows::core::Vtable::as_raw(self), newstatus, previousstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTimerClientEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTimerClientEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTimerClientEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1177,7 +1177,7 @@ impl IUIAnimationTimerEventHandler {
         (::windows::core::Vtable::vtable(self).OnRenderingTooSlow)(::windows::core::Vtable::as_raw(self), framespersecond).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTimerEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTimerEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTimerEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1226,7 +1226,7 @@ impl IUIAnimationTimerUpdateHandler {
         (::windows::core::Vtable::vtable(self).ClearTimerClientEventHandler)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTimerUpdateHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTimerUpdateHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTimerUpdateHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1275,7 +1275,7 @@ impl IUIAnimationTransition {
         (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTransition, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTransition, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTransition {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1335,7 +1335,7 @@ impl IUIAnimationTransition2 {
         (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTransition2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTransition2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTransition2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1382,7 +1382,7 @@ impl IUIAnimationTransitionFactory {
         (::windows::core::Vtable::vtable(self).CreateTransition)(::windows::core::Vtable::as_raw(self), interpolator.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTransitionFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTransitionFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTransitionFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1423,7 +1423,7 @@ impl IUIAnimationTransitionFactory2 {
         (::windows::core::Vtable::vtable(self).CreateTransition)(::windows::core::Vtable::as_raw(self), interpolator.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTransitionFactory2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTransitionFactory2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTransitionFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1505,7 +1505,7 @@ impl IUIAnimationTransitionLibrary {
         (::windows::core::Vtable::vtable(self).CreateParabolicTransitionFromAcceleration)(::windows::core::Vtable::as_raw(self), finalvalue, finalvelocity, acceleration, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTransitionLibrary, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTransitionLibrary, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTransitionLibrary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1626,7 +1626,7 @@ impl IUIAnimationTransitionLibrary2 {
         (::windows::core::Vtable::vtable(self).CreateCubicBezierLinearVectorTransition)(::windows::core::Vtable::as_raw(self), duration, ::core::mem::transmute(finalvalue.as_ptr()), finalvalue.len() as _, x1, y1, x2, y2, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationTransitionLibrary2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationTransitionLibrary2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationTransitionLibrary2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1736,7 +1736,7 @@ impl IUIAnimationVariable {
         (::windows::core::Vtable::vtable(self).SetVariableIntegerChangeHandler)(::windows::core::Vtable::as_raw(self), handler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationVariable, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationVariable, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationVariable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1894,7 +1894,7 @@ impl IUIAnimationVariable2 {
         (::windows::core::Vtable::vtable(self).SetVariableCurveChangeHandler)(::windows::core::Vtable::as_raw(self), handler.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationVariable2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationVariable2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationVariable2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1972,7 +1972,7 @@ impl IUIAnimationVariableChangeHandler {
         (::windows::core::Vtable::vtable(self).OnValueChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), variable.into().abi(), newvalue, previousvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationVariableChangeHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationVariableChangeHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationVariableChangeHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2013,7 +2013,7 @@ impl IUIAnimationVariableChangeHandler2 {
         (::windows::core::Vtable::vtable(self).OnValueChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), variable.into().abi(), newvalue, previousvalue, cdimension).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationVariableChangeHandler2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationVariableChangeHandler2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationVariableChangeHandler2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2053,7 +2053,7 @@ impl IUIAnimationVariableCurveChangeHandler2 {
         (::windows::core::Vtable::vtable(self).OnCurveChanged)(::windows::core::Vtable::as_raw(self), variable.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationVariableCurveChangeHandler2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationVariableCurveChangeHandler2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationVariableCurveChangeHandler2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2094,7 +2094,7 @@ impl IUIAnimationVariableIntegerChangeHandler {
         (::windows::core::Vtable::vtable(self).OnIntegerValueChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), variable.into().abi(), newvalue, previousvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationVariableIntegerChangeHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2135,7 +2135,7 @@ impl IUIAnimationVariableIntegerChangeHandler2 {
         (::windows::core::Vtable::vtable(self).OnIntegerValueChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), variable.into().abi(), newvalue, previousvalue, cdimension).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUIAnimationVariableIntegerChangeHandler2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

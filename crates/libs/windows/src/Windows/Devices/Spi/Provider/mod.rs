@@ -59,7 +59,7 @@ impl ISpiControllerProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISpiControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISpiControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISpiControllerProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -72,7 +72,7 @@ impl ::core::fmt::Debug for ISpiControllerProvider {
     }
 }
 impl ::windows::core::RuntimeType for ISpiControllerProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c1686504-02ce-4226-a385-4f11fb04b41b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{c1686504-02ce-4226-a385-4f11fb04b41b}");
 }
 unsafe impl ::windows::core::Vtable for ISpiControllerProvider {
     type Vtable = ISpiControllerProvider_Vtbl;
@@ -132,7 +132,7 @@ impl ISpiDeviceProvider {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ISpiDeviceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISpiDeviceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ISpiDeviceProvider> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -167,7 +167,7 @@ impl ::core::fmt::Debug for ISpiDeviceProvider {
     }
 }
 impl ::windows::core::RuntimeType for ISpiDeviceProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0d1c3443-304b-405c-b4f7-f5ab1074461e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{0d1c3443-304b-405c-b4f7-f5ab1074461e}");
 }
 unsafe impl ::windows::core::Vtable for ISpiDeviceProvider {
     type Vtable = ISpiDeviceProvider_Vtbl;
@@ -205,7 +205,7 @@ impl ISpiProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(ISpiProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISpiProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISpiProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -218,7 +218,7 @@ impl ::core::fmt::Debug for ISpiProvider {
     }
 }
 impl ::windows::core::RuntimeType for ISpiProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96b461e2-77d4-48ce-aaa0-75715a8362cf}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{96b461e2-77d4-48ce-aaa0-75715a8362cf}");
 }
 unsafe impl ::windows::core::Vtable for ISpiProvider {
     type Vtable = ISpiProvider_Vtbl;
@@ -307,7 +307,7 @@ impl ProviderSpiConnectionSettings {
     }
     #[doc(hidden)]
     pub fn IProviderSpiConnectionSettingsFactory<R, F: FnOnce(&IProviderSpiConnectionSettingsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProviderSpiConnectionSettings, IProviderSpiConnectionSettingsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProviderSpiConnectionSettings, IProviderSpiConnectionSettingsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -323,7 +323,7 @@ impl ::core::fmt::Debug for ProviderSpiConnectionSettings {
     }
 }
 impl ::windows::core::RuntimeType for ProviderSpiConnectionSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings;{f6034550-a542-4ec0-9601-a4dd68f8697b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings;{f6034550-a542-4ec0-9601-a4dd68f8697b})");
 }
 impl ::core::clone::Clone for ProviderSpiConnectionSettings {
     fn clone(&self) -> Self {
@@ -339,7 +339,7 @@ unsafe impl ::windows::core::Interface for ProviderSpiConnectionSettings {
 impl ::windows::core::RuntimeName for ProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";
 }
-::windows::core::interface_hierarchy!(ProviderSpiConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProviderSpiConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
@@ -372,7 +372,7 @@ impl ::core::fmt::Debug for ProviderSpiMode {
     }
 }
 impl ::windows::core::RuntimeType for ProviderSpiMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
@@ -402,7 +402,7 @@ impl ::core::fmt::Debug for ProviderSpiSharingMode {
     }
 }
 impl ::windows::core::RuntimeType for ProviderSpiSharingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiSharingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiSharingMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

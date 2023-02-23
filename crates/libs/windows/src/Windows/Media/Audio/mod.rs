@@ -665,7 +665,7 @@ impl IAudioInputNode {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IAudioInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAudioInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAudioInputNode> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: IAudioInputNode) -> ::windows::core::Result<Self> {
@@ -719,7 +719,7 @@ impl ::core::fmt::Debug for IAudioInputNode {
     }
 }
 impl ::windows::core::RuntimeType for IAudioInputNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d148005c-8428-4784-b7fd-a99d468c5d20}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d148005c-8428-4784-b7fd-a99d468c5d20}");
 }
 unsafe impl ::windows::core::Vtable for IAudioInputNode {
     type Vtable = IAudioInputNode_Vtbl;
@@ -867,7 +867,7 @@ impl IAudioInputNode2 {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IAudioInputNode2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAudioInputNode2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAudioInputNode2> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: IAudioInputNode2) -> ::windows::core::Result<Self> {
@@ -940,7 +940,7 @@ impl ::core::fmt::Debug for IAudioInputNode2 {
     }
 }
 impl ::windows::core::RuntimeType for IAudioInputNode2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905156b7-ca68-4c6d-a8bc-e3ee17fe3fd2}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{905156b7-ca68-4c6d-a8bc-e3ee17fe3fd2}");
 }
 unsafe impl ::windows::core::Vtable for IAudioInputNode2 {
     type Vtable = IAudioInputNode2_Vtbl;
@@ -1042,7 +1042,7 @@ impl IAudioNode {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IAudioNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAudioNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IAudioNode> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1077,7 +1077,7 @@ impl ::core::fmt::Debug for IAudioNode {
     }
 }
 impl ::windows::core::RuntimeType for IAudioNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{15389d7f-dbd8-4819-bf03-668e9357cd6d}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{15389d7f-dbd8-4819-bf03-668e9357cd6d}");
 }
 unsafe impl ::windows::core::Vtable for IAudioNode {
     type Vtable = IAudioNode_Vtbl;
@@ -1479,7 +1479,7 @@ impl IAudioNodeWithListener {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IAudioNodeWithListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IAudioNodeWithListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAudioNodeWithListener> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: IAudioNodeWithListener) -> ::windows::core::Result<Self> {
@@ -1533,7 +1533,7 @@ impl ::core::fmt::Debug for IAudioNodeWithListener {
     }
 }
 impl ::windows::core::RuntimeType for IAudioNodeWithListener {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0e0f907c-79ff-4544-9eeb-01257b15105a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{0e0f907c-79ff-4544-9eeb-01257b15105a}");
 }
 unsafe impl ::windows::core::Vtable for IAudioNodeWithListener {
     type Vtable = IAudioNodeWithListener_Vtbl;
@@ -2597,7 +2597,7 @@ impl ::core::fmt::Debug for AudioDeviceInputNode {
     }
 }
 impl ::windows::core::RuntimeType for AudioDeviceInputNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceInputNode;{b01b6be1-6f4e-49e2-ac01-559d62beb3a9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceInputNode;{b01b6be1-6f4e-49e2-ac01-559d62beb3a9})");
 }
 impl ::core::clone::Clone for AudioDeviceInputNode {
     fn clone(&self) -> Self {
@@ -2613,7 +2613,7 @@ unsafe impl ::windows::core::Interface for AudioDeviceInputNode {
 impl ::windows::core::RuntimeName for AudioDeviceInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceInputNode";
 }
-::windows::core::interface_hierarchy!(AudioDeviceInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioDeviceInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioDeviceInputNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioDeviceInputNode) -> ::windows::core::Result<Self> {
@@ -2810,7 +2810,7 @@ impl ::core::fmt::Debug for AudioDeviceOutputNode {
     }
 }
 impl ::windows::core::RuntimeType for AudioDeviceOutputNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceOutputNode;{362edbff-ff1c-4434-9e0f-bd2ef522ac82})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceOutputNode;{362edbff-ff1c-4434-9e0f-bd2ef522ac82})");
 }
 impl ::core::clone::Clone for AudioDeviceOutputNode {
     fn clone(&self) -> Self {
@@ -2826,7 +2826,7 @@ unsafe impl ::windows::core::Interface for AudioDeviceOutputNode {
 impl ::windows::core::RuntimeName for AudioDeviceOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceOutputNode";
 }
-::windows::core::interface_hierarchy!(AudioDeviceOutputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioDeviceOutputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioDeviceOutputNode> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioDeviceOutputNode) -> ::windows::core::Result<Self> {
@@ -3140,7 +3140,7 @@ impl ::core::fmt::Debug for AudioFileInputNode {
     }
 }
 impl ::windows::core::RuntimeType for AudioFileInputNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileInputNode;{905b67c8-6f65-4cd4-8890-4694843c276d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileInputNode;{905b67c8-6f65-4cd4-8890-4694843c276d})");
 }
 impl ::core::clone::Clone for AudioFileInputNode {
     fn clone(&self) -> Self {
@@ -3156,7 +3156,7 @@ unsafe impl ::windows::core::Interface for AudioFileInputNode {
 impl ::windows::core::RuntimeName for AudioFileInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileInputNode";
 }
-::windows::core::interface_hierarchy!(AudioFileInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioFileInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioFileInputNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioFileInputNode) -> ::windows::core::Result<Self> {
@@ -3360,7 +3360,7 @@ impl ::core::fmt::Debug for AudioFileOutputNode {
     }
 }
 impl ::windows::core::RuntimeType for AudioFileOutputNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileOutputNode;{50e01980-5166-4093-80f8-ada00089e9cf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileOutputNode;{50e01980-5166-4093-80f8-ada00089e9cf})");
 }
 impl ::core::clone::Clone for AudioFileOutputNode {
     fn clone(&self) -> Self {
@@ -3376,7 +3376,7 @@ unsafe impl ::windows::core::Interface for AudioFileOutputNode {
 impl ::windows::core::RuntimeName for AudioFileOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileOutputNode";
 }
-::windows::core::interface_hierarchy!(AudioFileOutputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioFileOutputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioFileOutputNode> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioFileOutputNode) -> ::windows::core::Result<Self> {
@@ -3444,7 +3444,7 @@ impl ::core::fmt::Debug for AudioFrameCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AudioFrameCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameCompletedEventArgs;{dc7c829e-0208-4504-a5a8-f0f268920a65})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameCompletedEventArgs;{dc7c829e-0208-4504-a5a8-f0f268920a65})");
 }
 impl ::core::clone::Clone for AudioFrameCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -3460,7 +3460,7 @@ unsafe impl ::windows::core::Interface for AudioFrameCompletedEventArgs {
 impl ::windows::core::RuntimeName for AudioFrameCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(AudioFrameCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioFrameCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioFrameCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for AudioFrameCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -3654,7 +3654,7 @@ impl ::core::fmt::Debug for AudioFrameInputNode {
     }
 }
 impl ::windows::core::RuntimeType for AudioFrameInputNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameInputNode;{01b266c7-fd96-4ff5-a3c5-d27a9bf44237})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameInputNode;{01b266c7-fd96-4ff5-a3c5-d27a9bf44237})");
 }
 impl ::core::clone::Clone for AudioFrameInputNode {
     fn clone(&self) -> Self {
@@ -3670,7 +3670,7 @@ unsafe impl ::windows::core::Interface for AudioFrameInputNode {
 impl ::windows::core::RuntimeName for AudioFrameInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameInputNode";
 }
-::windows::core::interface_hierarchy!(AudioFrameInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioFrameInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioFrameInputNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioFrameInputNode) -> ::windows::core::Result<Self> {
@@ -3854,7 +3854,7 @@ impl ::core::fmt::Debug for AudioFrameOutputNode {
     }
 }
 impl ::windows::core::RuntimeType for AudioFrameOutputNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameOutputNode;{b847371b-3299-45f5-88b3-c9d12a3f1cc8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameOutputNode;{b847371b-3299-45f5-88b3-c9d12a3f1cc8})");
 }
 impl ::core::clone::Clone for AudioFrameOutputNode {
     fn clone(&self) -> Self {
@@ -3870,7 +3870,7 @@ unsafe impl ::windows::core::Interface for AudioFrameOutputNode {
 impl ::windows::core::RuntimeName for AudioFrameOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameOutputNode";
 }
-::windows::core::interface_hierarchy!(AudioFrameOutputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioFrameOutputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioFrameOutputNode> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioFrameOutputNode) -> ::windows::core::Result<Self> {
@@ -4227,7 +4227,7 @@ impl AudioGraph {
     }
     #[doc(hidden)]
     pub fn IAudioGraphStatics<R, F: FnOnce(&IAudioGraphStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioGraph, IAudioGraphStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioGraph, IAudioGraphStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4243,7 +4243,7 @@ impl ::core::fmt::Debug for AudioGraph {
     }
 }
 impl ::windows::core::RuntimeType for AudioGraph {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraph;{1ad46eed-e48c-4e14-9660-2c4f83e9cdd8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraph;{1ad46eed-e48c-4e14-9660-2c4f83e9cdd8})");
 }
 impl ::core::clone::Clone for AudioGraph {
     fn clone(&self) -> Self {
@@ -4259,7 +4259,7 @@ unsafe impl ::windows::core::Interface for AudioGraph {
 impl ::windows::core::RuntimeName for AudioGraph {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraph";
 }
-::windows::core::interface_hierarchy!(AudioGraph, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioGraph, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AudioGraph> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4313,7 +4313,7 @@ impl ::core::fmt::Debug for AudioGraphBatchUpdater {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for AudioGraphBatchUpdater {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphBatchUpdater;{30d5a829-7fa4-4026-83bb-d75bae4ea99e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphBatchUpdater;{30d5a829-7fa4-4026-83bb-d75bae4ea99e})");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::clone::Clone for AudioGraphBatchUpdater {
@@ -4334,7 +4334,7 @@ impl ::windows::core::RuntimeName for AudioGraphBatchUpdater {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphBatchUpdater";
 }
 #[cfg(feature = "Foundation")]
-::windows::core::interface_hierarchy!(AudioGraphBatchUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioGraphBatchUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AudioGraphBatchUpdater> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4396,7 +4396,7 @@ impl ::core::fmt::Debug for AudioGraphConnection {
     }
 }
 impl ::windows::core::RuntimeType for AudioGraphConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphConnection;{763070ed-d04e-4fac-b233-600b42edd469})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphConnection;{763070ed-d04e-4fac-b233-600b42edd469})");
 }
 impl ::core::clone::Clone for AudioGraphConnection {
     fn clone(&self) -> Self {
@@ -4412,7 +4412,7 @@ unsafe impl ::windows::core::Interface for AudioGraphConnection {
 impl ::windows::core::RuntimeName for AudioGraphConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphConnection";
 }
-::windows::core::interface_hierarchy!(AudioGraphConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioGraphConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioGraphConnection {}
 unsafe impl ::core::marker::Sync for AudioGraphConnection {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4518,7 +4518,7 @@ impl AudioGraphSettings {
     }
     #[doc(hidden)]
     pub fn IAudioGraphSettingsFactory<R, F: FnOnce(&IAudioGraphSettingsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioGraphSettings, IAudioGraphSettingsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioGraphSettings, IAudioGraphSettingsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4534,7 +4534,7 @@ impl ::core::fmt::Debug for AudioGraphSettings {
     }
 }
 impl ::windows::core::RuntimeType for AudioGraphSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphSettings;{1d59647f-e6fe-4628-84f8-9d8bdba25785})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphSettings;{1d59647f-e6fe-4628-84f8-9d8bdba25785})");
 }
 impl ::core::clone::Clone for AudioGraphSettings {
     fn clone(&self) -> Self {
@@ -4550,7 +4550,7 @@ unsafe impl ::windows::core::Interface for AudioGraphSettings {
 impl ::windows::core::RuntimeName for AudioGraphSettings {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphSettings";
 }
-::windows::core::interface_hierarchy!(AudioGraphSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioGraphSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioGraphSettings {}
 unsafe impl ::core::marker::Sync for AudioGraphSettings {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4577,7 +4577,7 @@ impl ::core::fmt::Debug for AudioGraphUnrecoverableErrorOccurredEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AudioGraphUnrecoverableErrorOccurredEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs;{c3d9cbe0-3ff6-4fb3-b262-50d435c55423})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs;{c3d9cbe0-3ff6-4fb3-b262-50d435c55423})");
 }
 impl ::core::clone::Clone for AudioGraphUnrecoverableErrorOccurredEventArgs {
     fn clone(&self) -> Self {
@@ -4593,7 +4593,7 @@ unsafe impl ::windows::core::Interface for AudioGraphUnrecoverableErrorOccurredE
 impl ::windows::core::RuntimeName for AudioGraphUnrecoverableErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs";
 }
-::windows::core::interface_hierarchy!(AudioGraphUnrecoverableErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioGraphUnrecoverableErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4603,8 +4603,8 @@ impl AudioNodeEmitter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioNodeEmitter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AudioNodeEmitter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -4725,7 +4725,7 @@ impl AudioNodeEmitter {
     }
     #[doc(hidden)]
     pub fn IAudioNodeEmitterFactory<R, F: FnOnce(&IAudioNodeEmitterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioNodeEmitter, IAudioNodeEmitterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioNodeEmitter, IAudioNodeEmitterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4741,7 +4741,7 @@ impl ::core::fmt::Debug for AudioNodeEmitter {
     }
 }
 impl ::windows::core::RuntimeType for AudioNodeEmitter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitter;{3676971d-880a-47b8-adf7-1323a9d965be})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitter;{3676971d-880a-47b8-adf7-1323a9d965be})");
 }
 impl ::core::clone::Clone for AudioNodeEmitter {
     fn clone(&self) -> Self {
@@ -4757,7 +4757,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitter {
 impl ::windows::core::RuntimeName for AudioNodeEmitter {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitter";
 }
-::windows::core::interface_hierarchy!(AudioNodeEmitter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioNodeEmitter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitter {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitter {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4798,7 +4798,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterConeProperties {
     }
 }
 impl ::windows::core::RuntimeType for AudioNodeEmitterConeProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterConeProperties;{e99b2cee-02ca-4375-9326-0c6ae4bcdfb5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterConeProperties;{e99b2cee-02ca-4375-9326-0c6ae4bcdfb5})");
 }
 impl ::core::clone::Clone for AudioNodeEmitterConeProperties {
     fn clone(&self) -> Self {
@@ -4814,7 +4814,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitterConeProperties {
 impl ::windows::core::RuntimeName for AudioNodeEmitterConeProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterConeProperties";
 }
-::windows::core::interface_hierarchy!(AudioNodeEmitterConeProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioNodeEmitterConeProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitterConeProperties {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterConeProperties {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4863,7 +4863,7 @@ impl AudioNodeEmitterDecayModel {
     }
     #[doc(hidden)]
     pub fn IAudioNodeEmitterDecayModelStatics<R, F: FnOnce(&IAudioNodeEmitterDecayModelStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioNodeEmitterDecayModel, IAudioNodeEmitterDecayModelStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioNodeEmitterDecayModel, IAudioNodeEmitterDecayModelStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4879,7 +4879,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterDecayModel {
     }
 }
 impl ::windows::core::RuntimeType for AudioNodeEmitterDecayModel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterDecayModel;{1d1d5af7-0d53-4fa9-bd84-d5816a86f3ff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterDecayModel;{1d1d5af7-0d53-4fa9-bd84-d5816a86f3ff})");
 }
 impl ::core::clone::Clone for AudioNodeEmitterDecayModel {
     fn clone(&self) -> Self {
@@ -4895,7 +4895,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitterDecayModel {
 impl ::windows::core::RuntimeName for AudioNodeEmitterDecayModel {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterDecayModel";
 }
-::windows::core::interface_hierarchy!(AudioNodeEmitterDecayModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioNodeEmitterDecayModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitterDecayModel {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterDecayModel {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4929,7 +4929,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterNaturalDecayModelProperties {
     }
 }
 impl ::windows::core::RuntimeType for AudioNodeEmitterNaturalDecayModelProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties;{48934bcf-cf2c-4efc-9331-75bd22df1f0c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties;{48934bcf-cf2c-4efc-9331-75bd22df1f0c})");
 }
 impl ::core::clone::Clone for AudioNodeEmitterNaturalDecayModelProperties {
     fn clone(&self) -> Self {
@@ -4945,7 +4945,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitterNaturalDecayModelProp
 impl ::windows::core::RuntimeName for AudioNodeEmitterNaturalDecayModelProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties";
 }
-::windows::core::interface_hierarchy!(AudioNodeEmitterNaturalDecayModelProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioNodeEmitterNaturalDecayModelProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitterNaturalDecayModelProperties {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterNaturalDecayModelProperties {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4980,7 +4980,7 @@ impl AudioNodeEmitterShape {
     }
     #[doc(hidden)]
     pub fn IAudioNodeEmitterShapeStatics<R, F: FnOnce(&IAudioNodeEmitterShapeStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioNodeEmitterShape, IAudioNodeEmitterShapeStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioNodeEmitterShape, IAudioNodeEmitterShapeStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4996,7 +4996,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterShape {
     }
 }
 impl ::windows::core::RuntimeType for AudioNodeEmitterShape {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterShape;{ea0311c5-e73d-44bc-859c-45553bbc4828})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterShape;{ea0311c5-e73d-44bc-859c-45553bbc4828})");
 }
 impl ::core::clone::Clone for AudioNodeEmitterShape {
     fn clone(&self) -> Self {
@@ -5012,7 +5012,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitterShape {
 impl ::windows::core::RuntimeName for AudioNodeEmitterShape {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterShape";
 }
-::windows::core::interface_hierarchy!(AudioNodeEmitterShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioNodeEmitterShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitterShape {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterShape {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5022,8 +5022,8 @@ impl AudioNodeListener {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioNodeListener, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AudioNodeListener, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -5095,7 +5095,7 @@ impl ::core::fmt::Debug for AudioNodeListener {
     }
 }
 impl ::windows::core::RuntimeType for AudioNodeListener {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeListener;{d9722e16-0c0a-41da-b755-6c77835fb1eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeListener;{d9722e16-0c0a-41da-b755-6c77835fb1eb})");
 }
 impl ::core::clone::Clone for AudioNodeListener {
     fn clone(&self) -> Self {
@@ -5111,7 +5111,7 @@ unsafe impl ::windows::core::Interface for AudioNodeListener {
 impl ::windows::core::RuntimeName for AudioNodeListener {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeListener";
 }
-::windows::core::interface_hierarchy!(AudioNodeListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioNodeListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeListener {}
 unsafe impl ::core::marker::Sync for AudioNodeListener {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5196,7 +5196,7 @@ impl AudioPlaybackConnection {
     }
     #[doc(hidden)]
     pub fn IAudioPlaybackConnectionStatics<R, F: FnOnce(&IAudioPlaybackConnectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioPlaybackConnection, IAudioPlaybackConnectionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioPlaybackConnection, IAudioPlaybackConnectionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5212,7 +5212,7 @@ impl ::core::fmt::Debug for AudioPlaybackConnection {
     }
 }
 impl ::windows::core::RuntimeType for AudioPlaybackConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnection;{1a4c1dea-cafc-50e7-8718-ea3f81cbfa51})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnection;{1a4c1dea-cafc-50e7-8718-ea3f81cbfa51})");
 }
 impl ::core::clone::Clone for AudioPlaybackConnection {
     fn clone(&self) -> Self {
@@ -5228,7 +5228,7 @@ unsafe impl ::windows::core::Interface for AudioPlaybackConnection {
 impl ::windows::core::RuntimeName for AudioPlaybackConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnection";
 }
-::windows::core::interface_hierarchy!(AudioPlaybackConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioPlaybackConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AudioPlaybackConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5284,7 +5284,7 @@ impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResult {
     }
 }
 impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnectionOpenResult;{4e656aef-39f9-5fc9-a519-a5bbfd9fe921})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnectionOpenResult;{4e656aef-39f9-5fc9-a519-a5bbfd9fe921})");
 }
 impl ::core::clone::Clone for AudioPlaybackConnectionOpenResult {
     fn clone(&self) -> Self {
@@ -5300,7 +5300,7 @@ unsafe impl ::windows::core::Interface for AudioPlaybackConnectionOpenResult {
 impl ::windows::core::RuntimeName for AudioPlaybackConnectionOpenResult {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnectionOpenResult";
 }
-::windows::core::interface_hierarchy!(AudioPlaybackConnectionOpenResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioPlaybackConnectionOpenResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioPlaybackConnectionOpenResult {}
 unsafe impl ::core::marker::Sync for AudioPlaybackConnectionOpenResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5391,7 +5391,7 @@ impl AudioStateMonitor {
     }
     #[doc(hidden)]
     pub fn IAudioStateMonitorStatics<R, F: FnOnce(&IAudioStateMonitorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioStateMonitor, IAudioStateMonitorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioStateMonitor, IAudioStateMonitorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5407,7 +5407,7 @@ impl ::core::fmt::Debug for AudioStateMonitor {
     }
 }
 impl ::windows::core::RuntimeType for AudioStateMonitor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioStateMonitor;{1d13d136-0199-4cdc-b84e-e72c2b581ece})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioStateMonitor;{1d13d136-0199-4cdc-b84e-e72c2b581ece})");
 }
 impl ::core::clone::Clone for AudioStateMonitor {
     fn clone(&self) -> Self {
@@ -5423,7 +5423,7 @@ unsafe impl ::windows::core::Interface for AudioStateMonitor {
 impl ::windows::core::RuntimeName for AudioStateMonitor {
     const NAME: &'static str = "Windows.Media.Audio.AudioStateMonitor";
 }
-::windows::core::interface_hierarchy!(AudioStateMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioStateMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioStateMonitor {}
 unsafe impl ::core::marker::Sync for AudioStateMonitor {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5561,7 +5561,7 @@ impl ::core::fmt::Debug for AudioSubmixNode {
     }
 }
 impl ::windows::core::RuntimeType for AudioSubmixNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioSubmixNode;{d148005c-8428-4784-b7fd-a99d468c5d20})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioSubmixNode;{d148005c-8428-4784-b7fd-a99d468c5d20})");
 }
 impl ::core::clone::Clone for AudioSubmixNode {
     fn clone(&self) -> Self {
@@ -5577,7 +5577,7 @@ unsafe impl ::windows::core::Interface for AudioSubmixNode {
 impl ::windows::core::RuntimeName for AudioSubmixNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioSubmixNode";
 }
-::windows::core::interface_hierarchy!(AudioSubmixNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioSubmixNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioSubmixNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioSubmixNode) -> ::windows::core::Result<Self> {
@@ -5697,7 +5697,7 @@ impl ::core::fmt::Debug for CreateAudioDeviceInputNodeResult {
     }
 }
 impl ::windows::core::RuntimeType for CreateAudioDeviceInputNodeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceInputNodeResult;{16eec7a8-1ca7-40ef-91a4-d346e0aa1bba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceInputNodeResult;{16eec7a8-1ca7-40ef-91a4-d346e0aa1bba})");
 }
 impl ::core::clone::Clone for CreateAudioDeviceInputNodeResult {
     fn clone(&self) -> Self {
@@ -5713,7 +5713,7 @@ unsafe impl ::windows::core::Interface for CreateAudioDeviceInputNodeResult {
 impl ::windows::core::RuntimeName for CreateAudioDeviceInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceInputNodeResult";
 }
-::windows::core::interface_hierarchy!(CreateAudioDeviceInputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CreateAudioDeviceInputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioDeviceInputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioDeviceInputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5754,7 +5754,7 @@ impl ::core::fmt::Debug for CreateAudioDeviceOutputNodeResult {
     }
 }
 impl ::windows::core::RuntimeType for CreateAudioDeviceOutputNodeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceOutputNodeResult;{f7776d27-1d9a-47f7-9cd4-2859cc1b7bff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceOutputNodeResult;{f7776d27-1d9a-47f7-9cd4-2859cc1b7bff})");
 }
 impl ::core::clone::Clone for CreateAudioDeviceOutputNodeResult {
     fn clone(&self) -> Self {
@@ -5770,7 +5770,7 @@ unsafe impl ::windows::core::Interface for CreateAudioDeviceOutputNodeResult {
 impl ::windows::core::RuntimeName for CreateAudioDeviceOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceOutputNodeResult";
 }
-::windows::core::interface_hierarchy!(CreateAudioDeviceOutputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CreateAudioDeviceOutputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioDeviceOutputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioDeviceOutputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5811,7 +5811,7 @@ impl ::core::fmt::Debug for CreateAudioFileInputNodeResult {
     }
 }
 impl ::windows::core::RuntimeType for CreateAudioFileInputNodeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileInputNodeResult;{ce83d61c-e297-4c50-9ce7-1c7a69d6bd09})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileInputNodeResult;{ce83d61c-e297-4c50-9ce7-1c7a69d6bd09})");
 }
 impl ::core::clone::Clone for CreateAudioFileInputNodeResult {
     fn clone(&self) -> Self {
@@ -5827,7 +5827,7 @@ unsafe impl ::windows::core::Interface for CreateAudioFileInputNodeResult {
 impl ::windows::core::RuntimeName for CreateAudioFileInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileInputNodeResult";
 }
-::windows::core::interface_hierarchy!(CreateAudioFileInputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CreateAudioFileInputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioFileInputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioFileInputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5868,7 +5868,7 @@ impl ::core::fmt::Debug for CreateAudioFileOutputNodeResult {
     }
 }
 impl ::windows::core::RuntimeType for CreateAudioFileOutputNodeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileOutputNodeResult;{47d6ba7b-e909-453f-866e-5540cda734ff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileOutputNodeResult;{47d6ba7b-e909-453f-866e-5540cda734ff})");
 }
 impl ::core::clone::Clone for CreateAudioFileOutputNodeResult {
     fn clone(&self) -> Self {
@@ -5884,7 +5884,7 @@ unsafe impl ::windows::core::Interface for CreateAudioFileOutputNodeResult {
 impl ::windows::core::RuntimeName for CreateAudioFileOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileOutputNodeResult";
 }
-::windows::core::interface_hierarchy!(CreateAudioFileOutputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CreateAudioFileOutputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioFileOutputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioFileOutputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5925,7 +5925,7 @@ impl ::core::fmt::Debug for CreateAudioGraphResult {
     }
 }
 impl ::windows::core::RuntimeType for CreateAudioGraphResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioGraphResult;{5453ef7e-7bde-4b76-bb5d-48f79cfc8c0b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioGraphResult;{5453ef7e-7bde-4b76-bb5d-48f79cfc8c0b})");
 }
 impl ::core::clone::Clone for CreateAudioGraphResult {
     fn clone(&self) -> Self {
@@ -5941,7 +5941,7 @@ unsafe impl ::windows::core::Interface for CreateAudioGraphResult {
 impl ::windows::core::RuntimeName for CreateAudioGraphResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioGraphResult";
 }
-::windows::core::interface_hierarchy!(CreateAudioGraphResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CreateAudioGraphResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioGraphResult {}
 unsafe impl ::core::marker::Sync for CreateAudioGraphResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5982,7 +5982,7 @@ impl ::core::fmt::Debug for CreateMediaSourceAudioInputNodeResult {
     }
 }
 impl ::windows::core::RuntimeType for CreateMediaSourceAudioInputNodeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult;{46a658a3-53c0-4d59-9e51-cc1d1044a4c4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult;{46a658a3-53c0-4d59-9e51-cc1d1044a4c4})");
 }
 impl ::core::clone::Clone for CreateMediaSourceAudioInputNodeResult {
     fn clone(&self) -> Self {
@@ -5998,7 +5998,7 @@ unsafe impl ::windows::core::Interface for CreateMediaSourceAudioInputNodeResult
 impl ::windows::core::RuntimeName for CreateMediaSourceAudioInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult";
 }
-::windows::core::interface_hierarchy!(CreateMediaSourceAudioInputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CreateMediaSourceAudioInputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateMediaSourceAudioInputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateMediaSourceAudioInputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6064,7 +6064,7 @@ impl EchoEffectDefinition {
     }
     #[doc(hidden)]
     pub fn IEchoEffectDefinitionFactory<R, F: FnOnce(&IEchoEffectDefinitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EchoEffectDefinition, IEchoEffectDefinitionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EchoEffectDefinition, IEchoEffectDefinitionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6080,7 +6080,7 @@ impl ::core::fmt::Debug for EchoEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for EchoEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EchoEffectDefinition;{0e4d3faa-36b8-4c91-b9da-11f44a8a6610})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EchoEffectDefinition;{0e4d3faa-36b8-4c91-b9da-11f44a8a6610})");
 }
 impl ::core::clone::Clone for EchoEffectDefinition {
     fn clone(&self) -> Self {
@@ -6096,7 +6096,7 @@ unsafe impl ::windows::core::Interface for EchoEffectDefinition {
 impl ::windows::core::RuntimeName for EchoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EchoEffectDefinition";
 }
-::windows::core::interface_hierarchy!(EchoEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EchoEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<EchoEffectDefinition> for super::Effects::IAudioEffectDefinition {
     type Error = ::windows::core::Error;
@@ -6171,7 +6171,7 @@ impl ::core::fmt::Debug for EqualizerBand {
     }
 }
 impl ::windows::core::RuntimeType for EqualizerBand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerBand;{c00a5a6a-262d-4b85-9bb7-43280b62ed0c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerBand;{c00a5a6a-262d-4b85-9bb7-43280b62ed0c})");
 }
 impl ::core::clone::Clone for EqualizerBand {
     fn clone(&self) -> Self {
@@ -6187,7 +6187,7 @@ unsafe impl ::windows::core::Interface for EqualizerBand {
 impl ::windows::core::RuntimeName for EqualizerBand {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerBand";
 }
-::windows::core::interface_hierarchy!(EqualizerBand, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EqualizerBand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EqualizerBand {}
 unsafe impl ::core::marker::Sync for EqualizerBand {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6229,7 +6229,7 @@ impl EqualizerEffectDefinition {
     }
     #[doc(hidden)]
     pub fn IEqualizerEffectDefinitionFactory<R, F: FnOnce(&IEqualizerEffectDefinitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EqualizerEffectDefinition, IEqualizerEffectDefinitionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EqualizerEffectDefinition, IEqualizerEffectDefinitionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6245,7 +6245,7 @@ impl ::core::fmt::Debug for EqualizerEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for EqualizerEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerEffectDefinition;{023f6f1f-83fe-449a-a822-c696442d16b0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerEffectDefinition;{023f6f1f-83fe-449a-a822-c696442d16b0})");
 }
 impl ::core::clone::Clone for EqualizerEffectDefinition {
     fn clone(&self) -> Self {
@@ -6261,7 +6261,7 @@ unsafe impl ::windows::core::Interface for EqualizerEffectDefinition {
 impl ::windows::core::RuntimeName for EqualizerEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerEffectDefinition";
 }
-::windows::core::interface_hierarchy!(EqualizerEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EqualizerEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<EqualizerEffectDefinition> for super::Effects::IAudioEffectDefinition {
     type Error = ::windows::core::Error;
@@ -6310,7 +6310,7 @@ impl ::core::fmt::Debug for FrameInputNodeQuantumStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for FrameInputNodeQuantumStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs;{3d9bd498-a306-4f06-bd9f-e9efc8226304})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs;{3d9bd498-a306-4f06-bd9f-e9efc8226304})");
 }
 impl ::core::clone::Clone for FrameInputNodeQuantumStartedEventArgs {
     fn clone(&self) -> Self {
@@ -6326,7 +6326,7 @@ unsafe impl ::windows::core::Interface for FrameInputNodeQuantumStartedEventArgs
 impl ::windows::core::RuntimeName for FrameInputNodeQuantumStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(FrameInputNodeQuantumStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FrameInputNodeQuantumStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FrameInputNodeQuantumStartedEventArgs {}
 unsafe impl ::core::marker::Sync for FrameInputNodeQuantumStartedEventArgs {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6381,7 +6381,7 @@ impl LimiterEffectDefinition {
     }
     #[doc(hidden)]
     pub fn ILimiterEffectDefinitionFactory<R, F: FnOnce(&ILimiterEffectDefinitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LimiterEffectDefinition, ILimiterEffectDefinitionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LimiterEffectDefinition, ILimiterEffectDefinitionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6397,7 +6397,7 @@ impl ::core::fmt::Debug for LimiterEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for LimiterEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.LimiterEffectDefinition;{6b755d19-2603-47ba-bdeb-39055e3486dc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.LimiterEffectDefinition;{6b755d19-2603-47ba-bdeb-39055e3486dc})");
 }
 impl ::core::clone::Clone for LimiterEffectDefinition {
     fn clone(&self) -> Self {
@@ -6413,7 +6413,7 @@ unsafe impl ::windows::core::Interface for LimiterEffectDefinition {
 impl ::windows::core::RuntimeName for LimiterEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.LimiterEffectDefinition";
 }
-::windows::core::interface_hierarchy!(LimiterEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LimiterEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<LimiterEffectDefinition> for super::Effects::IAudioEffectDefinition {
     type Error = ::windows::core::Error;
@@ -6689,7 +6689,7 @@ impl ::core::fmt::Debug for MediaSourceAudioInputNode {
     }
 }
 impl ::windows::core::RuntimeType for MediaSourceAudioInputNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.MediaSourceAudioInputNode;{99d8983b-a88a-4041-8e4f-ddbac0c91fd3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.MediaSourceAudioInputNode;{99d8983b-a88a-4041-8e4f-ddbac0c91fd3})");
 }
 impl ::core::clone::Clone for MediaSourceAudioInputNode {
     fn clone(&self) -> Self {
@@ -6705,7 +6705,7 @@ unsafe impl ::windows::core::Interface for MediaSourceAudioInputNode {
 impl ::windows::core::RuntimeName for MediaSourceAudioInputNode {
     const NAME: &'static str = "Windows.Media.Audio.MediaSourceAudioInputNode";
 }
-::windows::core::interface_hierarchy!(MediaSourceAudioInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaSourceAudioInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaSourceAudioInputNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaSourceAudioInputNode) -> ::windows::core::Result<Self> {
@@ -7070,7 +7070,7 @@ impl ReverbEffectDefinition {
     }
     #[doc(hidden)]
     pub fn IReverbEffectDefinitionFactory<R, F: FnOnce(&IReverbEffectDefinitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ReverbEffectDefinition, IReverbEffectDefinitionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ReverbEffectDefinition, IReverbEffectDefinitionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7086,7 +7086,7 @@ impl ::core::fmt::Debug for ReverbEffectDefinition {
     }
 }
 impl ::windows::core::RuntimeType for ReverbEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.ReverbEffectDefinition;{4606aa89-f563-4d0a-8f6e-f0cddff35d84})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.ReverbEffectDefinition;{4606aa89-f563-4d0a-8f6e-f0cddff35d84})");
 }
 impl ::core::clone::Clone for ReverbEffectDefinition {
     fn clone(&self) -> Self {
@@ -7102,7 +7102,7 @@ unsafe impl ::windows::core::Interface for ReverbEffectDefinition {
 impl ::windows::core::RuntimeName for ReverbEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.ReverbEffectDefinition";
 }
-::windows::core::interface_hierarchy!(ReverbEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ReverbEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<ReverbEffectDefinition> for super::Effects::IAudioEffectDefinition {
     type Error = ::windows::core::Error;
@@ -7151,7 +7151,7 @@ impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatResult {
     }
 }
 impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SetDefaultSpatialAudioFormatResult;{1c2aa511-1400-5e70-9ea9-ae151241e8ea})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SetDefaultSpatialAudioFormatResult;{1c2aa511-1400-5e70-9ea9-ae151241e8ea})");
 }
 impl ::core::clone::Clone for SetDefaultSpatialAudioFormatResult {
     fn clone(&self) -> Self {
@@ -7167,7 +7167,7 @@ unsafe impl ::windows::core::Interface for SetDefaultSpatialAudioFormatResult {
 impl ::windows::core::RuntimeName for SetDefaultSpatialAudioFormatResult {
     const NAME: &'static str = "Windows.Media.Audio.SetDefaultSpatialAudioFormatResult";
 }
-::windows::core::interface_hierarchy!(SetDefaultSpatialAudioFormatResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SetDefaultSpatialAudioFormatResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SetDefaultSpatialAudioFormatResult {}
 unsafe impl ::core::marker::Sync for SetDefaultSpatialAudioFormatResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -7241,7 +7241,7 @@ impl SpatialAudioDeviceConfiguration {
     }
     #[doc(hidden)]
     pub fn ISpatialAudioDeviceConfigurationStatics<R, F: FnOnce(&ISpatialAudioDeviceConfigurationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialAudioDeviceConfiguration, ISpatialAudioDeviceConfigurationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialAudioDeviceConfiguration, ISpatialAudioDeviceConfigurationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7257,7 +7257,7 @@ impl ::core::fmt::Debug for SpatialAudioDeviceConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for SpatialAudioDeviceConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioDeviceConfiguration;{ee830034-61cf-5749-9da4-10f0fe028199})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioDeviceConfiguration;{ee830034-61cf-5749-9da4-10f0fe028199})");
 }
 impl ::core::clone::Clone for SpatialAudioDeviceConfiguration {
     fn clone(&self) -> Self {
@@ -7273,7 +7273,7 @@ unsafe impl ::windows::core::Interface for SpatialAudioDeviceConfiguration {
 impl ::windows::core::RuntimeName for SpatialAudioDeviceConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioDeviceConfiguration";
 }
-::windows::core::interface_hierarchy!(SpatialAudioDeviceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialAudioDeviceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAudioDeviceConfiguration {}
 unsafe impl ::core::marker::Sync for SpatialAudioDeviceConfiguration {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -7317,7 +7317,7 @@ impl SpatialAudioFormatConfiguration {
     }
     #[doc(hidden)]
     pub fn ISpatialAudioFormatConfigurationStatics<R, F: FnOnce(&ISpatialAudioFormatConfigurationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialAudioFormatConfiguration, ISpatialAudioFormatConfigurationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialAudioFormatConfiguration, ISpatialAudioFormatConfigurationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7333,7 +7333,7 @@ impl ::core::fmt::Debug for SpatialAudioFormatConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for SpatialAudioFormatConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioFormatConfiguration;{32df09a8-50f0-5395-9923-7d44ca71ed6d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioFormatConfiguration;{32df09a8-50f0-5395-9923-7d44ca71ed6d})");
 }
 impl ::core::clone::Clone for SpatialAudioFormatConfiguration {
     fn clone(&self) -> Self {
@@ -7349,7 +7349,7 @@ unsafe impl ::windows::core::Interface for SpatialAudioFormatConfiguration {
 impl ::windows::core::RuntimeName for SpatialAudioFormatConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioFormatConfiguration";
 }
-::windows::core::interface_hierarchy!(SpatialAudioFormatConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialAudioFormatConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAudioFormatConfiguration {}
 unsafe impl ::core::marker::Sync for SpatialAudioFormatConfiguration {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -7399,12 +7399,12 @@ impl SpatialAudioFormatSubtype {
     }
     #[doc(hidden)]
     pub fn ISpatialAudioFormatSubtypeStatics<R, F: FnOnce(&ISpatialAudioFormatSubtypeStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialAudioFormatSubtype, ISpatialAudioFormatSubtypeStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialAudioFormatSubtype, ISpatialAudioFormatSubtypeStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISpatialAudioFormatSubtypeStatics2<R, F: FnOnce(&ISpatialAudioFormatSubtypeStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialAudioFormatSubtype, ISpatialAudioFormatSubtypeStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialAudioFormatSubtype, ISpatialAudioFormatSubtypeStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7442,7 +7442,7 @@ impl ::core::fmt::Debug for AudioDeviceNodeCreationStatus {
     }
 }
 impl ::windows::core::RuntimeType for AudioDeviceNodeCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7475,7 +7475,7 @@ impl ::core::fmt::Debug for AudioFileNodeCreationStatus {
     }
 }
 impl ::windows::core::RuntimeType for AudioFileNodeCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioFileNodeCreationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioFileNodeCreationStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7507,7 +7507,7 @@ impl ::core::fmt::Debug for AudioGraphCreationStatus {
     }
 }
 impl ::windows::core::RuntimeType for AudioGraphCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphCreationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphCreationStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7539,7 +7539,7 @@ impl ::core::fmt::Debug for AudioGraphUnrecoverableError {
     }
 }
 impl ::windows::core::RuntimeType for AudioGraphUnrecoverableError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphUnrecoverableError;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphUnrecoverableError;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7569,7 +7569,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterDecayKind {
     }
 }
 impl ::windows::core::RuntimeType for AudioNodeEmitterDecayKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterDecayKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterDecayKind;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7632,7 +7632,7 @@ impl ::core::ops::Not for AudioNodeEmitterSettings {
     }
 }
 impl ::windows::core::RuntimeType for AudioNodeEmitterSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterSettings;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterSettings;u4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7662,7 +7662,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterShapeKind {
     }
 }
 impl ::windows::core::RuntimeType for AudioNodeEmitterShapeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterShapeKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterShapeKind;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7694,7 +7694,7 @@ impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResultStatus {
     }
 }
 impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResultStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7724,7 +7724,7 @@ impl ::core::fmt::Debug for AudioPlaybackConnectionState {
     }
 }
 impl ::windows::core::RuntimeType for AudioPlaybackConnectionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionState;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7756,7 +7756,7 @@ impl ::core::fmt::Debug for MediaSourceAudioInputNodeCreationStatus {
     }
 }
 impl ::windows::core::RuntimeType for MediaSourceAudioInputNodeCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7786,7 +7786,7 @@ impl ::core::fmt::Debug for MixedRealitySpatialAudioFormatPolicy {
     }
 }
 impl ::windows::core::RuntimeType for MixedRealitySpatialAudioFormatPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7817,7 +7817,7 @@ impl ::core::fmt::Debug for QuantumSizeSelectionMode {
     }
 }
 impl ::windows::core::RuntimeType for QuantumSizeSelectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.QuantumSizeSelectionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.QuantumSizeSelectionMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7851,7 +7851,7 @@ impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatStatus {
     }
 }
 impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
@@ -7881,7 +7881,7 @@ impl ::core::fmt::Debug for SpatialAudioModel {
     }
 }
 impl ::windows::core::RuntimeType for SpatialAudioModel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SpatialAudioModel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SpatialAudioModel;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

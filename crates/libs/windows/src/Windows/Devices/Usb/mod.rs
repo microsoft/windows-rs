@@ -810,7 +810,7 @@ impl ::core::fmt::Debug for UsbBulkInEndpointDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for UsbBulkInEndpointDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkInEndpointDescriptor;{3c6e4846-06cf-42a9-9dc2-971c1b14b6e3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkInEndpointDescriptor;{3c6e4846-06cf-42a9-9dc2-971c1b14b6e3})");
 }
 impl ::core::clone::Clone for UsbBulkInEndpointDescriptor {
     fn clone(&self) -> Self {
@@ -826,7 +826,7 @@ unsafe impl ::windows::core::Interface for UsbBulkInEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbBulkInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInEndpointDescriptor";
 }
-::windows::core::interface_hierarchy!(UsbBulkInEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbBulkInEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbBulkInEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbBulkInEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -893,7 +893,7 @@ impl ::core::fmt::Debug for UsbBulkInPipe {
     }
 }
 impl ::windows::core::RuntimeType for UsbBulkInPipe {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkInPipe;{f01d2d3b-4548-4d50-b326-d82cdabe1220})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkInPipe;{f01d2d3b-4548-4d50-b326-d82cdabe1220})");
 }
 impl ::core::clone::Clone for UsbBulkInPipe {
     fn clone(&self) -> Self {
@@ -909,7 +909,7 @@ unsafe impl ::windows::core::Interface for UsbBulkInPipe {
 impl ::windows::core::RuntimeName for UsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInPipe";
 }
-::windows::core::interface_hierarchy!(UsbBulkInPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbBulkInPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbBulkInPipe {}
 unsafe impl ::core::marker::Sync for UsbBulkInPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -950,7 +950,7 @@ impl ::core::fmt::Debug for UsbBulkOutEndpointDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for UsbBulkOutEndpointDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkOutEndpointDescriptor;{2820847a-ffee-4f60-9be1-956cac3ecb65})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkOutEndpointDescriptor;{2820847a-ffee-4f60-9be1-956cac3ecb65})");
 }
 impl ::core::clone::Clone for UsbBulkOutEndpointDescriptor {
     fn clone(&self) -> Self {
@@ -966,7 +966,7 @@ unsafe impl ::windows::core::Interface for UsbBulkOutEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbBulkOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutEndpointDescriptor";
 }
-::windows::core::interface_hierarchy!(UsbBulkOutEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbBulkOutEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbBulkOutEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbBulkOutEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1022,7 +1022,7 @@ impl ::core::fmt::Debug for UsbBulkOutPipe {
     }
 }
 impl ::windows::core::RuntimeType for UsbBulkOutPipe {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkOutPipe;{a8e9ee6e-0115-45aa-8b21-37b225bccee7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkOutPipe;{a8e9ee6e-0115-45aa-8b21-37b225bccee7})");
 }
 impl ::core::clone::Clone for UsbBulkOutPipe {
     fn clone(&self) -> Self {
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::Interface for UsbBulkOutPipe {
 impl ::windows::core::RuntimeName for UsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutPipe";
 }
-::windows::core::interface_hierarchy!(UsbBulkOutPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbBulkOutPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbBulkOutPipe {}
 unsafe impl ::core::marker::Sync for UsbBulkOutPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1083,7 +1083,7 @@ impl ::core::fmt::Debug for UsbConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for UsbConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbConfiguration;{68177429-36a9-46d7-b873-fc689251ec30})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbConfiguration;{68177429-36a9-46d7-b873-fc689251ec30})");
 }
 impl ::core::clone::Clone for UsbConfiguration {
     fn clone(&self) -> Self {
@@ -1099,7 +1099,7 @@ unsafe impl ::windows::core::Interface for UsbConfiguration {
 impl ::windows::core::RuntimeName for UsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfiguration";
 }
-::windows::core::interface_hierarchy!(UsbConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbConfiguration {}
 unsafe impl ::core::marker::Sync for UsbConfiguration {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1148,7 +1148,7 @@ impl UsbConfigurationDescriptor {
     }
     #[doc(hidden)]
     pub fn IUsbConfigurationDescriptorStatics<R, F: FnOnce(&IUsbConfigurationDescriptorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UsbConfigurationDescriptor, IUsbConfigurationDescriptorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UsbConfigurationDescriptor, IUsbConfigurationDescriptorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1164,7 +1164,7 @@ impl ::core::fmt::Debug for UsbConfigurationDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for UsbConfigurationDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbConfigurationDescriptor;{f2176d92-b442-407a-8207-7d646c0385f3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbConfigurationDescriptor;{f2176d92-b442-407a-8207-7d646c0385f3})");
 }
 impl ::core::clone::Clone for UsbConfigurationDescriptor {
     fn clone(&self) -> Self {
@@ -1180,7 +1180,7 @@ unsafe impl ::windows::core::Interface for UsbConfigurationDescriptor {
 impl ::windows::core::RuntimeName for UsbConfigurationDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfigurationDescriptor";
 }
-::windows::core::interface_hierarchy!(UsbConfigurationDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbConfigurationDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbConfigurationDescriptor {}
 unsafe impl ::core::marker::Sync for UsbConfigurationDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1190,8 +1190,8 @@ impl UsbControlRequestType {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UsbControlRequestType, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UsbControlRequestType, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Direction(&self) -> ::windows::core::Result<UsbTransferDirection> {
@@ -1251,7 +1251,7 @@ impl ::core::fmt::Debug for UsbControlRequestType {
     }
 }
 impl ::windows::core::RuntimeType for UsbControlRequestType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbControlRequestType;{8e9465a6-d73d-46de-94be-aae7f07c0f5c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbControlRequestType;{8e9465a6-d73d-46de-94be-aae7f07c0f5c})");
 }
 impl ::core::clone::Clone for UsbControlRequestType {
     fn clone(&self) -> Self {
@@ -1267,7 +1267,7 @@ unsafe impl ::windows::core::Interface for UsbControlRequestType {
 impl ::windows::core::RuntimeName for UsbControlRequestType {
     const NAME: &'static str = "Windows.Devices.Usb.UsbControlRequestType";
 }
-::windows::core::interface_hierarchy!(UsbControlRequestType, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbControlRequestType, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbControlRequestType {}
 unsafe impl ::core::marker::Sync for UsbControlRequestType {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1311,7 +1311,7 @@ impl ::core::fmt::Debug for UsbDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for UsbDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDescriptor;{0a89f216-5f9d-4874-8904-da9ad3f5528f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDescriptor;{0a89f216-5f9d-4874-8904-da9ad3f5528f})");
 }
 impl ::core::clone::Clone for UsbDescriptor {
     fn clone(&self) -> Self {
@@ -1327,7 +1327,7 @@ unsafe impl ::windows::core::Interface for UsbDescriptor {
 impl ::windows::core::RuntimeName for UsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDescriptor";
 }
-::windows::core::interface_hierarchy!(UsbDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbDescriptor {}
 unsafe impl ::core::marker::Sync for UsbDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1439,7 +1439,7 @@ impl UsbDevice {
     }
     #[doc(hidden)]
     pub fn IUsbDeviceStatics<R, F: FnOnce(&IUsbDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UsbDevice, IUsbDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UsbDevice, IUsbDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1455,7 +1455,7 @@ impl ::core::fmt::Debug for UsbDevice {
     }
 }
 impl ::windows::core::RuntimeType for UsbDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDevice;{5249b992-c456-44d5-ad5e-24f5a089f63b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDevice;{5249b992-c456-44d5-ad5e-24f5a089f63b})");
 }
 impl ::core::clone::Clone for UsbDevice {
     fn clone(&self) -> Self {
@@ -1471,7 +1471,7 @@ unsafe impl ::windows::core::Interface for UsbDevice {
 impl ::windows::core::RuntimeName for UsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDevice";
 }
-::windows::core::interface_hierarchy!(UsbDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<UsbDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1503,8 +1503,8 @@ impl UsbDeviceClass {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UsbDeviceClass, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UsbDeviceClass, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ClassCode(&self) -> ::windows::core::Result<u8> {
@@ -1569,7 +1569,7 @@ impl ::core::fmt::Debug for UsbDeviceClass {
     }
 }
 impl ::windows::core::RuntimeType for UsbDeviceClass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceClass;{051942f9-845e-47eb-b12a-38f2f617afe7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceClass;{051942f9-845e-47eb-b12a-38f2f617afe7})");
 }
 impl ::core::clone::Clone for UsbDeviceClass {
     fn clone(&self) -> Self {
@@ -1585,7 +1585,7 @@ unsafe impl ::windows::core::Interface for UsbDeviceClass {
 impl ::windows::core::RuntimeName for UsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClass";
 }
-::windows::core::interface_hierarchy!(UsbDeviceClass, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbDeviceClass, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbDeviceClass {}
 unsafe impl ::core::marker::Sync for UsbDeviceClass {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1648,7 +1648,7 @@ impl UsbDeviceClasses {
     }
     #[doc(hidden)]
     pub fn IUsbDeviceClassesStatics<R, F: FnOnce(&IUsbDeviceClassesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UsbDeviceClasses, IUsbDeviceClassesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UsbDeviceClasses, IUsbDeviceClassesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1664,7 +1664,7 @@ impl ::core::fmt::Debug for UsbDeviceClasses {
     }
 }
 impl ::windows::core::RuntimeType for UsbDeviceClasses {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceClasses;{686f955d-9b92-4b30-9781-c22c55ac35cb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceClasses;{686f955d-9b92-4b30-9781-c22c55ac35cb})");
 }
 impl ::core::clone::Clone for UsbDeviceClasses {
     fn clone(&self) -> Self {
@@ -1680,7 +1680,7 @@ unsafe impl ::windows::core::Interface for UsbDeviceClasses {
 impl ::windows::core::RuntimeName for UsbDeviceClasses {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClasses";
 }
-::windows::core::interface_hierarchy!(UsbDeviceClasses, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbDeviceClasses, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbDeviceClasses {}
 unsafe impl ::core::marker::Sync for UsbDeviceClasses {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1742,7 +1742,7 @@ impl ::core::fmt::Debug for UsbDeviceDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for UsbDeviceDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceDescriptor;{1f48d1f6-ba97-4322-b92c-b5b189216588})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceDescriptor;{1f48d1f6-ba97-4322-b92c-b5b189216588})");
 }
 impl ::core::clone::Clone for UsbDeviceDescriptor {
     fn clone(&self) -> Self {
@@ -1758,7 +1758,7 @@ unsafe impl ::windows::core::Interface for UsbDeviceDescriptor {
 impl ::windows::core::RuntimeName for UsbDeviceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceDescriptor";
 }
-::windows::core::interface_hierarchy!(UsbDeviceDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbDeviceDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbDeviceDescriptor {}
 unsafe impl ::core::marker::Sync for UsbDeviceDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1828,7 +1828,7 @@ impl UsbEndpointDescriptor {
     }
     #[doc(hidden)]
     pub fn IUsbEndpointDescriptorStatics<R, F: FnOnce(&IUsbEndpointDescriptorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UsbEndpointDescriptor, IUsbEndpointDescriptorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UsbEndpointDescriptor, IUsbEndpointDescriptorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1844,7 +1844,7 @@ impl ::core::fmt::Debug for UsbEndpointDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for UsbEndpointDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbEndpointDescriptor;{6b4862d9-8df7-4b40-ac83-578f139f0575})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbEndpointDescriptor;{6b4862d9-8df7-4b40-ac83-578f139f0575})");
 }
 impl ::core::clone::Clone for UsbEndpointDescriptor {
     fn clone(&self) -> Self {
@@ -1860,7 +1860,7 @@ unsafe impl ::windows::core::Interface for UsbEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbEndpointDescriptor";
 }
-::windows::core::interface_hierarchy!(UsbEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1941,7 +1941,7 @@ impl ::core::fmt::Debug for UsbInterface {
     }
 }
 impl ::windows::core::RuntimeType for UsbInterface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterface;{a0322b95-7f47-48ab-a727-678c25be2112})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterface;{a0322b95-7f47-48ab-a727-678c25be2112})");
 }
 impl ::core::clone::Clone for UsbInterface {
     fn clone(&self) -> Self {
@@ -1957,7 +1957,7 @@ unsafe impl ::windows::core::Interface for UsbInterface {
 impl ::windows::core::RuntimeName for UsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterface";
 }
-::windows::core::interface_hierarchy!(UsbInterface, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbInterface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterface {}
 unsafe impl ::core::marker::Sync for UsbInterface {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2013,7 +2013,7 @@ impl UsbInterfaceDescriptor {
     }
     #[doc(hidden)]
     pub fn IUsbInterfaceDescriptorStatics<R, F: FnOnce(&IUsbInterfaceDescriptorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UsbInterfaceDescriptor, IUsbInterfaceDescriptorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UsbInterfaceDescriptor, IUsbInterfaceDescriptorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2029,7 +2029,7 @@ impl ::core::fmt::Debug for UsbInterfaceDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for UsbInterfaceDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterfaceDescriptor;{199670c7-b7ee-4f90-8cd5-94a2e257598a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterfaceDescriptor;{199670c7-b7ee-4f90-8cd5-94a2e257598a})");
 }
 impl ::core::clone::Clone for UsbInterfaceDescriptor {
     fn clone(&self) -> Self {
@@ -2045,7 +2045,7 @@ unsafe impl ::windows::core::Interface for UsbInterfaceDescriptor {
 impl ::windows::core::RuntimeName for UsbInterfaceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceDescriptor";
 }
-::windows::core::interface_hierarchy!(UsbInterfaceDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbInterfaceDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterfaceDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterfaceDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2133,7 +2133,7 @@ impl ::core::fmt::Debug for UsbInterfaceSetting {
     }
 }
 impl ::windows::core::RuntimeType for UsbInterfaceSetting {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterfaceSetting;{1827bba7-8da7-4af7-8f4c-7f3032e781f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterfaceSetting;{1827bba7-8da7-4af7-8f4c-7f3032e781f5})");
 }
 impl ::core::clone::Clone for UsbInterfaceSetting {
     fn clone(&self) -> Self {
@@ -2149,7 +2149,7 @@ unsafe impl ::windows::core::Interface for UsbInterfaceSetting {
 impl ::windows::core::RuntimeName for UsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceSetting";
 }
-::windows::core::interface_hierarchy!(UsbInterfaceSetting, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbInterfaceSetting, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterfaceSetting {}
 unsafe impl ::core::marker::Sync for UsbInterfaceSetting {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2199,7 +2199,7 @@ impl ::core::fmt::Debug for UsbInterruptInEndpointDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for UsbInterruptInEndpointDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInEndpointDescriptor;{c0528967-c911-4c3a-86b2-419c2da89039})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInEndpointDescriptor;{c0528967-c911-4c3a-86b2-419c2da89039})");
 }
 impl ::core::clone::Clone for UsbInterruptInEndpointDescriptor {
     fn clone(&self) -> Self {
@@ -2215,7 +2215,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptInEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEndpointDescriptor";
 }
-::windows::core::interface_hierarchy!(UsbInterruptInEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbInterruptInEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptInEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterruptInEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2244,7 +2244,7 @@ impl ::core::fmt::Debug for UsbInterruptInEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UsbInterruptInEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInEventArgs;{b7b04092-1418-4936-8209-299cf5605583})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInEventArgs;{b7b04092-1418-4936-8209-299cf5605583})");
 }
 impl ::core::clone::Clone for UsbInterruptInEventArgs {
     fn clone(&self) -> Self {
@@ -2260,7 +2260,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptInEventArgs {
 impl ::windows::core::RuntimeName for UsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEventArgs";
 }
-::windows::core::interface_hierarchy!(UsbInterruptInEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbInterruptInEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptInEventArgs {}
 unsafe impl ::core::marker::Sync for UsbInterruptInEventArgs {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2311,7 +2311,7 @@ impl ::core::fmt::Debug for UsbInterruptInPipe {
     }
 }
 impl ::windows::core::RuntimeType for UsbInterruptInPipe {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInPipe;{fa007116-84d7-48c7-8a3f-4c0b235f2ea6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInPipe;{fa007116-84d7-48c7-8a3f-4c0b235f2ea6})");
 }
 impl ::core::clone::Clone for UsbInterruptInPipe {
     fn clone(&self) -> Self {
@@ -2327,7 +2327,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptInPipe {
 impl ::windows::core::RuntimeName for UsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInPipe";
 }
-::windows::core::interface_hierarchy!(UsbInterruptInPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbInterruptInPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptInPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptInPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2377,7 +2377,7 @@ impl ::core::fmt::Debug for UsbInterruptOutEndpointDescriptor {
     }
 }
 impl ::windows::core::RuntimeType for UsbInterruptOutEndpointDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor;{cc9fed81-10ca-4533-952d-9e278341e80f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor;{cc9fed81-10ca-4533-952d-9e278341e80f})");
 }
 impl ::core::clone::Clone for UsbInterruptOutEndpointDescriptor {
     fn clone(&self) -> Self {
@@ -2393,7 +2393,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptOutEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor";
 }
-::windows::core::interface_hierarchy!(UsbInterruptOutEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbInterruptOutEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptOutEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2449,7 +2449,7 @@ impl ::core::fmt::Debug for UsbInterruptOutPipe {
     }
 }
 impl ::windows::core::RuntimeType for UsbInterruptOutPipe {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptOutPipe;{e984c8a9-aaf9-49d0-b96c-f661ab4a7f95})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptOutPipe;{e984c8a9-aaf9-49d0-b96c-f661ab4a7f95})");
 }
 impl ::core::clone::Clone for UsbInterruptOutPipe {
     fn clone(&self) -> Self {
@@ -2465,7 +2465,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptOutPipe {
 impl ::windows::core::RuntimeName for UsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutPipe";
 }
-::windows::core::interface_hierarchy!(UsbInterruptOutPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbInterruptOutPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptOutPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2475,8 +2475,8 @@ impl UsbSetupPacket {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UsbSetupPacket, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UsbSetupPacket, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn RequestType(&self) -> ::windows::core::Result<UsbControlRequestType> {
@@ -2548,7 +2548,7 @@ impl UsbSetupPacket {
     }
     #[doc(hidden)]
     pub fn IUsbSetupPacketFactory<R, F: FnOnce(&IUsbSetupPacketFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UsbSetupPacket, IUsbSetupPacketFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UsbSetupPacket, IUsbSetupPacketFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2564,7 +2564,7 @@ impl ::core::fmt::Debug for UsbSetupPacket {
     }
 }
 impl ::windows::core::RuntimeType for UsbSetupPacket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbSetupPacket;{104ba132-c78f-4c51-b654-e49d02f2cb03})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbSetupPacket;{104ba132-c78f-4c51-b654-e49d02f2cb03})");
 }
 impl ::core::clone::Clone for UsbSetupPacket {
     fn clone(&self) -> Self {
@@ -2580,7 +2580,7 @@ unsafe impl ::windows::core::Interface for UsbSetupPacket {
 impl ::windows::core::RuntimeName for UsbSetupPacket {
     const NAME: &'static str = "Windows.Devices.Usb.UsbSetupPacket";
 }
-::windows::core::interface_hierarchy!(UsbSetupPacket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UsbSetupPacket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbSetupPacket {}
 unsafe impl ::core::marker::Sync for UsbSetupPacket {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2614,7 +2614,7 @@ impl ::core::fmt::Debug for UsbControlRecipient {
     }
 }
 impl ::windows::core::RuntimeType for UsbControlRecipient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlRecipient;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlRecipient;i4)");
 }
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
@@ -2645,7 +2645,7 @@ impl ::core::fmt::Debug for UsbControlTransferType {
     }
 }
 impl ::windows::core::RuntimeType for UsbControlTransferType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlTransferType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlTransferType;i4)");
 }
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
@@ -2677,7 +2677,7 @@ impl ::core::fmt::Debug for UsbEndpointType {
     }
 }
 impl ::windows::core::RuntimeType for UsbEndpointType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbEndpointType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbEndpointType;i4)");
 }
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
@@ -2743,7 +2743,7 @@ impl ::core::ops::Not for UsbReadOptions {
     }
 }
 impl ::windows::core::RuntimeType for UsbReadOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbReadOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbReadOptions;u4)");
 }
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
@@ -2773,7 +2773,7 @@ impl ::core::fmt::Debug for UsbTransferDirection {
     }
 }
 impl ::windows::core::RuntimeType for UsbTransferDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbTransferDirection;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbTransferDirection;i4)");
 }
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
@@ -2837,7 +2837,7 @@ impl ::core::ops::Not for UsbWriteOptions {
     }
 }
 impl ::windows::core::RuntimeType for UsbWriteOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbWriteOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbWriteOptions;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

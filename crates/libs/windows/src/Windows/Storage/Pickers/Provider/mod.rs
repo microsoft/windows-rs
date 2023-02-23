@@ -358,7 +358,7 @@ impl ::core::fmt::Debug for FileOpenPickerUI {
     }
 }
 impl ::windows::core::RuntimeType for FileOpenPickerUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileOpenPickerUI;{dda45a10-f9d4-40c4-8af5-c5b6b5a61d1d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileOpenPickerUI;{dda45a10-f9d4-40c4-8af5-c5b6b5a61d1d})");
 }
 impl ::core::clone::Clone for FileOpenPickerUI {
     fn clone(&self) -> Self {
@@ -374,7 +374,7 @@ unsafe impl ::windows::core::Interface for FileOpenPickerUI {
 impl ::windows::core::RuntimeName for FileOpenPickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileOpenPickerUI";
 }
-::windows::core::interface_hierarchy!(FileOpenPickerUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileOpenPickerUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -407,7 +407,7 @@ impl ::core::fmt::Debug for FileRemovedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for FileRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileRemovedEventArgs;{13043da7-7fca-4c2b-9eca-6890f9f00185})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileRemovedEventArgs;{13043da7-7fca-4c2b-9eca-6890f9f00185})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FileRemovedEventArgs {
@@ -428,7 +428,7 @@ impl ::windows::core::RuntimeName for FileRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileRemovedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(FileRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileSavePickerUI(::windows::core::IUnknown);
@@ -517,7 +517,7 @@ impl ::core::fmt::Debug for FileSavePickerUI {
     }
 }
 impl ::windows::core::RuntimeType for FileSavePickerUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileSavePickerUI;{9656c1e7-3e56-43cc-8a39-33c73d9d542b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileSavePickerUI;{9656c1e7-3e56-43cc-8a39-33c73d9d542b})");
 }
 impl ::core::clone::Clone for FileSavePickerUI {
     fn clone(&self) -> Self {
@@ -533,7 +533,7 @@ unsafe impl ::windows::core::Interface for FileSavePickerUI {
 impl ::windows::core::RuntimeName for FileSavePickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileSavePickerUI";
 }
-::windows::core::interface_hierarchy!(FileSavePickerUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileSavePickerUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct PickerClosingDeferral(::windows::core::IUnknown);
@@ -555,7 +555,7 @@ impl ::core::fmt::Debug for PickerClosingDeferral {
     }
 }
 impl ::windows::core::RuntimeType for PickerClosingDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingDeferral;{7af7f71e-1a67-4a31-ae80-e907708a619b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingDeferral;{7af7f71e-1a67-4a31-ae80-e907708a619b})");
 }
 impl ::core::clone::Clone for PickerClosingDeferral {
     fn clone(&self) -> Self {
@@ -571,7 +571,7 @@ unsafe impl ::windows::core::Interface for PickerClosingDeferral {
 impl ::windows::core::RuntimeName for PickerClosingDeferral {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.PickerClosingDeferral";
 }
-::windows::core::interface_hierarchy!(PickerClosingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PickerClosingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct PickerClosingEventArgs(::windows::core::IUnknown);
@@ -603,7 +603,7 @@ impl ::core::fmt::Debug for PickerClosingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PickerClosingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingEventArgs;{7e59f224-b332-4f12-8b9f-a8c2f06b32cd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingEventArgs;{7e59f224-b332-4f12-8b9f-a8c2f06b32cd})");
 }
 impl ::core::clone::Clone for PickerClosingEventArgs {
     fn clone(&self) -> Self {
@@ -619,7 +619,7 @@ unsafe impl ::windows::core::Interface for PickerClosingEventArgs {
 impl ::windows::core::RuntimeName for PickerClosingEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.PickerClosingEventArgs";
 }
-::windows::core::interface_hierarchy!(PickerClosingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PickerClosingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct PickerClosingOperation(::windows::core::IUnknown);
@@ -653,7 +653,7 @@ impl ::core::fmt::Debug for PickerClosingOperation {
     }
 }
 impl ::windows::core::RuntimeType for PickerClosingOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingOperation;{4ce9fb84-beee-4e39-a773-fc5f0eae328d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingOperation;{4ce9fb84-beee-4e39-a773-fc5f0eae328d})");
 }
 impl ::core::clone::Clone for PickerClosingOperation {
     fn clone(&self) -> Self {
@@ -669,7 +669,7 @@ unsafe impl ::windows::core::Interface for PickerClosingOperation {
 impl ::windows::core::RuntimeName for PickerClosingOperation {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.PickerClosingOperation";
 }
-::windows::core::interface_hierarchy!(PickerClosingOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PickerClosingOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct TargetFileRequest(::windows::core::IUnknown);
@@ -709,7 +709,7 @@ impl ::core::fmt::Debug for TargetFileRequest {
     }
 }
 impl ::windows::core::RuntimeType for TargetFileRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequest;{42bd3355-7f88-478b-8e81-690b20340678})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequest;{42bd3355-7f88-478b-8e81-690b20340678})");
 }
 impl ::core::clone::Clone for TargetFileRequest {
     fn clone(&self) -> Self {
@@ -725,7 +725,7 @@ unsafe impl ::windows::core::Interface for TargetFileRequest {
 impl ::windows::core::RuntimeName for TargetFileRequest {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequest";
 }
-::windows::core::interface_hierarchy!(TargetFileRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetFileRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct TargetFileRequestDeferral(::windows::core::IUnknown);
@@ -747,7 +747,7 @@ impl ::core::fmt::Debug for TargetFileRequestDeferral {
     }
 }
 impl ::windows::core::RuntimeType for TargetFileRequestDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequestDeferral;{4aee9d91-bf15-4da9-95f6-f6b7d558225b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequestDeferral;{4aee9d91-bf15-4da9-95f6-f6b7d558225b})");
 }
 impl ::core::clone::Clone for TargetFileRequestDeferral {
     fn clone(&self) -> Self {
@@ -763,7 +763,7 @@ unsafe impl ::windows::core::Interface for TargetFileRequestDeferral {
 impl ::windows::core::RuntimeName for TargetFileRequestDeferral {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequestDeferral";
 }
-::windows::core::interface_hierarchy!(TargetFileRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetFileRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct TargetFileRequestedEventArgs(::windows::core::IUnknown);
@@ -788,7 +788,7 @@ impl ::core::fmt::Debug for TargetFileRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TargetFileRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs;{b163dbc1-1b51-4c89-a591-0fd40b3c57c9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs;{b163dbc1-1b51-4c89-a591-0fd40b3c57c9})");
 }
 impl ::core::clone::Clone for TargetFileRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -804,7 +804,7 @@ unsafe impl ::windows::core::Interface for TargetFileRequestedEventArgs {
 impl ::windows::core::RuntimeName for TargetFileRequestedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(TargetFileRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetFileRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -835,7 +835,7 @@ impl ::core::fmt::Debug for AddFileResult {
     }
 }
 impl ::windows::core::RuntimeType for AddFileResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.AddFileResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.AddFileResult;i4)");
 }
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
@@ -865,7 +865,7 @@ impl ::core::fmt::Debug for FileSelectionMode {
     }
 }
 impl ::windows::core::RuntimeType for FileSelectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.FileSelectionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.FileSelectionMode;i4)");
 }
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
@@ -896,7 +896,7 @@ impl ::core::fmt::Debug for SetFileNameResult {
     }
 }
 impl ::windows::core::RuntimeType for SetFileNameResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.SetFileNameResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.SetFileNameResult;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -202,7 +202,7 @@ impl GameBar {
     }
     #[doc(hidden)]
     pub fn IGameBarStatics<R, F: FnOnce(&IGameBarStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameBar, IGameBarStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameBar, IGameBarStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -261,7 +261,7 @@ impl ::core::fmt::Debug for GameChatMessageReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GameChatMessageReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatMessageReceivedEventArgs;{a28201f1-3fb9-4e42-a403-7afce2023b1e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatMessageReceivedEventArgs;{a28201f1-3fb9-4e42-a403-7afce2023b1e})");
 }
 impl ::core::clone::Clone for GameChatMessageReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -277,7 +277,7 @@ unsafe impl ::windows::core::Interface for GameChatMessageReceivedEventArgs {
 impl ::windows::core::RuntimeName for GameChatMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatMessageReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(GameChatMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameChatMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameChatMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for GameChatMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
@@ -307,7 +307,7 @@ impl GameChatOverlay {
     }
     #[doc(hidden)]
     pub fn IGameChatOverlayStatics<R, F: FnOnce(&IGameChatOverlayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameChatOverlay, IGameChatOverlayStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameChatOverlay, IGameChatOverlayStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -323,7 +323,7 @@ impl ::core::fmt::Debug for GameChatOverlay {
     }
 }
 impl ::windows::core::RuntimeType for GameChatOverlay {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatOverlay;{fbc64865-f6fc-4a48-ae07-03ac6ed43704})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatOverlay;{fbc64865-f6fc-4a48-ae07-03ac6ed43704})");
 }
 impl ::core::clone::Clone for GameChatOverlay {
     fn clone(&self) -> Self {
@@ -339,7 +339,7 @@ unsafe impl ::windows::core::Interface for GameChatOverlay {
 impl ::windows::core::RuntimeName for GameChatOverlay {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlay";
 }
-::windows::core::interface_hierarchy!(GameChatOverlay, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameChatOverlay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameChatOverlay {}
 unsafe impl ::core::marker::Sync for GameChatOverlay {}
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
@@ -349,8 +349,8 @@ impl GameChatOverlayMessageSource {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameChatOverlayMessageSource, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GameChatOverlayMessageSource, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -387,7 +387,7 @@ impl ::core::fmt::Debug for GameChatOverlayMessageSource {
     }
 }
 impl ::windows::core::RuntimeType for GameChatOverlayMessageSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatOverlayMessageSource;{1e177397-59fb-4f4f-8e9a-80acf817743c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatOverlayMessageSource;{1e177397-59fb-4f4f-8e9a-80acf817743c})");
 }
 impl ::core::clone::Clone for GameChatOverlayMessageSource {
     fn clone(&self) -> Self {
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::Interface for GameChatOverlayMessageSource {
 impl ::windows::core::RuntimeName for GameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlayMessageSource";
 }
-::windows::core::interface_hierarchy!(GameChatOverlayMessageSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameChatOverlayMessageSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameChatOverlayMessageSource {}
 unsafe impl ::core::marker::Sync for GameChatOverlayMessageSource {}
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
@@ -465,7 +465,7 @@ impl ::core::fmt::Debug for GameUIProviderActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GameUIProviderActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameUIProviderActivatedEventArgs;{a7b3203e-caf7-4ded-bbd2-47de43bb6dd5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameUIProviderActivatedEventArgs;{a7b3203e-caf7-4ded-bbd2-47de43bb6dd5})");
 }
 impl ::core::clone::Clone for GameUIProviderActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -481,7 +481,7 @@ unsafe impl ::windows::core::Interface for GameUIProviderActivatedEventArgs {
 impl ::windows::core::RuntimeName for GameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameUIProviderActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(GameUIProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameUIProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<GameUIProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -534,7 +534,7 @@ impl ::core::fmt::Debug for GameChatMessageOrigin {
     }
 }
 impl ::windows::core::RuntimeType for GameChatMessageOrigin {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
 }
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
 #[repr(transparent)]
@@ -570,7 +570,7 @@ impl ::core::fmt::Debug for GameChatOverlayPosition {
     }
 }
 impl ::windows::core::RuntimeType for GameChatOverlayPosition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

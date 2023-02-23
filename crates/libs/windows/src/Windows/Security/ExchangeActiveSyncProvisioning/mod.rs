@@ -151,8 +151,8 @@ impl EasClientDeviceInformation {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EasClientDeviceInformation, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EasClientDeviceInformation, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -224,7 +224,7 @@ impl ::core::fmt::Debug for EasClientDeviceInformation {
     }
 }
 impl ::windows::core::RuntimeType for EasClientDeviceInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation;{54dfd981-1968-4ca3-b958-e595d16505eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation;{54dfd981-1968-4ca3-b958-e595d16505eb})");
 }
 impl ::core::clone::Clone for EasClientDeviceInformation {
     fn clone(&self) -> Self {
@@ -240,7 +240,7 @@ unsafe impl ::windows::core::Interface for EasClientDeviceInformation {
 impl ::windows::core::RuntimeName for EasClientDeviceInformation {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation";
 }
-::windows::core::interface_hierarchy!(EasClientDeviceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EasClientDeviceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasClientSecurityPolicy(::windows::core::IUnknown);
@@ -248,8 +248,8 @@ impl EasClientSecurityPolicy {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EasClientSecurityPolicy, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<EasClientSecurityPolicy, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn RequireEncryption(&self) -> ::windows::core::Result<bool> {
@@ -377,7 +377,7 @@ impl ::core::fmt::Debug for EasClientSecurityPolicy {
     }
 }
 impl ::windows::core::RuntimeType for EasClientSecurityPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy;{45b72362-dfba-4a9b-aced-6fe2adcb6420})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy;{45b72362-dfba-4a9b-aced-6fe2adcb6420})");
 }
 impl ::core::clone::Clone for EasClientSecurityPolicy {
     fn clone(&self) -> Self {
@@ -393,7 +393,7 @@ unsafe impl ::windows::core::Interface for EasClientSecurityPolicy {
 impl ::windows::core::RuntimeName for EasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy";
 }
-::windows::core::interface_hierarchy!(EasClientSecurityPolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EasClientSecurityPolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasComplianceResults(::windows::core::IUnknown);
@@ -481,7 +481,7 @@ impl ::core::fmt::Debug for EasComplianceResults {
     }
 }
 impl ::windows::core::RuntimeType for EasComplianceResults {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults;{463c299c-7f19-4c66-b403-cb45dd57a2b3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults;{463c299c-7f19-4c66-b403-cb45dd57a2b3})");
 }
 impl ::core::clone::Clone for EasComplianceResults {
     fn clone(&self) -> Self {
@@ -497,7 +497,7 @@ unsafe impl ::windows::core::Interface for EasComplianceResults {
 impl ::windows::core::RuntimeName for EasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";
 }
-::windows::core::interface_hierarchy!(EasComplianceResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EasComplianceResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -528,7 +528,7 @@ impl ::core::fmt::Debug for EasDisallowConvenienceLogonResult {
     }
 }
 impl ::windows::core::RuntimeType for EasDisallowConvenienceLogonResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult;i4)");
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
@@ -559,7 +559,7 @@ impl ::core::fmt::Debug for EasEncryptionProviderType {
     }
 }
 impl ::windows::core::RuntimeType for EasEncryptionProviderType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType;i4)");
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
@@ -592,7 +592,7 @@ impl ::core::fmt::Debug for EasMaxInactivityTimeLockResult {
     }
 }
 impl ::windows::core::RuntimeType for EasMaxInactivityTimeLockResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult;i4)");
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
@@ -625,7 +625,7 @@ impl ::core::fmt::Debug for EasMaxPasswordFailedAttemptsResult {
     }
 }
 impl ::windows::core::RuntimeType for EasMaxPasswordFailedAttemptsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult;i4)");
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
@@ -668,7 +668,7 @@ impl ::core::fmt::Debug for EasMinPasswordComplexCharactersResult {
     }
 }
 impl ::windows::core::RuntimeType for EasMinPasswordComplexCharactersResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult;i4)");
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
@@ -711,7 +711,7 @@ impl ::core::fmt::Debug for EasMinPasswordLengthResult {
     }
 }
 impl ::windows::core::RuntimeType for EasMinPasswordLengthResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult;i4)");
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
@@ -748,7 +748,7 @@ impl ::core::fmt::Debug for EasPasswordExpirationResult {
     }
 }
 impl ::windows::core::RuntimeType for EasPasswordExpirationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult;i4)");
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
@@ -781,7 +781,7 @@ impl ::core::fmt::Debug for EasPasswordHistoryResult {
     }
 }
 impl ::windows::core::RuntimeType for EasPasswordHistoryResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult;i4)");
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
@@ -828,7 +828,7 @@ impl ::core::fmt::Debug for EasRequireEncryptionResult {
     }
 }
 impl ::windows::core::RuntimeType for EasRequireEncryptionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

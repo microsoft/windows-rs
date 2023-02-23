@@ -434,7 +434,7 @@ impl ::core::fmt::Debug for CurrentSessionChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CurrentSessionChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.CurrentSessionChangedEventArgs;{6969cb39-0bfa-5fe0-8d73-09cc5e5408e1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.CurrentSessionChangedEventArgs;{6969cb39-0bfa-5fe0-8d73-09cc5e5408e1})");
 }
 impl ::core::clone::Clone for CurrentSessionChangedEventArgs {
     fn clone(&self) -> Self {
@@ -450,7 +450,7 @@ unsafe impl ::windows::core::Interface for CurrentSessionChangedEventArgs {
 impl ::windows::core::RuntimeName for CurrentSessionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.CurrentSessionChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(CurrentSessionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CurrentSessionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CurrentSessionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentSessionChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -680,7 +680,7 @@ impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSession {
     }
 }
 impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSession;{7148c835-9b14-5ae2-ab85-dc9b1c14e1a8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSession;{7148c835-9b14-5ae2-ab85-dc9b1c14e1a8})");
 }
 impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSession {
     fn clone(&self) -> Self {
@@ -696,7 +696,7 @@ unsafe impl ::windows::core::Interface for GlobalSystemMediaTransportControlsSes
 impl ::windows::core::RuntimeName for GlobalSystemMediaTransportControlsSession {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSession";
 }
-::windows::core::interface_hierarchy!(GlobalSystemMediaTransportControlsSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSession {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSession {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -759,7 +759,7 @@ impl GlobalSystemMediaTransportControlsSessionManager {
     }
     #[doc(hidden)]
     pub fn IGlobalSystemMediaTransportControlsSessionManagerStatics<R, F: FnOnce(&IGlobalSystemMediaTransportControlsSessionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GlobalSystemMediaTransportControlsSessionManager, IGlobalSystemMediaTransportControlsSessionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GlobalSystemMediaTransportControlsSessionManager, IGlobalSystemMediaTransportControlsSessionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -775,7 +775,7 @@ impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionManager {
     }
 }
 impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager;{cace8eac-e86e-504a-ab31-5ff8ff1bce49})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager;{cace8eac-e86e-504a-ab31-5ff8ff1bce49})");
 }
 impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionManager {
     fn clone(&self) -> Self {
@@ -791,7 +791,7 @@ unsafe impl ::windows::core::Interface for GlobalSystemMediaTransportControlsSes
 impl ::windows::core::RuntimeName for GlobalSystemMediaTransportControlsSessionManager {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager";
 }
-::windows::core::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionManager {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionManager {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -887,7 +887,7 @@ impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionMediaProper
     }
 }
 impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionMediaProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties;{68856cf6-adb4-54b2-ac16-05837907acb6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties;{68856cf6-adb4-54b2-ac16-05837907acb6})");
 }
 impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionMediaProperties {
     fn clone(&self) -> Self {
@@ -903,7 +903,7 @@ unsafe impl ::windows::core::Interface for GlobalSystemMediaTransportControlsSes
 impl ::windows::core::RuntimeName for GlobalSystemMediaTransportControlsSessionMediaProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties";
 }
-::windows::core::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionMediaProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionMediaProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -1028,7 +1028,7 @@ impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackCon
     }
 }
 impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls;{6501a3e6-bc7a-503a-bb1b-68f158f3fb03})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls;{6501a3e6-bc7a-503a-bb1b-68f158f3fb03})");
 }
 impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     fn clone(&self) -> Self {
@@ -1044,7 +1044,7 @@ unsafe impl ::windows::core::Interface for GlobalSystemMediaTransportControlsSes
 impl ::windows::core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls";
 }
-::windows::core::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackControls, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackControls, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -1114,7 +1114,7 @@ impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackInf
     }
 }
 impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo;{94b4b6cf-e8ba-51ad-87a7-c10ade106127})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo;{94b4b6cf-e8ba-51ad-87a7-c10ade106127})");
 }
 impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     fn clone(&self) -> Self {
@@ -1130,7 +1130,7 @@ unsafe impl ::windows::core::Interface for GlobalSystemMediaTransportControlsSes
 impl ::windows::core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo";
 }
-::windows::core::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -1204,7 +1204,7 @@ impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionTimelinePro
     }
 }
 impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties;{ede34136-6f25-588d-8ecf-ea5b6735aaa5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties;{ede34136-6f25-588d-8ecf-ea5b6735aaa5})");
 }
 impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     fn clone(&self) -> Self {
@@ -1220,7 +1220,7 @@ unsafe impl ::windows::core::Interface for GlobalSystemMediaTransportControlsSes
 impl ::windows::core::RuntimeName for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties";
 }
-::windows::core::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionTimelineProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionTimelineProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -1239,7 +1239,7 @@ impl ::core::fmt::Debug for MediaPropertiesChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPropertiesChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.MediaPropertiesChangedEventArgs;{7d3741cb-adf0-5cef-91ba-cfabcdd77678})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.MediaPropertiesChangedEventArgs;{7d3741cb-adf0-5cef-91ba-cfabcdd77678})");
 }
 impl ::core::clone::Clone for MediaPropertiesChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1255,7 +1255,7 @@ unsafe impl ::windows::core::Interface for MediaPropertiesChangedEventArgs {
 impl ::windows::core::RuntimeName for MediaPropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.MediaPropertiesChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPropertiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPropertiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPropertiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPropertiesChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -1274,7 +1274,7 @@ impl ::core::fmt::Debug for PlaybackInfoChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PlaybackInfoChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.PlaybackInfoChangedEventArgs;{786756c2-bc0d-50a5-8807-054291fef139})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.PlaybackInfoChangedEventArgs;{786756c2-bc0d-50a5-8807-054291fef139})");
 }
 impl ::core::clone::Clone for PlaybackInfoChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1290,7 +1290,7 @@ unsafe impl ::windows::core::Interface for PlaybackInfoChangedEventArgs {
 impl ::windows::core::RuntimeName for PlaybackInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.PlaybackInfoChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(PlaybackInfoChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlaybackInfoChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlaybackInfoChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackInfoChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -1309,7 +1309,7 @@ impl ::core::fmt::Debug for SessionsChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SessionsChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.SessionsChangedEventArgs;{bbf0cd32-42c4-5a58-b317-f34bbfbd26e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.SessionsChangedEventArgs;{bbf0cd32-42c4-5a58-b317-f34bbfbd26e0})");
 }
 impl ::core::clone::Clone for SessionsChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1325,7 +1325,7 @@ unsafe impl ::windows::core::Interface for SessionsChangedEventArgs {
 impl ::windows::core::RuntimeName for SessionsChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.SessionsChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(SessionsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SessionsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SessionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SessionsChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -1344,7 +1344,7 @@ impl ::core::fmt::Debug for TimelinePropertiesChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TimelinePropertiesChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Control.TimelinePropertiesChangedEventArgs;{29033a2f-c923-5a77-bcaf-055ff415ad32})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.TimelinePropertiesChangedEventArgs;{29033a2f-c923-5a77-bcaf-055ff415ad32})");
 }
 impl ::core::clone::Clone for TimelinePropertiesChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1360,7 +1360,7 @@ unsafe impl ::windows::core::Interface for TimelinePropertiesChangedEventArgs {
 impl ::windows::core::RuntimeName for TimelinePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.TimelinePropertiesChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(TimelinePropertiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TimelinePropertiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TimelinePropertiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TimelinePropertiesChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
@@ -1395,7 +1395,7 @@ impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackSta
     }
 }
 impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

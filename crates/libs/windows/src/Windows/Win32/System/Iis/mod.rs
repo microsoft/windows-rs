@@ -2,28 +2,28 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "rpcproxy.dll""system" fn GetExtensionVersion ( pver : *mut HSE_VERSION_INFO ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "rpcproxy.dll""system" fn GetExtensionVersion ( pver : *mut HSE_VERSION_INFO ) -> super::super::Foundation:: BOOL );
     GetExtensionVersion(pver)
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "rpcproxy.dll""system" fn GetFilterVersion ( pver : *mut HTTP_FILTER_VERSION ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "rpcproxy.dll""system" fn GetFilterVersion ( pver : *mut HTTP_FILTER_VERSION ) -> super::super::Foundation:: BOOL );
     GetFilterVersion(pver)
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
-    ::windows::core::link ! ( "rpcproxy.dll""system" fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
+    ::windows::imp::link ! ( "rpcproxy.dll""system" fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
     HttpExtensionProc(pecb)
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "rpcproxy.dll""system" fn HttpFilterProc ( pfc : *mut HTTP_FILTER_CONTEXT , notificationtype : u32 , pvnotification : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "rpcproxy.dll""system" fn HttpFilterProc ( pfc : *mut HTTP_FILTER_CONTEXT , notificationtype : u32 , pvnotification : *mut ::core::ffi::c_void ) -> u32 );
     HttpFilterProc(pfc, notificationtype, pvnotification)
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -45,7 +45,7 @@ impl AsyncIFtpAuthenticationProvider {
         (::windows::core::Vtable::vtable(self).Finish_AuthenticateUser)(::windows::core::Vtable::as_raw(self), ppszcanonicalusername, pfauthenticated).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIFtpAuthenticationProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIFtpAuthenticationProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIFtpAuthenticationProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -96,7 +96,7 @@ impl AsyncIFtpAuthorizationProvider {
         (::windows::core::Vtable::vtable(self).Finish_GetUserAccessPermission)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(AsyncIFtpAuthorizationProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIFtpAuthorizationProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIFtpAuthorizationProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -143,7 +143,7 @@ impl AsyncIFtpHomeDirectoryProvider {
         (::windows::core::Vtable::vtable(self).Finish_GetUserHomeDirectoryData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(AsyncIFtpHomeDirectoryProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIFtpHomeDirectoryProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIFtpHomeDirectoryProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -184,7 +184,7 @@ impl AsyncIFtpLogProvider {
         (::windows::core::Vtable::vtable(self).Finish_Log)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIFtpLogProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIFtpLogProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIFtpLogProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -228,7 +228,7 @@ impl AsyncIFtpPostprocessProvider {
         (::windows::core::Vtable::vtable(self).Finish_HandlePostprocess)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(AsyncIFtpPostprocessProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIFtpPostprocessProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIFtpPostprocessProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -275,7 +275,7 @@ impl AsyncIFtpPreprocessProvider {
         (::windows::core::Vtable::vtable(self).Finish_HandlePreprocess)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(AsyncIFtpPreprocessProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIFtpPreprocessProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIFtpPreprocessProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -328,7 +328,7 @@ impl AsyncIFtpRoleProvider {
         (::windows::core::Vtable::vtable(self).Finish_IsUserInRole)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(AsyncIFtpRoleProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIFtpRoleProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIFtpRoleProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -378,7 +378,7 @@ impl AsyncIMSAdminBaseSinkW {
         (::windows::core::Vtable::vtable(self).Finish_ShutdownNotify)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(AsyncIMSAdminBaseSinkW, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(AsyncIMSAdminBaseSinkW, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for AsyncIMSAdminBaseSinkW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -424,7 +424,7 @@ impl IADMEXT {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IADMEXT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IADMEXT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IADMEXT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -471,7 +471,7 @@ impl IFtpAuthenticationProvider {
         (::windows::core::Vtable::vtable(self).AuthenticateUser)(::windows::core::Vtable::as_raw(self), pszsessionid.into().abi(), pszsitename.into().abi(), pszusername.into().abi(), pszpassword.into().abi(), ppszcanonicalusername, pfauthenticated).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFtpAuthenticationProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFtpAuthenticationProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFtpAuthenticationProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -518,7 +518,7 @@ impl IFtpAuthorizationProvider {
         (::windows::core::Vtable::vtable(self).GetUserAccessPermission)(::windows::core::Vtable::as_raw(self), pszsessionid.into().abi(), pszsitename.into().abi(), pszvirtualpath.into().abi(), pszusername.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFtpAuthorizationProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFtpAuthorizationProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFtpAuthorizationProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -561,7 +561,7 @@ impl IFtpHomeDirectoryProvider {
         (::windows::core::Vtable::vtable(self).GetUserHomeDirectoryData)(::windows::core::Vtable::as_raw(self), pszsessionid.into().abi(), pszsitename.into().abi(), pszusername.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFtpHomeDirectoryProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFtpHomeDirectoryProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFtpHomeDirectoryProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -598,7 +598,7 @@ impl IFtpLogProvider {
         (::windows::core::Vtable::vtable(self).Log)(::windows::core::Vtable::as_raw(self), ploggingparameters).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFtpLogProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFtpLogProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFtpLogProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -638,7 +638,7 @@ impl IFtpPostprocessProvider {
         (::windows::core::Vtable::vtable(self).HandlePostprocess)(::windows::core::Vtable::as_raw(self), ppostprocessparameters, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFtpPostprocessProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFtpPostprocessProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFtpPostprocessProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -681,7 +681,7 @@ impl IFtpPreprocessProvider {
         (::windows::core::Vtable::vtable(self).HandlePreprocess)(::windows::core::Vtable::as_raw(self), ppreprocessparameters, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFtpPreprocessProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFtpPreprocessProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFtpPreprocessProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -723,7 +723,7 @@ impl IFtpProviderConstruct {
         (::windows::core::Vtable::vtable(self).Construct)(::windows::core::Vtable::as_raw(self), configurationentries).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFtpProviderConstruct, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFtpProviderConstruct, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFtpProviderConstruct {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -772,7 +772,7 @@ impl IFtpRoleProvider {
         (::windows::core::Vtable::vtable(self).IsUserInRole)(::windows::core::Vtable::as_raw(self), pszsessionid.into().abi(), pszsitename.into().abi(), pszusername.into().abi(), pszrole.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFtpRoleProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFtpRoleProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFtpRoleProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1030,7 +1030,7 @@ impl IMSAdminBase2W {
         (::windows::core::Vtable::vtable(self).EnumHistory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszmdhistorylocation.as_ptr()), pdwmdmajorversion, pdwmdminorversion, pftmdhistorytime, dwmdenumindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMSAdminBase2W, ::windows::core::IUnknown, IMSAdminBaseW);
+::windows::imp::interface_hierarchy!(IMSAdminBase2W, ::windows::core::IUnknown, IMSAdminBaseW);
 impl ::core::cmp::PartialEq for IMSAdminBase2W {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1299,7 +1299,7 @@ impl IMSAdminBase3W {
         (::windows::core::Vtable::vtable(self).GetChildPaths)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcchmdrequiredbuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMSAdminBase3W, ::windows::core::IUnknown, IMSAdminBaseW, IMSAdminBase2W);
+::windows::imp::interface_hierarchy!(IMSAdminBase3W, ::windows::core::IUnknown, IMSAdminBaseW, IMSAdminBase2W);
 impl ::core::cmp::PartialEq for IMSAdminBase3W {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1339,7 +1339,7 @@ impl IMSAdminBaseSinkW {
         (::windows::core::Vtable::vtable(self).ShutdownNotify)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMSAdminBaseSinkW, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMSAdminBaseSinkW, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMSAdminBaseSinkW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1553,7 +1553,7 @@ impl IMSAdminBaseW {
         (::windows::core::Vtable::vtable(self).GetServerGuid)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMSAdminBaseW, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMSAdminBaseW, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMSAdminBaseW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1639,7 +1639,7 @@ impl IMSImpExpHelpW {
         (::windows::core::Vtable::vtable(self).EnumeratePathsInFile)(::windows::core::Vtable::as_raw(self), pszfilename.into().abi(), pszkeytype.into().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdwmdrequiredbuffersize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMSImpExpHelpW, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMSImpExpHelpW, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMSImpExpHelpW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

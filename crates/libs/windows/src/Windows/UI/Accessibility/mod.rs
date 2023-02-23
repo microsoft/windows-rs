@@ -83,7 +83,7 @@ impl ::core::fmt::Debug for ScreenReaderPositionChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ScreenReaderPositionChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs;{557eb5e5-54d0-5ccd-9fc5-ed33357f8a9f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs;{557eb5e5-54d0-5ccd-9fc5-ed33357f8a9f})");
 }
 impl ::core::clone::Clone for ScreenReaderPositionChangedEventArgs {
     fn clone(&self) -> Self {
@@ -99,7 +99,7 @@ unsafe impl ::windows::core::Interface for ScreenReaderPositionChangedEventArgs 
 impl ::windows::core::RuntimeName for ScreenReaderPositionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(ScreenReaderPositionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScreenReaderPositionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScreenReaderPositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ScreenReaderPositionChangedEventArgs {}
 #[doc = "*Required features: `\"UI_Accessibility\"`*"]
@@ -109,8 +109,8 @@ impl ScreenReaderService {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ScreenReaderService, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ScreenReaderService, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CurrentScreenReaderPosition(&self) -> ::windows::core::Result<ScreenReaderPositionChangedEventArgs> {
@@ -148,7 +148,7 @@ impl ::core::fmt::Debug for ScreenReaderService {
     }
 }
 impl ::windows::core::RuntimeType for ScreenReaderService {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Accessibility.ScreenReaderService;{19475427-eac0-50d3-bdd9-9b487a226256})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Accessibility.ScreenReaderService;{19475427-eac0-50d3-bdd9-9b487a226256})");
 }
 impl ::core::clone::Clone for ScreenReaderService {
     fn clone(&self) -> Self {
@@ -164,7 +164,7 @@ unsafe impl ::windows::core::Interface for ScreenReaderService {
 impl ::windows::core::RuntimeName for ScreenReaderService {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderService";
 }
-::windows::core::interface_hierarchy!(ScreenReaderService, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ScreenReaderService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScreenReaderService {}
 unsafe impl ::core::marker::Sync for ScreenReaderService {}
 #[cfg(feature = "implement")]

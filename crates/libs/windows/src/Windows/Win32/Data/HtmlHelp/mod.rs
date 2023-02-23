@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "htmlhelp.dll""system" fn HtmlHelpA ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "htmlhelp.dll""system" fn HtmlHelpA ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
     HtmlHelpA(hwndcaller.into(), pszfile.into().abi(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "htmlhelp.dll""system" fn HtmlHelpW ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCWSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "htmlhelp.dll""system" fn HtmlHelpW ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCWSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
     HtmlHelpW(hwndcaller.into(), pszfile.into().abi(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
@@ -50,7 +50,7 @@ impl IITDatabase {
         (::windows::core::Vtable::vtable(self).GetObjectPersistence)(::windows::core::Vtable::as_raw(self), lpwszobject.into().abi(), dwobjinstance, ppvpersistence, fstream.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IITDatabase, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IITDatabase, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IITDatabase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -213,7 +213,7 @@ impl IITPropList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IITPropList, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStreamInit);
+::windows::imp::interface_hierarchy!(IITPropList, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStreamInit);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IITPropList {
     fn eq(&self, other: &Self) -> bool {
@@ -401,7 +401,7 @@ impl IITResultSet {
         (::windows::core::Vtable::vtable(self).GetColumnStatus)(::windows::core::Vtable::as_raw(self), lpcolstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(IITResultSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IITResultSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IITResultSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -527,7 +527,7 @@ impl IITWordWheel {
         (::windows::core::Vtable::vtable(self).GetDataColumns)(::windows::core::Vtable::as_raw(self), prs.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IITWordWheel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IITWordWheel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IITWordWheel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -588,7 +588,7 @@ impl IStemSink {
         (::windows::core::Vtable::vtable(self).PutWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into().abi(), cwc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IStemSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStemSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStemSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -643,7 +643,7 @@ impl IStemmerConfig {
         (::windows::core::Vtable::vtable(self).LoadExternalStemmerData)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), dwextdatatype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IStemmerConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStemmerConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStemmerConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -724,7 +724,7 @@ impl IWordBreakerConfig {
         (::windows::core::Vtable::vtable(self).GetWordStemmer)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWordBreakerConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWordBreakerConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWordBreakerConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

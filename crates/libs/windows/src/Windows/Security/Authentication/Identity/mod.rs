@@ -119,7 +119,7 @@ impl ::core::fmt::Debug for EnterpriseKeyCredentialRegistrationInfo {
     }
 }
 impl ::windows::core::RuntimeType for EnterpriseKeyCredentialRegistrationInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo;{38321acc-672b-4823-b603-6b3c753daf97})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo;{38321acc-672b-4823-b603-6b3c753daf97})");
 }
 impl ::core::clone::Clone for EnterpriseKeyCredentialRegistrationInfo {
     fn clone(&self) -> Self {
@@ -135,7 +135,7 @@ unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationIn
 impl ::windows::core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo";
 }
-::windows::core::interface_hierarchy!(EnterpriseKeyCredentialRegistrationInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
 unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
@@ -159,7 +159,7 @@ impl EnterpriseKeyCredentialRegistrationManager {
     }
     #[doc(hidden)]
     pub fn IEnterpriseKeyCredentialRegistrationManagerStatics<R, F: FnOnce(&IEnterpriseKeyCredentialRegistrationManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -175,7 +175,7 @@ impl ::core::fmt::Debug for EnterpriseKeyCredentialRegistrationManager {
     }
 }
 impl ::windows::core::RuntimeType for EnterpriseKeyCredentialRegistrationManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager;{83f3be3f-a25f-4cba-bb8e-bdc32d03c297})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager;{83f3be3f-a25f-4cba-bb8e-bdc32d03c297})");
 }
 impl ::core::clone::Clone for EnterpriseKeyCredentialRegistrationManager {
     fn clone(&self) -> Self {
@@ -191,7 +191,7 @@ unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationMa
 impl ::windows::core::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager";
 }
-::windows::core::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationManager {}
 unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationManager {}
 #[cfg(feature = "implement")]

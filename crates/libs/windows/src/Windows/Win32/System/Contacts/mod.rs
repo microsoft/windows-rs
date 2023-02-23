@@ -12,7 +12,7 @@ impl IContact {
         (::windows::core::Vtable::vtable(self).CommitChanges)(::windows::core::Vtable::as_raw(self), dwcommitflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContact, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContact, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContact {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -86,7 +86,7 @@ impl IContactAggregationAggregate {
         (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationAggregate, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationAggregate, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationAggregate {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -147,7 +147,7 @@ impl IContactAggregationAggregateCollection {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationAggregateCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationAggregateCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationAggregateCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -260,7 +260,7 @@ impl IContactAggregationContact {
         (::windows::core::Vtable::vtable(self).SetSyncIdentityHash)(::windows::core::Vtable::as_raw(self), psyncidentityhash).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationContact, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationContact, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationContact {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -345,7 +345,7 @@ impl IContactAggregationContactCollection {
         (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), premoteobjectid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationContactCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationContactCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationContactCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -426,7 +426,7 @@ impl IContactAggregationGroup {
         (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), pname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -485,7 +485,7 @@ impl IContactAggregationGroupCollection {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationGroupCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationGroupCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationGroupCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -600,7 +600,7 @@ impl IContactAggregationLink {
         (::windows::core::Vtable::vtable(self).SetSyncIdentityHash)(::windows::core::Vtable::as_raw(self), psyncidentityhash).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationLink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationLink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationLink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -676,7 +676,7 @@ impl IContactAggregationLinkCollection {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationLinkCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationLinkCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationLinkCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -790,7 +790,7 @@ impl IContactAggregationManager {
         (::windows::core::Vtable::vtable(self).get_ServerContactLinks)(::windows::core::Vtable::as_raw(self), ppersonitemid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -943,7 +943,7 @@ impl IContactAggregationServerPerson {
         (::windows::core::Vtable::vtable(self).SetObjectId)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationServerPerson, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationServerPerson, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationServerPerson {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1038,7 +1038,7 @@ impl IContactAggregationServerPersonCollection {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContactAggregationServerPersonCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactAggregationServerPersonCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactAggregationServerPersonCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1087,7 +1087,7 @@ impl IContactCollection {
         (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContactCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1158,7 +1158,7 @@ impl IContactManager {
         (::windows::core::Vtable::vtable(self).GetContactCollection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContactManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1292,7 +1292,7 @@ impl IContactProperties {
         (::windows::core::Vtable::vtable(self).GetPropertyCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppropertycollection), dwflags, pszmultivaluename.into().abi(), ppszlabels.len() as _, ::core::mem::transmute(ppszlabels.as_ptr()), fanylabelmatches.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContactProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1379,7 +1379,7 @@ impl IContactPropertyCollection {
         (::windows::core::Vtable::vtable(self).GetPropertyArrayElementID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszarrayelementid.as_ptr()), pszarrayelementid.len() as _, pdwccharrayelementidrequired).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContactPropertyCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactPropertyCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactPropertyCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

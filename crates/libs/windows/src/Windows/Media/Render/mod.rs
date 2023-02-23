@@ -36,7 +36,7 @@ impl ::core::fmt::Debug for AudioRenderCategory {
     }
 }
 impl ::windows::core::RuntimeType for AudioRenderCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,33 +1,33 @@
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "wscapi.dll""system" fn WscGetAntiMalwareUri ( ppszuri : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscGetAntiMalwareUri ( ppszuri : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     WscGetAntiMalwareUri(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wscapi.dll""system" fn WscGetSecurityProviderHealth ( providers : u32 , phealth : *mut WSC_SECURITY_PROVIDER_HEALTH ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscGetSecurityProviderHealth ( providers : u32 , phealth : *mut WSC_SECURITY_PROVIDER_HEALTH ) -> :: windows::core::HRESULT );
     WscGetSecurityProviderHealth(providers, phealth).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wscapi.dll""system" fn WscQueryAntiMalwareUri ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscQueryAntiMalwareUri ( ) -> :: windows::core::HRESULT );
     WscQueryAntiMalwareUri().ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wscapi.dll""system" fn WscRegisterForChanges ( reserved : *mut ::core::ffi::c_void , phcallbackregistration : *mut super::super::Foundation:: HANDLE , lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE , pcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscRegisterForChanges ( reserved : *mut ::core::ffi::c_void , phcallbackregistration : *mut super::super::Foundation:: HANDLE , lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE , pcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     WscRegisterForChanges(reserved, phcallbackregistration, lpcallbackaddress, pcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]
 pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "wscapi.dll""system" fn WscRegisterForUserNotifications ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscRegisterForUserNotifications ( ) -> :: windows::core::HRESULT );
     WscRegisterForUserNotifications().ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
@@ -37,7 +37,7 @@ pub unsafe fn WscUnRegisterChanges<P0>(hregistrationhandle: P0) -> ::windows::co
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wscapi.dll""system" fn WscUnRegisterChanges ( hregistrationhandle : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wscapi.dll""system" fn WscUnRegisterChanges ( hregistrationhandle : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     WscUnRegisterChanges(hregistrationhandle.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
@@ -51,7 +51,7 @@ impl IWSCDefaultProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWSCDefaultProduct, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWSCDefaultProduct, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWSCDefaultProduct {
     fn eq(&self, other: &Self) -> bool {
@@ -108,7 +108,7 @@ impl IWSCProductList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWSCProductList, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWSCProductList, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWSCProductList {
     fn eq(&self, other: &Self) -> bool {
@@ -187,7 +187,7 @@ impl IWscProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWscProduct, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWscProduct, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWscProduct {
     fn eq(&self, other: &Self) -> bool {
@@ -294,7 +294,7 @@ impl IWscProduct2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWscProduct2, ::windows::core::IUnknown, super::Com::IDispatch, IWscProduct);
+::windows::imp::interface_hierarchy!(IWscProduct2, ::windows::core::IUnknown, super::Com::IDispatch, IWscProduct);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWscProduct2 {
     fn eq(&self, other: &Self) -> bool {
@@ -401,7 +401,7 @@ impl IWscProduct3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWscProduct3, ::windows::core::IUnknown, super::Com::IDispatch, IWscProduct, IWscProduct2);
+::windows::imp::interface_hierarchy!(IWscProduct3, ::windows::core::IUnknown, super::Com::IDispatch, IWscProduct, IWscProduct2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWscProduct3 {
     fn eq(&self, other: &Self) -> bool {

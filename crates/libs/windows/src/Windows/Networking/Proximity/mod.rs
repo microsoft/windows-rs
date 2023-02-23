@@ -390,7 +390,7 @@ impl ::core::fmt::Debug for ConnectionRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ConnectionRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ConnectionRequestedEventArgs;{eb6891ae-4f1e-4c66-bd0d-46924a942e08})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ConnectionRequestedEventArgs;{eb6891ae-4f1e-4c66-bd0d-46924a942e08})");
 }
 impl ::core::clone::Clone for ConnectionRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -406,7 +406,7 @@ unsafe impl ::windows::core::Interface for ConnectionRequestedEventArgs {
 impl ::windows::core::RuntimeName for ConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.ConnectionRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(ConnectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConnectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ConnectionRequestedEventArgs {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -547,12 +547,12 @@ impl PeerFinder {
     }
     #[doc(hidden)]
     pub fn IPeerFinderStatics<R, F: FnOnce(&IPeerFinderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PeerFinder, IPeerFinderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PeerFinder, IPeerFinderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPeerFinderStatics2<R, F: FnOnce(&IPeerFinderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PeerFinder, IPeerFinderStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PeerFinder, IPeerFinderStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -613,7 +613,7 @@ impl ::core::fmt::Debug for PeerInformation {
     }
 }
 impl ::windows::core::RuntimeType for PeerInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerInformation;{20024f08-9fff-45f4-b6e9-408b2ebef373})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerInformation;{20024f08-9fff-45f4-b6e9-408b2ebef373})");
 }
 impl ::core::clone::Clone for PeerInformation {
     fn clone(&self) -> Self {
@@ -629,7 +629,7 @@ unsafe impl ::windows::core::Interface for PeerInformation {
 impl ::windows::core::RuntimeName for PeerInformation {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerInformation";
 }
-::windows::core::interface_hierarchy!(PeerInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PeerInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PeerInformation {}
 unsafe impl ::core::marker::Sync for PeerInformation {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -739,7 +739,7 @@ impl ::core::fmt::Debug for PeerWatcher {
     }
 }
 impl ::windows::core::RuntimeType for PeerWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerWatcher;{3cee21f8-2fa6-4679-9691-03c94a420f34})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerWatcher;{3cee21f8-2fa6-4679-9691-03c94a420f34})");
 }
 impl ::core::clone::Clone for PeerWatcher {
     fn clone(&self) -> Self {
@@ -755,7 +755,7 @@ unsafe impl ::windows::core::Interface for PeerWatcher {
 impl ::windows::core::RuntimeName for PeerWatcher {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerWatcher";
 }
-::windows::core::interface_hierarchy!(PeerWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PeerWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PeerWatcher {}
 unsafe impl ::core::marker::Sync for PeerWatcher {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -906,7 +906,7 @@ impl ProximityDevice {
     }
     #[doc(hidden)]
     pub fn IProximityDeviceStatics<R, F: FnOnce(&IProximityDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProximityDevice, IProximityDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProximityDevice, IProximityDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -922,7 +922,7 @@ impl ::core::fmt::Debug for ProximityDevice {
     }
 }
 impl ::windows::core::RuntimeType for ProximityDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityDevice;{efa8a552-f6e1-4329-a0fc-ab6b0fd28262})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityDevice;{efa8a552-f6e1-4329-a0fc-ab6b0fd28262})");
 }
 impl ::core::clone::Clone for ProximityDevice {
     fn clone(&self) -> Self {
@@ -938,7 +938,7 @@ unsafe impl ::windows::core::Interface for ProximityDevice {
 impl ::windows::core::RuntimeName for ProximityDevice {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityDevice";
 }
-::windows::core::interface_hierarchy!(ProximityDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProximityDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximityDevice {}
 unsafe impl ::core::marker::Sync for ProximityDevice {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -988,7 +988,7 @@ impl ::core::fmt::Debug for ProximityMessage {
     }
 }
 impl ::windows::core::RuntimeType for ProximityMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityMessage;{efab0782-f6e1-4675-a045-d8e320c24808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityMessage;{efab0782-f6e1-4675-a045-d8e320c24808})");
 }
 impl ::core::clone::Clone for ProximityMessage {
     fn clone(&self) -> Self {
@@ -1004,7 +1004,7 @@ unsafe impl ::windows::core::Interface for ProximityMessage {
 impl ::windows::core::RuntimeName for ProximityMessage {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityMessage";
 }
-::windows::core::interface_hierarchy!(ProximityMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProximityMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximityMessage {}
 unsafe impl ::core::marker::Sync for ProximityMessage {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -1047,7 +1047,7 @@ impl ::core::fmt::Debug for TriggeredConnectionStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TriggeredConnectionStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs;{c6a780ad-f6e1-4d54-96e2-33f620bca88a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs;{c6a780ad-f6e1-4d54-96e2-33f620bca88a})");
 }
 impl ::core::clone::Clone for TriggeredConnectionStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1063,7 +1063,7 @@ unsafe impl ::windows::core::Interface for TriggeredConnectionStateChangedEventA
 impl ::windows::core::RuntimeName for TriggeredConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(TriggeredConnectionStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TriggeredConnectionStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TriggeredConnectionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TriggeredConnectionStateChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -1128,7 +1128,7 @@ impl ::core::ops::Not for PeerDiscoveryTypes {
     }
 }
 impl ::windows::core::RuntimeType for PeerDiscoveryTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
 }
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
@@ -1159,7 +1159,7 @@ impl ::core::fmt::Debug for PeerRole {
     }
 }
 impl ::windows::core::RuntimeType for PeerRole {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
 }
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
@@ -1193,7 +1193,7 @@ impl ::core::fmt::Debug for PeerWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for PeerWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
@@ -1227,15 +1227,15 @@ impl ::core::fmt::Debug for TriggeredConnectState {
     }
 }
 impl ::windows::core::RuntimeType for TriggeredConnectState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
 }
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct DeviceArrivedEventHandler(pub ::windows::core::IUnknown);
 impl DeviceArrivedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = DeviceArrivedEventHandlerBox::<F> { vtable: &DeviceArrivedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = DeviceArrivedEventHandlerBox::<F> { vtable: &DeviceArrivedEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, sender: &ProximityDevice) -> ::windows::core::Result<()> {
         let this = self;
@@ -1246,7 +1246,7 @@ impl DeviceArrivedEventHandler {
 struct DeviceArrivedEventHandlerBox<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DeviceArrivedEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DeviceArrivedEventHandlerBox<F> {
     const VTABLE: DeviceArrivedEventHandler_Vtbl = DeviceArrivedEventHandler_Vtbl {
@@ -1255,7 +1255,7 @@ impl<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Resu
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<DeviceArrivedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<DeviceArrivedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -1271,7 +1271,7 @@ impl<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Resu
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1303,7 +1303,7 @@ unsafe impl ::windows::core::Interface for DeviceArrivedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa9da69_f6e1_49c9_a49e_8e0fc58fb911);
 }
 impl ::windows::core::RuntimeType for DeviceArrivedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{efa9da69-f6e1-49c9-a49e-8e0fc58fb911}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{efa9da69-f6e1-49c9-a49e-8e0fc58fb911}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1316,8 +1316,8 @@ pub struct DeviceArrivedEventHandler_Vtbl {
 pub struct DeviceDepartedEventHandler(pub ::windows::core::IUnknown);
 impl DeviceDepartedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = DeviceDepartedEventHandlerBox::<F> { vtable: &DeviceDepartedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = DeviceDepartedEventHandlerBox::<F> { vtable: &DeviceDepartedEventHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, sender: &ProximityDevice) -> ::windows::core::Result<()> {
         let this = self;
@@ -1328,7 +1328,7 @@ impl DeviceDepartedEventHandler {
 struct DeviceDepartedEventHandlerBox<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DeviceDepartedEventHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DeviceDepartedEventHandlerBox<F> {
     const VTABLE: DeviceDepartedEventHandler_Vtbl = DeviceDepartedEventHandler_Vtbl {
@@ -1337,7 +1337,7 @@ impl<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Resu
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<DeviceDepartedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<DeviceDepartedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -1353,7 +1353,7 @@ impl<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Resu
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1385,7 +1385,7 @@ unsafe impl ::windows::core::Interface for DeviceDepartedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa9da69_f6e2_49c9_a49e_8e0fc58fb911);
 }
 impl ::windows::core::RuntimeType for DeviceDepartedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{efa9da69-f6e2-49c9-a49e-8e0fc58fb911}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{efa9da69-f6e2-49c9-a49e-8e0fc58fb911}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1398,8 +1398,8 @@ pub struct DeviceDepartedEventHandler_Vtbl {
 pub struct MessageReceivedHandler(pub ::windows::core::IUnknown);
 impl MessageReceivedHandler {
     pub fn new<F: FnMut(::core::option::Option<&ProximityDevice>, ::core::option::Option<&ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = MessageReceivedHandlerBox::<F> { vtable: &MessageReceivedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = MessageReceivedHandlerBox::<F> { vtable: &MessageReceivedHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, sender: &ProximityDevice, message: &ProximityMessage) -> ::windows::core::Result<()> {
         let this = self;
@@ -1410,7 +1410,7 @@ impl MessageReceivedHandler {
 struct MessageReceivedHandlerBox<F: FnMut(::core::option::Option<&ProximityDevice>, ::core::option::Option<&ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const MessageReceivedHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&ProximityDevice>, ::core::option::Option<&ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageReceivedHandlerBox<F> {
     const VTABLE: MessageReceivedHandler_Vtbl = MessageReceivedHandler_Vtbl {
@@ -1419,7 +1419,7 @@ impl<F: FnMut(::core::option::Option<&ProximityDevice>, ::core::option::Option<&
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<MessageReceivedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<MessageReceivedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -1435,7 +1435,7 @@ impl<F: FnMut(::core::option::Option<&ProximityDevice>, ::core::option::Option<&
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1467,7 +1467,7 @@ unsafe impl ::windows::core::Interface for MessageReceivedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab0782_f6e2_4675_a045_d8e320c24808);
 }
 impl ::windows::core::RuntimeType for MessageReceivedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{efab0782-f6e2-4675-a045-d8e320c24808}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{efab0782-f6e2-4675-a045-d8e320c24808}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1480,8 +1480,8 @@ pub struct MessageReceivedHandler_Vtbl {
 pub struct MessageTransmittedHandler(pub ::windows::core::IUnknown);
 impl MessageTransmittedHandler {
     pub fn new<F: FnMut(::core::option::Option<&ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = MessageTransmittedHandlerBox::<F> { vtable: &MessageTransmittedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = MessageTransmittedHandlerBox::<F> { vtable: &MessageTransmittedHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, sender: &ProximityDevice, messageid: i64) -> ::windows::core::Result<()> {
         let this = self;
@@ -1492,7 +1492,7 @@ impl MessageTransmittedHandler {
 struct MessageTransmittedHandlerBox<F: FnMut(::core::option::Option<&ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const MessageTransmittedHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageTransmittedHandlerBox<F> {
     const VTABLE: MessageTransmittedHandler_Vtbl = MessageTransmittedHandler_Vtbl {
@@ -1501,7 +1501,7 @@ impl<F: FnMut(::core::option::Option<&ProximityDevice>, i64) -> ::windows::core:
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<MessageTransmittedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<MessageTransmittedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -1517,7 +1517,7 @@ impl<F: FnMut(::core::option::Option<&ProximityDevice>, i64) -> ::windows::core:
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1549,7 +1549,7 @@ unsafe impl ::windows::core::Interface for MessageTransmittedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefaa0b4a_f6e2_4d7d_856c_78fc8efc021e);
 }
 impl ::windows::core::RuntimeType for MessageTransmittedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{efaa0b4a-f6e2-4d7d-856c-78fc8efc021e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{efaa0b4a-f6e2-4d7d-856c-78fc8efc021e}");
 }
 #[repr(C)]
 #[doc(hidden)]

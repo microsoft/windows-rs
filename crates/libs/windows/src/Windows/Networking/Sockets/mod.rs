@@ -66,7 +66,7 @@ impl IControlChannelTriggerEventDetails {
         }
     }
 }
-::windows::core::interface_hierarchy!(IControlChannelTriggerEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IControlChannelTriggerEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IControlChannelTriggerEventDetails {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -79,7 +79,7 @@ impl ::core::fmt::Debug for IControlChannelTriggerEventDetails {
     }
 }
 impl ::windows::core::RuntimeType for IControlChannelTriggerEventDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
 }
 unsafe impl ::windows::core::Vtable for IControlChannelTriggerEventDetails {
     type Vtable = IControlChannelTriggerEventDetails_Vtbl;
@@ -145,7 +145,7 @@ impl IControlChannelTriggerResetEventDetails {
         }
     }
 }
-::windows::core::interface_hierarchy!(IControlChannelTriggerResetEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IControlChannelTriggerResetEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IControlChannelTriggerResetEventDetails {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -158,7 +158,7 @@ impl ::core::fmt::Debug for IControlChannelTriggerResetEventDetails {
     }
 }
 impl ::windows::core::RuntimeType for IControlChannelTriggerResetEventDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6851038e-8ec4-42fe-9bb2-21e91b7bfcb1}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6851038e-8ec4-42fe-9bb2-21e91b7bfcb1}");
 }
 unsafe impl ::windows::core::Vtable for IControlChannelTriggerResetEventDetails {
     type Vtable = IControlChannelTriggerResetEventDetails_Vtbl;
@@ -1552,7 +1552,7 @@ impl IWebSocket {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1587,7 +1587,7 @@ impl ::core::fmt::Debug for IWebSocket {
     }
 }
 impl ::windows::core::RuntimeType for IWebSocket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
 }
 unsafe impl ::windows::core::Vtable for IWebSocket {
     type Vtable = IWebSocket_Vtbl;
@@ -1699,7 +1699,7 @@ impl IWebSocketControl {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebSocketControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1712,7 +1712,7 @@ impl ::core::fmt::Debug for IWebSocketControl {
     }
 }
 impl ::windows::core::RuntimeType for IWebSocketControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2ec4bdc3-d9a5-455a-9811-de24d45337e9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2ec4bdc3-d9a5-455a-9811-de24d45337e9}");
 }
 unsafe impl ::windows::core::Vtable for IWebSocketControl {
     type Vtable = IWebSocketControl_Vtbl;
@@ -1816,7 +1816,7 @@ impl IWebSocketControl2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebSocketControl2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebSocketControl2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebSocketControl2> for IWebSocketControl {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebSocketControl2) -> ::windows::core::Result<Self> {
@@ -1848,7 +1848,7 @@ impl ::core::fmt::Debug for IWebSocketControl2 {
     }
 }
 impl ::windows::core::RuntimeType for IWebSocketControl2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
 }
 unsafe impl ::windows::core::Vtable for IWebSocketControl2 {
     type Vtable = IWebSocketControl2_Vtbl;
@@ -1919,7 +1919,7 @@ impl IWebSocketInformation {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebSocketInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1932,7 +1932,7 @@ impl ::core::fmt::Debug for IWebSocketInformation {
     }
 }
 impl ::windows::core::RuntimeType for IWebSocketInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5e01e316-c92a-47a5-b25f-07847639d181}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5e01e316-c92a-47a5-b25f-07847639d181}");
 }
 unsafe impl ::windows::core::Vtable for IWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
@@ -2013,7 +2013,7 @@ impl IWebSocketInformation2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebSocketInformation2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebSocketInformation2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebSocketInformation2> for IWebSocketInformation {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebSocketInformation2) -> ::windows::core::Result<Self> {
@@ -2045,7 +2045,7 @@ impl ::core::fmt::Debug for IWebSocketInformation2 {
     }
 }
 impl ::windows::core::RuntimeType for IWebSocketInformation2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ce1d39ce-a1b7-4d43-8269-8d5b981bd47a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ce1d39ce-a1b7-4d43-8269-8d5b981bd47a}");
 }
 unsafe impl ::windows::core::Vtable for IWebSocketInformation2 {
     type Vtable = IWebSocketInformation2_Vtbl;
@@ -2216,7 +2216,7 @@ impl ControlChannelTrigger {
     }
     #[doc(hidden)]
     pub fn IControlChannelTriggerFactory<R, F: FnOnce(&IControlChannelTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ControlChannelTrigger, IControlChannelTriggerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ControlChannelTrigger, IControlChannelTriggerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2232,7 +2232,7 @@ impl ::core::fmt::Debug for ControlChannelTrigger {
     }
 }
 impl ::windows::core::RuntimeType for ControlChannelTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ControlChannelTrigger;{7d1431a7-ee96-40e8-a199-8703cd969ec3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ControlChannelTrigger;{7d1431a7-ee96-40e8-a199-8703cd969ec3})");
 }
 impl ::core::clone::Clone for ControlChannelTrigger {
     fn clone(&self) -> Self {
@@ -2248,7 +2248,7 @@ unsafe impl ::windows::core::Interface for ControlChannelTrigger {
 impl ::windows::core::RuntimeName for ControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
 }
-::windows::core::interface_hierarchy!(ControlChannelTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ControlChannelTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ControlChannelTrigger> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2280,8 +2280,8 @@ impl DatagramSocket {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DatagramSocket, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DatagramSocket, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2444,7 +2444,7 @@ impl DatagramSocket {
     }
     #[doc(hidden)]
     pub fn IDatagramSocketStatics<R, F: FnOnce(&IDatagramSocketStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DatagramSocket, IDatagramSocketStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DatagramSocket, IDatagramSocketStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2460,7 +2460,7 @@ impl ::core::fmt::Debug for DatagramSocket {
     }
 }
 impl ::windows::core::RuntimeType for DatagramSocket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocket;{7fe25bbb-c3bc-4677-8446-ca28a465a3af})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocket;{7fe25bbb-c3bc-4677-8446-ca28a465a3af})");
 }
 impl ::core::clone::Clone for DatagramSocket {
     fn clone(&self) -> Self {
@@ -2476,7 +2476,7 @@ unsafe impl ::windows::core::Interface for DatagramSocket {
 impl ::windows::core::RuntimeName for DatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
 }
-::windows::core::interface_hierarchy!(DatagramSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DatagramSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DatagramSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2573,7 +2573,7 @@ impl ::core::fmt::Debug for DatagramSocketControl {
     }
 }
 impl ::windows::core::RuntimeType for DatagramSocketControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketControl;{52ac3f2e-349a-4135-bb58-b79b2647d390})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketControl;{52ac3f2e-349a-4135-bb58-b79b2647d390})");
 }
 impl ::core::clone::Clone for DatagramSocketControl {
     fn clone(&self) -> Self {
@@ -2589,7 +2589,7 @@ unsafe impl ::windows::core::Interface for DatagramSocketControl {
 impl ::windows::core::RuntimeName for DatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
 }
-::windows::core::interface_hierarchy!(DatagramSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DatagramSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DatagramSocketControl {}
 unsafe impl ::core::marker::Sync for DatagramSocketControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -2637,7 +2637,7 @@ impl ::core::fmt::Debug for DatagramSocketInformation {
     }
 }
 impl ::windows::core::RuntimeType for DatagramSocketInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketInformation;{5f1a569a-55fb-48cd-9706-7a974f7b1585})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketInformation;{5f1a569a-55fb-48cd-9706-7a974f7b1585})");
 }
 impl ::core::clone::Clone for DatagramSocketInformation {
     fn clone(&self) -> Self {
@@ -2653,7 +2653,7 @@ unsafe impl ::windows::core::Interface for DatagramSocketInformation {
 impl ::windows::core::RuntimeName for DatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
 }
-::windows::core::interface_hierarchy!(DatagramSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DatagramSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DatagramSocketInformation {}
 unsafe impl ::core::marker::Sync for DatagramSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -2712,7 +2712,7 @@ impl ::core::fmt::Debug for DatagramSocketMessageReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs;{9e2ddca2-1712-4ce4-b179-8c652c6d107e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs;{9e2ddca2-1712-4ce4-b179-8c652c6d107e})");
 }
 impl ::core::clone::Clone for DatagramSocketMessageReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -2728,7 +2728,7 @@ unsafe impl ::windows::core::Interface for DatagramSocketMessageReceivedEventArg
 impl ::windows::core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(DatagramSocketMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DatagramSocketMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DatagramSocketMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -2738,8 +2738,8 @@ impl MessageWebSocket {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MessageWebSocket, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MessageWebSocket, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2872,7 +2872,7 @@ impl ::core::fmt::Debug for MessageWebSocket {
     }
 }
 impl ::windows::core::RuntimeType for MessageWebSocket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocket;{33727d08-34d5-4746-ad7b-8dde5bc2ef88})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocket;{33727d08-34d5-4746-ad7b-8dde5bc2ef88})");
 }
 impl ::core::clone::Clone for MessageWebSocket {
     fn clone(&self) -> Self {
@@ -2888,7 +2888,7 @@ unsafe impl ::windows::core::Interface for MessageWebSocket {
 impl ::windows::core::RuntimeName for MessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocket";
 }
-::windows::core::interface_hierarchy!(MessageWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MessageWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3080,7 +3080,7 @@ impl ::core::fmt::Debug for MessageWebSocketControl {
     }
 }
 impl ::windows::core::RuntimeType for MessageWebSocketControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketControl;{8118388a-c629-4f0a-80fb-81fc05538862})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketControl;{8118388a-c629-4f0a-80fb-81fc05538862})");
 }
 impl ::core::clone::Clone for MessageWebSocketControl {
     fn clone(&self) -> Self {
@@ -3096,7 +3096,7 @@ unsafe impl ::windows::core::Interface for MessageWebSocketControl {
 impl ::windows::core::RuntimeName for MessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketControl";
 }
-::windows::core::interface_hierarchy!(MessageWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MessageWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MessageWebSocketControl> for IWebSocketControl {
     type Error = ::windows::core::Error;
     fn try_from(value: MessageWebSocketControl) -> ::windows::core::Result<Self> {
@@ -3209,7 +3209,7 @@ impl ::core::fmt::Debug for MessageWebSocketInformation {
     }
 }
 impl ::windows::core::RuntimeType for MessageWebSocketInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
 }
 impl ::core::clone::Clone for MessageWebSocketInformation {
     fn clone(&self) -> Self {
@@ -3225,7 +3225,7 @@ unsafe impl ::windows::core::Interface for MessageWebSocketInformation {
 impl ::windows::core::RuntimeName for MessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketInformation";
 }
-::windows::core::interface_hierarchy!(MessageWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MessageWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MessageWebSocketInformation> for IWebSocketInformation {
     type Error = ::windows::core::Error;
     fn try_from(value: MessageWebSocketInformation) -> ::windows::core::Result<Self> {
@@ -3315,7 +3315,7 @@ impl ::core::fmt::Debug for MessageWebSocketMessageReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MessageWebSocketMessageReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs;{478c22ac-4c4b-42ed-9ed7-1ef9f94fa3d5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs;{478c22ac-4c4b-42ed-9ed7-1ef9f94fa3d5})");
 }
 impl ::core::clone::Clone for MessageWebSocketMessageReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3331,7 +3331,7 @@ unsafe impl ::windows::core::Interface for MessageWebSocketMessageReceivedEventA
 impl ::windows::core::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MessageWebSocketMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MessageWebSocketMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3414,7 +3414,7 @@ impl ::core::fmt::Debug for ServerMessageWebSocket {
     }
 }
 impl ::windows::core::RuntimeType for ServerMessageWebSocket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocket;{e3ac9240-813b-5efd-7e11-ae2305fc77f1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocket;{e3ac9240-813b-5efd-7e11-ae2305fc77f1})");
 }
 impl ::core::clone::Clone for ServerMessageWebSocket {
     fn clone(&self) -> Self {
@@ -3430,7 +3430,7 @@ unsafe impl ::windows::core::Interface for ServerMessageWebSocket {
 impl ::windows::core::RuntimeName for ServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocket";
 }
-::windows::core::interface_hierarchy!(ServerMessageWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ServerMessageWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ServerMessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3483,7 +3483,7 @@ impl ::core::fmt::Debug for ServerMessageWebSocketControl {
     }
 }
 impl ::windows::core::RuntimeType for ServerMessageWebSocketControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketControl;{69c2f051-1c1f-587a-4519-2181610192b7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketControl;{69c2f051-1c1f-587a-4519-2181610192b7})");
 }
 impl ::core::clone::Clone for ServerMessageWebSocketControl {
     fn clone(&self) -> Self {
@@ -3499,7 +3499,7 @@ unsafe impl ::windows::core::Interface for ServerMessageWebSocketControl {
 impl ::windows::core::RuntimeName for ServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketControl";
 }
-::windows::core::interface_hierarchy!(ServerMessageWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ServerMessageWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ServerMessageWebSocketControl {}
 unsafe impl ::core::marker::Sync for ServerMessageWebSocketControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3540,7 +3540,7 @@ impl ::core::fmt::Debug for ServerMessageWebSocketInformation {
     }
 }
 impl ::windows::core::RuntimeType for ServerMessageWebSocketInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketInformation;{fc32b45f-4448-5505-6cc9-09afa8915f5d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketInformation;{fc32b45f-4448-5505-6cc9-09afa8915f5d})");
 }
 impl ::core::clone::Clone for ServerMessageWebSocketInformation {
     fn clone(&self) -> Self {
@@ -3556,7 +3556,7 @@ unsafe impl ::windows::core::Interface for ServerMessageWebSocketInformation {
 impl ::windows::core::RuntimeName for ServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketInformation";
 }
-::windows::core::interface_hierarchy!(ServerMessageWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ServerMessageWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ServerMessageWebSocketInformation {}
 unsafe impl ::core::marker::Sync for ServerMessageWebSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3626,7 +3626,7 @@ impl ::core::fmt::Debug for ServerStreamWebSocket {
     }
 }
 impl ::windows::core::RuntimeType for ServerStreamWebSocket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocket;{2ced5bbf-74f6-55e4-79df-9132680dfee8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocket;{2ced5bbf-74f6-55e4-79df-9132680dfee8})");
 }
 impl ::core::clone::Clone for ServerStreamWebSocket {
     fn clone(&self) -> Self {
@@ -3642,7 +3642,7 @@ unsafe impl ::windows::core::Interface for ServerStreamWebSocket {
 impl ::windows::core::RuntimeName for ServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocket";
 }
-::windows::core::interface_hierarchy!(ServerStreamWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ServerStreamWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ServerStreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3705,7 +3705,7 @@ impl ::core::fmt::Debug for ServerStreamWebSocketInformation {
     }
 }
 impl ::windows::core::RuntimeType for ServerStreamWebSocketInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocketInformation;{fc32b45f-4448-5505-6cc9-09aba8915f5d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocketInformation;{fc32b45f-4448-5505-6cc9-09aba8915f5d})");
 }
 impl ::core::clone::Clone for ServerStreamWebSocketInformation {
     fn clone(&self) -> Self {
@@ -3721,7 +3721,7 @@ unsafe impl ::windows::core::Interface for ServerStreamWebSocketInformation {
 impl ::windows::core::RuntimeName for ServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocketInformation";
 }
-::windows::core::interface_hierarchy!(ServerStreamWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ServerStreamWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ServerStreamWebSocketInformation {}
 unsafe impl ::core::marker::Sync for ServerStreamWebSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3751,7 +3751,7 @@ impl SocketActivityContext {
     }
     #[doc(hidden)]
     pub fn ISocketActivityContextFactory<R, F: FnOnce(&ISocketActivityContextFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SocketActivityContext, ISocketActivityContextFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SocketActivityContext, ISocketActivityContextFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3767,7 +3767,7 @@ impl ::core::fmt::Debug for SocketActivityContext {
     }
 }
 impl ::windows::core::RuntimeType for SocketActivityContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityContext;{43b04d64-4c85-4396-a637-1d973f6ebd49})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityContext;{43b04d64-4c85-4396-a637-1d973f6ebd49})");
 }
 impl ::core::clone::Clone for SocketActivityContext {
     fn clone(&self) -> Self {
@@ -3783,7 +3783,7 @@ unsafe impl ::windows::core::Interface for SocketActivityContext {
 impl ::windows::core::RuntimeName for SocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityContext";
 }
-::windows::core::interface_hierarchy!(SocketActivityContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SocketActivityContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SocketActivityContext {}
 unsafe impl ::core::marker::Sync for SocketActivityContext {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3849,7 +3849,7 @@ impl SocketActivityInformation {
     }
     #[doc(hidden)]
     pub fn ISocketActivityInformationStatics<R, F: FnOnce(&ISocketActivityInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SocketActivityInformation, ISocketActivityInformationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SocketActivityInformation, ISocketActivityInformationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3865,7 +3865,7 @@ impl ::core::fmt::Debug for SocketActivityInformation {
     }
 }
 impl ::windows::core::RuntimeType for SocketActivityInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityInformation;{8d8a42e4-a87e-4b74-9968-185b2511defe})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityInformation;{8d8a42e4-a87e-4b74-9968-185b2511defe})");
 }
 impl ::core::clone::Clone for SocketActivityInformation {
     fn clone(&self) -> Self {
@@ -3881,7 +3881,7 @@ unsafe impl ::windows::core::Interface for SocketActivityInformation {
 impl ::windows::core::RuntimeName for SocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityInformation";
 }
-::windows::core::interface_hierarchy!(SocketActivityInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SocketActivityInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SocketActivityInformation {}
 unsafe impl ::core::marker::Sync for SocketActivityInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3915,7 +3915,7 @@ impl ::core::fmt::Debug for SocketActivityTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for SocketActivityTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityTriggerDetails;{45f406a7-fc9f-4f81-acad-355fef51e67b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityTriggerDetails;{45f406a7-fc9f-4f81-acad-355fef51e67b})");
 }
 impl ::core::clone::Clone for SocketActivityTriggerDetails {
     fn clone(&self) -> Self {
@@ -3931,7 +3931,7 @@ unsafe impl ::windows::core::Interface for SocketActivityTriggerDetails {
 impl ::windows::core::RuntimeName for SocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityTriggerDetails";
 }
-::windows::core::interface_hierarchy!(SocketActivityTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SocketActivityTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SocketActivityTriggerDetails {}
 unsafe impl ::core::marker::Sync for SocketActivityTriggerDetails {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3945,7 +3945,7 @@ impl SocketError {
     }
     #[doc(hidden)]
     pub fn ISocketErrorStatics<R, F: FnOnce(&ISocketErrorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SocketError, ISocketErrorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SocketError, ISocketErrorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3959,8 +3959,8 @@ impl StreamSocket {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StreamSocket, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StreamSocket, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4104,7 +4104,7 @@ impl StreamSocket {
     }
     #[doc(hidden)]
     pub fn IStreamSocketStatics<R, F: FnOnce(&IStreamSocketStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StreamSocket, IStreamSocketStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StreamSocket, IStreamSocketStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4120,7 +4120,7 @@ impl ::core::fmt::Debug for StreamSocket {
     }
 }
 impl ::windows::core::RuntimeType for StreamSocket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocket;{69a22cf3-fc7b-4857-af38-f6e7de6a5b49})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocket;{69a22cf3-fc7b-4857-af38-f6e7de6a5b49})");
 }
 impl ::core::clone::Clone for StreamSocket {
     fn clone(&self) -> Self {
@@ -4136,7 +4136,7 @@ unsafe impl ::windows::core::Interface for StreamSocket {
 impl ::windows::core::RuntimeName for StreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocket";
 }
-::windows::core::interface_hierarchy!(StreamSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<StreamSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4279,7 +4279,7 @@ impl ::core::fmt::Debug for StreamSocketControl {
     }
 }
 impl ::windows::core::RuntimeType for StreamSocketControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketControl;{fe25adf1-92ab-4af3-9992-0f4c85e36cc4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketControl;{fe25adf1-92ab-4af3-9992-0f4c85e36cc4})");
 }
 impl ::core::clone::Clone for StreamSocketControl {
     fn clone(&self) -> Self {
@@ -4295,7 +4295,7 @@ unsafe impl ::windows::core::Interface for StreamSocketControl {
 impl ::windows::core::RuntimeName for StreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketControl";
 }
-::windows::core::interface_hierarchy!(StreamSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketControl {}
 unsafe impl ::core::marker::Sync for StreamSocketControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4421,7 +4421,7 @@ impl ::core::fmt::Debug for StreamSocketInformation {
     }
 }
 impl ::windows::core::RuntimeType for StreamSocketInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketInformation;{3b80ae30-5e68-4205-88f0-dc85d2e25ded})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketInformation;{3b80ae30-5e68-4205-88f0-dc85d2e25ded})");
 }
 impl ::core::clone::Clone for StreamSocketInformation {
     fn clone(&self) -> Self {
@@ -4437,7 +4437,7 @@ unsafe impl ::windows::core::Interface for StreamSocketInformation {
 impl ::windows::core::RuntimeName for StreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketInformation";
 }
-::windows::core::interface_hierarchy!(StreamSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketInformation {}
 unsafe impl ::core::marker::Sync for StreamSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4447,8 +4447,8 @@ impl StreamSocketListener {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StreamSocketListener, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StreamSocketListener, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4560,7 +4560,7 @@ impl ::core::fmt::Debug for StreamSocketListener {
     }
 }
 impl ::windows::core::RuntimeType for StreamSocketListener {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListener;{ff513437-df9f-4df0-bf82-0ec5d7b35aae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListener;{ff513437-df9f-4df0-bf82-0ec5d7b35aae})");
 }
 impl ::core::clone::Clone for StreamSocketListener {
     fn clone(&self) -> Self {
@@ -4576,7 +4576,7 @@ unsafe impl ::windows::core::Interface for StreamSocketListener {
 impl ::windows::core::RuntimeName for StreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListener";
 }
-::windows::core::interface_hierarchy!(StreamSocketListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamSocketListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<StreamSocketListener> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4625,7 +4625,7 @@ impl ::core::fmt::Debug for StreamSocketListenerConnectionReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for StreamSocketListenerConnectionReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs;{0c472ea9-373f-447b-85b1-ddd4548803ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs;{0c472ea9-373f-447b-85b1-ddd4548803ba})");
 }
 impl ::core::clone::Clone for StreamSocketListenerConnectionReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -4641,7 +4641,7 @@ unsafe impl ::windows::core::Interface for StreamSocketListenerConnectionReceive
 impl ::windows::core::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(StreamSocketListenerConnectionReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamSocketListenerConnectionReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketListenerConnectionReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for StreamSocketListenerConnectionReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4716,7 +4716,7 @@ impl ::core::fmt::Debug for StreamSocketListenerControl {
     }
 }
 impl ::windows::core::RuntimeType for StreamSocketListenerControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerControl;{20d8c576-8d8a-4dba-9722-a16c4d984980})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerControl;{20d8c576-8d8a-4dba-9722-a16c4d984980})");
 }
 impl ::core::clone::Clone for StreamSocketListenerControl {
     fn clone(&self) -> Self {
@@ -4732,7 +4732,7 @@ unsafe impl ::windows::core::Interface for StreamSocketListenerControl {
 impl ::windows::core::RuntimeName for StreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerControl";
 }
-::windows::core::interface_hierarchy!(StreamSocketListenerControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamSocketListenerControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketListenerControl {}
 unsafe impl ::core::marker::Sync for StreamSocketListenerControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4759,7 +4759,7 @@ impl ::core::fmt::Debug for StreamSocketListenerInformation {
     }
 }
 impl ::windows::core::RuntimeType for StreamSocketListenerInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerInformation;{e62ba82f-a63a-430b-bf62-29e93e5633b4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerInformation;{e62ba82f-a63a-430b-bf62-29e93e5633b4})");
 }
 impl ::core::clone::Clone for StreamSocketListenerInformation {
     fn clone(&self) -> Self {
@@ -4775,7 +4775,7 @@ unsafe impl ::windows::core::Interface for StreamSocketListenerInformation {
 impl ::windows::core::RuntimeName for StreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerInformation";
 }
-::windows::core::interface_hierarchy!(StreamSocketListenerInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamSocketListenerInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketListenerInformation {}
 unsafe impl ::core::marker::Sync for StreamSocketListenerInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4785,8 +4785,8 @@ impl StreamWebSocket {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StreamWebSocket, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StreamWebSocket, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4887,7 +4887,7 @@ impl ::core::fmt::Debug for StreamWebSocket {
     }
 }
 impl ::windows::core::RuntimeType for StreamWebSocket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocket;{bd4a49d8-b289-45bb-97eb-c7525205a843})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocket;{bd4a49d8-b289-45bb-97eb-c7525205a843})");
 }
 impl ::core::clone::Clone for StreamWebSocket {
     fn clone(&self) -> Self {
@@ -4903,7 +4903,7 @@ unsafe impl ::windows::core::Interface for StreamWebSocket {
 impl ::windows::core::RuntimeName for StreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocket";
 }
-::windows::core::interface_hierarchy!(StreamWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<StreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5073,7 +5073,7 @@ impl ::core::fmt::Debug for StreamWebSocketControl {
     }
 }
 impl ::windows::core::RuntimeType for StreamWebSocketControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketControl;{b4f478b1-a45a-48db-953a-645b7d964c07})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketControl;{b4f478b1-a45a-48db-953a-645b7d964c07})");
 }
 impl ::core::clone::Clone for StreamWebSocketControl {
     fn clone(&self) -> Self {
@@ -5089,7 +5089,7 @@ unsafe impl ::windows::core::Interface for StreamWebSocketControl {
 impl ::windows::core::RuntimeName for StreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketControl";
 }
-::windows::core::interface_hierarchy!(StreamWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StreamWebSocketControl> for IWebSocketControl {
     type Error = ::windows::core::Error;
     fn try_from(value: StreamWebSocketControl) -> ::windows::core::Result<Self> {
@@ -5202,7 +5202,7 @@ impl ::core::fmt::Debug for StreamWebSocketInformation {
     }
 }
 impl ::windows::core::RuntimeType for StreamWebSocketInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
 }
 impl ::core::clone::Clone for StreamWebSocketInformation {
     fn clone(&self) -> Self {
@@ -5218,7 +5218,7 @@ unsafe impl ::windows::core::Interface for StreamWebSocketInformation {
 impl ::windows::core::RuntimeName for StreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketInformation";
 }
-::windows::core::interface_hierarchy!(StreamWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StreamWebSocketInformation> for IWebSocketInformation {
     type Error = ::windows::core::Error;
     fn try_from(value: StreamWebSocketInformation) -> ::windows::core::Result<Self> {
@@ -5290,7 +5290,7 @@ impl ::core::fmt::Debug for WebSocketClosedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebSocketClosedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketClosedEventArgs;{ceb78d07-d0a8-4703-a091-c8c2c0915bc3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketClosedEventArgs;{ceb78d07-d0a8-4703-a091-c8c2c0915bc3})");
 }
 impl ::core::clone::Clone for WebSocketClosedEventArgs {
     fn clone(&self) -> Self {
@@ -5306,7 +5306,7 @@ unsafe impl ::windows::core::Interface for WebSocketClosedEventArgs {
 impl ::windows::core::RuntimeName for WebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketClosedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebSocketClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebSocketClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebSocketClosedEventArgs {}
 unsafe impl ::core::marker::Sync for WebSocketClosedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5322,7 +5322,7 @@ impl WebSocketError {
     }
     #[doc(hidden)]
     pub fn IWebSocketErrorStatics<R, F: FnOnce(&IWebSocketErrorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebSocketError, IWebSocketErrorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebSocketError, IWebSocketErrorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5338,8 +5338,8 @@ impl WebSocketKeepAlive {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebSocketKeepAlive, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<WebSocketKeepAlive, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -5369,7 +5369,7 @@ impl ::core::fmt::Debug for WebSocketKeepAlive {
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::windows::core::RuntimeType for WebSocketKeepAlive {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketKeepAlive;{7d13d534-fd12-43ce-8c22-ea1ff13c06df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketKeepAlive;{7d13d534-fd12-43ce-8c22-ea1ff13c06df})");
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::core::clone::Clone for WebSocketKeepAlive {
@@ -5390,7 +5390,7 @@ impl ::windows::core::RuntimeName for WebSocketKeepAlive {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketKeepAlive";
 }
 #[cfg(feature = "ApplicationModel_Background")]
-::windows::core::interface_hierarchy!(WebSocketKeepAlive, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebSocketKeepAlive, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::core::convert::TryFrom<WebSocketKeepAlive> for super::super::ApplicationModel::Background::IBackgroundTask {
     type Error = ::windows::core::Error;
@@ -5481,7 +5481,7 @@ impl ::core::fmt::Debug for WebSocketServerCustomValidationRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for WebSocketServerCustomValidationRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs;{ffeffe48-022a-4ab7-8b36-e10af4640e6b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs;{ffeffe48-022a-4ab7-8b36-e10af4640e6b})");
 }
 impl ::core::clone::Clone for WebSocketServerCustomValidationRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -5497,7 +5497,7 @@ unsafe impl ::windows::core::Interface for WebSocketServerCustomValidationReques
 impl ::windows::core::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(WebSocketServerCustomValidationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebSocketServerCustomValidationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebSocketServerCustomValidationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for WebSocketServerCustomValidationRequestedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5530,7 +5530,7 @@ impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
     }
 }
 impl ::windows::core::RuntimeType for ControlChannelTriggerResetReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5560,7 +5560,7 @@ impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
     }
 }
 impl ::windows::core::RuntimeType for ControlChannelTriggerResourceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5595,7 +5595,7 @@ impl ::core::fmt::Debug for ControlChannelTriggerStatus {
     }
 }
 impl ::windows::core::RuntimeType for ControlChannelTriggerStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5625,7 +5625,7 @@ impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
     }
 }
 impl ::windows::core::RuntimeType for MessageWebSocketReceiveMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5655,7 +5655,7 @@ impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
     }
 }
 impl ::windows::core::RuntimeType for SocketActivityConnectedStandbyAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5687,7 +5687,7 @@ impl ::core::fmt::Debug for SocketActivityKind {
     }
 }
 impl ::windows::core::RuntimeType for SocketActivityKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5720,7 +5720,7 @@ impl ::core::fmt::Debug for SocketActivityTriggerReason {
     }
 }
 impl ::windows::core::RuntimeType for SocketActivityTriggerReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5779,7 +5779,7 @@ impl ::core::fmt::Debug for SocketErrorStatus {
     }
 }
 impl ::windows::core::RuntimeType for SocketErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5809,7 +5809,7 @@ impl ::core::fmt::Debug for SocketMessageType {
     }
 }
 impl ::windows::core::RuntimeType for SocketMessageType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5847,7 +5847,7 @@ impl ::core::fmt::Debug for SocketProtectionLevel {
     }
 }
 impl ::windows::core::RuntimeType for SocketProtectionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5877,7 +5877,7 @@ impl ::core::fmt::Debug for SocketQualityOfService {
     }
 }
 impl ::windows::core::RuntimeType for SocketQualityOfService {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -5908,7 +5908,7 @@ impl ::core::fmt::Debug for SocketSslErrorSeverity {
     }
 }
 impl ::windows::core::RuntimeType for SocketSslErrorSeverity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5935,7 +5935,7 @@ impl ::windows::core::TypeKind for BandwidthStatistics {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for BandwidthStatistics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.BandwidthStatistics;u8;u8;u8;u8;b1;b1)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.BandwidthStatistics;u8;u8;u8;u8;b1;b1)");
 }
 impl ::core::cmp::PartialEq for BandwidthStatistics {
     fn eq(&self, other: &Self) -> bool {
@@ -5971,7 +5971,7 @@ impl ::windows::core::TypeKind for RoundTripTimeStatistics {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for RoundTripTimeStatistics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.RoundTripTimeStatistics;u4;u4;u4;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.RoundTripTimeStatistics;u4;u4;u4;u4)");
 }
 impl ::core::cmp::PartialEq for RoundTripTimeStatistics {
     fn eq(&self, other: &Self) -> bool {

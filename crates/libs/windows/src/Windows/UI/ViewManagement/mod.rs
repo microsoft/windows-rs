@@ -1444,8 +1444,8 @@ impl AccessibilitySettings {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AccessibilitySettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AccessibilitySettings, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn HighContrast(&self) -> ::windows::core::Result<bool> {
@@ -1490,7 +1490,7 @@ impl ::core::fmt::Debug for AccessibilitySettings {
     }
 }
 impl ::windows::core::RuntimeType for AccessibilitySettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.AccessibilitySettings;{fe0e8147-c4c0-4562-b962-1327b52ad5b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.AccessibilitySettings;{fe0e8147-c4c0-4562-b962-1327b52ad5b9})");
 }
 impl ::core::clone::Clone for AccessibilitySettings {
     fn clone(&self) -> Self {
@@ -1506,7 +1506,7 @@ unsafe impl ::windows::core::Interface for AccessibilitySettings {
 impl ::windows::core::RuntimeName for AccessibilitySettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.AccessibilitySettings";
 }
-::windows::core::interface_hierarchy!(AccessibilitySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AccessibilitySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccessibilitySettings {}
 unsafe impl ::core::marker::Sync for AccessibilitySettings {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -1551,7 +1551,7 @@ impl ::core::fmt::Debug for ActivationViewSwitcher {
     }
 }
 impl ::windows::core::RuntimeType for ActivationViewSwitcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ActivationViewSwitcher;{dca71bb6-7350-492b-aac7-c8a13d7224ad})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ActivationViewSwitcher;{dca71bb6-7350-492b-aac7-c8a13d7224ad})");
 }
 impl ::core::clone::Clone for ActivationViewSwitcher {
     fn clone(&self) -> Self {
@@ -1567,7 +1567,7 @@ unsafe impl ::windows::core::Interface for ActivationViewSwitcher {
 impl ::windows::core::RuntimeName for ActivationViewSwitcher {
     const NAME: &'static str = "Windows.UI.ViewManagement.ActivationViewSwitcher";
 }
-::windows::core::interface_hierarchy!(ActivationViewSwitcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivationViewSwitcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivationViewSwitcher {}
 unsafe impl ::core::marker::Sync for ActivationViewSwitcher {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -1922,33 +1922,33 @@ impl ApplicationView {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IApplicationViewFullscreenStatics<R, F: FnOnce(&IApplicationViewFullscreenStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewFullscreenStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationView, IApplicationViewFullscreenStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IApplicationViewInteropStatics<R, F: FnOnce(&IApplicationViewInteropStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewInteropStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationView, IApplicationViewInteropStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IApplicationViewStatics<R, F: FnOnce(&IApplicationViewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationView, IApplicationViewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IApplicationViewStatics2<R, F: FnOnce(&IApplicationViewStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationView, IApplicationViewStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IApplicationViewStatics3<R, F: FnOnce(&IApplicationViewStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationView, IApplicationViewStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IApplicationViewStatics4<R, F: FnOnce(&IApplicationViewStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationView, IApplicationViewStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1964,7 +1964,7 @@ impl ::core::fmt::Debug for ApplicationView {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationView;{d222d519-4361-451e-96c4-60f4f9742db0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationView;{d222d519-4361-451e-96c4-60f4f9742db0})");
 }
 impl ::core::clone::Clone for ApplicationView {
     fn clone(&self) -> Self {
@@ -1980,7 +1980,7 @@ unsafe impl ::windows::core::Interface for ApplicationView {
 impl ::windows::core::RuntimeName for ApplicationView {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationView";
 }
-::windows::core::interface_hierarchy!(ApplicationView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationView {}
 unsafe impl ::core::marker::Sync for ApplicationView {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -2014,7 +2014,7 @@ impl ::core::fmt::Debug for ApplicationViewConsolidatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationViewConsolidatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs;{514449ec-7ea2-4de7-a6a6-7dfbaaebb6fb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs;{514449ec-7ea2-4de7-a6a6-7dfbaaebb6fb})");
 }
 impl ::core::clone::Clone for ApplicationViewConsolidatedEventArgs {
     fn clone(&self) -> Self {
@@ -2030,7 +2030,7 @@ unsafe impl ::windows::core::Interface for ApplicationViewConsolidatedEventArgs 
 impl ::windows::core::RuntimeName for ApplicationViewConsolidatedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ApplicationViewConsolidatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationViewConsolidatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationViewConsolidatedEventArgs {}
 unsafe impl ::core::marker::Sync for ApplicationViewConsolidatedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -2051,7 +2051,7 @@ impl ApplicationViewScaling {
     }
     #[doc(hidden)]
     pub fn IApplicationViewScalingStatics<R, F: FnOnce(&IApplicationViewScalingStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewScaling, IApplicationViewScalingStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationViewScaling, IApplicationViewScalingStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2067,7 +2067,7 @@ impl ::core::fmt::Debug for ApplicationViewScaling {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationViewScaling {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewScaling;{1d0ddc23-23f3-4b2d-84fe-74bf37b48b66})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewScaling;{1d0ddc23-23f3-4b2d-84fe-74bf37b48b66})");
 }
 impl ::core::clone::Clone for ApplicationViewScaling {
     fn clone(&self) -> Self {
@@ -2083,7 +2083,7 @@ unsafe impl ::windows::core::Interface for ApplicationViewScaling {
 impl ::windows::core::RuntimeName for ApplicationViewScaling {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewScaling";
 }
-::windows::core::interface_hierarchy!(ApplicationViewScaling, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationViewScaling, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 pub struct ApplicationViewSwitcher;
 impl ApplicationViewSwitcher {
@@ -2167,17 +2167,17 @@ impl ApplicationViewSwitcher {
     }
     #[doc(hidden)]
     pub fn IApplicationViewSwitcherStatics<R, F: FnOnce(&IApplicationViewSwitcherStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IApplicationViewSwitcherStatics2<R, F: FnOnce(&IApplicationViewSwitcherStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IApplicationViewSwitcherStatics3<R, F: FnOnce(&IApplicationViewSwitcherStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2429,7 +2429,7 @@ impl ::core::fmt::Debug for ApplicationViewTitleBar {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationViewTitleBar {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTitleBar;{00924ac0-932b-4a6b-9c4b-dc38c82478ce})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTitleBar;{00924ac0-932b-4a6b-9c4b-dc38c82478ce})");
 }
 impl ::core::clone::Clone for ApplicationViewTitleBar {
     fn clone(&self) -> Self {
@@ -2445,7 +2445,7 @@ unsafe impl ::windows::core::Interface for ApplicationViewTitleBar {
 impl ::windows::core::RuntimeName for ApplicationViewTitleBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTitleBar";
 }
-::windows::core::interface_hierarchy!(ApplicationViewTitleBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationViewTitleBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationViewTitleBar {}
 unsafe impl ::core::marker::Sync for ApplicationViewTitleBar {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -2455,8 +2455,8 @@ impl ApplicationViewTransferContext {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewTransferContext, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ApplicationViewTransferContext, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ViewId(&self) -> ::windows::core::Result<i32> {
@@ -2478,7 +2478,7 @@ impl ApplicationViewTransferContext {
     }
     #[doc(hidden)]
     pub fn IApplicationViewTransferContextStatics<R, F: FnOnce(&IApplicationViewTransferContextStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewTransferContext, IApplicationViewTransferContextStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationViewTransferContext, IApplicationViewTransferContextStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2494,7 +2494,7 @@ impl ::core::fmt::Debug for ApplicationViewTransferContext {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationViewTransferContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTransferContext;{8574bc63-3c17-408e-9408-8a1a9ea81bfa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTransferContext;{8574bc63-3c17-408e-9408-8a1a9ea81bfa})");
 }
 impl ::core::clone::Clone for ApplicationViewTransferContext {
     fn clone(&self) -> Self {
@@ -2510,7 +2510,7 @@ unsafe impl ::windows::core::Interface for ApplicationViewTransferContext {
 impl ::windows::core::RuntimeName for ApplicationViewTransferContext {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTransferContext";
 }
-::windows::core::interface_hierarchy!(ApplicationViewTransferContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationViewTransferContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
 pub struct InputPane(::windows::core::IUnknown);
@@ -2593,12 +2593,12 @@ impl InputPane {
     }
     #[doc(hidden)]
     pub fn IInputPaneStatics<R, F: FnOnce(&IInputPaneStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InputPane, IInputPaneStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InputPane, IInputPaneStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IInputPaneStatics2<R, F: FnOnce(&IInputPaneStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InputPane, IInputPaneStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InputPane, IInputPaneStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2614,7 +2614,7 @@ impl ::core::fmt::Debug for InputPane {
     }
 }
 impl ::windows::core::RuntimeType for InputPane {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.InputPane;{640ada70-06f3-4c87-a678-9829c9127c28})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.InputPane;{640ada70-06f3-4c87-a678-9829c9127c28})");
 }
 impl ::core::clone::Clone for InputPane {
     fn clone(&self) -> Self {
@@ -2630,7 +2630,7 @@ unsafe impl ::windows::core::Interface for InputPane {
 impl ::windows::core::RuntimeName for InputPane {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPane";
 }
-::windows::core::interface_hierarchy!(InputPane, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InputPane, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
 pub struct InputPaneVisibilityEventArgs(::windows::core::IUnknown);
@@ -2668,7 +2668,7 @@ impl ::core::fmt::Debug for InputPaneVisibilityEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for InputPaneVisibilityEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.InputPaneVisibilityEventArgs;{d243e016-d907-4fcc-bb8d-f77baa5028f1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.InputPaneVisibilityEventArgs;{d243e016-d907-4fcc-bb8d-f77baa5028f1})");
 }
 impl ::core::clone::Clone for InputPaneVisibilityEventArgs {
     fn clone(&self) -> Self {
@@ -2684,7 +2684,7 @@ unsafe impl ::windows::core::Interface for InputPaneVisibilityEventArgs {
 impl ::windows::core::RuntimeName for InputPaneVisibilityEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPaneVisibilityEventArgs";
 }
-::windows::core::interface_hierarchy!(InputPaneVisibilityEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InputPaneVisibilityEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 pub struct ProjectionManager;
 impl ProjectionManager {
@@ -2763,12 +2763,12 @@ impl ProjectionManager {
     }
     #[doc(hidden)]
     pub fn IProjectionManagerStatics<R, F: FnOnce(&IProjectionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProjectionManager, IProjectionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProjectionManager, IProjectionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IProjectionManagerStatics2<R, F: FnOnce(&IProjectionManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProjectionManager, IProjectionManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProjectionManager, IProjectionManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2900,7 +2900,7 @@ impl StatusBar {
     }
     #[doc(hidden)]
     pub fn IStatusBarStatics<R, F: FnOnce(&IStatusBarStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StatusBar, IStatusBarStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StatusBar, IStatusBarStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2916,7 +2916,7 @@ impl ::core::fmt::Debug for StatusBar {
     }
 }
 impl ::windows::core::RuntimeType for StatusBar {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.StatusBar;{0ffcc5bf-98d0-4864-b1e8-b3f4020be8b4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.StatusBar;{0ffcc5bf-98d0-4864-b1e8-b3f4020be8b4})");
 }
 impl ::core::clone::Clone for StatusBar {
     fn clone(&self) -> Self {
@@ -2932,7 +2932,7 @@ unsafe impl ::windows::core::Interface for StatusBar {
 impl ::windows::core::RuntimeName for StatusBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBar";
 }
-::windows::core::interface_hierarchy!(StatusBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StatusBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StatusBar {}
 unsafe impl ::core::marker::Sync for StatusBar {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3000,7 +3000,7 @@ impl ::core::fmt::Debug for StatusBarProgressIndicator {
     }
 }
 impl ::windows::core::RuntimeType for StatusBarProgressIndicator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.StatusBarProgressIndicator;{76cb2670-a3d7-49cf-8200-4f3eedca27bb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.StatusBarProgressIndicator;{76cb2670-a3d7-49cf-8200-4f3eedca27bb})");
 }
 impl ::core::clone::Clone for StatusBarProgressIndicator {
     fn clone(&self) -> Self {
@@ -3016,7 +3016,7 @@ unsafe impl ::windows::core::Interface for StatusBarProgressIndicator {
 impl ::windows::core::RuntimeName for StatusBarProgressIndicator {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBarProgressIndicator";
 }
-::windows::core::interface_hierarchy!(StatusBarProgressIndicator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StatusBarProgressIndicator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StatusBarProgressIndicator {}
 unsafe impl ::core::marker::Sync for StatusBarProgressIndicator {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3026,8 +3026,8 @@ impl UISettings {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UISettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UISettings, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn HandPreference(&self) -> ::windows::core::Result<HandPreference> {
@@ -3260,7 +3260,7 @@ impl ::core::fmt::Debug for UISettings {
     }
 }
 impl ::windows::core::RuntimeType for UISettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettings;{85361600-1c63-4627-bcb1-3a89e0bc9c55})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettings;{85361600-1c63-4627-bcb1-3a89e0bc9c55})");
 }
 impl ::core::clone::Clone for UISettings {
     fn clone(&self) -> Self {
@@ -3276,7 +3276,7 @@ unsafe impl ::windows::core::Interface for UISettings {
 impl ::windows::core::RuntimeName for UISettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettings";
 }
-::windows::core::interface_hierarchy!(UISettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UISettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettings {}
 unsafe impl ::core::marker::Sync for UISettings {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3295,7 +3295,7 @@ impl ::core::fmt::Debug for UISettingsAnimationsEnabledChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UISettingsAnimationsEnabledChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs;{0c7b4b3d-2ea1-533e-894d-415bc5243c29})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs;{0c7b4b3d-2ea1-533e-894d-415bc5243c29})");
 }
 impl ::core::clone::Clone for UISettingsAnimationsEnabledChangedEventArgs {
     fn clone(&self) -> Self {
@@ -3311,7 +3311,7 @@ unsafe impl ::windows::core::Interface for UISettingsAnimationsEnabledChangedEve
 impl ::windows::core::RuntimeName for UISettingsAnimationsEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(UISettingsAnimationsEnabledChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UISettingsAnimationsEnabledChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettingsAnimationsEnabledChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UISettingsAnimationsEnabledChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3330,7 +3330,7 @@ impl ::core::fmt::Debug for UISettingsAutoHideScrollBarsChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UISettingsAutoHideScrollBarsChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs;{87afd4b2-9146-5f02-8f6b-06d454174c0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs;{87afd4b2-9146-5f02-8f6b-06d454174c0f})");
 }
 impl ::core::clone::Clone for UISettingsAutoHideScrollBarsChangedEventArgs {
     fn clone(&self) -> Self {
@@ -3346,7 +3346,7 @@ unsafe impl ::windows::core::Interface for UISettingsAutoHideScrollBarsChangedEv
 impl ::windows::core::RuntimeName for UISettingsAutoHideScrollBarsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(UISettingsAutoHideScrollBarsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UISettingsAutoHideScrollBarsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettingsAutoHideScrollBarsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UISettingsAutoHideScrollBarsChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3365,7 +3365,7 @@ impl ::core::fmt::Debug for UISettingsMessageDurationChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for UISettingsMessageDurationChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs;{338aad52-4a5d-5b59-8002-d930f608fd6e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs;{338aad52-4a5d-5b59-8002-d930f608fd6e})");
 }
 impl ::core::clone::Clone for UISettingsMessageDurationChangedEventArgs {
     fn clone(&self) -> Self {
@@ -3381,7 +3381,7 @@ unsafe impl ::windows::core::Interface for UISettingsMessageDurationChangedEvent
 impl ::windows::core::RuntimeName for UISettingsMessageDurationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(UISettingsMessageDurationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UISettingsMessageDurationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettingsMessageDurationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UISettingsMessageDurationChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3403,7 +3403,7 @@ impl UIViewSettings {
     }
     #[doc(hidden)]
     pub fn IUIViewSettingsStatics<R, F: FnOnce(&IUIViewSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UIViewSettings, IUIViewSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UIViewSettings, IUIViewSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3419,7 +3419,7 @@ impl ::core::fmt::Debug for UIViewSettings {
     }
 }
 impl ::windows::core::RuntimeType for UIViewSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UIViewSettings;{c63657f6-8850-470d-88f8-455e16ea2c26})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UIViewSettings;{c63657f6-8850-470d-88f8-455e16ea2c26})");
 }
 impl ::core::clone::Clone for UIViewSettings {
     fn clone(&self) -> Self {
@@ -3435,7 +3435,7 @@ unsafe impl ::windows::core::Interface for UIViewSettings {
 impl ::windows::core::RuntimeName for UIViewSettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UIViewSettings";
 }
-::windows::core::interface_hierarchy!(UIViewSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UIViewSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UIViewSettings {}
 unsafe impl ::core::marker::Sync for UIViewSettings {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3476,7 +3476,7 @@ impl ViewModePreferences {
     }
     #[doc(hidden)]
     pub fn IViewModePreferencesStatics<R, F: FnOnce(&IViewModePreferencesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ViewModePreferences, IViewModePreferencesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ViewModePreferences, IViewModePreferencesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3492,7 +3492,7 @@ impl ::core::fmt::Debug for ViewModePreferences {
     }
 }
 impl ::windows::core::RuntimeType for ViewModePreferences {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ViewModePreferences;{878fcd3a-0b99-42c9-84d0-d3f1d403554b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ViewModePreferences;{878fcd3a-0b99-42c9-84d0-d3f1d403554b})");
 }
 impl ::core::clone::Clone for ViewModePreferences {
     fn clone(&self) -> Self {
@@ -3508,7 +3508,7 @@ unsafe impl ::windows::core::Interface for ViewModePreferences {
 impl ::windows::core::RuntimeName for ViewModePreferences {
     const NAME: &'static str = "Windows.UI.ViewManagement.ViewModePreferences";
 }
-::windows::core::interface_hierarchy!(ViewModePreferences, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ViewModePreferences, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3537,7 +3537,7 @@ impl ::core::fmt::Debug for ApplicationViewBoundsMode {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationViewBoundsMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewBoundsMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewBoundsMode;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3567,7 +3567,7 @@ impl ::core::fmt::Debug for ApplicationViewMode {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationViewMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewMode;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3597,7 +3597,7 @@ impl ::core::fmt::Debug for ApplicationViewOrientation {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationViewOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewOrientation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewOrientation;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -3637,7 +3637,7 @@ impl ::core::fmt::Debug for ApplicationViewState {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for ApplicationViewState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewState;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3701,7 +3701,7 @@ impl ::core::ops::Not for ApplicationViewSwitchingOptions {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationViewSwitchingOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewSwitchingOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewSwitchingOptions;u4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3734,7 +3734,7 @@ impl ::core::fmt::Debug for ApplicationViewWindowingMode {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationViewWindowingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewWindowingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewWindowingMode;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3764,7 +3764,7 @@ impl ::core::fmt::Debug for FullScreenSystemOverlayMode {
     }
 }
 impl ::windows::core::RuntimeType for FullScreenSystemOverlayMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.FullScreenSystemOverlayMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.FullScreenSystemOverlayMode;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3794,7 +3794,7 @@ impl ::core::fmt::Debug for HandPreference {
     }
 }
 impl ::windows::core::RuntimeType for HandPreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.HandPreference;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.HandPreference;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3824,7 +3824,7 @@ impl ::core::fmt::Debug for ScreenCaptureDisabledBehavior {
     }
 }
 impl ::windows::core::RuntimeType for ScreenCaptureDisabledBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ScreenCaptureDisabledBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ScreenCaptureDisabledBehavior;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3862,7 +3862,7 @@ impl ::core::fmt::Debug for UIColorType {
     }
 }
 impl ::windows::core::RuntimeType for UIColorType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIColorType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIColorType;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3916,7 +3916,7 @@ impl ::core::fmt::Debug for UIElementType {
     }
 }
 impl ::windows::core::RuntimeType for UIElementType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIElementType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIElementType;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3946,7 +3946,7 @@ impl ::core::fmt::Debug for UserInteractionMode {
     }
 }
 impl ::windows::core::RuntimeType for UserInteractionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UserInteractionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UserInteractionMode;i4)");
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
@@ -3981,7 +3981,7 @@ impl ::core::fmt::Debug for ViewSizePreference {
     }
 }
 impl ::windows::core::RuntimeType for ViewSizePreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ViewSizePreference;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ViewSizePreference;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

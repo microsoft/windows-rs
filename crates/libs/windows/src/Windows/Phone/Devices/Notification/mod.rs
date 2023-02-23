@@ -64,7 +64,7 @@ impl VibrationDevice {
     }
     #[doc(hidden)]
     pub fn IVibrationDeviceStatics<R, F: FnOnce(&IVibrationDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VibrationDevice, IVibrationDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VibrationDevice, IVibrationDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -80,7 +80,7 @@ impl ::core::fmt::Debug for VibrationDevice {
     }
 }
 impl ::windows::core::RuntimeType for VibrationDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Notification.VibrationDevice;{1b4a6595-cfcd-4e08-92fb-c1906d04498c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Notification.VibrationDevice;{1b4a6595-cfcd-4e08-92fb-c1906d04498c})");
 }
 impl ::core::clone::Clone for VibrationDevice {
     fn clone(&self) -> Self {
@@ -96,7 +96,7 @@ unsafe impl ::windows::core::Interface for VibrationDevice {
 impl ::windows::core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";
 }
-::windows::core::interface_hierarchy!(VibrationDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VibrationDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VibrationDevice {}
 unsafe impl ::core::marker::Sync for VibrationDevice {}
 #[cfg(feature = "implement")]

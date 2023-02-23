@@ -159,7 +159,7 @@ impl CredentialPicker {
     }
     #[doc(hidden)]
     pub fn ICredentialPickerStatics<R, F: FnOnce(&ICredentialPickerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CredentialPicker, ICredentialPickerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CredentialPicker, ICredentialPickerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -173,8 +173,8 @@ impl CredentialPickerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CredentialPickerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CredentialPickerOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetCaption(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -308,7 +308,7 @@ impl ::core::fmt::Debug for CredentialPickerOptions {
     }
 }
 impl ::windows::core::RuntimeType for CredentialPickerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerOptions;{965a0b4c-95fa-467f-992b-0b22e5859bf6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerOptions;{965a0b4c-95fa-467f-992b-0b22e5859bf6})");
 }
 impl ::core::clone::Clone for CredentialPickerOptions {
     fn clone(&self) -> Self {
@@ -324,7 +324,7 @@ unsafe impl ::windows::core::Interface for CredentialPickerOptions {
 impl ::windows::core::RuntimeName for CredentialPickerOptions {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerOptions";
 }
-::windows::core::interface_hierarchy!(CredentialPickerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CredentialPickerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
 pub struct CredentialPickerResults(::windows::core::IUnknown);
@@ -393,7 +393,7 @@ impl ::core::fmt::Debug for CredentialPickerResults {
     }
 }
 impl ::windows::core::RuntimeType for CredentialPickerResults {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerResults;{1948f99a-cc30-410c-9c38-cc0884c5b3d7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerResults;{1948f99a-cc30-410c-9c38-cc0884c5b3d7})");
 }
 impl ::core::clone::Clone for CredentialPickerResults {
     fn clone(&self) -> Self {
@@ -409,7 +409,7 @@ unsafe impl ::windows::core::Interface for CredentialPickerResults {
 impl ::windows::core::RuntimeName for CredentialPickerResults {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerResults";
 }
-::windows::core::interface_hierarchy!(CredentialPickerResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CredentialPickerResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 pub struct UserConsentVerifier;
 impl UserConsentVerifier {
@@ -431,7 +431,7 @@ impl UserConsentVerifier {
     }
     #[doc(hidden)]
     pub fn IUserConsentVerifierStatics<R, F: FnOnce(&IUserConsentVerifierStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserConsentVerifier, IUserConsentVerifierStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserConsentVerifier, IUserConsentVerifierStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -471,7 +471,7 @@ impl ::core::fmt::Debug for AuthenticationProtocol {
     }
 }
 impl ::windows::core::RuntimeType for AuthenticationProtocol {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
@@ -502,7 +502,7 @@ impl ::core::fmt::Debug for CredentialSaveOption {
     }
 }
 impl ::windows::core::RuntimeType for CredentialSaveOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
@@ -537,7 +537,7 @@ impl ::core::fmt::Debug for UserConsentVerificationResult {
     }
 }
 impl ::windows::core::RuntimeType for UserConsentVerificationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerificationResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerificationResult;i4)");
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
@@ -570,7 +570,7 @@ impl ::core::fmt::Debug for UserConsentVerifierAvailability {
     }
 }
 impl ::windows::core::RuntimeType for UserConsentVerifierAvailability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerifierAvailability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerifierAvailability;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

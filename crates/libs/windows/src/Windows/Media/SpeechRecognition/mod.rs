@@ -167,7 +167,7 @@ impl ISpeechRecognitionConstraint {
         unsafe { (::windows::core::Vtable::vtable(this).SetProbability)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ISpeechRecognitionConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISpeechRecognitionConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISpeechRecognitionConstraint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -180,7 +180,7 @@ impl ::core::fmt::Debug for ISpeechRecognitionConstraint {
     }
 }
 impl ::windows::core::RuntimeType for ISpeechRecognitionConstraint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79ac1628-4d68-43c4-8911-40dc4101b55b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{79ac1628-4d68-43c4-8911-40dc4101b55b}");
 }
 unsafe impl ::windows::core::Vtable for ISpeechRecognitionConstraint {
     type Vtable = ISpeechRecognitionConstraint_Vtbl;
@@ -842,7 +842,7 @@ impl ::core::fmt::Debug for SpeechContinuousRecognitionCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpeechContinuousRecognitionCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs;{e3d069bb-e30c-5e18-424b-7fbe81f8fbd0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs;{e3d069bb-e30c-5e18-424b-7fbe81f8fbd0})");
 }
 impl ::core::clone::Clone for SpeechContinuousRecognitionCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -858,7 +858,7 @@ unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionCompletedE
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpeechContinuousRecognitionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechContinuousRecognitionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -885,7 +885,7 @@ impl ::core::fmt::Debug for SpeechContinuousRecognitionResultGeneratedEventArgs 
     }
 }
 impl ::windows::core::RuntimeType for SpeechContinuousRecognitionResultGeneratedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs;{19091e1e-6e7e-5a46-40fb-76594f786504})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs;{19091e1e-6e7e-5a46-40fb-76594f786504})");
 }
 impl ::core::clone::Clone for SpeechContinuousRecognitionResultGeneratedEventArgs {
     fn clone(&self) -> Self {
@@ -901,7 +901,7 @@ unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionResultGene
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionResultGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpeechContinuousRecognitionResultGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechContinuousRecognitionResultGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1015,7 +1015,7 @@ impl ::core::fmt::Debug for SpeechContinuousRecognitionSession {
     }
 }
 impl ::windows::core::RuntimeType for SpeechContinuousRecognitionSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession;{6a213c04-6614-49f8-99a2-b5e9b3a085c8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession;{6a213c04-6614-49f8-99a2-b5e9b3a085c8})");
 }
 impl ::core::clone::Clone for SpeechContinuousRecognitionSession {
     fn clone(&self) -> Self {
@@ -1031,7 +1031,7 @@ unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionSession {
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionSession {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession";
 }
-::windows::core::interface_hierarchy!(SpeechContinuousRecognitionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechContinuousRecognitionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionSession {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionSession {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1058,7 +1058,7 @@ impl ::core::fmt::Debug for SpeechRecognitionCompilationResult {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionCompilationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult;{407e6c5d-6ac7-4da4-9cc1-2fce32cf7489})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult;{407e6c5d-6ac7-4da4-9cc1-2fce32cf7489})");
 }
 impl ::core::clone::Clone for SpeechRecognitionCompilationResult {
     fn clone(&self) -> Self {
@@ -1074,7 +1074,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionCompilationResult {
 impl ::windows::core::RuntimeName for SpeechRecognitionCompilationResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionCompilationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionCompilationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionCompilationResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionCompilationResult {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1148,7 +1148,7 @@ impl SpeechRecognitionGrammarFileConstraint {
     }
     #[doc(hidden)]
     pub fn ISpeechRecognitionGrammarFileConstraintFactory<R, F: FnOnce(&ISpeechRecognitionGrammarFileConstraintFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechRecognitionGrammarFileConstraint, ISpeechRecognitionGrammarFileConstraintFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpeechRecognitionGrammarFileConstraint, ISpeechRecognitionGrammarFileConstraintFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1164,7 +1164,7 @@ impl ::core::fmt::Debug for SpeechRecognitionGrammarFileConstraint {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionGrammarFileConstraint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint;{b5031a8f-85ca-4fa4-b11a-474fc41b3835})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint;{b5031a8f-85ca-4fa4-b11a-474fc41b3835})");
 }
 impl ::core::clone::Clone for SpeechRecognitionGrammarFileConstraint {
     fn clone(&self) -> Self {
@@ -1180,7 +1180,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionGrammarFileConstrain
 impl ::windows::core::RuntimeName for SpeechRecognitionGrammarFileConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionGrammarFileConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionGrammarFileConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpeechRecognitionGrammarFileConstraint> for ISpeechRecognitionConstraint {
     type Error = ::windows::core::Error;
     fn try_from(value: SpeechRecognitionGrammarFileConstraint) -> ::windows::core::Result<Self> {
@@ -1226,7 +1226,7 @@ impl ::core::fmt::Debug for SpeechRecognitionHypothesis {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionHypothesis {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis;{7a7b25b0-99c5-4f7d-bf84-10aa1302b634})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis;{7a7b25b0-99c5-4f7d-bf84-10aa1302b634})");
 }
 impl ::core::clone::Clone for SpeechRecognitionHypothesis {
     fn clone(&self) -> Self {
@@ -1242,7 +1242,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionHypothesis {
 impl ::windows::core::RuntimeName for SpeechRecognitionHypothesis {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionHypothesis, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionHypothesis, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionHypothesis {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionHypothesis {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1269,7 +1269,7 @@ impl ::core::fmt::Debug for SpeechRecognitionHypothesisGeneratedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionHypothesisGeneratedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs;{55161a7a-8023-5866-411d-1213bb271476})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs;{55161a7a-8023-5866-411d-1213bb271476})");
 }
 impl ::core::clone::Clone for SpeechRecognitionHypothesisGeneratedEventArgs {
     fn clone(&self) -> Self {
@@ -1285,7 +1285,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionHypothesisGeneratedE
 impl ::windows::core::RuntimeName for SpeechRecognitionHypothesisGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionHypothesisGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionHypothesisGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionHypothesisGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionHypothesisGeneratedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1367,7 +1367,7 @@ impl SpeechRecognitionListConstraint {
     }
     #[doc(hidden)]
     pub fn ISpeechRecognitionListConstraintFactory<R, F: FnOnce(&ISpeechRecognitionListConstraintFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechRecognitionListConstraint, ISpeechRecognitionListConstraintFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpeechRecognitionListConstraint, ISpeechRecognitionListConstraintFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1383,7 +1383,7 @@ impl ::core::fmt::Debug for SpeechRecognitionListConstraint {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionListConstraint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint;{09c487e9-e4ad-4526-81f2-4946fb481d98})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint;{09c487e9-e4ad-4526-81f2-4946fb481d98})");
 }
 impl ::core::clone::Clone for SpeechRecognitionListConstraint {
     fn clone(&self) -> Self {
@@ -1399,7 +1399,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionListConstraint {
 impl ::windows::core::RuntimeName for SpeechRecognitionListConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionListConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionListConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpeechRecognitionListConstraint> for ISpeechRecognitionConstraint {
     type Error = ::windows::core::Error;
     fn try_from(value: SpeechRecognitionListConstraint) -> ::windows::core::Result<Self> {
@@ -1445,7 +1445,7 @@ impl ::core::fmt::Debug for SpeechRecognitionQualityDegradingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionQualityDegradingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs;{4fe24105-8c3a-4c7e-8d0a-5bd4f5b14ad8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs;{4fe24105-8c3a-4c7e-8d0a-5bd4f5b14ad8})");
 }
 impl ::core::clone::Clone for SpeechRecognitionQualityDegradingEventArgs {
     fn clone(&self) -> Self {
@@ -1461,7 +1461,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionQualityDegradingEven
 impl ::windows::core::RuntimeName for SpeechRecognitionQualityDegradingEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionQualityDegradingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionQualityDegradingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionQualityDegradingEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionQualityDegradingEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1559,7 +1559,7 @@ impl ::core::fmt::Debug for SpeechRecognitionResult {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionResult;{4e303157-034e-4652-857e-d0454cc4beec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionResult;{4e303157-034e-4652-857e-d0454cc4beec})");
 }
 impl ::core::clone::Clone for SpeechRecognitionResult {
     fn clone(&self) -> Self {
@@ -1575,7 +1575,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionResult {
 impl ::windows::core::RuntimeName for SpeechRecognitionResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionResult";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionResult {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1604,7 +1604,7 @@ impl ::core::fmt::Debug for SpeechRecognitionSemanticInterpretation {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionSemanticInterpretation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation;{aae1da9b-7e32-4c1f-89fe-0c65f486f52e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation;{aae1da9b-7e32-4c1f-89fe-0c65f486f52e})");
 }
 impl ::core::clone::Clone for SpeechRecognitionSemanticInterpretation {
     fn clone(&self) -> Self {
@@ -1620,7 +1620,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionSemanticInterpretati
 impl ::windows::core::RuntimeName for SpeechRecognitionSemanticInterpretation {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionSemanticInterpretation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionSemanticInterpretation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionSemanticInterpretation {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionSemanticInterpretation {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1695,7 +1695,7 @@ impl SpeechRecognitionTopicConstraint {
     }
     #[doc(hidden)]
     pub fn ISpeechRecognitionTopicConstraintFactory<R, F: FnOnce(&ISpeechRecognitionTopicConstraintFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechRecognitionTopicConstraint, ISpeechRecognitionTopicConstraintFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpeechRecognitionTopicConstraint, ISpeechRecognitionTopicConstraintFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1711,7 +1711,7 @@ impl ::core::fmt::Debug for SpeechRecognitionTopicConstraint {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionTopicConstraint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint;{bf6fdf19-825d-4e69-a681-36e48cf1c93e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint;{bf6fdf19-825d-4e69-a681-36e48cf1c93e})");
 }
 impl ::core::clone::Clone for SpeechRecognitionTopicConstraint {
     fn clone(&self) -> Self {
@@ -1727,7 +1727,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionTopicConstraint {
 impl ::windows::core::RuntimeName for SpeechRecognitionTopicConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionTopicConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionTopicConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpeechRecognitionTopicConstraint> for ISpeechRecognitionConstraint {
     type Error = ::windows::core::Error;
     fn try_from(value: SpeechRecognitionTopicConstraint) -> ::windows::core::Result<Self> {
@@ -1806,7 +1806,7 @@ impl ::core::fmt::Debug for SpeechRecognitionVoiceCommandDefinitionConstraint {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionVoiceCommandDefinitionConstraint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint;{f2791c2b-1ef4-4ae7-9d77-b6ff10b8a3c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint;{f2791c2b-1ef4-4ae7-9d77-b6ff10b8a3c2})");
 }
 impl ::core::clone::Clone for SpeechRecognitionVoiceCommandDefinitionConstraint {
     fn clone(&self) -> Self {
@@ -1822,7 +1822,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionVoiceCommandDefiniti
 impl ::windows::core::RuntimeName for SpeechRecognitionVoiceCommandDefinitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint";
 }
-::windows::core::interface_hierarchy!(SpeechRecognitionVoiceCommandDefinitionConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognitionVoiceCommandDefinitionConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpeechRecognitionVoiceCommandDefinitionConstraint> for ISpeechRecognitionConstraint {
     type Error = ::windows::core::Error;
     fn try_from(value: SpeechRecognitionVoiceCommandDefinitionConstraint) -> ::windows::core::Result<Self> {
@@ -1851,8 +1851,8 @@ impl SpeechRecognizer {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechRecognizer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SpeechRecognizer, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2030,17 +2030,17 @@ impl SpeechRecognizer {
     }
     #[doc(hidden)]
     pub fn ISpeechRecognizerFactory<R, F: FnOnce(&ISpeechRecognizerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechRecognizer, ISpeechRecognizerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpeechRecognizer, ISpeechRecognizerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISpeechRecognizerStatics<R, F: FnOnce(&ISpeechRecognizerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechRecognizer, ISpeechRecognizerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpeechRecognizer, ISpeechRecognizerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISpeechRecognizerStatics2<R, F: FnOnce(&ISpeechRecognizerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechRecognizer, ISpeechRecognizerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpeechRecognizer, ISpeechRecognizerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2056,7 +2056,7 @@ impl ::core::fmt::Debug for SpeechRecognizer {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognizer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizer;{0bc3c9cb-c26a-40f2-aeb5-8096b2e48073})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizer;{0bc3c9cb-c26a-40f2-aeb5-8096b2e48073})");
 }
 impl ::core::clone::Clone for SpeechRecognizer {
     fn clone(&self) -> Self {
@@ -2072,7 +2072,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognizer {
 impl ::windows::core::RuntimeName for SpeechRecognizer {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizer";
 }
-::windows::core::interface_hierarchy!(SpeechRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SpeechRecognizer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2121,7 +2121,7 @@ impl ::core::fmt::Debug for SpeechRecognizerStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognizerStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs;{563d4f09-ba03-4bad-ad81-ddc6c4dab0c3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs;{563d4f09-ba03-4bad-ad81-ddc6c4dab0c3})");
 }
 impl ::core::clone::Clone for SpeechRecognizerStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2137,7 +2137,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognizerStateChangedEventArgs
 impl ::windows::core::RuntimeName for SpeechRecognizerStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(SpeechRecognizerStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognizerStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognizerStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -2202,7 +2202,7 @@ impl ::core::fmt::Debug for SpeechRecognizerTimeouts {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognizerTimeouts {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts;{2ef76fca-6a3c-4dca-a153-df1bc88a79af})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts;{2ef76fca-6a3c-4dca-a153-df1bc88a79af})");
 }
 impl ::core::clone::Clone for SpeechRecognizerTimeouts {
     fn clone(&self) -> Self {
@@ -2218,7 +2218,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognizerTimeouts {
 impl ::windows::core::RuntimeName for SpeechRecognizerTimeouts {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts";
 }
-::windows::core::interface_hierarchy!(SpeechRecognizerTimeouts, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognizerTimeouts, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognizerTimeouts {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerTimeouts {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -2282,7 +2282,7 @@ impl ::core::fmt::Debug for SpeechRecognizerUIOptions {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognizerUIOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions;{7888d641-b92b-44ba-a25f-d1864630641f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions;{7888d641-b92b-44ba-a25f-d1864630641f})");
 }
 impl ::core::clone::Clone for SpeechRecognizerUIOptions {
     fn clone(&self) -> Self {
@@ -2298,7 +2298,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognizerUIOptions {
 impl ::windows::core::RuntimeName for SpeechRecognizerUIOptions {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions";
 }
-::windows::core::interface_hierarchy!(SpeechRecognizerUIOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechRecognizerUIOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognizerUIOptions {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerUIOptions {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -2322,7 +2322,7 @@ impl VoiceCommandManager {
     }
     #[doc(hidden)]
     pub fn IVoiceCommandManager<R, F: FnOnce(&IVoiceCommandManager) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VoiceCommandManager, IVoiceCommandManager> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VoiceCommandManager, IVoiceCommandManager> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2373,7 +2373,7 @@ impl ::core::fmt::Debug for VoiceCommandSet {
     }
 }
 impl ::windows::core::RuntimeType for VoiceCommandSet {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.VoiceCommandSet;{0bedda75-46e6-4b11-a088-5c68632899b5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.VoiceCommandSet;{0bedda75-46e6-4b11-a088-5c68632899b5})");
 }
 impl ::core::clone::Clone for VoiceCommandSet {
     fn clone(&self) -> Self {
@@ -2389,7 +2389,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandSet {
 impl ::windows::core::RuntimeName for VoiceCommandSet {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandSet";
 }
-::windows::core::interface_hierarchy!(VoiceCommandSet, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceCommandSet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandSet {}
 unsafe impl ::core::marker::Sync for VoiceCommandSet {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -2420,7 +2420,7 @@ impl ::core::fmt::Debug for SpeechContinuousRecognitionMode {
     }
 }
 impl ::windows::core::RuntimeType for SpeechContinuousRecognitionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
@@ -2455,7 +2455,7 @@ impl ::core::fmt::Debug for SpeechRecognitionAudioProblem {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionAudioProblem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
@@ -2487,7 +2487,7 @@ impl ::core::fmt::Debug for SpeechRecognitionConfidence {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionConfidence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
@@ -2518,7 +2518,7 @@ impl ::core::fmt::Debug for SpeechRecognitionConstraintProbability {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionConstraintProbability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
@@ -2550,7 +2550,7 @@ impl ::core::fmt::Debug for SpeechRecognitionConstraintType {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionConstraintType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
@@ -2589,7 +2589,7 @@ impl ::core::fmt::Debug for SpeechRecognitionResultStatus {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionResultStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
@@ -2620,7 +2620,7 @@ impl ::core::fmt::Debug for SpeechRecognitionScenario {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognitionScenario {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
@@ -2655,7 +2655,7 @@ impl ::core::fmt::Debug for SpeechRecognizerState {
     }
 }
 impl ::windows::core::RuntimeType for SpeechRecognizerState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognizerState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognizerState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

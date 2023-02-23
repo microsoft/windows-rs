@@ -9,7 +9,7 @@ impl IWaaSAssessor {
         (::windows::core::Vtable::vtable(self).GetOSUpdateAssessment)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWaaSAssessor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWaaSAssessor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWaaSAssessor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

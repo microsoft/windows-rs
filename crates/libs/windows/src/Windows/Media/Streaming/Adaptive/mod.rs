@@ -1193,7 +1193,7 @@ impl AdaptiveMediaSource {
     }
     #[doc(hidden)]
     pub fn IAdaptiveMediaSourceStatics<R, F: FnOnce(&IAdaptiveMediaSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdaptiveMediaSource, IAdaptiveMediaSourceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AdaptiveMediaSource, IAdaptiveMediaSourceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1209,7 +1209,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSource {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSource;{4c7332ef-d39f-4396-b4d9-043957a7c964})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSource;{4c7332ef-d39f-4396-b4d9-043957a7c964})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSource {
     fn clone(&self) -> Self {
@@ -1225,7 +1225,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSource {
 impl ::windows::core::RuntimeName for AdaptiveMediaSource {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSource";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AdaptiveMediaSource> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1338,7 +1338,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceAdvancedSettings {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceAdvancedSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings;{55db1680-1aeb-47dc-aa08-9a11610ba45a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings;{55db1680-1aeb-47dc-aa08-9a11610ba45a})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceAdvancedSettings {
     fn clone(&self) -> Self {
@@ -1354,7 +1354,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceAdvancedSettings {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceAdvancedSettings {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceAdvancedSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceAdvancedSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceAdvancedSettings {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceAdvancedSettings {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1401,7 +1401,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceCorrelatedTimes {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceCorrelatedTimes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes;{05108787-e032-48e1-ab8d-002b0b3051df})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes;{05108787-e032-48e1-ab8d-002b0b3051df})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceCorrelatedTimes {
     fn clone(&self) -> Self {
@@ -1417,7 +1417,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceCorrelatedTimes {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceCorrelatedTimes {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceCorrelatedTimes, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceCorrelatedTimes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceCorrelatedTimes {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceCorrelatedTimes {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1467,7 +1467,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceCreationResult {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceCreationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult;{4686b6b2-800f-4e31-9093-76d4782013e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult;{4686b6b2-800f-4e31-9093-76d4782013e7})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceCreationResult {
     fn clone(&self) -> Self {
@@ -1483,7 +1483,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceCreationResult {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceCreationResult {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceCreationResult {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceCreationResult {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1605,7 +1605,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs;{3af64f06-6d9c-494a-b7a9-b3a5dee6ad68})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs;{3af64f06-6d9c-494a-b7a9-b3a5dee6ad68})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     fn clone(&self) -> Self {
@@ -1621,7 +1621,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDiagnosticAvailabl
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceDiagnosticAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnosticAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1656,7 +1656,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnostics {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnostics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics;{9b24ee68-962e-448c-aebf-b29b56098e23})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics;{9b24ee68-962e-448c-aebf-b29b56098e23})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDiagnostics {
     fn clone(&self) -> Self {
@@ -1672,7 +1672,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDiagnostics {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDiagnostics {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceDiagnostics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnostics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDiagnostics {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnostics {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1713,7 +1713,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs;{670c0a44-e04e-4eff-816a-17399f78f4ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs;{670c0a44-e04e-4eff-816a-17399f78f4ba})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1729,7 +1729,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadBitrateCha
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadBitrateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadBitrateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1831,7 +1831,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs;{19240dc3-5b37-4a1a-8970-d621cb6ca83b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs;{19240dc3-5b37-4a1a-8970-d621cb6ca83b})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -1847,7 +1847,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadCompletedE
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1956,7 +1956,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadFailedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadFailedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs;{37739048-f4ab-40a4-b135-c6dfd8bd7ff1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs;{37739048-f4ab-40a4-b135-c6dfd8bd7ff1})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadFailedEventArgs {
     fn clone(&self) -> Self {
@@ -1972,7 +1972,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadFailedEven
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadFailedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1996,7 +1996,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadRequestedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadRequestedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral;{05c68f64-fa20-4dbd-9821-4bf4c9bf77ab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral;{05c68f64-fa20-4dbd-9821-4bf4c9bf77ab})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadRequestedDeferral {
     fn clone(&self) -> Self {
@@ -2012,7 +2012,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadRequestedD
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadRequestedDeferral {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadRequestedDeferral {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadRequestedDeferral {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2112,7 +2112,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs;{c83fdffd-44a9-47a2-bf96-03398b4bfaaf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs;{c83fdffd-44a9-47a2-bf96-03398b4bfaaf})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -2128,7 +2128,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadRequestedE
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadRequestedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2261,7 +2261,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadResult {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult;{f4afdc73-bcee-4a6a-9f0a-fec41e2339b0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult;{f4afdc73-bcee-4a6a-9f0a-fec41e2339b0})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadResult {
     fn clone(&self) -> Self {
@@ -2277,7 +2277,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadResult {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadResult {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadResult {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadResult {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2331,7 +2331,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadStatistics {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadStatistics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics;{a306cefb-e96a-4dff-a9b8-1ae08c01ae98})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics;{a306cefb-e96a-4dff-a9b8-1ae08c01ae98})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadStatistics {
     fn clone(&self) -> Self {
@@ -2347,7 +2347,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadStatistics
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadStatistics {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadStatistics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadStatistics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadStatistics {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadStatistics {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2388,7 +2388,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs;{23a29f6d-7dda-4a51-87a9-6fa8c5b292be})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs;{23a29f6d-7dda-4a51-87a9-6fa8c5b292be})");
 }
 impl ::core::clone::Clone for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2404,7 +2404,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourcePlaybackBitrateCha
 impl ::windows::core::RuntimeName for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AdaptiveMediaSourcePlaybackBitrateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AdaptiveMediaSourcePlaybackBitrateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2440,7 +2440,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceCreationStatus {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
@@ -2477,7 +2477,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticType {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnosticType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType;i4)");
 }
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
@@ -2512,7 +2512,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedReason {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason;i4)");
 }
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
@@ -2546,7 +2546,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceResourceType {
     }
 }
 impl ::windows::core::RuntimeType for AdaptiveMediaSourceResourceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

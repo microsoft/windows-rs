@@ -79,7 +79,7 @@ impl PalmRejectionDelayZonePreview {
     }
     #[doc(hidden)]
     pub fn IPalmRejectionDelayZonePreviewStatics<R, F: FnOnce(&IPalmRejectionDelayZonePreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreviewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreviewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -95,7 +95,7 @@ impl ::core::fmt::Debug for PalmRejectionDelayZonePreview {
     }
 }
 impl ::windows::core::RuntimeType for PalmRejectionDelayZonePreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview;{62b496cb-539d-5343-a65f-41f5300ec70c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview;{62b496cb-539d-5343-a65f-41f5300ec70c})");
 }
 impl ::core::clone::Clone for PalmRejectionDelayZonePreview {
     fn clone(&self) -> Self {
@@ -111,7 +111,7 @@ unsafe impl ::windows::core::Interface for PalmRejectionDelayZonePreview {
 impl ::windows::core::RuntimeName for PalmRejectionDelayZonePreview {
     const NAME: &'static str = "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";
 }
-::windows::core::interface_hierarchy!(PalmRejectionDelayZonePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PalmRejectionDelayZonePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PalmRejectionDelayZonePreview> for super::super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

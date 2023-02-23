@@ -5,7 +5,7 @@ pub struct AppEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl AppEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(AppEvents, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(AppEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for AppEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -89,7 +89,7 @@ impl Column {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Column, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Column, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Column {
     fn eq(&self, other: &Self) -> bool {
@@ -164,7 +164,7 @@ impl Columns {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Columns, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Columns, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Columns {
     fn eq(&self, other: &Self) -> bool {
@@ -227,7 +227,7 @@ impl ContextMenu {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ContextMenu, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ContextMenu, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ContextMenu {
     fn eq(&self, other: &Self) -> bool {
@@ -356,7 +356,7 @@ impl Document {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Document, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Document, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Document {
     fn eq(&self, other: &Self) -> bool {
@@ -480,7 +480,7 @@ impl Extension {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Extension, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Extension, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Extension {
     fn eq(&self, other: &Self) -> bool {
@@ -553,7 +553,7 @@ impl Extensions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Extensions, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Extensions, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Extensions {
     fn eq(&self, other: &Self) -> bool {
@@ -639,7 +639,7 @@ impl Frame {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Frame, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Frame, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Frame {
     fn eq(&self, other: &Self) -> bool {
@@ -704,7 +704,7 @@ impl IColumnData {
         (::windows::core::Vtable::vtable(self).GetColumnSortData)(::windows::core::Vtable::as_raw(self), pcolid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IColumnData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IColumnData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IColumnData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -783,7 +783,7 @@ impl IComponent {
         (::windows::core::Vtable::vtable(self).CompareObjects)(::windows::core::Vtable::as_raw(self), lpdataobjecta.into().abi(), lpdataobjectb.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComponent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComponent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComponent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -889,7 +889,7 @@ impl IComponent2 {
         (::windows::core::Vtable::vtable(self).RestoreResultView)(::windows::core::Vtable::as_raw(self), cookie, presultviewtype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComponent2, ::windows::core::IUnknown, IComponent);
+::windows::imp::interface_hierarchy!(IComponent2, ::windows::core::IUnknown, IComponent);
 impl ::core::cmp::PartialEq for IComponent2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -971,7 +971,7 @@ impl IComponentData {
         (::windows::core::Vtable::vtable(self).CompareObjects)(::windows::core::Vtable::as_raw(self), lpdataobjecta.into().abi(), lpdataobjectb.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComponentData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComponentData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComponentData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1072,7 +1072,7 @@ impl IComponentData2 {
         (::windows::core::Vtable::vtable(self).QueryDispatch)(::windows::core::Vtable::as_raw(self), cookie, r#type, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IComponentData2, ::windows::core::IUnknown, IComponentData);
+::windows::imp::interface_hierarchy!(IComponentData2, ::windows::core::IUnknown, IComponentData);
 impl ::core::cmp::PartialEq for IComponentData2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1166,7 +1166,7 @@ impl IConsole {
         (::windows::core::Vtable::vtable(self).NewWindow)(::windows::core::Vtable::as_raw(self), hscopeitem, loptions).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConsole, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConsole, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConsole {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1290,7 +1290,7 @@ impl IConsole2 {
         (::windows::core::Vtable::vtable(self).SetStatusText)(::windows::core::Vtable::as_raw(self), pszstatustext.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConsole2, ::windows::core::IUnknown, IConsole);
+::windows::imp::interface_hierarchy!(IConsole2, ::windows::core::IUnknown, IConsole);
 impl ::core::cmp::PartialEq for IConsole2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1406,7 +1406,7 @@ impl IConsole3 {
         (::windows::core::Vtable::vtable(self).RenameScopeItem)(::windows::core::Vtable::as_raw(self), hscopeitem).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConsole3, ::windows::core::IUnknown, IConsole, IConsole2);
+::windows::imp::interface_hierarchy!(IConsole3, ::windows::core::IUnknown, IConsole, IConsole2);
 impl ::core::cmp::PartialEq for IConsole3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1467,7 +1467,7 @@ impl IConsoleNameSpace {
         (::windows::core::Vtable::vtable(self).GetParentItem)(::windows::core::Vtable::as_raw(self), item, pitemparent, pcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConsoleNameSpace, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConsoleNameSpace, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConsoleNameSpace {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1549,7 +1549,7 @@ impl IConsoleNameSpace2 {
         (::windows::core::Vtable::vtable(self).AddExtension)(::windows::core::Vtable::as_raw(self), hitem, lpclsid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConsoleNameSpace2, ::windows::core::IUnknown, IConsoleNameSpace);
+::windows::imp::interface_hierarchy!(IConsoleNameSpace2, ::windows::core::IUnknown, IConsoleNameSpace);
 impl ::core::cmp::PartialEq for IConsoleNameSpace2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1590,7 +1590,7 @@ impl IConsolePower {
         (::windows::core::Vtable::vtable(self).ResetIdleTimer)(::windows::core::Vtable::as_raw(self), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConsolePower, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConsolePower, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConsolePower {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1634,7 +1634,7 @@ impl IConsolePowerSink {
         (::windows::core::Vtable::vtable(self).OnPowerBroadcast)(::windows::core::Vtable::as_raw(self), nevent, lparam.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IConsolePowerSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConsolePowerSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConsolePowerSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1692,7 +1692,7 @@ impl IConsoleVerb {
         (::windows::core::Vtable::vtable(self).GetDefaultVerb)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IConsoleVerb, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IConsoleVerb, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IConsoleVerb {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1738,7 +1738,7 @@ impl IContextMenuCallback {
         (::windows::core::Vtable::vtable(self).AddItem)(::windows::core::Vtable::as_raw(self), pitem).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextMenuCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContextMenuCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContextMenuCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1775,7 +1775,7 @@ impl IContextMenuCallback2 {
         (::windows::core::Vtable::vtable(self).AddItem)(::windows::core::Vtable::as_raw(self), pitem).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextMenuCallback2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContextMenuCallback2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContextMenuCallback2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1841,7 +1841,7 @@ impl IContextMenuProvider {
         (::windows::core::Vtable::vtable(self).ShowContextMenu)(::windows::core::Vtable::as_raw(self), hwndparent.into(), xpos, ypos, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IContextMenuProvider, ::windows::core::IUnknown, IContextMenuCallback);
+::windows::imp::interface_hierarchy!(IContextMenuProvider, ::windows::core::IUnknown, IContextMenuCallback);
 impl ::core::cmp::PartialEq for IContextMenuProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1906,7 +1906,7 @@ impl IControlbar {
         (::windows::core::Vtable::vtable(self).Detach)(::windows::core::Vtable::as_raw(self), lpunknown.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IControlbar, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IControlbar, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IControlbar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1948,7 +1948,7 @@ impl IDisplayHelp {
         (::windows::core::Vtable::vtable(self).ShowTopic)(::windows::core::Vtable::as_raw(self), pszhelptopic.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDisplayHelp, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDisplayHelp, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDisplayHelp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1995,7 +1995,7 @@ impl IEnumTASK {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumTASK, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTASK, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTASK {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2049,7 +2049,7 @@ impl IExtendContextMenu {
         (::windows::core::Vtable::vtable(self).Command)(::windows::core::Vtable::as_raw(self), lcommandid, pidataobject.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExtendContextMenu, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExtendContextMenu, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExtendContextMenu {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2105,7 +2105,7 @@ impl IExtendControlbar {
         (::windows::core::Vtable::vtable(self).ControlbarNotify)(::windows::core::Vtable::as_raw(self), event, arg.into(), param2.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExtendControlbar, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExtendControlbar, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExtendControlbar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2160,7 +2160,7 @@ impl IExtendPropertySheet {
         (::windows::core::Vtable::vtable(self).QueryPagesFor)(::windows::core::Vtable::as_raw(self), lpdataobject.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExtendPropertySheet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExtendPropertySheet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExtendPropertySheet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2226,7 +2226,7 @@ impl IExtendPropertySheet2 {
         (::windows::core::Vtable::vtable(self).GetWatermarks)(::windows::core::Vtable::as_raw(self), lpidataobject.into().abi(), lphwatermark, lphheader, lphpalette, bstretch).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExtendPropertySheet2, ::windows::core::IUnknown, IExtendPropertySheet);
+::windows::imp::interface_hierarchy!(IExtendPropertySheet2, ::windows::core::IUnknown, IExtendPropertySheet);
 impl ::core::cmp::PartialEq for IExtendPropertySheet2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2309,7 +2309,7 @@ impl IExtendTaskPad {
         (::windows::core::Vtable::vtable(self).GetListPadInfo)(::windows::core::Vtable::as_raw(self), pszgroup.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExtendTaskPad, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExtendTaskPad, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExtendTaskPad {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2363,7 +2363,7 @@ impl IExtendView {
         (::windows::core::Vtable::vtable(self).GetViews)(::windows::core::Vtable::as_raw(self), pdataobject.into().abi(), pviewextensioncallback.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExtendView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExtendView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExtendView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2426,7 +2426,7 @@ impl IHeaderCtrl {
         (::windows::core::Vtable::vtable(self).GetColumnWidth)(::windows::core::Vtable::as_raw(self), ncol, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IHeaderCtrl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHeaderCtrl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHeaderCtrl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2500,7 +2500,7 @@ impl IHeaderCtrl2 {
         (::windows::core::Vtable::vtable(self).GetColumnFilter)(::windows::core::Vtable::as_raw(self), ncolumn, pdwtype, pfilterdata).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHeaderCtrl2, ::windows::core::IUnknown, IHeaderCtrl);
+::windows::imp::interface_hierarchy!(IHeaderCtrl2, ::windows::core::IUnknown, IHeaderCtrl);
 impl ::core::cmp::PartialEq for IHeaderCtrl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2547,7 +2547,7 @@ impl IImageList {
         (::windows::core::Vtable::vtable(self).ImageListSetStrip)(::windows::core::Vtable::as_raw(self), pbmapsm, pbmaplg, nstartloc, cmask.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IImageList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IImageList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IImageList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2588,7 +2588,7 @@ impl IMMCVersionInfo {
         (::windows::core::Vtable::vtable(self).GetMMCVersion)(::windows::core::Vtable::as_raw(self), pversionmajor, pversionminor).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMMCVersionInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMMCVersionInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMMCVersionInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2644,7 +2644,7 @@ impl IMenuButton {
         (::windows::core::Vtable::vtable(self).SetButtonState)(::windows::core::Vtable::as_raw(self), idcommand, nstate, bstate.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMenuButton, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMenuButton, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMenuButton {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2701,7 +2701,7 @@ impl IMessageView {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMessageView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMessageView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMessageView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2747,7 +2747,7 @@ impl INodeProperties {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pdataobject.into().abi(), ::core::mem::transmute_copy(szpropertyname), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(INodeProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INodeProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INodeProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2800,7 +2800,7 @@ impl IPropertySheetCallback {
         (::windows::core::Vtable::vtable(self).RemovePage)(::windows::core::Vtable::as_raw(self), hpage.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPropertySheetCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPropertySheetCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPropertySheetCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2876,7 +2876,7 @@ impl IPropertySheetProvider {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), window, page).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPropertySheetProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPropertySheetProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPropertySheetProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2934,7 +2934,7 @@ impl IRequiredExtensions {
         (::windows::core::Vtable::vtable(self).GetNextExtension)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRequiredExtensions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRequiredExtensions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRequiredExtensions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3038,7 +3038,7 @@ impl IResultData {
         (::windows::core::Vtable::vtable(self).SetItemCount)(::windows::core::Vtable::as_raw(self), nitemcount, dwoptions).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResultData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IResultData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResultData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3175,7 +3175,7 @@ impl IResultData2 {
         (::windows::core::Vtable::vtable(self).RenameResultItem)(::windows::core::Vtable::as_raw(self), itemid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResultData2, ::windows::core::IUnknown, IResultData);
+::windows::imp::interface_hierarchy!(IResultData2, ::windows::core::IUnknown, IResultData);
 impl ::core::cmp::PartialEq for IResultData2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3217,7 +3217,7 @@ impl IResultDataCompare {
         (::windows::core::Vtable::vtable(self).Compare)(::windows::core::Vtable::as_raw(self), luserparam.into(), cookiea, cookieb, pnresult).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResultDataCompare, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IResultDataCompare, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResultDataCompare {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3260,7 +3260,7 @@ impl IResultDataCompareEx {
         (::windows::core::Vtable::vtable(self).Compare)(::windows::core::Vtable::as_raw(self), prdc, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IResultDataCompareEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IResultDataCompareEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResultDataCompareEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3312,7 +3312,7 @@ impl IResultOwnerData {
         (::windows::core::Vtable::vtable(self).SortItems)(::windows::core::Vtable::as_raw(self), ncolumn, dwsortoptions, luserparam.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResultOwnerData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IResultOwnerData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResultOwnerData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3374,7 +3374,7 @@ impl ISnapinAbout {
         (::windows::core::Vtable::vtable(self).GetStaticFolderImage)(::windows::core::Vtable::as_raw(self), hsmallimage, hsmallimageopen, hlargeimage, cmask).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISnapinAbout, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISnapinAbout, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISnapinAbout {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3422,7 +3422,7 @@ impl ISnapinHelp {
         (::windows::core::Vtable::vtable(self).GetHelpTopic)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISnapinHelp, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISnapinHelp, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISnapinHelp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3464,7 +3464,7 @@ impl ISnapinHelp2 {
         (::windows::core::Vtable::vtable(self).GetLinkedTopics)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISnapinHelp2, ::windows::core::IUnknown, ISnapinHelp);
+::windows::imp::interface_hierarchy!(ISnapinHelp2, ::windows::core::IUnknown, ISnapinHelp);
 impl ::core::cmp::PartialEq for ISnapinHelp2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3517,7 +3517,7 @@ impl ISnapinProperties {
         (::windows::core::Vtable::vtable(self).PropertiesChanged)(::windows::core::Vtable::as_raw(self), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISnapinProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISnapinProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISnapinProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3565,7 +3565,7 @@ impl ISnapinPropertiesCallback {
         (::windows::core::Vtable::vtable(self).AddPropertyName)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISnapinPropertiesCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISnapinPropertiesCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISnapinPropertiesCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3632,7 +3632,7 @@ impl IStringTable {
         (::windows::core::Vtable::vtable(self).Enumerate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStringTable, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStringTable, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStringTable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3707,7 +3707,7 @@ impl IToolbar {
         (::windows::core::Vtable::vtable(self).SetButtonState)(::windows::core::Vtable::as_raw(self), idcommand, nstate, bstate.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IToolbar, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IToolbar, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IToolbar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3760,7 +3760,7 @@ impl IViewExtensionCallback {
         (::windows::core::Vtable::vtable(self).AddView)(::windows::core::Vtable::as_raw(self), pextviewdata).ok()
     }
 }
-::windows::core::interface_hierarchy!(IViewExtensionCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IViewExtensionCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IViewExtensionCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3825,7 +3825,7 @@ impl MenuItem {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(MenuItem, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(MenuItem, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MenuItem {
     fn eq(&self, other: &Self) -> bool {
@@ -3899,7 +3899,7 @@ impl Node {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Node, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Node, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Node {
     fn eq(&self, other: &Self) -> bool {
@@ -3964,7 +3964,7 @@ impl Nodes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Nodes, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Nodes, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Nodes {
     fn eq(&self, other: &Self) -> bool {
@@ -4030,7 +4030,7 @@ impl Properties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Properties, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Properties, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Properties {
     fn eq(&self, other: &Self) -> bool {
@@ -4095,7 +4095,7 @@ impl Property {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Property, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Property, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Property {
     fn eq(&self, other: &Self) -> bool {
@@ -4188,7 +4188,7 @@ impl ScopeNamespace {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ScopeNamespace, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ScopeNamespace, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ScopeNamespace {
     fn eq(&self, other: &Self) -> bool {
@@ -4287,7 +4287,7 @@ impl SnapIn {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(SnapIn, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(SnapIn, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for SnapIn {
     fn eq(&self, other: &Self) -> bool {
@@ -4374,7 +4374,7 @@ impl SnapIns {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(SnapIns, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(SnapIns, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for SnapIns {
     fn eq(&self, other: &Self) -> bool {
@@ -4645,7 +4645,7 @@ impl View {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(View, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(View, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for View {
     fn eq(&self, other: &Self) -> bool {
@@ -4827,7 +4827,7 @@ impl Views {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Views, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Views, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Views {
     fn eq(&self, other: &Self) -> bool {
@@ -4976,7 +4976,7 @@ impl _AppEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_AppEvents, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_AppEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _AppEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -5119,7 +5119,7 @@ impl _Application {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_Application, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_Application, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _Application {
     fn eq(&self, other: &Self) -> bool {
@@ -5200,7 +5200,7 @@ impl _EventConnector {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_EventConnector, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_EventConnector, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _EventConnector {
     fn eq(&self, other: &Self) -> bool {

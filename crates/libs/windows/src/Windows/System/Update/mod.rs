@@ -196,7 +196,7 @@ impl ::core::fmt::Debug for SystemUpdateItem {
     }
 }
 impl ::windows::core::RuntimeType for SystemUpdateItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateItem;{779740eb-5624-519e-a8e2-09e9173b3fb7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateItem;{779740eb-5624-519e-a8e2-09e9173b3fb7})");
 }
 impl ::core::clone::Clone for SystemUpdateItem {
     fn clone(&self) -> Self {
@@ -212,7 +212,7 @@ unsafe impl ::windows::core::Interface for SystemUpdateItem {
 impl ::windows::core::RuntimeName for SystemUpdateItem {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateItem";
 }
-::windows::core::interface_hierarchy!(SystemUpdateItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemUpdateItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemUpdateItem {}
 unsafe impl ::core::marker::Sync for SystemUpdateItem {}
 #[doc = "*Required features: `\"System_Update\"`*"]
@@ -253,7 +253,7 @@ impl ::core::fmt::Debug for SystemUpdateLastErrorInfo {
     }
 }
 impl ::windows::core::RuntimeType for SystemUpdateLastErrorInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateLastErrorInfo;{7ee887f7-8a44-5b6e-bd07-7aece4116ea9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateLastErrorInfo;{7ee887f7-8a44-5b6e-bd07-7aece4116ea9})");
 }
 impl ::core::clone::Clone for SystemUpdateLastErrorInfo {
     fn clone(&self) -> Self {
@@ -269,7 +269,7 @@ unsafe impl ::windows::core::Interface for SystemUpdateLastErrorInfo {
 impl ::windows::core::RuntimeName for SystemUpdateLastErrorInfo {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateLastErrorInfo";
 }
-::windows::core::interface_hierarchy!(SystemUpdateLastErrorInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemUpdateLastErrorInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemUpdateLastErrorInfo {}
 unsafe impl ::core::marker::Sync for SystemUpdateLastErrorInfo {}
 #[doc = "*Required features: `\"System_Update\"`*"]
@@ -431,7 +431,7 @@ impl SystemUpdateManager {
     }
     #[doc(hidden)]
     pub fn ISystemUpdateManagerStatics<R, F: FnOnce(&ISystemUpdateManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemUpdateManager, ISystemUpdateManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemUpdateManager, ISystemUpdateManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -469,7 +469,7 @@ impl ::core::fmt::Debug for SystemUpdateAttentionRequiredReason {
     }
 }
 impl ::windows::core::RuntimeType for SystemUpdateAttentionRequiredReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
 }
 #[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
@@ -506,7 +506,7 @@ impl ::core::fmt::Debug for SystemUpdateItemState {
     }
 }
 impl ::windows::core::RuntimeType for SystemUpdateItemState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
 }
 #[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
@@ -546,7 +546,7 @@ impl ::core::fmt::Debug for SystemUpdateManagerState {
     }
 }
 impl ::windows::core::RuntimeType for SystemUpdateManagerState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
 }
 #[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
@@ -576,7 +576,7 @@ impl ::core::fmt::Debug for SystemUpdateStartInstallAction {
     }
 }
 impl ::windows::core::RuntimeType for SystemUpdateStartInstallAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateStartInstallAction;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateStartInstallAction;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

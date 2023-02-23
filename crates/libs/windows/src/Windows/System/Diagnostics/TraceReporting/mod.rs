@@ -143,7 +143,7 @@ impl PlatformDiagnosticActions {
     }
     #[doc(hidden)]
     pub fn IPlatformDiagnosticActionsStatics<R, F: FnOnce(&IPlatformDiagnosticActionsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlatformDiagnosticActions, IPlatformDiagnosticActionsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlatformDiagnosticActions, IPlatformDiagnosticActionsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -209,7 +209,7 @@ impl ::core::fmt::Debug for PlatformDiagnosticTraceInfo {
     }
 }
 impl ::windows::core::RuntimeType for PlatformDiagnosticTraceInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo;{f870ed97-d597-4bf7-88dc-cf5c7dc2a1d2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo;{f870ed97-d597-4bf7-88dc-cf5c7dc2a1d2})");
 }
 impl ::core::clone::Clone for PlatformDiagnosticTraceInfo {
     fn clone(&self) -> Self {
@@ -225,7 +225,7 @@ unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceInfo {
 impl ::windows::core::RuntimeName for PlatformDiagnosticTraceInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo";
 }
-::windows::core::interface_hierarchy!(PlatformDiagnosticTraceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlatformDiagnosticTraceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformDiagnosticTraceInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceInfo {}
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
@@ -259,7 +259,7 @@ impl ::core::fmt::Debug for PlatformDiagnosticTraceRuntimeInfo {
     }
 }
 impl ::windows::core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo;{3d4d5e2d-01d8-4768-8554-1eb1ca610986})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo;{3d4d5e2d-01d8-4768-8554-1eb1ca610986})");
 }
 impl ::core::clone::Clone for PlatformDiagnosticTraceRuntimeInfo {
     fn clone(&self) -> Self {
@@ -275,7 +275,7 @@ unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceRuntimeInfo {
 impl ::windows::core::RuntimeName for PlatformDiagnosticTraceRuntimeInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo";
 }
-::windows::core::interface_hierarchy!(PlatformDiagnosticTraceRuntimeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlatformDiagnosticTraceRuntimeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformDiagnosticTraceRuntimeInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceRuntimeInfo {}
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
@@ -307,7 +307,7 @@ impl ::core::fmt::Debug for PlatformDiagnosticActionState {
     }
 }
 impl ::windows::core::RuntimeType for PlatformDiagnosticActionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;i4)");
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
@@ -337,7 +337,7 @@ impl ::core::fmt::Debug for PlatformDiagnosticEscalationType {
     }
 }
 impl ::windows::core::RuntimeType for PlatformDiagnosticEscalationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType;i4)");
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
@@ -401,7 +401,7 @@ impl ::core::ops::Not for PlatformDiagnosticEventBufferLatencies {
     }
 }
 impl ::windows::core::RuntimeType for PlatformDiagnosticEventBufferLatencies {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies;u4)");
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
@@ -431,7 +431,7 @@ impl ::core::fmt::Debug for PlatformDiagnosticTracePriority {
     }
 }
 impl ::windows::core::RuntimeType for PlatformDiagnosticTracePriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority;i4)");
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
@@ -462,7 +462,7 @@ impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotState {
     }
 }
 impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState;i4)");
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
@@ -493,7 +493,7 @@ impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotType {
     }
 }
 impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

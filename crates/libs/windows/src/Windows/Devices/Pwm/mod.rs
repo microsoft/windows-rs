@@ -211,17 +211,17 @@ impl PwmController {
     }
     #[doc(hidden)]
     pub fn IPwmControllerStatics<R, F: FnOnce(&IPwmControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PwmController, IPwmControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PwmController, IPwmControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPwmControllerStatics2<R, F: FnOnce(&IPwmControllerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PwmController, IPwmControllerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PwmController, IPwmControllerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPwmControllerStatics3<R, F: FnOnce(&IPwmControllerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PwmController, IPwmControllerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PwmController, IPwmControllerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -237,7 +237,7 @@ impl ::core::fmt::Debug for PwmController {
     }
 }
 impl ::windows::core::RuntimeType for PwmController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmController;{c45f5c85-d2e8-42cf-9bd6-cf5ed029e6a7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmController;{c45f5c85-d2e8-42cf-9bd6-cf5ed029e6a7})");
 }
 impl ::core::clone::Clone for PwmController {
     fn clone(&self) -> Self {
@@ -253,7 +253,7 @@ unsafe impl ::windows::core::Interface for PwmController {
 impl ::windows::core::RuntimeName for PwmController {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmController";
 }
-::windows::core::interface_hierarchy!(PwmController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PwmController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PwmController {}
 unsafe impl ::core::marker::Sync for PwmController {}
 #[doc = "*Required features: `\"Devices_Pwm\"`*"]
@@ -323,7 +323,7 @@ impl ::core::fmt::Debug for PwmPin {
     }
 }
 impl ::windows::core::RuntimeType for PwmPin {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmPin;{22972dc8-c6cf-4821-b7f9-c6454fb6af79})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmPin;{22972dc8-c6cf-4821-b7f9-c6454fb6af79})");
 }
 impl ::core::clone::Clone for PwmPin {
     fn clone(&self) -> Self {
@@ -339,7 +339,7 @@ unsafe impl ::windows::core::Interface for PwmPin {
 impl ::windows::core::RuntimeName for PwmPin {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmPin";
 }
-::windows::core::interface_hierarchy!(PwmPin, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PwmPin, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PwmPin> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -392,7 +392,7 @@ impl ::core::fmt::Debug for PwmPulsePolarity {
     }
 }
 impl ::windows::core::RuntimeType for PwmPulsePolarity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Pwm.PwmPulsePolarity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Pwm.PwmPulsePolarity;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -8,7 +8,7 @@ pub unsafe fn AssocCreate<T>(clsid: ::windows::core::GUID) -> ::windows::core::R
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocCreate ( clsid : :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocCreate ( clsid : :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     AssocCreate(::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -19,7 +19,7 @@ pub unsafe fn AssocCreateForClasses<T>(rgclasses: &[ASSOCIATIONELEMENT]) -> ::wi
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn AssocCreateForClasses ( rgclasses : *const ASSOCIATIONELEMENT , cclasses : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn AssocCreateForClasses ( rgclasses : *const ASSOCIATIONELEMENT , cclasses : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     AssocCreateForClasses(::core::mem::transmute(rgclasses.as_ptr()), rgclasses.len() as _, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -30,7 +30,7 @@ pub unsafe fn AssocGetDetailsOfPropKey<P0>(psf: P0, pidl: *const Common::ITEMIDL
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn AssocGetDetailsOfPropKey ( psf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , pkey : *const PropertiesSystem:: PROPERTYKEY , pv : *mut super::super::System::Com:: VARIANT , pffoundpropkey : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn AssocGetDetailsOfPropKey ( psf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , pkey : *const PropertiesSystem:: PROPERTYKEY , pv : *mut super::super::System::Com:: VARIANT , pffoundpropkey : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     AssocGetDetailsOfPropKey(psf.into().abi(), pidl, pkey, pv, ::core::mem::transmute(pffoundpropkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -40,7 +40,7 @@ pub unsafe fn AssocGetPerceivedType<P0>(pszext: P0, ptype: *mut Common::PERCEIVE
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocGetPerceivedType ( pszext : :: windows::core::PCWSTR , ptype : *mut Common:: PERCEIVED , pflag : *mut u32 , ppsztype : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocGetPerceivedType ( pszext : :: windows::core::PCWSTR , ptype : *mut Common:: PERCEIVED , pflag : *mut u32 , ppsztype : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     AssocGetPerceivedType(pszext.into().abi(), ptype, pflag, ::core::mem::transmute(ppsztype.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -50,7 +50,7 @@ pub unsafe fn AssocIsDangerous<P0>(pszassoc: P0) -> super::super::Foundation::BO
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocIsDangerous ( pszassoc : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocIsDangerous ( pszassoc : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     AssocIsDangerous(pszassoc.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
@@ -61,7 +61,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryKeyA ( flags : ASSOCF , key : ASSOCKEY , pszassoc : :: windows::core::PCSTR , pszextra : :: windows::core::PCSTR , phkeyout : *mut super::super::System::Registry:: HKEY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryKeyA ( flags : ASSOCF , key : ASSOCKEY , pszassoc : :: windows::core::PCSTR , pszextra : :: windows::core::PCSTR , phkeyout : *mut super::super::System::Registry:: HKEY ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Registry::HKEY>();
     AssocQueryKeyA(flags, key, pszassoc.into().abi(), pszextra.into().abi(), &mut result__).from_abi(result__)
 }
@@ -73,7 +73,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryKeyW ( flags : ASSOCF , key : ASSOCKEY , pszassoc : :: windows::core::PCWSTR , pszextra : :: windows::core::PCWSTR , phkeyout : *mut super::super::System::Registry:: HKEY ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryKeyW ( flags : ASSOCF , key : ASSOCKEY , pszassoc : :: windows::core::PCWSTR , pszextra : :: windows::core::PCWSTR , phkeyout : *mut super::super::System::Registry:: HKEY ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Registry::HKEY>();
     AssocQueryKeyW(flags, key, pszassoc.into().abi(), pszextra.into().abi(), &mut result__).from_abi(result__)
 }
@@ -84,7 +84,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringA ( flags : ASSOCF , str : ASSOCSTR , pszassoc : :: windows::core::PCSTR , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryStringA ( flags : ASSOCF , str : ASSOCSTR , pszassoc : :: windows::core::PCSTR , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
     AssocQueryStringA(flags, str, pszassoc.into().abi(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
@@ -95,7 +95,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyA ( flags : ASSOCF , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyA ( flags : ASSOCF , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
     AssocQueryStringByKeyA(flags, str, hkassoc.into(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
@@ -106,7 +106,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyW ( flags : ASSOCF , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyW ( flags : ASSOCF , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
     AssocQueryStringByKeyW(flags, str, hkassoc.into(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -116,7 +116,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringW ( flags : ASSOCF , str : ASSOCSTR , pszassoc : :: windows::core::PCWSTR , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryStringW ( flags : ASSOCF , str : ASSOCSTR , pszassoc : :: windows::core::PCWSTR , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
     AssocQueryStringW(flags, str, pszassoc.into().abi(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -127,7 +127,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn CDefFolderMenu_Create2 ( pidlfolder : *const Common:: ITEMIDLIST , hwnd : super::super::Foundation:: HWND , cidl : u32 , apidl : *const *const Common:: ITEMIDLIST , psf : * mut::core::ffi::c_void , pfn : LPFNDFMCALLBACK , nkeys : u32 , ahkeys : *const super::super::System::Registry:: HKEY , ppcm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn CDefFolderMenu_Create2 ( pidlfolder : *const Common:: ITEMIDLIST , hwnd : super::super::Foundation:: HWND , cidl : u32 , apidl : *const *const Common:: ITEMIDLIST , psf : * mut::core::ffi::c_void , pfn : LPFNDFMCALLBACK , nkeys : u32 , ahkeys : *const super::super::System::Registry:: HKEY , ppcm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IContextMenu>();
     CDefFolderMenu_Create2(::core::mem::transmute(pidlfolder.unwrap_or(::std::ptr::null())), hwnd.into(), apidl.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(apidl.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psf.into().abi(), pfn, ahkeys.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ahkeys.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
@@ -135,7 +135,7 @@ where
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn CIDLData_CreateFromIDArray(pidlfolder: *const Common::ITEMIDLIST, apidl: ::core::option::Option<&[*const Common::ITEMIDLIST]>) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
-    ::windows::core::link ! ( "shell32.dll""system" fn CIDLData_CreateFromIDArray ( pidlfolder : *const Common:: ITEMIDLIST , cidl : u32 , apidl : *const *const Common:: ITEMIDLIST , ppdtobj : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn CIDLData_CreateFromIDArray ( pidlfolder : *const Common:: ITEMIDLIST , cidl : u32 , apidl : *const *const Common:: ITEMIDLIST , ppdtobj : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IDataObject>();
     CIDLData_CreateFromIDArray(pidlfolder, apidl.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(apidl.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
@@ -143,14 +143,14 @@ pub unsafe fn CIDLData_CreateFromIDArray(pidlfolder: *const Common::ITEMIDLIST, 
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChrCmpIA(w1: u16, w2: u16) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn ChrCmpIA ( w1 : u16 , w2 : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn ChrCmpIA ( w1 : u16 , w2 : u16 ) -> super::super::Foundation:: BOOL );
     ChrCmpIA(w1, w2)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChrCmpIW(w1: u16, w2: u16) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn ChrCmpIW ( w1 : u16 , w2 : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn ChrCmpIW ( w1 : u16 , w2 : u16 ) -> super::super::Foundation:: BOOL );
     ChrCmpIW(w1, w2)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -161,14 +161,14 @@ where
     P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn ColorAdjustLuma ( clrrgb : super::super::Foundation:: COLORREF , n : i32 , fscale : super::super::Foundation:: BOOL ) -> super::super::Foundation:: COLORREF );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn ColorAdjustLuma ( clrrgb : super::super::Foundation:: COLORREF , n : i32 , fscale : super::super::Foundation:: BOOL ) -> super::super::Foundation:: COLORREF );
     ColorAdjustLuma(clrrgb.into(), n, fscale.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ColorHLSToRGB(whue: u16, wluminance: u16, wsaturation: u16) -> super::super::Foundation::COLORREF {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn ColorHLSToRGB ( whue : u16 , wluminance : u16 , wsaturation : u16 ) -> super::super::Foundation:: COLORREF );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn ColorHLSToRGB ( whue : u16 , wluminance : u16 , wsaturation : u16 ) -> super::super::Foundation:: COLORREF );
     ColorHLSToRGB(whue, wluminance, wsaturation)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -178,7 +178,7 @@ pub unsafe fn ColorRGBToHLS<P0>(clrrgb: P0, pwhue: *mut u16, pwluminance: *mut u
 where
     P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn ColorRGBToHLS ( clrrgb : super::super::Foundation:: COLORREF , pwhue : *mut u16 , pwluminance : *mut u16 , pwsaturation : *mut u16 ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn ColorRGBToHLS ( clrrgb : super::super::Foundation:: COLORREF , pwhue : *mut u16 , pwluminance : *mut u16 , pwsaturation : *mut u16 ) -> ( ) );
     ColorRGBToHLS(clrrgb.into(), pwhue, pwluminance, pwsaturation)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -187,7 +187,7 @@ pub unsafe fn CommandLineToArgvW<P0>(lpcmdline: P0, pnumargs: *mut i32) -> *mut 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn CommandLineToArgvW ( lpcmdline : :: windows::core::PCWSTR , pnumargs : *mut i32 ) -> *mut :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shell32.dll""system" fn CommandLineToArgvW ( lpcmdline : :: windows::core::PCWSTR , pnumargs : *mut i32 ) -> *mut :: windows::core::PWSTR );
     CommandLineToArgvW(lpcmdline.into().abi(), pnumargs)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -199,7 +199,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn ConnectToConnectionPoint ( punk : * mut::core::ffi::c_void , riidevent : *const :: windows::core::GUID , fconnect : super::super::Foundation:: BOOL , punktarget : * mut::core::ffi::c_void , pdwcookie : *mut u32 , ppcpout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn ConnectToConnectionPoint ( punk : * mut::core::ffi::c_void , riidevent : *const :: windows::core::GUID , fconnect : super::super::Foundation:: BOOL , punktarget : * mut::core::ffi::c_void , pdwcookie : *mut u32 , ppcpout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     ConnectToConnectionPoint(punk.into().abi(), riidevent, fconnect.into(), punktarget.into().abi(), pdwcookie, ::core::mem::transmute(ppcpout.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -209,7 +209,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "userenv.dll""system" fn CreateProfile ( pszusersid : :: windows::core::PCWSTR , pszusername : :: windows::core::PCWSTR , pszprofilepath : :: windows::core::PWSTR , cchprofilepath : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "userenv.dll""system" fn CreateProfile ( pszusersid : :: windows::core::PCWSTR , pszusername : :: windows::core::PCWSTR , pszprofilepath : :: windows::core::PWSTR , cchprofilepath : u32 ) -> :: windows::core::HRESULT );
     CreateProfile(pszusersid.into().abi(), pszusername.into().abi(), ::core::mem::transmute(pszprofilepath.as_ptr()), pszprofilepath.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn DAD_AutoScroll<P0>(hwnd: P0, pad: *mut AUTO_SCROLL_DATA, pptnow: *
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DAD_AutoScroll ( hwnd : super::super::Foundation:: HWND , pad : *mut AUTO_SCROLL_DATA , pptnow : *const super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DAD_AutoScroll ( hwnd : super::super::Foundation:: HWND , pad : *mut AUTO_SCROLL_DATA , pptnow : *const super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
     DAD_AutoScroll(hwnd.into(), pad, pptnow)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -229,7 +229,7 @@ pub unsafe fn DAD_DragEnterEx<P0>(hwndtarget: P0, ptstart: super::super::Foundat
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DAD_DragEnterEx ( hwndtarget : super::super::Foundation:: HWND , ptstart : super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DAD_DragEnterEx ( hwndtarget : super::super::Foundation:: HWND , ptstart : super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
     DAD_DragEnterEx(hwndtarget.into(), ::core::mem::transmute(ptstart))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -240,21 +240,21 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDataObject>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DAD_DragEnterEx2 ( hwndtarget : super::super::Foundation:: HWND , ptstart : super::super::Foundation:: POINT , pdtobject : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DAD_DragEnterEx2 ( hwndtarget : super::super::Foundation:: HWND , ptstart : super::super::Foundation:: POINT , pdtobject : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     DAD_DragEnterEx2(hwndtarget.into(), ::core::mem::transmute(ptstart), pdtobject.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DAD_DragLeave() -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn DAD_DragLeave ( ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DAD_DragLeave ( ) -> super::super::Foundation:: BOOL );
     DAD_DragLeave()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DAD_DragMove(pt: super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn DAD_DragMove ( pt : super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DAD_DragMove ( pt : super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
     DAD_DragMove(::core::mem::transmute(pt))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
@@ -264,7 +264,7 @@ pub unsafe fn DAD_SetDragImage<P0>(him: P0, pptoffset: *mut super::super::Founda
 where
     P0: ::std::convert::Into<super::Controls::HIMAGELIST>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DAD_SetDragImage ( him : super::Controls:: HIMAGELIST , pptoffset : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DAD_SetDragImage ( him : super::Controls:: HIMAGELIST , pptoffset : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
     DAD_SetDragImage(him.into(), pptoffset)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -274,7 +274,7 @@ pub unsafe fn DAD_ShowDragImage<P0>(fshow: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DAD_ShowDragImage ( fshow : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DAD_ShowDragImage ( fshow : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     DAD_ShowDragImage(fshow.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -286,7 +286,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "comctl32.dll""system" fn DefSubclassProc ( hwnd : super::super::Foundation:: HWND , umsg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
+    ::windows::imp::link ! ( "comctl32.dll""system" fn DefSubclassProc ( hwnd : super::super::Foundation:: HWND , umsg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
     DefSubclassProc(hwnd.into(), umsg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -298,7 +298,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "userenv.dll""system" fn DeleteProfileA ( lpsidstring : :: windows::core::PCSTR , lpprofilepath : :: windows::core::PCSTR , lpcomputername : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn DeleteProfileA ( lpsidstring : :: windows::core::PCSTR , lpprofilepath : :: windows::core::PCSTR , lpcomputername : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     DeleteProfileA(lpsidstring.into().abi(), lpprofilepath.into().abi(), lpcomputername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -310,19 +310,19 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "userenv.dll""system" fn DeleteProfileW ( lpsidstring : :: windows::core::PCWSTR , lpprofilepath : :: windows::core::PCWSTR , lpcomputername : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn DeleteProfileW ( lpsidstring : :: windows::core::PCWSTR , lpprofilepath : :: windows::core::PCWSTR , lpcomputername : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     DeleteProfileW(lpsidstring.into().abi(), lpprofilepath.into().abi(), lpcomputername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn DoEnvironmentSubstA(pszsrc: &mut [u8]) -> u32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DoEnvironmentSubstA ( pszsrc : :: windows::core::PSTR , cchsrc : u32 ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DoEnvironmentSubstA ( pszsrc : :: windows::core::PSTR , cchsrc : u32 ) -> u32 );
     DoEnvironmentSubstA(::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn DoEnvironmentSubstW(pszsrc: &mut [u16]) -> u32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DoEnvironmentSubstW ( pszsrc : :: windows::core::PWSTR , cchsrc : u32 ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DoEnvironmentSubstW ( pszsrc : :: windows::core::PWSTR , cchsrc : u32 ) -> u32 );
     DoEnvironmentSubstW(::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -333,7 +333,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DragAcceptFiles ( hwnd : super::super::Foundation:: HWND , faccept : super::super::Foundation:: BOOL ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DragAcceptFiles ( hwnd : super::super::Foundation:: HWND , faccept : super::super::Foundation:: BOOL ) -> ( ) );
     DragAcceptFiles(hwnd.into(), faccept.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -342,7 +342,7 @@ pub unsafe fn DragFinish<P0>(hdrop: P0)
 where
     P0: ::std::convert::Into<HDROP>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DragFinish ( hdrop : HDROP ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DragFinish ( hdrop : HDROP ) -> ( ) );
     DragFinish(hdrop.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -351,7 +351,7 @@ pub unsafe fn DragQueryFileA<P0>(hdrop: P0, ifile: u32, lpszfile: ::core::option
 where
     P0: ::std::convert::Into<HDROP>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DragQueryFileA ( hdrop : HDROP , ifile : u32 , lpszfile : :: windows::core::PSTR , cch : u32 ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DragQueryFileA ( hdrop : HDROP , ifile : u32 , lpszfile : :: windows::core::PSTR , cch : u32 ) -> u32 );
     DragQueryFileA(hdrop.into(), ifile, ::core::mem::transmute(lpszfile.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszfile.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -360,7 +360,7 @@ pub unsafe fn DragQueryFileW<P0>(hdrop: P0, ifile: u32, lpszfile: ::core::option
 where
     P0: ::std::convert::Into<HDROP>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DragQueryFileW ( hdrop : HDROP , ifile : u32 , lpszfile : :: windows::core::PWSTR , cch : u32 ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DragQueryFileW ( hdrop : HDROP , ifile : u32 , lpszfile : :: windows::core::PWSTR , cch : u32 ) -> u32 );
     DragQueryFileW(hdrop.into(), ifile, ::core::mem::transmute(lpszfile.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszfile.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -370,13 +370,13 @@ pub unsafe fn DragQueryPoint<P0>(hdrop: P0, ppt: *mut super::super::Foundation::
 where
     P0: ::std::convert::Into<HDROP>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DragQueryPoint ( hdrop : HDROP , ppt : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DragQueryPoint ( hdrop : HDROP , ppt : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
     DragQueryPoint(hdrop.into(), ppt)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn DriveType(idrive: i32) -> i32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DriveType ( idrive : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DriveType ( idrive : i32 ) -> i32 );
     DriveType(idrive)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -387,7 +387,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<super::WindowsAndMessaging::HICON>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn DuplicateIcon ( hinst : super::super::Foundation:: HINSTANCE , hicon : super::WindowsAndMessaging:: HICON ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DuplicateIcon ( hinst : super::super::Foundation:: HINSTANCE , hicon : super::WindowsAndMessaging:: HICON ) -> super::WindowsAndMessaging:: HICON );
     DuplicateIcon(hinst.into(), hicon.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -397,7 +397,7 @@ pub unsafe fn ExtractAssociatedIconA<P0>(hinst: P0, psziconpath: &mut [u8; 128],
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ExtractAssociatedIconA ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : :: windows::core::PSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconA ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : :: windows::core::PSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
     ExtractAssociatedIconA(hinst.into(), ::core::mem::transmute(psziconpath.as_ptr()), piicon)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -407,7 +407,7 @@ pub unsafe fn ExtractAssociatedIconExA<P0>(hinst: P0, psziconpath: &mut [u8; 128
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ExtractAssociatedIconExA ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : :: windows::core::PSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconExA ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : :: windows::core::PSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
     ExtractAssociatedIconExA(hinst.into(), ::core::mem::transmute(psziconpath.as_ptr()), piiconindex, piiconid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -417,7 +417,7 @@ pub unsafe fn ExtractAssociatedIconExW<P0>(hinst: P0, psziconpath: &mut [u16; 12
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ExtractAssociatedIconExW ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : :: windows::core::PWSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconExW ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : :: windows::core::PWSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
     ExtractAssociatedIconExW(hinst.into(), ::core::mem::transmute(psziconpath.as_ptr()), piiconindex, piiconid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -427,7 +427,7 @@ pub unsafe fn ExtractAssociatedIconW<P0>(hinst: P0, psziconpath: &mut [u16; 128]
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ExtractAssociatedIconW ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : :: windows::core::PWSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconW ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : :: windows::core::PWSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
     ExtractAssociatedIconW(hinst.into(), ::core::mem::transmute(psziconpath.as_ptr()), piicon)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -438,7 +438,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ExtractIconA ( hinst : super::super::Foundation:: HINSTANCE , pszexefilename : :: windows::core::PCSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractIconA ( hinst : super::super::Foundation:: HINSTANCE , pszexefilename : :: windows::core::PCSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
     ExtractIconA(hinst.into(), pszexefilename.into().abi(), niconindex)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -448,7 +448,7 @@ pub unsafe fn ExtractIconExA<P0>(lpszfile: P0, niconindex: i32, phiconlarge: ::c
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ExtractIconExA ( lpszfile : :: windows::core::PCSTR , niconindex : i32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , nicons : u32 ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractIconExA ( lpszfile : :: windows::core::PCSTR , niconindex : i32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , nicons : u32 ) -> u32 );
     ExtractIconExA(lpszfile.into().abi(), niconindex, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), nicons)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -458,7 +458,7 @@ pub unsafe fn ExtractIconExW<P0>(lpszfile: P0, niconindex: i32, phiconlarge: ::c
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ExtractIconExW ( lpszfile : :: windows::core::PCWSTR , niconindex : i32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , nicons : u32 ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractIconExW ( lpszfile : :: windows::core::PCWSTR , niconindex : i32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , nicons : u32 ) -> u32 );
     ExtractIconExW(lpszfile.into().abi(), niconindex, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), nicons)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -469,7 +469,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ExtractIconW ( hinst : super::super::Foundation:: HINSTANCE , pszexefilename : :: windows::core::PCWSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractIconW ( hinst : super::super::Foundation:: HINSTANCE , pszexefilename : :: windows::core::PCWSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
     ExtractIconW(hinst.into(), pszexefilename.into().abi(), niconindex)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -480,7 +480,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn FindExecutableA ( lpfile : :: windows::core::PCSTR , lpdirectory : :: windows::core::PCSTR , lpresult : :: windows::core::PSTR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "shell32.dll""system" fn FindExecutableA ( lpfile : :: windows::core::PCSTR , lpdirectory : :: windows::core::PCSTR , lpresult : :: windows::core::PSTR ) -> super::super::Foundation:: HINSTANCE );
     FindExecutableA(lpfile.into().abi(), lpdirectory.into().abi(), ::core::mem::transmute(lpresult.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -491,39 +491,39 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn FindExecutableW ( lpfile : :: windows::core::PCWSTR , lpdirectory : :: windows::core::PCWSTR , lpresult : :: windows::core::PWSTR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "shell32.dll""system" fn FindExecutableW ( lpfile : :: windows::core::PCWSTR , lpdirectory : :: windows::core::PCWSTR , lpresult : :: windows::core::PWSTR ) -> super::super::Foundation:: HINSTANCE );
     FindExecutableW(lpfile.into().abi(), lpdirectory.into().abi(), ::core::mem::transmute(lpresult.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn GetAcceptLanguagesA(pszlanguages: ::windows::core::PSTR, pcchlanguages: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn GetAcceptLanguagesA ( pszlanguages : :: windows::core::PSTR , pcchlanguages : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn GetAcceptLanguagesA ( pszlanguages : :: windows::core::PSTR , pcchlanguages : *mut u32 ) -> :: windows::core::HRESULT );
     GetAcceptLanguagesA(::core::mem::transmute(pszlanguages), pcchlanguages).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn GetAcceptLanguagesW(pszlanguages: ::windows::core::PWSTR, pcchlanguages: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn GetAcceptLanguagesW ( pszlanguages : :: windows::core::PWSTR , pcchlanguages : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn GetAcceptLanguagesW ( pszlanguages : :: windows::core::PWSTR , pcchlanguages : *mut u32 ) -> :: windows::core::HRESULT );
     GetAcceptLanguagesW(::core::mem::transmute(pszlanguages), pcchlanguages).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAllUsersProfileDirectoryA(lpprofiledir: ::windows::core::PSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "userenv.dll""system" fn GetAllUsersProfileDirectoryA ( lpprofiledir : :: windows::core::PSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn GetAllUsersProfileDirectoryA ( lpprofiledir : :: windows::core::PSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetAllUsersProfileDirectoryA(::core::mem::transmute(lpprofiledir), lpcchsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAllUsersProfileDirectoryW(lpprofiledir: ::windows::core::PWSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "userenv.dll""system" fn GetAllUsersProfileDirectoryW ( lpprofiledir : :: windows::core::PWSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn GetAllUsersProfileDirectoryW ( lpprofiledir : :: windows::core::PWSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetAllUsersProfileDirectoryW(::core::mem::transmute(lpprofiledir), lpcchsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn GetCurrentProcessExplicitAppUserModelID() -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "shell32.dll""system" fn GetCurrentProcessExplicitAppUserModelID ( appid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn GetCurrentProcessExplicitAppUserModelID ( appid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     GetCurrentProcessExplicitAppUserModelID(&mut result__).from_abi(result__)
 }
@@ -531,20 +531,20 @@ pub unsafe fn GetCurrentProcessExplicitAppUserModelID() -> ::windows::core::Resu
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultUserProfileDirectoryA(lpprofiledir: ::windows::core::PSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "userenv.dll""system" fn GetDefaultUserProfileDirectoryA ( lpprofiledir : :: windows::core::PSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn GetDefaultUserProfileDirectoryA ( lpprofiledir : :: windows::core::PSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetDefaultUserProfileDirectoryA(::core::mem::transmute(lpprofiledir), lpcchsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultUserProfileDirectoryW(lpprofiledir: ::windows::core::PWSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "userenv.dll""system" fn GetDefaultUserProfileDirectoryW ( lpprofiledir : :: windows::core::PWSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn GetDefaultUserProfileDirectoryW ( lpprofiledir : :: windows::core::PWSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetDefaultUserProfileDirectoryW(::core::mem::transmute(lpprofiledir), lpcchsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn GetDpiForShellUIComponent(param0: SHELL_UI_COMPONENT) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-2.dll""system" fn GetDpiForShellUIComponent ( param0 : SHELL_UI_COMPONENT ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-2.dll""system" fn GetDpiForShellUIComponent ( param0 : SHELL_UI_COMPONENT ) -> u32 );
     GetDpiForShellUIComponent(param0)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -558,7 +558,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn GetFileNameFromBrowse ( hwnd : super::super::Foundation:: HWND , pszfilepath : :: windows::core::PWSTR , cchfilepath : u32 , pszworkingdir : :: windows::core::PCWSTR , pszdefext : :: windows::core::PCWSTR , pszfilters : :: windows::core::PCWSTR , psztitle : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn GetFileNameFromBrowse ( hwnd : super::super::Foundation:: HWND , pszfilepath : :: windows::core::PWSTR , cchfilepath : u32 , pszworkingdir : :: windows::core::PCWSTR , pszdefext : :: windows::core::PCWSTR , pszfilters : :: windows::core::PCWSTR , psztitle : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     GetFileNameFromBrowse(hwnd.into(), ::core::mem::transmute(pszfilepath.as_ptr()), pszfilepath.len() as _, pszworkingdir.into().abi(), pszdefext.into().abi(), pszfilters.into().abi(), psztitle.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -568,7 +568,7 @@ pub unsafe fn GetMenuContextHelpId<P0>(param0: P0) -> u32
 where
     P0: ::std::convert::Into<super::WindowsAndMessaging::HMENU>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn GetMenuContextHelpId ( param0 : super::WindowsAndMessaging:: HMENU ) -> u32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetMenuContextHelpId ( param0 : super::WindowsAndMessaging:: HMENU ) -> u32 );
     GetMenuContextHelpId(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -578,35 +578,35 @@ pub unsafe fn GetMenuPosFromID<P0>(hmenu: P0, id: u32) -> i32
 where
     P0: ::std::convert::Into<super::WindowsAndMessaging::HMENU>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn GetMenuPosFromID ( hmenu : super::WindowsAndMessaging:: HMENU , id : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn GetMenuPosFromID ( hmenu : super::WindowsAndMessaging:: HMENU , id : u32 ) -> i32 );
     GetMenuPosFromID(hmenu.into(), id)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProfileType(dwflags: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "userenv.dll""system" fn GetProfileType ( dwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn GetProfileType ( dwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetProfileType(dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProfilesDirectoryA(lpprofiledir: ::windows::core::PSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "userenv.dll""system" fn GetProfilesDirectoryA ( lpprofiledir : :: windows::core::PSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn GetProfilesDirectoryA ( lpprofiledir : :: windows::core::PSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetProfilesDirectoryA(::core::mem::transmute(lpprofiledir), lpcchsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProfilesDirectoryW(lpprofiledir: ::windows::core::PWSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "userenv.dll""system" fn GetProfilesDirectoryW ( lpprofiledir : :: windows::core::PWSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn GetProfilesDirectoryW ( lpprofiledir : :: windows::core::PWSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetProfilesDirectoryW(::core::mem::transmute(lpprofiledir), lpcchsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn GetScaleFactorForDevice(devicetype: DISPLAY_DEVICE_TYPE) -> Common::DEVICE_SCALE_FACTOR {
-    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-0.dll""system" fn GetScaleFactorForDevice ( devicetype : DISPLAY_DEVICE_TYPE ) -> Common:: DEVICE_SCALE_FACTOR );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-0.dll""system" fn GetScaleFactorForDevice ( devicetype : DISPLAY_DEVICE_TYPE ) -> Common:: DEVICE_SCALE_FACTOR );
     GetScaleFactorForDevice(devicetype)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -616,7 +616,7 @@ pub unsafe fn GetScaleFactorForMonitor<P0>(hmon: P0) -> ::windows::core::Result<
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
 {
-    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn GetScaleFactorForMonitor ( hmon : super::super::Graphics::Gdi:: HMONITOR , pscale : *mut Common:: DEVICE_SCALE_FACTOR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn GetScaleFactorForMonitor ( hmon : super::super::Graphics::Gdi:: HMONITOR , pscale : *mut Common:: DEVICE_SCALE_FACTOR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<Common::DEVICE_SCALE_FACTOR>();
     GetScaleFactorForMonitor(hmon.into(), &mut result__).from_abi(result__)
 }
@@ -627,7 +627,7 @@ pub unsafe fn GetUserProfileDirectoryA<P0>(htoken: P0, lpprofiledir: ::windows::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "userenv.dll""system" fn GetUserProfileDirectoryA ( htoken : super::super::Foundation:: HANDLE , lpprofiledir : :: windows::core::PSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn GetUserProfileDirectoryA ( htoken : super::super::Foundation:: HANDLE , lpprofiledir : :: windows::core::PSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetUserProfileDirectoryA(htoken.into(), ::core::mem::transmute(lpprofiledir), lpcchsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -637,7 +637,7 @@ pub unsafe fn GetUserProfileDirectoryW<P0>(htoken: P0, lpprofiledir: ::windows::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "userenv.dll""system" fn GetUserProfileDirectoryW ( htoken : super::super::Foundation:: HANDLE , lpprofiledir : :: windows::core::PWSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn GetUserProfileDirectoryW ( htoken : super::super::Foundation:: HANDLE , lpprofiledir : :: windows::core::PWSTR , lpcchsize : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetUserProfileDirectoryW(htoken.into(), ::core::mem::transmute(lpprofiledir), lpcchsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -647,7 +647,7 @@ pub unsafe fn GetWindowContextHelpId<P0>(param0: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn GetWindowContextHelpId ( param0 : super::super::Foundation:: HWND ) -> u32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetWindowContextHelpId ( param0 : super::super::Foundation:: HWND ) -> u32 );
     GetWindowContextHelpId(param0.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -657,69 +657,69 @@ pub unsafe fn GetWindowSubclass<P0>(hwnd: P0, pfnsubclass: SUBCLASSPROC, uidsubc
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "comctl32.dll""system" fn GetWindowSubclass ( hwnd : super::super::Foundation:: HWND , pfnsubclass : SUBCLASSPROC , uidsubclass : usize , pdwrefdata : *mut usize ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "comctl32.dll""system" fn GetWindowSubclass ( hwnd : super::super::Foundation:: HWND , pfnsubclass : SUBCLASSPROC , uidsubclass : usize , pdwrefdata : *mut usize ) -> super::super::Foundation:: BOOL );
     GetWindowSubclass(hwnd.into(), pfnsubclass, uidsubclass, ::core::mem::transmute(pdwrefdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HMONITOR) {
-    ::windows::core::link ! ( "ole32.dll""system" fn HMONITOR_UserFree ( param0 : *const u32 , param1 : *const super::super::Graphics::Gdi:: HMONITOR ) -> ( ) );
+    ::windows::imp::link ! ( "ole32.dll""system" fn HMONITOR_UserFree ( param0 : *const u32 , param1 : *const super::super::Graphics::Gdi:: HMONITOR ) -> ( ) );
     HMONITOR_UserFree(param0, param1)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HMONITOR) {
-    ::windows::core::link ! ( "ole32.dll""system" fn HMONITOR_UserFree64 ( param0 : *const u32 , param1 : *const super::super::Graphics::Gdi:: HMONITOR ) -> ( ) );
+    ::windows::imp::link ! ( "ole32.dll""system" fn HMONITOR_UserFree64 ( param0 : *const u32 , param1 : *const super::super::Graphics::Gdi:: HMONITOR ) -> ( ) );
     HMONITOR_UserFree64(param0, param1)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HMONITOR) -> *mut u8 {
-    ::windows::core::link ! ( "ole32.dll""system" fn HMONITOR_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const super::super::Graphics::Gdi:: HMONITOR ) -> *mut u8 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn HMONITOR_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const super::super::Graphics::Gdi:: HMONITOR ) -> *mut u8 );
     HMONITOR_UserMarshal(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HMONITOR) -> *mut u8 {
-    ::windows::core::link ! ( "ole32.dll""system" fn HMONITOR_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const super::super::Graphics::Gdi:: HMONITOR ) -> *mut u8 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn HMONITOR_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const super::super::Graphics::Gdi:: HMONITOR ) -> *mut u8 );
     HMONITOR_UserMarshal64(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserSize(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HMONITOR) -> u32 {
-    ::windows::core::link ! ( "ole32.dll""system" fn HMONITOR_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const super::super::Graphics::Gdi:: HMONITOR ) -> u32 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn HMONITOR_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const super::super::Graphics::Gdi:: HMONITOR ) -> u32 );
     HMONITOR_UserSize(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HMONITOR) -> u32 {
-    ::windows::core::link ! ( "ole32.dll""system" fn HMONITOR_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const super::super::Graphics::Gdi:: HMONITOR ) -> u32 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn HMONITOR_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const super::super::Graphics::Gdi:: HMONITOR ) -> u32 );
     HMONITOR_UserSize64(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HMONITOR) -> *mut u8 {
-    ::windows::core::link ! ( "ole32.dll""system" fn HMONITOR_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut super::super::Graphics::Gdi:: HMONITOR ) -> *mut u8 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn HMONITOR_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut super::super::Graphics::Gdi:: HMONITOR ) -> *mut u8 );
     HMONITOR_UserUnmarshal(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HMONITOR) -> *mut u8 {
-    ::windows::core::link ! ( "ole32.dll""system" fn HMONITOR_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut super::super::Graphics::Gdi:: HMONITOR ) -> *mut u8 );
+    ::windows::imp::link ! ( "ole32.dll""system" fn HMONITOR_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut super::super::Graphics::Gdi:: HMONITOR ) -> *mut u8 );
     HMONITOR_UserUnmarshal64(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn HashData(pbdata: &[u8], pbhash: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn HashData ( pbdata : *const u8 , cbdata : u32 , pbhash : *mut u8 , cbhash : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn HashData ( pbdata : *const u8 , cbdata : u32 , pbhash : *mut u8 , cbhash : u32 ) -> :: windows::core::HRESULT );
     HashData(::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -730,7 +730,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IHlinkSite>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkClone ( pihl : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , pihlsiteforclone : * mut::core::ffi::c_void , dwsitedata : u32 , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkClone ( pihl : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , pihlsiteforclone : * mut::core::ffi::c_void , dwsitedata : u32 , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     HlinkClone(pihl.into().abi(), &<T as ::windows::core::Interface>::IID, pihlsiteforclone.into().abi(), dwsitedata, &mut result__).from_abi(result__)
 }
@@ -741,7 +741,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkCreateBrowseContext ( piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkCreateBrowseContext ( piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     HlinkCreateBrowseContext(piunkouter.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -757,7 +757,7 @@ where
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkCreateExtensionServices ( pwzadditionalheaders : :: windows::core::PCWSTR , phwnd : super::super::Foundation:: HWND , pszusername : :: windows::core::PCWSTR , pszpassword : :: windows::core::PCWSTR , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkCreateExtensionServices ( pwzadditionalheaders : :: windows::core::PCWSTR , phwnd : super::super::Foundation:: HWND , pszusername : :: windows::core::PCWSTR , pszpassword : :: windows::core::PCWSTR , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     HlinkCreateExtensionServices(pwzadditionalheaders.into().abi(), phwnd.into(), pszusername.into().abi(), pszpassword.into().abi(), piunkouter.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -771,7 +771,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkCreateFromData ( pidataobj : * mut::core::ffi::c_void , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkCreateFromData ( pidataobj : * mut::core::ffi::c_void , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     HlinkCreateFromData(pidataobj.into().abi(), pihlsite.into().abi(), dwsitedata, piunkouter.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -787,7 +787,7 @@ where
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkCreateFromMoniker ( pimktrgt : * mut::core::ffi::c_void , pwzlocation : :: windows::core::PCWSTR , pwzfriendlyname : :: windows::core::PCWSTR , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkCreateFromMoniker ( pimktrgt : * mut::core::ffi::c_void , pwzlocation : :: windows::core::PCWSTR , pwzfriendlyname : :: windows::core::PCWSTR , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     HlinkCreateFromMoniker(pimktrgt.into().abi(), pwzlocation.into().abi(), pwzfriendlyname.into().abi(), pihlsite.into().abi(), dwsitedata, piunkouter.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -802,7 +802,7 @@ where
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkCreateFromString ( pwztarget : :: windows::core::PCWSTR , pwzlocation : :: windows::core::PCWSTR , pwzfriendlyname : :: windows::core::PCWSTR , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkCreateFromString ( pwztarget : :: windows::core::PCWSTR , pwzlocation : :: windows::core::PCWSTR , pwzfriendlyname : :: windows::core::PCWSTR , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     HlinkCreateFromString(pwztarget.into().abi(), pwzlocation.into().abi(), pwzfriendlyname.into().abi(), pihlsite.into().abi(), dwsitedata, piunkouter.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -814,7 +814,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkCreateShortcut ( grfhlshortcutf : u32 , pihl : * mut::core::ffi::c_void , pwzdir : :: windows::core::PCWSTR , pwzfilename : :: windows::core::PCWSTR , ppwzshortcutfile : *mut :: windows::core::PWSTR , dwreserved : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkCreateShortcut ( grfhlshortcutf : u32 , pihl : * mut::core::ffi::c_void , pwzdir : :: windows::core::PCWSTR , pwzfilename : :: windows::core::PCWSTR , ppwzshortcutfile : *mut :: windows::core::PWSTR , dwreserved : u32 ) -> :: windows::core::HRESULT );
     HlinkCreateShortcut(grfhlshortcutf, pihl.into().abi(), pwzdir.into().abi(), pwzfilename.into().abi(), ppwzshortcutfile, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -827,7 +827,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkCreateShortcutFromMoniker ( grfhlshortcutf : u32 , pimktarget : * mut::core::ffi::c_void , pwzlocation : :: windows::core::PCWSTR , pwzdir : :: windows::core::PCWSTR , pwzfilename : :: windows::core::PCWSTR , ppwzshortcutfile : *mut :: windows::core::PWSTR , dwreserved : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkCreateShortcutFromMoniker ( grfhlshortcutf : u32 , pimktarget : * mut::core::ffi::c_void , pwzlocation : :: windows::core::PCWSTR , pwzdir : :: windows::core::PCWSTR , pwzfilename : :: windows::core::PCWSTR , ppwzshortcutfile : *mut :: windows::core::PWSTR , dwreserved : u32 ) -> :: windows::core::HRESULT );
     HlinkCreateShortcutFromMoniker(grfhlshortcutf, pimktarget.into().abi(), pwzlocation.into().abi(), pwzdir.into().abi(), pwzfilename.into().abi(), ppwzshortcutfile, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -839,13 +839,13 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkCreateShortcutFromString ( grfhlshortcutf : u32 , pwztarget : :: windows::core::PCWSTR , pwzlocation : :: windows::core::PCWSTR , pwzdir : :: windows::core::PCWSTR , pwzfilename : :: windows::core::PCWSTR , ppwzshortcutfile : *mut :: windows::core::PWSTR , dwreserved : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkCreateShortcutFromString ( grfhlshortcutf : u32 , pwztarget : :: windows::core::PCWSTR , pwzlocation : :: windows::core::PCWSTR , pwzdir : :: windows::core::PCWSTR , pwzfilename : :: windows::core::PCWSTR , ppwzshortcutfile : *mut :: windows::core::PWSTR , dwreserved : u32 ) -> :: windows::core::HRESULT );
     HlinkCreateShortcutFromString(grfhlshortcutf, pwztarget.into().abi(), pwzlocation.into().abi(), pwzdir.into().abi(), pwzfilename.into().abi(), ppwzshortcutfile, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn HlinkGetSpecialReference(ureference: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkGetSpecialReference ( ureference : u32 , ppwzreference : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkGetSpecialReference ( ureference : u32 , ppwzreference : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     HlinkGetSpecialReference(ureference, &mut result__).from_abi(result__)
 }
@@ -856,7 +856,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkGetValueFromParams ( pwzparams : :: windows::core::PCWSTR , pwzname : :: windows::core::PCWSTR , ppwzvalue : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkGetValueFromParams ( pwzparams : :: windows::core::PCWSTR , pwzname : :: windows::core::PCWSTR , ppwzvalue : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     HlinkGetValueFromParams(pwzparams.into().abi(), pwzname.into().abi(), &mut result__).from_abi(result__)
 }
@@ -866,7 +866,7 @@ pub unsafe fn HlinkIsShortcut<P0>(pwzfilename: P0) -> ::windows::core::Result<()
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkIsShortcut ( pwzfilename : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkIsShortcut ( pwzfilename : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     HlinkIsShortcut(pwzfilename.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -880,7 +880,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindStatusCallback>>,
     P4: ::std::convert::Into<::windows::core::InParam<IHlinkBrowseContext>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkNavigate ( pihl : * mut::core::ffi::c_void , pihlframe : * mut::core::ffi::c_void , grfhlnf : u32 , pbc : * mut::core::ffi::c_void , pibsc : * mut::core::ffi::c_void , pihlbc : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkNavigate ( pihl : * mut::core::ffi::c_void , pihlframe : * mut::core::ffi::c_void , grfhlnf : u32 , pbc : * mut::core::ffi::c_void , pibsc : * mut::core::ffi::c_void , pihlbc : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkNavigate(pihl.into().abi(), pihlframe.into().abi(), grfhlnf, pbc.into().abi(), pibsc.into().abi(), pihlbc.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -896,7 +896,7 @@ where
     P5: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindStatusCallback>>,
     P6: ::std::convert::Into<::windows::core::InParam<IHlinkBrowseContext>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkNavigateToStringReference ( pwztarget : :: windows::core::PCWSTR , pwzlocation : :: windows::core::PCWSTR , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , pihlframe : * mut::core::ffi::c_void , grfhlnf : u32 , pibc : * mut::core::ffi::c_void , pibsc : * mut::core::ffi::c_void , pihlbc : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkNavigateToStringReference ( pwztarget : :: windows::core::PCWSTR , pwzlocation : :: windows::core::PCWSTR , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , pihlframe : * mut::core::ffi::c_void , grfhlnf : u32 , pibc : * mut::core::ffi::c_void , pibsc : * mut::core::ffi::c_void , pihlbc : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkNavigateToStringReference(pwztarget.into().abi(), pwzlocation.into().abi(), pihlsite.into().abi(), dwsitedata, pihlframe.into().abi(), grfhlnf, pibc.into().abi(), pibsc.into().abi(), pihlbc.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -910,7 +910,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkOnNavigate ( pihlframe : * mut::core::ffi::c_void , pihlbc : * mut::core::ffi::c_void , grfhlnf : u32 , pimktarget : * mut::core::ffi::c_void , pwzlocation : :: windows::core::PCWSTR , pwzfriendlyname : :: windows::core::PCWSTR , puhlid : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkOnNavigate ( pihlframe : * mut::core::ffi::c_void , pihlbc : * mut::core::ffi::c_void , grfhlnf : u32 , pimktarget : * mut::core::ffi::c_void , pwzlocation : :: windows::core::PCWSTR , pwzfriendlyname : :: windows::core::PCWSTR , puhlid : *mut u32 ) -> :: windows::core::HRESULT );
     HlinkOnNavigate(pihlframe.into().abi(), pihlbc.into().abi(), grfhlnf, pimktarget.into().abi(), pwzlocation.into().abi(), pwzfriendlyname.into().abi(), puhlid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -922,7 +922,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IMoniker>>,
     P2: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IMoniker>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkOnRenameDocument ( dwreserved : u32 , pihlbc : * mut::core::ffi::c_void , pimkold : * mut::core::ffi::c_void , pimknew : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkOnRenameDocument ( dwreserved : u32 , pihlbc : * mut::core::ffi::c_void , pimkold : * mut::core::ffi::c_void , pimknew : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkOnRenameDocument(dwreserved, pihlbc.into().abi(), pimkold.into().abi(), pimknew.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -934,7 +934,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkParseDisplayName ( pibc : * mut::core::ffi::c_void , pwzdisplayname : :: windows::core::PCWSTR , fnoforceabs : super::super::Foundation:: BOOL , pccheaten : *mut u32 , ppimk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkParseDisplayName ( pibc : * mut::core::ffi::c_void , pwzdisplayname : :: windows::core::PCWSTR , fnoforceabs : super::super::Foundation:: BOOL , pccheaten : *mut u32 , ppimk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkParseDisplayName(pibc.into().abi(), pwzdisplayname.into().abi(), fnoforceabs.into(), pccheaten, ::core::mem::transmute(ppimk)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -945,7 +945,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IMoniker>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkPreprocessMoniker ( pibc : * mut::core::ffi::c_void , pimkin : * mut::core::ffi::c_void , ppimkout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkPreprocessMoniker ( pibc : * mut::core::ffi::c_void , pimkin : * mut::core::ffi::c_void , ppimkout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IMoniker>();
     HlinkPreprocessMoniker(pibc.into().abi(), pimkin.into().abi(), &mut result__).from_abi(result__)
 }
@@ -956,7 +956,7 @@ pub unsafe fn HlinkQueryCreateFromData<P0>(pidataobj: P0) -> ::windows::core::Re
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDataObject>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkQueryCreateFromData ( pidataobj : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkQueryCreateFromData ( pidataobj : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkQueryCreateFromData(pidataobj.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -969,7 +969,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindStatusCallback>>,
     P3: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IMoniker>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkResolveMonikerForData ( pimkreference : * mut::core::ffi::c_void , reserved : u32 , pibc : * mut::core::ffi::c_void , cfmtetc : u32 , rgfmtetc : *mut super::super::System::Com:: FORMATETC , pibsc : * mut::core::ffi::c_void , pimkbase : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkResolveMonikerForData ( pimkreference : * mut::core::ffi::c_void , reserved : u32 , pibc : * mut::core::ffi::c_void , cfmtetc : u32 , rgfmtetc : *mut super::super::System::Com:: FORMATETC , pibsc : * mut::core::ffi::c_void , pimkbase : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkResolveMonikerForData(pimkreference.into().abi(), reserved, pibc.into().abi(), cfmtetc, rgfmtetc, pibsc.into().abi(), pimkbase.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -980,7 +980,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IHlinkSite>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkResolveShortcut ( pwzshortcutfilename : :: windows::core::PCWSTR , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkResolveShortcut ( pwzshortcutfilename : :: windows::core::PCWSTR , pihlsite : * mut::core::ffi::c_void , dwsitedata : u32 , piunkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkResolveShortcut(pwzshortcutfilename.into().abi(), pihlsite.into().abi(), dwsitedata, piunkouter.into().abi(), riid, ppvobj).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -990,7 +990,7 @@ pub unsafe fn HlinkResolveShortcutToMoniker<P0>(pwzshortcutfilename: P0, ppimkta
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkResolveShortcutToMoniker ( pwzshortcutfilename : :: windows::core::PCWSTR , ppimktarget : *mut * mut::core::ffi::c_void , ppwzlocation : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkResolveShortcutToMoniker ( pwzshortcutfilename : :: windows::core::PCWSTR , ppimktarget : *mut * mut::core::ffi::c_void , ppwzlocation : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     HlinkResolveShortcutToMoniker(pwzshortcutfilename.into().abi(), ::core::mem::transmute(ppimktarget), ppwzlocation).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -999,7 +999,7 @@ pub unsafe fn HlinkResolveShortcutToString<P0>(pwzshortcutfilename: P0, ppwztarg
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkResolveShortcutToString ( pwzshortcutfilename : :: windows::core::PCWSTR , ppwztarget : *mut :: windows::core::PWSTR , ppwzlocation : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkResolveShortcutToString ( pwzshortcutfilename : :: windows::core::PCWSTR , ppwztarget : *mut :: windows::core::PWSTR , ppwzlocation : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     HlinkResolveShortcutToString(pwzshortcutfilename.into().abi(), ppwztarget, ppwzlocation).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -1012,7 +1012,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindStatusCallback>>,
     P3: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IMoniker>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkResolveStringForData ( pwzreference : :: windows::core::PCWSTR , reserved : u32 , pibc : * mut::core::ffi::c_void , cfmtetc : u32 , rgfmtetc : *mut super::super::System::Com:: FORMATETC , pibsc : * mut::core::ffi::c_void , pimkbase : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkResolveStringForData ( pwzreference : :: windows::core::PCWSTR , reserved : u32 , pibc : * mut::core::ffi::c_void , cfmtetc : u32 , rgfmtetc : *mut super::super::System::Com:: FORMATETC , pibsc : * mut::core::ffi::c_void , pimkbase : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HlinkResolveStringForData(pwzreference.into().abi(), reserved, pibc.into().abi(), cfmtetc, rgfmtetc, pibsc.into().abi(), pimkbase.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1021,7 +1021,7 @@ pub unsafe fn HlinkSetSpecialReference<P0>(ureference: u32, pwzreference: P0) ->
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkSetSpecialReference ( ureference : u32 , pwzreference : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkSetSpecialReference ( ureference : u32 , pwzreference : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     HlinkSetSpecialReference(ureference, pwzreference.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1030,7 +1030,7 @@ pub unsafe fn HlinkTranslateURL<P0>(pwzurl: P0, grfflags: u32) -> ::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkTranslateURL ( pwzurl : :: windows::core::PCWSTR , grfflags : u32 , ppwztranslatedurl : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkTranslateURL ( pwzurl : :: windows::core::PCWSTR , grfflags : u32 , ppwztranslatedurl : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     HlinkTranslateURL(pwzurl.into().abi(), grfflags, &mut result__).from_abi(result__)
 }
@@ -1045,7 +1045,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn HlinkUpdateStackItem ( pihlframe : * mut::core::ffi::c_void , pihlbc : * mut::core::ffi::c_void , uhlid : u32 , pimktrgt : * mut::core::ffi::c_void , pwzlocation : :: windows::core::PCWSTR , pwzfriendlyname : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn HlinkUpdateStackItem ( pihlframe : * mut::core::ffi::c_void , pihlbc : * mut::core::ffi::c_void , uhlid : u32 , pimktrgt : * mut::core::ffi::c_void , pwzlocation : :: windows::core::PCWSTR , pwzfriendlyname : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     HlinkUpdateStackItem(pihlframe.into().abi(), pihlbc.into().abi(), uhlid, pimktrgt.into().abi(), pwzlocation.into().abi(), pwzfriendlyname.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -1055,28 +1055,28 @@ pub unsafe fn ILAppendID<P0>(pidl: ::core::option::Option<*const Common::ITEMIDL
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILAppendID ( pidl : *const Common:: ITEMIDLIST , pmkid : *const Common:: SHITEMID , fappend : super::super::Foundation:: BOOL ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILAppendID ( pidl : *const Common:: ITEMIDLIST , pmkid : *const Common:: SHITEMID , fappend : super::super::Foundation:: BOOL ) -> *mut Common:: ITEMIDLIST );
     ILAppendID(::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), pmkid, fappend.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILClone(pidl: *const Common::ITEMIDLIST) -> *mut Common::ITEMIDLIST {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILClone ( pidl : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILClone ( pidl : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
     ILClone(pidl)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILCloneFirst(pidl: *const Common::ITEMIDLIST) -> *mut Common::ITEMIDLIST {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILCloneFirst ( pidl : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILCloneFirst ( pidl : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
     ILCloneFirst(pidl)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILCombine(pidl1: ::core::option::Option<*const Common::ITEMIDLIST>, pidl2: ::core::option::Option<*const Common::ITEMIDLIST>) -> *mut Common::ITEMIDLIST {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILCombine ( pidl1 : *const Common:: ITEMIDLIST , pidl2 : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILCombine ( pidl1 : *const Common:: ITEMIDLIST , pidl2 : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
     ILCombine(::core::mem::transmute(pidl1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pidl2.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -1086,7 +1086,7 @@ pub unsafe fn ILCreateFromPathA<P0>(pszpath: P0) -> *mut Common::ITEMIDLIST
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILCreateFromPathA ( pszpath : :: windows::core::PCSTR ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILCreateFromPathA ( pszpath : :: windows::core::PCSTR ) -> *mut Common:: ITEMIDLIST );
     ILCreateFromPathA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -1096,49 +1096,49 @@ pub unsafe fn ILCreateFromPathW<P0>(pszpath: P0) -> *mut Common::ITEMIDLIST
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILCreateFromPathW ( pszpath : :: windows::core::PCWSTR ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILCreateFromPathW ( pszpath : :: windows::core::PCWSTR ) -> *mut Common:: ITEMIDLIST );
     ILCreateFromPathW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILFindChild(pidlparent: *const Common::ITEMIDLIST, pidlchild: *const Common::ITEMIDLIST) -> *mut Common::ITEMIDLIST {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILFindChild ( pidlparent : *const Common:: ITEMIDLIST , pidlchild : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILFindChild ( pidlparent : *const Common:: ITEMIDLIST , pidlchild : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
     ILFindChild(pidlparent, pidlchild)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILFindLastID(pidl: *const Common::ITEMIDLIST) -> *mut Common::ITEMIDLIST {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILFindLastID ( pidl : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILFindLastID ( pidl : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
     ILFindLastID(pidl)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILFree(pidl: ::core::option::Option<*const Common::ITEMIDLIST>) {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILFree ( pidl : *const Common:: ITEMIDLIST ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILFree ( pidl : *const Common:: ITEMIDLIST ) -> ( ) );
     ILFree(::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILGetNext(pidl: ::core::option::Option<*const Common::ITEMIDLIST>) -> *mut Common::ITEMIDLIST {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILGetNext ( pidl : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILGetNext ( pidl : *const Common:: ITEMIDLIST ) -> *mut Common:: ITEMIDLIST );
     ILGetNext(::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILGetSize(pidl: ::core::option::Option<*const Common::ITEMIDLIST>) -> u32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILGetSize ( pidl : *const Common:: ITEMIDLIST ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILGetSize ( pidl : *const Common:: ITEMIDLIST ) -> u32 );
     ILGetSize(::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn ILIsEqual(pidl1: *const Common::ITEMIDLIST, pidl2: *const Common::ITEMIDLIST) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILIsEqual ( pidl1 : *const Common:: ITEMIDLIST , pidl2 : *const Common:: ITEMIDLIST ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILIsEqual ( pidl1 : *const Common:: ITEMIDLIST , pidl2 : *const Common:: ITEMIDLIST ) -> super::super::Foundation:: BOOL );
     ILIsEqual(pidl1, pidl2)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -1148,7 +1148,7 @@ pub unsafe fn ILIsParent<P0>(pidl1: *const Common::ITEMIDLIST, pidl2: *const Com
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILIsParent ( pidl1 : *const Common:: ITEMIDLIST , pidl2 : *const Common:: ITEMIDLIST , fimmediate : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILIsParent ( pidl1 : *const Common:: ITEMIDLIST , pidl2 : *const Common:: ITEMIDLIST , fimmediate : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     ILIsParent(pidl1, pidl2, fimmediate.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -1158,7 +1158,7 @@ pub unsafe fn ILLoadFromStreamEx<P0>(pstm: P0) -> ::windows::core::Result<*mut C
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILLoadFromStreamEx ( pstm : * mut::core::ffi::c_void , pidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILLoadFromStreamEx ( pstm : * mut::core::ffi::c_void , pidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut Common::ITEMIDLIST>();
     ILLoadFromStreamEx(pstm.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1166,7 +1166,7 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn ILRemoveLastID(pidl: ::core::option::Option<*mut Common::ITEMIDLIST>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILRemoveLastID ( pidl : *mut Common:: ITEMIDLIST ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILRemoveLastID ( pidl : *mut Common:: ITEMIDLIST ) -> super::super::Foundation:: BOOL );
     ILRemoveLastID(::core::mem::transmute(pidl.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -1176,7 +1176,7 @@ pub unsafe fn ILSaveToStream<P0>(pstm: P0, pidl: *const Common::ITEMIDLIST) -> :
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ILSaveToStream ( pstm : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ILSaveToStream ( pstm : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     ILSaveToStream(pstm.into().abi(), pidl).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -1187,7 +1187,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IStream_Copy ( pstmfrom : * mut::core::ffi::c_void , pstmto : * mut::core::ffi::c_void , cb : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IStream_Copy ( pstmfrom : * mut::core::ffi::c_void , pstmto : * mut::core::ffi::c_void , cb : u32 ) -> :: windows::core::HRESULT );
     IStream_Copy(pstmfrom.into().abi(), pstmto.into().abi(), cb).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -1197,7 +1197,7 @@ pub unsafe fn IStream_Read<P0>(pstm: P0, pv: *mut ::core::ffi::c_void, cb: u32) 
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IStream_Read ( pstm : * mut::core::ffi::c_void , pv : *mut ::core::ffi::c_void , cb : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IStream_Read ( pstm : * mut::core::ffi::c_void , pv : *mut ::core::ffi::c_void , cb : u32 ) -> :: windows::core::HRESULT );
     IStream_Read(pstm.into().abi(), pv, cb).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -1207,7 +1207,7 @@ pub unsafe fn IStream_ReadPidl<P0>(pstm: P0) -> ::windows::core::Result<*mut Com
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IStream_ReadPidl ( pstm : * mut::core::ffi::c_void , ppidlout : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IStream_ReadPidl ( pstm : * mut::core::ffi::c_void , ppidlout : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut Common::ITEMIDLIST>();
     IStream_ReadPidl(pstm.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1218,7 +1218,7 @@ pub unsafe fn IStream_ReadStr<P0>(pstm: P0) -> ::windows::core::Result<::windows
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IStream_ReadStr ( pstm : * mut::core::ffi::c_void , ppsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IStream_ReadStr ( pstm : * mut::core::ffi::c_void , ppsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     IStream_ReadStr(pstm.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1229,7 +1229,7 @@ pub unsafe fn IStream_Reset<P0>(pstm: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IStream_Reset ( pstm : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IStream_Reset ( pstm : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     IStream_Reset(pstm.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -1239,7 +1239,7 @@ pub unsafe fn IStream_Size<P0>(pstm: P0) -> ::windows::core::Result<u64>
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IStream_Size ( pstm : * mut::core::ffi::c_void , pui : *mut u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IStream_Size ( pstm : * mut::core::ffi::c_void , pui : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u64>();
     IStream_Size(pstm.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1250,7 +1250,7 @@ pub unsafe fn IStream_Write<P0>(pstm: P0, pv: *const ::core::ffi::c_void, cb: u3
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IStream_Write ( pstm : * mut::core::ffi::c_void , pv : *const ::core::ffi::c_void , cb : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IStream_Write ( pstm : * mut::core::ffi::c_void , pv : *const ::core::ffi::c_void , cb : u32 ) -> :: windows::core::HRESULT );
     IStream_Write(pstm.into().abi(), pv, cb).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -1260,7 +1260,7 @@ pub unsafe fn IStream_WritePidl<P0>(pstm: P0, pidlwrite: *const Common::ITEMIDLI
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IStream_WritePidl ( pstm : * mut::core::ffi::c_void , pidlwrite : *const Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IStream_WritePidl ( pstm : * mut::core::ffi::c_void , pidlwrite : *const Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     IStream_WritePidl(pstm.into().abi(), pidlwrite).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -1271,13 +1271,13 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IStream_WriteStr ( pstm : * mut::core::ffi::c_void , psz : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IStream_WriteStr ( pstm : * mut::core::ffi::c_void , psz : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     IStream_WriteStr(pstm.into().abi(), psz.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn IUnknown_AtomicRelease(ppunk: ::core::option::Option<*mut *mut ::core::ffi::c_void>) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IUnknown_AtomicRelease ( ppunk : *mut *mut ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IUnknown_AtomicRelease ( ppunk : *mut *mut ::core::ffi::c_void ) -> ( ) );
     IUnknown_AtomicRelease(::core::mem::transmute(ppunk.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1287,7 +1287,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IUnknown_GetSite ( punk : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IUnknown_GetSite ( punk : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     IUnknown_GetSite(punk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -1298,7 +1298,7 @@ pub unsafe fn IUnknown_GetWindow<P0>(punk: P0) -> ::windows::core::Result<super:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IUnknown_GetWindow ( punk : * mut::core::ffi::c_void , phwnd : *mut super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IUnknown_GetWindow ( punk : * mut::core::ffi::c_void , phwnd : *mut super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HWND>();
     IUnknown_GetWindow(punk.into().abi(), &mut result__).from_abi(result__)
 }
@@ -1309,7 +1309,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IUnknown_QueryService ( punk : * mut::core::ffi::c_void , guidservice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvout : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IUnknown_QueryService ( punk : * mut::core::ffi::c_void , guidservice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvout : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     IUnknown_QueryService(punk.into().abi(), guidservice, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -1319,7 +1319,7 @@ pub unsafe fn IUnknown_Set<P0>(ppunk: *mut ::core::option::Option<::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IUnknown_Set ( ppunk : *mut * mut::core::ffi::c_void , punk : * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IUnknown_Set ( ppunk : *mut * mut::core::ffi::c_void , punk : * mut::core::ffi::c_void ) -> ( ) );
     IUnknown_Set(::core::mem::transmute(ppunk), punk.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1329,7 +1329,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IUnknown_SetSite ( punk : * mut::core::ffi::c_void , punksite : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IUnknown_SetSite ( punk : * mut::core::ffi::c_void , punksite : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     IUnknown_SetSite(punk.into().abi(), punksite.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1339,14 +1339,14 @@ pub unsafe fn ImportPrivacySettings<P0>(pszfilename: P0, pfparseprivacypreferenc
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shdocvw.dll""system" fn ImportPrivacySettings ( pszfilename : :: windows::core::PCWSTR , pfparseprivacypreferences : *mut super::super::Foundation:: BOOL , pfparsepersiterules : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shdocvw.dll""system" fn ImportPrivacySettings ( pszfilename : :: windows::core::PCWSTR , pfparseprivacypreferences : *mut super::super::Foundation:: BOOL , pfparsepersiterules : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     ImportPrivacySettings(pszfilename.into().abi(), pfparseprivacypreferences, pfparsepersiterules)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitNetworkAddressControl() -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn InitNetworkAddressControl ( ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn InitNetworkAddressControl ( ) -> super::super::Foundation:: BOOL );
     InitNetworkAddressControl()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1358,7 +1358,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IntlStrEqWorkerA ( fcasesens : super::super::Foundation:: BOOL , lpstring1 : :: windows::core::PCSTR , lpstring2 : :: windows::core::PCSTR , nchar : i32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IntlStrEqWorkerA ( fcasesens : super::super::Foundation:: BOOL , lpstring1 : :: windows::core::PCSTR , lpstring2 : :: windows::core::PCSTR , nchar : i32 ) -> super::super::Foundation:: BOOL );
     IntlStrEqWorkerA(fcasesens.into(), lpstring1.into().abi(), lpstring2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1370,7 +1370,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IntlStrEqWorkerW ( fcasesens : super::super::Foundation:: BOOL , lpstring1 : :: windows::core::PCWSTR , lpstring2 : :: windows::core::PCWSTR , nchar : i32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IntlStrEqWorkerW ( fcasesens : super::super::Foundation:: BOOL , lpstring1 : :: windows::core::PCWSTR , lpstring2 : :: windows::core::PCWSTR , nchar : i32 ) -> super::super::Foundation:: BOOL );
     IntlStrEqWorkerW(fcasesens.into(), lpstring1.into().abi(), lpstring2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1380,21 +1380,21 @@ pub unsafe fn IsCharSpaceA<P0>(wch: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::CHAR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IsCharSpaceA ( wch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IsCharSpaceA ( wch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
     IsCharSpaceA(wch.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsCharSpaceW(wch: u16) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IsCharSpaceW ( wch : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IsCharSpaceW ( wch : u16 ) -> super::super::Foundation:: BOOL );
     IsCharSpaceW(wch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsInternetESCEnabled() -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IsInternetESCEnabled ( ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IsInternetESCEnabled ( ) -> super::super::Foundation:: BOOL );
     IsInternetESCEnabled()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1404,7 +1404,7 @@ pub unsafe fn IsLFNDriveA<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn IsLFNDriveA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn IsLFNDriveA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     IsLFNDriveA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1414,27 +1414,27 @@ pub unsafe fn IsLFNDriveW<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn IsLFNDriveW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn IsLFNDriveW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     IsLFNDriveW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn IsNetDrive(idrive: i32) -> i32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn IsNetDrive ( idrive : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn IsNetDrive ( idrive : i32 ) -> i32 );
     IsNetDrive(idrive)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsOS(dwos: OS) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn IsOS ( dwos : OS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IsOS ( dwos : OS ) -> super::super::Foundation:: BOOL );
     IsOS(dwos)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsUserAnAdmin() -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn IsUserAnAdmin ( ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn IsUserAnAdmin ( ) -> super::super::Foundation:: BOOL );
     IsUserAnAdmin()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1444,7 +1444,7 @@ pub unsafe fn LoadUserProfileA<P0>(htoken: P0, lpprofileinfo: *mut PROFILEINFOA)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "userenv.dll""system" fn LoadUserProfileA ( htoken : super::super::Foundation:: HANDLE , lpprofileinfo : *mut PROFILEINFOA ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn LoadUserProfileA ( htoken : super::super::Foundation:: HANDLE , lpprofileinfo : *mut PROFILEINFOA ) -> super::super::Foundation:: BOOL );
     LoadUserProfileA(htoken.into(), lpprofileinfo)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1454,7 +1454,7 @@ pub unsafe fn LoadUserProfileW<P0>(htoken: P0, lpprofileinfo: *mut PROFILEINFOW)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "userenv.dll""system" fn LoadUserProfileW ( htoken : super::super::Foundation:: HANDLE , lpprofileinfo : *mut PROFILEINFOW ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn LoadUserProfileW ( htoken : super::super::Foundation:: HANDLE , lpprofileinfo : *mut PROFILEINFOW ) -> super::super::Foundation:: BOOL );
     LoadUserProfileW(htoken.into(), lpprofileinfo)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1466,7 +1466,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "hlink.dll""system" fn OleSaveToStreamEx ( piunk : * mut::core::ffi::c_void , pistm : * mut::core::ffi::c_void , fcleardirty : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "hlink.dll""system" fn OleSaveToStreamEx ( piunk : * mut::core::ffi::c_void , pistm : * mut::core::ffi::c_void , fcleardirty : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     OleSaveToStreamEx(piunk.into().abi(), pistm.into().abi(), fcleardirty.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`*"]
@@ -1478,7 +1478,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn OpenRegStream ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
+    ::windows::imp::link ! ( "shell32.dll""system" fn OpenRegStream ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
     OpenRegStream(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), grfmode)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1487,7 +1487,7 @@ pub unsafe fn ParseURLA<P0>(pcszurl: P0, ppu: *mut PARSEDURLA) -> ::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn ParseURLA ( pcszurl : :: windows::core::PCSTR , ppu : *mut PARSEDURLA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn ParseURLA ( pcszurl : :: windows::core::PCSTR , ppu : *mut PARSEDURLA ) -> :: windows::core::HRESULT );
     ParseURLA(pcszurl.into().abi(), ppu).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1496,19 +1496,19 @@ pub unsafe fn ParseURLW<P0>(pcszurl: P0, ppu: *mut PARSEDURLW) -> ::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn ParseURLW ( pcszurl : :: windows::core::PCWSTR , ppu : *mut PARSEDURLW ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn ParseURLW ( pcszurl : :: windows::core::PCWSTR , ppu : *mut PARSEDURLW ) -> :: windows::core::HRESULT );
     ParseURLW(pcszurl.into().abi(), ppu).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathAddBackslashA(pszpath: &mut [u8; 260]) -> ::windows::core::PSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathAddBackslashA ( pszpath : :: windows::core::PSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathAddBackslashA ( pszpath : :: windows::core::PSTR ) -> :: windows::core::PSTR );
     PathAddBackslashA(::core::mem::transmute(pszpath.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathAddBackslashW(pszpath: &mut [u16; 260]) -> ::windows::core::PWSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathAddBackslashW ( pszpath : :: windows::core::PWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathAddBackslashW ( pszpath : :: windows::core::PWSTR ) -> :: windows::core::PWSTR );
     PathAddBackslashW(::core::mem::transmute(pszpath.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1518,7 +1518,7 @@ pub unsafe fn PathAddExtensionA<P0>(pszpath: &mut [u8; 260], pszext: P0) -> supe
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathAddExtensionA ( pszpath : :: windows::core::PSTR , pszext : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathAddExtensionA ( pszpath : :: windows::core::PSTR , pszext : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathAddExtensionA(::core::mem::transmute(pszpath.as_ptr()), pszext.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1528,7 +1528,7 @@ pub unsafe fn PathAddExtensionW<P0>(pszpath: &mut [u16; 260], pszext: P0) -> sup
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathAddExtensionW ( pszpath : :: windows::core::PWSTR , pszext : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathAddExtensionW ( pszpath : :: windows::core::PWSTR , pszext : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathAddExtensionW(::core::mem::transmute(pszpath.as_ptr()), pszext.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1537,7 +1537,7 @@ pub unsafe fn PathAllocCanonicalize<P0>(pszpathin: P0, dwflags: PATHCCH_OPTIONS)
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathAllocCanonicalize ( pszpathin : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS , ppszpathout : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathAllocCanonicalize ( pszpathin : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS , ppszpathout : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     PathAllocCanonicalize(pszpathin.into().abi(), dwflags, &mut result__).from_abi(result__)
 }
@@ -1548,7 +1548,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathAllocCombine ( pszpathin : :: windows::core::PCWSTR , pszmore : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS , ppszpathout : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathAllocCombine ( pszpathin : :: windows::core::PCWSTR , pszmore : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS , ppszpathout : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     PathAllocCombine(pszpathin.into().abi(), pszmore.into().abi(), dwflags, &mut result__).from_abi(result__)
 }
@@ -1559,7 +1559,7 @@ pub unsafe fn PathAppendA<P0>(pszpath: &mut [u8; 260], pszmore: P0) -> super::su
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathAppendA ( pszpath : :: windows::core::PSTR , pszmore : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathAppendA ( pszpath : :: windows::core::PSTR , pszmore : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathAppendA(::core::mem::transmute(pszpath.as_ptr()), pszmore.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1569,19 +1569,19 @@ pub unsafe fn PathAppendW<P0>(pszpath: &mut [u16; 260], pszmore: P0) -> super::s
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathAppendW ( pszpath : :: windows::core::PWSTR , pszmore : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathAppendW ( pszpath : :: windows::core::PWSTR , pszmore : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathAppendW(::core::mem::transmute(pszpath.as_ptr()), pszmore.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathBuildRootA(pszroot: &mut [u8; 4], idrive: i32) -> ::windows::core::PSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathBuildRootA ( pszroot : :: windows::core::PSTR , idrive : i32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathBuildRootA ( pszroot : :: windows::core::PSTR , idrive : i32 ) -> :: windows::core::PSTR );
     PathBuildRootA(::core::mem::transmute(pszroot.as_ptr()), idrive)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathBuildRootW(pszroot: &mut [u16; 4], idrive: i32) -> ::windows::core::PWSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathBuildRootW ( pszroot : :: windows::core::PWSTR , idrive : i32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathBuildRootW ( pszroot : :: windows::core::PWSTR , idrive : i32 ) -> :: windows::core::PWSTR );
     PathBuildRootW(::core::mem::transmute(pszroot.as_ptr()), idrive)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1591,7 +1591,7 @@ pub unsafe fn PathCanonicalizeA<P0>(pszbuf: &mut [u8; 260], pszpath: P0) -> supe
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCanonicalizeA ( pszbuf : :: windows::core::PSTR , pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCanonicalizeA ( pszbuf : :: windows::core::PSTR , pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathCanonicalizeA(::core::mem::transmute(pszbuf.as_ptr()), pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1601,19 +1601,19 @@ pub unsafe fn PathCanonicalizeW<P0>(pszbuf: &mut [u16; 260], pszpath: P0) -> sup
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCanonicalizeW ( pszbuf : :: windows::core::PWSTR , pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCanonicalizeW ( pszbuf : :: windows::core::PWSTR , pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathCanonicalizeW(::core::mem::transmute(pszbuf.as_ptr()), pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathCchAddBackslash(pszpath: &mut [u16]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAddBackslash ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAddBackslash ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
     PathCchAddBackslash(::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathCchAddBackslashEx(pszpath: &mut [u16], ppszend: ::core::option::Option<*mut ::windows::core::PWSTR>, pcchremaining: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAddBackslashEx ( pszpath : :: windows::core::PWSTR , cchpath : usize , ppszend : *mut :: windows::core::PWSTR , pcchremaining : *mut usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAddBackslashEx ( pszpath : :: windows::core::PWSTR , cchpath : usize , ppszend : *mut :: windows::core::PWSTR , pcchremaining : *mut usize ) -> :: windows::core::HRESULT );
     PathCchAddBackslashEx(::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _, ::core::mem::transmute(ppszend.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchremaining.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1622,7 +1622,7 @@ pub unsafe fn PathCchAddExtension<P0>(pszpath: &mut [u16], pszext: P0) -> ::wind
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAddExtension ( pszpath : :: windows::core::PWSTR , cchpath : usize , pszext : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAddExtension ( pszpath : :: windows::core::PWSTR , cchpath : usize , pszext : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     PathCchAddExtension(::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _, pszext.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1631,7 +1631,7 @@ pub unsafe fn PathCchAppend<P0>(pszpath: &mut [u16], pszmore: P0) -> ::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAppend ( pszpath : :: windows::core::PWSTR , cchpath : usize , pszmore : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAppend ( pszpath : :: windows::core::PWSTR , cchpath : usize , pszmore : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     PathCchAppend(::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _, pszmore.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1640,7 +1640,7 @@ pub unsafe fn PathCchAppendEx<P0>(pszpath: &mut [u16], pszmore: P0, dwflags: PAT
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAppendEx ( pszpath : :: windows::core::PWSTR , cchpath : usize , pszmore : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchAppendEx ( pszpath : :: windows::core::PWSTR , cchpath : usize , pszmore : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS ) -> :: windows::core::HRESULT );
     PathCchAppendEx(::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _, pszmore.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1649,7 +1649,7 @@ pub unsafe fn PathCchCanonicalize<P0>(pszpathout: &mut [u16], pszpathin: P0) -> 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchCanonicalize ( pszpathout : :: windows::core::PWSTR , cchpathout : usize , pszpathin : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchCanonicalize ( pszpathout : :: windows::core::PWSTR , cchpathout : usize , pszpathin : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     PathCchCanonicalize(::core::mem::transmute(pszpathout.as_ptr()), pszpathout.len() as _, pszpathin.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1658,7 +1658,7 @@ pub unsafe fn PathCchCanonicalizeEx<P0>(pszpathout: &mut [u16], pszpathin: P0, d
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchCanonicalizeEx ( pszpathout : :: windows::core::PWSTR , cchpathout : usize , pszpathin : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchCanonicalizeEx ( pszpathout : :: windows::core::PWSTR , cchpathout : usize , pszpathin : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS ) -> :: windows::core::HRESULT );
     PathCchCanonicalizeEx(::core::mem::transmute(pszpathout.as_ptr()), pszpathout.len() as _, pszpathin.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1668,7 +1668,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchCombine ( pszpathout : :: windows::core::PWSTR , cchpathout : usize , pszpathin : :: windows::core::PCWSTR , pszmore : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchCombine ( pszpathout : :: windows::core::PWSTR , cchpathout : usize , pszpathin : :: windows::core::PCWSTR , pszmore : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     PathCchCombine(::core::mem::transmute(pszpathout.as_ptr()), pszpathout.len() as _, pszpathin.into().abi(), pszmore.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1678,7 +1678,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchCombineEx ( pszpathout : :: windows::core::PWSTR , cchpathout : usize , pszpathin : :: windows::core::PCWSTR , pszmore : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchCombineEx ( pszpathout : :: windows::core::PWSTR , cchpathout : usize , pszpathin : :: windows::core::PCWSTR , pszmore : :: windows::core::PCWSTR , dwflags : PATHCCH_OPTIONS ) -> :: windows::core::HRESULT );
     PathCchCombineEx(::core::mem::transmute(pszpathout.as_ptr()), pszpathout.len() as _, pszpathin.into().abi(), pszmore.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1687,7 +1687,7 @@ pub unsafe fn PathCchFindExtension<P0>(pszpath: P0, cchpath: usize) -> ::windows
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchFindExtension ( pszpath : :: windows::core::PCWSTR , cchpath : usize , ppszext : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchFindExtension ( pszpath : :: windows::core::PCWSTR , cchpath : usize , ppszext : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     PathCchFindExtension(pszpath.into().abi(), cchpath, &mut result__).from_abi(result__)
 }
@@ -1698,31 +1698,31 @@ pub unsafe fn PathCchIsRoot<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchIsRoot ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchIsRoot ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathCchIsRoot(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathCchRemoveBackslash(pszpath: &mut [u16]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRemoveBackslash ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRemoveBackslash ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
     PathCchRemoveBackslash(::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathCchRemoveBackslashEx(pszpath: ::windows::core::PWSTR, cchpath: usize, ppszend: ::core::option::Option<*mut ::windows::core::PWSTR>, pcchremaining: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRemoveBackslashEx ( pszpath : :: windows::core::PWSTR , cchpath : usize , ppszend : *mut :: windows::core::PWSTR , pcchremaining : *mut usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRemoveBackslashEx ( pszpath : :: windows::core::PWSTR , cchpath : usize , ppszend : *mut :: windows::core::PWSTR , pcchremaining : *mut usize ) -> :: windows::core::HRESULT );
     PathCchRemoveBackslashEx(::core::mem::transmute(pszpath), cchpath, ::core::mem::transmute(ppszend.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchremaining.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathCchRemoveExtension(pszpath: ::windows::core::PWSTR, cchpath: usize) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRemoveExtension ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRemoveExtension ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
     PathCchRemoveExtension(::core::mem::transmute(pszpath), cchpath).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathCchRemoveFileSpec(pszpath: ::windows::core::PWSTR, cchpath: usize) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRemoveFileSpec ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRemoveFileSpec ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
     PathCchRemoveFileSpec(::core::mem::transmute(pszpath), cchpath).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1731,7 +1731,7 @@ pub unsafe fn PathCchRenameExtension<P0>(pszpath: &mut [u16], pszext: P0) -> ::w
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRenameExtension ( pszpath : :: windows::core::PWSTR , cchpath : usize , pszext : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchRenameExtension ( pszpath : :: windows::core::PWSTR , cchpath : usize , pszext : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     PathCchRenameExtension(::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _, pszext.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1740,20 +1740,20 @@ pub unsafe fn PathCchSkipRoot<P0>(pszpath: P0) -> ::windows::core::Result<::wind
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchSkipRoot ( pszpath : :: windows::core::PCWSTR , ppszrootend : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchSkipRoot ( pszpath : :: windows::core::PCWSTR , ppszrootend : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     PathCchSkipRoot(pszpath.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathCchStripPrefix(pszpath: &mut [u16]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchStripPrefix ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchStripPrefix ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
     PathCchStripPrefix(::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathCchStripToRoot(pszpath: ::windows::core::PWSTR, cchpath: usize) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchStripToRoot ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchStripToRoot ( pszpath : :: windows::core::PWSTR , cchpath : usize ) -> :: windows::core::HRESULT );
     PathCchStripToRoot(::core::mem::transmute(pszpath), cchpath).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1762,7 +1762,7 @@ pub unsafe fn PathCleanupSpec<P0>(pszdir: P0, pszspec: ::windows::core::PWSTR) -
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn PathCleanupSpec ( pszdir : :: windows::core::PCWSTR , pszspec : :: windows::core::PWSTR ) -> PCS_RET );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PathCleanupSpec ( pszdir : :: windows::core::PCWSTR , pszspec : :: windows::core::PWSTR ) -> PCS_RET );
     PathCleanupSpec(pszdir.into().abi(), ::core::mem::transmute(pszspec))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1772,7 +1772,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCombineA ( pszdest : :: windows::core::PSTR , pszdir : :: windows::core::PCSTR , pszfile : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCombineA ( pszdest : :: windows::core::PSTR , pszdir : :: windows::core::PCSTR , pszfile : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     PathCombineA(::core::mem::transmute(pszdest.as_ptr()), pszdir.into().abi(), pszfile.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1782,7 +1782,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCombineW ( pszdest : :: windows::core::PWSTR , pszdir : :: windows::core::PCWSTR , pszfile : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCombineW ( pszdest : :: windows::core::PWSTR , pszdir : :: windows::core::PCWSTR , pszfile : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     PathCombineW(::core::mem::transmute(pszdest.as_ptr()), pszdir.into().abi(), pszfile.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1792,7 +1792,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCommonPrefixA ( pszfile1 : :: windows::core::PCSTR , pszfile2 : :: windows::core::PCSTR , achpath : :: windows::core::PSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCommonPrefixA ( pszfile1 : :: windows::core::PCSTR , pszfile2 : :: windows::core::PCSTR , achpath : :: windows::core::PSTR ) -> i32 );
     PathCommonPrefixA(pszfile1.into().abi(), pszfile2.into().abi(), ::core::mem::transmute(achpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1802,7 +1802,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCommonPrefixW ( pszfile1 : :: windows::core::PCWSTR , pszfile2 : :: windows::core::PCWSTR , achpath : :: windows::core::PWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCommonPrefixW ( pszfile1 : :: windows::core::PCWSTR , pszfile2 : :: windows::core::PCWSTR , achpath : :: windows::core::PWSTR ) -> i32 );
     PathCommonPrefixW(pszfile1.into().abi(), pszfile2.into().abi(), ::core::mem::transmute(achpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1812,7 +1812,7 @@ pub unsafe fn PathCompactPathA<P0>(hdc: P0, pszpath: &mut [u8; 260], dx: u32) ->
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCompactPathA ( hdc : super::super::Graphics::Gdi:: HDC , pszpath : :: windows::core::PSTR , dx : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCompactPathA ( hdc : super::super::Graphics::Gdi:: HDC , pszpath : :: windows::core::PSTR , dx : u32 ) -> super::super::Foundation:: BOOL );
     PathCompactPathA(hdc.into(), ::core::mem::transmute(pszpath.as_ptr()), dx)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1822,7 +1822,7 @@ pub unsafe fn PathCompactPathExA<P0>(pszout: &mut [u8], pszsrc: P0, dwflags: u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCompactPathExA ( pszout : :: windows::core::PSTR , pszsrc : :: windows::core::PCSTR , cchmax : u32 , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCompactPathExA ( pszout : :: windows::core::PSTR , pszsrc : :: windows::core::PCSTR , cchmax : u32 , dwflags : u32 ) -> super::super::Foundation:: BOOL );
     PathCompactPathExA(::core::mem::transmute(pszout.as_ptr()), pszsrc.into().abi(), pszout.len() as _, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1832,7 +1832,7 @@ pub unsafe fn PathCompactPathExW<P0>(pszout: &mut [u16], pszsrc: P0, dwflags: u3
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCompactPathExW ( pszout : :: windows::core::PWSTR , pszsrc : :: windows::core::PCWSTR , cchmax : u32 , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCompactPathExW ( pszout : :: windows::core::PWSTR , pszsrc : :: windows::core::PCWSTR , cchmax : u32 , dwflags : u32 ) -> super::super::Foundation:: BOOL );
     PathCompactPathExW(::core::mem::transmute(pszout.as_ptr()), pszsrc.into().abi(), pszout.len() as _, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1842,7 +1842,7 @@ pub unsafe fn PathCompactPathW<P0>(hdc: P0, pszpath: &mut [u16; 260], dx: u32) -
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCompactPathW ( hdc : super::super::Graphics::Gdi:: HDC , pszpath : :: windows::core::PWSTR , dx : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCompactPathW ( hdc : super::super::Graphics::Gdi:: HDC , pszpath : :: windows::core::PWSTR , dx : u32 ) -> super::super::Foundation:: BOOL );
     PathCompactPathW(hdc.into(), ::core::mem::transmute(pszpath.as_ptr()), dx)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1851,7 +1851,7 @@ pub unsafe fn PathCreateFromUrlA<P0>(pszurl: P0, pszpath: ::windows::core::PSTR,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCreateFromUrlA ( pszurl : :: windows::core::PCSTR , pszpath : :: windows::core::PSTR , pcchpath : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCreateFromUrlA ( pszurl : :: windows::core::PCSTR , pszpath : :: windows::core::PSTR , pcchpath : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     PathCreateFromUrlA(pszurl.into().abi(), ::core::mem::transmute(pszpath), pcchpath, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1860,7 +1860,7 @@ pub unsafe fn PathCreateFromUrlAlloc<P0>(pszin: P0, ppszout: *mut ::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCreateFromUrlAlloc ( pszin : :: windows::core::PCWSTR , ppszout : *mut :: windows::core::PWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCreateFromUrlAlloc ( pszin : :: windows::core::PCWSTR , ppszout : *mut :: windows::core::PWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
     PathCreateFromUrlAlloc(pszin.into().abi(), ppszout, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1869,7 +1869,7 @@ pub unsafe fn PathCreateFromUrlW<P0>(pszurl: P0, pszpath: ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathCreateFromUrlW ( pszurl : :: windows::core::PCWSTR , pszpath : :: windows::core::PWSTR , pcchpath : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathCreateFromUrlW ( pszurl : :: windows::core::PCWSTR , pszpath : :: windows::core::PWSTR , pcchpath : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     PathCreateFromUrlW(pszurl.into().abi(), ::core::mem::transmute(pszpath), pcchpath, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1879,7 +1879,7 @@ pub unsafe fn PathFileExistsA<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFileExistsA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFileExistsA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathFileExistsA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1889,7 +1889,7 @@ pub unsafe fn PathFileExistsW<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFileExistsW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFileExistsW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathFileExistsW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1898,7 +1898,7 @@ pub unsafe fn PathFindExtensionA<P0>(pszpath: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindExtensionA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindExtensionA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     PathFindExtensionA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1907,7 +1907,7 @@ pub unsafe fn PathFindExtensionW<P0>(pszpath: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindExtensionW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindExtensionW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     PathFindExtensionW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1916,7 +1916,7 @@ pub unsafe fn PathFindFileNameA<P0>(pszpath: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindFileNameA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindFileNameA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     PathFindFileNameA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1925,7 +1925,7 @@ pub unsafe fn PathFindFileNameW<P0>(pszpath: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindFileNameW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindFileNameW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     PathFindFileNameW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1934,7 +1934,7 @@ pub unsafe fn PathFindNextComponentA<P0>(pszpath: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindNextComponentA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindNextComponentA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     PathFindNextComponentA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1943,21 +1943,21 @@ pub unsafe fn PathFindNextComponentW<P0>(pszpath: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindNextComponentW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindNextComponentW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     PathFindNextComponentW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindOnPathA(pszpath: &mut [u8; 260], ppszotherdirs: ::core::option::Option<*const *const i8>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindOnPathA ( pszpath : :: windows::core::PSTR , ppszotherdirs : *const *const i8 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindOnPathA ( pszpath : :: windows::core::PSTR , ppszotherdirs : *const *const i8 ) -> super::super::Foundation:: BOOL );
     PathFindOnPathA(::core::mem::transmute(pszpath.as_ptr()), ::core::mem::transmute(ppszotherdirs.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindOnPathW(pszpath: &mut [u16; 260], ppszotherdirs: ::core::option::Option<*const *const u16>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindOnPathW ( pszpath : :: windows::core::PWSTR , ppszotherdirs : *const *const u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindOnPathW ( pszpath : :: windows::core::PWSTR , ppszotherdirs : *const *const u16 ) -> super::super::Foundation:: BOOL );
     PathFindOnPathW(::core::mem::transmute(pszpath.as_ptr()), ::core::mem::transmute(ppszotherdirs.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1966,7 +1966,7 @@ pub unsafe fn PathFindSuffixArrayA<P0>(pszpath: P0, apszsuffix: &[::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayA ( pszpath : :: windows::core::PCSTR , apszsuffix : *const :: windows::core::PCSTR , iarraysize : i32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayA ( pszpath : :: windows::core::PCSTR , apszsuffix : *const :: windows::core::PCSTR , iarraysize : i32 ) -> :: windows::core::PSTR );
     PathFindSuffixArrayA(pszpath.into().abi(), ::core::mem::transmute(apszsuffix.as_ptr()), apszsuffix.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1975,7 +1975,7 @@ pub unsafe fn PathFindSuffixArrayW<P0>(pszpath: P0, apszsuffix: &[::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayW ( pszpath : :: windows::core::PCWSTR , apszsuffix : *const :: windows::core::PCWSTR , iarraysize : i32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayW ( pszpath : :: windows::core::PCWSTR , apszsuffix : *const :: windows::core::PCWSTR , iarraysize : i32 ) -> :: windows::core::PWSTR );
     PathFindSuffixArrayW(pszpath.into().abi(), ::core::mem::transmute(apszsuffix.as_ptr()), apszsuffix.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1984,7 +1984,7 @@ pub unsafe fn PathGetArgsA<P0>(pszpath: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathGetArgsA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathGetArgsA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     PathGetArgsA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1993,19 +1993,19 @@ pub unsafe fn PathGetArgsW<P0>(pszpath: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathGetArgsW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathGetArgsW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     PathGetArgsW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathGetCharTypeA(ch: u8) -> u32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathGetCharTypeA ( ch : u8 ) -> u32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathGetCharTypeA ( ch : u8 ) -> u32 );
     PathGetCharTypeA(ch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathGetCharTypeW(ch: u16) -> u32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathGetCharTypeW ( ch : u16 ) -> u32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathGetCharTypeW ( ch : u16 ) -> u32 );
     PathGetCharTypeW(ch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2014,7 +2014,7 @@ pub unsafe fn PathGetDriveNumberA<P0>(pszpath: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathGetDriveNumberA ( pszpath : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathGetDriveNumberA ( pszpath : :: windows::core::PCSTR ) -> i32 );
     PathGetDriveNumberA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2023,13 +2023,13 @@ pub unsafe fn PathGetDriveNumberW<P0>(pszpath: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathGetDriveNumberW ( pszpath : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathGetDriveNumberW ( pszpath : :: windows::core::PCWSTR ) -> i32 );
     PathGetDriveNumberW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathGetShortPath(pszlongpath: &mut [u16; 260]) {
-    ::windows::core::link ! ( "shell32.dll""system" fn PathGetShortPath ( pszlongpath : :: windows::core::PWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PathGetShortPath ( pszlongpath : :: windows::core::PWSTR ) -> ( ) );
     PathGetShortPath(::core::mem::transmute(pszlongpath.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2040,7 +2040,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsContentTypeA ( pszpath : :: windows::core::PCSTR , pszcontenttype : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsContentTypeA ( pszpath : :: windows::core::PCSTR , pszcontenttype : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsContentTypeA(pszpath.into().abi(), pszcontenttype.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2051,7 +2051,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsContentTypeW ( pszpath : :: windows::core::PCWSTR , pszcontenttype : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsContentTypeW ( pszpath : :: windows::core::PCWSTR , pszcontenttype : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsContentTypeW(pszpath.into().abi(), pszcontenttype.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2061,7 +2061,7 @@ pub unsafe fn PathIsDirectoryA<P0>(pszpath: P0) -> super::super::Foundation::BOO
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsDirectoryA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsDirectoryA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsDirectoryA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2071,7 +2071,7 @@ pub unsafe fn PathIsDirectoryEmptyA<P0>(pszpath: P0) -> super::super::Foundation
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsDirectoryEmptyA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsDirectoryEmptyA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsDirectoryEmptyA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2081,7 +2081,7 @@ pub unsafe fn PathIsDirectoryEmptyW<P0>(pszpath: P0) -> super::super::Foundation
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsDirectoryEmptyW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsDirectoryEmptyW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsDirectoryEmptyW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2091,7 +2091,7 @@ pub unsafe fn PathIsDirectoryW<P0>(pszpath: P0) -> super::super::Foundation::BOO
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsDirectoryW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsDirectoryW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsDirectoryW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2101,7 +2101,7 @@ pub unsafe fn PathIsExe<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn PathIsExe ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PathIsExe ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsExe(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2111,7 +2111,7 @@ pub unsafe fn PathIsFileSpecA<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsFileSpecA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsFileSpecA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsFileSpecA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2121,7 +2121,7 @@ pub unsafe fn PathIsFileSpecW<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsFileSpecW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsFileSpecW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsFileSpecW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2131,7 +2131,7 @@ pub unsafe fn PathIsLFNFileSpecA<P0>(pszname: P0) -> super::super::Foundation::B
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsLFNFileSpecA ( pszname : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsLFNFileSpecA ( pszname : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsLFNFileSpecA(pszname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2141,7 +2141,7 @@ pub unsafe fn PathIsLFNFileSpecW<P0>(pszname: P0) -> super::super::Foundation::B
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsLFNFileSpecW ( pszname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsLFNFileSpecW ( pszname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsLFNFileSpecW(pszname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2151,7 +2151,7 @@ pub unsafe fn PathIsNetworkPathA<P0>(pszpath: P0) -> super::super::Foundation::B
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsNetworkPathA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsNetworkPathA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsNetworkPathA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2161,7 +2161,7 @@ pub unsafe fn PathIsNetworkPathW<P0>(pszpath: P0) -> super::super::Foundation::B
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsNetworkPathW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsNetworkPathW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsNetworkPathW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2172,7 +2172,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsPrefixA ( pszprefix : :: windows::core::PCSTR , pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsPrefixA ( pszprefix : :: windows::core::PCSTR , pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsPrefixA(pszprefix.into().abi(), pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2183,7 +2183,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsPrefixW ( pszprefix : :: windows::core::PCWSTR , pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsPrefixW ( pszprefix : :: windows::core::PCWSTR , pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsPrefixW(pszprefix.into().abi(), pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2193,7 +2193,7 @@ pub unsafe fn PathIsRelativeA<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsRelativeA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsRelativeA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsRelativeA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2203,7 +2203,7 @@ pub unsafe fn PathIsRelativeW<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsRelativeW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsRelativeW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsRelativeW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2213,7 +2213,7 @@ pub unsafe fn PathIsRootA<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsRootA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsRootA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsRootA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2223,7 +2223,7 @@ pub unsafe fn PathIsRootW<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsRootW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsRootW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsRootW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2234,7 +2234,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsSameRootA ( pszpath1 : :: windows::core::PCSTR , pszpath2 : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsSameRootA ( pszpath1 : :: windows::core::PCSTR , pszpath2 : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsSameRootA(pszpath1.into().abi(), pszpath2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2245,7 +2245,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsSameRootW ( pszpath1 : :: windows::core::PCWSTR , pszpath2 : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsSameRootW ( pszpath1 : :: windows::core::PCWSTR , pszpath2 : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsSameRootW(pszpath1.into().abi(), pszpath2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2255,7 +2255,7 @@ pub unsafe fn PathIsSlowA<P0>(pszfile: P0, dwattr: u32) -> super::super::Foundat
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn PathIsSlowA ( pszfile : :: windows::core::PCSTR , dwattr : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PathIsSlowA ( pszfile : :: windows::core::PCSTR , dwattr : u32 ) -> super::super::Foundation:: BOOL );
     PathIsSlowA(pszfile.into().abi(), dwattr)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2265,7 +2265,7 @@ pub unsafe fn PathIsSlowW<P0>(pszfile: P0, dwattr: u32) -> super::super::Foundat
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn PathIsSlowW ( pszfile : :: windows::core::PCWSTR , dwattr : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PathIsSlowW ( pszfile : :: windows::core::PCWSTR , dwattr : u32 ) -> super::super::Foundation:: BOOL );
     PathIsSlowW(pszfile.into().abi(), dwattr)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2275,7 +2275,7 @@ pub unsafe fn PathIsSystemFolderA<P0>(pszpath: P0, dwattrb: u32) -> super::super
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsSystemFolderA ( pszpath : :: windows::core::PCSTR , dwattrb : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsSystemFolderA ( pszpath : :: windows::core::PCSTR , dwattrb : u32 ) -> super::super::Foundation:: BOOL );
     PathIsSystemFolderA(pszpath.into().abi(), dwattrb)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2285,7 +2285,7 @@ pub unsafe fn PathIsSystemFolderW<P0>(pszpath: P0, dwattrb: u32) -> super::super
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsSystemFolderW ( pszpath : :: windows::core::PCWSTR , dwattrb : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsSystemFolderW ( pszpath : :: windows::core::PCWSTR , dwattrb : u32 ) -> super::super::Foundation:: BOOL );
     PathIsSystemFolderW(pszpath.into().abi(), dwattrb)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2295,7 +2295,7 @@ pub unsafe fn PathIsUNCA<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsUNCA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsUNCA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsUNCA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2305,7 +2305,7 @@ pub unsafe fn PathIsUNCEx<P0>(pszpath: P0, ppszserver: ::core::option::Option<*m
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathIsUNCEx ( pszpath : :: windows::core::PCWSTR , ppszserver : *mut :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathIsUNCEx ( pszpath : :: windows::core::PCWSTR , ppszserver : *mut :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     PathIsUNCEx(pszpath.into().abi(), ::core::mem::transmute(ppszserver.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2315,7 +2315,7 @@ pub unsafe fn PathIsUNCServerA<P0>(pszpath: P0) -> super::super::Foundation::BOO
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsUNCServerA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsUNCServerA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsUNCServerA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2325,7 +2325,7 @@ pub unsafe fn PathIsUNCServerShareA<P0>(pszpath: P0) -> super::super::Foundation
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsUNCServerShareA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsUNCServerShareA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsUNCServerShareA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2335,7 +2335,7 @@ pub unsafe fn PathIsUNCServerShareW<P0>(pszpath: P0) -> super::super::Foundation
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsUNCServerShareW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsUNCServerShareW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsUNCServerShareW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2345,7 +2345,7 @@ pub unsafe fn PathIsUNCServerW<P0>(pszpath: P0) -> super::super::Foundation::BOO
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsUNCServerW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsUNCServerW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsUNCServerW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2355,7 +2355,7 @@ pub unsafe fn PathIsUNCW<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsUNCW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsUNCW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsUNCW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2365,7 +2365,7 @@ pub unsafe fn PathIsURLA<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsURLA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsURLA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathIsURLA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2375,21 +2375,21 @@ pub unsafe fn PathIsURLW<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathIsURLW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathIsURLW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsURLW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMakePrettyA(pszpath: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathMakePrettyA ( pszpath : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathMakePrettyA ( pszpath : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
     PathMakePrettyA(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMakePrettyW(pszpath: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathMakePrettyW ( pszpath : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathMakePrettyW ( pszpath : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     PathMakePrettyW(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2399,7 +2399,7 @@ pub unsafe fn PathMakeSystemFolderA<P0>(pszpath: P0) -> super::super::Foundation
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathMakeSystemFolderA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathMakeSystemFolderA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathMakeSystemFolderA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2409,7 +2409,7 @@ pub unsafe fn PathMakeSystemFolderW<P0>(pszpath: P0) -> super::super::Foundation
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathMakeSystemFolderW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathMakeSystemFolderW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathMakeSystemFolderW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2421,7 +2421,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn PathMakeUniqueName ( pszuniquename : :: windows::core::PWSTR , cchmax : u32 , psztemplate : :: windows::core::PCWSTR , pszlongplate : :: windows::core::PCWSTR , pszdir : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PathMakeUniqueName ( pszuniquename : :: windows::core::PWSTR , cchmax : u32 , psztemplate : :: windows::core::PCWSTR , pszlongplate : :: windows::core::PCWSTR , pszdir : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathMakeUniqueName(::core::mem::transmute(pszuniquename.as_ptr()), pszuniquename.len() as _, psztemplate.into().abi(), pszlongplate.into().abi(), pszdir.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2432,7 +2432,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathMatchSpecA ( pszfile : :: windows::core::PCSTR , pszspec : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathMatchSpecA ( pszfile : :: windows::core::PCSTR , pszspec : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathMatchSpecA(pszfile.into().abi(), pszspec.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2442,7 +2442,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathMatchSpecExA ( pszfile : :: windows::core::PCSTR , pszspec : :: windows::core::PCSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathMatchSpecExA ( pszfile : :: windows::core::PCSTR , pszspec : :: windows::core::PCSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
     PathMatchSpecExA(pszfile.into().abi(), pszspec.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2452,7 +2452,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathMatchSpecExW ( pszfile : :: windows::core::PCWSTR , pszspec : :: windows::core::PCWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathMatchSpecExW ( pszfile : :: windows::core::PCWSTR , pszspec : :: windows::core::PCWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
     PathMatchSpecExW(pszfile.into().abi(), pszspec.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2463,39 +2463,39 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathMatchSpecW ( pszfile : :: windows::core::PCWSTR , pszspec : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathMatchSpecW ( pszfile : :: windows::core::PCWSTR , pszspec : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathMatchSpecW(pszfile.into().abi(), pszspec.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathParseIconLocationA(psziconfile: ::windows::core::PSTR) -> i32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathParseIconLocationA ( psziconfile : :: windows::core::PSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathParseIconLocationA ( psziconfile : :: windows::core::PSTR ) -> i32 );
     PathParseIconLocationA(::core::mem::transmute(psziconfile))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathParseIconLocationW(psziconfile: ::windows::core::PWSTR) -> i32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathParseIconLocationW ( psziconfile : :: windows::core::PWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathParseIconLocationW ( psziconfile : :: windows::core::PWSTR ) -> i32 );
     PathParseIconLocationW(::core::mem::transmute(psziconfile))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathQualify(psz: ::windows::core::PWSTR) {
-    ::windows::core::link ! ( "shell32.dll""system" fn PathQualify ( psz : :: windows::core::PWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PathQualify ( psz : :: windows::core::PWSTR ) -> ( ) );
     PathQualify(::core::mem::transmute(psz))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathQuoteSpacesA(lpsz: &mut [u8; 260]) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathQuoteSpacesA ( lpsz : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathQuoteSpacesA ( lpsz : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
     PathQuoteSpacesA(::core::mem::transmute(lpsz.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathQuoteSpacesW(lpsz: &mut [u16; 260]) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathQuoteSpacesW ( lpsz : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathQuoteSpacesW ( lpsz : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     PathQuoteSpacesW(::core::mem::transmute(lpsz.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2506,7 +2506,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRelativePathToA ( pszpath : :: windows::core::PSTR , pszfrom : :: windows::core::PCSTR , dwattrfrom : u32 , pszto : :: windows::core::PCSTR , dwattrto : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRelativePathToA ( pszpath : :: windows::core::PSTR , pszfrom : :: windows::core::PCSTR , dwattrfrom : u32 , pszto : :: windows::core::PCSTR , dwattrto : u32 ) -> super::super::Foundation:: BOOL );
     PathRelativePathToA(::core::mem::transmute(pszpath.as_ptr()), pszfrom.into().abi(), dwattrfrom, pszto.into().abi(), dwattrto)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2517,69 +2517,69 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRelativePathToW ( pszpath : :: windows::core::PWSTR , pszfrom : :: windows::core::PCWSTR , dwattrfrom : u32 , pszto : :: windows::core::PCWSTR , dwattrto : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRelativePathToW ( pszpath : :: windows::core::PWSTR , pszfrom : :: windows::core::PCWSTR , dwattrfrom : u32 , pszto : :: windows::core::PCWSTR , dwattrto : u32 ) -> super::super::Foundation:: BOOL );
     PathRelativePathToW(::core::mem::transmute(pszpath.as_ptr()), pszfrom.into().abi(), dwattrfrom, pszto.into().abi(), dwattrto)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathRemoveArgsA(pszpath: ::windows::core::PSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveArgsA ( pszpath : :: windows::core::PSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveArgsA ( pszpath : :: windows::core::PSTR ) -> ( ) );
     PathRemoveArgsA(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathRemoveArgsW(pszpath: ::windows::core::PWSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveArgsW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveArgsW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
     PathRemoveArgsW(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathRemoveBackslashA(pszpath: ::windows::core::PSTR) -> ::windows::core::PSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveBackslashA ( pszpath : :: windows::core::PSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveBackslashA ( pszpath : :: windows::core::PSTR ) -> :: windows::core::PSTR );
     PathRemoveBackslashA(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathRemoveBackslashW(pszpath: ::windows::core::PWSTR) -> ::windows::core::PWSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveBackslashW ( pszpath : :: windows::core::PWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveBackslashW ( pszpath : :: windows::core::PWSTR ) -> :: windows::core::PWSTR );
     PathRemoveBackslashW(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathRemoveBlanksA(pszpath: ::windows::core::PSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveBlanksA ( pszpath : :: windows::core::PSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveBlanksA ( pszpath : :: windows::core::PSTR ) -> ( ) );
     PathRemoveBlanksA(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathRemoveBlanksW(pszpath: ::windows::core::PWSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveBlanksW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveBlanksW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
     PathRemoveBlanksW(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathRemoveExtensionA(pszpath: ::windows::core::PSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveExtensionA ( pszpath : :: windows::core::PSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveExtensionA ( pszpath : :: windows::core::PSTR ) -> ( ) );
     PathRemoveExtensionA(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathRemoveExtensionW(pszpath: ::windows::core::PWSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveExtensionW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveExtensionW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
     PathRemoveExtensionW(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveFileSpecA(pszpath: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveFileSpecA ( pszpath : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveFileSpecA ( pszpath : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
     PathRemoveFileSpecA(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveFileSpecW(pszpath: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRemoveFileSpecW ( pszpath : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRemoveFileSpecW ( pszpath : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     PathRemoveFileSpecW(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2589,7 +2589,7 @@ pub unsafe fn PathRenameExtensionA<P0>(pszpath: &mut [u8; 260], pszext: P0) -> s
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRenameExtensionA ( pszpath : :: windows::core::PSTR , pszext : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRenameExtensionA ( pszpath : :: windows::core::PSTR , pszext : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathRenameExtensionA(::core::mem::transmute(pszpath.as_ptr()), pszext.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2599,13 +2599,13 @@ pub unsafe fn PathRenameExtensionW<P0>(pszpath: &mut [u16; 260], pszext: P0) -> 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathRenameExtensionW ( pszpath : :: windows::core::PWSTR , pszext : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathRenameExtensionW ( pszpath : :: windows::core::PWSTR , pszext : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathRenameExtensionW(::core::mem::transmute(pszpath.as_ptr()), pszext.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathResolve(pszpath: &mut [u16; 260], dirs: ::core::option::Option<*const *const u16>, fflags: PRF_FLAGS) -> i32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn PathResolve ( pszpath : :: windows::core::PWSTR , dirs : *const *const u16 , fflags : PRF_FLAGS ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PathResolve ( pszpath : :: windows::core::PWSTR , dirs : *const *const u16 , fflags : PRF_FLAGS ) -> i32 );
     PathResolve(::core::mem::transmute(pszpath.as_ptr()), ::core::mem::transmute(dirs.unwrap_or(::std::ptr::null())), fflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2615,7 +2615,7 @@ pub unsafe fn PathSearchAndQualifyA<P0>(pszpath: P0, pszbuf: &mut [u8]) -> super
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathSearchAndQualifyA ( pszpath : :: windows::core::PCSTR , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathSearchAndQualifyA ( pszpath : :: windows::core::PCSTR , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> super::super::Foundation:: BOOL );
     PathSearchAndQualifyA(pszpath.into().abi(), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2625,7 +2625,7 @@ pub unsafe fn PathSearchAndQualifyW<P0>(pszpath: P0, pszbuf: &mut [u16]) -> supe
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathSearchAndQualifyW ( pszpath : :: windows::core::PCWSTR , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathSearchAndQualifyW ( pszpath : :: windows::core::PCWSTR , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> super::super::Foundation:: BOOL );
     PathSearchAndQualifyW(pszpath.into().abi(), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2636,7 +2636,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathSetDlgItemPathA ( hdlg : super::super::Foundation:: HWND , id : i32 , pszpath : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathSetDlgItemPathA ( hdlg : super::super::Foundation:: HWND , id : i32 , pszpath : :: windows::core::PCSTR ) -> ( ) );
     PathSetDlgItemPathA(hdlg.into(), id, pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2647,7 +2647,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathSetDlgItemPathW ( hdlg : super::super::Foundation:: HWND , id : i32 , pszpath : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathSetDlgItemPathW ( hdlg : super::super::Foundation:: HWND , id : i32 , pszpath : :: windows::core::PCWSTR ) -> ( ) );
     PathSetDlgItemPathW(hdlg.into(), id, pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2656,7 +2656,7 @@ pub unsafe fn PathSkipRootA<P0>(pszpath: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathSkipRootA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathSkipRootA ( pszpath : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     PathSkipRootA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2665,33 +2665,33 @@ pub unsafe fn PathSkipRootW<P0>(pszpath: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathSkipRootW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathSkipRootW ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     PathSkipRootW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathStripPathA(pszpath: ::windows::core::PSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathStripPathA ( pszpath : :: windows::core::PSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathStripPathA ( pszpath : :: windows::core::PSTR ) -> ( ) );
     PathStripPathA(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathStripPathW(pszpath: ::windows::core::PWSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathStripPathW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathStripPathW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
     PathStripPathW(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathStripToRootA(pszpath: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathStripToRootA ( pszpath : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathStripToRootA ( pszpath : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
     PathStripToRootA(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathStripToRootW(pszpath: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathStripToRootW ( pszpath : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathStripToRootW ( pszpath : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     PathStripToRootW(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2701,7 +2701,7 @@ pub unsafe fn PathUnExpandEnvStringsA<P0>(pszpath: P0, pszbuf: &mut [u8]) -> sup
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathUnExpandEnvStringsA ( pszpath : :: windows::core::PCSTR , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathUnExpandEnvStringsA ( pszpath : :: windows::core::PCSTR , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> super::super::Foundation:: BOOL );
     PathUnExpandEnvStringsA(pszpath.into().abi(), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2711,19 +2711,19 @@ pub unsafe fn PathUnExpandEnvStringsW<P0>(pszpath: P0, pszbuf: &mut [u16]) -> su
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathUnExpandEnvStringsW ( pszpath : :: windows::core::PCWSTR , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathUnExpandEnvStringsW ( pszpath : :: windows::core::PCWSTR , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> super::super::Foundation:: BOOL );
     PathUnExpandEnvStringsW(pszpath.into().abi(), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathUndecorateA(pszpath: ::windows::core::PSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathUndecorateA ( pszpath : :: windows::core::PSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathUndecorateA ( pszpath : :: windows::core::PSTR ) -> ( ) );
     PathUndecorateA(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn PathUndecorateW(pszpath: ::windows::core::PWSTR) {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathUndecorateW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathUndecorateW ( pszpath : :: windows::core::PWSTR ) -> ( ) );
     PathUndecorateW(::core::mem::transmute(pszpath))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2733,7 +2733,7 @@ pub unsafe fn PathUnmakeSystemFolderA<P0>(pszpath: P0) -> super::super::Foundati
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathUnmakeSystemFolderA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathUnmakeSystemFolderA ( pszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     PathUnmakeSystemFolderA(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2743,21 +2743,21 @@ pub unsafe fn PathUnmakeSystemFolderW<P0>(pszpath: P0) -> super::super::Foundati
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathUnmakeSystemFolderW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathUnmakeSystemFolderW ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathUnmakeSystemFolderW(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUnquoteSpacesA(lpsz: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathUnquoteSpacesA ( lpsz : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathUnquoteSpacesA ( lpsz : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
     PathUnquoteSpacesA(::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUnquoteSpacesW(lpsz: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathUnquoteSpacesW ( lpsz : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathUnquoteSpacesW ( lpsz : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     PathUnquoteSpacesW(::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2769,7 +2769,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn PathYetAnotherMakeUniqueName ( pszuniquename : :: windows::core::PWSTR , pszpath : :: windows::core::PCWSTR , pszshort : :: windows::core::PCWSTR , pszfilespec : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PathYetAnotherMakeUniqueName ( pszuniquename : :: windows::core::PWSTR , pszpath : :: windows::core::PCWSTR , pszshort : :: windows::core::PCWSTR , pszfilespec : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathYetAnotherMakeUniqueName(::core::mem::transmute(pszuniquename.as_ptr()), pszpath.into().abi(), pszshort.into().abi(), pszfilespec.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2779,7 +2779,7 @@ pub unsafe fn PickIconDlg<P0>(hwnd: P0, psziconpath: &mut [u16], piiconindex: ::
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn PickIconDlg ( hwnd : super::super::Foundation:: HWND , psziconpath : :: windows::core::PWSTR , cchiconpath : u32 , piiconindex : *mut i32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn PickIconDlg ( hwnd : super::super::Foundation:: HWND , psziconpath : :: windows::core::PWSTR , cchiconpath : u32 , piiconindex : *mut i32 ) -> i32 );
     PickIconDlg(hwnd.into(), ::core::mem::transmute(psziconpath.as_ptr()), psziconpath.len() as _, ::core::mem::transmute(piiconindex.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2788,7 +2788,7 @@ pub unsafe fn QISearch<T>(that: *mut ::core::ffi::c_void, pqit: *const QITAB) ->
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn QISearch ( that : *mut ::core::ffi::c_void , pqit : *const QITAB , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn QISearch ( that : *mut ::core::ffi::c_void , pqit : *const QITAB , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     QISearch(that, pqit, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -2796,7 +2796,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadCabinetState(pcs: *mut CABINETSTATE, clength: i32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn ReadCabinetState ( pcs : *mut CABINETSTATE , clength : i32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ReadCabinetState ( pcs : *mut CABINETSTATE , clength : i32 ) -> super::super::Foundation:: BOOL );
     ReadCabinetState(pcs, clength)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2806,21 +2806,21 @@ pub unsafe fn RealDriveType<P0>(idrive: i32, foktohitnet: P0) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn RealDriveType ( idrive : i32 , foktohitnet : super::super::Foundation:: BOOL ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn RealDriveType ( idrive : i32 , foktohitnet : super::super::Foundation:: BOOL ) -> i32 );
     RealDriveType(idrive, foktohitnet.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CHANGE_ROUTINE, context: ::core::option::Option<*const ::core::ffi::c_void>, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-core-psm-appnotify-l1-1-1.dll""system" fn RegisterAppConstrainedChangeNotification ( routine : PAPPCONSTRAIN_CHANGE_ROUTINE , context : *const ::core::ffi::c_void , registration : *mut *mut _APPCONSTRAIN_REGISTRATION ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-core-psm-appnotify-l1-1-1.dll""system" fn RegisterAppConstrainedChangeNotification ( routine : PAPPCONSTRAIN_CHANGE_ROUTINE , context : *const ::core::ffi::c_void , registration : *mut *mut _APPCONSTRAIN_REGISTRATION ) -> u32 );
     RegisterAppConstrainedChangeNotification(routine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registration)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterAppStateChangeNotification(routine: PAPPSTATE_CHANGE_ROUTINE, context: ::core::option::Option<*const ::core::ffi::c_void>, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32 {
-    ::windows::core::link ! ( "api-ms-win-core-psm-appnotify-l1-1-0.dll""system" fn RegisterAppStateChangeNotification ( routine : PAPPSTATE_CHANGE_ROUTINE , context : *const ::core::ffi::c_void , registration : *mut *mut _APPSTATE_REGISTRATION ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-core-psm-appnotify-l1-1-0.dll""system" fn RegisterAppStateChangeNotification ( routine : PAPPSTATE_CHANGE_ROUTINE , context : *const ::core::ffi::c_void , registration : *mut *mut _APPSTATE_REGISTRATION ) -> u32 );
     RegisterAppStateChangeNotification(routine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registration)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2830,7 +2830,7 @@ pub unsafe fn RegisterScaleChangeEvent<P0>(hevent: P0) -> ::windows::core::Resul
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn RegisterScaleChangeEvent ( hevent : super::super::Foundation:: HANDLE , pdwcookie : *mut usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn RegisterScaleChangeEvent ( hevent : super::super::Foundation:: HANDLE , pdwcookie : *mut usize ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<usize>();
     RegisterScaleChangeEvent(hevent.into(), &mut result__).from_abi(result__)
 }
@@ -2841,7 +2841,7 @@ pub unsafe fn RegisterScaleChangeNotifications<P0>(displaydevice: DISPLAY_DEVICE
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-0.dll""system" fn RegisterScaleChangeNotifications ( displaydevice : DISPLAY_DEVICE_TYPE , hwndnotify : super::super::Foundation:: HWND , umsgnotify : u32 , pdwcookie : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-0.dll""system" fn RegisterScaleChangeNotifications ( displaydevice : DISPLAY_DEVICE_TYPE , hwndnotify : super::super::Foundation:: HWND , umsgnotify : u32 , pdwcookie : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     RegisterScaleChangeNotifications(displaydevice, hwndnotify.into(), umsgnotify, &mut result__).from_abi(result__)
 }
@@ -2852,7 +2852,7 @@ pub unsafe fn RemoveWindowSubclass<P0>(hwnd: P0, pfnsubclass: SUBCLASSPROC, uids
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "comctl32.dll""system" fn RemoveWindowSubclass ( hwnd : super::super::Foundation:: HWND , pfnsubclass : SUBCLASSPROC , uidsubclass : usize ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "comctl32.dll""system" fn RemoveWindowSubclass ( hwnd : super::super::Foundation:: HWND , pfnsubclass : SUBCLASSPROC , uidsubclass : usize ) -> super::super::Foundation:: BOOL );
     RemoveWindowSubclass(hwnd.into(), pfnsubclass, uidsubclass)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2863,7 +2863,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn RestartDialog ( hwnd : super::super::Foundation:: HWND , pszprompt : :: windows::core::PCWSTR , dwreturn : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn RestartDialog ( hwnd : super::super::Foundation:: HWND , pszprompt : :: windows::core::PCWSTR , dwreturn : u32 ) -> i32 );
     RestartDialog(hwnd.into(), pszprompt.into().abi(), dwreturn)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -2874,13 +2874,13 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn RestartDialogEx ( hwnd : super::super::Foundation:: HWND , pszprompt : :: windows::core::PCWSTR , dwreturn : u32 , dwreasoncode : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn RestartDialogEx ( hwnd : super::super::Foundation:: HWND , pszprompt : :: windows::core::PCWSTR , dwreturn : u32 , dwreasoncode : u32 ) -> i32 );
     RestartDialogEx(hwnd.into(), pszprompt.into().abi(), dwreturn, dwreasoncode)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn RevokeScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, dwcookie: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-0.dll""system" fn RevokeScaleChangeNotifications ( displaydevice : DISPLAY_DEVICE_TYPE , dwcookie : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-0.dll""system" fn RevokeScaleChangeNotifications ( displaydevice : DISPLAY_DEVICE_TYPE , dwcookie : u32 ) -> :: windows::core::HRESULT );
     RevokeScaleChangeNotifications(displaydevice, dwcookie).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
@@ -2891,26 +2891,26 @@ where
     P0: ::std::convert::Into<HPSXA>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHAddFromPropSheetExtArray ( hpsxa : HPSXA , lpfnaddpage : super::Controls:: LPFNSVADDPROPSHEETPAGE , lparam : super::super::Foundation:: LPARAM ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHAddFromPropSheetExtArray ( hpsxa : HPSXA , lpfnaddpage : super::Controls:: LPFNSVADDPROPSHEETPAGE , lparam : super::super::Foundation:: LPARAM ) -> u32 );
     SHAddFromPropSheetExtArray(hpsxa.into(), lpfnaddpage, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHAddToRecentDocs(uflags: u32, pv: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHAddToRecentDocs ( uflags : u32 , pv : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHAddToRecentDocs ( uflags : u32 , pv : *const ::core::ffi::c_void ) -> ( ) );
     SHAddToRecentDocs(uflags, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHAlloc(cb: usize) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHAlloc ( cb : usize ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHAlloc ( cb : usize ) -> *mut ::core::ffi::c_void );
     SHAlloc(cb)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHAllocShared(pvdata: ::core::option::Option<*const ::core::ffi::c_void>, dwsize: u32, dwprocessid: u32) -> super::super::Foundation::HANDLE {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHAllocShared ( pvdata : *const ::core::ffi::c_void , dwsize : u32 , dwprocessid : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHAllocShared ( pvdata : *const ::core::ffi::c_void , dwsize : u32 , dwprocessid : u32 ) -> super::super::Foundation:: HANDLE );
     SHAllocShared(::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), dwsize, dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2919,7 +2919,7 @@ pub unsafe fn SHAnsiToAnsi<P0>(pszsrc: P0, pszdst: &mut [u8]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHAnsiToAnsi ( pszsrc : :: windows::core::PCSTR , pszdst : :: windows::core::PSTR , cchbuf : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHAnsiToAnsi ( pszsrc : :: windows::core::PCSTR , pszdst : :: windows::core::PSTR , cchbuf : i32 ) -> i32 );
     SHAnsiToAnsi(pszsrc.into().abi(), ::core::mem::transmute(pszdst.as_ptr()), pszdst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2928,14 +2928,14 @@ pub unsafe fn SHAnsiToUnicode<P0>(pszsrc: P0, pwszdst: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHAnsiToUnicode ( pszsrc : :: windows::core::PCSTR , pwszdst : :: windows::core::PWSTR , cwchbuf : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHAnsiToUnicode ( pszsrc : :: windows::core::PCSTR , pwszdst : :: windows::core::PWSTR , cwchbuf : i32 ) -> i32 );
     SHAnsiToUnicode(pszsrc.into().abi(), ::core::mem::transmute(pwszdst.as_ptr()), pwszdst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHAppBarMessage(dwmessage: u32, pdata: *mut APPBARDATA) -> usize {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHAppBarMessage ( dwmessage : u32 , pdata : *mut APPBARDATA ) -> usize );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHAppBarMessage ( dwmessage : u32 , pdata : *mut APPBARDATA ) -> usize );
     SHAppBarMessage(dwmessage, pdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2944,7 +2944,7 @@ pub unsafe fn SHAssocEnumHandlers<P0>(pszextra: P0, affilter: ASSOC_FILTER) -> :
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHAssocEnumHandlers ( pszextra : :: windows::core::PCWSTR , affilter : ASSOC_FILTER , ppenumhandler : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHAssocEnumHandlers ( pszextra : :: windows::core::PCWSTR , affilter : ASSOC_FILTER , ppenumhandler : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IEnumAssocHandlers>();
     SHAssocEnumHandlers(pszextra.into().abi(), affilter, &mut result__).from_abi(result__)
 }
@@ -2955,7 +2955,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHAssocEnumHandlersForProtocolByApplication ( protocol : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , enumhandlers : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHAssocEnumHandlersForProtocolByApplication ( protocol : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , enumhandlers : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHAssocEnumHandlersForProtocolByApplication(protocol.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -2966,7 +2966,7 @@ pub unsafe fn SHAutoComplete<P0>(hwndedit: P0, dwflags: SHELL_AUTOCOMPLETE_FLAGS
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHAutoComplete ( hwndedit : super::super::Foundation:: HWND , dwflags : SHELL_AUTOCOMPLETE_FLAGS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHAutoComplete ( hwndedit : super::super::Foundation:: HWND , dwflags : SHELL_AUTOCOMPLETE_FLAGS ) -> :: windows::core::HRESULT );
     SHAutoComplete(hwndedit.into(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -2977,7 +2977,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHBindToFolderIDListParent ( psfroot : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void , ppidllast : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHBindToFolderIDListParent ( psfroot : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void , ppidllast : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHBindToFolderIDListParent(psfroot.into().abi(), pidl, &<T as ::windows::core::Interface>::IID, &mut result__, ::core::mem::transmute(ppidllast.unwrap_or(::std::ptr::null_mut()))).from_abi(result__)
 }
@@ -2990,7 +2990,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindCtx>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHBindToFolderIDListParentEx ( psfroot : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , ppbc : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void , ppidllast : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHBindToFolderIDListParentEx ( psfroot : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , ppbc : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void , ppidllast : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHBindToFolderIDListParentEx(psfroot.into().abi(), pidl, ppbc.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__, ::core::mem::transmute(ppidllast.unwrap_or(::std::ptr::null_mut()))).from_abi(result__)
 }
@@ -3003,7 +3003,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindCtx>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHBindToObject ( psf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , pbc : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHBindToObject ( psf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , pbc : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHBindToObject(psf.into().abi(), pidl, pbc.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3014,7 +3014,7 @@ pub unsafe fn SHBindToParent<T>(pidl: *const Common::ITEMIDLIST, ppidllast: ::co
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHBindToParent ( pidl : *const Common:: ITEMIDLIST , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void , ppidllast : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHBindToParent ( pidl : *const Common:: ITEMIDLIST , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void , ppidllast : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHBindToParent(pidl, &<T as ::windows::core::Interface>::IID, &mut result__, ::core::mem::transmute(ppidllast.unwrap_or(::std::ptr::null_mut()))).from_abi(result__)
 }
@@ -3022,14 +3022,14 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn SHBrowseForFolderA(lpbi: *const BROWSEINFOA) -> *mut Common::ITEMIDLIST {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHBrowseForFolderA ( lpbi : *const BROWSEINFOA ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHBrowseForFolderA ( lpbi : *const BROWSEINFOA ) -> *mut Common:: ITEMIDLIST );
     SHBrowseForFolderA(lpbi)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn SHBrowseForFolderW(lpbi: *const BROWSEINFOW) -> *mut Common::ITEMIDLIST {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHBrowseForFolderW ( lpbi : *const BROWSEINFOW ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHBrowseForFolderW ( lpbi : *const BROWSEINFOW ) -> *mut Common:: ITEMIDLIST );
     SHBrowseForFolderW(lpbi)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3038,7 +3038,7 @@ pub unsafe fn SHCLSIDFromString<P0>(psz: P0) -> ::windows::core::Result<::window
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCLSIDFromString ( psz : :: windows::core::PCWSTR , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCLSIDFromString ( psz : :: windows::core::PCWSTR , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     SHCLSIDFromString(psz.into().abi(), &mut result__).from_abi(result__)
 }
@@ -3049,7 +3049,7 @@ pub unsafe fn SHChangeNotification_Lock<P0>(hchange: P0, dwprocid: u32, pppidl: 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHChangeNotification_Lock ( hchange : super::super::Foundation:: HANDLE , dwprocid : u32 , pppidl : *mut *mut *mut Common:: ITEMIDLIST , plevent : *mut i32 ) -> ShFindChangeNotificationHandle );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHChangeNotification_Lock ( hchange : super::super::Foundation:: HANDLE , dwprocid : u32 , pppidl : *mut *mut *mut Common:: ITEMIDLIST , plevent : *mut i32 ) -> ShFindChangeNotificationHandle );
     SHChangeNotification_Lock(hchange.into(), dwprocid, ::core::mem::transmute(pppidl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plevent.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -3059,20 +3059,20 @@ pub unsafe fn SHChangeNotification_Unlock<P0>(hlock: P0) -> super::super::Founda
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHChangeNotification_Unlock ( hlock : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHChangeNotification_Unlock ( hlock : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     SHChangeNotification_Unlock(hlock.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHChangeNotify(weventid: SHCNE_ID, uflags: SHCNF_FLAGS, dwitem1: ::core::option::Option<*const ::core::ffi::c_void>, dwitem2: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHChangeNotify ( weventid : SHCNE_ID , uflags : SHCNF_FLAGS , dwitem1 : *const ::core::ffi::c_void , dwitem2 : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHChangeNotify ( weventid : SHCNE_ID , uflags : SHCNF_FLAGS , dwitem1 : *const ::core::ffi::c_void , dwitem2 : *const ::core::ffi::c_void ) -> ( ) );
     SHChangeNotify(weventid, uflags, ::core::mem::transmute(dwitem1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dwitem2.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHChangeNotifyDeregister(ulid: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHChangeNotifyDeregister ( ulid : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHChangeNotifyDeregister ( ulid : u32 ) -> super::super::Foundation:: BOOL );
     SHChangeNotifyDeregister(ulid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -3082,13 +3082,13 @@ pub unsafe fn SHChangeNotifyRegister<P0>(hwnd: P0, fsources: SHCNRF_SOURCE, feve
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHChangeNotifyRegister ( hwnd : super::super::Foundation:: HWND , fsources : SHCNRF_SOURCE , fevents : i32 , wmsg : u32 , centries : i32 , pshcne : *const SHChangeNotifyEntry ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHChangeNotifyRegister ( hwnd : super::super::Foundation:: HWND , fsources : SHCNRF_SOURCE , fevents : i32 , wmsg : u32 , centries : i32 , pshcne : *const SHChangeNotifyEntry ) -> u32 );
     SHChangeNotifyRegister(hwnd.into(), fsources, fevents, wmsg, centries, pshcne)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHChangeNotifyRegisterThread(status: SCNRT_STATUS) {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHChangeNotifyRegisterThread ( status : SCNRT_STATUS ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHChangeNotifyRegisterThread ( status : SCNRT_STATUS ) -> ( ) );
     SHChangeNotifyRegisterThread(status)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -3099,7 +3099,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCloneSpecialIDList ( hwnd : super::super::Foundation:: HWND , csidl : i32 , fcreate : super::super::Foundation:: BOOL ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCloneSpecialIDList ( hwnd : super::super::Foundation:: HWND , csidl : i32 , fcreate : super::super::Foundation:: BOOL ) -> *mut Common:: ITEMIDLIST );
     SHCloneSpecialIDList(hwnd.into(), csidl, fcreate.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3110,7 +3110,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCoCreateInstance ( pszclsid : :: windows::core::PCWSTR , pclsid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCoCreateInstance ( pszclsid : :: windows::core::PCWSTR , pclsid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCoCreateInstance(pszclsid.into().abi(), ::core::mem::transmute(pclsid.unwrap_or(::std::ptr::null())), punkouter.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3123,7 +3123,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCopyKeyA ( hkeysrc : super::super::System::Registry:: HKEY , pszsrcsubkey : :: windows::core::PCSTR , hkeydest : super::super::System::Registry:: HKEY , freserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCopyKeyA ( hkeysrc : super::super::System::Registry:: HKEY , pszsrcsubkey : :: windows::core::PCSTR , hkeydest : super::super::System::Registry:: HKEY , freserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHCopyKeyA(hkeysrc.into(), pszsrcsubkey.into().abi(), hkeydest.into(), freserved)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3135,7 +3135,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCopyKeyW ( hkeysrc : super::super::System::Registry:: HKEY , pszsrcsubkey : :: windows::core::PCWSTR , hkeydest : super::super::System::Registry:: HKEY , freserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCopyKeyW ( hkeysrc : super::super::System::Registry:: HKEY , pszsrcsubkey : :: windows::core::PCWSTR , hkeydest : super::super::System::Registry:: HKEY , freserved : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHCopyKeyW(hkeysrc.into(), pszsrcsubkey.into().abi(), hkeydest.into(), freserved)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3144,7 +3144,7 @@ pub unsafe fn SHCreateAssociationRegistration<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateAssociationRegistration ( riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateAssociationRegistration ( riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateAssociationRegistration(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3156,7 +3156,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDataObject>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateDataObject ( pidlfolder : *const Common:: ITEMIDLIST , cidl : u32 , apidl : *const *const Common:: ITEMIDLIST , pdtinner : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateDataObject ( pidlfolder : *const Common:: ITEMIDLIST , cidl : u32 , apidl : *const *const Common:: ITEMIDLIST , pdtinner : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateDataObject(::core::mem::transmute(pidlfolder.unwrap_or(::std::ptr::null())), apidl.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(apidl.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdtinner.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3167,7 +3167,7 @@ pub unsafe fn SHCreateDefaultContextMenu<T>(pdcm: *const DEFCONTEXTMENU) -> ::wi
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateDefaultContextMenu ( pdcm : *const DEFCONTEXTMENU , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateDefaultContextMenu ( pdcm : *const DEFCONTEXTMENU , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateDefaultContextMenu(pdcm, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3177,7 +3177,7 @@ pub unsafe fn SHCreateDefaultExtractIcon<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateDefaultExtractIcon ( riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateDefaultExtractIcon ( riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateDefaultExtractIcon(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3187,7 +3187,7 @@ pub unsafe fn SHCreateDefaultPropertiesOp<P0>(psi: P0) -> ::windows::core::Resul
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellItem>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateDefaultPropertiesOp ( psi : * mut::core::ffi::c_void , ppfileop : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateDefaultPropertiesOp ( psi : * mut::core::ffi::c_void , ppfileop : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IFileOperation>();
     SHCreateDefaultPropertiesOp(psi.into().abi(), &mut result__).from_abi(result__)
 }
@@ -3199,7 +3199,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateDirectory ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateDirectory ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PCWSTR ) -> i32 );
     SHCreateDirectory(hwnd.into(), pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -3210,7 +3210,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateDirectoryExA ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PCSTR , psa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateDirectoryExA ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PCSTR , psa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> i32 );
     SHCreateDirectoryExA(hwnd.into(), pszpath.into().abi(), ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -3221,7 +3221,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateDirectoryExW ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PCWSTR , psa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateDirectoryExW ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PCWSTR , psa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> i32 );
     SHCreateDirectoryExW(hwnd.into(), pszpath.into().abi(), ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3231,7 +3231,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateFileExtractIconW ( pszfile : :: windows::core::PCWSTR , dwfileattributes : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateFileExtractIconW ( pszfile : :: windows::core::PCWSTR , dwfileattributes : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateFileExtractIconW(pszfile.into().abi(), dwfileattributes, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3242,7 +3242,7 @@ pub unsafe fn SHCreateItemFromIDList<T>(pidl: *const Common::ITEMIDLIST) -> ::wi
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateItemFromIDList ( pidl : *const Common:: ITEMIDLIST , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateItemFromIDList ( pidl : *const Common:: ITEMIDLIST , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateItemFromIDList(pidl, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3255,7 +3255,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindCtx>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateItemFromParsingName ( pszpath : :: windows::core::PCWSTR , pbc : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateItemFromParsingName ( pszpath : :: windows::core::PCWSTR , pbc : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateItemFromParsingName(pszpath.into().abi(), pbc.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3269,7 +3269,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindCtx>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateItemFromRelativeName ( psiparent : * mut::core::ffi::c_void , pszname : :: windows::core::PCWSTR , pbc : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateItemFromRelativeName ( psiparent : * mut::core::ffi::c_void , pszname : :: windows::core::PCWSTR , pbc : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateItemFromRelativeName(psiparent.into().abi(), pszname.into().abi(), pbc.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3280,7 +3280,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateItemInKnownFolder ( kfid : *const :: windows::core::GUID , dwkfflags : u32 , pszitem : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateItemInKnownFolder ( kfid : *const :: windows::core::GUID , dwkfflags : u32 , pszitem : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateItemInKnownFolder(kfid, dwkfflags, pszitem.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3292,7 +3292,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateItemWithParent ( pidlparent : *const Common:: ITEMIDLIST , psfparent : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , riid : *const :: windows::core::GUID , ppvitem : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateItemWithParent ( pidlparent : *const Common:: ITEMIDLIST , psfparent : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , riid : *const :: windows::core::GUID , ppvitem : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateItemWithParent(::core::mem::transmute(pidlparent.unwrap_or(::std::ptr::null())), psfparent.into().abi(), pidl, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3300,14 +3300,14 @@ where
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHCreateMemStream(pinit: ::core::option::Option<&[u8]>) -> ::core::option::Option<super::super::System::Com::IStream> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateMemStream ( pinit : *const u8 , cbinit : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCreateMemStream ( pinit : *const u8 , cbinit : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
     SHCreateMemStream(::core::mem::transmute(pinit.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinit.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn SHCreateProcessAsUserW(pscpi: *mut SHCREATEPROCESSINFOW) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateProcessAsUserW ( pscpi : *mut SHCREATEPROCESSINFOW ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateProcessAsUserW ( pscpi : *mut SHCREATEPROCESSINFOW ) -> super::super::Foundation:: BOOL );
     SHCreateProcessAsUserW(pscpi)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
@@ -3318,14 +3318,14 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreatePropSheetExtArray ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , max_iface : u32 ) -> HPSXA );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreatePropSheetExtArray ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , max_iface : u32 ) -> HPSXA );
     SHCreatePropSheetExtArray(hkey.into(), pszsubkey.into().abi(), max_iface)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHCreateQueryCancelAutoPlayMoniker() -> ::windows::core::Result<super::super::System::Com::IMoniker> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateQueryCancelAutoPlayMoniker ( ppmoniker : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateQueryCancelAutoPlayMoniker ( ppmoniker : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IMoniker>();
     SHCreateQueryCancelAutoPlayMoniker(&mut result__).from_abi(result__)
 }
@@ -3333,7 +3333,7 @@ pub unsafe fn SHCreateQueryCancelAutoPlayMoniker() -> ::windows::core::Result<su
 #[cfg(feature = "Win32_System_Ole")]
 #[inline]
 pub unsafe fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE) -> ::windows::core::Result<IShellView> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateShellFolderView ( pcsfv : *const SFV_CREATE , ppsv : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateShellFolderView ( pcsfv : *const SFV_CREATE , ppsv : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IShellView>();
     SHCreateShellFolderView(pcsfv, &mut result__).from_abi(result__)
 }
@@ -3341,7 +3341,7 @@ pub unsafe fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE) -> ::windows::co
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn SHCreateShellFolderViewEx(pcsfv: *const CSFV) -> ::windows::core::Result<IShellView> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateShellFolderViewEx ( pcsfv : *const CSFV , ppsv : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateShellFolderViewEx ( pcsfv : *const CSFV , ppsv : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IShellView>();
     SHCreateShellFolderViewEx(pcsfv, &mut result__).from_abi(result__)
 }
@@ -3352,7 +3352,7 @@ pub unsafe fn SHCreateShellItem<P0>(pidlparent: ::core::option::Option<*const Co
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateShellItem ( pidlparent : *const Common:: ITEMIDLIST , psfparent : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , ppsi : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateShellItem ( pidlparent : *const Common:: ITEMIDLIST , psfparent : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , ppsi : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IShellItem>();
     SHCreateShellItem(::core::mem::transmute(pidlparent.unwrap_or(::std::ptr::null())), psfparent.into().abi(), pidl, &mut result__).from_abi(result__)
 }
@@ -3363,7 +3363,7 @@ pub unsafe fn SHCreateShellItemArray<P0>(pidlparent: ::core::option::Option<*con
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateShellItemArray ( pidlparent : *const Common:: ITEMIDLIST , psf : * mut::core::ffi::c_void , cidl : u32 , ppidl : *const *const Common:: ITEMIDLIST , ppsiitemarray : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateShellItemArray ( pidlparent : *const Common:: ITEMIDLIST , psf : * mut::core::ffi::c_void , cidl : u32 , ppidl : *const *const Common:: ITEMIDLIST , ppsiitemarray : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IShellItemArray>();
     SHCreateShellItemArray(::core::mem::transmute(pidlparent.unwrap_or(::std::ptr::null())), psf.into().abi(), ppidl.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppidl.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
@@ -3375,7 +3375,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDataObject>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateShellItemArrayFromDataObject ( pdo : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateShellItemArrayFromDataObject ( pdo : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateShellItemArrayFromDataObject(pdo.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3383,7 +3383,7 @@ where
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn SHCreateShellItemArrayFromIDLists(rgpidl: &[*const Common::ITEMIDLIST]) -> ::windows::core::Result<IShellItemArray> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateShellItemArrayFromIDLists ( cidl : u32 , rgpidl : *const *const Common:: ITEMIDLIST , ppsiitemarray : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateShellItemArrayFromIDLists ( cidl : u32 , rgpidl : *const *const Common:: ITEMIDLIST , ppsiitemarray : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IShellItemArray>();
     SHCreateShellItemArrayFromIDLists(rgpidl.len() as _, ::core::mem::transmute(rgpidl.as_ptr()), &mut result__).from_abi(result__)
 }
@@ -3394,7 +3394,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IShellItem>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateShellItemArrayFromShellItem ( psi : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateShellItemArrayFromShellItem ( psi : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHCreateShellItemArrayFromShellItem(psi.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3405,14 +3405,14 @@ pub unsafe fn SHCreateShellPalette<P0>(hdc: P0) -> super::super::Graphics::Gdi::
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateShellPalette ( hdc : super::super::Graphics::Gdi:: HDC ) -> super::super::Graphics::Gdi:: HPALETTE );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCreateShellPalette ( hdc : super::super::Graphics::Gdi:: HDC ) -> super::super::Graphics::Gdi:: HPALETTE );
     SHCreateShellPalette(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHCreateStdEnumFmtEtc(afmt: &[super::super::System::Com::FORMATETC]) -> ::windows::core::Result<super::super::System::Com::IEnumFORMATETC> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHCreateStdEnumFmtEtc ( cfmt : u32 , afmt : *const super::super::System::Com:: FORMATETC , ppenumformatetc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHCreateStdEnumFmtEtc ( cfmt : u32 , afmt : *const super::super::System::Com:: FORMATETC , ppenumformatetc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IEnumFORMATETC>();
     SHCreateStdEnumFmtEtc(afmt.len() as _, ::core::mem::transmute(afmt.as_ptr()), &mut result__).from_abi(result__)
 }
@@ -3423,7 +3423,7 @@ pub unsafe fn SHCreateStreamOnFileA<P0>(pszfile: P0, grfmode: u32) -> ::windows:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateStreamOnFileA ( pszfile : :: windows::core::PCSTR , grfmode : u32 , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCreateStreamOnFileA ( pszfile : :: windows::core::PCSTR , grfmode : u32 , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
     SHCreateStreamOnFileA(pszfile.into().abi(), grfmode, &mut result__).from_abi(result__)
 }
@@ -3436,7 +3436,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     P2: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateStreamOnFileEx ( pszfile : :: windows::core::PCWSTR , grfmode : u32 , dwattributes : u32 , fcreate : super::super::Foundation:: BOOL , pstmtemplate : * mut::core::ffi::c_void , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCreateStreamOnFileEx ( pszfile : :: windows::core::PCWSTR , grfmode : u32 , dwattributes : u32 , fcreate : super::super::Foundation:: BOOL , pstmtemplate : * mut::core::ffi::c_void , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
     SHCreateStreamOnFileEx(pszfile.into().abi(), grfmode, dwattributes, fcreate.into(), pstmtemplate.into().abi(), &mut result__).from_abi(result__)
 }
@@ -3447,7 +3447,7 @@ pub unsafe fn SHCreateStreamOnFileW<P0>(pszfile: P0, grfmode: u32) -> ::windows:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateStreamOnFileW ( pszfile : :: windows::core::PCWSTR , grfmode : u32 , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCreateStreamOnFileW ( pszfile : :: windows::core::PCWSTR , grfmode : u32 , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
     SHCreateStreamOnFileW(pszfile.into().abi(), grfmode, &mut result__).from_abi(result__)
 }
@@ -3455,20 +3455,20 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn SHCreateThread(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateThread ( pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE , pdata : *const ::core::ffi::c_void , flags : u32 , pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCreateThread ( pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE , pdata : *const ::core::ffi::c_void , flags : u32 , pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE ) -> super::super::Foundation:: BOOL );
     SHCreateThread(pfnthreadproc, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), flags, pfncallback)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateThreadRef ( pcref : *mut i32 , ppunk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCreateThreadRef ( pcref : *mut i32 , ppunk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SHCreateThreadRef(pcref, ::core::mem::transmute(ppunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, phandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateThreadWithHandle ( pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE , pdata : *const ::core::ffi::c_void , flags : u32 , pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE , phandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHCreateThreadWithHandle ( pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE , pdata : *const ::core::ffi::c_void , flags : u32 , pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE , phandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     SHCreateThreadWithHandle(pfnthreadproc, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), flags, pfncallback, ::core::mem::transmute(phandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -3478,7 +3478,7 @@ pub unsafe fn SHDefExtractIconA<P0>(psziconfile: P0, iindex: i32, uflags: u32, p
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHDefExtractIconA ( psziconfile : :: windows::core::PCSTR , iindex : i32 , uflags : u32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , niconsize : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHDefExtractIconA ( psziconfile : :: windows::core::PCSTR , iindex : i32 , uflags : u32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , niconsize : u32 ) -> :: windows::core::HRESULT );
     SHDefExtractIconA(psziconfile.into().abi(), iindex, uflags, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), niconsize).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -3488,7 +3488,7 @@ pub unsafe fn SHDefExtractIconW<P0>(psziconfile: P0, iindex: i32, uflags: u32, p
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHDefExtractIconW ( psziconfile : :: windows::core::PCWSTR , iindex : i32 , uflags : u32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , niconsize : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHDefExtractIconW ( psziconfile : :: windows::core::PCWSTR , iindex : i32 , uflags : u32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , niconsize : u32 ) -> :: windows::core::HRESULT );
     SHDefExtractIconW(psziconfile.into().abi(), iindex, uflags, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), niconsize).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3499,7 +3499,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHDeleteEmptyKeyA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHDeleteEmptyKeyA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     SHDeleteEmptyKeyA(hkey.into(), pszsubkey.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3510,7 +3510,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHDeleteEmptyKeyW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHDeleteEmptyKeyW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     SHDeleteEmptyKeyW(hkey.into(), pszsubkey.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3521,7 +3521,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHDeleteKeyA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHDeleteKeyA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     SHDeleteKeyA(hkey.into(), pszsubkey.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3532,7 +3532,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHDeleteKeyW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHDeleteKeyW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     SHDeleteKeyW(hkey.into(), pszsubkey.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3544,7 +3544,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHDeleteValueA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHDeleteValueA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR ) -> super::super::Foundation:: WIN32_ERROR );
     SHDeleteValueA(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3556,7 +3556,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHDeleteValueW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHDeleteValueW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR ) -> super::super::Foundation:: WIN32_ERROR );
     SHDeleteValueW(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3565,7 +3565,7 @@ pub unsafe fn SHDestroyPropSheetExtArray<P0>(hpsxa: P0)
 where
     P0: ::std::convert::Into<HPSXA>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHDestroyPropSheetExtArray ( hpsxa : HPSXA ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHDestroyPropSheetExtArray ( hpsxa : HPSXA ) -> ( ) );
     SHDestroyPropSheetExtArray(hpsxa.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3577,7 +3577,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDataObject>>,
     P2: ::std::convert::Into<::windows::core::InParam<super::super::System::Ole::IDropSource>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHDoDragDrop ( hwnd : super::super::Foundation:: HWND , pdata : * mut::core::ffi::c_void , pdsrc : * mut::core::ffi::c_void , dweffect : super::super::System::Ole:: DROPEFFECT , pdweffect : *mut super::super::System::Ole:: DROPEFFECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHDoDragDrop ( hwnd : super::super::Foundation:: HWND , pdata : * mut::core::ffi::c_void , pdsrc : * mut::core::ffi::c_void , dweffect : super::super::System::Ole:: DROPEFFECT , pdweffect : *mut super::super::System::Ole:: DROPEFFECT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Ole::DROPEFFECT>();
     SHDoDragDrop(hwnd.into(), pdata.into().abi(), pdsrc.into().abi(), dweffect, &mut result__).from_abi(result__)
 }
@@ -3589,7 +3589,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHEmptyRecycleBinA ( hwnd : super::super::Foundation:: HWND , pszrootpath : :: windows::core::PCSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHEmptyRecycleBinA ( hwnd : super::super::Foundation:: HWND , pszrootpath : :: windows::core::PCSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
     SHEmptyRecycleBinA(hwnd.into(), pszrootpath.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -3600,7 +3600,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHEmptyRecycleBinW ( hwnd : super::super::Foundation:: HWND , pszrootpath : :: windows::core::PCWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHEmptyRecycleBinW ( hwnd : super::super::Foundation:: HWND , pszrootpath : :: windows::core::PCWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
     SHEmptyRecycleBinW(hwnd.into(), pszrootpath.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3610,7 +3610,7 @@ pub unsafe fn SHEnumKeyExA<P0>(hkey: P0, dwindex: u32, pszname: ::windows::core:
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHEnumKeyExA ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , pszname : :: windows::core::PSTR , pcchname : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHEnumKeyExA ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , pszname : :: windows::core::PSTR , pcchname : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHEnumKeyExA(hkey.into(), dwindex, ::core::mem::transmute(pszname), pcchname)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3620,7 +3620,7 @@ pub unsafe fn SHEnumKeyExW<P0>(hkey: P0, dwindex: u32, pszname: ::windows::core:
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHEnumKeyExW ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , pszname : :: windows::core::PWSTR , pcchname : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHEnumKeyExW ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , pszname : :: windows::core::PWSTR , pcchname : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHEnumKeyExW(hkey.into(), dwindex, ::core::mem::transmute(pszname), pcchname)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3630,7 +3630,7 @@ pub unsafe fn SHEnumValueA<P0>(hkey: P0, dwindex: u32, pszvaluename: ::windows::
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHEnumValueA ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , pszvaluename : :: windows::core::PSTR , pcchvaluename : *mut u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHEnumValueA ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , pszvaluename : :: windows::core::PSTR , pcchvaluename : *mut u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHEnumValueA(hkey.into(), dwindex, ::core::mem::transmute(pszvaluename), ::core::mem::transmute(pcchvaluename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3640,7 +3640,7 @@ pub unsafe fn SHEnumValueW<P0>(hkey: P0, dwindex: u32, pszvaluename: ::windows::
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHEnumValueW ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , pszvaluename : :: windows::core::PWSTR , pcchvaluename : *mut u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHEnumValueW ( hkey : super::super::System::Registry:: HKEY , dwindex : u32 , pszvaluename : :: windows::core::PWSTR , pcchvaluename : *mut u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHEnumValueW(hkey.into(), dwindex, ::core::mem::transmute(pszvaluename), ::core::mem::transmute(pcchvaluename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
@@ -3650,7 +3650,7 @@ pub unsafe fn SHEnumerateUnreadMailAccountsW<P0>(hkeyuser: P0, dwindex: u32, psz
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHEnumerateUnreadMailAccountsW ( hkeyuser : super::super::System::Registry:: HKEY , dwindex : u32 , pszmailaddress : :: windows::core::PWSTR , cchmailaddress : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHEnumerateUnreadMailAccountsW ( hkeyuser : super::super::System::Registry:: HKEY , dwindex : u32 , pszmailaddress : :: windows::core::PWSTR , cchmailaddress : i32 ) -> :: windows::core::HRESULT );
     SHEnumerateUnreadMailAccountsW(hkeyuser.into(), dwindex, ::core::mem::transmute(pszmailaddress.as_ptr()), pszmailaddress.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3659,28 +3659,28 @@ pub unsafe fn SHEvaluateSystemCommandTemplate<P0>(pszcmdtemplate: P0, ppszapplic
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHEvaluateSystemCommandTemplate ( pszcmdtemplate : :: windows::core::PCWSTR , ppszapplication : *mut :: windows::core::PWSTR , ppszcommandline : *mut :: windows::core::PWSTR , ppszparameters : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHEvaluateSystemCommandTemplate ( pszcmdtemplate : :: windows::core::PCWSTR , ppszapplication : *mut :: windows::core::PWSTR , ppszcommandline : *mut :: windows::core::PWSTR , ppszparameters : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     SHEvaluateSystemCommandTemplate(pszcmdtemplate.into().abi(), ppszapplication, ::core::mem::transmute(ppszcommandline.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppszparameters.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFileOperationA(lpfileop: *mut SHFILEOPSTRUCTA) -> i32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHFileOperationA ( lpfileop : *mut SHFILEOPSTRUCTA ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHFileOperationA ( lpfileop : *mut SHFILEOPSTRUCTA ) -> i32 );
     SHFileOperationA(lpfileop)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFileOperationW(lpfileop: *mut SHFILEOPSTRUCTW) -> i32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHFileOperationW ( lpfileop : *mut SHFILEOPSTRUCTW ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHFileOperationW ( lpfileop : *mut SHFILEOPSTRUCTW ) -> i32 );
     SHFileOperationW(lpfileop)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn SHFindFiles(pidlfolder: ::core::option::Option<*const Common::ITEMIDLIST>, pidlsavefile: ::core::option::Option<*const Common::ITEMIDLIST>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHFindFiles ( pidlfolder : *const Common:: ITEMIDLIST , pidlsavefile : *const Common:: ITEMIDLIST ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHFindFiles ( pidlfolder : *const Common:: ITEMIDLIST , pidlsavefile : *const Common:: ITEMIDLIST ) -> super::super::Foundation:: BOOL );
     SHFindFiles(::core::mem::transmute(pidlfolder.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pidlsavefile.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -3691,27 +3691,27 @@ where
     P0: ::std::convert::Into<super::WindowsAndMessaging::HMENU>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHFind_InitMenuPopup ( hmenu : super::WindowsAndMessaging:: HMENU , hwndowner : super::super::Foundation:: HWND , idcmdfirst : u32 , idcmdlast : u32 ) -> ::core::option::Option < IContextMenu > );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHFind_InitMenuPopup ( hmenu : super::WindowsAndMessaging:: HMENU , hwndowner : super::super::Foundation:: HWND , idcmdfirst : u32 , idcmdlast : u32 ) -> ::core::option::Option < IContextMenu > );
     SHFind_InitMenuPopup(hmenu.into(), hwndowner.into(), idcmdfirst, idcmdlast)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHFlushSFCache() {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHFlushSFCache ( ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHFlushSFCache ( ) -> ( ) );
     SHFlushSFCache()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFormatDateTimeA(pft: *const super::super::Foundation::FILETIME, pdwflags: ::core::option::Option<*mut u32>, pszbuf: &mut [u8]) -> i32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHFormatDateTimeA ( pft : *const super::super::Foundation:: FILETIME , pdwflags : *mut u32 , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHFormatDateTimeA ( pft : *const super::super::Foundation:: FILETIME , pdwflags : *mut u32 , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> i32 );
     SHFormatDateTimeA(pft, ::core::mem::transmute(pdwflags.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFormatDateTimeW(pft: *const super::super::Foundation::FILETIME, pdwflags: ::core::option::Option<*mut u32>, pszbuf: &mut [u16]) -> i32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHFormatDateTimeW ( pft : *const super::super::Foundation:: FILETIME , pdwflags : *mut u32 , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHFormatDateTimeW ( pft : *const super::super::Foundation:: FILETIME , pdwflags : *mut u32 , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> i32 );
     SHFormatDateTimeW(pft, ::core::mem::transmute(pdwflags.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -3721,13 +3721,13 @@ pub unsafe fn SHFormatDrive<P0>(hwnd: P0, drive: u32, fmtid: SHFMT_ID, options: 
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHFormatDrive ( hwnd : super::super::Foundation:: HWND , drive : u32 , fmtid : SHFMT_ID , options : SHFMT_OPT ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHFormatDrive ( hwnd : super::super::Foundation:: HWND , drive : u32 , fmtid : SHFMT_ID , options : SHFMT_OPT ) -> u32 );
     SHFormatDrive(hwnd.into(), drive, fmtid, options)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHFree(pv: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHFree ( pv : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHFree ( pv : *const ::core::ffi::c_void ) -> ( ) );
     SHFree(::core::mem::transmute(pv.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -3737,7 +3737,7 @@ pub unsafe fn SHFreeNameMappings<P0>(hnamemappings: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHFreeNameMappings ( hnamemappings : super::super::Foundation:: HANDLE ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHFreeNameMappings ( hnamemappings : super::super::Foundation:: HANDLE ) -> ( ) );
     SHFreeNameMappings(hnamemappings.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -3747,7 +3747,7 @@ pub unsafe fn SHFreeShared<P0>(hdata: P0, dwprocessid: u32) -> super::super::Fou
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHFreeShared ( hdata : super::super::Foundation:: HANDLE , dwprocessid : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHFreeShared ( hdata : super::super::Foundation:: HANDLE , dwprocessid : u32 ) -> super::super::Foundation:: BOOL );
     SHFreeShared(hdata.into(), dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -3757,7 +3757,7 @@ pub unsafe fn SHGetAttributesFromDataObject<P0>(pdo: P0, dwattributemask: u32, p
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDataObject>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetAttributesFromDataObject ( pdo : * mut::core::ffi::c_void , dwattributemask : u32 , pdwattributes : *mut u32 , pcitems : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetAttributesFromDataObject ( pdo : * mut::core::ffi::c_void , dwattributemask : u32 , pdwattributes : *mut u32 , pcitems : *mut u32 ) -> :: windows::core::HRESULT );
     SHGetAttributesFromDataObject(pdo.into().abi(), dwattributemask, ::core::mem::transmute(pdwattributes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcitems.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -3767,7 +3767,7 @@ pub unsafe fn SHGetDataFromIDListA<P0>(psf: P0, pidl: *const Common::ITEMIDLIST,
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetDataFromIDListA ( psf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , nformat : SHGDFIL_FORMAT , pv : *mut ::core::ffi::c_void , cb : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetDataFromIDListA ( psf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , nformat : SHGDFIL_FORMAT , pv : *mut ::core::ffi::c_void , cb : i32 ) -> :: windows::core::HRESULT );
     SHGetDataFromIDListA(psf.into().abi(), pidl, nformat, pv, cb).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -3777,13 +3777,13 @@ pub unsafe fn SHGetDataFromIDListW<P0>(psf: P0, pidl: *const Common::ITEMIDLIST,
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetDataFromIDListW ( psf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , nformat : SHGDFIL_FORMAT , pv : *mut ::core::ffi::c_void , cb : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetDataFromIDListW ( psf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , nformat : SHGDFIL_FORMAT , pv : *mut ::core::ffi::c_void , cb : i32 ) -> :: windows::core::HRESULT );
     SHGetDataFromIDListW(psf.into().abi(), pidl, nformat, pv, cb).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHGetDesktopFolder() -> ::windows::core::Result<IShellFolder> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetDesktopFolder ( ppshf : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetDesktopFolder ( ppshf : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IShellFolder>();
     SHGetDesktopFolder(&mut result__).from_abi(result__)
 }
@@ -3794,7 +3794,7 @@ pub unsafe fn SHGetDiskFreeSpaceExA<P0>(pszdirectoryname: P0, pulfreebytesavaila
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetDiskFreeSpaceExA ( pszdirectoryname : :: windows::core::PCSTR , pulfreebytesavailabletocaller : *mut u64 , pultotalnumberofbytes : *mut u64 , pultotalnumberoffreebytes : *mut u64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetDiskFreeSpaceExA ( pszdirectoryname : :: windows::core::PCSTR , pulfreebytesavailabletocaller : *mut u64 , pultotalnumberofbytes : *mut u64 , pultotalnumberoffreebytes : *mut u64 ) -> super::super::Foundation:: BOOL );
     SHGetDiskFreeSpaceExA(pszdirectoryname.into().abi(), ::core::mem::transmute(pulfreebytesavailabletocaller.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pultotalnumberofbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pultotalnumberoffreebytes.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -3804,7 +3804,7 @@ pub unsafe fn SHGetDiskFreeSpaceExW<P0>(pszdirectoryname: P0, pulfreebytesavaila
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetDiskFreeSpaceExW ( pszdirectoryname : :: windows::core::PCWSTR , pulfreebytesavailabletocaller : *mut u64 , pultotalnumberofbytes : *mut u64 , pultotalnumberoffreebytes : *mut u64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetDiskFreeSpaceExW ( pszdirectoryname : :: windows::core::PCWSTR , pulfreebytesavailabletocaller : *mut u64 , pultotalnumberofbytes : *mut u64 , pultotalnumberoffreebytes : *mut u64 ) -> super::super::Foundation:: BOOL );
     SHGetDiskFreeSpaceExW(pszdirectoryname.into().abi(), ::core::mem::transmute(pulfreebytesavailabletocaller.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pultotalnumberofbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pultotalnumberoffreebytes.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3813,7 +3813,7 @@ pub unsafe fn SHGetDriveMedia<P0>(pszdrive: P0) -> ::windows::core::Result<u32>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetDriveMedia ( pszdrive : :: windows::core::PCWSTR , pdwmediacontent : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetDriveMedia ( pszdrive : :: windows::core::PCWSTR , pdwmediacontent : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
     SHGetDriveMedia(pszdrive.into().abi(), &mut result__).from_abi(result__)
 }
@@ -3824,7 +3824,7 @@ pub unsafe fn SHGetFileInfoA<P0>(pszpath: P0, dwfileattributes: super::super::St
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetFileInfoA ( pszpath : :: windows::core::PCSTR , dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , psfi : *mut SHFILEINFOA , cbfileinfo : u32 , uflags : SHGFI_FLAGS ) -> usize );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetFileInfoA ( pszpath : :: windows::core::PCSTR , dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , psfi : *mut SHFILEINFOA , cbfileinfo : u32 , uflags : SHGFI_FLAGS ) -> usize );
     SHGetFileInfoA(pszpath.into().abi(), dwfileattributes, ::core::mem::transmute(psfi.unwrap_or(::std::ptr::null_mut())), cbfileinfo, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -3834,7 +3834,7 @@ pub unsafe fn SHGetFileInfoW<P0>(pszpath: P0, dwfileattributes: super::super::St
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetFileInfoW ( pszpath : :: windows::core::PCWSTR , dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , psfi : *mut SHFILEINFOW , cbfileinfo : u32 , uflags : SHGFI_FLAGS ) -> usize );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetFileInfoW ( pszpath : :: windows::core::PCWSTR , dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , psfi : *mut SHFILEINFOW , cbfileinfo : u32 , uflags : SHGFI_FLAGS ) -> usize );
     SHGetFileInfoW(pszpath.into().abi(), dwfileattributes, ::core::mem::transmute(psfi.unwrap_or(::std::ptr::null_mut())), cbfileinfo, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -3845,7 +3845,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetFolderLocation ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , ppidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetFolderLocation ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , ppidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut Common::ITEMIDLIST>();
     SHGetFolderLocation(hwnd.into(), csidl, htoken.into(), dwflags, &mut result__).from_abi(result__)
 }
@@ -3857,7 +3857,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetFolderPathA ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszpath : :: windows::core::PSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetFolderPathA ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszpath : :: windows::core::PSTR ) -> :: windows::core::HRESULT );
     SHGetFolderPathA(hwnd.into(), csidl, htoken.into(), dwflags, ::core::mem::transmute(pszpath.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -3869,7 +3869,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetFolderPathAndSubDirA ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszsubdir : :: windows::core::PCSTR , pszpath : :: windows::core::PSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetFolderPathAndSubDirA ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszsubdir : :: windows::core::PCSTR , pszpath : :: windows::core::PSTR ) -> :: windows::core::HRESULT );
     SHGetFolderPathAndSubDirA(hwnd.into(), csidl, htoken.into(), dwflags, pszsubdir.into().abi(), ::core::mem::transmute(pszpath.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -3881,7 +3881,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetFolderPathAndSubDirW ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszsubdir : :: windows::core::PCWSTR , pszpath : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetFolderPathAndSubDirW ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszsubdir : :: windows::core::PCWSTR , pszpath : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     SHGetFolderPathAndSubDirW(hwnd.into(), csidl, htoken.into(), dwflags, pszsubdir.into().abi(), ::core::mem::transmute(pszpath.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -3892,7 +3892,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetFolderPathW ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszpath : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetFolderPathW ( hwnd : super::super::Foundation:: HWND , csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszpath : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     SHGetFolderPathW(hwnd.into(), csidl, htoken.into(), dwflags, ::core::mem::transmute(pszpath.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -3902,7 +3902,7 @@ pub unsafe fn SHGetIDListFromObject<P0>(punk: P0) -> ::windows::core::Result<*mu
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetIDListFromObject ( punk : * mut::core::ffi::c_void , ppidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetIDListFromObject ( punk : * mut::core::ffi::c_void , ppidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut Common::ITEMIDLIST>();
     SHGetIDListFromObject(punk.into().abi(), &mut result__).from_abi(result__)
 }
@@ -3912,7 +3912,7 @@ pub unsafe fn SHGetIconOverlayIndexA<P0>(psziconpath: P0, iiconindex: i32) -> i3
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetIconOverlayIndexA ( psziconpath : :: windows::core::PCSTR , iiconindex : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetIconOverlayIndexA ( psziconpath : :: windows::core::PCSTR , iiconindex : i32 ) -> i32 );
     SHGetIconOverlayIndexA(psziconpath.into().abi(), iiconindex)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3921,7 +3921,7 @@ pub unsafe fn SHGetIconOverlayIndexW<P0>(psziconpath: P0, iiconindex: i32) -> i3
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetIconOverlayIndexW ( psziconpath : :: windows::core::PCWSTR , iiconindex : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetIconOverlayIndexW ( psziconpath : :: windows::core::PCWSTR , iiconindex : i32 ) -> i32 );
     SHGetIconOverlayIndexW(psziconpath.into().abi(), iiconindex)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3930,21 +3930,21 @@ pub unsafe fn SHGetImageList<T>(iimagelist: i32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetImageList ( iimagelist : i32 , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetImageList ( iimagelist : i32 , riid : *const :: windows::core::GUID , ppvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHGetImageList(iimagelist, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHGetInstanceExplorer() -> ::windows::core::Result<::windows::core::IUnknown> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetInstanceExplorer ( ppunk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetInstanceExplorer ( ppunk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     SHGetInstanceExplorer(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHGetInverseCMAP(pbmap: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHGetInverseCMAP ( pbmap : *mut u8 , cbmap : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHGetInverseCMAP ( pbmap : *mut u8 , cbmap : u32 ) -> :: windows::core::HRESULT );
     SHGetInverseCMAP(::core::mem::transmute(pbmap.as_ptr()), pbmap.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -3955,7 +3955,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDataObject>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetItemFromDataObject ( pdtobj : * mut::core::ffi::c_void , dwflags : DATAOBJ_GET_ITEM_FLAGS , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetItemFromDataObject ( pdtobj : * mut::core::ffi::c_void , dwflags : DATAOBJ_GET_ITEM_FLAGS , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHGetItemFromDataObject(pdtobj.into().abi(), dwflags, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3966,7 +3966,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetItemFromObject ( punk : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetItemFromObject ( punk : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHGetItemFromObject(punk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -3977,7 +3977,7 @@ pub unsafe fn SHGetKnownFolderIDList<P0>(rfid: *const ::windows::core::GUID, dwf
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetKnownFolderIDList ( rfid : *const :: windows::core::GUID , dwflags : u32 , htoken : super::super::Foundation:: HANDLE , ppidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetKnownFolderIDList ( rfid : *const :: windows::core::GUID , dwflags : u32 , htoken : super::super::Foundation:: HANDLE , ppidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut Common::ITEMIDLIST>();
     SHGetKnownFolderIDList(rfid, dwflags, htoken.into(), &mut result__).from_abi(result__)
 }
@@ -3989,7 +3989,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetKnownFolderItem ( rfid : *const :: windows::core::GUID , flags : KNOWN_FOLDER_FLAG , htoken : super::super::Foundation:: HANDLE , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetKnownFolderItem ( rfid : *const :: windows::core::GUID , flags : KNOWN_FOLDER_FLAG , htoken : super::super::Foundation:: HANDLE , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHGetKnownFolderItem(rfid, flags, htoken.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -4000,7 +4000,7 @@ pub unsafe fn SHGetKnownFolderPath<P0>(rfid: *const ::windows::core::GUID, dwfla
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetKnownFolderPath ( rfid : *const :: windows::core::GUID , dwflags : KNOWN_FOLDER_FLAG , htoken : super::super::Foundation:: HANDLE , ppszpath : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetKnownFolderPath ( rfid : *const :: windows::core::GUID , dwflags : KNOWN_FOLDER_FLAG , htoken : super::super::Foundation:: HANDLE , ppszpath : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SHGetKnownFolderPath(rfid, dwflags, htoken.into(), &mut result__).from_abi(result__)
 }
@@ -4010,14 +4010,14 @@ pub unsafe fn SHGetLocalizedName<P0>(pszpath: P0, pszresmodule: &mut [u16], pids
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetLocalizedName ( pszpath : :: windows::core::PCWSTR , pszresmodule : :: windows::core::PWSTR , cch : u32 , pidsres : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetLocalizedName ( pszpath : :: windows::core::PCWSTR , pszresmodule : :: windows::core::PWSTR , cch : u32 , pidsres : *mut i32 ) -> :: windows::core::HRESULT );
     SHGetLocalizedName(pszpath.into().abi(), ::core::mem::transmute(pszresmodule.as_ptr()), pszresmodule.len() as _, pidsres).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHGetMalloc() -> ::windows::core::Result<super::super::System::Com::IMalloc> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetMalloc ( ppmalloc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetMalloc ( ppmalloc : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IMalloc>();
     SHGetMalloc(&mut result__).from_abi(result__)
 }
@@ -4025,7 +4025,7 @@ pub unsafe fn SHGetMalloc() -> ::windows::core::Result<super::super::System::Com
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn SHGetNameFromIDList(pidl: *const Common::ITEMIDLIST, sigdnname: SIGDN) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetNameFromIDList ( pidl : *const Common:: ITEMIDLIST , sigdnname : SIGDN , ppszname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetNameFromIDList ( pidl : *const Common:: ITEMIDLIST , sigdnname : SIGDN , ppszname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SHGetNameFromIDList(pidl, sigdnname, &mut result__).from_abi(result__)
 }
@@ -4037,7 +4037,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetNewLinkInfoA ( pszlinkto : :: windows::core::PCSTR , pszdir : :: windows::core::PCSTR , pszname : :: windows::core::PSTR , pfmustcopy : *mut super::super::Foundation:: BOOL , uflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetNewLinkInfoA ( pszlinkto : :: windows::core::PCSTR , pszdir : :: windows::core::PCSTR , pszname : :: windows::core::PSTR , pfmustcopy : *mut super::super::Foundation:: BOOL , uflags : u32 ) -> super::super::Foundation:: BOOL );
     SHGetNewLinkInfoA(pszlinkto.into().abi(), pszdir.into().abi(), ::core::mem::transmute(pszname.as_ptr()), pfmustcopy, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4048,28 +4048,28 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetNewLinkInfoW ( pszlinkto : :: windows::core::PCWSTR , pszdir : :: windows::core::PCWSTR , pszname : :: windows::core::PWSTR , pfmustcopy : *mut super::super::Foundation:: BOOL , uflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetNewLinkInfoW ( pszlinkto : :: windows::core::PCWSTR , pszdir : :: windows::core::PCWSTR , pszname : :: windows::core::PWSTR , pfmustcopy : *mut super::super::Foundation:: BOOL , uflags : u32 ) -> super::super::Foundation:: BOOL );
     SHGetNewLinkInfoW(pszlinkto.into().abi(), pszdir.into().abi(), ::core::mem::transmute(pszname.as_ptr()), pfmustcopy, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn SHGetPathFromIDListA(pidl: *const Common::ITEMIDLIST, pszpath: &mut [u8; 260]) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetPathFromIDListA ( pidl : *const Common:: ITEMIDLIST , pszpath : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetPathFromIDListA ( pidl : *const Common:: ITEMIDLIST , pszpath : :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
     SHGetPathFromIDListA(pidl, ::core::mem::transmute(pszpath.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn SHGetPathFromIDListEx(pidl: *const Common::ITEMIDLIST, pszpath: &mut [u16], uopts: GPFIDL_FLAGS) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetPathFromIDListEx ( pidl : *const Common:: ITEMIDLIST , pszpath : :: windows::core::PWSTR , cchpath : u32 , uopts : GPFIDL_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetPathFromIDListEx ( pidl : *const Common:: ITEMIDLIST , pszpath : :: windows::core::PWSTR , cchpath : u32 , uopts : GPFIDL_FLAGS ) -> super::super::Foundation:: BOOL );
     SHGetPathFromIDListEx(pidl, ::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _, uopts)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn SHGetPathFromIDListW(pidl: *const Common::ITEMIDLIST, pszpath: &mut [u16; 260]) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetPathFromIDListW ( pidl : *const Common:: ITEMIDLIST , pszpath : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetPathFromIDListW ( pidl : *const Common:: ITEMIDLIST , pszpath : :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
     SHGetPathFromIDListW(pidl, ::core::mem::transmute(pszpath.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -4079,7 +4079,7 @@ pub unsafe fn SHGetRealIDL<P0>(psf: P0, pidlsimple: *const Common::ITEMIDLIST) -
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetRealIDL ( psf : * mut::core::ffi::c_void , pidlsimple : *const Common:: ITEMIDLIST , ppidlreal : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetRealIDL ( psf : * mut::core::ffi::c_void , pidlsimple : *const Common:: ITEMIDLIST , ppidlreal : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut Common::ITEMIDLIST>();
     SHGetRealIDL(psf.into().abi(), pidlsimple, &mut result__).from_abi(result__)
 }
@@ -4089,7 +4089,7 @@ pub unsafe fn SHGetSetFolderCustomSettings<P0>(pfcs: *mut SHFOLDERCUSTOMSETTINGS
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetSetFolderCustomSettings ( pfcs : *mut SHFOLDERCUSTOMSETTINGS , pszpath : :: windows::core::PCWSTR , dwreadwrite : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetSetFolderCustomSettings ( pfcs : *mut SHFOLDERCUSTOMSETTINGS , pszpath : :: windows::core::PCWSTR , dwreadwrite : u32 ) -> :: windows::core::HRESULT );
     SHGetSetFolderCustomSettings(pfcs, pszpath.into().abi(), dwreadwrite).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4099,13 +4099,13 @@ pub unsafe fn SHGetSetSettings<P0>(lpss: ::core::option::Option<*mut SHELLSTATEA
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetSetSettings ( lpss : *mut SHELLSTATEA , dwmask : SSF_MASK , bset : super::super::Foundation:: BOOL ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetSetSettings ( lpss : *mut SHELLSTATEA , dwmask : SSF_MASK , bset : super::super::Foundation:: BOOL ) -> ( ) );
     SHGetSetSettings(::core::mem::transmute(lpss.unwrap_or(::std::ptr::null_mut())), dwmask, bset.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHGetSettings(psfs: *mut SHELLFLAGSTATE, dwmask: u32) {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetSettings ( psfs : *mut SHELLFLAGSTATE , dwmask : u32 ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetSettings ( psfs : *mut SHELLFLAGSTATE , dwmask : u32 ) -> ( ) );
     SHGetSettings(psfs, dwmask)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -4115,7 +4115,7 @@ pub unsafe fn SHGetSpecialFolderLocation<P0>(hwnd: P0, csidl: i32) -> ::windows:
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetSpecialFolderLocation ( hwnd : super::super::Foundation:: HWND , csidl : i32 , ppidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetSpecialFolderLocation ( hwnd : super::super::Foundation:: HWND , csidl : i32 , ppidl : *mut *mut Common:: ITEMIDLIST ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut Common::ITEMIDLIST>();
     SHGetSpecialFolderLocation(hwnd.into(), csidl, &mut result__).from_abi(result__)
 }
@@ -4127,7 +4127,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetSpecialFolderPathA ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PSTR , csidl : i32 , fcreate : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetSpecialFolderPathA ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PSTR , csidl : i32 , fcreate : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     SHGetSpecialFolderPathA(hwnd.into(), ::core::mem::transmute(pszpath.as_ptr()), csidl, fcreate.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4138,14 +4138,14 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetSpecialFolderPathW ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PWSTR , csidl : i32 , fcreate : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetSpecialFolderPathW ( hwnd : super::super::Foundation:: HWND , pszpath : :: windows::core::PWSTR , csidl : i32 , fcreate : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     SHGetSpecialFolderPathW(hwnd.into(), ::core::mem::transmute(pszpath.as_ptr()), csidl, fcreate.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: SHGSI_FLAGS, psii: *mut SHSTOCKICONINFO) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetStockIconInfo ( siid : SHSTOCKICONID , uflags : SHGSI_FLAGS , psii : *mut SHSTOCKICONINFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetStockIconInfo ( siid : SHSTOCKICONID , uflags : SHGSI_FLAGS , psii : *mut SHSTOCKICONINFO ) -> :: windows::core::HRESULT );
     SHGetStockIconInfo(siid, uflags, psii).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -4155,14 +4155,14 @@ pub unsafe fn SHGetTemporaryPropertyForItem<P0>(psi: P0, propkey: *const Propert
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellItem>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetTemporaryPropertyForItem ( psi : * mut::core::ffi::c_void , propkey : *const PropertiesSystem:: PROPERTYKEY , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetTemporaryPropertyForItem ( psi : * mut::core::ffi::c_void , propkey : *const PropertiesSystem:: PROPERTYKEY , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
     SHGetTemporaryPropertyForItem(psi.into().abi(), propkey, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHGetThreadRef() -> ::windows::core::Result<::windows::core::IUnknown> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHGetThreadRef ( ppunk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHGetThreadRef ( ppunk : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
     SHGetThreadRef(&mut result__).from_abi(result__)
 }
@@ -4174,7 +4174,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHGetUnreadMailCountW ( hkeyuser : super::super::System::Registry:: HKEY , pszmailaddress : :: windows::core::PCWSTR , pdwcount : *mut u32 , pfiletime : *mut super::super::Foundation:: FILETIME , pszshellexecutecommand : :: windows::core::PWSTR , cchshellexecutecommand : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHGetUnreadMailCountW ( hkeyuser : super::super::System::Registry:: HKEY , pszmailaddress : :: windows::core::PCWSTR , pdwcount : *mut u32 , pfiletime : *mut super::super::Foundation:: FILETIME , pszshellexecutecommand : :: windows::core::PWSTR , cchshellexecutecommand : i32 ) -> :: windows::core::HRESULT );
     SHGetUnreadMailCountW(hkeyuser.into(), pszmailaddress.into().abi(), ::core::mem::transmute(pdwcount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfiletime.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszshellexecutecommand.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszshellexecutecommand.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4186,7 +4186,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHGetValueA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHGetValueA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHGetValueA(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4198,7 +4198,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHGetValueW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHGetValueW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHGetValueW(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -4209,33 +4209,33 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHGetViewStatePropertyBag ( pidl : *const Common:: ITEMIDLIST , pszbagname : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHGetViewStatePropertyBag ( pidl : *const Common:: ITEMIDLIST , pszbagname : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     SHGetViewStatePropertyBag(::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), pszbagname.into().abi(), dwflags, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHGlobalCounterDecrement(id: SHGLOBALCOUNTER) -> i32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHGlobalCounterDecrement ( id : SHGLOBALCOUNTER ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHGlobalCounterDecrement ( id : SHGLOBALCOUNTER ) -> i32 );
     SHGlobalCounterDecrement(id)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHGlobalCounterGetValue(id: SHGLOBALCOUNTER) -> i32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHGlobalCounterGetValue ( id : SHGLOBALCOUNTER ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHGlobalCounterGetValue ( id : SHGLOBALCOUNTER ) -> i32 );
     SHGlobalCounterGetValue(id)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHGlobalCounterIncrement(id: SHGLOBALCOUNTER) -> i32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHGlobalCounterIncrement ( id : SHGLOBALCOUNTER ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHGlobalCounterIncrement ( id : SHGLOBALCOUNTER ) -> i32 );
     SHGlobalCounterIncrement(id)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn SHHandleUpdateImage(pidlextra: *const Common::ITEMIDLIST) -> i32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHHandleUpdateImage ( pidlextra : *const Common:: ITEMIDLIST ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHHandleUpdateImage ( pidlextra : *const Common:: ITEMIDLIST ) -> i32 );
     SHHandleUpdateImage(pidlextra)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -4245,7 +4245,7 @@ pub unsafe fn SHILCreateFromPath<P0>(pszpath: P0, ppidl: *mut *mut Common::ITEMI
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHILCreateFromPath ( pszpath : :: windows::core::PCWSTR , ppidl : *mut *mut Common:: ITEMIDLIST , rgfinout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHILCreateFromPath ( pszpath : :: windows::core::PCWSTR , ppidl : *mut *mut Common:: ITEMIDLIST , rgfinout : *mut u32 ) -> :: windows::core::HRESULT );
     SHILCreateFromPath(pszpath.into().abi(), ppidl, ::core::mem::transmute(rgfinout.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4258,7 +4258,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHInvokePrinterCommandA ( hwnd : super::super::Foundation:: HWND , uaction : u32 , lpbuf1 : :: windows::core::PCSTR , lpbuf2 : :: windows::core::PCSTR , fmodal : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHInvokePrinterCommandA ( hwnd : super::super::Foundation:: HWND , uaction : u32 , lpbuf1 : :: windows::core::PCSTR , lpbuf2 : :: windows::core::PCSTR , fmodal : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     SHInvokePrinterCommandA(hwnd.into(), uaction, lpbuf1.into().abi(), lpbuf2.into().abi(), fmodal.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4271,7 +4271,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHInvokePrinterCommandW ( hwnd : super::super::Foundation:: HWND , uaction : u32 , lpbuf1 : :: windows::core::PCWSTR , lpbuf2 : :: windows::core::PCWSTR , fmodal : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHInvokePrinterCommandW ( hwnd : super::super::Foundation:: HWND , uaction : u32 , lpbuf1 : :: windows::core::PCWSTR , lpbuf2 : :: windows::core::PCWSTR , fmodal : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     SHInvokePrinterCommandW(hwnd.into(), uaction, lpbuf1.into().abi(), lpbuf2.into().abi(), fmodal.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -4280,14 +4280,14 @@ pub unsafe fn SHIsFileAvailableOffline<P0>(pwszpath: P0, pdwstatus: ::core::opti
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHIsFileAvailableOffline ( pwszpath : :: windows::core::PCWSTR , pdwstatus : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHIsFileAvailableOffline ( pwszpath : :: windows::core::PCWSTR , pdwstatus : *mut u32 ) -> :: windows::core::HRESULT );
     SHIsFileAvailableOffline(pwszpath.into().abi(), ::core::mem::transmute(pdwstatus.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHIsLowMemoryMachine(dwtype: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHIsLowMemoryMachine ( dwtype : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHIsLowMemoryMachine ( dwtype : u32 ) -> super::super::Foundation:: BOOL );
     SHIsLowMemoryMachine(dwtype)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4298,13 +4298,13 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHLimitInputEdit ( hwndedit : super::super::Foundation:: HWND , psf : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHLimitInputEdit ( hwndedit : super::super::Foundation:: HWND , psf : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SHLimitInputEdit(hwndedit.into(), psf.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHLoadInProc(rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHLoadInProc ( rclsid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHLoadInProc ( rclsid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     SHLoadInProc(rclsid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -4313,13 +4313,13 @@ pub unsafe fn SHLoadIndirectString<P0>(pszsource: P0, pszoutbuf: &mut [u16], ppv
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHLoadIndirectString ( pszsource : :: windows::core::PCWSTR , pszoutbuf : :: windows::core::PWSTR , cchoutbuf : u32 , ppvreserved : *const *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHLoadIndirectString ( pszsource : :: windows::core::PCWSTR , pszoutbuf : :: windows::core::PWSTR , cchoutbuf : u32 , ppvreserved : *const *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SHLoadIndirectString(pszsource.into().abi(), ::core::mem::transmute(pszoutbuf.as_ptr()), pszoutbuf.len() as _, ::core::mem::transmute(ppvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHLoadNonloadedIconOverlayIdentifiers() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHLoadNonloadedIconOverlayIdentifiers ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHLoadNonloadedIconOverlayIdentifiers ( ) -> :: windows::core::HRESULT );
     SHLoadNonloadedIconOverlayIdentifiers().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4329,7 +4329,7 @@ pub unsafe fn SHLockShared<P0>(hdata: P0, dwprocessid: u32) -> *mut ::core::ffi:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHLockShared ( hdata : super::super::Foundation:: HANDLE , dwprocessid : u32 ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHLockShared ( hdata : super::super::Foundation:: HANDLE , dwprocessid : u32 ) -> *mut ::core::ffi::c_void );
     SHLockShared(hdata.into(), dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -4339,7 +4339,7 @@ pub unsafe fn SHMapPIDLToSystemImageListIndex<P0>(pshf: P0, pidl: *const Common:
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellFolder>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHMapPIDLToSystemImageListIndex ( pshf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , piindexsel : *mut i32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHMapPIDLToSystemImageListIndex ( pshf : * mut::core::ffi::c_void , pidl : *const Common:: ITEMIDLIST , piindexsel : *mut i32 ) -> i32 );
     SHMapPIDLToSystemImageListIndex(pshf.into().abi(), pidl, ::core::mem::transmute(piindexsel.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4352,7 +4352,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHMessageBoxCheckA ( hwnd : super::super::Foundation:: HWND , psztext : :: windows::core::PCSTR , pszcaption : :: windows::core::PCSTR , utype : u32 , idefault : i32 , pszregval : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHMessageBoxCheckA ( hwnd : super::super::Foundation:: HWND , psztext : :: windows::core::PCSTR , pszcaption : :: windows::core::PCSTR , utype : u32 , idefault : i32 , pszregval : :: windows::core::PCSTR ) -> i32 );
     SHMessageBoxCheckA(hwnd.into(), psztext.into().abi(), pszcaption.into().abi(), utype, idefault, pszregval.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4365,7 +4365,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHMessageBoxCheckW ( hwnd : super::super::Foundation:: HWND , psztext : :: windows::core::PCWSTR , pszcaption : :: windows::core::PCWSTR , utype : u32 , idefault : i32 , pszregval : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHMessageBoxCheckW ( hwnd : super::super::Foundation:: HWND , psztext : :: windows::core::PCWSTR , pszcaption : :: windows::core::PCWSTR , utype : u32 , idefault : i32 , pszregval : :: windows::core::PCWSTR ) -> i32 );
     SHMessageBoxCheckW(hwnd.into(), psztext.into().abi(), pszcaption.into().abi(), utype, idefault, pszregval.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -4375,7 +4375,7 @@ pub unsafe fn SHMultiFileProperties<P0>(pdtobj: P0, dwflags: u32) -> ::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDataObject>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHMultiFileProperties ( pdtobj : * mut::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHMultiFileProperties ( pdtobj : * mut::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
     SHMultiFileProperties(pdtobj.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4387,14 +4387,14 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHObjectProperties ( hwnd : super::super::Foundation:: HWND , shopobjecttype : SHOP_TYPE , pszobjectname : :: windows::core::PCWSTR , pszpropertypage : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHObjectProperties ( hwnd : super::super::Foundation:: HWND , shopobjecttype : SHOP_TYPE , pszobjectname : :: windows::core::PCWSTR , pszpropertypage : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SHObjectProperties(hwnd.into(), shopobjecttype, pszobjectname.into().abi(), pszpropertypage.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn SHOpenFolderAndSelectItems(pidlfolder: *const Common::ITEMIDLIST, apidl: ::core::option::Option<&[*const Common::ITEMIDLIST]>, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHOpenFolderAndSelectItems ( pidlfolder : *const Common:: ITEMIDLIST , cidl : u32 , apidl : *const *const Common:: ITEMIDLIST , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHOpenFolderAndSelectItems ( pidlfolder : *const Common:: ITEMIDLIST , cidl : u32 , apidl : *const *const Common:: ITEMIDLIST , dwflags : u32 ) -> :: windows::core::HRESULT );
     SHOpenFolderAndSelectItems(pidlfolder, apidl.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(apidl.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Registry\"`*"]
@@ -4407,7 +4407,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<IShellBrowser>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHOpenPropSheetW ( pszcaption : :: windows::core::PCWSTR , ahkeys : *const super::super::System::Registry:: HKEY , ckeys : u32 , pclsiddefault : *const :: windows::core::GUID , pdtobj : * mut::core::ffi::c_void , psb : * mut::core::ffi::c_void , pstartpage : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHOpenPropSheetW ( pszcaption : :: windows::core::PCWSTR , ahkeys : *const super::super::System::Registry:: HKEY , ckeys : u32 , pclsiddefault : *const :: windows::core::GUID , pdtobj : * mut::core::ffi::c_void , psb : * mut::core::ffi::c_void , pstartpage : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SHOpenPropSheetW(pszcaption.into().abi(), ::core::mem::transmute(ahkeys.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ahkeys.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pclsiddefault.unwrap_or(::std::ptr::null())), pdtobj.into().abi(), psb.into().abi(), pstartpage.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`*"]
@@ -4419,7 +4419,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHOpenRegStream2A ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHOpenRegStream2A ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
     SHOpenRegStream2A(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), grfmode)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`*"]
@@ -4431,7 +4431,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHOpenRegStream2W ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHOpenRegStream2W ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
     SHOpenRegStream2W(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), grfmode)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`*"]
@@ -4443,7 +4443,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHOpenRegStreamA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHOpenRegStreamA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
     SHOpenRegStreamA(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), grfmode)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`*"]
@@ -4455,7 +4455,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHOpenRegStreamW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHOpenRegStreamW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , grfmode : u32 ) -> ::core::option::Option < super::super::System::Com:: IStream > );
     SHOpenRegStreamW(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), grfmode)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4465,7 +4465,7 @@ pub unsafe fn SHOpenWithDialog<P0>(hwndparent: P0, poainfo: *const OPENASINFO) -
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHOpenWithDialog ( hwndparent : super::super::Foundation:: HWND , poainfo : *const OPENASINFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHOpenWithDialog ( hwndparent : super::super::Foundation:: HWND , poainfo : *const OPENASINFO ) -> :: windows::core::HRESULT );
     SHOpenWithDialog(hwndparent.into(), poainfo).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -4476,7 +4476,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindCtx>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHParseDisplayName ( pszname : :: windows::core::PCWSTR , pbc : * mut::core::ffi::c_void , ppidl : *mut *mut Common:: ITEMIDLIST , sfgaoin : u32 , psfgaoout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHParseDisplayName ( pszname : :: windows::core::PCWSTR , pbc : * mut::core::ffi::c_void , ppidl : *mut *mut Common:: ITEMIDLIST , sfgaoin : u32 , psfgaoout : *mut u32 ) -> :: windows::core::HRESULT );
     SHParseDisplayName(pszname.into().abi(), pbc.into().abi(), ppidl, sfgaoin, ::core::mem::transmute(psfgaoout.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4488,7 +4488,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHPathPrepareForWriteA ( hwnd : super::super::Foundation:: HWND , punkenablemodless : * mut::core::ffi::c_void , pszpath : :: windows::core::PCSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHPathPrepareForWriteA ( hwnd : super::super::Foundation:: HWND , punkenablemodless : * mut::core::ffi::c_void , pszpath : :: windows::core::PCSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
     SHPathPrepareForWriteA(hwnd.into(), punkenablemodless.into().abi(), pszpath.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4500,7 +4500,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHPathPrepareForWriteW ( hwnd : super::super::Foundation:: HWND , punkenablemodless : * mut::core::ffi::c_void , pszpath : :: windows::core::PCWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHPathPrepareForWriteW ( hwnd : super::super::Foundation:: HWND , punkenablemodless : * mut::core::ffi::c_void , pszpath : :: windows::core::PCWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
     SHPathPrepareForWriteW(hwnd.into(), punkenablemodless.into().abi(), pszpath.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4510,7 +4510,7 @@ pub unsafe fn SHQueryInfoKeyA<P0>(hkey: P0, pcsubkeys: ::core::option::Option<*m
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHQueryInfoKeyA ( hkey : super::super::System::Registry:: HKEY , pcsubkeys : *mut u32 , pcchmaxsubkeylen : *mut u32 , pcvalues : *mut u32 , pcchmaxvaluenamelen : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHQueryInfoKeyA ( hkey : super::super::System::Registry:: HKEY , pcsubkeys : *mut u32 , pcchmaxsubkeylen : *mut u32 , pcvalues : *mut u32 , pcchmaxvaluenamelen : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHQueryInfoKeyA(hkey.into(), ::core::mem::transmute(pcsubkeys.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchmaxsubkeylen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcvalues.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4520,7 +4520,7 @@ pub unsafe fn SHQueryInfoKeyW<P0>(hkey: P0, pcsubkeys: ::core::option::Option<*m
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHQueryInfoKeyW ( hkey : super::super::System::Registry:: HKEY , pcsubkeys : *mut u32 , pcchmaxsubkeylen : *mut u32 , pcvalues : *mut u32 , pcchmaxvaluenamelen : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHQueryInfoKeyW ( hkey : super::super::System::Registry:: HKEY , pcsubkeys : *mut u32 , pcchmaxsubkeylen : *mut u32 , pcvalues : *mut u32 , pcchmaxvaluenamelen : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHQueryInfoKeyW(hkey.into(), ::core::mem::transmute(pcsubkeys.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchmaxsubkeylen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcvalues.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -4529,7 +4529,7 @@ pub unsafe fn SHQueryRecycleBinA<P0>(pszrootpath: P0, pshqueryrbinfo: *mut SHQUE
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHQueryRecycleBinA ( pszrootpath : :: windows::core::PCSTR , pshqueryrbinfo : *mut SHQUERYRBINFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHQueryRecycleBinA ( pszrootpath : :: windows::core::PCSTR , pshqueryrbinfo : *mut SHQUERYRBINFO ) -> :: windows::core::HRESULT );
     SHQueryRecycleBinA(pszrootpath.into().abi(), pshqueryrbinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -4538,13 +4538,13 @@ pub unsafe fn SHQueryRecycleBinW<P0>(pszrootpath: P0, pshqueryrbinfo: *mut SHQUE
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHQueryRecycleBinW ( pszrootpath : :: windows::core::PCWSTR , pshqueryrbinfo : *mut SHQUERYRBINFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHQueryRecycleBinW ( pszrootpath : :: windows::core::PCWSTR , pshqueryrbinfo : *mut SHQUERYRBINFO ) -> :: windows::core::HRESULT );
     SHQueryRecycleBinW(pszrootpath.into().abi(), pshqueryrbinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHQueryUserNotificationState() -> ::windows::core::Result<QUERY_USER_NOTIFICATION_STATE> {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHQueryUserNotificationState ( pquns : *mut QUERY_USER_NOTIFICATION_STATE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHQueryUserNotificationState ( pquns : *mut QUERY_USER_NOTIFICATION_STATE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<QUERY_USER_NOTIFICATION_STATE>();
     SHQueryUserNotificationState(&mut result__).from_abi(result__)
 }
@@ -4556,7 +4556,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHQueryValueExA ( hkey : super::super::System::Registry:: HKEY , pszvalue : :: windows::core::PCSTR , pdwreserved : *const u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHQueryValueExA ( hkey : super::super::System::Registry:: HKEY , pszvalue : :: windows::core::PCSTR , pdwreserved : *const u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHQueryValueExA(hkey.into(), pszvalue.into().abi(), ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4567,14 +4567,14 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHQueryValueExW ( hkey : super::super::System::Registry:: HKEY , pszvalue : :: windows::core::PCWSTR , pdwreserved : *const u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHQueryValueExW ( hkey : super::super::System::Registry:: HKEY , pszvalue : :: windows::core::PCWSTR , pdwreserved : *const u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHQueryValueExW(hkey.into(), pszvalue.into().abi(), ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegCloseUSKey(huskey: isize) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegCloseUSKey ( huskey : isize ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegCloseUSKey ( huskey : isize ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegCloseUSKey(huskey)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4584,7 +4584,7 @@ pub unsafe fn SHRegCreateUSKeyA<P0>(pszpath: P0, samdesired: u32, hrelativeuskey
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegCreateUSKeyA ( pszpath : :: windows::core::PCSTR , samdesired : u32 , hrelativeuskey : isize , phnewuskey : *mut isize , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegCreateUSKeyA ( pszpath : :: windows::core::PCSTR , samdesired : u32 , hrelativeuskey : isize , phnewuskey : *mut isize , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegCreateUSKeyA(pszpath.into().abi(), samdesired, hrelativeuskey, phnewuskey, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4594,7 +4594,7 @@ pub unsafe fn SHRegCreateUSKeyW<P0>(pwzpath: P0, samdesired: u32, hrelativeuskey
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegCreateUSKeyW ( pwzpath : :: windows::core::PCWSTR , samdesired : u32 , hrelativeuskey : isize , phnewuskey : *mut isize , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegCreateUSKeyW ( pwzpath : :: windows::core::PCWSTR , samdesired : u32 , hrelativeuskey : isize , phnewuskey : *mut isize , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegCreateUSKeyW(pwzpath.into().abi(), samdesired, hrelativeuskey, phnewuskey, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4604,7 +4604,7 @@ pub unsafe fn SHRegDeleteEmptyUSKeyA<P0>(huskey: isize, pszsubkey: P0, delregfla
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegDeleteEmptyUSKeyA ( huskey : isize , pszsubkey : :: windows::core::PCSTR , delregflags : SHREGDEL_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegDeleteEmptyUSKeyA ( huskey : isize , pszsubkey : :: windows::core::PCSTR , delregflags : SHREGDEL_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegDeleteEmptyUSKeyA(huskey, pszsubkey.into().abi(), delregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4614,7 +4614,7 @@ pub unsafe fn SHRegDeleteEmptyUSKeyW<P0>(huskey: isize, pwzsubkey: P0, delregfla
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegDeleteEmptyUSKeyW ( huskey : isize , pwzsubkey : :: windows::core::PCWSTR , delregflags : SHREGDEL_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegDeleteEmptyUSKeyW ( huskey : isize , pwzsubkey : :: windows::core::PCWSTR , delregflags : SHREGDEL_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegDeleteEmptyUSKeyW(huskey, pwzsubkey.into().abi(), delregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4624,7 +4624,7 @@ pub unsafe fn SHRegDeleteUSValueA<P0>(huskey: isize, pszvalue: P0, delregflags: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegDeleteUSValueA ( huskey : isize , pszvalue : :: windows::core::PCSTR , delregflags : SHREGDEL_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegDeleteUSValueA ( huskey : isize , pszvalue : :: windows::core::PCSTR , delregflags : SHREGDEL_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegDeleteUSValueA(huskey, pszvalue.into().abi(), delregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4634,7 +4634,7 @@ pub unsafe fn SHRegDeleteUSValueW<P0>(huskey: isize, pwzvalue: P0, delregflags: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegDeleteUSValueW ( huskey : isize , pwzvalue : :: windows::core::PCWSTR , delregflags : SHREGDEL_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegDeleteUSValueW ( huskey : isize , pwzvalue : :: windows::core::PCWSTR , delregflags : SHREGDEL_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegDeleteUSValueW(huskey, pwzvalue.into().abi(), delregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
@@ -4644,35 +4644,35 @@ pub unsafe fn SHRegDuplicateHKey<P0>(hkey: P0) -> super::super::System::Registry
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegDuplicateHKey ( hkey : super::super::System::Registry:: HKEY ) -> super::super::System::Registry:: HKEY );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegDuplicateHKey ( hkey : super::super::System::Registry:: HKEY ) -> super::super::System::Registry:: HKEY );
     SHRegDuplicateHKey(hkey.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegEnumUSKeyA(huskey: isize, dwindex: u32, pszname: ::windows::core::PSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegEnumUSKeyA ( huskey : isize , dwindex : u32 , pszname : :: windows::core::PSTR , pcchname : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegEnumUSKeyA ( huskey : isize , dwindex : u32 , pszname : :: windows::core::PSTR , pcchname : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegEnumUSKeyA(huskey, dwindex, ::core::mem::transmute(pszname), pcchname, enumregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegEnumUSKeyW(huskey: isize, dwindex: u32, pwzname: ::windows::core::PWSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegEnumUSKeyW ( huskey : isize , dwindex : u32 , pwzname : :: windows::core::PWSTR , pcchname : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegEnumUSKeyW ( huskey : isize , dwindex : u32 , pwzname : :: windows::core::PWSTR , pcchname : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegEnumUSKeyW(huskey, dwindex, ::core::mem::transmute(pwzname), pcchname, enumregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegEnumUSValueA(huskey: isize, dwindex: u32, pszvaluename: ::windows::core::PSTR, pcchvaluename: *mut u32, pdwtype: ::core::option::Option<*mut u32>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegEnumUSValueA ( huskey : isize , dwindex : u32 , pszvaluename : :: windows::core::PSTR , pcchvaluename : *mut u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegEnumUSValueA ( huskey : isize , dwindex : u32 , pszvaluename : :: windows::core::PSTR , pcchvaluename : *mut u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegEnumUSValueA(huskey, dwindex, ::core::mem::transmute(pszvaluename), pcchvaluename, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), enumregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegEnumUSValueW(huskey: isize, dwindex: u32, pszvaluename: ::windows::core::PWSTR, pcchvaluename: *mut u32, pdwtype: ::core::option::Option<*mut u32>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegEnumUSValueW ( huskey : isize , dwindex : u32 , pszvaluename : :: windows::core::PWSTR , pcchvaluename : *mut u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegEnumUSValueW ( huskey : isize , dwindex : u32 , pszvaluename : :: windows::core::PWSTR , pcchvaluename : *mut u32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegEnumUSValueW(huskey, dwindex, ::core::mem::transmute(pszvaluename), pcchvaluename, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), enumregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4685,7 +4685,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     P3: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetBoolUSValueA ( pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , fignorehkcu : super::super::Foundation:: BOOL , fdefault : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetBoolUSValueA ( pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , fignorehkcu : super::super::Foundation:: BOOL , fdefault : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     SHRegGetBoolUSValueA(pszsubkey.into().abi(), pszvalue.into().abi(), fignorehkcu.into(), fdefault.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4698,7 +4698,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     P3: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetBoolUSValueW ( pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , fignorehkcu : super::super::Foundation:: BOOL , fdefault : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetBoolUSValueW ( pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , fignorehkcu : super::super::Foundation:: BOOL , fdefault : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     SHRegGetBoolUSValueW(pszsubkey.into().abi(), pszvalue.into().abi(), fignorehkcu.into(), fdefault.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4709,7 +4709,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetIntW ( hk : super::super::System::Registry:: HKEY , pwzkey : :: windows::core::PCWSTR , idefault : i32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetIntW ( hk : super::super::System::Registry:: HKEY , pwzkey : :: windows::core::PCWSTR , idefault : i32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegGetIntW(hk.into(), pwzkey.into().abi(), idefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4721,7 +4721,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetPathA ( hkey : super::super::System::Registry:: HKEY , pcszsubkey : :: windows::core::PCSTR , pcszvalue : :: windows::core::PCSTR , pszpath : :: windows::core::PSTR , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetPathA ( hkey : super::super::System::Registry:: HKEY , pcszsubkey : :: windows::core::PCSTR , pcszvalue : :: windows::core::PCSTR , pszpath : :: windows::core::PSTR , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegGetPathA(hkey.into(), pcszsubkey.into().abi(), pcszvalue.into().abi(), ::core::mem::transmute(pszpath.as_ptr()), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4733,7 +4733,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetPathW ( hkey : super::super::System::Registry:: HKEY , pcszsubkey : :: windows::core::PCWSTR , pcszvalue : :: windows::core::PCWSTR , pszpath : :: windows::core::PWSTR , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetPathW ( hkey : super::super::System::Registry:: HKEY , pcszsubkey : :: windows::core::PCWSTR , pcszvalue : :: windows::core::PCWSTR , pszpath : :: windows::core::PWSTR , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegGetPathW(hkey.into(), pcszsubkey.into().abi(), pcszvalue.into().abi(), ::core::mem::transmute(pszpath.as_ptr()), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4745,7 +4745,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetUSValueA ( pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , fignorehkcu : super::super::Foundation:: BOOL , pvdefaultdata : *const ::core::ffi::c_void , dwdefaultdatasize : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetUSValueA ( pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , fignorehkcu : super::super::Foundation:: BOOL , pvdefaultdata : *const ::core::ffi::c_void , dwdefaultdatasize : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegGetUSValueA(pszsubkey.into().abi(), pszvalue.into().abi(), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), fignorehkcu.into(), ::core::mem::transmute(pvdefaultdata.unwrap_or(::std::ptr::null())), dwdefaultdatasize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4757,7 +4757,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetUSValueW ( pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , fignorehkcu : super::super::Foundation:: BOOL , pvdefaultdata : *const ::core::ffi::c_void , dwdefaultdatasize : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetUSValueW ( pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , fignorehkcu : super::super::Foundation:: BOOL , pvdefaultdata : *const ::core::ffi::c_void , dwdefaultdatasize : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegGetUSValueW(pszsubkey.into().abi(), pszvalue.into().abi(), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), fignorehkcu.into(), ::core::mem::transmute(pvdefaultdata.unwrap_or(::std::ptr::null())), dwdefaultdatasize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4769,7 +4769,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetValueA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , srrfflags : i32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetValueA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , srrfflags : i32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegGetValueA(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), srrfflags, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4780,7 +4780,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetValueFromHKCUHKLM ( pwszkey : :: windows::core::PCWSTR , pwszvalue : :: windows::core::PCWSTR , srrfflags : i32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetValueFromHKCUHKLM ( pwszkey : :: windows::core::PCWSTR , pwszvalue : :: windows::core::PCWSTR , srrfflags : i32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegGetValueFromHKCUHKLM(pwszkey.into().abi(), pwszvalue.into().abi(), srrfflags, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4792,7 +4792,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegGetValueW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , srrfflags : i32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegGetValueW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , srrfflags : i32 , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegGetValueW(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), srrfflags, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4803,7 +4803,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegOpenUSKeyA ( pszpath : :: windows::core::PCSTR , samdesired : u32 , hrelativeuskey : isize , phnewuskey : *mut isize , fignorehkcu : super::super::Foundation:: BOOL ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegOpenUSKeyA ( pszpath : :: windows::core::PCSTR , samdesired : u32 , hrelativeuskey : isize , phnewuskey : *mut isize , fignorehkcu : super::super::Foundation:: BOOL ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegOpenUSKeyA(pszpath.into().abi(), samdesired, hrelativeuskey, phnewuskey, fignorehkcu.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4814,21 +4814,21 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegOpenUSKeyW ( pwzpath : :: windows::core::PCWSTR , samdesired : u32 , hrelativeuskey : isize , phnewuskey : *mut isize , fignorehkcu : super::super::Foundation:: BOOL ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegOpenUSKeyW ( pwzpath : :: windows::core::PCWSTR , samdesired : u32 , hrelativeuskey : isize , phnewuskey : *mut isize , fignorehkcu : super::super::Foundation:: BOOL ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegOpenUSKeyW(pwzpath.into().abi(), samdesired, hrelativeuskey, phnewuskey, fignorehkcu.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegQueryInfoUSKeyA(huskey: isize, pcsubkeys: ::core::option::Option<*mut u32>, pcchmaxsubkeylen: ::core::option::Option<*mut u32>, pcvalues: ::core::option::Option<*mut u32>, pcchmaxvaluenamelen: ::core::option::Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegQueryInfoUSKeyA ( huskey : isize , pcsubkeys : *mut u32 , pcchmaxsubkeylen : *mut u32 , pcvalues : *mut u32 , pcchmaxvaluenamelen : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegQueryInfoUSKeyA ( huskey : isize , pcsubkeys : *mut u32 , pcchmaxsubkeylen : *mut u32 , pcvalues : *mut u32 , pcchmaxvaluenamelen : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegQueryInfoUSKeyA(huskey, ::core::mem::transmute(pcsubkeys.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchmaxsubkeylen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcvalues.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(::std::ptr::null_mut())), enumregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegQueryInfoUSKeyW(huskey: isize, pcsubkeys: ::core::option::Option<*mut u32>, pcchmaxsubkeylen: ::core::option::Option<*mut u32>, pcvalues: ::core::option::Option<*mut u32>, pcchmaxvaluenamelen: ::core::option::Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegQueryInfoUSKeyW ( huskey : isize , pcsubkeys : *mut u32 , pcchmaxsubkeylen : *mut u32 , pcvalues : *mut u32 , pcchmaxvaluenamelen : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegQueryInfoUSKeyW ( huskey : isize , pcsubkeys : *mut u32 , pcchmaxsubkeylen : *mut u32 , pcvalues : *mut u32 , pcchmaxvaluenamelen : *mut u32 , enumregflags : SHREGENUM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegQueryInfoUSKeyW(huskey, ::core::mem::transmute(pcsubkeys.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchmaxsubkeylen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcvalues.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(::std::ptr::null_mut())), enumregflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4839,7 +4839,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegQueryUSValueA ( huskey : isize , pszvalue : :: windows::core::PCSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , fignorehkcu : super::super::Foundation:: BOOL , pvdefaultdata : *const ::core::ffi::c_void , dwdefaultdatasize : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegQueryUSValueA ( huskey : isize , pszvalue : :: windows::core::PCSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , fignorehkcu : super::super::Foundation:: BOOL , pvdefaultdata : *const ::core::ffi::c_void , dwdefaultdatasize : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegQueryUSValueA(huskey, pszvalue.into().abi(), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), fignorehkcu.into(), ::core::mem::transmute(pvdefaultdata.unwrap_or(::std::ptr::null())), dwdefaultdatasize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4850,7 +4850,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegQueryUSValueW ( huskey : isize , pszvalue : :: windows::core::PCWSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , fignorehkcu : super::super::Foundation:: BOOL , pvdefaultdata : *const ::core::ffi::c_void , dwdefaultdatasize : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegQueryUSValueW ( huskey : isize , pszvalue : :: windows::core::PCWSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 , fignorehkcu : super::super::Foundation:: BOOL , pvdefaultdata : *const ::core::ffi::c_void , dwdefaultdatasize : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegQueryUSValueW(huskey, pszvalue.into().abi(), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())), fignorehkcu.into(), ::core::mem::transmute(pvdefaultdata.unwrap_or(::std::ptr::null())), dwdefaultdatasize)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4863,7 +4863,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegSetPathA ( hkey : super::super::System::Registry:: HKEY , pcszsubkey : :: windows::core::PCSTR , pcszvalue : :: windows::core::PCSTR , pcszpath : :: windows::core::PCSTR , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegSetPathA ( hkey : super::super::System::Registry:: HKEY , pcszsubkey : :: windows::core::PCSTR , pcszvalue : :: windows::core::PCSTR , pcszpath : :: windows::core::PCSTR , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegSetPathA(hkey.into(), pcszsubkey.into().abi(), pcszvalue.into().abi(), pcszpath.into().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -4876,7 +4876,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegSetPathW ( hkey : super::super::System::Registry:: HKEY , pcszsubkey : :: windows::core::PCWSTR , pcszvalue : :: windows::core::PCWSTR , pcszpath : :: windows::core::PCWSTR , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegSetPathW ( hkey : super::super::System::Registry:: HKEY , pcszsubkey : :: windows::core::PCWSTR , pcszvalue : :: windows::core::PCWSTR , pcszpath : :: windows::core::PCWSTR , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegSetPathW(hkey.into(), pcszsubkey.into().abi(), pcszvalue.into().abi(), pcszpath.into().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4887,7 +4887,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegSetUSValueA ( pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegSetUSValueA ( pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegSetUSValueA(pszsubkey.into().abi(), pszvalue.into().abi(), dwtype, ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), cbdata, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4898,7 +4898,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegSetUSValueW ( pwzsubkey : :: windows::core::PCWSTR , pwzvalue : :: windows::core::PCWSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegSetUSValueW ( pwzsubkey : :: windows::core::PCWSTR , pwzvalue : :: windows::core::PCWSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegSetUSValueW(pwzsubkey.into().abi(), pwzvalue.into().abi(), dwtype, ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), cbdata, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4908,7 +4908,7 @@ pub unsafe fn SHRegWriteUSValueA<P0>(huskey: isize, pszvalue: P0, dwtype: u32, p
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegWriteUSValueA ( huskey : isize , pszvalue : :: windows::core::PCSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegWriteUSValueA ( huskey : isize , pszvalue : :: windows::core::PCSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegWriteUSValueA(huskey, pszvalue.into().abi(), dwtype, pvdata, cbdata, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4918,13 +4918,13 @@ pub unsafe fn SHRegWriteUSValueW<P0>(huskey: isize, pwzvalue: P0, dwtype: u32, p
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHRegWriteUSValueW ( huskey : isize , pwzvalue : :: windows::core::PCWSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHRegWriteUSValueW ( huskey : isize , pwzvalue : :: windows::core::PCWSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 , dwflags : u32 ) -> super::super::Foundation:: WIN32_ERROR );
     SHRegWriteUSValueW(huskey, pwzvalue.into().abi(), dwtype, pvdata, cbdata, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHReleaseThreadRef() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHReleaseThreadRef ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHReleaseThreadRef ( ) -> :: windows::core::HRESULT );
     SHReleaseThreadRef().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -4933,7 +4933,7 @@ pub unsafe fn SHRemoveLocalizedName<P0>(pszpath: P0) -> ::windows::core::Result<
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHRemoveLocalizedName ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHRemoveLocalizedName ( pszpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     SHRemoveLocalizedName(pszpath.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
@@ -4944,7 +4944,7 @@ where
     P0: ::std::convert::Into<HPSXA>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHReplaceFromPropSheetExtArray ( hpsxa : HPSXA , upageid : u32 , lpfnreplacewith : super::Controls:: LPFNSVADDPROPSHEETPAGE , lparam : super::super::Foundation:: LPARAM ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHReplaceFromPropSheetExtArray ( hpsxa : HPSXA , upageid : u32 , lpfnreplacewith : super::Controls:: LPFNSVADDPROPSHEETPAGE , lparam : super::super::Foundation:: LPARAM ) -> u32 );
     SHReplaceFromPropSheetExtArray(hpsxa.into(), upageid, lpfnreplacewith, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -4953,13 +4953,13 @@ pub unsafe fn SHResolveLibrary<P0>(psilibrary: P0) -> ::windows::core::Result<()
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellItem>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHResolveLibrary ( psilibrary : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHResolveLibrary ( psilibrary : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SHResolveLibrary(psilibrary.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHRestricted(rest: RESTRICTIONS) -> u32 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHRestricted ( rest : RESTRICTIONS ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHRestricted ( rest : RESTRICTIONS ) -> u32 );
     SHRestricted(rest)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4970,7 +4970,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHSendMessageBroadcastA ( umsg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHSendMessageBroadcastA ( umsg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
     SHSendMessageBroadcastA(umsg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4981,7 +4981,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHSendMessageBroadcastW ( umsg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHSendMessageBroadcastW ( umsg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
     SHSendMessageBroadcastW(umsg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -4993,7 +4993,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IShellItem>>,
     P2: ::std::convert::Into<::windows::core::InParam<IFileOperationProgressSink>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHSetDefaultProperties ( hwnd : super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void , dwfileopflags : u32 , pfops : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHSetDefaultProperties ( hwnd : super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void , dwfileopflags : u32 , pfops : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SHSetDefaultProperties(hwnd.into(), psi.into().abi(), dwfileopflags, pfops.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5004,7 +5004,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHSetFolderPathA ( csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszpath : :: windows::core::PCSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHSetFolderPathA ( csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszpath : :: windows::core::PCSTR ) -> :: windows::core::HRESULT );
     SHSetFolderPathA(csidl, htoken.into(), dwflags, pszpath.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5015,7 +5015,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHSetFolderPathW ( csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHSetFolderPathW ( csidl : i32 , htoken : super::super::Foundation:: HANDLE , dwflags : u32 , pszpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     SHSetFolderPathW(csidl, htoken.into(), dwflags, pszpath.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5024,7 +5024,7 @@ pub unsafe fn SHSetInstanceExplorer<P0>(punk: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHSetInstanceExplorer ( punk : * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHSetInstanceExplorer ( punk : * mut::core::ffi::c_void ) -> ( ) );
     SHSetInstanceExplorer(punk.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5035,7 +5035,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHSetKnownFolderPath ( rfid : *const :: windows::core::GUID , dwflags : u32 , htoken : super::super::Foundation:: HANDLE , pszpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHSetKnownFolderPath ( rfid : *const :: windows::core::GUID , dwflags : u32 , htoken : super::super::Foundation:: HANDLE , pszpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     SHSetKnownFolderPath(rfid, dwflags, htoken.into(), pszpath.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5045,7 +5045,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHSetLocalizedName ( pszpath : :: windows::core::PCWSTR , pszresmodule : :: windows::core::PCWSTR , idsres : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHSetLocalizedName ( pszpath : :: windows::core::PCWSTR , pszresmodule : :: windows::core::PCWSTR , idsres : i32 ) -> :: windows::core::HRESULT );
     SHSetLocalizedName(pszpath.into().abi(), pszresmodule.into().abi(), idsres).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -5055,7 +5055,7 @@ pub unsafe fn SHSetTemporaryPropertyForItem<P0>(psi: P0, propkey: *const Propert
 where
     P0: ::std::convert::Into<::windows::core::InParam<IShellItem>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHSetTemporaryPropertyForItem ( psi : * mut::core::ffi::c_void , propkey : *const PropertiesSystem:: PROPERTYKEY , propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHSetTemporaryPropertyForItem ( psi : * mut::core::ffi::c_void , propkey : *const PropertiesSystem:: PROPERTYKEY , propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
     SHSetTemporaryPropertyForItem(psi.into().abi(), propkey, propvar).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5064,7 +5064,7 @@ pub unsafe fn SHSetThreadRef<P0>(punk: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHSetThreadRef ( punk : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHSetThreadRef ( punk : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SHSetThreadRef(punk.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5074,7 +5074,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHSetUnreadMailCountW ( pszmailaddress : :: windows::core::PCWSTR , dwcount : u32 , pszshellexecutecommand : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHSetUnreadMailCountW ( pszmailaddress : :: windows::core::PCWSTR , dwcount : u32 , pszshellexecutecommand : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     SHSetUnreadMailCountW(pszmailaddress.into().abi(), dwcount, pszshellexecutecommand.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
@@ -5086,7 +5086,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHSetValueA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHSetValueA ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCSTR , pszvalue : :: windows::core::PCSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 ) -> i32 );
     SHSetValueA(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), dwtype, ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), cbdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
@@ -5098,7 +5098,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHSetValueW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHSetValueW ( hkey : super::super::System::Registry:: HKEY , pszsubkey : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , dwtype : u32 , pvdata : *const ::core::ffi::c_void , cbdata : u32 ) -> i32 );
     SHSetValueW(hkey.into(), pszsubkey.into().abi(), pszvalue.into().abi(), dwtype, ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), cbdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5109,7 +5109,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHShellFolderView_Message ( hwndmain : super::super::Foundation:: HWND , umsg : u32 , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHShellFolderView_Message ( hwndmain : super::super::Foundation:: HWND , umsg : u32 , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
     SHShellFolderView_Message(hwndmain.into(), umsg, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5122,7 +5122,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHShowManageLibraryUI ( psilibrary : * mut::core::ffi::c_void , hwndowner : super::super::Foundation:: HWND , psztitle : :: windows::core::PCWSTR , pszinstruction : :: windows::core::PCWSTR , lmdoptions : LIBRARYMANAGEDIALOGOPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHShowManageLibraryUI ( psilibrary : * mut::core::ffi::c_void , hwndowner : super::super::Foundation:: HWND , psztitle : :: windows::core::PCWSTR , pszinstruction : :: windows::core::PCWSTR , lmdoptions : LIBRARYMANAGEDIALOGOPTIONS ) -> :: windows::core::HRESULT );
     SHShowManageLibraryUI(psilibrary.into().abi(), hwndowner.into(), psztitle.into().abi(), pszinstruction.into().abi(), lmdoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -5132,7 +5132,7 @@ pub unsafe fn SHSimpleIDListFromPath<P0>(pszpath: P0) -> *mut Common::ITEMIDLIST
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHSimpleIDListFromPath ( pszpath : :: windows::core::PCWSTR ) -> *mut Common:: ITEMIDLIST );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHSimpleIDListFromPath ( pszpath : :: windows::core::PCWSTR ) -> *mut Common:: ITEMIDLIST );
     SHSimpleIDListFromPath(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -5142,7 +5142,7 @@ pub unsafe fn SHSkipJunction<P0>(pbc: P0, pclsid: *const ::windows::core::GUID) 
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindCtx>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHSkipJunction ( pbc : * mut::core::ffi::c_void , pclsid : *const :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHSkipJunction ( pbc : * mut::core::ffi::c_void , pclsid : *const :: windows::core::GUID ) -> super::super::Foundation:: BOOL );
     SHSkipJunction(pbc.into().abi(), pclsid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5153,7 +5153,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHStartNetConnectionDialogW ( hwnd : super::super::Foundation:: HWND , pszremotename : :: windows::core::PCWSTR , dwtype : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHStartNetConnectionDialogW ( hwnd : super::super::Foundation:: HWND , pszremotename : :: windows::core::PCWSTR , dwtype : u32 ) -> :: windows::core::HRESULT );
     SHStartNetConnectionDialogW(hwnd.into(), pszremotename.into().abi(), dwtype).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5162,7 +5162,7 @@ pub unsafe fn SHStrDupA<P0>(psz: P0) -> ::windows::core::Result<::windows::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHStrDupA ( psz : :: windows::core::PCSTR , ppwsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHStrDupA ( psz : :: windows::core::PCSTR , ppwsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SHStrDupA(psz.into().abi(), &mut result__).from_abi(result__)
 }
@@ -5172,7 +5172,7 @@ pub unsafe fn SHStrDupW<P0>(psz: P0) -> ::windows::core::Result<::windows::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHStrDupW ( psz : :: windows::core::PCWSTR , ppwsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHStrDupW ( psz : :: windows::core::PCWSTR , ppwsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SHStrDupW(psz.into().abi(), &mut result__).from_abi(result__)
 }
@@ -5180,13 +5180,13 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHStripMneumonicA(pszmenu: ::windows::core::PSTR) -> super::super::Foundation::CHAR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHStripMneumonicA ( pszmenu : :: windows::core::PSTR ) -> super::super::Foundation:: CHAR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHStripMneumonicA ( pszmenu : :: windows::core::PSTR ) -> super::super::Foundation:: CHAR );
     SHStripMneumonicA(::core::mem::transmute(pszmenu))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn SHStripMneumonicW(pszmenu: ::windows::core::PWSTR) -> u16 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHStripMneumonicW ( pszmenu : :: windows::core::PWSTR ) -> u16 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHStripMneumonicW ( pszmenu : :: windows::core::PWSTR ) -> u16 );
     SHStripMneumonicW(::core::mem::transmute(pszmenu))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5196,7 +5196,7 @@ pub unsafe fn SHTestTokenMembership<P0>(htoken: P0, ulrid: u32) -> super::super:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHTestTokenMembership ( htoken : super::super::Foundation:: HANDLE , ulrid : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHTestTokenMembership ( htoken : super::super::Foundation:: HANDLE , ulrid : u32 ) -> super::super::Foundation:: BOOL );
     SHTestTokenMembership(htoken.into(), ulrid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5205,7 +5205,7 @@ pub unsafe fn SHUnicodeToAnsi<P0>(pwszsrc: P0, pszdst: &mut [u8]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHUnicodeToAnsi ( pwszsrc : :: windows::core::PCWSTR , pszdst : :: windows::core::PSTR , cchbuf : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHUnicodeToAnsi ( pwszsrc : :: windows::core::PCWSTR , pszdst : :: windows::core::PSTR , cchbuf : i32 ) -> i32 );
     SHUnicodeToAnsi(pwszsrc.into().abi(), ::core::mem::transmute(pszdst.as_ptr()), pszdst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5214,14 +5214,14 @@ pub unsafe fn SHUnicodeToUnicode<P0>(pwzsrc: P0, pwzdst: &mut [u16]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHUnicodeToUnicode ( pwzsrc : :: windows::core::PCWSTR , pwzdst : :: windows::core::PWSTR , cwchbuf : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHUnicodeToUnicode ( pwzsrc : :: windows::core::PCWSTR , pwzdst : :: windows::core::PWSTR , cwchbuf : i32 ) -> i32 );
     SHUnicodeToUnicode(pwzsrc.into().abi(), ::core::mem::transmute(pwzdst.as_ptr()), pwzdst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHUnlockShared(pvdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn SHUnlockShared ( pvdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHUnlockShared ( pvdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     SHUnlockShared(pvdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5230,7 +5230,7 @@ pub unsafe fn SHUpdateImageA<P0>(pszhashitem: P0, iindex: i32, uflags: u32, iima
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHUpdateImageA ( pszhashitem : :: windows::core::PCSTR , iindex : i32 , uflags : u32 , iimageindex : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHUpdateImageA ( pszhashitem : :: windows::core::PCSTR , iindex : i32 , uflags : u32 , iimageindex : i32 ) -> ( ) );
     SHUpdateImageA(pszhashitem.into().abi(), iindex, uflags, iimageindex)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5239,7 +5239,7 @@ pub unsafe fn SHUpdateImageW<P0>(pszhashitem: P0, iindex: i32, uflags: u32, iima
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHUpdateImageW ( pszhashitem : :: windows::core::PCWSTR , iindex : i32 , uflags : u32 , iimageindex : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHUpdateImageW ( pszhashitem : :: windows::core::PCWSTR , iindex : i32 , uflags : u32 , iimageindex : i32 ) -> ( ) );
     SHUpdateImageW(pszhashitem.into().abi(), iindex, uflags, iimageindex)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5249,7 +5249,7 @@ pub unsafe fn SHValidateUNC<P0>(hwndowner: P0, pszfile: ::windows::core::PWSTR, 
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SHValidateUNC ( hwndowner : super::super::Foundation:: HWND , pszfile : :: windows::core::PWSTR , fconnect : VALIDATEUNC_OPTION ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SHValidateUNC ( hwndowner : super::super::Foundation:: HWND , pszfile : :: windows::core::PWSTR , fconnect : VALIDATEUNC_OPTION ) -> super::super::Foundation:: BOOL );
     SHValidateUNC(hwndowner.into(), ::core::mem::transmute(pszfile), fconnect)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5258,7 +5258,7 @@ pub unsafe fn SetCurrentProcessExplicitAppUserModelID<P0>(appid: P0) -> ::window
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn SetCurrentProcessExplicitAppUserModelID ( appid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SetCurrentProcessExplicitAppUserModelID ( appid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     SetCurrentProcessExplicitAppUserModelID(appid.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5268,7 +5268,7 @@ pub unsafe fn SetMenuContextHelpId<P0>(param0: P0, param1: u32) -> super::super:
 where
     P0: ::std::convert::Into<super::WindowsAndMessaging::HMENU>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn SetMenuContextHelpId ( param0 : super::WindowsAndMessaging:: HMENU , param1 : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn SetMenuContextHelpId ( param0 : super::WindowsAndMessaging:: HMENU , param1 : u32 ) -> super::super::Foundation:: BOOL );
     SetMenuContextHelpId(param0.into(), param1)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5278,7 +5278,7 @@ pub unsafe fn SetWindowContextHelpId<P0>(param0: P0, param1: u32) -> super::supe
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn SetWindowContextHelpId ( param0 : super::super::Foundation:: HWND , param1 : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn SetWindowContextHelpId ( param0 : super::super::Foundation:: HWND , param1 : u32 ) -> super::super::Foundation:: BOOL );
     SetWindowContextHelpId(param0.into(), param1)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5288,7 +5288,7 @@ pub unsafe fn SetWindowSubclass<P0>(hwnd: P0, pfnsubclass: SUBCLASSPROC, uidsubc
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "comctl32.dll""system" fn SetWindowSubclass ( hwnd : super::super::Foundation:: HWND , pfnsubclass : SUBCLASSPROC , uidsubclass : usize , dwrefdata : usize ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "comctl32.dll""system" fn SetWindowSubclass ( hwnd : super::super::Foundation:: HWND , pfnsubclass : SUBCLASSPROC , uidsubclass : usize , dwrefdata : usize ) -> super::super::Foundation:: BOOL );
     SetWindowSubclass(hwnd.into(), pfnsubclass, uidsubclass, dwrefdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5301,7 +5301,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<super::WindowsAndMessaging::HICON>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ShellAboutA ( hwnd : super::super::Foundation:: HWND , szapp : :: windows::core::PCSTR , szotherstuff : :: windows::core::PCSTR , hicon : super::WindowsAndMessaging:: HICON ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ShellAboutA ( hwnd : super::super::Foundation:: HWND , szapp : :: windows::core::PCSTR , szotherstuff : :: windows::core::PCSTR , hicon : super::WindowsAndMessaging:: HICON ) -> i32 );
     ShellAboutA(hwnd.into(), szapp.into().abi(), szotherstuff.into().abi(), hicon.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5314,7 +5314,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<super::WindowsAndMessaging::HICON>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ShellAboutW ( hwnd : super::super::Foundation:: HWND , szapp : :: windows::core::PCWSTR , szotherstuff : :: windows::core::PCWSTR , hicon : super::WindowsAndMessaging:: HICON ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ShellAboutW ( hwnd : super::super::Foundation:: HWND , szapp : :: windows::core::PCWSTR , szotherstuff : :: windows::core::PCWSTR , hicon : super::WindowsAndMessaging:: HICON ) -> i32 );
     ShellAboutW(hwnd.into(), szapp.into().abi(), szotherstuff.into().abi(), hicon.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5328,21 +5328,21 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ShellExecuteA ( hwnd : super::super::Foundation:: HWND , lpoperation : :: windows::core::PCSTR , lpfile : :: windows::core::PCSTR , lpparameters : :: windows::core::PCSTR , lpdirectory : :: windows::core::PCSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ShellExecuteA ( hwnd : super::super::Foundation:: HWND , lpoperation : :: windows::core::PCSTR , lpfile : :: windows::core::PCSTR , lpparameters : :: windows::core::PCSTR , lpdirectory : :: windows::core::PCSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HINSTANCE );
     ShellExecuteA(hwnd.into(), lpoperation.into().abi(), lpfile.into().abi(), lpparameters.into().abi(), lpdirectory.into().abi(), nshowcmd)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ShellExecuteExA(pexecinfo: *mut SHELLEXECUTEINFOA) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn ShellExecuteExA ( pexecinfo : *mut SHELLEXECUTEINFOA ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ShellExecuteExA ( pexecinfo : *mut SHELLEXECUTEINFOA ) -> super::super::Foundation:: BOOL );
     ShellExecuteExA(pexecinfo)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ShellExecuteExW(pexecinfo: *mut SHELLEXECUTEINFOW) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn ShellExecuteExW ( pexecinfo : *mut SHELLEXECUTEINFOW ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ShellExecuteExW ( pexecinfo : *mut SHELLEXECUTEINFOW ) -> super::super::Foundation:: BOOL );
     ShellExecuteExW(pexecinfo)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5356,7 +5356,7 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn ShellExecuteW ( hwnd : super::super::Foundation:: HWND , lpoperation : :: windows::core::PCWSTR , lpfile : :: windows::core::PCWSTR , lpparameters : :: windows::core::PCWSTR , lpdirectory : :: windows::core::PCWSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ShellExecuteW ( hwnd : super::super::Foundation:: HWND , lpoperation : :: windows::core::PCWSTR , lpfile : :: windows::core::PCWSTR , lpparameters : :: windows::core::PCWSTR , lpdirectory : :: windows::core::PCWSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HINSTANCE );
     ShellExecuteW(hwnd.into(), lpoperation.into().abi(), lpfile.into().abi(), lpparameters.into().abi(), lpdirectory.into().abi(), nshowcmd)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5369,7 +5369,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxA ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : :: windows::core::PCSTR , lpctitle : :: windows::core::PCSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxA ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : :: windows::core::PCSTR , lpctitle : :: windows::core::PCSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
     ShellMessageBoxA(happinst.into(), hwnd.into(), lpctext.into().abi(), lpctitle.into().abi(), fustyle)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5382,7 +5382,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxW ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : :: windows::core::PCWSTR , lpctitle : :: windows::core::PCWSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxW ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : :: windows::core::PCWSTR , lpctitle : :: windows::core::PCWSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
     ShellMessageBoxW(happinst.into(), hwnd.into(), lpctext.into().abi(), lpctitle.into().abi(), fustyle)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5391,7 +5391,7 @@ pub unsafe fn Shell_GetCachedImageIndex<P0>(pwsziconpath: P0, iiconindex: i32, u
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn Shell_GetCachedImageIndex ( pwsziconpath : :: windows::core::PCWSTR , iiconindex : i32 , uiconflags : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn Shell_GetCachedImageIndex ( pwsziconpath : :: windows::core::PCWSTR , iiconindex : i32 , uiconflags : u32 ) -> i32 );
     Shell_GetCachedImageIndex(pwsziconpath.into().abi(), iiconindex, uiconflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5400,7 +5400,7 @@ pub unsafe fn Shell_GetCachedImageIndexA<P0>(psziconpath: P0, iiconindex: i32, u
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn Shell_GetCachedImageIndexA ( psziconpath : :: windows::core::PCSTR , iiconindex : i32 , uiconflags : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn Shell_GetCachedImageIndexA ( psziconpath : :: windows::core::PCSTR , iiconindex : i32 , uiconflags : u32 ) -> i32 );
     Shell_GetCachedImageIndexA(psziconpath.into().abi(), iiconindex, uiconflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5409,14 +5409,14 @@ pub unsafe fn Shell_GetCachedImageIndexW<P0>(psziconpath: P0, iiconindex: i32, u
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn Shell_GetCachedImageIndexW ( psziconpath : :: windows::core::PCWSTR , iiconindex : i32 , uiconflags : u32 ) -> i32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn Shell_GetCachedImageIndexW ( psziconpath : :: windows::core::PCWSTR , iiconindex : i32 , uiconflags : u32 ) -> i32 );
     Shell_GetCachedImageIndexW(psziconpath.into().abi(), iiconindex, uiconflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn Shell_GetImageLists(phiml: ::core::option::Option<*mut super::Controls::HIMAGELIST>, phimlsmall: ::core::option::Option<*mut super::Controls::HIMAGELIST>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn Shell_GetImageLists ( phiml : *mut super::Controls:: HIMAGELIST , phimlsmall : *mut super::Controls:: HIMAGELIST ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn Shell_GetImageLists ( phiml : *mut super::Controls:: HIMAGELIST , phimlsmall : *mut super::Controls:: HIMAGELIST ) -> super::super::Foundation:: BOOL );
     Shell_GetImageLists(::core::mem::transmute(phiml.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phimlsmall.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5427,21 +5427,21 @@ where
     P0: ::std::convert::Into<super::WindowsAndMessaging::HMENU>,
     P1: ::std::convert::Into<super::WindowsAndMessaging::HMENU>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn Shell_MergeMenus ( hmdst : super::WindowsAndMessaging:: HMENU , hmsrc : super::WindowsAndMessaging:: HMENU , uinsert : u32 , uidadjust : u32 , uidadjustmax : u32 , uflags : MM_FLAGS ) -> u32 );
+    ::windows::imp::link ! ( "shell32.dll""system" fn Shell_MergeMenus ( hmdst : super::WindowsAndMessaging:: HMENU , hmsrc : super::WindowsAndMessaging:: HMENU , uinsert : u32 , uidadjust : u32 , uidadjustmax : u32 , uflags : MM_FLAGS ) -> u32 );
     Shell_MergeMenus(hmdst.into(), hmsrc.into(), uinsert, uidadjust, uidadjustmax, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn Shell_NotifyIconA(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: *const NOTIFYICONDATAA) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn Shell_NotifyIconA ( dwmessage : NOTIFY_ICON_MESSAGE , lpdata : *const NOTIFYICONDATAA ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn Shell_NotifyIconA ( dwmessage : NOTIFY_ICON_MESSAGE , lpdata : *const NOTIFYICONDATAA ) -> super::super::Foundation:: BOOL );
     Shell_NotifyIconA(dwmessage, lpdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER) -> ::windows::core::Result<super::super::Foundation::RECT> {
-    ::windows::core::link ! ( "shell32.dll""system" fn Shell_NotifyIconGetRect ( identifier : *const NOTIFYICONIDENTIFIER , iconlocation : *mut super::super::Foundation:: RECT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn Shell_NotifyIconGetRect ( identifier : *const NOTIFYICONIDENTIFIER , iconlocation : *mut super::super::Foundation:: RECT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::RECT>();
     Shell_NotifyIconGetRect(identifier, &mut result__).from_abi(result__)
 }
@@ -5449,14 +5449,14 @@ pub unsafe fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER) -
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn Shell_NotifyIconW(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: *const NOTIFYICONDATAW) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn Shell_NotifyIconW ( dwmessage : NOTIFY_ICON_MESSAGE , lpdata : *const NOTIFYICONDATAW ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn Shell_NotifyIconW ( dwmessage : NOTIFY_ICON_MESSAGE , lpdata : *const NOTIFYICONDATAW ) -> super::super::Foundation:: BOOL );
     Shell_NotifyIconW(dwmessage, lpdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn SignalFileOpen(pidl: *const Common::ITEMIDLIST) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn SignalFileOpen ( pidl : *const Common:: ITEMIDLIST ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn SignalFileOpen ( pidl : *const Common:: ITEMIDLIST ) -> super::super::Foundation:: BOOL );
     SignalFileOpen(pidl)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_Urlmon\"`*"]
@@ -5467,7 +5467,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shdocvw.dll""system" fn SoftwareUpdateMessageBox ( hwnd : super::super::Foundation:: HWND , pszdistunit : :: windows::core::PCWSTR , dwflags : u32 , psdi : *mut super::super::System::Com::Urlmon:: SOFTDISTINFO ) -> u32 );
+    ::windows::imp::link ! ( "shdocvw.dll""system" fn SoftwareUpdateMessageBox ( hwnd : super::super::Foundation:: HWND , pszdistunit : :: windows::core::PCWSTR , dwflags : u32 , psdi : *mut super::super::System::Com::Urlmon:: SOFTDISTINFO ) -> u32 );
     SoftwareUpdateMessageBox(hwnd.into(), pszdistunit.into().abi(), dwflags, ::core::mem::transmute(psdi.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -5479,7 +5479,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn StgMakeUniqueName ( pstgparent : * mut::core::ffi::c_void , pszfilespec : :: windows::core::PCWSTR , grfmode : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shell32.dll""system" fn StgMakeUniqueName ( pstgparent : * mut::core::ffi::c_void , pszfilespec : :: windows::core::PCWSTR , grfmode : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     StgMakeUniqueName(pstgparent.into().abi(), pszfilespec.into().abi(), grfmode, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -5490,7 +5490,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCSpnA ( pszstr : :: windows::core::PCSTR , pszset : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCSpnA ( pszstr : :: windows::core::PCSTR , pszset : :: windows::core::PCSTR ) -> i32 );
     StrCSpnA(pszstr.into().abi(), pszset.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5500,7 +5500,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCSpnIA ( pszstr : :: windows::core::PCSTR , pszset : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCSpnIA ( pszstr : :: windows::core::PCSTR , pszset : :: windows::core::PCSTR ) -> i32 );
     StrCSpnIA(pszstr.into().abi(), pszset.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5510,7 +5510,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCSpnIW ( pszstr : :: windows::core::PCWSTR , pszset : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCSpnIW ( pszstr : :: windows::core::PCWSTR , pszset : :: windows::core::PCWSTR ) -> i32 );
     StrCSpnIW(pszstr.into().abi(), pszset.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5520,7 +5520,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCSpnW ( pszstr : :: windows::core::PCWSTR , pszset : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCSpnW ( pszstr : :: windows::core::PCWSTR , pszset : :: windows::core::PCWSTR ) -> i32 );
     StrCSpnW(pszstr.into().abi(), pszset.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5529,7 +5529,7 @@ pub unsafe fn StrCatBuffA<P0>(pszdest: &mut [u8], pszsrc: P0) -> ::windows::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCatBuffA ( pszdest : :: windows::core::PSTR , pszsrc : :: windows::core::PCSTR , cchdestbuffsize : i32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCatBuffA ( pszdest : :: windows::core::PSTR , pszsrc : :: windows::core::PCSTR , cchdestbuffsize : i32 ) -> :: windows::core::PSTR );
     StrCatBuffA(::core::mem::transmute(pszdest.as_ptr()), pszsrc.into().abi(), pszdest.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5538,7 +5538,7 @@ pub unsafe fn StrCatBuffW<P0>(pszdest: &mut [u16], pszsrc: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCatBuffW ( pszdest : :: windows::core::PWSTR , pszsrc : :: windows::core::PCWSTR , cchdestbuffsize : i32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCatBuffW ( pszdest : :: windows::core::PWSTR , pszsrc : :: windows::core::PCWSTR , cchdestbuffsize : i32 ) -> :: windows::core::PWSTR );
     StrCatBuffW(::core::mem::transmute(pszdest.as_ptr()), pszsrc.into().abi(), pszdest.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5547,7 +5547,7 @@ pub unsafe fn StrCatChainW<P0>(pszdst: &mut [u16], ichat: u32, pszsrc: P0) -> u3
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCatChainW ( pszdst : :: windows::core::PWSTR , cchdst : u32 , ichat : u32 , pszsrc : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCatChainW ( pszdst : :: windows::core::PWSTR , cchdst : u32 , ichat : u32 , pszsrc : :: windows::core::PCWSTR ) -> u32 );
     StrCatChainW(::core::mem::transmute(pszdst.as_ptr()), pszdst.len() as _, ichat, pszsrc.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5556,7 +5556,7 @@ pub unsafe fn StrCatW<P0>(psz1: ::windows::core::PWSTR, psz2: P0) -> ::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCatW ( psz1 : :: windows::core::PWSTR , psz2 : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCatW ( psz1 : :: windows::core::PWSTR , psz2 : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     StrCatW(::core::mem::transmute(psz1), psz2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5565,7 +5565,7 @@ pub unsafe fn StrChrA<P0>(pszstart: P0, wmatch: u16) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrChrA ( pszstart : :: windows::core::PCSTR , wmatch : u16 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrChrA ( pszstart : :: windows::core::PCSTR , wmatch : u16 ) -> :: windows::core::PSTR );
     StrChrA(pszstart.into().abi(), wmatch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5574,7 +5574,7 @@ pub unsafe fn StrChrIA<P0>(pszstart: P0, wmatch: u16) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrChrIA ( pszstart : :: windows::core::PCSTR , wmatch : u16 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrChrIA ( pszstart : :: windows::core::PCSTR , wmatch : u16 ) -> :: windows::core::PSTR );
     StrChrIA(pszstart.into().abi(), wmatch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5583,7 +5583,7 @@ pub unsafe fn StrChrIW<P0>(pszstart: P0, wmatch: u16) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrChrIW ( pszstart : :: windows::core::PCWSTR , wmatch : u16 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrChrIW ( pszstart : :: windows::core::PCWSTR , wmatch : u16 ) -> :: windows::core::PWSTR );
     StrChrIW(pszstart.into().abi(), wmatch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5592,7 +5592,7 @@ pub unsafe fn StrChrNIW<P0>(pszstart: P0, wmatch: u16, cchmax: u32) -> ::windows
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrChrNIW ( pszstart : :: windows::core::PCWSTR , wmatch : u16 , cchmax : u32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrChrNIW ( pszstart : :: windows::core::PCWSTR , wmatch : u16 , cchmax : u32 ) -> :: windows::core::PWSTR );
     StrChrNIW(pszstart.into().abi(), wmatch, cchmax)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5601,7 +5601,7 @@ pub unsafe fn StrChrNW<P0>(pszstart: P0, wmatch: u16, cchmax: u32) -> ::windows:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrChrNW ( pszstart : :: windows::core::PCWSTR , wmatch : u16 , cchmax : u32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrChrNW ( pszstart : :: windows::core::PCWSTR , wmatch : u16 , cchmax : u32 ) -> :: windows::core::PWSTR );
     StrChrNW(pszstart.into().abi(), wmatch, cchmax)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5610,7 +5610,7 @@ pub unsafe fn StrChrW<P0>(pszstart: P0, wmatch: u16) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrChrW ( pszstart : :: windows::core::PCWSTR , wmatch : u16 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrChrW ( pszstart : :: windows::core::PCWSTR , wmatch : u16 ) -> :: windows::core::PWSTR );
     StrChrW(pszstart.into().abi(), wmatch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5620,7 +5620,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpCA ( pszstr1 : :: windows::core::PCSTR , pszstr2 : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpCA ( pszstr1 : :: windows::core::PCSTR , pszstr2 : :: windows::core::PCSTR ) -> i32 );
     StrCmpCA(pszstr1.into().abi(), pszstr2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5630,7 +5630,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpCW ( pszstr1 : :: windows::core::PCWSTR , pszstr2 : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpCW ( pszstr1 : :: windows::core::PCWSTR , pszstr2 : :: windows::core::PCWSTR ) -> i32 );
     StrCmpCW(pszstr1.into().abi(), pszstr2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5640,7 +5640,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpICA ( pszstr1 : :: windows::core::PCSTR , pszstr2 : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpICA ( pszstr1 : :: windows::core::PCSTR , pszstr2 : :: windows::core::PCSTR ) -> i32 );
     StrCmpICA(pszstr1.into().abi(), pszstr2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5650,7 +5650,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpICW ( pszstr1 : :: windows::core::PCWSTR , pszstr2 : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpICW ( pszstr1 : :: windows::core::PCWSTR , pszstr2 : :: windows::core::PCWSTR ) -> i32 );
     StrCmpICW(pszstr1.into().abi(), pszstr2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5660,7 +5660,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpIW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpIW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR ) -> i32 );
     StrCmpIW(psz1.into().abi(), psz2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5670,7 +5670,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpLogicalW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpLogicalW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR ) -> i32 );
     StrCmpLogicalW(psz1.into().abi(), psz2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5680,7 +5680,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpNA ( psz1 : :: windows::core::PCSTR , psz2 : :: windows::core::PCSTR , nchar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpNA ( psz1 : :: windows::core::PCSTR , psz2 : :: windows::core::PCSTR , nchar : i32 ) -> i32 );
     StrCmpNA(psz1.into().abi(), psz2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5690,7 +5690,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpNCA ( pszstr1 : :: windows::core::PCSTR , pszstr2 : :: windows::core::PCSTR , nchar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpNCA ( pszstr1 : :: windows::core::PCSTR , pszstr2 : :: windows::core::PCSTR , nchar : i32 ) -> i32 );
     StrCmpNCA(pszstr1.into().abi(), pszstr2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5700,7 +5700,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpNCW ( pszstr1 : :: windows::core::PCWSTR , pszstr2 : :: windows::core::PCWSTR , nchar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpNCW ( pszstr1 : :: windows::core::PCWSTR , pszstr2 : :: windows::core::PCWSTR , nchar : i32 ) -> i32 );
     StrCmpNCW(pszstr1.into().abi(), pszstr2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5710,7 +5710,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpNIA ( psz1 : :: windows::core::PCSTR , psz2 : :: windows::core::PCSTR , nchar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpNIA ( psz1 : :: windows::core::PCSTR , psz2 : :: windows::core::PCSTR , nchar : i32 ) -> i32 );
     StrCmpNIA(psz1.into().abi(), psz2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5720,7 +5720,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpNICA ( pszstr1 : :: windows::core::PCSTR , pszstr2 : :: windows::core::PCSTR , nchar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpNICA ( pszstr1 : :: windows::core::PCSTR , pszstr2 : :: windows::core::PCSTR , nchar : i32 ) -> i32 );
     StrCmpNICA(pszstr1.into().abi(), pszstr2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5730,7 +5730,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpNICW ( pszstr1 : :: windows::core::PCWSTR , pszstr2 : :: windows::core::PCWSTR , nchar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpNICW ( pszstr1 : :: windows::core::PCWSTR , pszstr2 : :: windows::core::PCWSTR , nchar : i32 ) -> i32 );
     StrCmpNICW(pszstr1.into().abi(), pszstr2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5740,7 +5740,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpNIW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR , nchar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpNIW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR , nchar : i32 ) -> i32 );
     StrCmpNIW(psz1.into().abi(), psz2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5750,7 +5750,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpNW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR , nchar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpNW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR , nchar : i32 ) -> i32 );
     StrCmpNW(psz1.into().abi(), psz2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5760,7 +5760,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCmpW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCmpW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR ) -> i32 );
     StrCmpW(psz1.into().abi(), psz2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5769,7 +5769,7 @@ pub unsafe fn StrCpyNW<P0>(pszdst: &mut [u16], pszsrc: P0) -> ::windows::core::P
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCpyNW ( pszdst : :: windows::core::PWSTR , pszsrc : :: windows::core::PCWSTR , cchmax : i32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCpyNW ( pszdst : :: windows::core::PWSTR , pszsrc : :: windows::core::PCWSTR , cchmax : i32 ) -> :: windows::core::PWSTR );
     StrCpyNW(::core::mem::transmute(pszdst.as_ptr()), pszsrc.into().abi(), pszdst.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5778,7 +5778,7 @@ pub unsafe fn StrCpyW<P0>(psz1: ::windows::core::PWSTR, psz2: P0) -> ::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrCpyW ( psz1 : :: windows::core::PWSTR , psz2 : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrCpyW ( psz1 : :: windows::core::PWSTR , psz2 : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     StrCpyW(::core::mem::transmute(psz1), psz2.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5787,7 +5787,7 @@ pub unsafe fn StrDupA<P0>(pszsrch: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrDupA ( pszsrch : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrDupA ( pszsrch : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     StrDupA(pszsrch.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5796,55 +5796,55 @@ pub unsafe fn StrDupW<P0>(pszsrch: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrDupW ( pszsrch : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrDupW ( pszsrch : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     StrDupW(pszsrch.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn StrFormatByteSize64A(qdw: i64, pszbuf: &mut [u8]) -> ::windows::core::PSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrFormatByteSize64A ( qdw : i64 , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrFormatByteSize64A ( qdw : i64 , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> :: windows::core::PSTR );
     StrFormatByteSize64A(qdw, ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn StrFormatByteSizeA(dw: u32, pszbuf: &mut [u8]) -> ::windows::core::PSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrFormatByteSizeA ( dw : u32 , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrFormatByteSizeA ( dw : u32 , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> :: windows::core::PSTR );
     StrFormatByteSizeA(dw, ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn StrFormatByteSizeEx(ull: u64, flags: SFBS_FLAGS, pszbuf: &mut [u16]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrFormatByteSizeEx ( ull : u64 , flags : SFBS_FLAGS , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrFormatByteSizeEx ( ull : u64 , flags : SFBS_FLAGS , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::HRESULT );
     StrFormatByteSizeEx(ull, flags, ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn StrFormatByteSizeW(qdw: i64, pszbuf: &mut [u16]) -> ::windows::core::PWSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrFormatByteSizeW ( qdw : i64 , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrFormatByteSizeW ( qdw : i64 , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::PWSTR );
     StrFormatByteSizeW(qdw, ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn StrFormatKBSizeA(qdw: i64, pszbuf: &mut [u8]) -> ::windows::core::PSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrFormatKBSizeA ( qdw : i64 , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrFormatKBSizeA ( qdw : i64 , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> :: windows::core::PSTR );
     StrFormatKBSizeA(qdw, ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn StrFormatKBSizeW(qdw: i64, pszbuf: &mut [u16]) -> ::windows::core::PWSTR {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrFormatKBSizeW ( qdw : i64 , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrFormatKBSizeW ( qdw : i64 , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::PWSTR );
     StrFormatKBSizeW(qdw, ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn StrFromTimeIntervalA(pszout: &mut [u8], dwtimems: u32, digits: i32) -> i32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrFromTimeIntervalA ( pszout : :: windows::core::PSTR , cchmax : u32 , dwtimems : u32 , digits : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrFromTimeIntervalA ( pszout : :: windows::core::PSTR , cchmax : u32 , dwtimems : u32 , digits : i32 ) -> i32 );
     StrFromTimeIntervalA(::core::mem::transmute(pszout.as_ptr()), pszout.len() as _, dwtimems, digits)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn StrFromTimeIntervalW(pszout: &mut [u16], dwtimems: u32, digits: i32) -> i32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrFromTimeIntervalW ( pszout : :: windows::core::PWSTR , cchmax : u32 , dwtimems : u32 , digits : i32 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrFromTimeIntervalW ( pszout : :: windows::core::PWSTR , cchmax : u32 , dwtimems : u32 , digits : i32 ) -> i32 );
     StrFromTimeIntervalW(::core::mem::transmute(pszout.as_ptr()), pszout.len() as _, dwtimems, digits)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5856,7 +5856,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrIsIntlEqualA ( fcasesens : super::super::Foundation:: BOOL , pszstring1 : :: windows::core::PCSTR , pszstring2 : :: windows::core::PCSTR , nchar : i32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrIsIntlEqualA ( fcasesens : super::super::Foundation:: BOOL , pszstring1 : :: windows::core::PCSTR , pszstring2 : :: windows::core::PCSTR , nchar : i32 ) -> super::super::Foundation:: BOOL );
     StrIsIntlEqualA(fcasesens.into(), pszstring1.into().abi(), pszstring2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -5868,7 +5868,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrIsIntlEqualW ( fcasesens : super::super::Foundation:: BOOL , pszstring1 : :: windows::core::PCWSTR , pszstring2 : :: windows::core::PCWSTR , nchar : i32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrIsIntlEqualW ( fcasesens : super::super::Foundation:: BOOL , pszstring1 : :: windows::core::PCWSTR , pszstring2 : :: windows::core::PCWSTR , nchar : i32 ) -> super::super::Foundation:: BOOL );
     StrIsIntlEqualW(fcasesens.into(), pszstring1.into().abi(), pszstring2.into().abi(), nchar)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5877,7 +5877,7 @@ pub unsafe fn StrNCatA<P0>(psz1: &mut [u8], psz2: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrNCatA ( psz1 : :: windows::core::PSTR , psz2 : :: windows::core::PCSTR , cchmax : i32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrNCatA ( psz1 : :: windows::core::PSTR , psz2 : :: windows::core::PCSTR , cchmax : i32 ) -> :: windows::core::PSTR );
     StrNCatA(::core::mem::transmute(psz1.as_ptr()), psz2.into().abi(), psz1.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5886,7 +5886,7 @@ pub unsafe fn StrNCatW<P0>(psz1: &mut [u16], psz2: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrNCatW ( psz1 : :: windows::core::PWSTR , psz2 : :: windows::core::PCWSTR , cchmax : i32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrNCatW ( psz1 : :: windows::core::PWSTR , psz2 : :: windows::core::PCWSTR , cchmax : i32 ) -> :: windows::core::PWSTR );
     StrNCatW(::core::mem::transmute(psz1.as_ptr()), psz2.into().abi(), psz1.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5896,7 +5896,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrPBrkA ( psz : :: windows::core::PCSTR , pszset : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrPBrkA ( psz : :: windows::core::PCSTR , pszset : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     StrPBrkA(psz.into().abi(), pszset.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5906,7 +5906,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrPBrkW ( psz : :: windows::core::PCWSTR , pszset : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrPBrkW ( psz : :: windows::core::PCWSTR , pszset : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     StrPBrkW(psz.into().abi(), pszset.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5916,7 +5916,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRChrA ( pszstart : :: windows::core::PCSTR , pszend : :: windows::core::PCSTR , wmatch : u16 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRChrA ( pszstart : :: windows::core::PCSTR , pszend : :: windows::core::PCSTR , wmatch : u16 ) -> :: windows::core::PSTR );
     StrRChrA(pszstart.into().abi(), pszend.into().abi(), wmatch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5926,7 +5926,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRChrIA ( pszstart : :: windows::core::PCSTR , pszend : :: windows::core::PCSTR , wmatch : u16 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRChrIA ( pszstart : :: windows::core::PCSTR , pszend : :: windows::core::PCSTR , wmatch : u16 ) -> :: windows::core::PSTR );
     StrRChrIA(pszstart.into().abi(), pszend.into().abi(), wmatch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5936,7 +5936,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRChrIW ( pszstart : :: windows::core::PCWSTR , pszend : :: windows::core::PCWSTR , wmatch : u16 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRChrIW ( pszstart : :: windows::core::PCWSTR , pszend : :: windows::core::PCWSTR , wmatch : u16 ) -> :: windows::core::PWSTR );
     StrRChrIW(pszstart.into().abi(), pszend.into().abi(), wmatch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5946,7 +5946,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRChrW ( pszstart : :: windows::core::PCWSTR , pszend : :: windows::core::PCWSTR , wmatch : u16 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRChrW ( pszstart : :: windows::core::PCWSTR , pszend : :: windows::core::PCWSTR , wmatch : u16 ) -> :: windows::core::PWSTR );
     StrRChrW(pszstart.into().abi(), pszend.into().abi(), wmatch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5957,7 +5957,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRStrIA ( pszsource : :: windows::core::PCSTR , pszlast : :: windows::core::PCSTR , pszsrch : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRStrIA ( pszsource : :: windows::core::PCSTR , pszlast : :: windows::core::PCSTR , pszsrch : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     StrRStrIA(pszsource.into().abi(), pszlast.into().abi(), pszsrch.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5968,42 +5968,42 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRStrIW ( pszsource : :: windows::core::PCWSTR , pszlast : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRStrIW ( pszsource : :: windows::core::PCWSTR , pszlast : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     StrRStrIW(pszsource.into().abi(), pszlast.into().abi(), pszsrch.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn StrRetToBSTR(pstr: *mut Common::STRRET, pidl: ::core::option::Option<*const Common::ITEMIDLIST>, pbstr: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRetToBSTR ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRetToBSTR ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     StrRetToBSTR(pstr, ::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbstr)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn StrRetToBufA(pstr: *mut Common::STRRET, pidl: ::core::option::Option<*const Common::ITEMIDLIST>, pszbuf: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRetToBufA ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRetToBufA ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , pszbuf : :: windows::core::PSTR , cchbuf : u32 ) -> :: windows::core::HRESULT );
     StrRetToBufA(pstr, ::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn StrRetToBufW(pstr: *mut Common::STRRET, pidl: ::core::option::Option<*const Common::ITEMIDLIST>, pszbuf: &mut [u16]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRetToBufW ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRetToBufW ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::HRESULT );
     StrRetToBufW(pstr, ::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn StrRetToStrA(pstr: *mut Common::STRRET, pidl: ::core::option::Option<*const Common::ITEMIDLIST>, ppsz: *mut ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRetToStrA ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , ppsz : *mut :: windows::core::PSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRetToStrA ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , ppsz : *mut :: windows::core::PSTR ) -> :: windows::core::HRESULT );
     StrRetToStrA(pstr, ::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), ppsz).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn StrRetToStrW(pstr: *mut Common::STRRET, pidl: ::core::option::Option<*const Common::ITEMIDLIST>, ppsz: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrRetToStrW ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , ppsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrRetToStrW ( pstr : *mut Common:: STRRET , pidl : *const Common:: ITEMIDLIST , ppsz : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     StrRetToStrW(pstr, ::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), ppsz).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6013,7 +6013,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrSpnA ( psz : :: windows::core::PCSTR , pszset : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrSpnA ( psz : :: windows::core::PCSTR , pszset : :: windows::core::PCSTR ) -> i32 );
     StrSpnA(psz.into().abi(), pszset.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6023,7 +6023,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrSpnW ( psz : :: windows::core::PCWSTR , pszset : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrSpnW ( psz : :: windows::core::PCWSTR , pszset : :: windows::core::PCWSTR ) -> i32 );
     StrSpnW(psz.into().abi(), pszset.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6033,7 +6033,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrStrA ( pszfirst : :: windows::core::PCSTR , pszsrch : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrStrA ( pszfirst : :: windows::core::PCSTR , pszsrch : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     StrStrA(pszfirst.into().abi(), pszsrch.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6043,7 +6043,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrStrIA ( pszfirst : :: windows::core::PCSTR , pszsrch : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrStrIA ( pszfirst : :: windows::core::PCSTR , pszsrch : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     StrStrIA(pszfirst.into().abi(), pszsrch.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6053,7 +6053,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrStrIW ( pszfirst : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrStrIW ( pszfirst : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     StrStrIW(pszfirst.into().abi(), pszsrch.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6063,7 +6063,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrStrNIW ( pszfirst : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR , cchmax : u32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrStrNIW ( pszfirst : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR , cchmax : u32 ) -> :: windows::core::PWSTR );
     StrStrNIW(pszfirst.into().abi(), pszsrch.into().abi(), cchmax)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6073,7 +6073,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrStrNW ( pszfirst : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR , cchmax : u32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrStrNW ( pszfirst : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR , cchmax : u32 ) -> :: windows::core::PWSTR );
     StrStrNW(pszfirst.into().abi(), pszsrch.into().abi(), cchmax)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6083,7 +6083,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrStrW ( pszfirst : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrStrW ( pszfirst : :: windows::core::PCWSTR , pszsrch : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     StrStrW(pszfirst.into().abi(), pszsrch.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6093,7 +6093,7 @@ pub unsafe fn StrToInt64ExA<P0>(pszstring: P0, dwflags: i32, pllret: *mut i64) -
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrToInt64ExA ( pszstring : :: windows::core::PCSTR , dwflags : i32 , pllret : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrToInt64ExA ( pszstring : :: windows::core::PCSTR , dwflags : i32 , pllret : *mut i64 ) -> super::super::Foundation:: BOOL );
     StrToInt64ExA(pszstring.into().abi(), dwflags, pllret)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6103,7 +6103,7 @@ pub unsafe fn StrToInt64ExW<P0>(pszstring: P0, dwflags: i32, pllret: *mut i64) -
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrToInt64ExW ( pszstring : :: windows::core::PCWSTR , dwflags : i32 , pllret : *mut i64 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrToInt64ExW ( pszstring : :: windows::core::PCWSTR , dwflags : i32 , pllret : *mut i64 ) -> super::super::Foundation:: BOOL );
     StrToInt64ExW(pszstring.into().abi(), dwflags, pllret)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6112,7 +6112,7 @@ pub unsafe fn StrToIntA<P0>(pszsrc: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrToIntA ( pszsrc : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrToIntA ( pszsrc : :: windows::core::PCSTR ) -> i32 );
     StrToIntA(pszsrc.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6122,7 +6122,7 @@ pub unsafe fn StrToIntExA<P0>(pszstring: P0, dwflags: i32, piret: *mut i32) -> s
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrToIntExA ( pszstring : :: windows::core::PCSTR , dwflags : i32 , piret : *mut i32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrToIntExA ( pszstring : :: windows::core::PCSTR , dwflags : i32 , piret : *mut i32 ) -> super::super::Foundation:: BOOL );
     StrToIntExA(pszstring.into().abi(), dwflags, piret)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6132,7 +6132,7 @@ pub unsafe fn StrToIntExW<P0>(pszstring: P0, dwflags: i32, piret: *mut i32) -> s
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrToIntExW ( pszstring : :: windows::core::PCWSTR , dwflags : i32 , piret : *mut i32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrToIntExW ( pszstring : :: windows::core::PCWSTR , dwflags : i32 , piret : *mut i32 ) -> super::super::Foundation:: BOOL );
     StrToIntExW(pszstring.into().abi(), dwflags, piret)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6141,7 +6141,7 @@ pub unsafe fn StrToIntW<P0>(pszsrc: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrToIntW ( pszsrc : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrToIntW ( pszsrc : :: windows::core::PCWSTR ) -> i32 );
     StrToIntW(pszsrc.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6151,7 +6151,7 @@ pub unsafe fn StrTrimA<P0>(psz: ::windows::core::PSTR, psztrimchars: P0) -> supe
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrTrimA ( psz : :: windows::core::PSTR , psztrimchars : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrTrimA ( psz : :: windows::core::PSTR , psztrimchars : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     StrTrimA(::core::mem::transmute(psz), psztrimchars.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6161,7 +6161,7 @@ pub unsafe fn StrTrimW<P0>(psz: ::windows::core::PWSTR, psztrimchars: P0) -> sup
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn StrTrimW ( psz : :: windows::core::PWSTR , psztrimchars : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn StrTrimW ( psz : :: windows::core::PWSTR , psztrimchars : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     StrTrimW(::core::mem::transmute(psz), psztrimchars.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6172,25 +6172,25 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "userenv.dll""system" fn UnloadUserProfile ( htoken : super::super::Foundation:: HANDLE , hprofile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "userenv.dll""system" fn UnloadUserProfile ( htoken : super::super::Foundation:: HANDLE , hprofile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     UnloadUserProfile(htoken.into(), hprofile.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn UnregisterAppConstrainedChangeNotification(registration: *mut _APPCONSTRAIN_REGISTRATION) {
-    ::windows::core::link ! ( "api-ms-win-core-psm-appnotify-l1-1-1.dll""system" fn UnregisterAppConstrainedChangeNotification ( registration : *mut _APPCONSTRAIN_REGISTRATION ) -> ( ) );
+    ::windows::imp::link ! ( "api-ms-win-core-psm-appnotify-l1-1-1.dll""system" fn UnregisterAppConstrainedChangeNotification ( registration : *mut _APPCONSTRAIN_REGISTRATION ) -> ( ) );
     UnregisterAppConstrainedChangeNotification(registration)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn UnregisterAppStateChangeNotification(registration: *mut _APPSTATE_REGISTRATION) {
-    ::windows::core::link ! ( "api-ms-win-core-psm-appnotify-l1-1-0.dll""system" fn UnregisterAppStateChangeNotification ( registration : *mut _APPSTATE_REGISTRATION ) -> ( ) );
+    ::windows::imp::link ! ( "api-ms-win-core-psm-appnotify-l1-1-0.dll""system" fn UnregisterAppStateChangeNotification ( registration : *mut _APPSTATE_REGISTRATION ) -> ( ) );
     UnregisterAppStateChangeNotification(registration)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn UnregisterScaleChangeEvent(dwcookie: usize) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn UnregisterScaleChangeEvent ( dwcookie : usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn UnregisterScaleChangeEvent ( dwcookie : usize ) -> :: windows::core::HRESULT );
     UnregisterScaleChangeEvent(dwcookie).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6199,7 +6199,7 @@ pub unsafe fn UrlApplySchemeA<P0>(pszin: P0, pszout: ::windows::core::PSTR, pcch
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlApplySchemeA ( pszin : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlApplySchemeA ( pszin : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlApplySchemeA(pszin.into().abi(), ::core::mem::transmute(pszout), pcchout, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6208,7 +6208,7 @@ pub unsafe fn UrlApplySchemeW<P0>(pszin: P0, pszout: ::windows::core::PWSTR, pcc
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlApplySchemeW ( pszin : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlApplySchemeW ( pszin : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlApplySchemeW(pszin.into().abi(), ::core::mem::transmute(pszout), pcchout, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6217,7 +6217,7 @@ pub unsafe fn UrlCanonicalizeA<P0>(pszurl: P0, pszcanonicalized: ::windows::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlCanonicalizeA ( pszurl : :: windows::core::PCSTR , pszcanonicalized : :: windows::core::PSTR , pcchcanonicalized : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlCanonicalizeA ( pszurl : :: windows::core::PCSTR , pszcanonicalized : :: windows::core::PSTR , pcchcanonicalized : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlCanonicalizeA(pszurl.into().abi(), ::core::mem::transmute(pszcanonicalized), pcchcanonicalized, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6226,7 +6226,7 @@ pub unsafe fn UrlCanonicalizeW<P0>(pszurl: P0, pszcanonicalized: ::windows::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlCanonicalizeW ( pszurl : :: windows::core::PCWSTR , pszcanonicalized : :: windows::core::PWSTR , pcchcanonicalized : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlCanonicalizeW ( pszurl : :: windows::core::PCWSTR , pszcanonicalized : :: windows::core::PWSTR , pcchcanonicalized : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlCanonicalizeW(pszurl.into().abi(), ::core::mem::transmute(pszcanonicalized), pcchcanonicalized, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6236,7 +6236,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlCombineA ( pszbase : :: windows::core::PCSTR , pszrelative : :: windows::core::PCSTR , pszcombined : :: windows::core::PSTR , pcchcombined : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlCombineA ( pszbase : :: windows::core::PCSTR , pszrelative : :: windows::core::PCSTR , pszcombined : :: windows::core::PSTR , pcchcombined : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlCombineA(pszbase.into().abi(), pszrelative.into().abi(), ::core::mem::transmute(pszcombined), pcchcombined, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6246,7 +6246,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlCombineW ( pszbase : :: windows::core::PCWSTR , pszrelative : :: windows::core::PCWSTR , pszcombined : :: windows::core::PWSTR , pcchcombined : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlCombineW ( pszbase : :: windows::core::PCWSTR , pszrelative : :: windows::core::PCWSTR , pszcombined : :: windows::core::PWSTR , pcchcombined : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlCombineW(pszbase.into().abi(), pszrelative.into().abi(), ::core::mem::transmute(pszcombined), pcchcombined, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6258,7 +6258,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlCompareA ( psz1 : :: windows::core::PCSTR , psz2 : :: windows::core::PCSTR , fignoreslash : super::super::Foundation:: BOOL ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlCompareA ( psz1 : :: windows::core::PCSTR , psz2 : :: windows::core::PCSTR , fignoreslash : super::super::Foundation:: BOOL ) -> i32 );
     UrlCompareA(psz1.into().abi(), psz2.into().abi(), fignoreslash.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6270,7 +6270,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlCompareW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR , fignoreslash : super::super::Foundation:: BOOL ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlCompareW ( psz1 : :: windows::core::PCWSTR , psz2 : :: windows::core::PCWSTR , fignoreslash : super::super::Foundation:: BOOL ) -> i32 );
     UrlCompareW(psz1.into().abi(), psz2.into().abi(), fignoreslash.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6279,7 +6279,7 @@ pub unsafe fn UrlCreateFromPathA<P0>(pszpath: P0, pszurl: ::windows::core::PSTR,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlCreateFromPathA ( pszpath : :: windows::core::PCSTR , pszurl : :: windows::core::PSTR , pcchurl : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlCreateFromPathA ( pszpath : :: windows::core::PCSTR , pszurl : :: windows::core::PSTR , pcchurl : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlCreateFromPathA(pszpath.into().abi(), ::core::mem::transmute(pszurl), pcchurl, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6288,7 +6288,7 @@ pub unsafe fn UrlCreateFromPathW<P0>(pszpath: P0, pszurl: ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlCreateFromPathW ( pszpath : :: windows::core::PCWSTR , pszurl : :: windows::core::PWSTR , pcchurl : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlCreateFromPathW ( pszpath : :: windows::core::PCWSTR , pszurl : :: windows::core::PWSTR , pcchurl : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlCreateFromPathW(pszpath.into().abi(), ::core::mem::transmute(pszurl), pcchurl, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6297,7 +6297,7 @@ pub unsafe fn UrlEscapeA<P0>(pszurl: P0, pszescaped: ::windows::core::PSTR, pcch
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlEscapeA ( pszurl : :: windows::core::PCSTR , pszescaped : :: windows::core::PSTR , pcchescaped : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlEscapeA ( pszurl : :: windows::core::PCSTR , pszescaped : :: windows::core::PSTR , pcchescaped : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlEscapeA(pszurl.into().abi(), ::core::mem::transmute(pszescaped), pcchescaped, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6306,7 +6306,7 @@ pub unsafe fn UrlEscapeW<P0>(pszurl: P0, pszescaped: ::windows::core::PWSTR, pcc
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlEscapeW ( pszurl : :: windows::core::PCWSTR , pszescaped : :: windows::core::PWSTR , pcchescaped : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlEscapeW ( pszurl : :: windows::core::PCWSTR , pszescaped : :: windows::core::PWSTR , pcchescaped : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlEscapeW(pszurl.into().abi(), ::core::mem::transmute(pszescaped), pcchescaped, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6315,7 +6315,7 @@ pub unsafe fn UrlFixupW<P0>(pcszurl: P0, psztranslatedurl: &mut [u16]) -> ::wind
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlFixupW ( pcszurl : :: windows::core::PCWSTR , psztranslatedurl : :: windows::core::PWSTR , cchmax : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlFixupW ( pcszurl : :: windows::core::PCWSTR , psztranslatedurl : :: windows::core::PWSTR , cchmax : u32 ) -> :: windows::core::HRESULT );
     UrlFixupW(pcszurl.into().abi(), ::core::mem::transmute(psztranslatedurl.as_ptr()), psztranslatedurl.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6324,7 +6324,7 @@ pub unsafe fn UrlGetLocationA<P0>(pszurl: P0) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlGetLocationA ( pszurl : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlGetLocationA ( pszurl : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
     UrlGetLocationA(pszurl.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6333,7 +6333,7 @@ pub unsafe fn UrlGetLocationW<P0>(pszurl: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlGetLocationW ( pszurl : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlGetLocationW ( pszurl : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
     UrlGetLocationW(pszurl.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6342,7 +6342,7 @@ pub unsafe fn UrlGetPartA<P0>(pszin: P0, pszout: ::windows::core::PSTR, pcchout:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlGetPartA ( pszin : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 , dwpart : u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlGetPartA ( pszin : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 , dwpart : u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlGetPartA(pszin.into().abi(), ::core::mem::transmute(pszout), pcchout, dwpart, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6351,7 +6351,7 @@ pub unsafe fn UrlGetPartW<P0>(pszin: P0, pszout: ::windows::core::PWSTR, pcchout
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlGetPartW ( pszin : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 , dwpart : u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlGetPartW ( pszin : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 , dwpart : u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlGetPartW(pszin.into().abi(), ::core::mem::transmute(pszout), pcchout, dwpart, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6360,7 +6360,7 @@ pub unsafe fn UrlHashA<P0>(pszurl: P0, pbhash: &mut [u8]) -> ::windows::core::Re
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlHashA ( pszurl : :: windows::core::PCSTR , pbhash : *mut u8 , cbhash : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlHashA ( pszurl : :: windows::core::PCSTR , pbhash : *mut u8 , cbhash : u32 ) -> :: windows::core::HRESULT );
     UrlHashA(pszurl.into().abi(), ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6369,7 +6369,7 @@ pub unsafe fn UrlHashW<P0>(pszurl: P0, pbhash: &mut [u8]) -> ::windows::core::Re
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlHashW ( pszurl : :: windows::core::PCWSTR , pbhash : *mut u8 , cbhash : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlHashW ( pszurl : :: windows::core::PCWSTR , pbhash : *mut u8 , cbhash : u32 ) -> :: windows::core::HRESULT );
     UrlHashW(pszurl.into().abi(), ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6379,7 +6379,7 @@ pub unsafe fn UrlIsA<P0>(pszurl: P0, urlis: URLIS) -> super::super::Foundation::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlIsA ( pszurl : :: windows::core::PCSTR , urlis : URLIS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlIsA ( pszurl : :: windows::core::PCSTR , urlis : URLIS ) -> super::super::Foundation:: BOOL );
     UrlIsA(pszurl.into().abi(), urlis)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6389,7 +6389,7 @@ pub unsafe fn UrlIsNoHistoryA<P0>(pszurl: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlIsNoHistoryA ( pszurl : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlIsNoHistoryA ( pszurl : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     UrlIsNoHistoryA(pszurl.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6399,7 +6399,7 @@ pub unsafe fn UrlIsNoHistoryW<P0>(pszurl: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlIsNoHistoryW ( pszurl : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlIsNoHistoryW ( pszurl : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     UrlIsNoHistoryW(pszurl.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6409,7 +6409,7 @@ pub unsafe fn UrlIsOpaqueA<P0>(pszurl: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlIsOpaqueA ( pszurl : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlIsOpaqueA ( pszurl : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     UrlIsOpaqueA(pszurl.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6419,7 +6419,7 @@ pub unsafe fn UrlIsOpaqueW<P0>(pszurl: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlIsOpaqueW ( pszurl : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlIsOpaqueW ( pszurl : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     UrlIsOpaqueW(pszurl.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6429,25 +6429,25 @@ pub unsafe fn UrlIsW<P0>(pszurl: P0, urlis: URLIS) -> super::super::Foundation::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlIsW ( pszurl : :: windows::core::PCWSTR , urlis : URLIS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlIsW ( pszurl : :: windows::core::PCWSTR , urlis : URLIS ) -> super::super::Foundation:: BOOL );
     UrlIsW(pszurl.into().abi(), urlis)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn UrlUnescapeA(pszurl: ::windows::core::PSTR, pszunescaped: ::windows::core::PSTR, pcchunescaped: ::core::option::Option<*mut u32>, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlUnescapeA ( pszurl : :: windows::core::PSTR , pszunescaped : :: windows::core::PSTR , pcchunescaped : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlUnescapeA ( pszurl : :: windows::core::PSTR , pszunescaped : :: windows::core::PSTR , pcchunescaped : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlUnescapeA(::core::mem::transmute(pszurl), ::core::mem::transmute(pszunescaped), ::core::mem::transmute(pcchunescaped.unwrap_or(::std::ptr::null_mut())), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn UrlUnescapeW(pszurl: ::windows::core::PWSTR, pszunescaped: ::windows::core::PWSTR, pcchunescaped: ::core::option::Option<*mut u32>, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn UrlUnescapeW ( pszurl : :: windows::core::PWSTR , pszunescaped : :: windows::core::PWSTR , pcchunescaped : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlUnescapeW ( pszurl : :: windows::core::PWSTR , pszunescaped : :: windows::core::PWSTR , pcchunescaped : *mut u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
     UrlUnescapeW(::core::mem::transmute(pszurl), ::core::mem::transmute(pszunescaped), ::core::mem::transmute(pcchunescaped.unwrap_or(::std::ptr::null_mut())), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
 pub unsafe fn WhichPlatform() -> u32 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn WhichPlatform ( ) -> u32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn WhichPlatform ( ) -> u32 );
     WhichPlatform()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6457,7 +6457,7 @@ pub unsafe fn Win32DeleteFile<P0>(pszpath: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shell32.dll""system" fn Win32DeleteFile ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn Win32DeleteFile ( pszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     Win32DeleteFile(pszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6468,7 +6468,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn WinHelpA ( hwndmain : super::super::Foundation:: HWND , lpszhelp : :: windows::core::PCSTR , ucommand : u32 , dwdata : usize ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn WinHelpA ( hwndmain : super::super::Foundation:: HWND , lpszhelp : :: windows::core::PCSTR , ucommand : u32 , dwdata : usize ) -> super::super::Foundation:: BOOL );
     WinHelpA(hwndmain.into(), lpszhelp.into().abi(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6479,14 +6479,14 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn WinHelpW ( hwndmain : super::super::Foundation:: HWND , lpszhelp : :: windows::core::PCWSTR , ucommand : u32 , dwdata : usize ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "user32.dll""system" fn WinHelpW ( hwndmain : super::super::Foundation:: HWND , lpszhelp : :: windows::core::PCWSTR , ucommand : u32 , dwdata : usize ) -> super::super::Foundation:: BOOL );
     WinHelpW(hwndmain.into(), lpszhelp.into().abi(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteCabinetState(pcs: *const CABINETSTATE) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "shell32.dll""system" fn WriteCabinetState ( pcs : *const CABINETSTATE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "shell32.dll""system" fn WriteCabinetState ( pcs : *const CABINETSTATE ) -> super::super::Foundation:: BOOL );
     WriteCabinetState(pcs)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6495,7 +6495,7 @@ pub unsafe fn wnsprintfA<P0>(pszdest: &mut [u8], pszfmt: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""cdecl" fn wnsprintfA ( pszdest : :: windows::core::PSTR , cchdest : i32 , pszfmt : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""cdecl" fn wnsprintfA ( pszdest : :: windows::core::PSTR , cchdest : i32 , pszfmt : :: windows::core::PCSTR ) -> i32 );
     wnsprintfA(::core::mem::transmute(pszdest.as_ptr()), pszdest.len() as _, pszfmt.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6504,7 +6504,7 @@ pub unsafe fn wnsprintfW<P0>(pszdest: &mut [u16], pszfmt: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""cdecl" fn wnsprintfW ( pszdest : :: windows::core::PWSTR , cchdest : i32 , pszfmt : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""cdecl" fn wnsprintfW ( pszdest : :: windows::core::PWSTR , cchdest : i32 , pszfmt : :: windows::core::PCWSTR ) -> i32 );
     wnsprintfW(::core::mem::transmute(pszdest.as_ptr()), pszdest.len() as _, pszfmt.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6513,7 +6513,7 @@ pub unsafe fn wvnsprintfA<P0>(pszdest: &mut [u8], pszfmt: P0, arglist: *const i8
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn wvnsprintfA ( pszdest : :: windows::core::PSTR , cchdest : i32 , pszfmt : :: windows::core::PCSTR , arglist : *const i8 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn wvnsprintfA ( pszdest : :: windows::core::PSTR , cchdest : i32 , pszfmt : :: windows::core::PCSTR , arglist : *const i8 ) -> i32 );
     wvnsprintfA(::core::mem::transmute(pszdest.as_ptr()), pszdest.len() as _, pszfmt.into().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6522,7 +6522,7 @@ pub unsafe fn wvnsprintfW<P0>(pszdest: &mut [u16], pszfmt: P0, arglist: *const i
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn wvnsprintfW ( pszdest : :: windows::core::PWSTR , cchdest : i32 , pszfmt : :: windows::core::PCWSTR , arglist : *const i8 ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn wvnsprintfW ( pszdest : :: windows::core::PWSTR , cchdest : i32 , pszfmt : :: windows::core::PCWSTR , arglist : *const i8 ) -> i32 );
     wvnsprintfW(::core::mem::transmute(pszdest.as_ptr()), pszdest.len() as _, pszfmt.into().abi(), arglist)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -6578,7 +6578,7 @@ impl CIE4ConnectionPoint {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(CIE4ConnectionPoint, ::windows::core::IUnknown, super::super::System::Com::IConnectionPoint);
+::windows::imp::interface_hierarchy!(CIE4ConnectionPoint, ::windows::core::IUnknown, super::super::System::Com::IConnectionPoint);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for CIE4ConnectionPoint {
     fn eq(&self, other: &Self) -> bool {
@@ -6639,7 +6639,7 @@ impl DFConstraint {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DFConstraint, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DFConstraint, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DFConstraint {
     fn eq(&self, other: &Self) -> bool {
@@ -6686,7 +6686,7 @@ pub struct DShellFolderViewEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DShellFolderViewEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DShellFolderViewEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DShellFolderViewEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DShellFolderViewEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -6728,7 +6728,7 @@ pub struct DShellNameSpaceEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DShellNameSpaceEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DShellNameSpaceEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DShellNameSpaceEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DShellNameSpaceEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -6770,7 +6770,7 @@ pub struct DShellWindowsEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DShellWindowsEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DShellWindowsEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DShellWindowsEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DShellWindowsEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -6812,7 +6812,7 @@ pub struct DWebBrowserEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DWebBrowserEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DWebBrowserEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DWebBrowserEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DWebBrowserEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -6854,7 +6854,7 @@ pub struct DWebBrowserEvents2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DWebBrowserEvents2 {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DWebBrowserEvents2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DWebBrowserEvents2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DWebBrowserEvents2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6952,7 +6952,7 @@ impl Folder {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Folder, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(Folder, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Folder {
     fn eq(&self, other: &Self) -> bool {
@@ -7109,7 +7109,7 @@ impl Folder2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Folder2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, Folder);
+::windows::imp::interface_hierarchy!(Folder2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, Folder);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Folder2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7254,7 +7254,7 @@ impl Folder3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(Folder3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, Folder, Folder2);
+::windows::imp::interface_hierarchy!(Folder3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, Folder, Folder2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for Folder3 {
     fn eq(&self, other: &Self) -> bool {
@@ -7390,7 +7390,7 @@ impl FolderItem {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(FolderItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(FolderItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for FolderItem {
     fn eq(&self, other: &Self) -> bool {
@@ -7576,7 +7576,7 @@ impl FolderItem2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(FolderItem2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, FolderItem);
+::windows::imp::interface_hierarchy!(FolderItem2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, FolderItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for FolderItem2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7646,7 +7646,7 @@ impl FolderItemVerb {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(FolderItemVerb, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(FolderItemVerb, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for FolderItemVerb {
     fn eq(&self, other: &Self) -> bool {
@@ -7725,7 +7725,7 @@ impl FolderItemVerbs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(FolderItemVerbs, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(FolderItemVerbs, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for FolderItemVerbs {
     fn eq(&self, other: &Self) -> bool {
@@ -7808,7 +7808,7 @@ impl FolderItems {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(FolderItems, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(FolderItems, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for FolderItems {
     fn eq(&self, other: &Self) -> bool {
@@ -7896,7 +7896,7 @@ impl FolderItems2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(FolderItems2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, FolderItems);
+::windows::imp::interface_hierarchy!(FolderItems2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, FolderItems);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for FolderItems2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7983,7 +7983,7 @@ impl FolderItems3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(FolderItems3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, FolderItems, FolderItems2);
+::windows::imp::interface_hierarchy!(FolderItems3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, FolderItems, FolderItems2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for FolderItems3 {
     fn eq(&self, other: &Self) -> bool {
@@ -8034,7 +8034,7 @@ impl IACList {
         (::windows::core::Vtable::vtable(self).Expand)(::windows::core::Vtable::as_raw(self), pszexpand.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IACList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IACList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IACList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8081,7 +8081,7 @@ impl IACList2 {
         (::windows::core::Vtable::vtable(self).GetOptions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IACList2, ::windows::core::IUnknown, IACList);
+::windows::imp::interface_hierarchy!(IACList2, ::windows::core::IUnknown, IACList);
 impl ::core::cmp::PartialEq for IACList2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8142,7 +8142,7 @@ impl IAccessibilityDockingService {
         (::windows::core::Vtable::vtable(self).UndockWindow)(::windows::core::Vtable::as_raw(self), hwnd.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAccessibilityDockingService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccessibilityDockingService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccessibilityDockingService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8190,7 +8190,7 @@ impl IAccessibilityDockingServiceCallback {
         (::windows::core::Vtable::vtable(self).Undocked)(::windows::core::Vtable::as_raw(self), undockreason).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAccessibilityDockingServiceCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccessibilityDockingServiceCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccessibilityDockingServiceCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8230,7 +8230,7 @@ impl IAccessibleObject {
         (::windows::core::Vtable::vtable(self).SetAccessibleName)(::windows::core::Vtable::as_raw(self), pszname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAccessibleObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAccessibleObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAccessibleObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8291,7 +8291,7 @@ impl IActionProgress {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActionProgress, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActionProgress, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActionProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8346,7 +8346,7 @@ impl IActionProgressDialog {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActionProgressDialog, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActionProgressDialog, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActionProgressDialog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8407,7 +8407,7 @@ impl IAppActivationUIInfo {
         (::windows::core::Vtable::vtable(self).GetKeyState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppActivationUIInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppActivationUIInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppActivationUIInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8470,7 +8470,7 @@ impl IAppPublisher {
         (::windows::core::Vtable::vtable(self).EnumApps)(::windows::core::Vtable::as_raw(self), pappcategoryid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppPublisher, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppPublisher, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppPublisher {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8532,7 +8532,7 @@ impl IAppVisibility {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppVisibility, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppVisibility, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppVisibility {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8591,7 +8591,7 @@ impl IAppVisibilityEvents {
         (::windows::core::Vtable::vtable(self).LauncherVisibilityChange)(::windows::core::Vtable::as_raw(self), currentvisiblestate.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppVisibilityEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppVisibilityEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppVisibilityEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8657,7 +8657,7 @@ impl IApplicationActivationManager {
         (::windows::core::Vtable::vtable(self).ActivateForProtocol)(::windows::core::Vtable::as_raw(self), appusermodelid.into().abi(), itemarray.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IApplicationActivationManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApplicationActivationManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApplicationActivationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8735,7 +8735,7 @@ impl IApplicationAssociationRegistration {
         (::windows::core::Vtable::vtable(self).ClearUserAssociations)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IApplicationAssociationRegistration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApplicationAssociationRegistration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApplicationAssociationRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8786,7 +8786,7 @@ impl IApplicationAssociationRegistrationUI {
         (::windows::core::Vtable::vtable(self).LaunchAdvancedAssociationUI)(::windows::core::Vtable::as_raw(self), pszappregistryname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IApplicationAssociationRegistrationUI, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApplicationAssociationRegistrationUI, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApplicationAssociationRegistrationUI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8848,7 +8848,7 @@ impl IApplicationDesignModeSettings {
         (::windows::core::Vtable::vtable(self).TriggerEdgeGesture)(::windows::core::Vtable::as_raw(self), edgegesturekind).ok()
     }
 }
-::windows::core::interface_hierarchy!(IApplicationDesignModeSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApplicationDesignModeSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApplicationDesignModeSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8958,7 +8958,7 @@ impl IApplicationDesignModeSettings2 {
         (::windows::core::Vtable::vtable(self).GetApplicationViewOrientation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(applicationsizepixels), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IApplicationDesignModeSettings2, ::windows::core::IUnknown, IApplicationDesignModeSettings);
+::windows::imp::interface_hierarchy!(IApplicationDesignModeSettings2, ::windows::core::IUnknown, IApplicationDesignModeSettings);
 impl ::core::cmp::PartialEq for IApplicationDesignModeSettings2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9022,7 +9022,7 @@ impl IApplicationDestinations {
         (::windows::core::Vtable::vtable(self).RemoveAllDestinations)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IApplicationDestinations, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApplicationDestinations, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApplicationDestinations {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9071,7 +9071,7 @@ impl IApplicationDocumentLists {
         (::windows::core::Vtable::vtable(self).GetList)(::windows::core::Vtable::as_raw(self), listtype, citemsdesired, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IApplicationDocumentLists, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IApplicationDocumentLists, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IApplicationDocumentLists {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9143,7 +9143,7 @@ impl IAssocHandler {
         (::windows::core::Vtable::vtable(self).CreateInvoker)(::windows::core::Vtable::as_raw(self), pdo.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAssocHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAssocHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAssocHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9195,7 +9195,7 @@ impl IAssocHandlerInvoker {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAssocHandlerInvoker, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAssocHandlerInvoker, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAssocHandlerInvoker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9298,7 +9298,7 @@ impl IAttachmentExecute {
         (::windows::core::Vtable::vtable(self).ClearClientState)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAttachmentExecute, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAttachmentExecute, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAttachmentExecute {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9371,7 +9371,7 @@ impl IAutoComplete {
         (::windows::core::Vtable::vtable(self).Enable)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAutoComplete, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAutoComplete, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAutoComplete {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9438,7 +9438,7 @@ impl IAutoComplete2 {
         (::windows::core::Vtable::vtable(self).GetOptions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAutoComplete2, ::windows::core::IUnknown, IAutoComplete);
+::windows::imp::interface_hierarchy!(IAutoComplete2, ::windows::core::IUnknown, IAutoComplete);
 impl ::core::cmp::PartialEq for IAutoComplete2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9479,7 +9479,7 @@ impl IAutoCompleteDropDown {
         (::windows::core::Vtable::vtable(self).ResetEnumerator)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAutoCompleteDropDown, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAutoCompleteDropDown, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAutoCompleteDropDown {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9536,7 +9536,7 @@ impl IBandHost {
         (::windows::core::Vtable::vtable(self).DestroyBand)(::windows::core::Vtable::as_raw(self), rclsidband).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBandHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBandHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBandHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9612,7 +9612,7 @@ impl IBandSite {
         (::windows::core::Vtable::vtable(self).GetBandSiteInfo)(::windows::core::Vtable::as_raw(self), pbsinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBandSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBandSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBandSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9659,7 +9659,7 @@ impl IBannerNotificationHandler {
         (::windows::core::Vtable::vtable(self).OnBannerEvent)(::windows::core::Vtable::as_raw(self), notification).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBannerNotificationHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBannerNotificationHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBannerNotificationHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9714,7 +9714,7 @@ impl IBanneredBar {
         (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBanneredBar, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBanneredBar, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBanneredBar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9761,7 +9761,7 @@ impl IBrowserFrameOptions {
         (::windows::core::Vtable::vtable(self).GetFrameOptions)(::windows::core::Vtable::as_raw(self), dwmask, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBrowserFrameOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBrowserFrameOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBrowserFrameOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9969,7 +9969,7 @@ impl IBrowserService {
         (::windows::core::Vtable::vtable(self).RegisterWindow)(::windows::core::Vtable::as_raw(self), fforceregister.into(), swc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBrowserService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBrowserService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBrowserService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10604,7 +10604,7 @@ impl IBrowserService2 {
         (::windows::core::Vtable::vtable(self).v_CheckZoneCrossing)(::windows::core::Vtable::as_raw(self), pidl).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBrowserService2, ::windows::core::IUnknown, IBrowserService);
+::windows::imp::interface_hierarchy!(IBrowserService2, ::windows::core::IUnknown, IBrowserService);
 impl ::core::cmp::PartialEq for IBrowserService2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11333,7 +11333,7 @@ impl IBrowserService3 {
         (::windows::core::Vtable::vtable(self).IEParseDisplayNameEx)(::windows::core::Vtable::as_raw(self), uicp, pwszpath.into().abi(), dwflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBrowserService3, ::windows::core::IUnknown, IBrowserService, IBrowserService2);
+::windows::imp::interface_hierarchy!(IBrowserService3, ::windows::core::IUnknown, IBrowserService, IBrowserService2);
 impl ::core::cmp::PartialEq for IBrowserService3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11920,7 +11920,7 @@ impl IBrowserService4 {
         (::windows::core::Vtable::vtable(self)._ResizeAllBorders)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBrowserService4, ::windows::core::IUnknown, IBrowserService, IBrowserService2, IBrowserService3);
+::windows::imp::interface_hierarchy!(IBrowserService4, ::windows::core::IUnknown, IBrowserService, IBrowserService2, IBrowserService3);
 impl ::core::cmp::PartialEq for IBrowserService4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11976,7 +11976,7 @@ impl ICDBurn {
         (::windows::core::Vtable::vtable(self).HasRecordableDrive)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICDBurn, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICDBurn, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICDBurn {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12022,7 +12022,7 @@ impl ICDBurnExt {
         (::windows::core::Vtable::vtable(self).GetSupportedActionTypes)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICDBurnExt, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICDBurnExt, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICDBurnExt {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12070,7 +12070,7 @@ impl ICategorizer {
         (::windows::core::Vtable::vtable(self).CompareCategory)(::windows::core::Vtable::as_raw(self), csfflags, dwcategoryid1, dwcategoryid2).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICategorizer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICategorizer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICategorizer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12142,7 +12142,7 @@ impl ICategoryProvider {
         (::windows::core::Vtable::vtable(self).CreateCategory)(::windows::core::Vtable::as_raw(self), pguid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICategoryProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICategoryProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICategoryProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12217,7 +12217,7 @@ impl IColumnManager {
         (::windows::core::Vtable::vtable(self).SetColumns)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rgkeyorder.as_ptr()), rgkeyorder.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IColumnManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IColumnManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IColumnManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12281,7 +12281,7 @@ impl IColumnProvider {
         (::windows::core::Vtable::vtable(self).GetItemData)(::windows::core::Vtable::as_raw(self), pscid, pscd, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IColumnProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IColumnProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IColumnProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12347,7 +12347,7 @@ impl ICommDlgBrowser {
         (::windows::core::Vtable::vtable(self).IncludeObject)(::windows::core::Vtable::as_raw(self), ppshv.into().abi(), pidl).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICommDlgBrowser, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICommDlgBrowser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICommDlgBrowser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12436,7 +12436,7 @@ impl ICommDlgBrowser2 {
         (::windows::core::Vtable::vtable(self).GetViewFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICommDlgBrowser2, ::windows::core::IUnknown, ICommDlgBrowser);
+::windows::imp::interface_hierarchy!(ICommDlgBrowser2, ::windows::core::IUnknown, ICommDlgBrowser);
 impl ::core::cmp::PartialEq for ICommDlgBrowser2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12541,7 +12541,7 @@ impl ICommDlgBrowser3 {
         (::windows::core::Vtable::vtable(self).OnPreViewCreated)(::windows::core::Vtable::as_raw(self), ppshv.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICommDlgBrowser3, ::windows::core::IUnknown, ICommDlgBrowser, ICommDlgBrowser2);
+::windows::imp::interface_hierarchy!(ICommDlgBrowser3, ::windows::core::IUnknown, ICommDlgBrowser, ICommDlgBrowser2);
 impl ::core::cmp::PartialEq for ICommDlgBrowser3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12586,7 +12586,7 @@ impl IComputerInfoChangeNotify {
         (::windows::core::Vtable::vtable(self).ComputerInfoChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IComputerInfoChangeNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IComputerInfoChangeNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IComputerInfoChangeNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12708,7 +12708,7 @@ impl IConnectableCredentialProviderCredential {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IConnectableCredentialProviderCredential, ::windows::core::IUnknown, ICredentialProviderCredential);
+::windows::imp::interface_hierarchy!(IConnectableCredentialProviderCredential, ::windows::core::IUnknown, ICredentialProviderCredential);
 impl ::core::cmp::PartialEq for IConnectableCredentialProviderCredential {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12752,7 +12752,7 @@ impl IContactManagerInterop {
         (::windows::core::Vtable::vtable(self).ShowContactCardForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), contact.into().abi(), selection, preferredplacement).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContactManagerInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContactManagerInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContactManagerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12805,7 +12805,7 @@ impl IContextMenu {
         (::windows::core::Vtable::vtable(self).GetCommandString)(::windows::core::Vtable::as_raw(self), idcmd, utype, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pszname), cchmax).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextMenu, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContextMenu, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContextMenu {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12872,7 +12872,7 @@ impl IContextMenu2 {
         (::windows::core::Vtable::vtable(self).HandleMenuMsg)(::windows::core::Vtable::as_raw(self), umsg, wparam.into(), lparam.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextMenu2, ::windows::core::IUnknown, IContextMenu);
+::windows::imp::interface_hierarchy!(IContextMenu2, ::windows::core::IUnknown, IContextMenu);
 impl ::core::cmp::PartialEq for IContextMenu2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12943,7 +12943,7 @@ impl IContextMenu3 {
         (::windows::core::Vtable::vtable(self).HandleMenuMsg2)(::windows::core::Vtable::as_raw(self), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(plresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextMenu3, ::windows::core::IUnknown, IContextMenu, IContextMenu2);
+::windows::imp::interface_hierarchy!(IContextMenu3, ::windows::core::IUnknown, IContextMenu, IContextMenu2);
 impl ::core::cmp::PartialEq for IContextMenu3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12992,7 +12992,7 @@ impl IContextMenuCB {
         (::windows::core::Vtable::vtable(self).CallBack)(::windows::core::Vtable::as_raw(self), psf.into().abi(), hwndowner.into(), pdtobj.into().abi(), umsg, wparam.into(), lparam.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextMenuCB, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContextMenuCB, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContextMenuCB {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13037,7 +13037,7 @@ impl IContextMenuSite {
         (::windows::core::Vtable::vtable(self).DoContextMenuPopup)(::windows::core::Vtable::as_raw(self), punkcontextmenu.into().abi(), fflags, ::core::mem::transmute(pt)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IContextMenuSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IContextMenuSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IContextMenuSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13084,7 +13084,7 @@ impl ICopyHookA {
         (::windows::core::Vtable::vtable(self).CopyCallback)(::windows::core::Vtable::as_raw(self), hwnd.into(), wfunc, wflags, pszsrcfile.into().abi(), dwsrcattribs, pszdestfile.into().abi(), dwdestattribs)
     }
 }
-::windows::core::interface_hierarchy!(ICopyHookA, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICopyHookA, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICopyHookA {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13131,7 +13131,7 @@ impl ICopyHookW {
         (::windows::core::Vtable::vtable(self).CopyCallback)(::windows::core::Vtable::as_raw(self), hwnd.into(), wfunc, wflags, pszsrcfile.into().abi(), dwsrcattribs, pszdestfile.into().abi(), dwdestattribs)
     }
 }
-::windows::core::interface_hierarchy!(ICopyHookW, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICopyHookW, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICopyHookW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13197,7 +13197,7 @@ impl ICreateProcessInputs {
         (::windows::core::Vtable::vtable(self).SetEnvironmentVariable)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), pszvalue.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICreateProcessInputs, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICreateProcessInputs, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICreateProcessInputs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13243,7 +13243,7 @@ impl ICreatingProcess {
         (::windows::core::Vtable::vtable(self).OnCreating)(::windows::core::Vtable::as_raw(self), pcpi.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICreatingProcess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICreatingProcess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICreatingProcess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13309,7 +13309,7 @@ impl ICredentialProvider {
         (::windows::core::Vtable::vtable(self).GetCredentialAt)(::windows::core::Vtable::as_raw(self), dwindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICredentialProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICredentialProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13432,7 +13432,7 @@ impl ICredentialProviderCredential {
         (::windows::core::Vtable::vtable(self).ReportResult)(::windows::core::Vtable::as_raw(self), ntsstatus.into(), ntssubstatus.into(), ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderCredential, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICredentialProviderCredential, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICredentialProviderCredential {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13580,7 +13580,7 @@ impl ICredentialProviderCredential2 {
         (::windows::core::Vtable::vtable(self).GetUserSid)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderCredential2, ::windows::core::IUnknown, ICredentialProviderCredential);
+::windows::imp::interface_hierarchy!(ICredentialProviderCredential2, ::windows::core::IUnknown, ICredentialProviderCredential);
 impl ::core::cmp::PartialEq for ICredentialProviderCredential2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13683,7 +13683,7 @@ impl ICredentialProviderCredentialEvents {
         (::windows::core::Vtable::vtable(self).OnCreatingWindow)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderCredentialEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICredentialProviderCredentialEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICredentialProviderCredentialEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13816,7 +13816,7 @@ impl ICredentialProviderCredentialEvents2 {
         (::windows::core::Vtable::vtable(self).SetFieldOptions)(::windows::core::Vtable::as_raw(self), credential.into().abi(), fieldid, options).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderCredentialEvents2, ::windows::core::IUnknown, ICredentialProviderCredentialEvents);
+::windows::imp::interface_hierarchy!(ICredentialProviderCredentialEvents2, ::windows::core::IUnknown, ICredentialProviderCredentialEvents);
 impl ::core::cmp::PartialEq for ICredentialProviderCredentialEvents2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13856,7 +13856,7 @@ impl ICredentialProviderCredentialWithFieldOptions {
         (::windows::core::Vtable::vtable(self).GetFieldOptions)(::windows::core::Vtable::as_raw(self), fieldid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderCredentialWithFieldOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICredentialProviderCredentialWithFieldOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICredentialProviderCredentialWithFieldOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13893,7 +13893,7 @@ impl ICredentialProviderEvents {
         (::windows::core::Vtable::vtable(self).CredentialsChanged)(::windows::core::Vtable::as_raw(self), upadvisecontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICredentialProviderEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICredentialProviderEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13935,7 +13935,7 @@ impl ICredentialProviderFilter {
         (::windows::core::Vtable::vtable(self).UpdateRemoteCredential)(::windows::core::Vtable::as_raw(self), pcpcsin, pcpcsout).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICredentialProviderFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICredentialProviderFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13979,7 +13979,7 @@ impl ICredentialProviderSetUserArray {
         (::windows::core::Vtable::vtable(self).SetUserArray)(::windows::core::Vtable::as_raw(self), users.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderSetUserArray, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICredentialProviderSetUserArray, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICredentialProviderSetUserArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14033,7 +14033,7 @@ impl ICredentialProviderUser {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), key, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderUser, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICredentialProviderUser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICredentialProviderUser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14091,7 +14091,7 @@ impl ICredentialProviderUserArray {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), userindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICredentialProviderUserArray, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICredentialProviderUserArray, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICredentialProviderUserArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14138,7 +14138,7 @@ impl ICurrentItem {
         (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICurrentItem, ::windows::core::IUnknown, IRelatedItem);
+::windows::imp::interface_hierarchy!(ICurrentItem, ::windows::core::IUnknown, IRelatedItem);
 impl ::core::cmp::PartialEq for ICurrentItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14180,7 +14180,7 @@ impl ICurrentWorkingDirectory {
         (::windows::core::Vtable::vtable(self).SetDirectory)(::windows::core::Vtable::as_raw(self), pwzpath.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICurrentWorkingDirectory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICurrentWorkingDirectory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICurrentWorkingDirectory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14267,7 +14267,7 @@ impl ICustomDestinationList {
         (::windows::core::Vtable::vtable(self).AbortList)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICustomDestinationList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICustomDestinationList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICustomDestinationList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14351,7 +14351,7 @@ impl IDataObjectAsyncCapability {
         (::windows::core::Vtable::vtable(self).EndOperation)(::windows::core::Vtable::as_raw(self), hresult, pbcreserved.into().abi(), dweffects).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataObjectAsyncCapability, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataObjectAsyncCapability, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataObjectAsyncCapability {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14418,7 +14418,7 @@ impl IDataObjectProvider {
         (::windows::core::Vtable::vtable(self).SetDataObject)(::windows::core::Vtable::as_raw(self), dataobject.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataObjectProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataObjectProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataObjectProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14477,7 +14477,7 @@ impl IDataTransferManagerInterop {
         (::windows::core::Vtable::vtable(self).ShowShareUIForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDataTransferManagerInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDataTransferManagerInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDataTransferManagerInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14553,7 +14553,7 @@ impl IDefaultExtractIconInit {
         (::windows::core::Vtable::vtable(self).SetDefaultIcon)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), iicon).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDefaultExtractIconInit, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDefaultExtractIconInit, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDefaultExtractIconInit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14616,7 +14616,7 @@ impl IDefaultFolderMenuInitialize {
         (::windows::core::Vtable::vtable(self).SetHandlerClsid)(::windows::core::Vtable::as_raw(self), rclsid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDefaultFolderMenuInitialize, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDefaultFolderMenuInitialize, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDefaultFolderMenuInitialize {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14664,7 +14664,7 @@ impl IDelegateFolder {
         (::windows::core::Vtable::vtable(self).SetItemAlloc)(::windows::core::Vtable::as_raw(self), pmalloc.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDelegateFolder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDelegateFolder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDelegateFolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14711,7 +14711,7 @@ impl IDelegateItem {
         (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDelegateItem, ::windows::core::IUnknown, IRelatedItem);
+::windows::imp::interface_hierarchy!(IDelegateItem, ::windows::core::IUnknown, IRelatedItem);
 impl ::core::cmp::PartialEq for IDelegateItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -14786,7 +14786,7 @@ impl IDeskBand {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IDeskBand, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IDockingWindow);
+::windows::imp::interface_hierarchy!(IDeskBand, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IDockingWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IDeskBand {
     fn eq(&self, other: &Self) -> bool {
@@ -14892,7 +14892,7 @@ impl IDeskBand2 {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IDeskBand2, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IDockingWindow, IDeskBand);
+::windows::imp::interface_hierarchy!(IDeskBand2, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IDockingWindow, IDeskBand);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IDeskBand2 {
     fn eq(&self, other: &Self) -> bool {
@@ -14948,7 +14948,7 @@ impl IDeskBandInfo {
         (::windows::core::Vtable::vtable(self).GetDefaultBandWidth)(::windows::core::Vtable::as_raw(self), dwbandid, dwviewmode, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDeskBandInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDeskBandInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDeskBandInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15014,7 +15014,7 @@ impl IDeskBar {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IDeskBar, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
+::windows::imp::interface_hierarchy!(IDeskBar, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IDeskBar {
     fn eq(&self, other: &Self) -> bool {
@@ -15095,7 +15095,7 @@ impl IDeskBarClient {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IDeskBarClient, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
+::windows::imp::interface_hierarchy!(IDeskBarClient, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IDeskBarClient {
     fn eq(&self, other: &Self) -> bool {
@@ -15148,7 +15148,7 @@ impl IDesktopGadget {
         (::windows::core::Vtable::vtable(self).RunGadget)(::windows::core::Vtable::as_raw(self), gadgetpath.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDesktopGadget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDesktopGadget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDesktopGadget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15268,7 +15268,7 @@ impl IDesktopWallpaper {
         (::windows::core::Vtable::vtable(self).Enable)(::windows::core::Vtable::as_raw(self), enable.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDesktopWallpaper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDesktopWallpaper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDesktopWallpaper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15335,7 +15335,7 @@ impl IDestinationStreamFactory {
         (::windows::core::Vtable::vtable(self).GetDestinationStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDestinationStreamFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDestinationStreamFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDestinationStreamFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15382,7 +15382,7 @@ impl IDisplayItem {
         (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDisplayItem, ::windows::core::IUnknown, IRelatedItem);
+::windows::imp::interface_hierarchy!(IDisplayItem, ::windows::core::IUnknown, IRelatedItem);
 impl ::core::cmp::PartialEq for IDisplayItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15420,7 +15420,7 @@ impl IDocViewSite {
         (::windows::core::Vtable::vtable(self).OnSetTitle)(::windows::core::Vtable::as_raw(self), pvtitle).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDocViewSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDocViewSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDocViewSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15494,7 +15494,7 @@ impl IDockingWindow {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IDockingWindow, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
+::windows::imp::interface_hierarchy!(IDockingWindow, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IDockingWindow {
     fn eq(&self, other: &Self) -> bool {
@@ -15579,7 +15579,7 @@ impl IDockingWindowFrame {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IDockingWindowFrame, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
+::windows::imp::interface_hierarchy!(IDockingWindowFrame, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IDockingWindowFrame {
     fn eq(&self, other: &Self) -> bool {
@@ -15664,7 +15664,7 @@ impl IDockingWindowSite {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IDockingWindowSite, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
+::windows::imp::interface_hierarchy!(IDockingWindowSite, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IDockingWindowSite {
     fn eq(&self, other: &Self) -> bool {
@@ -15733,7 +15733,7 @@ impl IDragSourceHelper {
         (::windows::core::Vtable::vtable(self).InitializeFromWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute(ppt.unwrap_or(::std::ptr::null())), pdataobject.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDragSourceHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDragSourceHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDragSourceHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15794,7 +15794,7 @@ impl IDragSourceHelper2 {
         (::windows::core::Vtable::vtable(self).SetFlags)(::windows::core::Vtable::as_raw(self), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDragSourceHelper2, ::windows::core::IUnknown, IDragSourceHelper);
+::windows::imp::interface_hierarchy!(IDragSourceHelper2, ::windows::core::IUnknown, IDragSourceHelper);
 impl ::core::cmp::PartialEq for IDragSourceHelper2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15861,7 +15861,7 @@ impl IDropTargetHelper {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), fshow.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDropTargetHelper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDropTargetHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDropTargetHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15918,7 +15918,7 @@ impl IDynamicHWHandler {
         (::windows::core::Vtable::vtable(self).GetDynamicInfo)(::windows::core::Vtable::as_raw(self), pszdeviceid.into().abi(), dwcontenttype, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDynamicHWHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDynamicHWHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDynamicHWHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -15986,7 +15986,7 @@ impl IEnumACString {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEnumACString, ::windows::core::IUnknown, super::super::System::Com::IEnumString);
+::windows::imp::interface_hierarchy!(IEnumACString, ::windows::core::IUnknown, super::super::System::Com::IEnumString);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEnumACString {
     fn eq(&self, other: &Self) -> bool {
@@ -16032,7 +16032,7 @@ impl IEnumAssocHandlers {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumAssocHandlers, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumAssocHandlers, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumAssocHandlers {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16079,7 +16079,7 @@ impl IEnumExplorerCommand {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumExplorerCommand, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumExplorerCommand, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumExplorerCommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16129,7 +16129,7 @@ impl IEnumExtraSearch {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumExtraSearch, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumExtraSearch, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumExtraSearch {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16181,7 +16181,7 @@ impl IEnumFullIDList {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumFullIDList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumFullIDList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumFullIDList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16234,7 +16234,7 @@ impl IEnumHLITEM {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumHLITEM, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumHLITEM, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumHLITEM {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16285,7 +16285,7 @@ impl IEnumIDList {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum))
     }
 }
-::windows::core::interface_hierarchy!(IEnumIDList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumIDList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumIDList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16338,7 +16338,7 @@ impl IEnumObjects {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumObjects, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumObjects, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumObjects {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16382,7 +16382,7 @@ impl IEnumPublishedApps {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumPublishedApps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumPublishedApps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumPublishedApps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16420,7 +16420,7 @@ impl IEnumReadyCallback {
         (::windows::core::Vtable::vtable(self).EnumReady)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumReadyCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumReadyCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumReadyCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16467,7 +16467,7 @@ impl IEnumResources {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumResources, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumResources, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumResources {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16517,7 +16517,7 @@ impl IEnumShellItems {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumShellItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumShellItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumShellItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16567,7 +16567,7 @@ impl IEnumSyncMgrConflict {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumSyncMgrConflict, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSyncMgrConflict, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSyncMgrConflict {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16617,7 +16617,7 @@ impl IEnumSyncMgrEvents {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumSyncMgrEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSyncMgrEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSyncMgrEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16667,7 +16667,7 @@ impl IEnumSyncMgrSyncItems {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumSyncMgrSyncItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSyncMgrSyncItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSyncMgrSyncItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16717,7 +16717,7 @@ impl IEnumTravelLogEntry {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumTravelLogEntry, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumTravelLogEntry, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumTravelLogEntry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16766,7 +16766,7 @@ impl IEnumerableView {
         (::windows::core::Vtable::vtable(self).CreateEnumIDListFromContents)(::windows::core::Vtable::as_raw(self), pidlfolder, dwenumflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumerableView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumerableView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumerableView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16838,7 +16838,7 @@ impl IExecuteCommand {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExecuteCommand, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExecuteCommand, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExecuteCommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16888,7 +16888,7 @@ impl IExecuteCommandApplicationHostEnvironment {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExecuteCommandApplicationHostEnvironment, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExecuteCommandApplicationHostEnvironment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExecuteCommandApplicationHostEnvironment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16926,7 +16926,7 @@ impl IExecuteCommandHost {
         (::windows::core::Vtable::vtable(self).GetUIMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExecuteCommandHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExecuteCommandHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExecuteCommandHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -16976,7 +16976,7 @@ impl IExpDispSupport {
         (::windows::core::Vtable::vtable(self).OnInvoke)(::windows::core::Vtable::as_raw(self), dispidmember, iid, lcid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExpDispSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExpDispSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExpDispSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17037,7 +17037,7 @@ impl IExpDispSupportXP {
         (::windows::core::Vtable::vtable(self).OnInvoke)(::windows::core::Vtable::as_raw(self), dispidmember, iid, lcid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExpDispSupportXP, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExpDispSupportXP, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExpDispSupportXP {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17157,7 +17157,7 @@ impl IExplorerBrowser {
         (::windows::core::Vtable::vtable(self).GetCurrentView)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExplorerBrowser, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExplorerBrowser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExplorerBrowser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17237,7 +17237,7 @@ impl IExplorerBrowserEvents {
         (::windows::core::Vtable::vtable(self).OnNavigationFailed)(::windows::core::Vtable::as_raw(self), pidlfolder).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExplorerBrowserEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExplorerBrowserEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExplorerBrowserEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17338,7 +17338,7 @@ impl IExplorerCommand {
         (::windows::core::Vtable::vtable(self).EnumSubCommands)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExplorerCommand, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExplorerCommand, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExplorerCommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17400,7 +17400,7 @@ impl IExplorerCommandProvider {
         (::windows::core::Vtable::vtable(self).GetCommand)(::windows::core::Vtable::as_raw(self), rguidcommandid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExplorerCommandProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExplorerCommandProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExplorerCommandProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17445,7 +17445,7 @@ impl IExplorerCommandState {
         (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), psiitemarray.into().abi(), foktobeslow.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExplorerCommandState, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExplorerCommandState, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExplorerCommandState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17486,7 +17486,7 @@ impl IExplorerPaneVisibility {
         (::windows::core::Vtable::vtable(self).GetPaneState)(::windows::core::Vtable::as_raw(self), ep, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExplorerPaneVisibility, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExplorerPaneVisibility, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExplorerPaneVisibility {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17536,7 +17536,7 @@ impl IExtensionServices {
         (::windows::core::Vtable::vtable(self).SetAuthenticateData)(::windows::core::Vtable::as_raw(self), phwnd.into(), pwzusername.into().abi(), pwzpassword.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExtensionServices, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExtensionServices, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExtensionServices {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17585,7 +17585,7 @@ impl IExtractIconA {
         (::windows::core::Vtable::vtable(self).Extract)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), niconindex, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), niconsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExtractIconA, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExtractIconA, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExtractIconA {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17634,7 +17634,7 @@ impl IExtractIconW {
         (::windows::core::Vtable::vtable(self).Extract)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), niconindex, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), niconsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IExtractIconW, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExtractIconW, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExtractIconW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17683,7 +17683,7 @@ impl IExtractImage {
         (::windows::core::Vtable::vtable(self).Extract)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExtractImage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IExtractImage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IExtractImage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17741,7 +17741,7 @@ impl IExtractImage2 {
         (::windows::core::Vtable::vtable(self).GetDateStamp)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IExtractImage2, ::windows::core::IUnknown, IExtractImage);
+::windows::imp::interface_hierarchy!(IExtractImage2, ::windows::core::IUnknown, IExtractImage);
 impl ::core::cmp::PartialEq for IExtractImage2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -17894,7 +17894,7 @@ impl IFileDialog {
         (::windows::core::Vtable::vtable(self).SetFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileDialog, ::windows::core::IUnknown, IModalWindow);
+::windows::imp::interface_hierarchy!(IFileDialog, ::windows::core::IUnknown, IModalWindow);
 impl ::core::cmp::PartialEq for IFileDialog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18081,7 +18081,7 @@ impl IFileDialog2 {
         (::windows::core::Vtable::vtable(self).SetNavigationRoot)(::windows::core::Vtable::as_raw(self), psi.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileDialog2, ::windows::core::IUnknown, IModalWindow, IFileDialog);
+::windows::imp::interface_hierarchy!(IFileDialog2, ::windows::core::IUnknown, IModalWindow, IFileDialog);
 impl ::core::cmp::PartialEq for IFileDialog2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18143,7 +18143,7 @@ impl IFileDialogControlEvents {
         (::windows::core::Vtable::vtable(self).OnControlActivating)(::windows::core::Vtable::as_raw(self), pfdc.into().abi(), dwidctl).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileDialogControlEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileDialogControlEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileDialogControlEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18309,7 +18309,7 @@ impl IFileDialogCustomize {
         (::windows::core::Vtable::vtable(self).SetControlItemText)(::windows::core::Vtable::as_raw(self), dwidctl, dwiditem, pszlabel.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileDialogCustomize, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileDialogCustomize, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileDialogCustomize {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18425,7 +18425,7 @@ impl IFileDialogEvents {
         (::windows::core::Vtable::vtable(self).OnOverwrite)(::windows::core::Vtable::as_raw(self), pfd.into().abi(), psi.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFileDialogEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileDialogEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileDialogEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18486,7 +18486,7 @@ impl IFileIsInUse {
         (::windows::core::Vtable::vtable(self).CloseFile)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileIsInUse, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileIsInUse, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileIsInUse {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18651,7 +18651,7 @@ impl IFileOpenDialog {
         (::windows::core::Vtable::vtable(self).GetSelectedItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFileOpenDialog, ::windows::core::IUnknown, IModalWindow, IFileDialog);
+::windows::imp::interface_hierarchy!(IFileOpenDialog, ::windows::core::IUnknown, IModalWindow, IFileDialog);
 impl ::core::cmp::PartialEq for IFileOpenDialog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -18817,7 +18817,7 @@ impl IFileOperation {
         (::windows::core::Vtable::vtable(self).GetAnyOperationsAborted)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFileOperation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileOperation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19013,7 +19013,7 @@ impl IFileOperation2 {
         (::windows::core::Vtable::vtable(self).SetOperationFlags2)(::windows::core::Vtable::as_raw(self), operationflags2).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileOperation2, ::windows::core::IUnknown, IFileOperation);
+::windows::imp::interface_hierarchy!(IFileOperation2, ::windows::core::IUnknown, IFileOperation);
 impl ::core::cmp::PartialEq for IFileOperation2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19143,7 +19143,7 @@ impl IFileOperationProgressSink {
         (::windows::core::Vtable::vtable(self).ResumeTimer)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileOperationProgressSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileOperationProgressSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileOperationProgressSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19348,7 +19348,7 @@ impl IFileSaveDialog {
         (::windows::core::Vtable::vtable(self).ApplyProperties)(::windows::core::Vtable::as_raw(self), psi.into().abi(), pstore.into().abi(), hwnd.into(), psink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileSaveDialog, ::windows::core::IUnknown, IModalWindow, IFileDialog);
+::windows::imp::interface_hierarchy!(IFileSaveDialog, ::windows::core::IUnknown, IModalWindow, IFileDialog);
 impl ::core::cmp::PartialEq for IFileSaveDialog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19428,7 +19428,7 @@ impl IFileSearchBand {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFileSearchBand, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFileSearchBand, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFileSearchBand {
     fn eq(&self, other: &Self) -> bool {
@@ -19499,7 +19499,7 @@ impl IFileSyncMergeHandler {
         (::windows::core::Vtable::vtable(self).ShowResolveConflictUIAsync)(::windows::core::Vtable::as_raw(self), localfilepath.into().abi(), monitortodisplayon.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileSyncMergeHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileSyncMergeHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileSyncMergeHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19547,7 +19547,7 @@ impl IFileSystemBindData {
         (::windows::core::Vtable::vtable(self).GetFindData)(::windows::core::Vtable::as_raw(self), pfd).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFileSystemBindData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFileSystemBindData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFileSystemBindData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19612,7 +19612,7 @@ impl IFileSystemBindData2 {
         (::windows::core::Vtable::vtable(self).GetJunctionCLSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFileSystemBindData2, ::windows::core::IUnknown, IFileSystemBindData);
+::windows::imp::interface_hierarchy!(IFileSystemBindData2, ::windows::core::IUnknown, IFileSystemBindData);
 impl ::core::cmp::PartialEq for IFileSystemBindData2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19681,7 +19681,7 @@ impl IFolderBandPriv {
         (::windows::core::Vtable::vtable(self).SetNoText)(::windows::core::Vtable::as_raw(self), fnotext.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFolderBandPriv, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFolderBandPriv, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFolderBandPriv {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19746,7 +19746,7 @@ impl IFolderFilter {
         (::windows::core::Vtable::vtable(self).GetEnumFlags)(::windows::core::Vtable::as_raw(self), psf.into().abi(), pidlfolder, phwnd, pgrfflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFolderFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFolderFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFolderFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19793,7 +19793,7 @@ impl IFolderFilterSite {
         (::windows::core::Vtable::vtable(self).SetFilter)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFolderFilterSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFolderFilterSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFolderFilterSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -19894,7 +19894,7 @@ impl IFolderView {
         (::windows::core::Vtable::vtable(self).SelectAndPositionItems)(::windows::core::Vtable::as_raw(self), cidl, apidl, ::core::mem::transmute(apt.unwrap_or(::std::ptr::null())), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFolderView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFolderView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFolderView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20158,7 +20158,7 @@ impl IFolderView2 {
         (::windows::core::Vtable::vtable(self).DoRename)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFolderView2, ::windows::core::IUnknown, IFolderView);
+::windows::imp::interface_hierarchy!(IFolderView2, ::windows::core::IUnknown, IFolderView);
 impl ::core::cmp::PartialEq for IFolderView2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20261,7 +20261,7 @@ impl IFolderViewHost {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), hwndparent.into(), pdo.into().abi(), prc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFolderViewHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFolderViewHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFolderViewHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20309,7 +20309,7 @@ impl IFolderViewOC {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFolderViewOC, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFolderViewOC, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFolderViewOC {
     fn eq(&self, other: &Self) -> bool {
@@ -20360,7 +20360,7 @@ impl IFolderViewOptions {
         (::windows::core::Vtable::vtable(self).GetFolderViewOptions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFolderViewOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFolderViewOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFolderViewOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20427,7 +20427,7 @@ impl IFolderViewSettings {
         (::windows::core::Vtable::vtable(self).GetGroupSubsetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFolderViewSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFolderViewSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFolderViewSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20500,7 +20500,7 @@ impl IFrameworkInputPane {
         (::windows::core::Vtable::vtable(self).Location)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IFrameworkInputPane, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFrameworkInputPane, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFrameworkInputPane {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20559,7 +20559,7 @@ impl IFrameworkInputPaneHandler {
         (::windows::core::Vtable::vtable(self).Hiding)(::windows::core::Vtable::as_raw(self), fensurefocusedelementinview.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IFrameworkInputPaneHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IFrameworkInputPaneHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFrameworkInputPaneHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20603,7 +20603,7 @@ impl IGetServiceIds {
         (::windows::core::Vtable::vtable(self).GetServiceIds)(::windows::core::Vtable::as_raw(self), serviceidcount, serviceids).ok()
     }
 }
-::windows::core::interface_hierarchy!(IGetServiceIds, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGetServiceIds, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGetServiceIds {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20663,7 +20663,7 @@ impl IHWEventHandler {
         (::windows::core::Vtable::vtable(self).HandleEventWithContent)(::windows::core::Vtable::as_raw(self), pszdeviceid.into().abi(), pszaltdeviceid.into().abi(), pszeventtype.into().abi(), pszcontenttypehandler.into().abi(), pdataobject.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHWEventHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHWEventHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHWEventHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20739,7 +20739,7 @@ impl IHWEventHandler2 {
         (::windows::core::Vtable::vtable(self).HandleEventWithHWND)(::windows::core::Vtable::as_raw(self), pszdeviceid.into().abi(), pszaltdeviceid.into().abi(), pszeventtype.into().abi(), hwndowner.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHWEventHandler2, ::windows::core::IUnknown, IHWEventHandler);
+::windows::imp::interface_hierarchy!(IHWEventHandler2, ::windows::core::IUnknown, IHWEventHandler);
 impl ::core::cmp::PartialEq for IHWEventHandler2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20791,7 +20791,7 @@ impl IHandlerActivationHost {
         (::windows::core::Vtable::vtable(self).BeforeCreateProcess)(::windows::core::Vtable::as_raw(self), applicationpath.into().abi(), commandline.into().abi(), handlerinfo.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHandlerActivationHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHandlerActivationHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHandlerActivationHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20838,7 +20838,7 @@ impl IHandlerInfo {
         (::windows::core::Vtable::vtable(self).GetApplicationIconReference)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IHandlerInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHandlerInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHandlerInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -20890,7 +20890,7 @@ impl IHandlerInfo2 {
         (::windows::core::Vtable::vtable(self).GetApplicationId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IHandlerInfo2, ::windows::core::IUnknown, IHandlerInfo);
+::windows::imp::interface_hierarchy!(IHandlerInfo2, ::windows::core::IUnknown, IHandlerInfo);
 impl ::core::cmp::PartialEq for IHandlerInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21001,7 +21001,7 @@ impl IHlink {
         (::windows::core::Vtable::vtable(self).GetAdditionalParams)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IHlink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHlink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHlink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21145,7 +21145,7 @@ impl IHlinkBrowseContext {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), reserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHlinkBrowseContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHlinkBrowseContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHlinkBrowseContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21253,7 +21253,7 @@ impl IHlinkFrame {
         (::windows::core::Vtable::vtable(self).UpdateHlink)(::windows::core::Vtable::as_raw(self), uhlid, pimktarget.into().abi(), pwzlocation.into().abi(), pwzfriendlyname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHlinkFrame, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHlinkFrame, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHlinkFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21319,7 +21319,7 @@ impl IHlinkSite {
         (::windows::core::Vtable::vtable(self).OnNavigationComplete)(::windows::core::Vtable::as_raw(self), dwsitedata, dwreserved, hrerror, pwzerror.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IHlinkSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHlinkSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHlinkSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21391,7 +21391,7 @@ impl IHlinkTarget {
         (::windows::core::Vtable::vtable(self).GetFriendlyName)(::windows::core::Vtable::as_raw(self), pwzlocation.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IHlinkTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHlinkTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHlinkTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21447,7 +21447,7 @@ impl IHomeGroup {
         (::windows::core::Vtable::vtable(self).ShowSharingWizard)(::windows::core::Vtable::as_raw(self), owner.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IHomeGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IHomeGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IHomeGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21494,7 +21494,7 @@ impl IIOCancelInformation {
         (::windows::core::Vtable::vtable(self).GetCancelInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwthreadid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pumsgcancel.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IIOCancelInformation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IIOCancelInformation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IIOCancelInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21539,7 +21539,7 @@ impl IIdentityName {
         (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IIdentityName, ::windows::core::IUnknown, IRelatedItem);
+::windows::imp::interface_hierarchy!(IIdentityName, ::windows::core::IUnknown, IRelatedItem);
 impl ::core::cmp::PartialEq for IIdentityName {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21582,7 +21582,7 @@ impl IImageRecompress {
         (::windows::core::Vtable::vtable(self).RecompressImage)(::windows::core::Vtable::as_raw(self), psi.into().abi(), cx, cy, iquality, pstg.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IImageRecompress, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IImageRecompress, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IImageRecompress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21628,7 +21628,7 @@ impl IInitializeCommand {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pszcommandname.into().abi(), ppb.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInitializeCommand, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInitializeCommand, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInitializeCommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21674,7 +21674,7 @@ impl IInitializeNetworkFolder {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pidl, pidltarget, udisplaytype, pszresname.into().abi(), pszprovider.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInitializeNetworkFolder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInitializeNetworkFolder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInitializeNetworkFolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21714,7 +21714,7 @@ impl IInitializeObject {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInitializeObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInitializeObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInitializeObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21756,7 +21756,7 @@ impl IInitializeWithBindCtx {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pbc.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInitializeWithBindCtx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInitializeWithBindCtx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInitializeWithBindCtx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21799,7 +21799,7 @@ impl IInitializeWithItem {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), psi.into().abi(), grfmode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInitializeWithItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInitializeWithItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInitializeWithItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21841,7 +21841,7 @@ impl IInitializeWithPropertyStore {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pps.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInitializeWithPropertyStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInitializeWithPropertyStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInitializeWithPropertyStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21886,7 +21886,7 @@ impl IInitializeWithWindow {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), hwnd.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInitializeWithWindow, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInitializeWithWindow, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInitializeWithWindow {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21939,7 +21939,7 @@ impl IInputObject {
         (::windows::core::Vtable::vtable(self).TranslateAcceleratorIO)(::windows::core::Vtable::as_raw(self), pmsg).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInputObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInputObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInputObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22002,7 +22002,7 @@ impl IInputObject2 {
         (::windows::core::Vtable::vtable(self).TranslateAcceleratorGlobal)(::windows::core::Vtable::as_raw(self), pmsg).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInputObject2, ::windows::core::IUnknown, IInputObject);
+::windows::imp::interface_hierarchy!(IInputObject2, ::windows::core::IUnknown, IInputObject);
 impl ::core::cmp::PartialEq for IInputObject2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22048,7 +22048,7 @@ impl IInputObjectSite {
         (::windows::core::Vtable::vtable(self).OnFocusChangeIS)(::windows::core::Vtable::as_raw(self), punkobj.into().abi(), fsetfocus.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInputObjectSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInputObjectSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInputObjectSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22094,7 +22094,7 @@ impl IInputPaneAnimationCoordinator {
         (::windows::core::Vtable::vtable(self).AddAnimation)(::windows::core::Vtable::as_raw(self), device.into().abi(), animation.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInputPaneAnimationCoordinator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInputPaneAnimationCoordinator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInputPaneAnimationCoordinator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22134,7 +22134,7 @@ impl IInputPanelConfiguration {
         (::windows::core::Vtable::vtable(self).EnableFocusTracking)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInputPanelConfiguration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInputPanelConfiguration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInputPanelConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22171,7 +22171,7 @@ impl IInputPanelInvocationConfiguration {
         (::windows::core::Vtable::vtable(self).RequireTouchInEditControl)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInputPanelInvocationConfiguration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInputPanelInvocationConfiguration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInputPanelInvocationConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22210,7 +22210,7 @@ impl IInsertItem {
         (::windows::core::Vtable::vtable(self).InsertItem)(::windows::core::Vtable::as_raw(self), pidl).ok()
     }
 }
-::windows::core::interface_hierarchy!(IInsertItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IInsertItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IInsertItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22257,7 +22257,7 @@ impl IItemNameLimits {
         (::windows::core::Vtable::vtable(self).GetMaxLength)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IItemNameLimits, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IItemNameLimits, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IItemNameLimits {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22334,7 +22334,7 @@ impl IKnownFolder {
         (::windows::core::Vtable::vtable(self).GetFolderDefinition)(::windows::core::Vtable::as_raw(self), pkfd).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKnownFolder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKnownFolder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKnownFolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22429,7 +22429,7 @@ impl IKnownFolderManager {
         (::windows::core::Vtable::vtable(self).Redirect)(::windows::core::Vtable::as_raw(self), rfid, hwnd.into(), flags, psztargetpath.into().abi(), pexclusion.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pexclusion.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ppszerror.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKnownFolderManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKnownFolderManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKnownFolderManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22482,7 +22482,7 @@ impl ILaunchSourceAppUserModelId {
         (::windows::core::Vtable::vtable(self).GetAppUserModelId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ILaunchSourceAppUserModelId, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILaunchSourceAppUserModelId, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILaunchSourceAppUserModelId {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22526,7 +22526,7 @@ impl ILaunchSourceViewSizePreference {
         (::windows::core::Vtable::vtable(self).GetSourceViewSizePreference)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ILaunchSourceViewSizePreference, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILaunchSourceViewSizePreference, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILaunchSourceViewSizePreference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22570,7 +22570,7 @@ impl ILaunchTargetMonitor {
         (::windows::core::Vtable::vtable(self).GetMonitor)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ILaunchTargetMonitor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILaunchTargetMonitor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILaunchTargetMonitor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22611,7 +22611,7 @@ impl ILaunchTargetViewSizePreference {
         (::windows::core::Vtable::vtable(self).GetTargetViewSizePreference)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ILaunchTargetViewSizePreference, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILaunchTargetViewSizePreference, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILaunchTargetViewSizePreference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22656,7 +22656,7 @@ impl ILaunchUIContext {
         (::windows::core::Vtable::vtable(self).SetTabGroupingPreference)(::windows::core::Vtable::as_raw(self), value).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILaunchUIContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILaunchUIContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILaunchUIContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22700,7 +22700,7 @@ impl ILaunchUIContextProvider {
         (::windows::core::Vtable::vtable(self).UpdateContext)(::windows::core::Vtable::as_raw(self), context.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILaunchUIContextProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ILaunchUIContextProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILaunchUIContextProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22744,7 +22744,7 @@ impl IMenuBand {
         (::windows::core::Vtable::vtable(self).TranslateMenuMessage)(::windows::core::Vtable::as_raw(self), pmsg, plret).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMenuBand, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMenuBand, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMenuBand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22834,7 +22834,7 @@ impl IMenuPopup {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IMenuPopup, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IDeskBar);
+::windows::imp::interface_hierarchy!(IMenuPopup, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IDeskBar);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IMenuPopup {
     fn eq(&self, other: &Self) -> bool {
@@ -22891,7 +22891,7 @@ impl IModalWindow {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), hwndowner.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IModalWindow, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IModalWindow, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IModalWindow {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -22950,7 +22950,7 @@ impl INameSpaceTreeAccessible {
         (::windows::core::Vtable::vtable(self).OnGetAccessibilityRole)(::windows::core::Vtable::as_raw(self), psi.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(INameSpaceTreeAccessible, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INameSpaceTreeAccessible, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INameSpaceTreeAccessible {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23101,7 +23101,7 @@ impl INameSpaceTreeControl {
         (::windows::core::Vtable::vtable(self).CollapseAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(INameSpaceTreeControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INameSpaceTreeControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INameSpaceTreeControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23288,7 +23288,7 @@ impl INameSpaceTreeControl2 {
         (::windows::core::Vtable::vtable(self).GetControlStyle2)(::windows::core::Vtable::as_raw(self), nstcsmask, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(INameSpaceTreeControl2, ::windows::core::IUnknown, INameSpaceTreeControl);
+::windows::imp::interface_hierarchy!(INameSpaceTreeControl2, ::windows::core::IUnknown, INameSpaceTreeControl);
 impl ::core::cmp::PartialEq for INameSpaceTreeControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23358,7 +23358,7 @@ impl INameSpaceTreeControlCustomDraw {
         (::windows::core::Vtable::vtable(self).ItemPostPaint)(::windows::core::Vtable::as_raw(self), hdc.into(), prc, pnstccditem).ok()
     }
 }
-::windows::core::interface_hierarchy!(INameSpaceTreeControlCustomDraw, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INameSpaceTreeControlCustomDraw, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INameSpaceTreeControlCustomDraw {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23451,7 +23451,7 @@ impl INameSpaceTreeControlDropHandler {
         (::windows::core::Vtable::vtable(self).OnDragLeave)(::windows::core::Vtable::as_raw(self), psiover.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(INameSpaceTreeControlDropHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INameSpaceTreeControlDropHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INameSpaceTreeControlDropHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23611,7 +23611,7 @@ impl INameSpaceTreeControlEvents {
         (::windows::core::Vtable::vtable(self).OnGetDefaultIconIndex)(::windows::core::Vtable::as_raw(self), psi.into().abi(), pidefaulticon, piopenicon).ok()
     }
 }
-::windows::core::interface_hierarchy!(INameSpaceTreeControlEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INameSpaceTreeControlEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INameSpaceTreeControlEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23675,7 +23675,7 @@ impl INameSpaceTreeControlFolderCapabilities {
         (::windows::core::Vtable::vtable(self).GetFolderCapabilities)(::windows::core::Vtable::as_raw(self), nfcmask, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(INameSpaceTreeControlFolderCapabilities, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INameSpaceTreeControlFolderCapabilities, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INameSpaceTreeControlFolderCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23734,7 +23734,7 @@ impl INamedPropertyBag {
         (::windows::core::Vtable::vtable(self).RemovePropertyNPB)(::windows::core::Vtable::as_raw(self), pszbagname.into().abi(), pszpropname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(INamedPropertyBag, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INamedPropertyBag, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INamedPropertyBag {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23788,7 +23788,7 @@ impl INamespaceWalk {
         (::windows::core::Vtable::vtable(self).GetIDArrayResult)(::windows::core::Vtable::as_raw(self), pcitems, prgpidl).ok()
     }
 }
-::windows::core::interface_hierarchy!(INamespaceWalk, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INamespaceWalk, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INamespaceWalk {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23853,7 +23853,7 @@ impl INamespaceWalkCB {
         (::windows::core::Vtable::vtable(self).InitializeProgressDialog)(::windows::core::Vtable::as_raw(self), ppsztitle, ppszcancel).ok()
     }
 }
-::windows::core::interface_hierarchy!(INamespaceWalkCB, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INamespaceWalkCB, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INamespaceWalkCB {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23929,7 +23929,7 @@ impl INamespaceWalkCB2 {
         (::windows::core::Vtable::vtable(self).WalkComplete)(::windows::core::Vtable::as_raw(self), hr).ok()
     }
 }
-::windows::core::interface_hierarchy!(INamespaceWalkCB2, ::windows::core::IUnknown, INamespaceWalkCB);
+::windows::imp::interface_hierarchy!(INamespaceWalkCB2, ::windows::core::IUnknown, INamespaceWalkCB);
 impl ::core::cmp::PartialEq for INamespaceWalkCB2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23978,7 +23978,7 @@ impl INetworkFolderInternal {
         (::windows::core::Vtable::vtable(self).GetProvider)(::windows::core::Vtable::as_raw(self), itemids.len() as _, ::core::mem::transmute(itemids.as_ptr()), provider.len() as _, ::core::mem::transmute(provider.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetworkFolderInternal, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetworkFolderInternal, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetworkFolderInternal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24029,7 +24029,7 @@ impl INewMenuClient {
         (::windows::core::Vtable::vtable(self).SelectAndEditItem)(::windows::core::Vtable::as_raw(self), pidlitem, flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(INewMenuClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INewMenuClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INewMenuClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24094,7 +24094,7 @@ impl INewShortcutHookA {
         (::windows::core::Vtable::vtable(self).GetExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszextension.as_ptr()), pszextension.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(INewShortcutHookA, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INewShortcutHookA, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INewShortcutHookA {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24163,7 +24163,7 @@ impl INewShortcutHookW {
         (::windows::core::Vtable::vtable(self).GetExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszextension.as_ptr()), pszextension.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(INewShortcutHookW, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INewShortcutHookW, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INewShortcutHookW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24254,7 +24254,7 @@ impl INewWDEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INewWDEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWebWizardHost);
+::windows::imp::interface_hierarchy!(INewWDEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWebWizardHost);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INewWDEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -24310,7 +24310,7 @@ impl INewWindowManager {
         (::windows::core::Vtable::vtable(self).EvaluateNewWindow)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), pszname.into().abi(), pszurlcontext.into().abi(), pszfeatures.into().abi(), freplace.into(), dwflags, dwuseractiontime).ok()
     }
 }
-::windows::core::interface_hierarchy!(INewWindowManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INewWindowManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INewWindowManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24352,7 +24352,7 @@ impl INotifyReplica {
         (::windows::core::Vtable::vtable(self).YouAreAReplica)(::windows::core::Vtable::as_raw(self), rgpmkotherreplicas.len() as _, ::core::mem::transmute(rgpmkotherreplicas.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(INotifyReplica, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INotifyReplica, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INotifyReplica {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24401,7 +24401,7 @@ impl IObjMgr {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjMgr, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjMgr, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24443,7 +24443,7 @@ impl IObjectProvider {
         (::windows::core::Vtable::vtable(self).QueryObject)(::windows::core::Vtable::as_raw(self), guidobject, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IObjectProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24487,7 +24487,7 @@ impl IObjectWithAppUserModelID {
         (::windows::core::Vtable::vtable(self).GetAppID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IObjectWithAppUserModelID, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectWithAppUserModelID, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectWithAppUserModelID {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24525,7 +24525,7 @@ impl IObjectWithBackReferences {
         (::windows::core::Vtable::vtable(self).RemoveBackReferences)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjectWithBackReferences, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectWithBackReferences, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectWithBackReferences {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24565,7 +24565,7 @@ impl IObjectWithCancelEvent {
         (::windows::core::Vtable::vtable(self).GetCancelEvent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IObjectWithCancelEvent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectWithCancelEvent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectWithCancelEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24609,7 +24609,7 @@ impl IObjectWithFolderEnumMode {
         (::windows::core::Vtable::vtable(self).GetMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IObjectWithFolderEnumMode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectWithFolderEnumMode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectWithFolderEnumMode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24654,7 +24654,7 @@ impl IObjectWithProgID {
         (::windows::core::Vtable::vtable(self).GetProgID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IObjectWithProgID, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectWithProgID, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectWithProgID {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24702,7 +24702,7 @@ impl IObjectWithSelection {
         (::windows::core::Vtable::vtable(self).GetSelection)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IObjectWithSelection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectWithSelection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectWithSelection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24755,7 +24755,7 @@ impl IOpenControlPanel {
         (::windows::core::Vtable::vtable(self).GetCurrentView)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpenControlPanel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpenControlPanel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpenControlPanel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24802,7 +24802,7 @@ impl IOpenSearchSource {
         (::windows::core::Vtable::vtable(self).GetResults)(::windows::core::Vtable::as_raw(self), hwnd.into(), pszquery.into().abi(), dwstartindex, dwcount, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpenSearchSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpenSearchSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpenSearchSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -24885,7 +24885,7 @@ impl IOperationsProgressDialog {
         (::windows::core::Vtable::vtable(self).GetOperationStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOperationsProgressDialog, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOperationsProgressDialog, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOperationsProgressDialog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25021,7 +25021,7 @@ impl IPackageDebugSettings {
         (::windows::core::Vtable::vtable(self).UnregisterForPackageStateChanges)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPackageDebugSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPackageDebugSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPackageDebugSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25161,7 +25161,7 @@ impl IPackageDebugSettings2 {
         (::windows::core::Vtable::vtable(self).EnumerateApps)(::windows::core::Vtable::as_raw(self), packagefullname.into().abi(), appcount, appusermodelids, appdisplaynames).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPackageDebugSettings2, ::windows::core::IUnknown, IPackageDebugSettings);
+::windows::imp::interface_hierarchy!(IPackageDebugSettings2, ::windows::core::IUnknown, IPackageDebugSettings);
 impl ::core::cmp::PartialEq for IPackageDebugSettings2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25201,7 +25201,7 @@ impl IPackageExecutionStateChangeNotification {
         (::windows::core::Vtable::vtable(self).OnStateChanged)(::windows::core::Vtable::as_raw(self), pszpackagefullname.into().abi(), pesnewstate).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPackageExecutionStateChangeNotification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPackageExecutionStateChangeNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPackageExecutionStateChangeNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25248,7 +25248,7 @@ impl IParentAndItem {
         (::windows::core::Vtable::vtable(self).GetParentAndItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppidlparent.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsf.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppidlchild.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IParentAndItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IParentAndItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IParentAndItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25302,7 +25302,7 @@ impl IParseAndCreateItem {
         (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IParseAndCreateItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IParseAndCreateItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IParseAndCreateItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25351,7 +25351,7 @@ impl IPersistFolder {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPersistFolder, ::windows::core::IUnknown, super::super::System::Com::IPersist);
+::windows::imp::interface_hierarchy!(IPersistFolder, ::windows::core::IUnknown, super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPersistFolder {
     fn eq(&self, other: &Self) -> bool {
@@ -25415,7 +25415,7 @@ impl IPersistFolder2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPersistFolder2, ::windows::core::IUnknown, super::super::System::Com::IPersist, IPersistFolder);
+::windows::imp::interface_hierarchy!(IPersistFolder2, ::windows::core::IUnknown, super::super::System::Com::IPersist, IPersistFolder);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPersistFolder2 {
     fn eq(&self, other: &Self) -> bool {
@@ -25492,7 +25492,7 @@ impl IPersistFolder3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPersistFolder3, ::windows::core::IUnknown, super::super::System::Com::IPersist, IPersistFolder, IPersistFolder2);
+::windows::imp::interface_hierarchy!(IPersistFolder3, ::windows::core::IUnknown, super::super::System::Com::IPersist, IPersistFolder, IPersistFolder2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPersistFolder3 {
     fn eq(&self, other: &Self) -> bool {
@@ -25560,7 +25560,7 @@ impl IPersistIDList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IPersistIDList, ::windows::core::IUnknown, super::super::System::Com::IPersist);
+::windows::imp::interface_hierarchy!(IPersistIDList, ::windows::core::IUnknown, super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPersistIDList {
     fn eq(&self, other: &Self) -> bool {
@@ -25641,7 +25641,7 @@ impl IPreviewHandler {
         (::windows::core::Vtable::vtable(self).TranslateAccelerator)(::windows::core::Vtable::as_raw(self), pmsg).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPreviewHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPreviewHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPreviewHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25704,7 +25704,7 @@ impl IPreviewHandlerFrame {
         (::windows::core::Vtable::vtable(self).TranslateAccelerator)(::windows::core::Vtable::as_raw(self), pmsg).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPreviewHandlerFrame, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPreviewHandlerFrame, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPreviewHandlerFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25766,7 +25766,7 @@ impl IPreviewHandlerVisuals {
         (::windows::core::Vtable::vtable(self).SetTextColor)(::windows::core::Vtable::as_raw(self), color.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPreviewHandlerVisuals, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPreviewHandlerVisuals, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPreviewHandlerVisuals {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25821,7 +25821,7 @@ impl IPreviewItem {
         (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPreviewItem, ::windows::core::IUnknown, IRelatedItem);
+::windows::imp::interface_hierarchy!(IPreviewItem, ::windows::core::IUnknown, IRelatedItem);
 impl ::core::cmp::PartialEq for IPreviewItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25864,7 +25864,7 @@ impl IPreviousVersionsInfo {
         (::windows::core::Vtable::vtable(self).AreSnapshotsAvailable)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), foktobeslow.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IPreviousVersionsInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPreviousVersionsInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPreviousVersionsInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25913,7 +25913,7 @@ impl IProfferService {
         (::windows::core::Vtable::vtable(self).RevokeService)(::windows::core::Vtable::as_raw(self), cookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProfferService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProfferService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProfferService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26006,7 +26006,7 @@ impl IProgressDialog {
         (::windows::core::Vtable::vtable(self).Timer)(::windows::core::Vtable::as_raw(self), dwtimeraction, ::core::mem::transmute(pvresevered.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IProgressDialog, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IProgressDialog, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IProgressDialog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26088,7 +26088,7 @@ impl IPropertyKeyStore {
         (::windows::core::Vtable::vtable(self).RemoveKey)(::windows::core::Vtable::as_raw(self), key).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPropertyKeyStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IPropertyKeyStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPropertyKeyStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26172,7 +26172,7 @@ impl IPublishedApp {
         (::windows::core::Vtable::vtable(self).Unschedule)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPublishedApp, ::windows::core::IUnknown, IShellApp);
+::windows::imp::interface_hierarchy!(IPublishedApp, ::windows::core::IUnknown, IShellApp);
 impl ::core::cmp::PartialEq for IPublishedApp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26255,7 +26255,7 @@ impl IPublishedApp2 {
         (::windows::core::Vtable::vtable(self).Install2)(::windows::core::Vtable::as_raw(self), pstinstall, hwndparent.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPublishedApp2, ::windows::core::IUnknown, IShellApp, IPublishedApp);
+::windows::imp::interface_hierarchy!(IPublishedApp2, ::windows::core::IUnknown, IShellApp, IPublishedApp);
 impl ::core::cmp::PartialEq for IPublishedApp2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26323,7 +26323,7 @@ impl IPublishingWizard {
         (::windows::core::Vtable::vtable(self).GetTransferManifest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phrfromtransfer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdocmanifest.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPublishingWizard, ::windows::core::IUnknown, IWizardExtension);
+::windows::imp::interface_hierarchy!(IPublishingWizard, ::windows::core::IUnknown, IWizardExtension);
 impl ::core::cmp::PartialEq for IPublishingWizard {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26401,7 +26401,7 @@ impl IQueryAssociations {
         (::windows::core::Vtable::vtable(self).GetEnum)(::windows::core::Vtable::as_raw(self), flags, assocenum, pszextra.into().abi(), riid, ppvout).ok()
     }
 }
-::windows::core::interface_hierarchy!(IQueryAssociations, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IQueryAssociations, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IQueryAssociations {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26452,7 +26452,7 @@ impl IQueryCancelAutoPlay {
         (::windows::core::Vtable::vtable(self).AllowAutoPlay)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), dwcontenttype, pszlabel.into().abi(), dwserialnumber).ok()
     }
 }
-::windows::core::interface_hierarchy!(IQueryCancelAutoPlay, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IQueryCancelAutoPlay, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IQueryCancelAutoPlay {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26493,7 +26493,7 @@ impl IQueryCodePage {
         (::windows::core::Vtable::vtable(self).SetCodePage)(::windows::core::Vtable::as_raw(self), uicodepage).ok()
     }
 }
-::windows::core::interface_hierarchy!(IQueryCodePage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IQueryCodePage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IQueryCodePage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26531,7 +26531,7 @@ impl IQueryContinue {
         (::windows::core::Vtable::vtable(self).QueryContinue)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IQueryContinue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IQueryContinue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IQueryContinue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26574,7 +26574,7 @@ impl IQueryContinueWithStatus {
         (::windows::core::Vtable::vtable(self).SetStatusMessage)(::windows::core::Vtable::as_raw(self), psz.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IQueryContinueWithStatus, ::windows::core::IUnknown, IQueryContinue);
+::windows::imp::interface_hierarchy!(IQueryContinueWithStatus, ::windows::core::IUnknown, IQueryContinue);
 impl ::core::cmp::PartialEq for IQueryContinueWithStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26616,7 +26616,7 @@ impl IQueryInfo {
         (::windows::core::Vtable::vtable(self).GetInfoFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IQueryInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IQueryInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IQueryInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26665,7 +26665,7 @@ impl IRegTreeItem {
         (::windows::core::Vtable::vtable(self).SetCheckState)(::windows::core::Vtable::as_raw(self), bcheck.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRegTreeItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRegTreeItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRegTreeItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26716,7 +26716,7 @@ impl IRelatedItem {
         (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRelatedItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRelatedItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRelatedItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26763,7 +26763,7 @@ impl IRemoteComputer {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pszmachine.into().abi(), benumerating.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRemoteComputer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRemoteComputer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRemoteComputer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26809,7 +26809,7 @@ impl IResolveShellLink {
         (::windows::core::Vtable::vtable(self).ResolveShellLink)(::windows::core::Vtable::as_raw(self), punklink.into().abi(), hwnd.into(), fflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResolveShellLink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IResolveShellLink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResolveShellLink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26871,7 +26871,7 @@ impl IResultsFolder {
         (::windows::core::Vtable::vtable(self).RemoveAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResultsFolder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IResultsFolder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResultsFolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -26935,7 +26935,7 @@ impl IRunnableTask {
         (::windows::core::Vtable::vtable(self).IsRunning)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IRunnableTask, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRunnableTask, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRunnableTask {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27051,7 +27051,7 @@ impl IScriptErrorList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IScriptErrorList, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IScriptErrorList, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IScriptErrorList {
     fn eq(&self, other: &Self) -> bool {
@@ -27137,7 +27137,7 @@ impl ISearchBoxInfo {
         (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISearchBoxInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISearchBoxInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISearchBoxInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27184,7 +27184,7 @@ impl ISearchContext {
         (::windows::core::Vtable::vtable(self).GetSearchStyle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISearchContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISearchContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISearchContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27282,7 +27282,7 @@ impl ISearchFolderItemFactory {
         (::windows::core::Vtable::vtable(self).GetIDList)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISearchFolderItemFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISearchFolderItemFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISearchFolderItemFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27375,7 +27375,7 @@ impl ISharedBitmap {
         (::windows::core::Vtable::vtable(self).Detach)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISharedBitmap, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISharedBitmap, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISharedBitmap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27447,7 +27447,7 @@ impl ISharingConfigurationManager {
         (::windows::core::Vtable::vtable(self).ArePrintersShared)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISharingConfigurationManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISharingConfigurationManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISharingConfigurationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27507,7 +27507,7 @@ impl IShellApp {
         (::windows::core::Vtable::vtable(self).IsInstalled)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellApp, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellApp, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellApp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27657,7 +27657,7 @@ impl IShellBrowser {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IShellBrowser, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
+::windows::imp::interface_hierarchy!(IShellBrowser, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IShellBrowser {
     fn eq(&self, other: &Self) -> bool {
@@ -27751,7 +27751,7 @@ impl IShellChangeNotify {
         (::windows::core::Vtable::vtable(self).OnChange)(::windows::core::Vtable::as_raw(self), levent, ::core::mem::transmute(pidl1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pidl2.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellChangeNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellChangeNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellChangeNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27796,7 +27796,7 @@ impl IShellDetails {
         (::windows::core::Vtable::vtable(self).ColumnClick)(::windows::core::Vtable::as_raw(self), icolumn).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellDetails, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellDetails, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellDetails {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27925,7 +27925,7 @@ impl IShellDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellDispatch, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IShellDispatch, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellDispatch {
     fn eq(&self, other: &Self) -> bool {
@@ -28148,7 +28148,7 @@ impl IShellDispatch2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellDispatch2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch);
+::windows::imp::interface_hierarchy!(IShellDispatch2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellDispatch2 {
     fn eq(&self, other: &Self) -> bool {
@@ -28362,7 +28362,7 @@ impl IShellDispatch3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellDispatch3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2);
+::windows::imp::interface_hierarchy!(IShellDispatch3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellDispatch3 {
     fn eq(&self, other: &Self) -> bool {
@@ -28568,7 +28568,7 @@ impl IShellDispatch4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellDispatch4, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2, IShellDispatch3);
+::windows::imp::interface_hierarchy!(IShellDispatch4, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2, IShellDispatch3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellDispatch4 {
     fn eq(&self, other: &Self) -> bool {
@@ -28783,7 +28783,7 @@ impl IShellDispatch5 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellDispatch5, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2, IShellDispatch3, IShellDispatch4);
+::windows::imp::interface_hierarchy!(IShellDispatch5, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2, IShellDispatch3, IShellDispatch4);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellDispatch5 {
     fn eq(&self, other: &Self) -> bool {
@@ -28992,7 +28992,7 @@ impl IShellDispatch6 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellDispatch6, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2, IShellDispatch3, IShellDispatch4, IShellDispatch5);
+::windows::imp::interface_hierarchy!(IShellDispatch6, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2, IShellDispatch3, IShellDispatch4, IShellDispatch5);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellDispatch6 {
     fn eq(&self, other: &Self) -> bool {
@@ -29042,7 +29042,7 @@ impl IShellExtInit {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidlfolder.unwrap_or(::std::ptr::null())), pdtobj.into().abi(), hkeyprogid.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellExtInit, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellExtInit, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellExtInit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29130,7 +29130,7 @@ impl IShellFavoritesNameSpace {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellFavoritesNameSpace, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IShellFavoritesNameSpace, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellFavoritesNameSpace {
     fn eq(&self, other: &Self) -> bool {
@@ -29277,7 +29277,7 @@ impl IShellFolder {
         (::windows::core::Vtable::vtable(self).SetNameOf)(::windows::core::Vtable::as_raw(self), hwnd.into(), pidl, pszname.into().abi(), uflags, ::core::mem::transmute(ppidlout.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellFolder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellFolder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellFolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29466,7 +29466,7 @@ impl IShellFolder2 {
         (::windows::core::Vtable::vtable(self).MapColumnToSCID)(::windows::core::Vtable::as_raw(self), icolumn, pscid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellFolder2, ::windows::core::IUnknown, IShellFolder);
+::windows::imp::interface_hierarchy!(IShellFolder2, ::windows::core::IUnknown, IShellFolder);
 impl ::core::cmp::PartialEq for IShellFolder2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29533,7 +29533,7 @@ impl IShellFolderBand {
         (::windows::core::Vtable::vtable(self).GetBandInfoSFB)(::windows::core::Vtable::as_raw(self), pbi).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellFolderBand, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellFolderBand, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellFolderBand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29736,7 +29736,7 @@ impl IShellFolderView {
         (::windows::core::Vtable::vtable(self).SetAutomationObject)(::windows::core::Vtable::as_raw(self), pdisp.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellFolderView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellFolderView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellFolderView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29860,7 +29860,7 @@ impl IShellFolderViewCB {
         (::windows::core::Vtable::vtable(self).MessageSFVCB)(::windows::core::Vtable::as_raw(self), umsg, wparam.into(), lparam.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellFolderViewCB, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellFolderViewCB, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellFolderViewCB {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29954,7 +29954,7 @@ impl IShellFolderViewDual {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellFolderViewDual, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IShellFolderViewDual, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellFolderViewDual {
     fn eq(&self, other: &Self) -> bool {
@@ -30094,7 +30094,7 @@ impl IShellFolderViewDual2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellFolderViewDual2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellFolderViewDual);
+::windows::imp::interface_hierarchy!(IShellFolderViewDual2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellFolderViewDual);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellFolderViewDual2 {
     fn eq(&self, other: &Self) -> bool {
@@ -30235,7 +30235,7 @@ impl IShellFolderViewDual3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellFolderViewDual3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellFolderViewDual, IShellFolderViewDual2);
+::windows::imp::interface_hierarchy!(IShellFolderViewDual3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellFolderViewDual, IShellFolderViewDual2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellFolderViewDual3 {
     fn eq(&self, other: &Self) -> bool {
@@ -30290,7 +30290,7 @@ impl IShellIcon {
         (::windows::core::Vtable::vtable(self).GetIconOf)(::windows::core::Vtable::as_raw(self), pidl, flags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IShellIcon, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellIcon, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellIcon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30337,7 +30337,7 @@ impl IShellIconOverlay {
         (::windows::core::Vtable::vtable(self).GetOverlayIconIndex)(::windows::core::Vtable::as_raw(self), pidl, piconindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellIconOverlay, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellIconOverlay, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellIconOverlay {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30391,7 +30391,7 @@ impl IShellIconOverlayIdentifier {
         (::windows::core::Vtable::vtable(self).GetPriority)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IShellIconOverlayIdentifier, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellIconOverlayIdentifier, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellIconOverlayIdentifier {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30453,7 +30453,7 @@ impl IShellIconOverlayManager {
         (::windows::core::Vtable::vtable(self).OverlayIndexFromImageIndex)(::windows::core::Vtable::as_raw(self), iimage, piindex, fadd.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellIconOverlayManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellIconOverlayManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellIconOverlayManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30606,7 +30606,7 @@ impl IShellImageData {
         (::windows::core::Vtable::vtable(self).ReplaceFrame)(::windows::core::Vtable::as_raw(self), pimg).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellImageData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellImageData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellImageData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30684,7 +30684,7 @@ impl IShellImageDataAbort {
         (::windows::core::Vtable::vtable(self).QueryAbort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellImageDataAbort, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellImageDataAbort, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellImageDataAbort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30745,7 +30745,7 @@ impl IShellImageDataFactory {
         (::windows::core::Vtable::vtable(self).GetDataFormatFromPath)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IShellImageDataFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellImageDataFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellImageDataFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30816,7 +30816,7 @@ impl IShellItem {
         (::windows::core::Vtable::vtable(self).Compare)(::windows::core::Vtable::as_raw(self), psi.into().abi(), hint, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IShellItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -30984,7 +30984,7 @@ impl IShellItem2 {
         (::windows::core::Vtable::vtable(self).GetBool)(::windows::core::Vtable::as_raw(self), key, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IShellItem2, ::windows::core::IUnknown, IShellItem);
+::windows::imp::interface_hierarchy!(IShellItem2, ::windows::core::IUnknown, IShellItem);
 impl ::core::cmp::PartialEq for IShellItem2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31115,7 +31115,7 @@ impl IShellItemArray {
         (::windows::core::Vtable::vtable(self).EnumItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IShellItemArray, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellItemArray, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellItemArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31180,7 +31180,7 @@ impl IShellItemFilter {
         (::windows::core::Vtable::vtable(self).GetEnumFlagsForItem)(::windows::core::Vtable::as_raw(self), psi.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IShellItemFilter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellItemFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellItemFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31221,7 +31221,7 @@ impl IShellItemImageFactory {
         (::windows::core::Vtable::vtable(self).GetImage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), flags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IShellItemImageFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellItemImageFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellItemImageFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31304,7 +31304,7 @@ impl IShellItemResources {
         (::windows::core::Vtable::vtable(self).MarkForDelete)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellItemResources, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellItemResources, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellItemResources {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31444,7 +31444,7 @@ impl IShellLibrary {
         (::windows::core::Vtable::vtable(self).SaveInKnownFolder)(::windows::core::Vtable::as_raw(self), kfidtosavein, pszlibraryname.into().abi(), lsf, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IShellLibrary, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellLibrary, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellLibrary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31580,7 +31580,7 @@ impl IShellLinkA {
         (::windows::core::Vtable::vtable(self).SetPath)(::windows::core::Vtable::as_raw(self), pszfile.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellLinkA, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellLinkA, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellLinkA {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31659,7 +31659,7 @@ impl IShellLinkDataList {
         (::windows::core::Vtable::vtable(self).SetFlags)(::windows::core::Vtable::as_raw(self), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellLinkDataList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellLinkDataList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellLinkDataList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31756,7 +31756,7 @@ impl IShellLinkDual {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellLinkDual, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IShellLinkDual, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellLinkDual {
     fn eq(&self, other: &Self) -> bool {
@@ -31880,7 +31880,7 @@ impl IShellLinkDual2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellLinkDual2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellLinkDual);
+::windows::imp::interface_hierarchy!(IShellLinkDual2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellLinkDual);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellLinkDual2 {
     fn eq(&self, other: &Self) -> bool {
@@ -32010,7 +32010,7 @@ impl IShellLinkW {
         (::windows::core::Vtable::vtable(self).SetPath)(::windows::core::Vtable::as_raw(self), pszfile.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellLinkW, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellLinkW, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellLinkW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32126,7 +32126,7 @@ impl IShellMenu {
         (::windows::core::Vtable::vtable(self).SetMenuToolbar)(::windows::core::Vtable::as_raw(self), punk.into().abi(), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellMenu, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellMenu, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellMenu {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32195,7 +32195,7 @@ impl IShellMenuCallback {
         (::windows::core::Vtable::vtable(self).CallbackSM)(::windows::core::Vtable::as_raw(self), psmd, umsg, wparam.into(), lparam.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellMenuCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellMenuCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellMenuCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32371,7 +32371,7 @@ impl IShellNameSpace {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellNameSpace, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellFavoritesNameSpace);
+::windows::imp::interface_hierarchy!(IShellNameSpace, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellFavoritesNameSpace);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellNameSpace {
     fn eq(&self, other: &Self) -> bool {
@@ -32466,7 +32466,7 @@ impl IShellPropSheetExt {
         (::windows::core::Vtable::vtable(self).ReplacePage)(::windows::core::Vtable::as_raw(self), upageid, pfnreplacewith, lparam.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellPropSheetExt, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellPropSheetExt, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellPropSheetExt {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32513,7 +32513,7 @@ impl IShellRunDll {
         (::windows::core::Vtable::vtable(self).Run)(::windows::core::Vtable::as_raw(self), pszargs.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellRunDll, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellRunDll, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellRunDll {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32553,7 +32553,7 @@ impl IShellService {
         (::windows::core::Vtable::vtable(self).SetOwner)(::windows::core::Vtable::as_raw(self), punkowner.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32607,7 +32607,7 @@ impl IShellTaskScheduler {
         (::windows::core::Vtable::vtable(self).Status)(::windows::core::Vtable::as_raw(self), dwreleasestatus, dwthreadtimeout).ok()
     }
 }
-::windows::core::interface_hierarchy!(IShellTaskScheduler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IShellTaskScheduler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IShellTaskScheduler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32712,7 +32712,7 @@ impl IShellUIHelper {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellUIHelper, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IShellUIHelper, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellUIHelper {
     fn eq(&self, other: &Self) -> bool {
@@ -32937,7 +32937,7 @@ impl IShellUIHelper2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellUIHelper2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper);
+::windows::imp::interface_hierarchy!(IShellUIHelper2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellUIHelper2 {
     fn eq(&self, other: &Self) -> bool {
@@ -33222,7 +33222,7 @@ impl IShellUIHelper3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellUIHelper3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2);
+::windows::imp::interface_hierarchy!(IShellUIHelper3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellUIHelper3 {
     fn eq(&self, other: &Self) -> bool {
@@ -33588,7 +33588,7 @@ impl IShellUIHelper4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellUIHelper4, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3);
+::windows::imp::interface_hierarchy!(IShellUIHelper4, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellUIHelper4 {
     fn eq(&self, other: &Self) -> bool {
@@ -34000,7 +34000,7 @@ impl IShellUIHelper5 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellUIHelper5, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4);
+::windows::imp::interface_hierarchy!(IShellUIHelper5, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellUIHelper5 {
     fn eq(&self, other: &Self) -> bool {
@@ -34450,7 +34450,7 @@ impl IShellUIHelper6 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellUIHelper6, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5);
+::windows::imp::interface_hierarchy!(IShellUIHelper6, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellUIHelper6 {
     fn eq(&self, other: &Self) -> bool {
@@ -34980,7 +34980,7 @@ impl IShellUIHelper7 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellUIHelper7, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6);
+::windows::imp::interface_hierarchy!(IShellUIHelper7, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellUIHelper7 {
     fn eq(&self, other: &Self) -> bool {
@@ -35521,7 +35521,7 @@ impl IShellUIHelper8 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellUIHelper8, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6, IShellUIHelper7);
+::windows::imp::interface_hierarchy!(IShellUIHelper8, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6, IShellUIHelper7);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellUIHelper8 {
     fn eq(&self, other: &Self) -> bool {
@@ -36046,7 +36046,7 @@ impl IShellUIHelper9 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellUIHelper9, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6, IShellUIHelper7, IShellUIHelper8);
+::windows::imp::interface_hierarchy!(IShellUIHelper9, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6, IShellUIHelper7, IShellUIHelper8);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellUIHelper9 {
     fn eq(&self, other: &Self) -> bool {
@@ -36163,7 +36163,7 @@ impl IShellView {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IShellView, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
+::windows::imp::interface_hierarchy!(IShellView, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IShellView {
     fn eq(&self, other: &Self) -> bool {
@@ -36323,7 +36323,7 @@ impl IShellView2 {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IShellView2, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IShellView);
+::windows::imp::interface_hierarchy!(IShellView2, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IShellView);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IShellView2 {
     fn eq(&self, other: &Self) -> bool {
@@ -36480,7 +36480,7 @@ impl IShellView3 {
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-::windows::core::interface_hierarchy!(IShellView3, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IShellView, IShellView2);
+::windows::imp::interface_hierarchy!(IShellView3, ::windows::core::IUnknown, super::super::System::Ole::IOleWindow, IShellView, IShellView2);
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IShellView3 {
     fn eq(&self, other: &Self) -> bool {
@@ -36591,7 +36591,7 @@ impl IShellWindows {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IShellWindows, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IShellWindows, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IShellWindows {
     fn eq(&self, other: &Self) -> bool {
@@ -36676,7 +36676,7 @@ impl ISortColumnArray {
         (::windows::core::Vtable::vtable(self).GetSortType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISortColumnArray, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISortColumnArray, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISortColumnArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -36721,7 +36721,7 @@ impl IStartMenuPinnedList {
         (::windows::core::Vtable::vtable(self).RemoveFromList)(::windows::core::Vtable::as_raw(self), pitem.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IStartMenuPinnedList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStartMenuPinnedList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStartMenuPinnedList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -36784,7 +36784,7 @@ impl IStorageProviderBanners {
         (::windows::core::Vtable::vtable(self).GetBanner)(::windows::core::Vtable::as_raw(self), provideridentity.into().abi(), subscriptionid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderBanners, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStorageProviderBanners, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStorageProviderBanners {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -36832,7 +36832,7 @@ impl IStorageProviderCopyHook {
         (::windows::core::Vtable::vtable(self).CopyCallback)(::windows::core::Vtable::as_raw(self), hwnd.into(), operation, flags, srcfile.into().abi(), srcattribs, destfile.into().abi(), destattribs, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderCopyHook, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStorageProviderCopyHook, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStorageProviderCopyHook {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -36890,7 +36890,7 @@ impl IStorageProviderHandler {
         (::windows::core::Vtable::vtable(self).GetPropertyHandlerFromFileId)(::windows::core::Vtable::as_raw(self), fileid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStorageProviderHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStorageProviderHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -36940,7 +36940,7 @@ impl IStorageProviderPropertyHandler {
         (::windows::core::Vtable::vtable(self).SaveProperties)(::windows::core::Vtable::as_raw(self), propertiestosave.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IStorageProviderPropertyHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStorageProviderPropertyHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStorageProviderPropertyHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37064,7 +37064,7 @@ impl IStreamAsync {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IStreamAsync, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
+::windows::imp::interface_hierarchy!(IStreamAsync, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IStreamAsync {
     fn eq(&self, other: &Self) -> bool {
@@ -37121,7 +37121,7 @@ impl IStreamUnbufferedInfo {
         (::windows::core::Vtable::vtable(self).GetSectorSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStreamUnbufferedInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IStreamUnbufferedInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStreamUnbufferedInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37179,7 +37179,7 @@ impl ISuspensionDependencyManager {
         (::windows::core::Vtable::vtable(self).UngroupChildFromParent)(::windows::core::Vtable::as_raw(self), childprocesshandle.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISuspensionDependencyManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISuspensionDependencyManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISuspensionDependencyManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37253,7 +37253,7 @@ impl ISyncMgrConflict {
         (::windows::core::Vtable::vtable(self).GetResolutionHandler)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrConflict, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrConflict, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrConflict {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37306,7 +37306,7 @@ impl ISyncMgrConflictFolder {
         (::windows::core::Vtable::vtable(self).GetConflictIDList)(::windows::core::Vtable::as_raw(self), pconflict.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrConflictFolder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrConflictFolder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrConflictFolder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37350,7 +37350,7 @@ impl ISyncMgrConflictItems {
         (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), iindex, piteminfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrConflictItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrConflictItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrConflictItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37392,7 +37392,7 @@ impl ISyncMgrConflictPresenter {
         (::windows::core::Vtable::vtable(self).PresentConflict)(::windows::core::Vtable::as_raw(self), pconflict.into().abi(), presolveinfo.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrConflictPresenter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrConflictPresenter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrConflictPresenter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37434,7 +37434,7 @@ impl ISyncMgrConflictResolutionItems {
         (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), iindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrConflictResolutionItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrConflictResolutionItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrConflictResolutionItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37503,7 +37503,7 @@ impl ISyncMgrConflictResolveInfo {
         (::windows::core::Vtable::vtable(self).SetItemChoices)(::windows::core::Vtable::as_raw(self), prgiconflictitemindexes, cchoices).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrConflictResolveInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrConflictResolveInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrConflictResolveInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37580,7 +37580,7 @@ impl ISyncMgrConflictStore {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), pszhandlerid.into().abi(), pszitemid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrConflictStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrConflictStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrConflictStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37737,7 +37737,7 @@ impl ISyncMgrControl {
         (::windows::core::Vtable::vtable(self).EnableItem)(::windows::core::Vtable::as_raw(self), fenable.into(), pszhandlerid.into().abi(), pszitemid.into().abi(), hwndowner.into(), ncontrolflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37818,7 +37818,7 @@ impl ISyncMgrEnumItems {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrEnumItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrEnumItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrEnumItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37904,7 +37904,7 @@ impl ISyncMgrEvent {
         (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrEvent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrEvent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37965,7 +37965,7 @@ impl ISyncMgrEventLinkUIOperation {
         (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self), rguideventid, pevent.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrEventLinkUIOperation, ::windows::core::IUnknown, ISyncMgrUIOperation);
+::windows::imp::interface_hierarchy!(ISyncMgrEventLinkUIOperation, ::windows::core::IUnknown, ISyncMgrUIOperation);
 impl ::core::cmp::PartialEq for ISyncMgrEventLinkUIOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38014,7 +38014,7 @@ impl ISyncMgrEventStore {
         (::windows::core::Vtable::vtable(self).RemoveEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguideventids.as_ptr()), pguideventids.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrEventStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrEventStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrEventStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38100,7 +38100,7 @@ impl ISyncMgrHandler {
         (::windows::core::Vtable::vtable(self).Synchronize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszitemids.as_ptr()), ppszitemids.len() as _, hwndowner.into(), psessioncreator.into().abi(), punk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38164,7 +38164,7 @@ impl ISyncMgrHandlerCollection {
         (::windows::core::Vtable::vtable(self).BindToHandler)(::windows::core::Vtable::as_raw(self), pszhandlerid.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrHandlerCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrHandlerCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrHandlerCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38229,7 +38229,7 @@ impl ISyncMgrHandlerInfo {
         (::windows::core::Vtable::vtable(self).IsConnected)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrHandlerInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrHandlerInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrHandlerInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38284,7 +38284,7 @@ impl ISyncMgrRegister {
         (::windows::core::Vtable::vtable(self).GetHandlerRegistrationInfo)(::windows::core::Vtable::as_raw(self), clsidhandler, pdwsyncmgrregisterflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrRegister, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrRegister, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrRegister {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38346,7 +38346,7 @@ impl ISyncMgrResolutionHandler {
         (::windows::core::Vtable::vtable(self).KeepItems)(::windows::core::Vtable::as_raw(self), parray.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrResolutionHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrResolutionHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrResolutionHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38398,7 +38398,7 @@ impl ISyncMgrScheduleWizardUIOperation {
         (::windows::core::Vtable::vtable(self).InitWizard)(::windows::core::Vtable::as_raw(self), pszhandlerid.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrScheduleWizardUIOperation, ::windows::core::IUnknown, ISyncMgrUIOperation);
+::windows::imp::interface_hierarchy!(ISyncMgrScheduleWizardUIOperation, ::windows::core::IUnknown, ISyncMgrUIOperation);
 impl ::core::cmp::PartialEq for ISyncMgrScheduleWizardUIOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38439,7 +38439,7 @@ impl ISyncMgrSessionCreator {
         (::windows::core::Vtable::vtable(self).CreateSession)(::windows::core::Vtable::as_raw(self), pszhandlerid.into().abi(), ::core::mem::transmute(ppszitemids.as_ptr()), ppszitemids.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrSessionCreator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrSessionCreator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrSessionCreator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38536,7 +38536,7 @@ impl ISyncMgrSyncCallback {
         (::windows::core::Vtable::vtable(self).ReportManualSync)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrSyncCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrSyncCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrSyncCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38620,7 +38620,7 @@ impl ISyncMgrSyncItem {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrSyncItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrSyncItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrSyncItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38679,7 +38679,7 @@ impl ISyncMgrSyncItemContainer {
         (::windows::core::Vtable::vtable(self).GetSyncItemCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrSyncItemContainer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrSyncItemContainer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrSyncItemContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38735,7 +38735,7 @@ impl ISyncMgrSyncItemInfo {
         (::windows::core::Vtable::vtable(self).IsConnected)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrSyncItemInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrSyncItemInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrSyncItemInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38779,7 +38779,7 @@ impl ISyncMgrSyncResult {
         (::windows::core::Vtable::vtable(self).Result)(::windows::core::Vtable::as_raw(self), nstatus, cerror, cconflicts).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrSyncResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrSyncResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrSyncResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38874,7 +38874,7 @@ impl ISyncMgrSynchronize {
         (::windows::core::Vtable::vtable(self).ShowError)(::windows::core::Vtable::as_raw(self), hwndparent.into(), errorid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrSynchronize, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrSynchronize, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrSynchronize {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -38970,7 +38970,7 @@ impl ISyncMgrSynchronizeCallback {
         (::windows::core::Vtable::vtable(self).EstablishConnection)(::windows::core::Vtable::as_raw(self), pwszconnection.into().abi(), dwreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrSynchronizeCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrSynchronizeCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrSynchronizeCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39021,7 +39021,7 @@ impl ISyncMgrSynchronizeInvoke {
         (::windows::core::Vtable::vtable(self).UpdateAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrSynchronizeInvoke, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrSynchronizeInvoke, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrSynchronizeInvoke {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39064,7 +39064,7 @@ impl ISyncMgrUIOperation {
         (::windows::core::Vtable::vtable(self).Run)(::windows::core::Vtable::as_raw(self), hwndowner.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISyncMgrUIOperation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISyncMgrUIOperation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISyncMgrUIOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39136,7 +39136,7 @@ impl ITaskbarList {
         (::windows::core::Vtable::vtable(self).SetActiveAlt)(::windows::core::Vtable::as_raw(self), hwnd.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITaskbarList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITaskbarList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITaskbarList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39230,7 +39230,7 @@ impl ITaskbarList2 {
         (::windows::core::Vtable::vtable(self).MarkFullscreenWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), ffullscreen.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITaskbarList2, ::windows::core::IUnknown, ITaskbarList);
+::windows::imp::interface_hierarchy!(ITaskbarList2, ::windows::core::IUnknown, ITaskbarList);
 impl ::core::cmp::PartialEq for ITaskbarList2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39414,7 +39414,7 @@ impl ITaskbarList3 {
         (::windows::core::Vtable::vtable(self).SetThumbnailClip)(::windows::core::Vtable::as_raw(self), hwnd.into(), prcclip).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITaskbarList3, ::windows::core::IUnknown, ITaskbarList, ITaskbarList2);
+::windows::imp::interface_hierarchy!(ITaskbarList3, ::windows::core::IUnknown, ITaskbarList, ITaskbarList2);
 impl ::core::cmp::PartialEq for ITaskbarList3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39650,7 +39650,7 @@ impl ITaskbarList4 {
         (::windows::core::Vtable::vtable(self).SetTabProperties)(::windows::core::Vtable::as_raw(self), hwndtab.into(), stpflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITaskbarList4, ::windows::core::IUnknown, ITaskbarList, ITaskbarList2, ITaskbarList3);
+::windows::imp::interface_hierarchy!(ITaskbarList4, ::windows::core::IUnknown, ITaskbarList, ITaskbarList2, ITaskbarList3);
 impl ::core::cmp::PartialEq for ITaskbarList4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39696,7 +39696,7 @@ impl IThumbnailCache {
         (::windows::core::Vtable::vtable(self).GetThumbnailByID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(thumbnailid), cxyrequestedthumbsize, ::core::mem::transmute(ppvthumb.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poutflags.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IThumbnailCache, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IThumbnailCache, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IThumbnailCache {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39737,7 +39737,7 @@ impl IThumbnailCachePrimer {
         (::windows::core::Vtable::vtable(self).PageInThumbnail)(::windows::core::Vtable::as_raw(self), psi.into().abi(), wtsflags, cxyrequestedthumbsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IThumbnailCachePrimer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IThumbnailCachePrimer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IThumbnailCachePrimer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39780,7 +39780,7 @@ impl IThumbnailCapture {
         (::windows::core::Vtable::vtable(self).CaptureThumbnail)(::windows::core::Vtable::as_raw(self), pmaxsize, phtmldoc2.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IThumbnailCapture, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IThumbnailCapture, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IThumbnailCapture {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39827,7 +39827,7 @@ impl IThumbnailHandlerFactory {
         (::windows::core::Vtable::vtable(self).GetThumbnailHandler)(::windows::core::Vtable::as_raw(self), pidlchild, pbc.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IThumbnailHandlerFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IThumbnailHandlerFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IThumbnailHandlerFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39869,7 +39869,7 @@ impl IThumbnailProvider {
         (::windows::core::Vtable::vtable(self).GetThumbnail)(::windows::core::Vtable::as_raw(self), cx, phbmp, pdwalpha).ok()
     }
 }
-::windows::core::interface_hierarchy!(IThumbnailProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IThumbnailProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IThumbnailProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39909,7 +39909,7 @@ impl IThumbnailSettings {
         (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), dwcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IThumbnailSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IThumbnailSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IThumbnailSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -39960,7 +39960,7 @@ impl IThumbnailStreamCache {
         (::windows::core::Vtable::vtable(self).SetThumbnailStream)(::windows::core::Vtable::as_raw(self), path.into().abi(), cacheid, ::core::mem::transmute(thumbnailsize), thumbnailstream.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IThumbnailStreamCache, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IThumbnailStreamCache, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IThumbnailStreamCache {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40071,7 +40071,7 @@ impl ITrackShellMenu {
         (::windows::core::Vtable::vtable(self).Popup)(::windows::core::Vtable::as_raw(self), hwnd.into(), ppt, prcexclude, dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITrackShellMenu, ::windows::core::IUnknown, IShellMenu);
+::windows::imp::interface_hierarchy!(ITrackShellMenu, ::windows::core::IUnknown, IShellMenu);
 impl ::core::cmp::PartialEq for ITrackShellMenu {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40121,7 +40121,7 @@ impl ITranscodeImage {
         (::windows::core::Vtable::vtable(self).TranscodeImage)(::windows::core::Vtable::as_raw(self), pshellitem.into().abi(), uimaxwidth, uimaxheight, flags, pvimage.into().abi(), puiwidth, puiheight).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITranscodeImage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITranscodeImage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITranscodeImage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40200,7 +40200,7 @@ impl ITransferAdviseSink {
         (::windows::core::Vtable::vtable(self).PropertyFailure)(::windows::core::Vtable::as_raw(self), psi.into().abi(), pkey, hrerror).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransferAdviseSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransferAdviseSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransferAdviseSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40259,7 +40259,7 @@ impl ITransferDestination {
         (::windows::core::Vtable::vtable(self).CreateItem)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), dwattributes, ullsize, flags, riiditem, ppvitem, riidresources, ppvresources).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransferDestination, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransferDestination, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransferDestination {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40305,7 +40305,7 @@ impl ITransferMediumItem {
         (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransferMediumItem, ::windows::core::IUnknown, IRelatedItem);
+::windows::imp::interface_hierarchy!(ITransferMediumItem, ::windows::core::IUnknown, IRelatedItem);
 impl ::core::cmp::PartialEq for ITransferMediumItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40429,7 +40429,7 @@ impl ITransferSource {
         (::windows::core::Vtable::vtable(self).LeaveFolder)(::windows::core::Vtable::as_raw(self), psichildfolderdest.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransferSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransferSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransferSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40499,7 +40499,7 @@ impl ITravelEntry {
         (::windows::core::Vtable::vtable(self).GetPidl)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITravelEntry, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITravelEntry, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITravelEntry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40615,7 +40615,7 @@ impl ITravelLog {
         (::windows::core::Vtable::vtable(self).Revert)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITravelLog, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITravelLog, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITravelLog {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40689,7 +40689,7 @@ impl ITravelLogClient {
         (::windows::core::Vtable::vtable(self).LoadHistoryPosition)(::windows::core::Vtable::as_raw(self), pszurllocation.into().abi(), dwposition).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITravelLogClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITravelLogClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITravelLogClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40736,7 +40736,7 @@ impl ITravelLogEntry {
         (::windows::core::Vtable::vtable(self).GetURL)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITravelLogEntry, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITravelLogEntry, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITravelLogEntry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40814,7 +40814,7 @@ impl ITravelLogStg {
         (::windows::core::Vtable::vtable(self).GetRelativeEntry)(::windows::core::Vtable::as_raw(self), ioffset, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITravelLogStg, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITravelLogStg, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITravelLogStg {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40869,7 +40869,7 @@ impl ITrayDeskBand {
         (::windows::core::Vtable::vtable(self).DeskBandRegistrationChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITrayDeskBand, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITrayDeskBand, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITrayDeskBand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40909,7 +40909,7 @@ impl IURLSearchHook {
         (::windows::core::Vtable::vtable(self).Translate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszsearchurl.as_ptr()), pwszsearchurl.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IURLSearchHook, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IURLSearchHook, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IURLSearchHook {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -40952,7 +40952,7 @@ impl IURLSearchHook2 {
         (::windows::core::Vtable::vtable(self).TranslateWithSearchContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszsearchurl.as_ptr()), pwszsearchurl.len() as _, psearchcontext.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IURLSearchHook2, ::windows::core::IUnknown, IURLSearchHook);
+::windows::imp::interface_hierarchy!(IURLSearchHook2, ::windows::core::IUnknown, IURLSearchHook);
 impl ::core::cmp::PartialEq for IURLSearchHook2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41001,7 +41001,7 @@ impl IUniformResourceLocatorA {
         (::windows::core::Vtable::vtable(self).InvokeCommand)(::windows::core::Vtable::as_raw(self), purlici).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUniformResourceLocatorA, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUniformResourceLocatorA, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUniformResourceLocatorA {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41055,7 +41055,7 @@ impl IUniformResourceLocatorW {
         (::windows::core::Vtable::vtable(self).InvokeCommand)(::windows::core::Vtable::as_raw(self), purlici).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUniformResourceLocatorW, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUniformResourceLocatorW, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUniformResourceLocatorW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41103,7 +41103,7 @@ impl IUpdateIDList {
         (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), pbc.into().abi(), pidlin, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUpdateIDList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUpdateIDList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUpdateIDList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41150,7 +41150,7 @@ impl IUseToBrowseItem {
         (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IUseToBrowseItem, ::windows::core::IUnknown, IRelatedItem);
+::windows::imp::interface_hierarchy!(IUseToBrowseItem, ::windows::core::IUnknown, IRelatedItem);
 impl ::core::cmp::PartialEq for IUseToBrowseItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41189,7 +41189,7 @@ impl IUserAccountChangeCallback {
         (::windows::core::Vtable::vtable(self).OnPictureChange)(::windows::core::Vtable::as_raw(self), pszusername.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUserAccountChangeCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUserAccountChangeCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUserAccountChangeCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41254,7 +41254,7 @@ impl IUserNotification {
         (::windows::core::Vtable::vtable(self).PlaySound)(::windows::core::Vtable::as_raw(self), pszsoundname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUserNotification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUserNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUserNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41327,7 +41327,7 @@ impl IUserNotification2 {
         (::windows::core::Vtable::vtable(self).PlaySound)(::windows::core::Vtable::as_raw(self), pszsoundname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUserNotification2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUserNotification2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUserNotification2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41383,7 +41383,7 @@ impl IUserNotificationCallback {
         (::windows::core::Vtable::vtable(self).OnContextMenu)(::windows::core::Vtable::as_raw(self), pt).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUserNotificationCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IUserNotificationCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUserNotificationCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41438,7 +41438,7 @@ impl IViewStateIdentityItem {
         (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IViewStateIdentityItem, ::windows::core::IUnknown, IRelatedItem);
+::windows::imp::interface_hierarchy!(IViewStateIdentityItem, ::windows::core::IUnknown, IRelatedItem);
 impl ::core::cmp::PartialEq for IViewStateIdentityItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41497,7 +41497,7 @@ impl IVirtualDesktopManager {
         (::windows::core::Vtable::vtable(self).MoveWindowToDesktop)(::windows::core::Vtable::as_raw(self), toplevelwindow.into(), desktopid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVirtualDesktopManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVirtualDesktopManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVirtualDesktopManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41591,7 +41591,7 @@ impl IVisualProperties {
         (::windows::core::Vtable::vtable(self).SetTheme)(::windows::core::Vtable::as_raw(self), pszsubappname.into().abi(), pszsubidlist.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVisualProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVisualProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVisualProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -41754,7 +41754,7 @@ impl IWebBrowser {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWebBrowser, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWebBrowser, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWebBrowser {
     fn eq(&self, other: &Self) -> bool {
@@ -42180,7 +42180,7 @@ impl IWebBrowser2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWebBrowser2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWebBrowser, IWebBrowserApp);
+::windows::imp::interface_hierarchy!(IWebBrowser2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWebBrowser, IWebBrowserApp);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWebBrowser2 {
     fn eq(&self, other: &Self) -> bool {
@@ -42508,7 +42508,7 @@ impl IWebBrowserApp {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWebBrowserApp, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWebBrowser);
+::windows::imp::interface_hierarchy!(IWebBrowserApp, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWebBrowser);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWebBrowserApp {
     fn eq(&self, other: &Self) -> bool {
@@ -42630,7 +42630,7 @@ impl IWebWizardExtension {
         (::windows::core::Vtable::vtable(self).SetErrorURL)(::windows::core::Vtable::as_raw(self), pszerrorurl.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWebWizardExtension, ::windows::core::IUnknown, IWizardExtension);
+::windows::imp::interface_hierarchy!(IWebWizardExtension, ::windows::core::IUnknown, IWizardExtension);
 impl ::core::cmp::PartialEq for IWebWizardExtension {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -42708,7 +42708,7 @@ impl IWebWizardHost {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWebWizardHost, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWebWizardHost, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWebWizardHost {
     fn eq(&self, other: &Self) -> bool {
@@ -42813,7 +42813,7 @@ impl IWebWizardHost2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWebWizardHost2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWebWizardHost);
+::windows::imp::interface_hierarchy!(IWebWizardHost2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWebWizardHost);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWebWizardHost2 {
     fn eq(&self, other: &Self) -> bool {
@@ -42871,7 +42871,7 @@ impl IWizardExtension {
         (::windows::core::Vtable::vtable(self).GetLastPage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWizardExtension, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWizardExtension, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWizardExtension {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -42934,7 +42934,7 @@ impl IWizardSite {
         (::windows::core::Vtable::vtable(self).GetCancelledPage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWizardSite, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWizardSite, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWizardSite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

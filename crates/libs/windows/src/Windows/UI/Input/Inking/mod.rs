@@ -380,7 +380,7 @@ impl IInkPointFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IInkPointFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInkPointFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInkPointFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -393,7 +393,7 @@ impl ::core::fmt::Debug for IInkPointFactory {
     }
 }
 impl ::windows::core::RuntimeType for IInkPointFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{29e5d51c-c98f-405d-9f3b-e53e31068d4d}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{29e5d51c-c98f-405d-9f3b-e53e31068d4d}");
 }
 unsafe impl ::windows::core::Vtable for IInkPointFactory {
     type Vtable = IInkPointFactory_Vtbl;
@@ -644,7 +644,7 @@ impl IInkPresenterRulerFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IInkPresenterRulerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInkPresenterRulerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInkPresenterRulerFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -657,7 +657,7 @@ impl ::core::fmt::Debug for IInkPresenterRulerFactory {
     }
 }
 impl ::windows::core::RuntimeType for IInkPresenterRulerFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{34361beb-9001-4a4b-a690-69dbaf63e501}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{34361beb-9001-4a4b-a690-69dbaf63e501}");
 }
 unsafe impl ::windows::core::Vtable for IInkPresenterRulerFactory {
     type Vtable = IInkPresenterRulerFactory_Vtbl;
@@ -736,7 +736,7 @@ impl IInkPresenterStencil {
         unsafe { (::windows::core::Vtable::vtable(this).SetTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IInkPresenterStencil, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInkPresenterStencil, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInkPresenterStencil {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -749,7 +749,7 @@ impl ::core::fmt::Debug for IInkPresenterStencil {
     }
 }
 impl ::windows::core::RuntimeType for IInkPresenterStencil {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30d12d6d-3e06-4d02-b116-277fb5d8addc}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{30d12d6d-3e06-4d02-b116-277fb5d8addc}");
 }
 unsafe impl ::windows::core::Vtable for IInkPresenterStencil {
     type Vtable = IInkPresenterStencil_Vtbl;
@@ -860,7 +860,7 @@ impl IInkRecognizerContainer {
         }
     }
 }
-::windows::core::interface_hierarchy!(IInkRecognizerContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInkRecognizerContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInkRecognizerContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -873,7 +873,7 @@ impl ::core::fmt::Debug for IInkRecognizerContainer {
     }
 }
 impl ::windows::core::RuntimeType for IInkRecognizerContainer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a74d9a31-8047-4698-a912-f82a5085012f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a74d9a31-8047-4698-a912-f82a5085012f}");
 }
 unsafe impl ::windows::core::Vtable for IInkRecognizerContainer {
     type Vtable = IInkRecognizerContainer_Vtbl;
@@ -1225,7 +1225,7 @@ impl IInkStrokeContainer {
         }
     }
 }
-::windows::core::interface_hierarchy!(IInkStrokeContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInkStrokeContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInkStrokeContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1238,7 +1238,7 @@ impl ::core::fmt::Debug for IInkStrokeContainer {
     }
 }
 impl ::windows::core::RuntimeType for IInkStrokeContainer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{22accbc6-faa9-4f14-b68c-f6cee670ae16}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{22accbc6-faa9-4f14-b68c-f6cee670ae16}");
 }
 unsafe impl ::windows::core::Vtable for IInkStrokeContainer {
     type Vtable = IInkStrokeContainer_Vtbl;
@@ -1656,8 +1656,8 @@ impl InkDrawingAttributes {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkDrawingAttributes, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InkDrawingAttributes, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Color(&self) -> ::windows::core::Result<super::super::Color> {
@@ -1785,7 +1785,7 @@ impl InkDrawingAttributes {
     }
     #[doc(hidden)]
     pub fn IInkDrawingAttributesStatics<R, F: FnOnce(&IInkDrawingAttributesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkDrawingAttributes, IInkDrawingAttributesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InkDrawingAttributes, IInkDrawingAttributesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1801,7 +1801,7 @@ impl ::core::fmt::Debug for InkDrawingAttributes {
     }
 }
 impl ::windows::core::RuntimeType for InkDrawingAttributes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributes;{97a2176c-6774-48ad-84f0-48f5a9be74f9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributes;{97a2176c-6774-48ad-84f0-48f5a9be74f9})");
 }
 impl ::core::clone::Clone for InkDrawingAttributes {
     fn clone(&self) -> Self {
@@ -1817,7 +1817,7 @@ unsafe impl ::windows::core::Interface for InkDrawingAttributes {
 impl ::windows::core::RuntimeName for InkDrawingAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributes";
 }
-::windows::core::interface_hierarchy!(InkDrawingAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkDrawingAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkDrawingAttributes {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributes {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -1848,7 +1848,7 @@ impl ::core::fmt::Debug for InkDrawingAttributesPencilProperties {
     }
 }
 impl ::windows::core::RuntimeType for InkDrawingAttributesPencilProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties;{4f2534cb-2d86-41bb-b0e8-e4c2a0253c52})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties;{4f2534cb-2d86-41bb-b0e8-e4c2a0253c52})");
 }
 impl ::core::clone::Clone for InkDrawingAttributesPencilProperties {
     fn clone(&self) -> Self {
@@ -1864,7 +1864,7 @@ unsafe impl ::windows::core::Interface for InkDrawingAttributesPencilProperties 
 impl ::windows::core::RuntimeName for InkDrawingAttributesPencilProperties {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties";
 }
-::windows::core::interface_hierarchy!(InkDrawingAttributesPencilProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkDrawingAttributesPencilProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkDrawingAttributesPencilProperties {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributesPencilProperties {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -1917,7 +1917,7 @@ impl ::core::fmt::Debug for InkInputConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for InkInputConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputConfiguration;{93a68dc4-0b7b-49d7-b34f-9901e524dcf2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputConfiguration;{93a68dc4-0b7b-49d7-b34f-9901e524dcf2})");
 }
 impl ::core::clone::Clone for InkInputConfiguration {
     fn clone(&self) -> Self {
@@ -1933,7 +1933,7 @@ unsafe impl ::windows::core::Interface for InkInputConfiguration {
 impl ::windows::core::RuntimeName for InkInputConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputConfiguration";
 }
-::windows::core::interface_hierarchy!(InkInputConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkInputConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkInputConfiguration {}
 unsafe impl ::core::marker::Sync for InkInputConfiguration {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -1975,7 +1975,7 @@ impl ::core::fmt::Debug for InkInputProcessingConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for InkInputProcessingConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputProcessingConfiguration;{2778d85e-33ca-4b06-a6d3-ac3945116d37})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputProcessingConfiguration;{2778d85e-33ca-4b06-a6d3-ac3945116d37})");
 }
 impl ::core::clone::Clone for InkInputProcessingConfiguration {
     fn clone(&self) -> Self {
@@ -1991,7 +1991,7 @@ unsafe impl ::windows::core::Interface for InkInputProcessingConfiguration {
 impl ::windows::core::RuntimeName for InkInputProcessingConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputProcessingConfiguration";
 }
-::windows::core::interface_hierarchy!(InkInputProcessingConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkInputProcessingConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkInputProcessingConfiguration {}
 unsafe impl ::core::marker::Sync for InkInputProcessingConfiguration {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2001,8 +2001,8 @@ impl InkManager {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkManager, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InkManager, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Mode(&self) -> ::windows::core::Result<InkManipulationMode> {
@@ -2211,7 +2211,7 @@ impl ::core::fmt::Debug for InkManager {
     }
 }
 impl ::windows::core::RuntimeType for InkManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkManager;{4744737d-671b-4163-9c95-4e8d7a035fe1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkManager;{4744737d-671b-4163-9c95-4e8d7a035fe1})");
 }
 impl ::core::clone::Clone for InkManager {
     fn clone(&self) -> Self {
@@ -2227,7 +2227,7 @@ unsafe impl ::windows::core::Interface for InkManager {
 impl ::windows::core::RuntimeName for InkManager {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkManager";
 }
-::windows::core::interface_hierarchy!(InkManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkManager> for IInkRecognizerContainer {
     type Error = ::windows::core::Error;
     fn try_from(value: InkManager) -> ::windows::core::Result<Self> {
@@ -2320,7 +2320,7 @@ impl ::core::fmt::Debug for InkModelerAttributes {
     }
 }
 impl ::windows::core::RuntimeType for InkModelerAttributes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkModelerAttributes;{bad31f27-0cd9-4bfd-b6f3-9e03ba8d7454})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkModelerAttributes;{bad31f27-0cd9-4bfd-b6f3-9e03ba8d7454})");
 }
 impl ::core::clone::Clone for InkModelerAttributes {
     fn clone(&self) -> Self {
@@ -2336,7 +2336,7 @@ unsafe impl ::windows::core::Interface for InkModelerAttributes {
 impl ::windows::core::RuntimeName for InkModelerAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkModelerAttributes";
 }
-::windows::core::interface_hierarchy!(InkModelerAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkModelerAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkModelerAttributes {}
 unsafe impl ::core::marker::Sync for InkModelerAttributes {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2398,12 +2398,12 @@ impl InkPoint {
     }
     #[doc(hidden)]
     pub fn IInkPointFactory<R, F: FnOnce(&IInkPointFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkPoint, IInkPointFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InkPoint, IInkPointFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IInkPointFactory2<R, F: FnOnce(&IInkPointFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkPoint, IInkPointFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InkPoint, IInkPointFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2419,7 +2419,7 @@ impl ::core::fmt::Debug for InkPoint {
     }
 }
 impl ::windows::core::RuntimeType for InkPoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPoint;{9f87272b-858c-46a5-9b41-d195970459fd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPoint;{9f87272b-858c-46a5-9b41-d195970459fd})");
 }
 impl ::core::clone::Clone for InkPoint {
     fn clone(&self) -> Self {
@@ -2435,7 +2435,7 @@ unsafe impl ::windows::core::Interface for InkPoint {
 impl ::windows::core::RuntimeName for InkPoint {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPoint";
 }
-::windows::core::interface_hierarchy!(InkPoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkPoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkPoint {}
 unsafe impl ::core::marker::Sync for InkPoint {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2583,7 +2583,7 @@ impl ::core::fmt::Debug for InkPresenter {
     }
 }
 impl ::windows::core::RuntimeType for InkPresenter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenter;{a69b70e2-887b-458f-b173-4fe4438930a3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenter;{a69b70e2-887b-458f-b173-4fe4438930a3})");
 }
 impl ::core::clone::Clone for InkPresenter {
     fn clone(&self) -> Self {
@@ -2599,7 +2599,7 @@ unsafe impl ::windows::core::Interface for InkPresenter {
 impl ::windows::core::RuntimeName for InkPresenter {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenter";
 }
-::windows::core::interface_hierarchy!(InkPresenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkPresenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkPresenter {}
 unsafe impl ::core::marker::Sync for InkPresenter {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2746,7 +2746,7 @@ impl InkPresenterProtractor {
     }
     #[doc(hidden)]
     pub fn IInkPresenterProtractorFactory<R, F: FnOnce(&IInkPresenterProtractorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkPresenterProtractor, IInkPresenterProtractorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InkPresenterProtractor, IInkPresenterProtractorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2762,7 +2762,7 @@ impl ::core::fmt::Debug for InkPresenterProtractor {
     }
 }
 impl ::windows::core::RuntimeType for InkPresenterProtractor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterProtractor;{7de3f2aa-ef6c-4e91-a73b-5b70d56fbd17})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterProtractor;{7de3f2aa-ef6c-4e91-a73b-5b70d56fbd17})");
 }
 impl ::core::clone::Clone for InkPresenterProtractor {
     fn clone(&self) -> Self {
@@ -2778,7 +2778,7 @@ unsafe impl ::windows::core::Interface for InkPresenterProtractor {
 impl ::windows::core::RuntimeName for InkPresenterProtractor {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterProtractor";
 }
-::windows::core::interface_hierarchy!(InkPresenterProtractor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkPresenterProtractor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkPresenterProtractor> for IInkPresenterStencil {
     type Error = ::windows::core::Error;
     fn try_from(value: InkPresenterProtractor) -> ::windows::core::Result<Self> {
@@ -2911,7 +2911,7 @@ impl InkPresenterRuler {
     }
     #[doc(hidden)]
     pub fn IInkPresenterRulerFactory<R, F: FnOnce(&IInkPresenterRulerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkPresenterRuler, IInkPresenterRulerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InkPresenterRuler, IInkPresenterRulerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2927,7 +2927,7 @@ impl ::core::fmt::Debug for InkPresenterRuler {
     }
 }
 impl ::windows::core::RuntimeType for InkPresenterRuler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterRuler;{6cda7d5a-dec7-4dd7-877a-2133f183d48a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterRuler;{6cda7d5a-dec7-4dd7-877a-2133f183d48a})");
 }
 impl ::core::clone::Clone for InkPresenterRuler {
     fn clone(&self) -> Self {
@@ -2943,7 +2943,7 @@ unsafe impl ::windows::core::Interface for InkPresenterRuler {
 impl ::windows::core::RuntimeName for InkPresenterRuler {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterRuler";
 }
-::windows::core::interface_hierarchy!(InkPresenterRuler, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkPresenterRuler, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkPresenterRuler> for IInkPresenterStencil {
     type Error = ::windows::core::Error;
     fn try_from(value: InkPresenterRuler) -> ::windows::core::Result<Self> {
@@ -3009,7 +3009,7 @@ impl ::core::fmt::Debug for InkRecognitionResult {
     }
 }
 impl ::windows::core::RuntimeType for InkRecognitionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognitionResult;{36461a94-5068-40ef-8a05-2c2fb60908a2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognitionResult;{36461a94-5068-40ef-8a05-2c2fb60908a2})");
 }
 impl ::core::clone::Clone for InkRecognitionResult {
     fn clone(&self) -> Self {
@@ -3025,7 +3025,7 @@ unsafe impl ::windows::core::Interface for InkRecognitionResult {
 impl ::windows::core::RuntimeName for InkRecognitionResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognitionResult";
 }
-::windows::core::interface_hierarchy!(InkRecognitionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkRecognitionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkRecognitionResult {}
 unsafe impl ::core::marker::Sync for InkRecognitionResult {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -3052,7 +3052,7 @@ impl ::core::fmt::Debug for InkRecognizer {
     }
 }
 impl ::windows::core::RuntimeType for InkRecognizer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizer;{077ccea3-904d-442a-b151-aaca3631c43b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizer;{077ccea3-904d-442a-b151-aaca3631c43b})");
 }
 impl ::core::clone::Clone for InkRecognizer {
     fn clone(&self) -> Self {
@@ -3068,7 +3068,7 @@ unsafe impl ::windows::core::Interface for InkRecognizer {
 impl ::windows::core::RuntimeName for InkRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizer";
 }
-::windows::core::interface_hierarchy!(InkRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkRecognizerContainer(::windows::core::IUnknown);
@@ -3076,8 +3076,8 @@ impl InkRecognizerContainer {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkRecognizerContainer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InkRecognizerContainer, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetDefaultRecognizer(&self, recognizer: &InkRecognizer) -> ::windows::core::Result<()> {
@@ -3115,7 +3115,7 @@ impl ::core::fmt::Debug for InkRecognizerContainer {
     }
 }
 impl ::windows::core::RuntimeType for InkRecognizerContainer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizerContainer;{a74d9a31-8047-4698-a912-f82a5085012f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizerContainer;{a74d9a31-8047-4698-a912-f82a5085012f})");
 }
 impl ::core::clone::Clone for InkRecognizerContainer {
     fn clone(&self) -> Self {
@@ -3131,7 +3131,7 @@ unsafe impl ::windows::core::Interface for InkRecognizerContainer {
 impl ::windows::core::RuntimeName for InkRecognizerContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizerContainer";
 }
-::windows::core::interface_hierarchy!(InkRecognizerContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkRecognizerContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkRecognizerContainer> for IInkRecognizerContainer {
     type Error = ::windows::core::Error;
     fn try_from(value: InkRecognizerContainer) -> ::windows::core::Result<Self> {
@@ -3298,7 +3298,7 @@ impl ::core::fmt::Debug for InkStroke {
     }
 }
 impl ::windows::core::RuntimeType for InkStroke {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStroke;{15144d60-cce3-4fcf-9d52-11518ab6afd4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStroke;{15144d60-cce3-4fcf-9d52-11518ab6afd4})");
 }
 impl ::core::clone::Clone for InkStroke {
     fn clone(&self) -> Self {
@@ -3314,7 +3314,7 @@ unsafe impl ::windows::core::Interface for InkStroke {
 impl ::windows::core::RuntimeName for InkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStroke";
 }
-::windows::core::interface_hierarchy!(InkStroke, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkStroke, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkStroke {}
 unsafe impl ::core::marker::Sync for InkStroke {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -3324,8 +3324,8 @@ impl InkStrokeBuilder {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkStrokeBuilder, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InkStrokeBuilder, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn BeginStroke(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<()> {
@@ -3406,7 +3406,7 @@ impl ::core::fmt::Debug for InkStrokeBuilder {
     }
 }
 impl ::windows::core::RuntimeType for InkStrokeBuilder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeBuilder;{82bbd1dc-1c63-41dc-9e07-4b4a70ced801})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeBuilder;{82bbd1dc-1c63-41dc-9e07-4b4a70ced801})");
 }
 impl ::core::clone::Clone for InkStrokeBuilder {
     fn clone(&self) -> Self {
@@ -3422,7 +3422,7 @@ unsafe impl ::windows::core::Interface for InkStrokeBuilder {
 impl ::windows::core::RuntimeName for InkStrokeBuilder {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeBuilder";
 }
-::windows::core::interface_hierarchy!(InkStrokeBuilder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkStrokeBuilder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkStrokeContainer(::windows::core::IUnknown);
@@ -3430,8 +3430,8 @@ impl InkStrokeContainer {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InkStrokeContainer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<InkStrokeContainer, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3608,7 +3608,7 @@ impl ::core::fmt::Debug for InkStrokeContainer {
     }
 }
 impl ::windows::core::RuntimeType for InkStrokeContainer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeContainer;{22accbc6-faa9-4f14-b68c-f6cee670ae16})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeContainer;{22accbc6-faa9-4f14-b68c-f6cee670ae16})");
 }
 impl ::core::clone::Clone for InkStrokeContainer {
     fn clone(&self) -> Self {
@@ -3624,7 +3624,7 @@ unsafe impl ::windows::core::Interface for InkStrokeContainer {
 impl ::windows::core::RuntimeName for InkStrokeContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeContainer";
 }
-::windows::core::interface_hierarchy!(InkStrokeContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkStrokeContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkStrokeContainer> for IInkStrokeContainer {
     type Error = ::windows::core::Error;
     fn try_from(value: InkStrokeContainer) -> ::windows::core::Result<Self> {
@@ -3728,7 +3728,7 @@ impl ::core::fmt::Debug for InkStrokeInput {
     }
 }
 impl ::windows::core::RuntimeType for InkStrokeInput {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeInput;{cf2ffe7b-5e10-43c6-a080-88f26e1dc67d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeInput;{cf2ffe7b-5e10-43c6-a080-88f26e1dc67d})");
 }
 impl ::core::clone::Clone for InkStrokeInput {
     fn clone(&self) -> Self {
@@ -3744,7 +3744,7 @@ unsafe impl ::windows::core::Interface for InkStrokeInput {
 impl ::windows::core::RuntimeName for InkStrokeInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeInput";
 }
-::windows::core::interface_hierarchy!(InkStrokeInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkStrokeInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkStrokeInput {}
 unsafe impl ::core::marker::Sync for InkStrokeInput {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -3819,7 +3819,7 @@ impl ::core::fmt::Debug for InkStrokeRenderingSegment {
     }
 }
 impl ::windows::core::RuntimeType for InkStrokeRenderingSegment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeRenderingSegment;{68510f1f-88e3-477a-a2fa-569f5f1f9bd5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeRenderingSegment;{68510f1f-88e3-477a-a2fa-569f5f1f9bd5})");
 }
 impl ::core::clone::Clone for InkStrokeRenderingSegment {
     fn clone(&self) -> Self {
@@ -3835,7 +3835,7 @@ unsafe impl ::windows::core::Interface for InkStrokeRenderingSegment {
 impl ::windows::core::RuntimeName for InkStrokeRenderingSegment {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeRenderingSegment";
 }
-::windows::core::interface_hierarchy!(InkStrokeRenderingSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkStrokeRenderingSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkStrokeRenderingSegment {}
 unsafe impl ::core::marker::Sync for InkStrokeRenderingSegment {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -3864,7 +3864,7 @@ impl ::core::fmt::Debug for InkStrokesCollectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for InkStrokesCollectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesCollectedEventArgs;{c4f3f229-1938-495c-b4d9-6de4b08d4811})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesCollectedEventArgs;{c4f3f229-1938-495c-b4d9-6de4b08d4811})");
 }
 impl ::core::clone::Clone for InkStrokesCollectedEventArgs {
     fn clone(&self) -> Self {
@@ -3880,7 +3880,7 @@ unsafe impl ::windows::core::Interface for InkStrokesCollectedEventArgs {
 impl ::windows::core::RuntimeName for InkStrokesCollectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesCollectedEventArgs";
 }
-::windows::core::interface_hierarchy!(InkStrokesCollectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkStrokesCollectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkStrokesErasedEventArgs(::windows::core::IUnknown);
@@ -3907,7 +3907,7 @@ impl ::core::fmt::Debug for InkStrokesErasedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for InkStrokesErasedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesErasedEventArgs;{a4216a22-1503-4ebf-8ff5-2de84584a8aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesErasedEventArgs;{a4216a22-1503-4ebf-8ff5-2de84584a8aa})");
 }
 impl ::core::clone::Clone for InkStrokesErasedEventArgs {
     fn clone(&self) -> Self {
@@ -3923,7 +3923,7 @@ unsafe impl ::windows::core::Interface for InkStrokesErasedEventArgs {
 impl ::windows::core::RuntimeName for InkStrokesErasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesErasedEventArgs";
 }
-::windows::core::interface_hierarchy!(InkStrokesErasedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkStrokesErasedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkSynchronizer(::windows::core::IUnknown);
@@ -3954,7 +3954,7 @@ impl ::core::fmt::Debug for InkSynchronizer {
     }
 }
 impl ::windows::core::RuntimeType for InkSynchronizer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkSynchronizer;{9b9ea160-ae9b-45f9-8407-4b493b163661})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkSynchronizer;{9b9ea160-ae9b-45f9-8407-4b493b163661})");
 }
 impl ::core::clone::Clone for InkSynchronizer {
     fn clone(&self) -> Self {
@@ -3970,7 +3970,7 @@ unsafe impl ::windows::core::Interface for InkSynchronizer {
 impl ::windows::core::RuntimeName for InkSynchronizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkSynchronizer";
 }
-::windows::core::interface_hierarchy!(InkSynchronizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkSynchronizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkUnprocessedInput(::windows::core::IUnknown);
@@ -4100,7 +4100,7 @@ impl ::core::fmt::Debug for InkUnprocessedInput {
     }
 }
 impl ::windows::core::RuntimeType for InkUnprocessedInput {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkUnprocessedInput;{db4445e0-8398-4921-ac3b-ab978c5ba256})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkUnprocessedInput;{db4445e0-8398-4921-ac3b-ab978c5ba256})");
 }
 impl ::core::clone::Clone for InkUnprocessedInput {
     fn clone(&self) -> Self {
@@ -4116,7 +4116,7 @@ unsafe impl ::windows::core::Interface for InkUnprocessedInput {
 impl ::windows::core::RuntimeName for InkUnprocessedInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkUnprocessedInput";
 }
-::windows::core::interface_hierarchy!(InkUnprocessedInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InkUnprocessedInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkUnprocessedInput {}
 unsafe impl ::core::marker::Sync for InkUnprocessedInput {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -4177,7 +4177,7 @@ impl PenAndInkSettings {
     }
     #[doc(hidden)]
     pub fn IPenAndInkSettingsStatics<R, F: FnOnce(&IPenAndInkSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PenAndInkSettings, IPenAndInkSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PenAndInkSettings, IPenAndInkSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4193,7 +4193,7 @@ impl ::core::fmt::Debug for PenAndInkSettings {
     }
 }
 impl ::windows::core::RuntimeType for PenAndInkSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.PenAndInkSettings;{bc2ceb8f-0066-44a8-bb7a-b839b3deb8f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.PenAndInkSettings;{bc2ceb8f-0066-44a8-bb7a-b839b3deb8f5})");
 }
 impl ::core::clone::Clone for PenAndInkSettings {
     fn clone(&self) -> Self {
@@ -4209,7 +4209,7 @@ unsafe impl ::windows::core::Interface for PenAndInkSettings {
 impl ::windows::core::RuntimeName for PenAndInkSettings {
     const NAME: &'static str = "Windows.UI.Input.Inking.PenAndInkSettings";
 }
-::windows::core::interface_hierarchy!(PenAndInkSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PenAndInkSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenAndInkSettings {}
 unsafe impl ::core::marker::Sync for PenAndInkSettings {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -4241,7 +4241,7 @@ impl ::core::fmt::Debug for HandwritingLineHeight {
     }
 }
 impl ::windows::core::RuntimeType for HandwritingLineHeight {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.HandwritingLineHeight;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.HandwritingLineHeight;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4271,7 +4271,7 @@ impl ::core::fmt::Debug for InkDrawingAttributesKind {
     }
 }
 impl ::windows::core::RuntimeType for InkDrawingAttributesKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkDrawingAttributesKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkDrawingAttributesKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4302,7 +4302,7 @@ impl ::core::fmt::Debug for InkHighContrastAdjustment {
     }
 }
 impl ::windows::core::RuntimeType for InkHighContrastAdjustment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkHighContrastAdjustment;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkHighContrastAdjustment;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4333,7 +4333,7 @@ impl ::core::fmt::Debug for InkInputProcessingMode {
     }
 }
 impl ::windows::core::RuntimeType for InkInputProcessingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputProcessingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputProcessingMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4363,7 +4363,7 @@ impl ::core::fmt::Debug for InkInputRightDragAction {
     }
 }
 impl ::windows::core::RuntimeType for InkInputRightDragAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputRightDragAction;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputRightDragAction;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4394,7 +4394,7 @@ impl ::core::fmt::Debug for InkManipulationMode {
     }
 }
 impl ::windows::core::RuntimeType for InkManipulationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkManipulationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkManipulationMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4424,7 +4424,7 @@ impl ::core::fmt::Debug for InkPersistenceFormat {
     }
 }
 impl ::windows::core::RuntimeType for InkPersistenceFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPersistenceFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPersistenceFormat;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4454,7 +4454,7 @@ impl ::core::fmt::Debug for InkPresenterPredefinedConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for InkPresenterPredefinedConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterPredefinedConfiguration;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterPredefinedConfiguration;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4485,7 +4485,7 @@ impl ::core::fmt::Debug for InkPresenterStencilKind {
     }
 }
 impl ::windows::core::RuntimeType for InkPresenterStencilKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterStencilKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterStencilKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4516,7 +4516,7 @@ impl ::core::fmt::Debug for InkRecognitionTarget {
     }
 }
 impl ::windows::core::RuntimeType for InkRecognitionTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkRecognitionTarget;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkRecognitionTarget;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4546,7 +4546,7 @@ impl ::core::fmt::Debug for PenHandedness {
     }
 }
 impl ::windows::core::RuntimeType for PenHandedness {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.PenHandedness;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.PenHandedness;i4)");
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
@@ -4576,7 +4576,7 @@ impl ::core::fmt::Debug for PenTipShape {
     }
 }
 impl ::windows::core::RuntimeType for PenTipShape {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.PenTipShape;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.PenTipShape;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

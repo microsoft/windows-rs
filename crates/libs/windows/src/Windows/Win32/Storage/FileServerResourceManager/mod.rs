@@ -5,7 +5,7 @@ pub struct DIFsrmClassificationEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DIFsrmClassificationEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DIFsrmClassificationEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DIFsrmClassificationEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DIFsrmClassificationEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -52,7 +52,7 @@ impl IFsrmAccessDeniedRemediationClient {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmAccessDeniedRemediationClient, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmAccessDeniedRemediationClient, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmAccessDeniedRemediationClient {
     fn eq(&self, other: &Self) -> bool {
@@ -114,7 +114,7 @@ impl IFsrmAction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmAction, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmAction, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmAction {
     fn eq(&self, other: &Self) -> bool {
@@ -243,7 +243,7 @@ impl IFsrmActionCommand {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmActionCommand, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
+::windows::imp::interface_hierarchy!(IFsrmActionCommand, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmActionCommand {
     fn eq(&self, other: &Self) -> bool {
@@ -379,7 +379,7 @@ impl IFsrmActionEmail {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmActionEmail, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
+::windows::imp::interface_hierarchy!(IFsrmActionEmail, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmActionEmail {
     fn eq(&self, other: &Self) -> bool {
@@ -510,7 +510,7 @@ impl IFsrmActionEmail2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmActionEmail2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction, IFsrmActionEmail);
+::windows::imp::interface_hierarchy!(IFsrmActionEmail2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction, IFsrmActionEmail);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmActionEmail2 {
     fn eq(&self, other: &Self) -> bool {
@@ -587,7 +587,7 @@ impl IFsrmActionEventLog {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmActionEventLog, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
+::windows::imp::interface_hierarchy!(IFsrmActionEventLog, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmActionEventLog {
     fn eq(&self, other: &Self) -> bool {
@@ -670,7 +670,7 @@ impl IFsrmActionReport {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmActionReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
+::windows::imp::interface_hierarchy!(IFsrmActionReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmActionReport {
     fn eq(&self, other: &Self) -> bool {
@@ -827,7 +827,7 @@ impl IFsrmAutoApplyQuota {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmAutoApplyQuota, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaObject);
+::windows::imp::interface_hierarchy!(IFsrmAutoApplyQuota, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmAutoApplyQuota {
     fn eq(&self, other: &Self) -> bool {
@@ -1017,7 +1017,7 @@ impl IFsrmClassificationManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmClassificationManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmClassificationManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmClassificationManager {
     fn eq(&self, other: &Self) -> bool {
@@ -1275,7 +1275,7 @@ impl IFsrmClassificationManager2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmClassificationManager2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmClassificationManager);
+::windows::imp::interface_hierarchy!(IFsrmClassificationManager2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmClassificationManager);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmClassificationManager2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1413,7 +1413,7 @@ impl IFsrmClassificationRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmClassificationRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmRule);
+::windows::imp::interface_hierarchy!(IFsrmClassificationRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmRule);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmClassificationRule {
     fn eq(&self, other: &Self) -> bool {
@@ -1604,7 +1604,7 @@ impl IFsrmClassifierModuleDefinition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmClassifierModuleDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPipelineModuleDefinition);
+::windows::imp::interface_hierarchy!(IFsrmClassifierModuleDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPipelineModuleDefinition);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmClassifierModuleDefinition {
     fn eq(&self, other: &Self) -> bool {
@@ -1717,7 +1717,7 @@ impl IFsrmClassifierModuleImplementation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmClassifierModuleImplementation, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmPipelineModuleImplementation);
+::windows::imp::interface_hierarchy!(IFsrmClassifierModuleImplementation, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmPipelineModuleImplementation);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmClassifierModuleImplementation {
     fn eq(&self, other: &Self) -> bool {
@@ -1811,7 +1811,7 @@ impl IFsrmCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -1926,7 +1926,7 @@ impl IFsrmCommittableCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmCommittableCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmCollection, IFsrmMutableCollection);
+::windows::imp::interface_hierarchy!(IFsrmCommittableCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmCollection, IFsrmMutableCollection);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmCommittableCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -1985,7 +1985,7 @@ impl IFsrmDerivedObjectsResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmDerivedObjectsResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmDerivedObjectsResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmDerivedObjectsResult {
     fn eq(&self, other: &Self) -> bool {
@@ -2069,7 +2069,7 @@ impl IFsrmExportImport {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmExportImport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmExportImport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmExportImport {
     fn eq(&self, other: &Self) -> bool {
@@ -2143,7 +2143,7 @@ impl IFsrmFileCondition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileCondition, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmFileCondition, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileCondition {
     fn eq(&self, other: &Self) -> bool {
@@ -2234,7 +2234,7 @@ impl IFsrmFileConditionProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileConditionProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmFileCondition);
+::windows::imp::interface_hierarchy!(IFsrmFileConditionProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmFileCondition);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileConditionProperty {
     fn eq(&self, other: &Self) -> bool {
@@ -2345,7 +2345,7 @@ impl IFsrmFileGroup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileGroup, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
+::windows::imp::interface_hierarchy!(IFsrmFileGroup, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileGroup {
     fn eq(&self, other: &Self) -> bool {
@@ -2472,7 +2472,7 @@ impl IFsrmFileGroupImported {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileGroupImported, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileGroup);
+::windows::imp::interface_hierarchy!(IFsrmFileGroupImported, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileGroup);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileGroupImported {
     fn eq(&self, other: &Self) -> bool {
@@ -2553,7 +2553,7 @@ impl IFsrmFileGroupManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileGroupManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmFileGroupManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileGroupManager {
     fn eq(&self, other: &Self) -> bool {
@@ -2850,7 +2850,7 @@ impl IFsrmFileManagementJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileManagementJob, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
+::windows::imp::interface_hierarchy!(IFsrmFileManagementJob, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileManagementJob {
     fn eq(&self, other: &Self) -> bool {
@@ -3026,7 +3026,7 @@ impl IFsrmFileManagementJobManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileManagementJobManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmFileManagementJobManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileManagementJobManager {
     fn eq(&self, other: &Self) -> bool {
@@ -3164,7 +3164,7 @@ impl IFsrmFileScreen {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileScreen, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase);
+::windows::imp::interface_hierarchy!(IFsrmFileScreen, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileScreen {
     fn eq(&self, other: &Self) -> bool {
@@ -3266,7 +3266,7 @@ impl IFsrmFileScreenBase {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileScreenBase, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
+::windows::imp::interface_hierarchy!(IFsrmFileScreenBase, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileScreenBase {
     fn eq(&self, other: &Self) -> bool {
@@ -3362,7 +3362,7 @@ impl IFsrmFileScreenException {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileScreenException, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
+::windows::imp::interface_hierarchy!(IFsrmFileScreenException, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileScreenException {
     fn eq(&self, other: &Self) -> bool {
@@ -3468,7 +3468,7 @@ impl IFsrmFileScreenManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileScreenManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmFileScreenManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileScreenManager {
     fn eq(&self, other: &Self) -> bool {
@@ -3613,7 +3613,7 @@ impl IFsrmFileScreenTemplate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileScreenTemplate, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase);
+::windows::imp::interface_hierarchy!(IFsrmFileScreenTemplate, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileScreenTemplate {
     fn eq(&self, other: &Self) -> bool {
@@ -3743,7 +3743,7 @@ impl IFsrmFileScreenTemplateImported {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileScreenTemplateImported, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase, IFsrmFileScreenTemplate);
+::windows::imp::interface_hierarchy!(IFsrmFileScreenTemplateImported, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase, IFsrmFileScreenTemplate);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileScreenTemplateImported {
     fn eq(&self, other: &Self) -> bool {
@@ -3824,7 +3824,7 @@ impl IFsrmFileScreenTemplateManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmFileScreenTemplateManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmFileScreenTemplateManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmFileScreenTemplateManager {
     fn eq(&self, other: &Self) -> bool {
@@ -3937,7 +3937,7 @@ impl IFsrmMutableCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmMutableCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmCollection);
+::windows::imp::interface_hierarchy!(IFsrmMutableCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmCollection);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmMutableCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -4007,7 +4007,7 @@ impl IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmObject, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmObject, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmObject {
     fn eq(&self, other: &Self) -> bool {
@@ -4061,7 +4061,7 @@ impl IFsrmPathMapper {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPathMapper, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmPathMapper, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPathMapper {
     fn eq(&self, other: &Self) -> bool {
@@ -4135,7 +4135,7 @@ impl IFsrmPipelineModuleConnector {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPipelineModuleConnector, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmPipelineModuleConnector, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPipelineModuleConnector {
     fn eq(&self, other: &Self) -> bool {
@@ -4295,7 +4295,7 @@ impl IFsrmPipelineModuleDefinition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPipelineModuleDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
+::windows::imp::interface_hierarchy!(IFsrmPipelineModuleDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPipelineModuleDefinition {
     fn eq(&self, other: &Self) -> bool {
@@ -4393,7 +4393,7 @@ impl IFsrmPipelineModuleImplementation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPipelineModuleImplementation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmPipelineModuleImplementation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPipelineModuleImplementation {
     fn eq(&self, other: &Self) -> bool {
@@ -4459,7 +4459,7 @@ impl IFsrmProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmProperty {
     fn eq(&self, other: &Self) -> bool {
@@ -4613,7 +4613,7 @@ impl IFsrmPropertyBag {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPropertyBag, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmPropertyBag, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPropertyBag {
     fn eq(&self, other: &Self) -> bool {
@@ -4826,7 +4826,7 @@ impl IFsrmPropertyBag2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPropertyBag2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmPropertyBag);
+::windows::imp::interface_hierarchy!(IFsrmPropertyBag2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmPropertyBag);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPropertyBag2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4901,7 +4901,7 @@ impl IFsrmPropertyCondition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPropertyCondition, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmPropertyCondition, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPropertyCondition {
     fn eq(&self, other: &Self) -> bool {
@@ -5015,7 +5015,7 @@ impl IFsrmPropertyDefinition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPropertyDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
+::windows::imp::interface_hierarchy!(IFsrmPropertyDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPropertyDefinition {
     fn eq(&self, other: &Self) -> bool {
@@ -5171,7 +5171,7 @@ impl IFsrmPropertyDefinition2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPropertyDefinition2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPropertyDefinition);
+::windows::imp::interface_hierarchy!(IFsrmPropertyDefinition2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPropertyDefinition);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPropertyDefinition2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5238,7 +5238,7 @@ impl IFsrmPropertyDefinitionValue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmPropertyDefinitionValue, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmPropertyDefinitionValue, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmPropertyDefinitionValue {
     fn eq(&self, other: &Self) -> bool {
@@ -5394,7 +5394,7 @@ impl IFsrmQuota {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmQuota, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaObject);
+::windows::imp::interface_hierarchy!(IFsrmQuota, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmQuota {
     fn eq(&self, other: &Self) -> bool {
@@ -5510,7 +5510,7 @@ impl IFsrmQuotaBase {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmQuotaBase, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
+::windows::imp::interface_hierarchy!(IFsrmQuotaBase, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmQuotaBase {
     fn eq(&self, other: &Self) -> bool {
@@ -5647,7 +5647,7 @@ impl IFsrmQuotaManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmQuotaManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmQuotaManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmQuotaManager {
     fn eq(&self, other: &Self) -> bool {
@@ -5810,7 +5810,7 @@ impl IFsrmQuotaManagerEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmQuotaManagerEx, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmQuotaManager);
+::windows::imp::interface_hierarchy!(IFsrmQuotaManagerEx, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmQuotaManager);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmQuotaManagerEx {
     fn eq(&self, other: &Self) -> bool {
@@ -5944,7 +5944,7 @@ impl IFsrmQuotaObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmQuotaObject, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase);
+::windows::imp::interface_hierarchy!(IFsrmQuotaObject, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmQuotaObject {
     fn eq(&self, other: &Self) -> bool {
@@ -6074,7 +6074,7 @@ impl IFsrmQuotaTemplate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmQuotaTemplate, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase);
+::windows::imp::interface_hierarchy!(IFsrmQuotaTemplate, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmQuotaTemplate {
     fn eq(&self, other: &Self) -> bool {
@@ -6216,7 +6216,7 @@ impl IFsrmQuotaTemplateImported {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmQuotaTemplateImported, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaTemplate);
+::windows::imp::interface_hierarchy!(IFsrmQuotaTemplateImported, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaTemplate);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmQuotaTemplateImported {
     fn eq(&self, other: &Self) -> bool {
@@ -6297,7 +6297,7 @@ impl IFsrmQuotaTemplateManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmQuotaTemplateManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmQuotaTemplateManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmQuotaTemplateManager {
     fn eq(&self, other: &Self) -> bool {
@@ -6396,7 +6396,7 @@ impl IFsrmReport {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmReport {
     fn eq(&self, other: &Self) -> bool {
@@ -6547,7 +6547,7 @@ impl IFsrmReportJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmReportJob, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
+::windows::imp::interface_hierarchy!(IFsrmReportJob, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmReportJob {
     fn eq(&self, other: &Self) -> bool {
@@ -6681,7 +6681,7 @@ impl IFsrmReportManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmReportManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmReportManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmReportManager {
     fn eq(&self, other: &Self) -> bool {
@@ -6776,7 +6776,7 @@ impl IFsrmReportScheduler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmReportScheduler, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmReportScheduler, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmReportScheduler {
     fn eq(&self, other: &Self) -> bool {
@@ -6902,7 +6902,7 @@ impl IFsrmRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
+::windows::imp::interface_hierarchy!(IFsrmRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmRule {
     fn eq(&self, other: &Self) -> bool {
@@ -7031,7 +7031,7 @@ impl IFsrmSetting {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmSetting, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsrmSetting, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmSetting {
     fn eq(&self, other: &Self) -> bool {
@@ -7233,7 +7233,7 @@ impl IFsrmStorageModuleDefinition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmStorageModuleDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPipelineModuleDefinition);
+::windows::imp::interface_hierarchy!(IFsrmStorageModuleDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPipelineModuleDefinition);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmStorageModuleDefinition {
     fn eq(&self, other: &Self) -> bool {
@@ -7324,7 +7324,7 @@ impl IFsrmStorageModuleImplementation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsrmStorageModuleImplementation, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmPipelineModuleImplementation);
+::windows::imp::interface_hierarchy!(IFsrmStorageModuleImplementation, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsrmPipelineModuleImplementation);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsrmStorageModuleImplementation {
     fn eq(&self, other: &Self) -> bool {

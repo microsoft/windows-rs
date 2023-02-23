@@ -511,8 +511,8 @@ impl KeyboardCapabilities {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyboardCapabilities, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<KeyboardCapabilities, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn KeyboardPresent(&self) -> ::windows::core::Result<i32> {
@@ -535,7 +535,7 @@ impl ::core::fmt::Debug for KeyboardCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for KeyboardCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.KeyboardCapabilities;{3a3f9b56-6798-4bbc-833e-0f34b17c65ff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.KeyboardCapabilities;{3a3f9b56-6798-4bbc-833e-0f34b17c65ff})");
 }
 impl ::core::clone::Clone for KeyboardCapabilities {
     fn clone(&self) -> Self {
@@ -551,7 +551,7 @@ unsafe impl ::windows::core::Interface for KeyboardCapabilities {
 impl ::windows::core::RuntimeName for KeyboardCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.KeyboardCapabilities";
 }
-::windows::core::interface_hierarchy!(KeyboardCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyboardCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyboardCapabilities {}
 unsafe impl ::core::marker::Sync for KeyboardCapabilities {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -561,8 +561,8 @@ impl MouseCapabilities {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MouseCapabilities, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MouseCapabilities, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn MousePresent(&self) -> ::windows::core::Result<i32> {
@@ -613,7 +613,7 @@ impl ::core::fmt::Debug for MouseCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for MouseCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseCapabilities;{bca5e023-7dd9-4b6b-9a92-55d43cb38f73})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseCapabilities;{bca5e023-7dd9-4b6b-9a92-55d43cb38f73})");
 }
 impl ::core::clone::Clone for MouseCapabilities {
     fn clone(&self) -> Self {
@@ -629,7 +629,7 @@ unsafe impl ::windows::core::Interface for MouseCapabilities {
 impl ::windows::core::RuntimeName for MouseCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.MouseCapabilities";
 }
-::windows::core::interface_hierarchy!(MouseCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MouseCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MouseCapabilities {}
 unsafe impl ::core::marker::Sync for MouseCapabilities {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -659,7 +659,7 @@ impl MouseDevice {
     }
     #[doc(hidden)]
     pub fn IMouseDeviceStatics<R, F: FnOnce(&IMouseDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MouseDevice, IMouseDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MouseDevice, IMouseDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -675,7 +675,7 @@ impl ::core::fmt::Debug for MouseDevice {
     }
 }
 impl ::windows::core::RuntimeType for MouseDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseDevice;{88edf458-f2c8-49f4-be1f-c256b388bc11})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseDevice;{88edf458-f2c8-49f4-be1f-c256b388bc11})");
 }
 impl ::core::clone::Clone for MouseDevice {
     fn clone(&self) -> Self {
@@ -691,7 +691,7 @@ unsafe impl ::windows::core::Interface for MouseDevice {
 impl ::windows::core::RuntimeName for MouseDevice {
     const NAME: &'static str = "Windows.Devices.Input.MouseDevice";
 }
-::windows::core::interface_hierarchy!(MouseDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MouseDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct MouseEventArgs(::windows::core::IUnknown);
@@ -716,7 +716,7 @@ impl ::core::fmt::Debug for MouseEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MouseEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseEventArgs;{f625aa5d-2354-4cc7-9230-96941c969fde})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseEventArgs;{f625aa5d-2354-4cc7-9230-96941c969fde})");
 }
 impl ::core::clone::Clone for MouseEventArgs {
     fn clone(&self) -> Self {
@@ -732,7 +732,7 @@ unsafe impl ::windows::core::Interface for MouseEventArgs {
 impl ::windows::core::RuntimeName for MouseEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.MouseEventArgs";
 }
-::windows::core::interface_hierarchy!(MouseEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MouseEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenButtonListener(::windows::core::IUnknown);
@@ -812,7 +812,7 @@ impl PenButtonListener {
     }
     #[doc(hidden)]
     pub fn IPenButtonListenerStatics<R, F: FnOnce(&IPenButtonListenerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PenButtonListener, IPenButtonListenerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PenButtonListener, IPenButtonListenerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -828,7 +828,7 @@ impl ::core::fmt::Debug for PenButtonListener {
     }
 }
 impl ::windows::core::RuntimeType for PenButtonListener {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenButtonListener;{8245c376-1ee3-53f7-b1f7-8334a16f2815})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenButtonListener;{8245c376-1ee3-53f7-b1f7-8334a16f2815})");
 }
 impl ::core::clone::Clone for PenButtonListener {
     fn clone(&self) -> Self {
@@ -844,7 +844,7 @@ unsafe impl ::windows::core::Interface for PenButtonListener {
 impl ::windows::core::RuntimeName for PenButtonListener {
     const NAME: &'static str = "Windows.Devices.Input.PenButtonListener";
 }
-::windows::core::interface_hierarchy!(PenButtonListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PenButtonListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenButtonListener {}
 unsafe impl ::core::marker::Sync for PenButtonListener {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -875,7 +875,7 @@ impl PenDevice {
     }
     #[doc(hidden)]
     pub fn IPenDeviceStatics<R, F: FnOnce(&IPenDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PenDevice, IPenDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PenDevice, IPenDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -891,7 +891,7 @@ impl ::core::fmt::Debug for PenDevice {
     }
 }
 impl ::windows::core::RuntimeType for PenDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDevice;{31856eba-a738-5a8c-b8f6-f97ef68d18ef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDevice;{31856eba-a738-5a8c-b8f6-f97ef68d18ef})");
 }
 impl ::core::clone::Clone for PenDevice {
     fn clone(&self) -> Self {
@@ -907,7 +907,7 @@ unsafe impl ::windows::core::Interface for PenDevice {
 impl ::windows::core::RuntimeName for PenDevice {
     const NAME: &'static str = "Windows.Devices.Input.PenDevice";
 }
-::windows::core::interface_hierarchy!(PenDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PenDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenDevice {}
 unsafe impl ::core::marker::Sync for PenDevice {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -974,7 +974,7 @@ impl PenDockListener {
     }
     #[doc(hidden)]
     pub fn IPenDockListenerStatics<R, F: FnOnce(&IPenDockListenerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PenDockListener, IPenDockListenerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PenDockListener, IPenDockListenerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -990,7 +990,7 @@ impl ::core::fmt::Debug for PenDockListener {
     }
 }
 impl ::windows::core::RuntimeType for PenDockListener {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDockListener;{759f4d90-1dc0-55cb-ad18-b9101456f592})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDockListener;{759f4d90-1dc0-55cb-ad18-b9101456f592})");
 }
 impl ::core::clone::Clone for PenDockListener {
     fn clone(&self) -> Self {
@@ -1006,7 +1006,7 @@ unsafe impl ::windows::core::Interface for PenDockListener {
 impl ::windows::core::RuntimeName for PenDockListener {
     const NAME: &'static str = "Windows.Devices.Input.PenDockListener";
 }
-::windows::core::interface_hierarchy!(PenDockListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PenDockListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenDockListener {}
 unsafe impl ::core::marker::Sync for PenDockListener {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1025,7 +1025,7 @@ impl ::core::fmt::Debug for PenDockedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PenDockedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDockedEventArgs;{fd4277c6-ca63-5d4e-9ed3-a28a54521c8c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDockedEventArgs;{fd4277c6-ca63-5d4e-9ed3-a28a54521c8c})");
 }
 impl ::core::clone::Clone for PenDockedEventArgs {
     fn clone(&self) -> Self {
@@ -1041,7 +1041,7 @@ unsafe impl ::windows::core::Interface for PenDockedEventArgs {
 impl ::windows::core::RuntimeName for PenDockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenDockedEventArgs";
 }
-::windows::core::interface_hierarchy!(PenDockedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PenDockedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenDockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenDockedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1060,7 +1060,7 @@ impl ::core::fmt::Debug for PenTailButtonClickedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PenTailButtonClickedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonClickedEventArgs;{5d2fb7b6-6ad3-5d3e-ab29-05ea2410e390})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonClickedEventArgs;{5d2fb7b6-6ad3-5d3e-ab29-05ea2410e390})");
 }
 impl ::core::clone::Clone for PenTailButtonClickedEventArgs {
     fn clone(&self) -> Self {
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::core::Interface for PenTailButtonClickedEventArgs {
 impl ::windows::core::RuntimeName for PenTailButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonClickedEventArgs";
 }
-::windows::core::interface_hierarchy!(PenTailButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PenTailButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenTailButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonClickedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1095,7 +1095,7 @@ impl ::core::fmt::Debug for PenTailButtonDoubleClickedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PenTailButtonDoubleClickedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs;{846321a2-618a-5478-b04c-b358231da4a7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs;{846321a2-618a-5478-b04c-b358231da4a7})");
 }
 impl ::core::clone::Clone for PenTailButtonDoubleClickedEventArgs {
     fn clone(&self) -> Self {
@@ -1111,7 +1111,7 @@ unsafe impl ::windows::core::Interface for PenTailButtonDoubleClickedEventArgs {
 impl ::windows::core::RuntimeName for PenTailButtonDoubleClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs";
 }
-::windows::core::interface_hierarchy!(PenTailButtonDoubleClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PenTailButtonDoubleClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenTailButtonDoubleClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonDoubleClickedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1130,7 +1130,7 @@ impl ::core::fmt::Debug for PenTailButtonLongPressedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PenTailButtonLongPressedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonLongPressedEventArgs;{f37c606e-c60a-5f42-b818-a53112406c13})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonLongPressedEventArgs;{f37c606e-c60a-5f42-b818-a53112406c13})");
 }
 impl ::core::clone::Clone for PenTailButtonLongPressedEventArgs {
     fn clone(&self) -> Self {
@@ -1146,7 +1146,7 @@ unsafe impl ::windows::core::Interface for PenTailButtonLongPressedEventArgs {
 impl ::windows::core::RuntimeName for PenTailButtonLongPressedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonLongPressedEventArgs";
 }
-::windows::core::interface_hierarchy!(PenTailButtonLongPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PenTailButtonLongPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenTailButtonLongPressedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonLongPressedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1165,7 +1165,7 @@ impl ::core::fmt::Debug for PenUndockedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PenUndockedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenUndockedEventArgs;{ccd09150-261b-59e6-a5d4-c1964cd03feb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenUndockedEventArgs;{ccd09150-261b-59e6-a5d4-c1964cd03feb})");
 }
 impl ::core::clone::Clone for PenUndockedEventArgs {
     fn clone(&self) -> Self {
@@ -1181,7 +1181,7 @@ unsafe impl ::windows::core::Interface for PenUndockedEventArgs {
 impl ::windows::core::RuntimeName for PenUndockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenUndockedEventArgs";
 }
-::windows::core::interface_hierarchy!(PenUndockedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PenUndockedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenUndockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenUndockedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1259,7 +1259,7 @@ impl PointerDevice {
     }
     #[doc(hidden)]
     pub fn IPointerDeviceStatics<R, F: FnOnce(&IPointerDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PointerDevice, IPointerDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PointerDevice, IPointerDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1275,7 +1275,7 @@ impl ::core::fmt::Debug for PointerDevice {
     }
 }
 impl ::windows::core::RuntimeType for PointerDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PointerDevice;{93c9bafc-ebcb-467e-82c6-276feae36b5a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PointerDevice;{93c9bafc-ebcb-467e-82c6-276feae36b5a})");
 }
 impl ::core::clone::Clone for PointerDevice {
     fn clone(&self) -> Self {
@@ -1291,7 +1291,7 @@ unsafe impl ::windows::core::Interface for PointerDevice {
 impl ::windows::core::RuntimeName for PointerDevice {
     const NAME: &'static str = "Windows.Devices.Input.PointerDevice";
 }
-::windows::core::interface_hierarchy!(PointerDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PointerDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct TouchCapabilities(::windows::core::IUnknown);
@@ -1299,8 +1299,8 @@ impl TouchCapabilities {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TouchCapabilities, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<TouchCapabilities, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn TouchPresent(&self) -> ::windows::core::Result<i32> {
@@ -1330,7 +1330,7 @@ impl ::core::fmt::Debug for TouchCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for TouchCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.TouchCapabilities;{20dd55f9-13f1-46c8-9285-2c05fa3eda6f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.TouchCapabilities;{20dd55f9-13f1-46c8-9285-2c05fa3eda6f})");
 }
 impl ::core::clone::Clone for TouchCapabilities {
     fn clone(&self) -> Self {
@@ -1346,7 +1346,7 @@ unsafe impl ::windows::core::Interface for TouchCapabilities {
 impl ::windows::core::RuntimeName for TouchCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.TouchCapabilities";
 }
-::windows::core::interface_hierarchy!(TouchCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TouchCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TouchCapabilities {}
 unsafe impl ::core::marker::Sync for TouchCapabilities {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1378,7 +1378,7 @@ impl ::core::fmt::Debug for PointerDeviceType {
     }
 }
 impl ::windows::core::RuntimeType for PointerDeviceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1401,7 +1401,7 @@ impl ::windows::core::TypeKind for MouseDelta {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for MouseDelta {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.MouseDelta;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.MouseDelta;i4;i4)");
 }
 impl ::core::cmp::PartialEq for MouseDelta {
     fn eq(&self, other: &Self) -> bool {
@@ -1441,7 +1441,7 @@ impl ::windows::core::TypeKind for PointerDeviceUsage {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for PointerDeviceUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.PointerDeviceUsage;u4;u4;i4;i4;i4;i4;u4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.PointerDeviceUsage;u4;u4;i4;i4;i4;i4;u4;f4)");
 }
 impl ::core::cmp::PartialEq for PointerDeviceUsage {
     fn eq(&self, other: &Self) -> bool {

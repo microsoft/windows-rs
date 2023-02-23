@@ -6,7 +6,7 @@ pub unsafe fn CreateDXGIFactory<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dxgi.dll""system" fn CreateDXGIFactory ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn CreateDXGIFactory ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CreateDXGIFactory(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -16,7 +16,7 @@ pub unsafe fn CreateDXGIFactory1<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dxgi.dll""system" fn CreateDXGIFactory1 ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn CreateDXGIFactory1 ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CreateDXGIFactory1(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -26,14 +26,14 @@ pub unsafe fn CreateDXGIFactory2<T>(flags: u32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dxgi.dll""system" fn CreateDXGIFactory2 ( flags : u32 , riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn CreateDXGIFactory2 ( flags : u32 , riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     CreateDXGIFactory2(flags, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[inline]
 pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "dxgi.dll""system" fn DXGIDeclareAdapterRemovalSupport ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn DXGIDeclareAdapterRemovalSupport ( ) -> :: windows::core::HRESULT );
     DXGIDeclareAdapterRemovalSupport().ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -42,7 +42,7 @@ pub unsafe fn DXGIGetDebugInterface1<T>(flags: u32) -> ::windows::core::Result<T
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "dxgi.dll""system" fn DXGIGetDebugInterface1 ( flags : u32 , riid : *const :: windows::core::GUID , pdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dxgi.dll""system" fn DXGIGetDebugInterface1 ( flags : u32 , riid : *const :: windows::core::GUID , pdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DXGIGetDebugInterface1(flags, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
@@ -83,7 +83,7 @@ impl IDXGIAdapter {
         (::windows::core::Vtable::vtable(self).CheckInterfaceSupport)(::windows::core::Vtable::as_raw(self), interfacename, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIAdapter, ::windows::core::IUnknown, IDXGIObject);
+::windows::imp::interface_hierarchy!(IDXGIAdapter, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::cmp::PartialEq for IDXGIAdapter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -159,7 +159,7 @@ impl IDXGIAdapter1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIAdapter1, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter);
+::windows::imp::interface_hierarchy!(IDXGIAdapter1, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter);
 impl ::core::cmp::PartialEq for IDXGIAdapter1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -238,7 +238,7 @@ impl IDXGIAdapter2 {
         (::windows::core::Vtable::vtable(self).GetDesc2)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIAdapter2, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1);
+::windows::imp::interface_hierarchy!(IDXGIAdapter2, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1);
 impl ::core::cmp::PartialEq for IDXGIAdapter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -347,7 +347,7 @@ impl IDXGIAdapter3 {
         (::windows::core::Vtable::vtable(self).UnregisterVideoMemoryBudgetChangeNotification)(::windows::core::Vtable::as_raw(self), dwcookie)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIAdapter3, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2);
+::windows::imp::interface_hierarchy!(IDXGIAdapter3, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2);
 impl ::core::cmp::PartialEq for IDXGIAdapter3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -469,7 +469,7 @@ impl IDXGIAdapter4 {
         (::windows::core::Vtable::vtable(self).GetDesc3)(::windows::core::Vtable::as_raw(self), pdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIAdapter4, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2, IDXGIAdapter3);
+::windows::imp::interface_hierarchy!(IDXGIAdapter4, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2, IDXGIAdapter3);
 impl ::core::cmp::PartialEq for IDXGIAdapter4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -509,7 +509,7 @@ impl IDXGIDebug {
         (::windows::core::Vtable::vtable(self).ReportLiveObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(apiid), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDebug, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXGIDebug, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXGIDebug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -557,7 +557,7 @@ impl IDXGIDebug1 {
         (::windows::core::Vtable::vtable(self).IsLeakTrackingEnabledForThread)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDebug1, ::windows::core::IUnknown, IDXGIDebug);
+::windows::imp::interface_hierarchy!(IDXGIDebug1, ::windows::core::IUnknown, IDXGIDebug);
 impl ::core::cmp::PartialEq for IDXGIDebug1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -633,7 +633,7 @@ impl IDXGIDecodeSwapChain {
         (::windows::core::Vtable::vtable(self).GetColorSpace)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDecodeSwapChain, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXGIDecodeSwapChain, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXGIDecodeSwapChain {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -725,7 +725,7 @@ impl IDXGIDevice {
         (::windows::core::Vtable::vtable(self).GetGPUThreadPriority)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDevice, ::windows::core::IUnknown, IDXGIObject);
+::windows::imp::interface_hierarchy!(IDXGIDevice, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::cmp::PartialEq for IDXGIDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -811,7 +811,7 @@ impl IDXGIDevice1 {
         (::windows::core::Vtable::vtable(self).GetMaximumFrameLatency)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDevice1, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice);
+::windows::imp::interface_hierarchy!(IDXGIDevice1, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice);
 impl ::core::cmp::PartialEq for IDXGIDevice1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -907,7 +907,7 @@ impl IDXGIDevice2 {
         (::windows::core::Vtable::vtable(self).EnqueueSetEvent)(::windows::core::Vtable::as_raw(self), hevent.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDevice2, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1);
+::windows::imp::interface_hierarchy!(IDXGIDevice2, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1);
 impl ::core::cmp::PartialEq for IDXGIDevice2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1013,7 +1013,7 @@ impl IDXGIDevice3 {
         (::windows::core::Vtable::vtable(self).Trim)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDevice3, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2);
+::windows::imp::interface_hierarchy!(IDXGIDevice3, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2);
 impl ::core::cmp::PartialEq for IDXGIDevice3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1117,7 +1117,7 @@ impl IDXGIDevice4 {
         (::windows::core::Vtable::vtable(self).ReclaimResources1)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), presults).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDevice4, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2, IDXGIDevice3);
+::windows::imp::interface_hierarchy!(IDXGIDevice4, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2, IDXGIDevice3);
 impl ::core::cmp::PartialEq for IDXGIDevice4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1178,7 +1178,7 @@ impl IDXGIDeviceSubObject {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDeviceSubObject, ::windows::core::IUnknown, IDXGIObject);
+::windows::imp::interface_hierarchy!(IDXGIDeviceSubObject, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::cmp::PartialEq for IDXGIDeviceSubObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1225,7 +1225,7 @@ impl IDXGIDisplayControl {
         (::windows::core::Vtable::vtable(self).SetStereoEnabled)(::windows::core::Vtable::as_raw(self), enabled.into())
     }
 }
-::windows::core::interface_hierarchy!(IDXGIDisplayControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXGIDisplayControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXGIDisplayControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1320,7 +1320,7 @@ impl IDXGIFactory {
         (::windows::core::Vtable::vtable(self).CreateSoftwareAdapter)(::windows::core::Vtable::as_raw(self), module.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIFactory, ::windows::core::IUnknown, IDXGIObject);
+::windows::imp::interface_hierarchy!(IDXGIFactory, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::cmp::PartialEq for IDXGIFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1433,7 +1433,7 @@ impl IDXGIFactory1 {
         (::windows::core::Vtable::vtable(self).IsCurrent)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDXGIFactory1, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory);
+::windows::imp::interface_hierarchy!(IDXGIFactory1, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory);
 impl ::core::cmp::PartialEq for IDXGIFactory1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1622,7 +1622,7 @@ impl IDXGIFactory2 {
         (::windows::core::Vtable::vtable(self).CreateSwapChainForComposition)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pdesc, prestricttooutput.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIFactory2, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1);
+::windows::imp::interface_hierarchy!(IDXGIFactory2, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1);
 impl ::core::cmp::PartialEq for IDXGIFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1847,7 +1847,7 @@ impl IDXGIFactory3 {
         (::windows::core::Vtable::vtable(self).GetCreationFlags)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDXGIFactory3, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2);
+::windows::imp::interface_hierarchy!(IDXGIFactory3, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2);
 impl ::core::cmp::PartialEq for IDXGIFactory3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2051,7 +2051,7 @@ impl IDXGIFactory4 {
         (::windows::core::Vtable::vtable(self).EnumWarpAdapter)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIFactory4, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3);
+::windows::imp::interface_hierarchy!(IDXGIFactory4, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3);
 impl ::core::cmp::PartialEq for IDXGIFactory4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2262,7 +2262,7 @@ impl IDXGIFactory5 {
         (::windows::core::Vtable::vtable(self).CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), feature, pfeaturesupportdata, featuresupportdatasize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIFactory5, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4);
+::windows::imp::interface_hierarchy!(IDXGIFactory5, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4);
 impl ::core::cmp::PartialEq for IDXGIFactory5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2476,7 +2476,7 @@ impl IDXGIFactory6 {
         (::windows::core::Vtable::vtable(self).EnumAdapterByGpuPreference)(::windows::core::Vtable::as_raw(self), adapter, gpupreference, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIFactory6, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5);
+::windows::imp::interface_hierarchy!(IDXGIFactory6, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5);
 impl ::core::cmp::PartialEq for IDXGIFactory6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2702,7 +2702,7 @@ impl IDXGIFactory7 {
         (::windows::core::Vtable::vtable(self).UnregisterAdaptersChangedEvent)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIFactory7, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5, IDXGIFactory6);
+::windows::imp::interface_hierarchy!(IDXGIFactory7, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5, IDXGIFactory6);
 impl ::core::cmp::PartialEq for IDXGIFactory7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2763,7 +2763,7 @@ impl IDXGIFactoryMedia {
         (::windows::core::Vtable::vtable(self).CreateDecodeSwapChainForCompositionSurfaceHandle)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hsurface.into(), pdesc, pyuvdecodebuffers.into().abi(), prestricttooutput.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIFactoryMedia, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXGIFactoryMedia, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXGIFactoryMedia {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2949,7 +2949,7 @@ impl IDXGIInfoQueue {
         (::windows::core::Vtable::vtable(self).GetMuteDebugOutput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(producer))
     }
 }
-::windows::core::interface_hierarchy!(IDXGIInfoQueue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXGIInfoQueue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXGIInfoQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3075,7 +3075,7 @@ impl IDXGIKeyedMutex {
         (::windows::core::Vtable::vtable(self).ReleaseSync)(::windows::core::Vtable::as_raw(self), key).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIKeyedMutex, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
+::windows::imp::interface_hierarchy!(IDXGIKeyedMutex, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl ::core::cmp::PartialEq for IDXGIKeyedMutex {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3129,7 +3129,7 @@ impl IDXGIObject {
         (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXGIObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXGIObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3248,7 +3248,7 @@ impl IDXGIOutput {
         (::windows::core::Vtable::vtable(self).GetFrameStatistics)(::windows::core::Vtable::as_raw(self), pstats).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIOutput, ::windows::core::IUnknown, IDXGIObject);
+::windows::imp::interface_hierarchy!(IDXGIOutput, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::cmp::PartialEq for IDXGIOutput {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3422,7 +3422,7 @@ impl IDXGIOutput1 {
         (::windows::core::Vtable::vtable(self).DuplicateOutput)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIOutput1, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput);
+::windows::imp::interface_hierarchy!(IDXGIOutput1, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput);
 impl ::core::cmp::PartialEq for IDXGIOutput1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3578,7 +3578,7 @@ impl IDXGIOutput2 {
         (::windows::core::Vtable::vtable(self).SupportsOverlays)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDXGIOutput2, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1);
+::windows::imp::interface_hierarchy!(IDXGIOutput2, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1);
 impl ::core::cmp::PartialEq for IDXGIOutput2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3737,7 +3737,7 @@ impl IDXGIOutput3 {
         (::windows::core::Vtable::vtable(self).CheckOverlaySupport)(::windows::core::Vtable::as_raw(self), enumformat, pconcerneddevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIOutput3, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2);
+::windows::imp::interface_hierarchy!(IDXGIOutput3, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2);
 impl ::core::cmp::PartialEq for IDXGIOutput3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3905,7 +3905,7 @@ impl IDXGIOutput4 {
         (::windows::core::Vtable::vtable(self).CheckOverlayColorSpaceSupport)(::windows::core::Vtable::as_raw(self), format, colorspace, pconcerneddevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIOutput4, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3);
+::windows::imp::interface_hierarchy!(IDXGIOutput4, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3);
 impl ::core::cmp::PartialEq for IDXGIOutput4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4082,7 +4082,7 @@ impl IDXGIOutput5 {
         (::windows::core::Vtable::vtable(self).DuplicateOutput1)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), flags, psupportedformats.len() as _, ::core::mem::transmute(psupportedformats.as_ptr()), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIOutput5, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4);
+::windows::imp::interface_hierarchy!(IDXGIOutput5, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4);
 impl ::core::cmp::PartialEq for IDXGIOutput5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4268,7 +4268,7 @@ impl IDXGIOutput6 {
         (::windows::core::Vtable::vtable(self).CheckHardwareCompositionSupport)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIOutput6, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4, IDXGIOutput5);
+::windows::imp::interface_hierarchy!(IDXGIOutput6, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4, IDXGIOutput5);
 impl ::core::cmp::PartialEq for IDXGIOutput6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4360,7 +4360,7 @@ impl IDXGIOutputDuplication {
         (::windows::core::Vtable::vtable(self).ReleaseFrame)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGIOutputDuplication, ::windows::core::IUnknown, IDXGIObject);
+::windows::imp::interface_hierarchy!(IDXGIOutputDuplication, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::cmp::PartialEq for IDXGIOutputDuplication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4459,7 +4459,7 @@ impl IDXGIResource {
         (::windows::core::Vtable::vtable(self).GetEvictionPriority)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIResource, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
+::windows::imp::interface_hierarchy!(IDXGIResource, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl ::core::cmp::PartialEq for IDXGIResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4555,7 +4555,7 @@ impl IDXGIResource1 {
         (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), dwaccess, lpname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGIResource1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGIResource);
+::windows::imp::interface_hierarchy!(IDXGIResource1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGIResource);
 impl ::core::cmp::PartialEq for IDXGIResource1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4630,7 +4630,7 @@ impl IDXGISurface {
         (::windows::core::Vtable::vtable(self).Unmap)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGISurface, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
+::windows::imp::interface_hierarchy!(IDXGISurface, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl ::core::cmp::PartialEq for IDXGISurface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4720,7 +4720,7 @@ impl IDXGISurface1 {
         (::windows::core::Vtable::vtable(self).ReleaseDC)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdirtyrect.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGISurface1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface);
+::windows::imp::interface_hierarchy!(IDXGISurface1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface);
 impl ::core::cmp::PartialEq for IDXGISurface1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4819,7 +4819,7 @@ impl IDXGISurface2 {
         (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__, psubresourceindex).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGISurface2, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface, IDXGISurface1);
+::windows::imp::interface_hierarchy!(IDXGISurface2, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface, IDXGISurface1);
 impl ::core::cmp::PartialEq for IDXGISurface2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4929,7 +4929,7 @@ impl IDXGISwapChain {
         (::windows::core::Vtable::vtable(self).GetLastPresentCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGISwapChain, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
+::windows::imp::interface_hierarchy!(IDXGISwapChain, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl ::core::cmp::PartialEq for IDXGISwapChain {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5118,7 +5118,7 @@ impl IDXGISwapChain1 {
         (::windows::core::Vtable::vtable(self).GetRotation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDXGISwapChain1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain);
+::windows::imp::interface_hierarchy!(IDXGISwapChain1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain);
 impl ::core::cmp::PartialEq for IDXGISwapChain1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5338,7 +5338,7 @@ impl IDXGISwapChain2 {
         (::windows::core::Vtable::vtable(self).GetMatrixTransform)(::windows::core::Vtable::as_raw(self), pmatrix).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGISwapChain2, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1);
+::windows::imp::interface_hierarchy!(IDXGISwapChain2, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1);
 impl ::core::cmp::PartialEq for IDXGISwapChain2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5555,7 +5555,7 @@ impl IDXGISwapChain3 {
         (::windows::core::Vtable::vtable(self).ResizeBuffers1)(::windows::core::Vtable::as_raw(self), buffercount, width, height, format, swapchainflags, pcreationnodemask, ::core::mem::transmute(pppresentqueue)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGISwapChain3, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2);
+::windows::imp::interface_hierarchy!(IDXGISwapChain3, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2);
 impl ::core::cmp::PartialEq for IDXGISwapChain3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5778,7 +5778,7 @@ impl IDXGISwapChain4 {
         (::windows::core::Vtable::vtable(self).SetHDRMetaData)(::windows::core::Vtable::as_raw(self), r#type, pmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGISwapChain4, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2, IDXGISwapChain3);
+::windows::imp::interface_hierarchy!(IDXGISwapChain4, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2, IDXGISwapChain3);
 impl ::core::cmp::PartialEq for IDXGISwapChain4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5821,7 +5821,7 @@ impl IDXGISwapChainMedia {
         (::windows::core::Vtable::vtable(self).CheckPresentDurationSupport)(::windows::core::Vtable::as_raw(self), desiredpresentduration, pclosestsmallerpresentduration, pclosestlargerpresentduration).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDXGISwapChainMedia, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXGISwapChainMedia, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXGISwapChainMedia {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5863,7 +5863,7 @@ impl IDXGraphicsAnalysis {
         (::windows::core::Vtable::vtable(self).EndCapture)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IDXGraphicsAnalysis, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDXGraphicsAnalysis, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDXGraphicsAnalysis {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -126,8 +126,8 @@ impl AppBroadcastingMonitor {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppBroadcastingMonitor, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AppBroadcastingMonitor, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn IsCurrentAppBroadcasting(&self) -> ::windows::core::Result<bool> {
@@ -165,7 +165,7 @@ impl ::core::fmt::Debug for AppBroadcastingMonitor {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastingMonitor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingMonitor;{00f95a68-8907-48a0-b8ef-24d208137542})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingMonitor;{00f95a68-8907-48a0-b8ef-24d208137542})");
 }
 impl ::core::clone::Clone for AppBroadcastingMonitor {
     fn clone(&self) -> Self {
@@ -181,7 +181,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastingMonitor {
 impl ::windows::core::RuntimeName for AppBroadcastingMonitor {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingMonitor";
 }
-::windows::core::interface_hierarchy!(AppBroadcastingMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastingMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingMonitor {}
 unsafe impl ::core::marker::Sync for AppBroadcastingMonitor {}
 #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
@@ -215,7 +215,7 @@ impl ::core::fmt::Debug for AppBroadcastingStatus {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastingStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingStatus;{1225e4df-03a1-42f8-8b80-c9228cd9cf2e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingStatus;{1225e4df-03a1-42f8-8b80-c9228cd9cf2e})");
 }
 impl ::core::clone::Clone for AppBroadcastingStatus {
     fn clone(&self) -> Self {
@@ -231,7 +231,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastingStatus {
 impl ::windows::core::RuntimeName for AppBroadcastingStatus {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatus";
 }
-::windows::core::interface_hierarchy!(AppBroadcastingStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastingStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingStatus {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatus {}
 #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
@@ -307,7 +307,7 @@ impl ::core::fmt::Debug for AppBroadcastingStatusDetails {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastingStatusDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails;{069dada4-b573-4e3c-8e19-1bafacd09713})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails;{069dada4-b573-4e3c-8e19-1bafacd09713})");
 }
 impl ::core::clone::Clone for AppBroadcastingStatusDetails {
     fn clone(&self) -> Self {
@@ -323,7 +323,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastingStatusDetails {
 impl ::windows::core::RuntimeName for AppBroadcastingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails";
 }
-::windows::core::interface_hierarchy!(AppBroadcastingStatusDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastingStatusDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingStatusDetails {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatusDetails {}
 #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
@@ -357,7 +357,7 @@ impl AppBroadcastingUI {
     }
     #[doc(hidden)]
     pub fn IAppBroadcastingUIStatics<R, F: FnOnce(&IAppBroadcastingUIStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppBroadcastingUI, IAppBroadcastingUIStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppBroadcastingUI, IAppBroadcastingUIStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -373,7 +373,7 @@ impl ::core::fmt::Debug for AppBroadcastingUI {
     }
 }
 impl ::windows::core::RuntimeType for AppBroadcastingUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingUI;{e56f9f8f-ee99-4dca-a3c3-70af3db44f5f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingUI;{e56f9f8f-ee99-4dca-a3c3-70af3db44f5f})");
 }
 impl ::core::clone::Clone for AppBroadcastingUI {
     fn clone(&self) -> Self {
@@ -389,7 +389,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastingUI {
 impl ::windows::core::RuntimeName for AppBroadcastingUI {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingUI";
 }
-::windows::core::interface_hierarchy!(AppBroadcastingUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppBroadcastingUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingUI {}
 unsafe impl ::core::marker::Sync for AppBroadcastingUI {}
 #[cfg(feature = "implement")]

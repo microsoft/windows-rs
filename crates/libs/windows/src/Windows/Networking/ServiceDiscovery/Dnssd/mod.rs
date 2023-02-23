@@ -142,8 +142,8 @@ impl DnssdRegistrationResult {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DnssdRegistrationResult, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DnssdRegistrationResult, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Status(&self) -> ::windows::core::Result<DnssdRegistrationStatus> {
@@ -189,7 +189,7 @@ impl ::core::fmt::Debug for DnssdRegistrationResult {
     }
 }
 impl ::windows::core::RuntimeType for DnssdRegistrationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult;{3d786ad2-e606-5350-73ea-7e97f066162f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult;{3d786ad2-e606-5350-73ea-7e97f066162f})");
 }
 impl ::core::clone::Clone for DnssdRegistrationResult {
     fn clone(&self) -> Self {
@@ -205,7 +205,7 @@ unsafe impl ::windows::core::Interface for DnssdRegistrationResult {
 impl ::windows::core::RuntimeName for DnssdRegistrationResult {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult";
 }
-::windows::core::interface_hierarchy!(DnssdRegistrationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DnssdRegistrationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DnssdRegistrationResult> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -351,7 +351,7 @@ impl DnssdServiceInstance {
     }
     #[doc(hidden)]
     pub fn IDnssdServiceInstanceFactory<R, F: FnOnce(&IDnssdServiceInstanceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DnssdServiceInstance, IDnssdServiceInstanceFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DnssdServiceInstance, IDnssdServiceInstanceFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -367,7 +367,7 @@ impl ::core::fmt::Debug for DnssdServiceInstance {
     }
 }
 impl ::windows::core::RuntimeType for DnssdServiceInstance {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance;{e246db7e-98a5-4ca1-b9e4-c253d33c35ff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance;{e246db7e-98a5-4ca1-b9e4-c253d33c35ff})");
 }
 impl ::core::clone::Clone for DnssdServiceInstance {
     fn clone(&self) -> Self {
@@ -383,7 +383,7 @@ unsafe impl ::windows::core::Interface for DnssdServiceInstance {
 impl ::windows::core::RuntimeName for DnssdServiceInstance {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance";
 }
-::windows::core::interface_hierarchy!(DnssdServiceInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DnssdServiceInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DnssdServiceInstance> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -476,7 +476,7 @@ impl ::core::fmt::Debug for DnssdServiceInstanceCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for DnssdServiceInstanceCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstanceCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance;{e246db7e-98a5-4ca1-b9e4-c253d33c35ff})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstanceCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance;{e246db7e-98a5-4ca1-b9e4-c253d33c35ff})))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for DnssdServiceInstanceCollection {
@@ -513,7 +513,7 @@ impl ::core::iter::IntoIterator for &DnssdServiceInstanceCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(DnssdServiceInstanceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DnssdServiceInstanceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance> {
     type Error = ::windows::core::Error;
@@ -639,7 +639,7 @@ impl ::core::fmt::Debug for DnssdServiceWatcher {
     }
 }
 impl ::windows::core::RuntimeType for DnssdServiceWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher;{cc34d9c1-db7d-4b69-983d-c6f83f205682})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher;{cc34d9c1-db7d-4b69-983d-c6f83f205682})");
 }
 impl ::core::clone::Clone for DnssdServiceWatcher {
     fn clone(&self) -> Self {
@@ -655,7 +655,7 @@ unsafe impl ::windows::core::Interface for DnssdServiceWatcher {
 impl ::windows::core::RuntimeName for DnssdServiceWatcher {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher";
 }
-::windows::core::interface_hierarchy!(DnssdServiceWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DnssdServiceWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DnssdServiceWatcher {}
 unsafe impl ::core::marker::Sync for DnssdServiceWatcher {}
 #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]
@@ -688,7 +688,7 @@ impl ::core::fmt::Debug for DnssdRegistrationStatus {
     }
 }
 impl ::windows::core::RuntimeType for DnssdRegistrationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]
 #[repr(transparent)]
@@ -722,7 +722,7 @@ impl ::core::fmt::Debug for DnssdServiceWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for DnssdServiceWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

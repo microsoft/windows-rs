@@ -29,7 +29,7 @@ impl HtmlUtilities {
     }
     #[doc(hidden)]
     pub fn IHtmlUtilities<R, F: FnOnce(&IHtmlUtilities) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HtmlUtilities, IHtmlUtilities> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HtmlUtilities, IHtmlUtilities> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

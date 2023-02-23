@@ -374,7 +374,7 @@ impl ::core::fmt::Debug for DialApp {
     }
 }
 impl ::windows::core::RuntimeType for DialApp {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialApp;{555ffbd3-45b7-49f3-bbd7-302db6084646})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialApp;{555ffbd3-45b7-49f3-bbd7-302db6084646})");
 }
 impl ::core::clone::Clone for DialApp {
     fn clone(&self) -> Self {
@@ -390,7 +390,7 @@ unsafe impl ::windows::core::Interface for DialApp {
 impl ::windows::core::RuntimeName for DialApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialApp";
 }
-::windows::core::interface_hierarchy!(DialApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DialApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialApp {}
 unsafe impl ::core::marker::Sync for DialApp {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -424,7 +424,7 @@ impl ::core::fmt::Debug for DialAppStateDetails {
     }
 }
 impl ::windows::core::RuntimeType for DialAppStateDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialAppStateDetails;{ddc4a4a1-f5de-400d-bea4-8c8466bb2961})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialAppStateDetails;{ddc4a4a1-f5de-400d-bea4-8c8466bb2961})");
 }
 impl ::core::clone::Clone for DialAppStateDetails {
     fn clone(&self) -> Self {
@@ -440,7 +440,7 @@ unsafe impl ::windows::core::Interface for DialAppStateDetails {
 impl ::windows::core::RuntimeName for DialAppStateDetails {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialAppStateDetails";
 }
-::windows::core::interface_hierarchy!(DialAppStateDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DialAppStateDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialAppStateDetails {}
 unsafe impl ::core::marker::Sync for DialAppStateDetails {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -501,7 +501,7 @@ impl DialDevice {
     }
     #[doc(hidden)]
     pub fn IDialDeviceStatics<R, F: FnOnce(&IDialDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DialDevice, IDialDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DialDevice, IDialDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -517,7 +517,7 @@ impl ::core::fmt::Debug for DialDevice {
     }
 }
 impl ::windows::core::RuntimeType for DialDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevice;{fff0edaf-759f-41d2-a20a-7f29ce0b3784})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevice;{fff0edaf-759f-41d2-a20a-7f29ce0b3784})");
 }
 impl ::core::clone::Clone for DialDevice {
     fn clone(&self) -> Self {
@@ -533,7 +533,7 @@ unsafe impl ::windows::core::Interface for DialDevice {
 impl ::windows::core::RuntimeName for DialDevice {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevice";
 }
-::windows::core::interface_hierarchy!(DialDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DialDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDevice {}
 unsafe impl ::core::marker::Sync for DialDevice {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -543,8 +543,8 @@ impl DialDevicePicker {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DialDevicePicker, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DialDevicePicker, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Filter(&self) -> ::windows::core::Result<DialDevicePickerFilter> {
@@ -659,7 +659,7 @@ impl ::core::fmt::Debug for DialDevicePicker {
     }
 }
 impl ::windows::core::RuntimeType for DialDevicePicker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevicePicker;{ba7e520a-ff59-4f4b-bdac-d89f495ad6e1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevicePicker;{ba7e520a-ff59-4f4b-bdac-d89f495ad6e1})");
 }
 impl ::core::clone::Clone for DialDevicePicker {
     fn clone(&self) -> Self {
@@ -675,7 +675,7 @@ unsafe impl ::windows::core::Interface for DialDevicePicker {
 impl ::windows::core::RuntimeName for DialDevicePicker {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePicker";
 }
-::windows::core::interface_hierarchy!(DialDevicePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DialDevicePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDevicePicker {}
 unsafe impl ::core::marker::Sync for DialDevicePicker {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -704,7 +704,7 @@ impl ::core::fmt::Debug for DialDevicePickerFilter {
     }
 }
 impl ::windows::core::RuntimeType for DialDevicePickerFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevicePickerFilter;{c17c93ba-86c0-485d-b8d6-0f9a8f641590})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevicePickerFilter;{c17c93ba-86c0-485d-b8d6-0f9a8f641590})");
 }
 impl ::core::clone::Clone for DialDevicePickerFilter {
     fn clone(&self) -> Self {
@@ -720,7 +720,7 @@ unsafe impl ::windows::core::Interface for DialDevicePickerFilter {
 impl ::windows::core::RuntimeName for DialDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePickerFilter";
 }
-::windows::core::interface_hierarchy!(DialDevicePickerFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DialDevicePickerFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDevicePickerFilter {}
 unsafe impl ::core::marker::Sync for DialDevicePickerFilter {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -747,7 +747,7 @@ impl ::core::fmt::Debug for DialDeviceSelectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DialDeviceSelectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDeviceSelectedEventArgs;{480b92ad-ac76-47eb-9c06-a19304da0247})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDeviceSelectedEventArgs;{480b92ad-ac76-47eb-9c06-a19304da0247})");
 }
 impl ::core::clone::Clone for DialDeviceSelectedEventArgs {
     fn clone(&self) -> Self {
@@ -763,7 +763,7 @@ unsafe impl ::windows::core::Interface for DialDeviceSelectedEventArgs {
 impl ::windows::core::RuntimeName for DialDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDeviceSelectedEventArgs";
 }
-::windows::core::interface_hierarchy!(DialDeviceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DialDeviceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for DialDeviceSelectedEventArgs {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -790,7 +790,7 @@ impl ::core::fmt::Debug for DialDisconnectButtonClickedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DialDisconnectButtonClickedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs;{52765152-9c81-4e55-adc2-0ebe99cde3b6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs;{52765152-9c81-4e55-adc2-0ebe99cde3b6})");
 }
 impl ::core::clone::Clone for DialDisconnectButtonClickedEventArgs {
     fn clone(&self) -> Self {
@@ -806,7 +806,7 @@ unsafe impl ::windows::core::Interface for DialDisconnectButtonClickedEventArgs 
 impl ::windows::core::RuntimeName for DialDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs";
 }
-::windows::core::interface_hierarchy!(DialDisconnectButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DialDisconnectButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDisconnectButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for DialDisconnectButtonClickedEventArgs {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -852,7 +852,7 @@ impl DialReceiverApp {
     }
     #[doc(hidden)]
     pub fn IDialReceiverAppStatics<R, F: FnOnce(&IDialReceiverAppStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DialReceiverApp, IDialReceiverAppStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DialReceiverApp, IDialReceiverAppStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -868,7 +868,7 @@ impl ::core::fmt::Debug for DialReceiverApp {
     }
 }
 impl ::windows::core::RuntimeType for DialReceiverApp {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialReceiverApp;{fd3e7c57-5045-470e-b304-4dd9b13e7d11})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialReceiverApp;{fd3e7c57-5045-470e-b304-4dd9b13e7d11})");
 }
 impl ::core::clone::Clone for DialReceiverApp {
     fn clone(&self) -> Self {
@@ -884,7 +884,7 @@ unsafe impl ::windows::core::Interface for DialReceiverApp {
 impl ::windows::core::RuntimeName for DialReceiverApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialReceiverApp";
 }
-::windows::core::interface_hierarchy!(DialReceiverApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DialReceiverApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialReceiverApp {}
 unsafe impl ::core::marker::Sync for DialReceiverApp {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -917,7 +917,7 @@ impl ::core::fmt::Debug for DialAppLaunchResult {
     }
 }
 impl ::windows::core::RuntimeType for DialAppLaunchResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
 }
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
@@ -949,7 +949,7 @@ impl ::core::fmt::Debug for DialAppState {
     }
 }
 impl ::windows::core::RuntimeType for DialAppState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
 }
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
@@ -981,7 +981,7 @@ impl ::core::fmt::Debug for DialAppStopResult {
     }
 }
 impl ::windows::core::RuntimeType for DialAppStopResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
 }
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
@@ -1015,7 +1015,7 @@ impl ::core::fmt::Debug for DialDeviceDisplayStatus {
     }
 }
 impl ::windows::core::RuntimeType for DialDeviceDisplayStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

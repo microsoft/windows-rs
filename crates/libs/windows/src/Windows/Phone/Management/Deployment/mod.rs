@@ -263,7 +263,7 @@ impl ::core::fmt::Debug for Enterprise {
     }
 }
 impl ::windows::core::RuntimeType for Enterprise {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.Enterprise;{96592f8d-856c-4426-a947-b06307718078})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.Enterprise;{96592f8d-856c-4426-a947-b06307718078})");
 }
 impl ::core::clone::Clone for Enterprise {
     fn clone(&self) -> Self {
@@ -279,7 +279,7 @@ unsafe impl ::windows::core::Interface for Enterprise {
 impl ::windows::core::RuntimeName for Enterprise {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.Enterprise";
 }
-::windows::core::interface_hierarchy!(Enterprise, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Enterprise, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Enterprise {}
 unsafe impl ::core::marker::Sync for Enterprise {}
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
@@ -325,7 +325,7 @@ impl EnterpriseEnrollmentManager {
     }
     #[doc(hidden)]
     pub fn IEnterpriseEnrollmentManager<R, F: FnOnce(&IEnterpriseEnrollmentManager) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EnterpriseEnrollmentManager, IEnterpriseEnrollmentManager> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EnterpriseEnrollmentManager, IEnterpriseEnrollmentManager> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -363,7 +363,7 @@ impl ::core::fmt::Debug for EnterpriseEnrollmentResult {
     }
 }
 impl ::windows::core::RuntimeType for EnterpriseEnrollmentResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult;{9ff71ce6-90db-4342-b326-1729aa91301c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult;{9ff71ce6-90db-4342-b326-1729aa91301c})");
 }
 impl ::core::clone::Clone for EnterpriseEnrollmentResult {
     fn clone(&self) -> Self {
@@ -379,7 +379,7 @@ unsafe impl ::windows::core::Interface for EnterpriseEnrollmentResult {
 impl ::windows::core::RuntimeName for EnterpriseEnrollmentResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult";
 }
-::windows::core::interface_hierarchy!(EnterpriseEnrollmentResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EnterpriseEnrollmentResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 pub struct InstallationManager;
 impl InstallationManager {
@@ -453,12 +453,12 @@ impl InstallationManager {
     }
     #[doc(hidden)]
     pub fn IInstallationManagerStatics<R, F: FnOnce(&IInstallationManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InstallationManager, IInstallationManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InstallationManager, IInstallationManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IInstallationManagerStatics2<R, F: FnOnce(&IInstallationManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InstallationManager, IInstallationManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InstallationManager, IInstallationManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -505,7 +505,7 @@ impl ::core::fmt::Debug for PackageInstallResult {
     }
 }
 impl ::windows::core::RuntimeType for PackageInstallResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.PackageInstallResult;{33e8eed5-0f7e-4473-967c-7d6e1c0e7de1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.PackageInstallResult;{33e8eed5-0f7e-4473-967c-7d6e1c0e7de1})");
 }
 impl ::core::clone::Clone for PackageInstallResult {
     fn clone(&self) -> Self {
@@ -521,7 +521,7 @@ unsafe impl ::windows::core::Interface for PackageInstallResult {
 impl ::windows::core::RuntimeName for PackageInstallResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.PackageInstallResult";
 }
-::windows::core::interface_hierarchy!(PackageInstallResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageInstallResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -551,7 +551,7 @@ impl ::core::fmt::Debug for EnterpriseEnrollmentStatus {
     }
 }
 impl ::windows::core::RuntimeType for EnterpriseEnrollmentStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
 }
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -583,7 +583,7 @@ impl ::core::fmt::Debug for EnterpriseStatus {
     }
 }
 impl ::windows::core::RuntimeType for EnterpriseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

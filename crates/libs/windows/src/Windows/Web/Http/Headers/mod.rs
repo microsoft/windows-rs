@@ -1842,7 +1842,7 @@ impl ::core::fmt::Debug for HttpCacheDirectiveHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpCacheDirectiveHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCacheDirectiveHeaderValueCollection;{9a586b89-d5d0-4fbe-bd9d-b5b3636811b4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCacheDirectiveHeaderValueCollection;{9a586b89-d5d0-4fbe-bd9d-b5b3636811b4})");
 }
 impl ::core::clone::Clone for HttpCacheDirectiveHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -1874,7 +1874,7 @@ impl ::core::iter::IntoIterator for &HttpCacheDirectiveHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpCacheDirectiveHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpCacheDirectiveHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpCacheDirectiveHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpNameValueHeaderValue> {
     type Error = ::windows::core::Error;
@@ -2005,12 +2005,12 @@ impl HttpChallengeHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpChallengeHeaderValueFactory<R, F: FnOnce(&IHttpChallengeHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpChallengeHeaderValue, IHttpChallengeHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpChallengeHeaderValue, IHttpChallengeHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpChallengeHeaderValueStatics<R, F: FnOnce(&IHttpChallengeHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpChallengeHeaderValue, IHttpChallengeHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpChallengeHeaderValue, IHttpChallengeHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2026,7 +2026,7 @@ impl ::core::fmt::Debug for HttpChallengeHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpChallengeHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpChallengeHeaderValue;{393361af-0f7d-4820-9fdd-a2b956eeaeab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpChallengeHeaderValue;{393361af-0f7d-4820-9fdd-a2b956eeaeab})");
 }
 impl ::core::clone::Clone for HttpChallengeHeaderValue {
     fn clone(&self) -> Self {
@@ -2042,7 +2042,7 @@ unsafe impl ::windows::core::Interface for HttpChallengeHeaderValue {
 impl ::windows::core::RuntimeName for HttpChallengeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpChallengeHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpChallengeHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpChallengeHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -2200,7 +2200,7 @@ impl ::core::fmt::Debug for HttpChallengeHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpChallengeHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpChallengeHeaderValueCollection;{ca9e5f81-aee0-4353-a10b-e625babd64c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpChallengeHeaderValueCollection;{ca9e5f81-aee0-4353-a10b-e625babd64c2})");
 }
 impl ::core::clone::Clone for HttpChallengeHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -2232,7 +2232,7 @@ impl ::core::iter::IntoIterator for &HttpChallengeHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpChallengeHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpChallengeHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpChallengeHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpChallengeHeaderValue> {
     type Error = ::windows::core::Error;
@@ -2341,12 +2341,12 @@ impl HttpConnectionOptionHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpConnectionOptionHeaderValueFactory<R, F: FnOnce(&IHttpConnectionOptionHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpConnectionOptionHeaderValue, IHttpConnectionOptionHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpConnectionOptionHeaderValue, IHttpConnectionOptionHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpConnectionOptionHeaderValueStatics<R, F: FnOnce(&IHttpConnectionOptionHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpConnectionOptionHeaderValue, IHttpConnectionOptionHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpConnectionOptionHeaderValue, IHttpConnectionOptionHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2362,7 +2362,7 @@ impl ::core::fmt::Debug for HttpConnectionOptionHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpConnectionOptionHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue;{cb4af27a-4e90-45eb-8dcd-fd1408f4c44f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue;{cb4af27a-4e90-45eb-8dcd-fd1408f4c44f})");
 }
 impl ::core::clone::Clone for HttpConnectionOptionHeaderValue {
     fn clone(&self) -> Self {
@@ -2378,7 +2378,7 @@ unsafe impl ::windows::core::Interface for HttpConnectionOptionHeaderValue {
 impl ::windows::core::RuntimeName for HttpConnectionOptionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpConnectionOptionHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpConnectionOptionHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpConnectionOptionHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -2536,7 +2536,7 @@ impl ::core::fmt::Debug for HttpConnectionOptionHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpConnectionOptionHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpConnectionOptionHeaderValueCollection;{e4f56c1d-5142-4e00-8e0f-019509337629})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpConnectionOptionHeaderValueCollection;{e4f56c1d-5142-4e00-8e0f-019509337629})");
 }
 impl ::core::clone::Clone for HttpConnectionOptionHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -2568,7 +2568,7 @@ impl ::core::iter::IntoIterator for &HttpConnectionOptionHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpConnectionOptionHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpConnectionOptionHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpConnectionOptionHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpConnectionOptionHeaderValue> {
     type Error = ::windows::core::Error;
@@ -2677,12 +2677,12 @@ impl HttpContentCodingHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpContentCodingHeaderValueFactory<R, F: FnOnce(&IHttpContentCodingHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpContentCodingHeaderValue, IHttpContentCodingHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpContentCodingHeaderValue, IHttpContentCodingHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpContentCodingHeaderValueStatics<R, F: FnOnce(&IHttpContentCodingHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpContentCodingHeaderValue, IHttpContentCodingHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpContentCodingHeaderValue, IHttpContentCodingHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2698,7 +2698,7 @@ impl ::core::fmt::Debug for HttpContentCodingHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpContentCodingHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingHeaderValue;{bcf7f92a-9376-4d85-bccc-9f4f9acab434})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingHeaderValue;{bcf7f92a-9376-4d85-bccc-9f4f9acab434})");
 }
 impl ::core::clone::Clone for HttpContentCodingHeaderValue {
     fn clone(&self) -> Self {
@@ -2714,7 +2714,7 @@ unsafe impl ::windows::core::Interface for HttpContentCodingHeaderValue {
 impl ::windows::core::RuntimeName for HttpContentCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpContentCodingHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpContentCodingHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpContentCodingHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -2872,7 +2872,7 @@ impl ::core::fmt::Debug for HttpContentCodingHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpContentCodingHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingHeaderValueCollection;{7d221721-a6db-436e-8e83-91596192819c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingHeaderValueCollection;{7d221721-a6db-436e-8e83-91596192819c})");
 }
 impl ::core::clone::Clone for HttpContentCodingHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -2904,7 +2904,7 @@ impl ::core::iter::IntoIterator for &HttpContentCodingHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpContentCodingHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpContentCodingHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpContentCodingHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpContentCodingHeaderValue> {
     type Error = ::windows::core::Error;
@@ -3028,12 +3028,12 @@ impl HttpContentCodingWithQualityHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpContentCodingWithQualityHeaderValueFactory<R, F: FnOnce(&IHttpContentCodingWithQualityHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpContentCodingWithQualityHeaderValue, IHttpContentCodingWithQualityHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpContentCodingWithQualityHeaderValue, IHttpContentCodingWithQualityHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpContentCodingWithQualityHeaderValueStatics<R, F: FnOnce(&IHttpContentCodingWithQualityHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpContentCodingWithQualityHeaderValue, IHttpContentCodingWithQualityHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpContentCodingWithQualityHeaderValue, IHttpContentCodingWithQualityHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3049,7 +3049,7 @@ impl ::core::fmt::Debug for HttpContentCodingWithQualityHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpContentCodingWithQualityHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue;{94531cd5-8b13-4d73-8651-f76b38f88495})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue;{94531cd5-8b13-4d73-8651-f76b38f88495})");
 }
 impl ::core::clone::Clone for HttpContentCodingWithQualityHeaderValue {
     fn clone(&self) -> Self {
@@ -3065,7 +3065,7 @@ unsafe impl ::windows::core::Interface for HttpContentCodingWithQualityHeaderVal
 impl ::windows::core::RuntimeName for HttpContentCodingWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpContentCodingWithQualityHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpContentCodingWithQualityHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpContentCodingWithQualityHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -3223,7 +3223,7 @@ impl ::core::fmt::Debug for HttpContentCodingWithQualityHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpContentCodingWithQualityHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValueCollection;{7c0d753e-e899-4378-b5c8-412d820711cc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValueCollection;{7c0d753e-e899-4378-b5c8-412d820711cc})");
 }
 impl ::core::clone::Clone for HttpContentCodingWithQualityHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -3255,7 +3255,7 @@ impl ::core::iter::IntoIterator for &HttpContentCodingWithQualityHeaderValueColl
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpContentCodingWithQualityHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpContentCodingWithQualityHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpContentCodingWithQualityHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpContentCodingWithQualityHeaderValue> {
     type Error = ::windows::core::Error;
@@ -3429,12 +3429,12 @@ impl HttpContentDispositionHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpContentDispositionHeaderValueFactory<R, F: FnOnce(&IHttpContentDispositionHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpContentDispositionHeaderValue, IHttpContentDispositionHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpContentDispositionHeaderValue, IHttpContentDispositionHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpContentDispositionHeaderValueStatics<R, F: FnOnce(&IHttpContentDispositionHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpContentDispositionHeaderValue, IHttpContentDispositionHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpContentDispositionHeaderValue, IHttpContentDispositionHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3450,7 +3450,7 @@ impl ::core::fmt::Debug for HttpContentDispositionHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpContentDispositionHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentDispositionHeaderValue;{f2a2eedc-2629-4b49-9908-96a168e9365e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentDispositionHeaderValue;{f2a2eedc-2629-4b49-9908-96a168e9365e})");
 }
 impl ::core::clone::Clone for HttpContentDispositionHeaderValue {
     fn clone(&self) -> Self {
@@ -3466,7 +3466,7 @@ unsafe impl ::windows::core::Interface for HttpContentDispositionHeaderValue {
 impl ::windows::core::RuntimeName for HttpContentDispositionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentDispositionHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpContentDispositionHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpContentDispositionHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpContentDispositionHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -3498,8 +3498,8 @@ impl HttpContentHeaderCollection {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpContentHeaderCollection, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<HttpContentHeaderCollection, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ContentDisposition(&self) -> ::windows::core::Result<HttpContentDispositionHeaderValue> {
@@ -3739,7 +3739,7 @@ impl ::core::fmt::Debug for HttpContentHeaderCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpContentHeaderCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentHeaderCollection;{40612a44-47ae-4b7e-9124-69628b64aa18})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentHeaderCollection;{40612a44-47ae-4b7e-9124-69628b64aa18})");
 }
 impl ::core::clone::Clone for HttpContentHeaderCollection {
     fn clone(&self) -> Self {
@@ -3771,7 +3771,7 @@ impl ::core::iter::IntoIterator for &HttpContentHeaderCollection {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(HttpContentHeaderCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpContentHeaderCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpContentHeaderCollection> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -3923,12 +3923,12 @@ impl HttpContentRangeHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpContentRangeHeaderValueFactory<R, F: FnOnce(&IHttpContentRangeHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpContentRangeHeaderValue, IHttpContentRangeHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpContentRangeHeaderValue, IHttpContentRangeHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpContentRangeHeaderValueStatics<R, F: FnOnce(&IHttpContentRangeHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpContentRangeHeaderValue, IHttpContentRangeHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpContentRangeHeaderValue, IHttpContentRangeHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3944,7 +3944,7 @@ impl ::core::fmt::Debug for HttpContentRangeHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpContentRangeHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentRangeHeaderValue;{04d967d3-a4f6-495c-9530-8579fcba8aa9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentRangeHeaderValue;{04d967d3-a4f6-495c-9530-8579fcba8aa9})");
 }
 impl ::core::clone::Clone for HttpContentRangeHeaderValue {
     fn clone(&self) -> Self {
@@ -3960,7 +3960,7 @@ unsafe impl ::windows::core::Interface for HttpContentRangeHeaderValue {
 impl ::windows::core::RuntimeName for HttpContentRangeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentRangeHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpContentRangeHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpContentRangeHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpContentRangeHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4042,12 +4042,12 @@ impl HttpCookiePairHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpCookiePairHeaderValueFactory<R, F: FnOnce(&IHttpCookiePairHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpCookiePairHeaderValue, IHttpCookiePairHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpCookiePairHeaderValue, IHttpCookiePairHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpCookiePairHeaderValueStatics<R, F: FnOnce(&IHttpCookiePairHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpCookiePairHeaderValue, IHttpCookiePairHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpCookiePairHeaderValue, IHttpCookiePairHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4063,7 +4063,7 @@ impl ::core::fmt::Debug for HttpCookiePairHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpCookiePairHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCookiePairHeaderValue;{cbd46217-4b29-412b-bd90-b3d814ab8e1b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCookiePairHeaderValue;{cbd46217-4b29-412b-bd90-b3d814ab8e1b})");
 }
 impl ::core::clone::Clone for HttpCookiePairHeaderValue {
     fn clone(&self) -> Self {
@@ -4079,7 +4079,7 @@ unsafe impl ::windows::core::Interface for HttpCookiePairHeaderValue {
 impl ::windows::core::RuntimeName for HttpCookiePairHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpCookiePairHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpCookiePairHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpCookiePairHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4237,7 +4237,7 @@ impl ::core::fmt::Debug for HttpCookiePairHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpCookiePairHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCookiePairHeaderValueCollection;{f3f44350-581e-4ecc-9f59-e507d04f06e6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCookiePairHeaderValueCollection;{f3f44350-581e-4ecc-9f59-e507d04f06e6})");
 }
 impl ::core::clone::Clone for HttpCookiePairHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -4269,7 +4269,7 @@ impl ::core::iter::IntoIterator for &HttpCookiePairHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpCookiePairHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpCookiePairHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpCookiePairHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpCookiePairHeaderValue> {
     type Error = ::windows::core::Error;
@@ -4400,12 +4400,12 @@ impl HttpCredentialsHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpCredentialsHeaderValueFactory<R, F: FnOnce(&IHttpCredentialsHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpCredentialsHeaderValue, IHttpCredentialsHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpCredentialsHeaderValue, IHttpCredentialsHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpCredentialsHeaderValueStatics<R, F: FnOnce(&IHttpCredentialsHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpCredentialsHeaderValue, IHttpCredentialsHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpCredentialsHeaderValue, IHttpCredentialsHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4421,7 +4421,7 @@ impl ::core::fmt::Debug for HttpCredentialsHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpCredentialsHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCredentialsHeaderValue;{c34cc3cb-542e-4177-a6c7-b674ce193fbf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCredentialsHeaderValue;{c34cc3cb-542e-4177-a6c7-b674ce193fbf})");
 }
 impl ::core::clone::Clone for HttpCredentialsHeaderValue {
     fn clone(&self) -> Self {
@@ -4437,7 +4437,7 @@ unsafe impl ::windows::core::Interface for HttpCredentialsHeaderValue {
 impl ::windows::core::RuntimeName for HttpCredentialsHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCredentialsHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpCredentialsHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpCredentialsHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpCredentialsHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4507,7 +4507,7 @@ impl HttpDateOrDeltaHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpDateOrDeltaHeaderValueStatics<R, F: FnOnce(&IHttpDateOrDeltaHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpDateOrDeltaHeaderValue, IHttpDateOrDeltaHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpDateOrDeltaHeaderValue, IHttpDateOrDeltaHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4523,7 +4523,7 @@ impl ::core::fmt::Debug for HttpDateOrDeltaHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpDateOrDeltaHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue;{eafcaa6a-c4dc-49e2-a27d-043adf5867a3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue;{eafcaa6a-c4dc-49e2-a27d-043adf5867a3})");
 }
 impl ::core::clone::Clone for HttpDateOrDeltaHeaderValue {
     fn clone(&self) -> Self {
@@ -4539,7 +4539,7 @@ unsafe impl ::windows::core::Interface for HttpDateOrDeltaHeaderValue {
 impl ::windows::core::RuntimeName for HttpDateOrDeltaHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpDateOrDeltaHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpDateOrDeltaHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpDateOrDeltaHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4630,12 +4630,12 @@ impl HttpExpectationHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpExpectationHeaderValueFactory<R, F: FnOnce(&IHttpExpectationHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpExpectationHeaderValue, IHttpExpectationHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpExpectationHeaderValue, IHttpExpectationHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpExpectationHeaderValueStatics<R, F: FnOnce(&IHttpExpectationHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpExpectationHeaderValue, IHttpExpectationHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpExpectationHeaderValue, IHttpExpectationHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4651,7 +4651,7 @@ impl ::core::fmt::Debug for HttpExpectationHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpExpectationHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpExpectationHeaderValue;{4ce585cd-3a99-43af-a2e6-ec232fea9658})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpExpectationHeaderValue;{4ce585cd-3a99-43af-a2e6-ec232fea9658})");
 }
 impl ::core::clone::Clone for HttpExpectationHeaderValue {
     fn clone(&self) -> Self {
@@ -4667,7 +4667,7 @@ unsafe impl ::windows::core::Interface for HttpExpectationHeaderValue {
 impl ::windows::core::RuntimeName for HttpExpectationHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpExpectationHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpExpectationHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpExpectationHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4825,7 +4825,7 @@ impl ::core::fmt::Debug for HttpExpectationHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpExpectationHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpExpectationHeaderValueCollection;{e78521b3-a0e2-4ac4-9e66-79706cb9fd58})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpExpectationHeaderValueCollection;{e78521b3-a0e2-4ac4-9e66-79706cb9fd58})");
 }
 impl ::core::clone::Clone for HttpExpectationHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -4857,7 +4857,7 @@ impl ::core::iter::IntoIterator for &HttpExpectationHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpExpectationHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpExpectationHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpExpectationHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpExpectationHeaderValue> {
     type Error = ::windows::core::Error;
@@ -5059,7 +5059,7 @@ impl ::core::fmt::Debug for HttpLanguageHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpLanguageHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageHeaderValueCollection;{9ebd7ca3-8219-44f6-9902-8c56dfd3340c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageHeaderValueCollection;{9ebd7ca3-8219-44f6-9902-8c56dfd3340c})");
 }
 impl ::core::clone::Clone for HttpLanguageHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -5091,7 +5091,7 @@ impl ::core::iter::IntoIterator for &HttpLanguageHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpLanguageHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpLanguageHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
 impl ::core::convert::TryFrom<HttpLanguageHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language> {
     type Error = ::windows::core::Error;
@@ -5215,12 +5215,12 @@ impl HttpLanguageRangeWithQualityHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpLanguageRangeWithQualityHeaderValueFactory<R, F: FnOnce(&IHttpLanguageRangeWithQualityHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpLanguageRangeWithQualityHeaderValue, IHttpLanguageRangeWithQualityHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpLanguageRangeWithQualityHeaderValue, IHttpLanguageRangeWithQualityHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpLanguageRangeWithQualityHeaderValueStatics<R, F: FnOnce(&IHttpLanguageRangeWithQualityHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpLanguageRangeWithQualityHeaderValue, IHttpLanguageRangeWithQualityHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpLanguageRangeWithQualityHeaderValue, IHttpLanguageRangeWithQualityHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5236,7 +5236,7 @@ impl ::core::fmt::Debug for HttpLanguageRangeWithQualityHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpLanguageRangeWithQualityHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue;{7256e102-0080-4db4-a083-7de7b2e5ba4c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue;{7256e102-0080-4db4-a083-7de7b2e5ba4c})");
 }
 impl ::core::clone::Clone for HttpLanguageRangeWithQualityHeaderValue {
     fn clone(&self) -> Self {
@@ -5252,7 +5252,7 @@ unsafe impl ::windows::core::Interface for HttpLanguageRangeWithQualityHeaderVal
 impl ::windows::core::RuntimeName for HttpLanguageRangeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpLanguageRangeWithQualityHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -5410,7 +5410,7 @@ impl ::core::fmt::Debug for HttpLanguageRangeWithQualityHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpLanguageRangeWithQualityHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValueCollection;{885d5abd-4b4f-480a-89ce-8aedcee6e3a0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValueCollection;{885d5abd-4b4f-480a-89ce-8aedcee6e3a0})");
 }
 impl ::core::clone::Clone for HttpLanguageRangeWithQualityHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -5442,7 +5442,7 @@ impl ::core::iter::IntoIterator for &HttpLanguageRangeWithQualityHeaderValueColl
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpLanguageRangeWithQualityHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpLanguageRangeWithQualityHeaderValue> {
     type Error = ::windows::core::Error;
@@ -5575,12 +5575,12 @@ impl HttpMediaTypeHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpMediaTypeHeaderValueFactory<R, F: FnOnce(&IHttpMediaTypeHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMediaTypeHeaderValue, IHttpMediaTypeHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpMediaTypeHeaderValue, IHttpMediaTypeHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpMediaTypeHeaderValueStatics<R, F: FnOnce(&IHttpMediaTypeHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMediaTypeHeaderValue, IHttpMediaTypeHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpMediaTypeHeaderValue, IHttpMediaTypeHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5596,7 +5596,7 @@ impl ::core::fmt::Debug for HttpMediaTypeHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpMediaTypeHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeHeaderValue;{16b28533-e728-4fcb-bdb0-08a431a14844})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeHeaderValue;{16b28533-e728-4fcb-bdb0-08a431a14844})");
 }
 impl ::core::clone::Clone for HttpMediaTypeHeaderValue {
     fn clone(&self) -> Self {
@@ -5612,7 +5612,7 @@ unsafe impl ::windows::core::Interface for HttpMediaTypeHeaderValue {
 impl ::windows::core::RuntimeName for HttpMediaTypeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpMediaTypeHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpMediaTypeHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMediaTypeHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -5726,12 +5726,12 @@ impl HttpMediaTypeWithQualityHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpMediaTypeWithQualityHeaderValueFactory<R, F: FnOnce(&IHttpMediaTypeWithQualityHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMediaTypeWithQualityHeaderValue, IHttpMediaTypeWithQualityHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpMediaTypeWithQualityHeaderValue, IHttpMediaTypeWithQualityHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpMediaTypeWithQualityHeaderValueStatics<R, F: FnOnce(&IHttpMediaTypeWithQualityHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpMediaTypeWithQualityHeaderValue, IHttpMediaTypeWithQualityHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpMediaTypeWithQualityHeaderValue, IHttpMediaTypeWithQualityHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5747,7 +5747,7 @@ impl ::core::fmt::Debug for HttpMediaTypeWithQualityHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpMediaTypeWithQualityHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue;{188d5e32-76be-44a0-b1cd-2074bded2dde})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue;{188d5e32-76be-44a0-b1cd-2074bded2dde})");
 }
 impl ::core::clone::Clone for HttpMediaTypeWithQualityHeaderValue {
     fn clone(&self) -> Self {
@@ -5763,7 +5763,7 @@ unsafe impl ::windows::core::Interface for HttpMediaTypeWithQualityHeaderValue {
 impl ::windows::core::RuntimeName for HttpMediaTypeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMediaTypeWithQualityHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -5921,7 +5921,7 @@ impl ::core::fmt::Debug for HttpMediaTypeWithQualityHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpMediaTypeWithQualityHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValueCollection;{3c0c6b73-1342-4587-a056-18d02ff67165})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValueCollection;{3c0c6b73-1342-4587-a056-18d02ff67165})");
 }
 impl ::core::clone::Clone for HttpMediaTypeWithQualityHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -5953,7 +5953,7 @@ impl ::core::iter::IntoIterator for &HttpMediaTypeWithQualityHeaderValueCollecti
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpMediaTypeWithQualityHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpMediaTypeWithQualityHeaderValue> {
     type Error = ::windows::core::Error;
@@ -6155,7 +6155,7 @@ impl ::core::fmt::Debug for HttpMethodHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpMethodHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMethodHeaderValueCollection;{43bc3ff4-6119-4adf-938c-34bfffcf92ed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMethodHeaderValueCollection;{43bc3ff4-6119-4adf-938c-34bfffcf92ed})");
 }
 impl ::core::clone::Clone for HttpMethodHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -6187,7 +6187,7 @@ impl ::core::iter::IntoIterator for &HttpMethodHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpMethodHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpMethodHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpMethodHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<super::HttpMethod> {
     type Error = ::windows::core::Error;
@@ -6313,12 +6313,12 @@ impl HttpNameValueHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpNameValueHeaderValueFactory<R, F: FnOnce(&IHttpNameValueHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpNameValueHeaderValue, IHttpNameValueHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpNameValueHeaderValue, IHttpNameValueHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpNameValueHeaderValueStatics<R, F: FnOnce(&IHttpNameValueHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpNameValueHeaderValue, IHttpNameValueHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpNameValueHeaderValue, IHttpNameValueHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6334,7 +6334,7 @@ impl ::core::fmt::Debug for HttpNameValueHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpNameValueHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpNameValueHeaderValue;{d8ba7463-5b9a-4d1b-93f9-aa5b44ecfddf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpNameValueHeaderValue;{d8ba7463-5b9a-4d1b-93f9-aa5b44ecfddf})");
 }
 impl ::core::clone::Clone for HttpNameValueHeaderValue {
     fn clone(&self) -> Self {
@@ -6350,7 +6350,7 @@ unsafe impl ::windows::core::Interface for HttpNameValueHeaderValue {
 impl ::windows::core::RuntimeName for HttpNameValueHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpNameValueHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpNameValueHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpNameValueHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpNameValueHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -6428,12 +6428,12 @@ impl HttpProductHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpProductHeaderValueFactory<R, F: FnOnce(&IHttpProductHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpProductHeaderValue, IHttpProductHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpProductHeaderValue, IHttpProductHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpProductHeaderValueStatics<R, F: FnOnce(&IHttpProductHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpProductHeaderValue, IHttpProductHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpProductHeaderValue, IHttpProductHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6449,7 +6449,7 @@ impl ::core::fmt::Debug for HttpProductHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpProductHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductHeaderValue;{f4feee03-ebd4-4160-b9ff-807c5183b6e6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductHeaderValue;{f4feee03-ebd4-4160-b9ff-807c5183b6e6})");
 }
 impl ::core::clone::Clone for HttpProductHeaderValue {
     fn clone(&self) -> Self {
@@ -6465,7 +6465,7 @@ unsafe impl ::windows::core::Interface for HttpProductHeaderValue {
 impl ::windows::core::RuntimeName for HttpProductHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpProductHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpProductHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpProductHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -6543,12 +6543,12 @@ impl HttpProductInfoHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpProductInfoHeaderValueFactory<R, F: FnOnce(&IHttpProductInfoHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpProductInfoHeaderValue, IHttpProductInfoHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpProductInfoHeaderValue, IHttpProductInfoHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpProductInfoHeaderValueStatics<R, F: FnOnce(&IHttpProductInfoHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpProductInfoHeaderValue, IHttpProductInfoHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpProductInfoHeaderValue, IHttpProductInfoHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6564,7 +6564,7 @@ impl ::core::fmt::Debug for HttpProductInfoHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpProductInfoHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductInfoHeaderValue;{1b1a8732-4c35-486a-966f-646489198e4d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductInfoHeaderValue;{1b1a8732-4c35-486a-966f-646489198e4d})");
 }
 impl ::core::clone::Clone for HttpProductInfoHeaderValue {
     fn clone(&self) -> Self {
@@ -6580,7 +6580,7 @@ unsafe impl ::windows::core::Interface for HttpProductInfoHeaderValue {
 impl ::windows::core::RuntimeName for HttpProductInfoHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpProductInfoHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpProductInfoHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpProductInfoHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -6738,7 +6738,7 @@ impl ::core::fmt::Debug for HttpProductInfoHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpProductInfoHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductInfoHeaderValueCollection;{877df74a-d69b-44f8-ad4f-453af9c42ed0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductInfoHeaderValueCollection;{877df74a-d69b-44f8-ad4f-453af9c42ed0})");
 }
 impl ::core::clone::Clone for HttpProductInfoHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -6770,7 +6770,7 @@ impl ::core::iter::IntoIterator for &HttpProductInfoHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpProductInfoHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpProductInfoHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpProductInfoHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpProductInfoHeaderValue> {
     type Error = ::windows::core::Error;
@@ -7144,7 +7144,7 @@ impl ::core::fmt::Debug for HttpRequestHeaderCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpRequestHeaderCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpRequestHeaderCollection;{af40329b-b544-469b-86b9-ac3d466fea36})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpRequestHeaderCollection;{af40329b-b544-469b-86b9-ac3d466fea36})");
 }
 impl ::core::clone::Clone for HttpRequestHeaderCollection {
     fn clone(&self) -> Self {
@@ -7176,7 +7176,7 @@ impl ::core::iter::IntoIterator for &HttpRequestHeaderCollection {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(HttpRequestHeaderCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpRequestHeaderCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpRequestHeaderCollection> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -7454,7 +7454,7 @@ impl ::core::fmt::Debug for HttpResponseHeaderCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpResponseHeaderCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpResponseHeaderCollection;{7a990969-fa3f-41ed-aac6-bf957975c16b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpResponseHeaderCollection;{7a990969-fa3f-41ed-aac6-bf957975c16b})");
 }
 impl ::core::clone::Clone for HttpResponseHeaderCollection {
     fn clone(&self) -> Self {
@@ -7486,7 +7486,7 @@ impl ::core::iter::IntoIterator for &HttpResponseHeaderCollection {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(HttpResponseHeaderCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpResponseHeaderCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpResponseHeaderCollection> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -7604,12 +7604,12 @@ impl HttpTransferCodingHeaderValue {
     }
     #[doc(hidden)]
     pub fn IHttpTransferCodingHeaderValueFactory<R, F: FnOnce(&IHttpTransferCodingHeaderValueFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpTransferCodingHeaderValue, IHttpTransferCodingHeaderValueFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpTransferCodingHeaderValue, IHttpTransferCodingHeaderValueFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IHttpTransferCodingHeaderValueStatics<R, F: FnOnce(&IHttpTransferCodingHeaderValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HttpTransferCodingHeaderValue, IHttpTransferCodingHeaderValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HttpTransferCodingHeaderValue, IHttpTransferCodingHeaderValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7625,7 +7625,7 @@ impl ::core::fmt::Debug for HttpTransferCodingHeaderValue {
     }
 }
 impl ::windows::core::RuntimeType for HttpTransferCodingHeaderValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpTransferCodingHeaderValue;{436f32f9-3ded-42bd-b38a-5496a2511ce6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpTransferCodingHeaderValue;{436f32f9-3ded-42bd-b38a-5496a2511ce6})");
 }
 impl ::core::clone::Clone for HttpTransferCodingHeaderValue {
     fn clone(&self) -> Self {
@@ -7641,7 +7641,7 @@ unsafe impl ::windows::core::Interface for HttpTransferCodingHeaderValue {
 impl ::windows::core::RuntimeName for HttpTransferCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValue";
 }
-::windows::core::interface_hierarchy!(HttpTransferCodingHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpTransferCodingHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpTransferCodingHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -7799,7 +7799,7 @@ impl ::core::fmt::Debug for HttpTransferCodingHeaderValueCollection {
     }
 }
 impl ::windows::core::RuntimeType for HttpTransferCodingHeaderValueCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpTransferCodingHeaderValueCollection;{202c8c34-2c03-49b8-9665-73e27cb2fc79})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpTransferCodingHeaderValueCollection;{202c8c34-2c03-49b8-9665-73e27cb2fc79})");
 }
 impl ::core::clone::Clone for HttpTransferCodingHeaderValueCollection {
     fn clone(&self) -> Self {
@@ -7831,7 +7831,7 @@ impl ::core::iter::IntoIterator for &HttpTransferCodingHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(HttpTransferCodingHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HttpTransferCodingHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpTransferCodingHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpTransferCodingHeaderValue> {
     type Error = ::windows::core::Error;

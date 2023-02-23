@@ -203,7 +203,7 @@ impl ::core::fmt::Debug for PhoneCallBlockedTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallBlockedTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails;{a4a690a2-e4c1-427f-864e-e470477ddb67})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails;{a4a690a2-e4c1-427f-864e-e470477ddb67})");
 }
 impl ::core::clone::Clone for PhoneCallBlockedTriggerDetails {
     fn clone(&self) -> Self {
@@ -219,7 +219,7 @@ unsafe impl ::windows::core::Interface for PhoneCallBlockedTriggerDetails {
 impl ::windows::core::RuntimeName for PhoneCallBlockedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails";
 }
-::windows::core::interface_hierarchy!(PhoneCallBlockedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallBlockedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallBlockedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallBlockedTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`, `\"deprecated\"`*"]
@@ -263,7 +263,7 @@ impl ::core::fmt::Debug for PhoneCallOriginDataRequestTriggerDetails {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for PhoneCallOriginDataRequestTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails;{6e9b5b3f-c54b-4e82-4cc9-e329a4184592})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails;{6e9b5b3f-c54b-4e82-4cc9-e329a4184592})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for PhoneCallOriginDataRequestTriggerDetails {
@@ -284,7 +284,7 @@ impl ::windows::core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(PhoneCallOriginDataRequestTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneCallOriginDataRequestTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
 #[cfg(feature = "deprecated")]
@@ -366,7 +366,7 @@ impl ::core::fmt::Debug for PhoneIncomingCallDismissedTriggerDetails {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails;{bad30276-83b6-5732-9c38-0c206546196a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails;{bad30276-83b6-5732-9c38-0c206546196a})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for PhoneIncomingCallDismissedTriggerDetails {
@@ -387,7 +387,7 @@ impl ::windows::core::RuntimeName for PhoneIncomingCallDismissedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(PhoneIncomingCallDismissedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneIncomingCallDismissedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PhoneIncomingCallDismissedTriggerDetails {}
 #[cfg(feature = "deprecated")]
@@ -423,7 +423,7 @@ impl ::core::fmt::Debug for PhoneIncomingCallNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for PhoneIncomingCallNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails;{2b0e6044-9b32-5d42-8222-d2812e39fb21})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails;{2b0e6044-9b32-5d42-8222-d2812e39fb21})");
 }
 impl ::core::clone::Clone for PhoneIncomingCallNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -439,7 +439,7 @@ unsafe impl ::windows::core::Interface for PhoneIncomingCallNotificationTriggerD
 impl ::windows::core::RuntimeName for PhoneIncomingCallNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(PhoneIncomingCallNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneIncomingCallNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
@@ -480,7 +480,7 @@ impl ::core::fmt::Debug for PhoneLineChangedTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineChangedTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails;{c6d321e7-d11d-40d8-b2b7-e40a01d66249})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails;{c6d321e7-d11d-40d8-b2b7-e40a01d66249})");
 }
 impl ::core::clone::Clone for PhoneLineChangedTriggerDetails {
     fn clone(&self) -> Self {
@@ -496,7 +496,7 @@ unsafe impl ::windows::core::Interface for PhoneLineChangedTriggerDetails {
 impl ::windows::core::RuntimeName for PhoneLineChangedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails";
 }
-::windows::core::interface_hierarchy!(PhoneLineChangedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneLineChangedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineChangedTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
@@ -537,7 +537,7 @@ impl ::core::fmt::Debug for PhoneNewVoicemailMessageTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for PhoneNewVoicemailMessageTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails;{13a8c01b-b831-48d3-8ba9-8d22a6580dcf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails;{13a8c01b-b831-48d3-8ba9-8d22a6580dcf})");
 }
 impl ::core::clone::Clone for PhoneNewVoicemailMessageTriggerDetails {
     fn clone(&self) -> Self {
@@ -553,7 +553,7 @@ unsafe impl ::windows::core::Interface for PhoneNewVoicemailMessageTriggerDetail
 impl ::windows::core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails";
 }
-::windows::core::interface_hierarchy!(PhoneNewVoicemailMessageTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhoneNewVoicemailMessageTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
@@ -585,7 +585,7 @@ impl ::core::fmt::Debug for PhoneCallBlockedReason {
     }
 }
 impl ::windows::core::RuntimeType for PhoneCallBlockedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -625,7 +625,7 @@ impl ::core::fmt::Debug for PhoneIncomingCallDismissedReason {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
@@ -656,7 +656,7 @@ impl ::core::fmt::Debug for PhoneLineChangeKind {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineChangeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
@@ -727,7 +727,7 @@ impl ::core::ops::Not for PhoneLineProperties {
     }
 }
 impl ::windows::core::RuntimeType for PhoneLineProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
@@ -763,7 +763,7 @@ impl ::core::fmt::Debug for PhoneTriggerType {
     }
 }
 impl ::windows::core::RuntimeType for PhoneTriggerType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

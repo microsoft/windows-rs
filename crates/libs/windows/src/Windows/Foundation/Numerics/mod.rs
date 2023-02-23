@@ -23,7 +23,7 @@ impl ::windows::core::TypeKind for Matrix3x2 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Matrix3x2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)");
 }
 impl ::core::cmp::PartialEq for Matrix3x2 {
     fn eq(&self, other: &Self) -> bool {
@@ -71,7 +71,7 @@ impl ::windows::core::TypeKind for Matrix4x4 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Matrix4x4 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)");
 }
 impl ::core::cmp::PartialEq for Matrix4x4 {
     fn eq(&self, other: &Self) -> bool {
@@ -105,7 +105,7 @@ impl ::windows::core::TypeKind for Plane {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Plane {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
 }
 impl ::core::cmp::PartialEq for Plane {
     fn eq(&self, other: &Self) -> bool {
@@ -141,7 +141,7 @@ impl ::windows::core::TypeKind for Quaternion {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Quaternion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)");
 }
 impl ::core::cmp::PartialEq for Quaternion {
     fn eq(&self, other: &Self) -> bool {
@@ -175,7 +175,7 @@ impl ::windows::core::TypeKind for Rational {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Rational {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Rational;u4;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Rational;u4;u4)");
 }
 impl ::core::cmp::PartialEq for Rational {
     fn eq(&self, other: &Self) -> bool {
@@ -209,7 +209,7 @@ impl ::windows::core::TypeKind for Vector2 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Vector2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)");
 }
 impl ::core::cmp::PartialEq for Vector2 {
     fn eq(&self, other: &Self) -> bool {
@@ -244,7 +244,7 @@ impl ::windows::core::TypeKind for Vector3 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Vector3 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)");
 }
 impl ::core::cmp::PartialEq for Vector3 {
     fn eq(&self, other: &Self) -> bool {
@@ -280,7 +280,7 @@ impl ::windows::core::TypeKind for Vector4 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Vector4 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)");
 }
 impl ::core::cmp::PartialEq for Vector4 {
     fn eq(&self, other: &Self) -> bool {
@@ -306,7 +306,7 @@ impl Matrix3x2 {
             pub x: f32,
             pub y: f32,
         }
-        ::windows::core::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut Matrix3x2) -> ());
+        ::windows::imp::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut Matrix3x2) -> ());
         let mut matrix = Self::default();
         unsafe {
             D2D1MakeRotateMatrix(angle, D2D_POINT_2F { x, y }, &mut matrix);
@@ -454,7 +454,7 @@ impl Matrix4x4 {
         }
     }
     pub fn rotation_y(degree: f32) -> Self {
-        ::windows::core::link!("d2d1.dll" "system" fn D2D1SinCos(angle: f32, sin: *mut f32, cos: *mut f32) -> ());
+        ::windows::imp::link!("d2d1.dll" "system" fn D2D1SinCos(angle: f32, sin: *mut f32, cos: *mut f32) -> ());
         let angle = degree * (3.141592654 / 180.0);
         let mut sin = 0.0;
         let mut cos = 0.0;

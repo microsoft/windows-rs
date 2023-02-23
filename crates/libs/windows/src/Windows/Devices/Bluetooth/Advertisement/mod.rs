@@ -583,8 +583,8 @@ impl BluetoothLEAdvertisement {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisement, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisement, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -675,7 +675,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisement {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement;{066fb2b7-33d1-4e7d-8367-cf81d0f79653})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement;{066fb2b7-33d1-4e7d-8367-cf81d0f79653})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisement {
     fn clone(&self) -> Self {
@@ -691,7 +691,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisement {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisement {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisement {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisement {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -701,8 +701,8 @@ impl BluetoothLEAdvertisementBytePattern {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementBytePattern, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementBytePattern, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn DataType(&self) -> ::windows::core::Result<u8> {
@@ -760,7 +760,7 @@ impl BluetoothLEAdvertisementBytePattern {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementBytePatternFactory<R, F: FnOnce(&IBluetoothLEAdvertisementBytePatternFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementBytePattern, IBluetoothLEAdvertisementBytePatternFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementBytePattern, IBluetoothLEAdvertisementBytePatternFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -776,7 +776,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementBytePattern {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementBytePattern {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern;{fbfad7f2-b9c5-4a08-bc51-502f8ef68a79})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern;{fbfad7f2-b9c5-4a08-bc51-502f8ef68a79})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementBytePattern {
     fn clone(&self) -> Self {
@@ -792,7 +792,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementBytePattern {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementBytePattern {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementBytePattern, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementBytePattern, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementBytePattern {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementBytePattern {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -802,8 +802,8 @@ impl BluetoothLEAdvertisementDataSection {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementDataSection, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementDataSection, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn DataType(&self) -> ::windows::core::Result<u8> {
@@ -850,7 +850,7 @@ impl BluetoothLEAdvertisementDataSection {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementDataSectionFactory<R, F: FnOnce(&IBluetoothLEAdvertisementDataSectionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementDataSection, IBluetoothLEAdvertisementDataSectionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementDataSection, IBluetoothLEAdvertisementDataSectionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -866,7 +866,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementDataSection {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementDataSection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection;{d7213314-3a43-40f9-b6f0-92bfefc34ae3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection;{d7213314-3a43-40f9-b6f0-92bfefc34ae3})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementDataSection {
     fn clone(&self) -> Self {
@@ -882,7 +882,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementDataSection {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementDataSection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementDataSection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementDataSection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementDataSection {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementDataSection {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1022,7 +1022,7 @@ impl BluetoothLEAdvertisementDataTypes {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementDataTypesStatics<R, F: FnOnce(&IBluetoothLEAdvertisementDataTypesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementDataTypes, IBluetoothLEAdvertisementDataTypesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementDataTypes, IBluetoothLEAdvertisementDataTypesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1036,8 +1036,8 @@ impl BluetoothLEAdvertisementFilter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementFilter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementFilter, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Advertisement(&self) -> ::windows::core::Result<BluetoothLEAdvertisement> {
@@ -1073,7 +1073,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementFilter {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter;{131eb0d3-d04e-47b1-837e-49405bf6f80f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter;{131eb0d3-d04e-47b1-837e-49405bf6f80f})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementFilter {
     fn clone(&self) -> Self {
@@ -1089,7 +1089,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementFilter {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementFilter {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementFilter {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1099,8 +1099,8 @@ impl BluetoothLEAdvertisementPublisher {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementPublisher, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementPublisher, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Status(&self) -> ::windows::core::Result<BluetoothLEAdvertisementPublisherStatus> {
@@ -1200,7 +1200,7 @@ impl BluetoothLEAdvertisementPublisher {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementPublisherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementPublisherFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementPublisher, IBluetoothLEAdvertisementPublisherFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementPublisher, IBluetoothLEAdvertisementPublisherFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1216,7 +1216,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisher {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher;{cde820f9-d9fa-43d6-a264-ddd8b7da8b78})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher;{cde820f9-d9fa-43d6-a264-ddd8b7da8b78})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementPublisher {
     fn clone(&self) -> Self {
@@ -1232,7 +1232,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisher {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementPublisher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisher {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1275,7 +1275,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherStatusChangedEventA
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs;{09c2bd9f-2dff-4b23-86ee-0d14fb94aeae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs;{09c2bd9f-2dff-4b23-86ee-0d14fb94aeae})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1291,7 +1291,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherStat
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementPublisherStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1399,7 +1399,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs;{27987ddf-e596-41be-8d43-9e6731d4a913})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs;{27987ddf-e596-41be-8d43-9e6731d4a913})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -1415,7 +1415,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementReceivedEvent
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1425,8 +1425,8 @@ impl BluetoothLEAdvertisementWatcher {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementWatcher, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementWatcher, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1562,7 +1562,7 @@ impl BluetoothLEAdvertisementWatcher {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementWatcherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementWatcherFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementWatcher, IBluetoothLEAdvertisementWatcherFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEAdvertisementWatcher, IBluetoothLEAdvertisementWatcherFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1578,7 +1578,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcher {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher;{a6ac336f-f3d3-4297-8d6c-c81ea6623f40})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher;{a6ac336f-f3d3-4297-8d6c-c81ea6623f40})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementWatcher {
     fn clone(&self) -> Self {
@@ -1594,7 +1594,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcher {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcher {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1621,7 +1621,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherStoppedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs;{dd40f84d-e7b9-43e3-9c04-0685d085fd8c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs;{dd40f84d-e7b9-43e3-9c04-0685d085fd8c})");
 }
 impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     fn clone(&self) -> Self {
@@ -1637,7 +1637,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherStoppe
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs";
 }
-::windows::core::interface_hierarchy!(BluetoothLEAdvertisementWatcherStoppedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherStoppedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1647,8 +1647,8 @@ impl BluetoothLEManufacturerData {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEManufacturerData, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEManufacturerData, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CompanyId(&self) -> ::windows::core::Result<u16> {
@@ -1695,7 +1695,7 @@ impl BluetoothLEManufacturerData {
     }
     #[doc(hidden)]
     pub fn IBluetoothLEManufacturerDataFactory<R, F: FnOnce(&IBluetoothLEManufacturerDataFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BluetoothLEManufacturerData, IBluetoothLEManufacturerDataFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BluetoothLEManufacturerData, IBluetoothLEManufacturerDataFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1711,7 +1711,7 @@ impl ::core::fmt::Debug for BluetoothLEManufacturerData {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEManufacturerData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData;{912dba18-6963-4533-b061-4694dafb34e5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData;{912dba18-6963-4533-b061-4694dafb34e5})");
 }
 impl ::core::clone::Clone for BluetoothLEManufacturerData {
     fn clone(&self) -> Self {
@@ -1727,7 +1727,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEManufacturerData {
 impl ::windows::core::RuntimeName for BluetoothLEManufacturerData {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData";
 }
-::windows::core::interface_hierarchy!(BluetoothLEManufacturerData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BluetoothLEManufacturerData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEManufacturerData {}
 unsafe impl ::core::marker::Sync for BluetoothLEManufacturerData {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1795,7 +1795,7 @@ impl ::core::ops::Not for BluetoothLEAdvertisementFlags {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFlags {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFlags;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFlags;u4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
 #[repr(transparent)]
@@ -1829,7 +1829,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherStatus {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
 #[repr(transparent)]
@@ -1863,7 +1863,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementType {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementType;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
 #[repr(transparent)]
@@ -1896,7 +1896,7 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherStatus {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
 #[repr(transparent)]
@@ -1927,7 +1927,7 @@ impl ::core::fmt::Debug for BluetoothLEScanningMode {
     }
 }
 impl ::windows::core::RuntimeType for BluetoothLEScanningMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEScanningMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEScanningMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -90,7 +90,7 @@ impl ::core::fmt::Debug for CharacterGrouping {
     }
 }
 impl ::windows::core::RuntimeType for CharacterGrouping {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGrouping;{fae761bb-805d-4bb0-95bb-c1f7c3e8eb8e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGrouping;{fae761bb-805d-4bb0-95bb-c1f7c3e8eb8e})");
 }
 impl ::core::clone::Clone for CharacterGrouping {
     fn clone(&self) -> Self {
@@ -106,7 +106,7 @@ unsafe impl ::windows::core::Interface for CharacterGrouping {
 impl ::windows::core::RuntimeName for CharacterGrouping {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGrouping";
 }
-::windows::core::interface_hierarchy!(CharacterGrouping, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CharacterGrouping, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CharacterGrouping {}
 unsafe impl ::core::marker::Sync for CharacterGrouping {}
 #[doc = "*Required features: `\"Globalization_Collation\"`*"]
@@ -116,8 +116,8 @@ impl CharacterGroupings {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CharacterGroupings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CharacterGroupings, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Lookup(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -180,7 +180,7 @@ impl CharacterGroupings {
     }
     #[doc(hidden)]
     pub fn ICharacterGroupingsFactory<R, F: FnOnce(&ICharacterGroupingsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CharacterGroupings, ICharacterGroupingsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CharacterGroupings, ICharacterGroupingsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -196,7 +196,7 @@ impl ::core::fmt::Debug for CharacterGroupings {
     }
 }
 impl ::windows::core::RuntimeType for CharacterGroupings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGroupings;{b8d20a75-d4cf-4055-80e5-ce169c226496})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGroupings;{b8d20a75-d4cf-4055-80e5-ce169c226496})");
 }
 impl ::core::clone::Clone for CharacterGroupings {
     fn clone(&self) -> Self {
@@ -228,7 +228,7 @@ impl ::core::iter::IntoIterator for &CharacterGroupings {
         super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(CharacterGroupings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CharacterGroupings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CharacterGroupings> for super::super::Foundation::Collections::IIterable<CharacterGrouping> {
     type Error = ::windows::core::Error;

@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CeipIsOptedIn ( ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CeipIsOptedIn ( ) -> super::super::super::Foundation:: BOOL );
     CeipIsOptedIn()
 }
 #[cfg(feature = "implement")]

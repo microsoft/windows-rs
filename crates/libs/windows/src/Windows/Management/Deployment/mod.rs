@@ -1304,8 +1304,8 @@ impl AddPackageOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AddPackageOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AddPackageOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1524,7 +1524,7 @@ impl ::core::fmt::Debug for AddPackageOptions {
     }
 }
 impl ::windows::core::RuntimeType for AddPackageOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AddPackageOptions;{05cee018-f68f-422b-95a4-66679ec77fc0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AddPackageOptions;{05cee018-f68f-422b-95a4-66679ec77fc0})");
 }
 impl ::core::clone::Clone for AddPackageOptions {
     fn clone(&self) -> Self {
@@ -1540,7 +1540,7 @@ unsafe impl ::windows::core::Interface for AddPackageOptions {
 impl ::windows::core::RuntimeName for AddPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AddPackageOptions";
 }
-::windows::core::interface_hierarchy!(AddPackageOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AddPackageOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AddPackageOptions {}
 unsafe impl ::core::marker::Sync for AddPackageOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1575,7 +1575,7 @@ impl AppInstallerManager {
     }
     #[doc(hidden)]
     pub fn IAppInstallerManagerStatics<R, F: FnOnce(&IAppInstallerManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppInstallerManager, IAppInstallerManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppInstallerManager, IAppInstallerManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1591,7 +1591,7 @@ impl ::core::fmt::Debug for AppInstallerManager {
     }
 }
 impl ::windows::core::RuntimeType for AppInstallerManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AppInstallerManager;{e7ee21c3-2103-53ee-9b18-68afeab0033d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AppInstallerManager;{e7ee21c3-2103-53ee-9b18-68afeab0033d})");
 }
 impl ::core::clone::Clone for AppInstallerManager {
     fn clone(&self) -> Self {
@@ -1607,7 +1607,7 @@ unsafe impl ::windows::core::Interface for AppInstallerManager {
 impl ::windows::core::RuntimeName for AppInstallerManager {
     const NAME: &'static str = "Windows.Management.Deployment.AppInstallerManager";
 }
-::windows::core::interface_hierarchy!(AppInstallerManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppInstallerManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallerManager {}
 unsafe impl ::core::marker::Sync for AppInstallerManager {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1617,8 +1617,8 @@ impl AutoUpdateSettingsOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AutoUpdateSettingsOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AutoUpdateSettingsOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -1774,7 +1774,7 @@ impl AutoUpdateSettingsOptions {
     }
     #[doc(hidden)]
     pub fn IAutoUpdateSettingsOptionsStatics<R, F: FnOnce(&IAutoUpdateSettingsOptionsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AutoUpdateSettingsOptions, IAutoUpdateSettingsOptionsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AutoUpdateSettingsOptions, IAutoUpdateSettingsOptionsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1790,7 +1790,7 @@ impl ::core::fmt::Debug for AutoUpdateSettingsOptions {
     }
 }
 impl ::windows::core::RuntimeType for AutoUpdateSettingsOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AutoUpdateSettingsOptions;{67491d87-35e1-512a-8968-1ae88d1be6d3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AutoUpdateSettingsOptions;{67491d87-35e1-512a-8968-1ae88d1be6d3})");
 }
 impl ::core::clone::Clone for AutoUpdateSettingsOptions {
     fn clone(&self) -> Self {
@@ -1806,7 +1806,7 @@ unsafe impl ::windows::core::Interface for AutoUpdateSettingsOptions {
 impl ::windows::core::RuntimeName for AutoUpdateSettingsOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AutoUpdateSettingsOptions";
 }
-::windows::core::interface_hierarchy!(AutoUpdateSettingsOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AutoUpdateSettingsOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutoUpdateSettingsOptions {}
 unsafe impl ::core::marker::Sync for AutoUpdateSettingsOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1816,8 +1816,8 @@ impl CreateSharedPackageContainerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CreateSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CreateSharedPackageContainerOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1864,7 +1864,7 @@ impl ::core::fmt::Debug for CreateSharedPackageContainerOptions {
     }
 }
 impl ::windows::core::RuntimeType for CreateSharedPackageContainerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerOptions;{c2ab6ece-f664-5c8e-a4b3-2a33276d3dde})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerOptions;{c2ab6ece-f664-5c8e-a4b3-2a33276d3dde})");
 }
 impl ::core::clone::Clone for CreateSharedPackageContainerOptions {
     fn clone(&self) -> Self {
@@ -1880,7 +1880,7 @@ unsafe impl ::windows::core::Interface for CreateSharedPackageContainerOptions {
 impl ::windows::core::RuntimeName for CreateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerOptions";
 }
-::windows::core::interface_hierarchy!(CreateSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CreateSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for CreateSharedPackageContainerOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1921,7 +1921,7 @@ impl ::core::fmt::Debug for CreateSharedPackageContainerResult {
     }
 }
 impl ::windows::core::RuntimeType for CreateSharedPackageContainerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerResult;{ce8810bf-151c-5707-b936-497e564afc7a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerResult;{ce8810bf-151c-5707-b936-497e564afc7a})");
 }
 impl ::core::clone::Clone for CreateSharedPackageContainerResult {
     fn clone(&self) -> Self {
@@ -1937,7 +1937,7 @@ unsafe impl ::windows::core::Interface for CreateSharedPackageContainerResult {
 impl ::windows::core::RuntimeName for CreateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerResult";
 }
-::windows::core::interface_hierarchy!(CreateSharedPackageContainerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CreateSharedPackageContainerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for CreateSharedPackageContainerResult {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1947,8 +1947,8 @@ impl DeleteSharedPackageContainerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeleteSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DeleteSharedPackageContainerOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
@@ -1986,7 +1986,7 @@ impl ::core::fmt::Debug for DeleteSharedPackageContainerOptions {
     }
 }
 impl ::windows::core::RuntimeType for DeleteSharedPackageContainerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerOptions;{9d81865f-986e-5138-8b5d-384d8e66ed6c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerOptions;{9d81865f-986e-5138-8b5d-384d8e66ed6c})");
 }
 impl ::core::clone::Clone for DeleteSharedPackageContainerOptions {
     fn clone(&self) -> Self {
@@ -2002,7 +2002,7 @@ unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerOptions {
 impl ::windows::core::RuntimeName for DeleteSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerOptions";
 }
-::windows::core::interface_hierarchy!(DeleteSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeleteSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeleteSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2036,7 +2036,7 @@ impl ::core::fmt::Debug for DeleteSharedPackageContainerResult {
     }
 }
 impl ::windows::core::RuntimeType for DeleteSharedPackageContainerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerResult;{35398884-5736-517b-85bc-e598c81ab284})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerResult;{35398884-5736-517b-85bc-e598c81ab284})");
 }
 impl ::core::clone::Clone for DeleteSharedPackageContainerResult {
     fn clone(&self) -> Self {
@@ -2052,7 +2052,7 @@ unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerResult {
 impl ::windows::core::RuntimeName for DeleteSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerResult";
 }
-::windows::core::interface_hierarchy!(DeleteSharedPackageContainerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeleteSharedPackageContainerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeleteSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerResult {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2100,7 +2100,7 @@ impl ::core::fmt::Debug for DeploymentResult {
     }
 }
 impl ::windows::core::RuntimeType for DeploymentResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeploymentResult;{2563b9ae-b77d-4c1f-8a7b-20e6ad515ef3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeploymentResult;{2563b9ae-b77d-4c1f-8a7b-20e6ad515ef3})");
 }
 impl ::core::clone::Clone for DeploymentResult {
     fn clone(&self) -> Self {
@@ -2116,7 +2116,7 @@ unsafe impl ::windows::core::Interface for DeploymentResult {
 impl ::windows::core::RuntimeName for DeploymentResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeploymentResult";
 }
-::windows::core::interface_hierarchy!(DeploymentResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeploymentResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeploymentResult {}
 unsafe impl ::core::marker::Sync for DeploymentResult {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2126,8 +2126,8 @@ impl FindSharedPackageContainerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FindSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<FindSharedPackageContainerOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2165,7 +2165,7 @@ impl ::core::fmt::Debug for FindSharedPackageContainerOptions {
     }
 }
 impl ::windows::core::RuntimeType for FindSharedPackageContainerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.FindSharedPackageContainerOptions;{b40fc8fe-8384-54cc-817d-ae09d3b6a606})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.FindSharedPackageContainerOptions;{b40fc8fe-8384-54cc-817d-ae09d3b6a606})");
 }
 impl ::core::clone::Clone for FindSharedPackageContainerOptions {
     fn clone(&self) -> Self {
@@ -2181,7 +2181,7 @@ unsafe impl ::windows::core::Interface for FindSharedPackageContainerOptions {
 impl ::windows::core::RuntimeName for FindSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.FindSharedPackageContainerOptions";
 }
-::windows::core::interface_hierarchy!(FindSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FindSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FindSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for FindSharedPackageContainerOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2191,8 +2191,8 @@ impl PackageAllUserProvisioningOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PackageAllUserProvisioningOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PackageAllUserProvisioningOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2226,7 +2226,7 @@ impl ::core::fmt::Debug for PackageAllUserProvisioningOptions {
     }
 }
 impl ::windows::core::RuntimeType for PackageAllUserProvisioningOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageAllUserProvisioningOptions;{da35aa22-1de0-5d3e-99ff-d24f3118bf5e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageAllUserProvisioningOptions;{da35aa22-1de0-5d3e-99ff-d24f3118bf5e})");
 }
 impl ::core::clone::Clone for PackageAllUserProvisioningOptions {
     fn clone(&self) -> Self {
@@ -2242,7 +2242,7 @@ unsafe impl ::windows::core::Interface for PackageAllUserProvisioningOptions {
 impl ::windows::core::RuntimeName for PackageAllUserProvisioningOptions {
     const NAME: &'static str = "Windows.Management.Deployment.PackageAllUserProvisioningOptions";
 }
-::windows::core::interface_hierarchy!(PackageAllUserProvisioningOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageAllUserProvisioningOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageAllUserProvisioningOptions {}
 unsafe impl ::core::marker::Sync for PackageAllUserProvisioningOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2252,8 +2252,8 @@ impl PackageManager {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PackageManager, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PackageManager, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2894,7 +2894,7 @@ impl ::core::fmt::Debug for PackageManager {
     }
 }
 impl ::windows::core::RuntimeType for PackageManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageManager;{9a7d4b65-5e8f-4fc7-a2e5-7f6925cb8b53})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageManager;{9a7d4b65-5e8f-4fc7-a2e5-7f6925cb8b53})");
 }
 impl ::core::clone::Clone for PackageManager {
     fn clone(&self) -> Self {
@@ -2910,7 +2910,7 @@ unsafe impl ::windows::core::Interface for PackageManager {
 impl ::windows::core::RuntimeName for PackageManager {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManager";
 }
-::windows::core::interface_hierarchy!(PackageManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageManager {}
 unsafe impl ::core::marker::Sync for PackageManager {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2948,7 +2948,7 @@ impl ::core::fmt::Debug for PackageManagerDebugSettings {
     }
 }
 impl ::windows::core::RuntimeType for PackageManagerDebugSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageManagerDebugSettings;{1a611683-a988-4fcf-8f0f-ce175898e8eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageManagerDebugSettings;{1a611683-a988-4fcf-8f0f-ce175898e8eb})");
 }
 impl ::core::clone::Clone for PackageManagerDebugSettings {
     fn clone(&self) -> Self {
@@ -2964,7 +2964,7 @@ unsafe impl ::windows::core::Interface for PackageManagerDebugSettings {
 impl ::windows::core::RuntimeName for PackageManagerDebugSettings {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManagerDebugSettings";
 }
-::windows::core::interface_hierarchy!(PackageManagerDebugSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageManagerDebugSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageManagerDebugSettings {}
 unsafe impl ::core::marker::Sync for PackageManagerDebugSettings {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2998,7 +2998,7 @@ impl ::core::fmt::Debug for PackageUserInformation {
     }
 }
 impl ::windows::core::RuntimeType for PackageUserInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageUserInformation;{f6383423-fa09-4cbc-9055-15ca275e2e7e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageUserInformation;{f6383423-fa09-4cbc-9055-15ca275e2e7e})");
 }
 impl ::core::clone::Clone for PackageUserInformation {
     fn clone(&self) -> Self {
@@ -3014,7 +3014,7 @@ unsafe impl ::windows::core::Interface for PackageUserInformation {
 impl ::windows::core::RuntimeName for PackageUserInformation {
     const NAME: &'static str = "Windows.Management.Deployment.PackageUserInformation";
 }
-::windows::core::interface_hierarchy!(PackageUserInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageUserInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageUserInformation {}
 unsafe impl ::core::marker::Sync for PackageUserInformation {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3225,7 +3225,7 @@ impl ::core::fmt::Debug for PackageVolume {
     }
 }
 impl ::windows::core::RuntimeType for PackageVolume {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageVolume;{cf2672c3-1a40-4450-9739-2ace2e898853})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageVolume;{cf2672c3-1a40-4450-9739-2ace2e898853})");
 }
 impl ::core::clone::Clone for PackageVolume {
     fn clone(&self) -> Self {
@@ -3241,7 +3241,7 @@ unsafe impl ::windows::core::Interface for PackageVolume {
 impl ::windows::core::RuntimeName for PackageVolume {
     const NAME: &'static str = "Windows.Management.Deployment.PackageVolume";
 }
-::windows::core::interface_hierarchy!(PackageVolume, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PackageVolume, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageVolume {}
 unsafe impl ::core::marker::Sync for PackageVolume {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3251,8 +3251,8 @@ impl RegisterPackageOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RegisterPackageOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<RegisterPackageOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3409,7 +3409,7 @@ impl ::core::fmt::Debug for RegisterPackageOptions {
     }
 }
 impl ::windows::core::RuntimeType for RegisterPackageOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.RegisterPackageOptions;{677112a7-50d4-496c-8415-0602b4c6d3bf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.RegisterPackageOptions;{677112a7-50d4-496c-8415-0602b4c6d3bf})");
 }
 impl ::core::clone::Clone for RegisterPackageOptions {
     fn clone(&self) -> Self {
@@ -3425,7 +3425,7 @@ unsafe impl ::windows::core::Interface for RegisterPackageOptions {
 impl ::windows::core::RuntimeName for RegisterPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.RegisterPackageOptions";
 }
-::windows::core::interface_hierarchy!(RegisterPackageOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RegisterPackageOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RegisterPackageOptions {}
 unsafe impl ::core::marker::Sync for RegisterPackageOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3482,7 +3482,7 @@ impl ::core::fmt::Debug for SharedPackageContainer {
     }
 }
 impl ::windows::core::RuntimeType for SharedPackageContainer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainer;{177f1aa9-151e-5ef7-b1d9-2fba0b4b0d17})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainer;{177f1aa9-151e-5ef7-b1d9-2fba0b4b0d17})");
 }
 impl ::core::clone::Clone for SharedPackageContainer {
     fn clone(&self) -> Self {
@@ -3498,7 +3498,7 @@ unsafe impl ::windows::core::Interface for SharedPackageContainer {
 impl ::windows::core::RuntimeName for SharedPackageContainer {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainer";
 }
-::windows::core::interface_hierarchy!(SharedPackageContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SharedPackageContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SharedPackageContainer {}
 unsafe impl ::core::marker::Sync for SharedPackageContainer {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3564,7 +3564,7 @@ impl SharedPackageContainerManager {
     }
     #[doc(hidden)]
     pub fn ISharedPackageContainerManagerStatics<R, F: FnOnce(&ISharedPackageContainerManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SharedPackageContainerManager, ISharedPackageContainerManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SharedPackageContainerManager, ISharedPackageContainerManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3580,7 +3580,7 @@ impl ::core::fmt::Debug for SharedPackageContainerManager {
     }
 }
 impl ::windows::core::RuntimeType for SharedPackageContainerManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainerManager;{be353068-1ef7-5ac8-ab3f-0b9f612f0274})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainerManager;{be353068-1ef7-5ac8-ab3f-0b9f612f0274})");
 }
 impl ::core::clone::Clone for SharedPackageContainerManager {
     fn clone(&self) -> Self {
@@ -3596,7 +3596,7 @@ unsafe impl ::windows::core::Interface for SharedPackageContainerManager {
 impl ::windows::core::RuntimeName for SharedPackageContainerManager {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerManager";
 }
-::windows::core::interface_hierarchy!(SharedPackageContainerManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SharedPackageContainerManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SharedPackageContainerManager {}
 unsafe impl ::core::marker::Sync for SharedPackageContainerManager {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3618,7 +3618,7 @@ impl SharedPackageContainerMember {
     }
     #[doc(hidden)]
     pub fn ISharedPackageContainerMemberFactory<R, F: FnOnce(&ISharedPackageContainerMemberFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SharedPackageContainerMember, ISharedPackageContainerMemberFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SharedPackageContainerMember, ISharedPackageContainerMemberFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3634,7 +3634,7 @@ impl ::core::fmt::Debug for SharedPackageContainerMember {
     }
 }
 impl ::windows::core::RuntimeType for SharedPackageContainerMember {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainerMember;{fe0d0438-43c9-5426-b89c-f79bf85ddff4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainerMember;{fe0d0438-43c9-5426-b89c-f79bf85ddff4})");
 }
 impl ::core::clone::Clone for SharedPackageContainerMember {
     fn clone(&self) -> Self {
@@ -3650,7 +3650,7 @@ unsafe impl ::windows::core::Interface for SharedPackageContainerMember {
 impl ::windows::core::RuntimeName for SharedPackageContainerMember {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerMember";
 }
-::windows::core::interface_hierarchy!(SharedPackageContainerMember, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SharedPackageContainerMember, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SharedPackageContainerMember {}
 unsafe impl ::core::marker::Sync for SharedPackageContainerMember {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3660,8 +3660,8 @@ impl StagePackageOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StagePackageOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StagePackageOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3825,7 +3825,7 @@ impl ::core::fmt::Debug for StagePackageOptions {
     }
 }
 impl ::windows::core::RuntimeType for StagePackageOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.StagePackageOptions;{0b110c9c-b95d-4c56-bd36-6d656800d06b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.StagePackageOptions;{0b110c9c-b95d-4c56-bd36-6d656800d06b})");
 }
 impl ::core::clone::Clone for StagePackageOptions {
     fn clone(&self) -> Self {
@@ -3841,7 +3841,7 @@ unsafe impl ::windows::core::Interface for StagePackageOptions {
 impl ::windows::core::RuntimeName for StagePackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.StagePackageOptions";
 }
-::windows::core::interface_hierarchy!(StagePackageOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StagePackageOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StagePackageOptions {}
 unsafe impl ::core::marker::Sync for StagePackageOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3851,8 +3851,8 @@ impl UpdateSharedPackageContainerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UpdateSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<UpdateSharedPackageContainerOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
@@ -3890,7 +3890,7 @@ impl ::core::fmt::Debug for UpdateSharedPackageContainerOptions {
     }
 }
 impl ::windows::core::RuntimeType for UpdateSharedPackageContainerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.UpdateSharedPackageContainerOptions;{80672e83-7194-59f9-b5b9-daa5375f130a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.UpdateSharedPackageContainerOptions;{80672e83-7194-59f9-b5b9-daa5375f130a})");
 }
 impl ::core::clone::Clone for UpdateSharedPackageContainerOptions {
     fn clone(&self) -> Self {
@@ -3906,7 +3906,7 @@ unsafe impl ::windows::core::Interface for UpdateSharedPackageContainerOptions {
 impl ::windows::core::RuntimeName for UpdateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerOptions";
 }
-::windows::core::interface_hierarchy!(UpdateSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UpdateSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3940,7 +3940,7 @@ impl ::core::fmt::Debug for UpdateSharedPackageContainerResult {
     }
 }
 impl ::windows::core::RuntimeType for UpdateSharedPackageContainerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.UpdateSharedPackageContainerResult;{aa407df7-c72d-5458-aea3-4645b6a8ee99})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.UpdateSharedPackageContainerResult;{aa407df7-c72d-5458-aea3-4645b6a8ee99})");
 }
 impl ::core::clone::Clone for UpdateSharedPackageContainerResult {
     fn clone(&self) -> Self {
@@ -3956,7 +3956,7 @@ unsafe impl ::windows::core::Interface for UpdateSharedPackageContainerResult {
 impl ::windows::core::RuntimeName for UpdateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerResult";
 }
-::windows::core::interface_hierarchy!(UpdateSharedPackageContainerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UpdateSharedPackageContainerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerResult {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4023,7 +4023,7 @@ impl ::core::ops::Not for AddPackageByAppInstallerOptions {
     }
 }
 impl ::windows::core::RuntimeType for AddPackageByAppInstallerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.AddPackageByAppInstallerOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.AddPackageByAppInstallerOptions;u4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4093,7 +4093,7 @@ impl ::core::ops::Not for DeploymentOptions {
     }
 }
 impl ::windows::core::RuntimeType for DeploymentOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentOptions;u4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4123,7 +4123,7 @@ impl ::core::fmt::Debug for DeploymentProgressState {
     }
 }
 impl ::windows::core::RuntimeType for DeploymentProgressState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentProgressState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentProgressState;i4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4155,7 +4155,7 @@ impl ::core::fmt::Debug for PackageInstallState {
     }
 }
 impl ::windows::core::RuntimeType for PackageInstallState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageInstallState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageInstallState;i4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4187,7 +4187,7 @@ impl ::core::fmt::Debug for PackageState {
     }
 }
 impl ::windows::core::RuntimeType for PackageState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageState;i4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4253,7 +4253,7 @@ impl ::core::ops::Not for PackageStatus {
     }
 }
 impl ::windows::core::RuntimeType for PackageStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStatus;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStatus;u4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4283,7 +4283,7 @@ impl ::core::fmt::Debug for PackageStubPreference {
     }
 }
 impl ::windows::core::RuntimeType for PackageStubPreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStubPreference;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStubPreference;i4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4352,7 +4352,7 @@ impl ::core::ops::Not for PackageTypes {
     }
 }
 impl ::windows::core::RuntimeType for PackageTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageTypes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageTypes;u4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4417,7 +4417,7 @@ impl ::core::ops::Not for RemovalOptions {
     }
 }
 impl ::windows::core::RuntimeType for RemovalOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.RemovalOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.RemovalOptions;u4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4448,7 +4448,7 @@ impl ::core::fmt::Debug for SharedPackageContainerCreationCollisionOptions {
     }
 }
 impl ::windows::core::RuntimeType for SharedPackageContainerCreationCollisionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerCreationCollisionOptions;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerCreationCollisionOptions;i4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4482,7 +4482,7 @@ impl ::core::fmt::Debug for SharedPackageContainerOperationStatus {
     }
 }
 impl ::windows::core::RuntimeType for SharedPackageContainerOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerOperationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerOperationStatus;i4)");
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
@@ -4514,7 +4514,7 @@ impl ::core::fmt::Debug for StubPackageOption {
     }
 }
 impl ::windows::core::RuntimeType for StubPackageOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.StubPackageOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.StubPackageOption;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4537,7 +4537,7 @@ impl ::windows::core::TypeKind for DeploymentProgress {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for DeploymentProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Management.Deployment.DeploymentProgress;enum(Windows.Management.Deployment.DeploymentProgressState;i4);u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Management.Deployment.DeploymentProgress;enum(Windows.Management.Deployment.DeploymentProgressState;i4);u4)");
 }
 impl ::core::cmp::PartialEq for DeploymentProgress {
     fn eq(&self, other: &Self) -> bool {

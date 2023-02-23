@@ -527,7 +527,7 @@ impl ::core::fmt::Debug for AppointmentCalendarCancelMeetingRequest {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarCancelMeetingRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest;{49460f8d-6434-40d7-ad46-6297419314d1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest;{49460f8d-6434-40d7-ad46-6297419314d1})");
 }
 impl ::core::clone::Clone for AppointmentCalendarCancelMeetingRequest {
     fn clone(&self) -> Self {
@@ -543,7 +543,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingReque
 impl ::windows::core::RuntimeName for AppointmentCalendarCancelMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarCancelMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCancelMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -579,7 +579,7 @@ impl ::core::fmt::Debug for AppointmentCalendarCancelMeetingRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarCancelMeetingRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs;{1a79be16-7f30-4e35-beef-9d2c7b6dcae1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs;{1a79be16-7f30-4e35-beef-9d2c7b6dcae1})");
 }
 impl ::core::clone::Clone for AppointmentCalendarCancelMeetingRequestEventArgs {
     fn clone(&self) -> Self {
@@ -595,7 +595,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingReque
 impl ::windows::core::RuntimeName for AppointmentCalendarCancelMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarCancelMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCancelMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -663,7 +663,7 @@ impl ::core::fmt::Debug for AppointmentCalendarCreateOrUpdateAppointmentRequest 
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarCreateOrUpdateAppointmentRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest;{2e62f2b2-ca96-48ac-9124-406b19fefa70})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest;{2e62f2b2-ca96-48ac-9124-406b19fefa70})");
 }
 impl ::core::clone::Clone for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     fn clone(&self) -> Self {
@@ -679,7 +679,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppo
 impl ::windows::core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -715,7 +715,7 @@ impl ::core::fmt::Debug for AppointmentCalendarCreateOrUpdateAppointmentRequestE
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs;{cf8ded28-002e-4bf7-8e9d-5e20d49aa3ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs;{cf8ded28-002e-4bf7-8e9d-5e20d49aa3ba})");
 }
 impl ::core::clone::Clone for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     fn clone(&self) -> Self {
@@ -731,7 +731,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppo
 impl ::windows::core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -822,7 +822,7 @@ impl ::core::fmt::Debug for AppointmentCalendarForwardMeetingRequest {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarForwardMeetingRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest;{82e5ee56-26b6-4253-8a8f-6cf5f2ff7884})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest;{82e5ee56-26b6-4253-8a8f-6cf5f2ff7884})");
 }
 impl ::core::clone::Clone for AppointmentCalendarForwardMeetingRequest {
     fn clone(&self) -> Self {
@@ -838,7 +838,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequ
 impl ::windows::core::RuntimeName for AppointmentCalendarForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarForwardMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarForwardMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -874,7 +874,7 @@ impl ::core::fmt::Debug for AppointmentCalendarForwardMeetingRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarForwardMeetingRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs;{3109151a-23a2-42fd-9c82-c9a60d59f8a8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs;{3109151a-23a2-42fd-9c82-c9a60d59f8a8})");
 }
 impl ::core::clone::Clone for AppointmentCalendarForwardMeetingRequestEventArgs {
     fn clone(&self) -> Self {
@@ -890,7 +890,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequ
 impl ::windows::core::RuntimeName for AppointmentCalendarForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarForwardMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarForwardMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -983,7 +983,7 @@ impl ::core::fmt::Debug for AppointmentCalendarProposeNewTimeForMeetingRequest {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarProposeNewTimeForMeetingRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest;{ce1c63f5-edf6-43c3-82b7-be6b368c6900})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest;{ce1c63f5-edf6-43c3-82b7-be6b368c6900})");
 }
 impl ::core::clone::Clone for AppointmentCalendarProposeNewTimeForMeetingRequest {
     fn clone(&self) -> Self {
@@ -999,7 +999,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForM
 impl ::windows::core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1035,7 +1035,7 @@ impl ::core::fmt::Debug for AppointmentCalendarProposeNewTimeForMeetingRequestEv
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs;{d2d777d8-fed1-4280-a3ba-2e1f47609aa2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs;{d2d777d8-fed1-4280-a3ba-2e1f47609aa2})");
 }
 impl ::core::clone::Clone for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     fn clone(&self) -> Self {
@@ -1051,7 +1051,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForM
 impl ::windows::core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1096,7 +1096,7 @@ impl ::core::fmt::Debug for AppointmentCalendarSyncManagerSyncRequest {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarSyncManagerSyncRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest;{12ab382b-7163-4a56-9a4e-7223a84adf46})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest;{12ab382b-7163-4a56-9a4e-7223a84adf46})");
 }
 impl ::core::clone::Clone for AppointmentCalendarSyncManagerSyncRequest {
     fn clone(&self) -> Self {
@@ -1112,7 +1112,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncReq
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1148,7 +1148,7 @@ impl ::core::fmt::Debug for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarSyncManagerSyncRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs;{ca17c6f7-0284-4edd-87ba-4d8f69dcf5c0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs;{ca17c6f7-0284-4edd-87ba-4d8f69dcf5c0})");
 }
 impl ::core::clone::Clone for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     fn clone(&self) -> Self {
@@ -1164,7 +1164,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncReq
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1253,7 +1253,7 @@ impl ::core::fmt::Debug for AppointmentCalendarUpdateMeetingResponseRequest {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarUpdateMeetingResponseRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest;{a36d608c-c29d-4b94-b086-7e9ff7bd84a0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest;{a36d608c-c29d-4b94-b086-7e9ff7bd84a0})");
 }
 impl ::core::clone::Clone for AppointmentCalendarUpdateMeetingResponseRequest {
     fn clone(&self) -> Self {
@@ -1269,7 +1269,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingRespo
 impl ::windows::core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarUpdateMeetingResponseRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1305,7 +1305,7 @@ impl ::core::fmt::Debug for AppointmentCalendarUpdateMeetingResponseRequestEvent
     }
 }
 impl ::windows::core::RuntimeType for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs;{88759883-97bf-479d-aed5-0be8ce567d1e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs;{88759883-97bf-479d-aed5-0be8ce567d1e})");
 }
 impl ::core::clone::Clone for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     fn clone(&self) -> Self {
@@ -1321,7 +1321,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingRespo
 impl ::windows::core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs";
 }
-::windows::core::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1435,7 +1435,7 @@ impl ::core::fmt::Debug for AppointmentDataProviderConnection {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentDataProviderConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection;{f3dd9d83-3254-465f-abdb-928046552cf4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection;{f3dd9d83-3254-465f-abdb-928046552cf4})");
 }
 impl ::core::clone::Clone for AppointmentDataProviderConnection {
     fn clone(&self) -> Self {
@@ -1451,7 +1451,7 @@ unsafe impl ::windows::core::Interface for AppointmentDataProviderConnection {
 impl ::windows::core::RuntimeName for AppointmentDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection";
 }
-::windows::core::interface_hierarchy!(AppointmentDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentDataProviderConnection {}
 unsafe impl ::core::marker::Sync for AppointmentDataProviderConnection {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1478,7 +1478,7 @@ impl ::core::fmt::Debug for AppointmentDataProviderTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for AppointmentDataProviderTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails;{b3283c01-7e12-4e5e-b1ef-74fb68ac6f2a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails;{b3283c01-7e12-4e5e-b1ef-74fb68ac6f2a})");
 }
 impl ::core::clone::Clone for AppointmentDataProviderTriggerDetails {
     fn clone(&self) -> Self {
@@ -1494,7 +1494,7 @@ unsafe impl ::windows::core::Interface for AppointmentDataProviderTriggerDetails
 impl ::windows::core::RuntimeName for AppointmentDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails";
 }
-::windows::core::interface_hierarchy!(AppointmentDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppointmentDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppointmentDataProviderTriggerDetails {}
 #[cfg(feature = "implement")]

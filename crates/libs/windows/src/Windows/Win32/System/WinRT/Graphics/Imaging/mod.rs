@@ -10,7 +10,7 @@ impl ISoftwareBitmapNative {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISoftwareBitmapNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISoftwareBitmapNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISoftwareBitmapNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -66,7 +66,7 @@ impl ISoftwareBitmapNativeFactory {
         (::windows::core::Vtable::vtable(self).CreateFromMF2DBuffer2)(::windows::core::Vtable::as_raw(self), data.into().abi(), subtype, width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISoftwareBitmapNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISoftwareBitmapNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISoftwareBitmapNativeFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

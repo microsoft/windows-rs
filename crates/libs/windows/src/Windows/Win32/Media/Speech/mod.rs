@@ -23,7 +23,7 @@ impl IEnumSpObjectTokens {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), pcount).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEnumSpObjectTokens, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumSpObjectTokens, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumSpObjectTokens {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -169,7 +169,7 @@ impl ISpAudio {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpAudio, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
+::windows::imp::interface_hierarchy!(ISpAudio, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpAudio {
     fn eq(&self, other: &Self) -> bool {
@@ -262,7 +262,7 @@ impl ISpContainerLexicon {
         (::windows::core::Vtable::vtable(self).AddLexicon)(::windows::core::Vtable::as_raw(self), paddlexicon.into().abi(), dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpContainerLexicon, ::windows::core::IUnknown, ISpLexicon);
+::windows::imp::interface_hierarchy!(ISpContainerLexicon, ::windows::core::IUnknown, ISpLexicon);
 impl ::core::cmp::PartialEq for ISpContainerLexicon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -368,7 +368,7 @@ impl ISpDataKey {
         (::windows::core::Vtable::vtable(self).EnumValues)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISpDataKey, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpDataKey, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpDataKey {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -419,7 +419,7 @@ impl ISpDisplayAlternates {
         (::windows::core::Vtable::vtable(self).SetFullStopTrailSpace)(::windows::core::Vtable::as_raw(self), ultrailspace).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpDisplayAlternates, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpDisplayAlternates, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpDisplayAlternates {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -470,7 +470,7 @@ impl ISpEnginePronunciation {
         (::windows::core::Vtable::vtable(self).GetPronunciations)(::windows::core::Vtable::as_raw(self), pszword.into().abi(), pszleftcontext.into().abi(), pszrightcontext.into().abi(), langid, penginepronunciationlist).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpEnginePronunciation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpEnginePronunciation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpEnginePronunciation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -513,7 +513,7 @@ impl ISpEventSink {
         (::windows::core::Vtable::vtable(self).GetEventInterest)(::windows::core::Vtable::as_raw(self), pulleventinterest).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -608,7 +608,7 @@ impl ISpEventSource {
         (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpEventSource, ::windows::core::IUnknown, ISpNotifySource);
+::windows::imp::interface_hierarchy!(ISpEventSource, ::windows::core::IUnknown, ISpNotifySource);
 impl ::core::cmp::PartialEq for ISpEventSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -709,7 +709,7 @@ impl ISpEventSource2 {
         (::windows::core::Vtable::vtable(self).GetEventsEx)(::windows::core::Vtable::as_raw(self), ulcount, peventarray, pulfetched).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpEventSource2, ::windows::core::IUnknown, ISpNotifySource, ISpEventSource);
+::windows::imp::interface_hierarchy!(ISpEventSource2, ::windows::core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ::core::cmp::PartialEq for ISpEventSource2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -788,7 +788,7 @@ impl ISpGrammarBuilder {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), dwreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpGrammarBuilder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpGrammarBuilder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpGrammarBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -847,7 +847,7 @@ impl ISpGrammarBuilder2 {
         (::windows::core::Vtable::vtable(self).SetPhoneticAlphabet)(::windows::core::Vtable::as_raw(self), phoneticalphabet).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpGrammarBuilder2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpGrammarBuilder2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpGrammarBuilder2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -909,7 +909,7 @@ impl ISpLexicon {
         (::windows::core::Vtable::vtable(self).GetWords)(::windows::core::Vtable::as_raw(self), dwflags, pdwgeneration, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), pwordlist).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpLexicon, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpLexicon, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpLexicon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1070,7 +1070,7 @@ impl ISpMMSysAudio {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpMMSysAudio, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat, ISpAudio);
+::windows::imp::interface_hierarchy!(ISpMMSysAudio, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat, ISpAudio);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpMMSysAudio {
     fn eq(&self, other: &Self) -> bool {
@@ -1159,7 +1159,7 @@ impl ISpNotifySink {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpNotifySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpNotifySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1239,7 +1239,7 @@ impl ISpNotifySource {
         (::windows::core::Vtable::vtable(self).GetNotifyEventHandle)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ISpNotifySource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpNotifySource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpNotifySource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1340,7 +1340,7 @@ impl ISpNotifyTranslator {
         (::windows::core::Vtable::vtable(self).GetEventHandle)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ISpNotifyTranslator, ::windows::core::IUnknown, ISpNotifySink);
+::windows::imp::interface_hierarchy!(ISpNotifyTranslator, ::windows::core::IUnknown, ISpNotifySink);
 impl ::core::cmp::PartialEq for ISpNotifyTranslator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1538,7 +1538,7 @@ impl ISpObjectToken {
         (::windows::core::Vtable::vtable(self).MatchesAttributes)(::windows::core::Vtable::as_raw(self), pszattributes.into().abi(), pfmatches).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpObjectToken, ::windows::core::IUnknown, ISpDataKey);
+::windows::imp::interface_hierarchy!(ISpObjectToken, ::windows::core::IUnknown, ISpDataKey);
 impl ::core::cmp::PartialEq for ISpObjectToken {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1703,7 +1703,7 @@ impl ISpObjectTokenCategory {
         (::windows::core::Vtable::vtable(self).GetDefaultTokenId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISpObjectTokenCategory, ::windows::core::IUnknown, ISpDataKey);
+::windows::imp::interface_hierarchy!(ISpObjectTokenCategory, ::windows::core::IUnknown, ISpDataKey);
 impl ::core::cmp::PartialEq for ISpObjectTokenCategory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1897,7 +1897,7 @@ impl ISpObjectTokenInit {
         (::windows::core::Vtable::vtable(self).InitFromDataKey)(::windows::core::Vtable::as_raw(self), pszcategoryid.into().abi(), psztokenid.into().abi(), pdatakey.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpObjectTokenInit, ::windows::core::IUnknown, ISpDataKey, ISpObjectToken);
+::windows::imp::interface_hierarchy!(ISpObjectTokenInit, ::windows::core::IUnknown, ISpDataKey, ISpObjectToken);
 impl ::core::cmp::PartialEq for ISpObjectTokenInit {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1941,7 +1941,7 @@ impl ISpObjectWithToken {
         (::windows::core::Vtable::vtable(self).GetObjectToken)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISpObjectWithToken, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpObjectWithToken, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpObjectWithToken {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1996,7 +1996,7 @@ impl ISpPhoneConverter {
         (::windows::core::Vtable::vtable(self).IdToPhone)(::windows::core::Vtable::as_raw(self), pid, ::core::mem::transmute(pszphone)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpPhoneConverter, ::windows::core::IUnknown, ISpObjectWithToken);
+::windows::imp::interface_hierarchy!(ISpPhoneConverter, ::windows::core::IUnknown, ISpObjectWithToken);
 impl ::core::cmp::PartialEq for ISpPhoneConverter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2053,7 +2053,7 @@ impl ISpPhoneticAlphabetConverter {
         (::windows::core::Vtable::vtable(self).GetMaxConvertLength)(::windows::core::Vtable::as_raw(self), csrclength, bsapi2ups.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISpPhoneticAlphabetConverter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpPhoneticAlphabetConverter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpPhoneticAlphabetConverter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2108,7 +2108,7 @@ impl ISpPhoneticAlphabetSelection {
         (::windows::core::Vtable::vtable(self).SetAlphabetToUPS)(::windows::core::Vtable::as_raw(self), fforceups.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpPhoneticAlphabetSelection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpPhoneticAlphabetSelection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpPhoneticAlphabetSelection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2170,7 +2170,7 @@ impl ISpPhrase {
         (::windows::core::Vtable::vtable(self).Discard)(::windows::core::Vtable::as_raw(self), dwvaluetypes).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpPhrase, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpPhrase, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpPhrase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2246,7 +2246,7 @@ impl ISpPhrase2 {
         (::windows::core::Vtable::vtable(self).GetAudio)(::windows::core::Vtable::as_raw(self), ulstartelement, celements, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISpPhrase2, ::windows::core::IUnknown, ISpPhrase);
+::windows::imp::interface_hierarchy!(ISpPhrase2, ::windows::core::IUnknown, ISpPhrase);
 impl ::core::cmp::PartialEq for ISpPhrase2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2312,7 +2312,7 @@ impl ISpPhraseAlt {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpPhraseAlt, ::windows::core::IUnknown, ISpPhrase);
+::windows::imp::interface_hierarchy!(ISpPhraseAlt, ::windows::core::IUnknown, ISpPhrase);
 impl ::core::cmp::PartialEq for ISpPhraseAlt {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2373,7 +2373,7 @@ impl ISpProperties {
         (::windows::core::Vtable::vtable(self).GetPropertyString)(::windows::core::Vtable::as_raw(self), pname.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISpProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2543,7 +2543,7 @@ impl ISpRecoContext {
         (::windows::core::Vtable::vtable(self).GetContextState)(::windows::core::Vtable::as_raw(self), pecontextstate).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpRecoContext, ::windows::core::IUnknown, ISpNotifySource, ISpEventSource);
+::windows::imp::interface_hierarchy!(ISpRecoContext, ::windows::core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ::core::cmp::PartialEq for ISpRecoContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2619,7 +2619,7 @@ impl ISpRecoContext2 {
         (::windows::core::Vtable::vtable(self).SetAdaptationData2)(::windows::core::Vtable::as_raw(self), padaptationdata.into().abi(), cch, ptopicname.into().abi(), eadaptationsettings, erelevance).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpRecoContext2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpRecoContext2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpRecoContext2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2782,7 +2782,7 @@ impl ISpRecoGrammar {
         (::windows::core::Vtable::vtable(self).GetGrammarState)(::windows::core::Vtable::as_raw(self), pegrammarstate).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpRecoGrammar, ::windows::core::IUnknown, ISpGrammarBuilder);
+::windows::imp::interface_hierarchy!(ISpRecoGrammar, ::windows::core::IUnknown, ISpGrammarBuilder);
 impl ::core::cmp::PartialEq for ISpRecoGrammar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2888,7 +2888,7 @@ impl ISpRecoGrammar2 {
         (::windows::core::Vtable::vtable(self).SetSMLSecurityManager)(::windows::core::Vtable::as_raw(self), psmlsecuritymanager.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpRecoGrammar2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpRecoGrammar2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpRecoGrammar2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2985,7 +2985,7 @@ impl ISpRecoResult {
         (::windows::core::Vtable::vtable(self).GetRecoContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISpRecoResult, ::windows::core::IUnknown, ISpPhrase);
+::windows::imp::interface_hierarchy!(ISpRecoResult, ::windows::core::IUnknown, ISpPhrase);
 impl ::core::cmp::PartialEq for ISpRecoResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3106,7 +3106,7 @@ impl ISpRecoResult2 {
         (::windows::core::Vtable::vtable(self).SetTextFeedback)(::windows::core::Vtable::as_raw(self), pszfeedback.into().abi(), fsuccessful.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpRecoResult2, ::windows::core::IUnknown, ISpPhrase, ISpRecoResult);
+::windows::imp::interface_hierarchy!(ISpRecoResult2, ::windows::core::IUnknown, ISpPhrase, ISpRecoResult);
 impl ::core::cmp::PartialEq for ISpRecoResult2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3255,7 +3255,7 @@ impl ISpRecognizer {
         (::windows::core::Vtable::vtable(self).EmulateRecognition)(::windows::core::Vtable::as_raw(self), pphrase.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpRecognizer, ::windows::core::IUnknown, ISpProperties);
+::windows::imp::interface_hierarchy!(ISpRecognizer, ::windows::core::IUnknown, ISpProperties);
 impl ::core::cmp::PartialEq for ISpRecognizer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3337,7 +3337,7 @@ impl ISpRecognizer2 {
         (::windows::core::Vtable::vtable(self).ResetAcousticModelAdaptation)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpRecognizer2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpRecognizer2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpRecognizer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3457,7 +3457,7 @@ impl ISpRegDataKey {
         (::windows::core::Vtable::vtable(self).SetKey)(::windows::core::Vtable::as_raw(self), hkey.into(), freadonly.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpRegDataKey, ::windows::core::IUnknown, ISpDataKey);
+::windows::imp::interface_hierarchy!(ISpRegDataKey, ::windows::core::IUnknown, ISpDataKey);
 impl ::core::cmp::PartialEq for ISpRegDataKey {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3516,7 +3516,7 @@ impl ISpResourceManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpResourceManager, ::windows::core::IUnknown, super::super::System::Com::IServiceProvider);
+::windows::imp::interface_hierarchy!(ISpResourceManager, ::windows::core::IUnknown, super::super::System::Com::IServiceProvider);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpResourceManager {
     fn eq(&self, other: &Self) -> bool {
@@ -3567,7 +3567,7 @@ impl ISpSerializeState {
         (::windows::core::Vtable::vtable(self).SetSerializedState)(::windows::core::Vtable::as_raw(self), pbdata, ulsize, dwreserved).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpSerializeState, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpSerializeState, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpSerializeState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3635,7 +3635,7 @@ impl ISpShortcut {
         (::windows::core::Vtable::vtable(self).GetGenerationChange)(::windows::core::Vtable::as_raw(self), pdwgeneration, pshortcutpairlist).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpShortcut, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpShortcut, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpShortcut {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3769,7 +3769,7 @@ impl ISpStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
+::windows::imp::interface_hierarchy!(ISpStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpStream {
     fn eq(&self, other: &Self) -> bool {
@@ -3890,7 +3890,7 @@ impl ISpStreamFormat {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpStreamFormat, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
+::windows::imp::interface_hierarchy!(ISpStreamFormat, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpStreamFormat {
     fn eq(&self, other: &Self) -> bool {
@@ -4034,7 +4034,7 @@ impl ISpStreamFormatConverter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpStreamFormatConverter, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
+::windows::imp::interface_hierarchy!(ISpStreamFormatConverter, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpStreamFormatConverter {
     fn eq(&self, other: &Self) -> bool {
@@ -4099,7 +4099,7 @@ impl ISpTranscript {
         (::windows::core::Vtable::vtable(self).AppendTranscript)(::windows::core::Vtable::as_raw(self), psztranscript.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpTranscript, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISpTranscript, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISpTranscript {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4305,7 +4305,7 @@ impl ISpVoice {
         (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwndparent.into(), psztitle.into().abi(), psztypeofui.into().abi(), pvextradata, cbextradata).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpVoice, ::windows::core::IUnknown, ISpNotifySource, ISpEventSource);
+::windows::imp::interface_hierarchy!(ISpVoice, ::windows::core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ::core::cmp::PartialEq for ISpVoice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4437,7 +4437,7 @@ impl ISpXMLRecoResult {
         (::windows::core::Vtable::vtable(self).GetXMLErrorInfo)(::windows::core::Vtable::as_raw(self), psemanticerrorinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISpXMLRecoResult, ::windows::core::IUnknown, ISpPhrase, ISpRecoResult);
+::windows::imp::interface_hierarchy!(ISpXMLRecoResult, ::windows::core::IUnknown, ISpPhrase, ISpRecoResult);
 impl ::core::cmp::PartialEq for ISpXMLRecoResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4545,7 +4545,7 @@ impl ISpeechAudio {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechAudio, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
+::windows::imp::interface_hierarchy!(ISpeechAudio, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechAudio {
     fn eq(&self, other: &Self) -> bool {
@@ -4627,7 +4627,7 @@ impl ISpeechAudioBufferInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechAudioBufferInfo, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechAudioBufferInfo, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechAudioBufferInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -4704,7 +4704,7 @@ impl ISpeechAudioFormat {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechAudioFormat, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechAudioFormat, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechAudioFormat {
     fn eq(&self, other: &Self) -> bool {
@@ -4783,7 +4783,7 @@ impl ISpeechAudioStatus {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechAudioStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechAudioStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechAudioStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -4868,7 +4868,7 @@ impl ISpeechBaseStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechBaseStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechBaseStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechBaseStream {
     fn eq(&self, other: &Self) -> bool {
@@ -4972,7 +4972,7 @@ impl ISpeechCustomStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechCustomStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
+::windows::imp::interface_hierarchy!(ISpeechCustomStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechCustomStream {
     fn eq(&self, other: &Self) -> bool {
@@ -5068,7 +5068,7 @@ impl ISpeechDataKey {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechDataKey, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechDataKey, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechDataKey {
     fn eq(&self, other: &Self) -> bool {
@@ -5177,7 +5177,7 @@ impl ISpeechFileStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechFileStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
+::windows::imp::interface_hierarchy!(ISpeechFileStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechFileStream {
     fn eq(&self, other: &Self) -> bool {
@@ -5255,7 +5255,7 @@ impl ISpeechGrammarRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechGrammarRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechGrammarRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechGrammarRule {
     fn eq(&self, other: &Self) -> bool {
@@ -5348,7 +5348,7 @@ impl ISpeechGrammarRuleState {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechGrammarRuleState, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechGrammarRuleState, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechGrammarRuleState {
     fn eq(&self, other: &Self) -> bool {
@@ -5451,7 +5451,7 @@ impl ISpeechGrammarRuleStateTransition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechGrammarRuleStateTransition, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechGrammarRuleStateTransition, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechGrammarRuleStateTransition {
     fn eq(&self, other: &Self) -> bool {
@@ -5528,7 +5528,7 @@ impl ISpeechGrammarRuleStateTransitions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechGrammarRuleStateTransitions, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechGrammarRuleStateTransitions, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechGrammarRuleStateTransitions {
     fn eq(&self, other: &Self) -> bool {
@@ -5617,7 +5617,7 @@ impl ISpeechGrammarRules {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechGrammarRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechGrammarRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechGrammarRules {
     fn eq(&self, other: &Self) -> bool {
@@ -5719,7 +5719,7 @@ impl ISpeechLexicon {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechLexicon, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechLexicon, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechLexicon {
     fn eq(&self, other: &Self) -> bool {
@@ -5807,7 +5807,7 @@ impl ISpeechLexiconPronunciation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechLexiconPronunciation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechLexiconPronunciation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechLexiconPronunciation {
     fn eq(&self, other: &Self) -> bool {
@@ -5872,7 +5872,7 @@ impl ISpeechLexiconPronunciations {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechLexiconPronunciations, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechLexiconPronunciations, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechLexiconPronunciations {
     fn eq(&self, other: &Self) -> bool {
@@ -5939,7 +5939,7 @@ impl ISpeechLexiconWord {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechLexiconWord, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechLexiconWord, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechLexiconWord {
     fn eq(&self, other: &Self) -> bool {
@@ -6003,7 +6003,7 @@ impl ISpeechLexiconWords {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechLexiconWords, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechLexiconWords, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechLexiconWords {
     fn eq(&self, other: &Self) -> bool {
@@ -6140,7 +6140,7 @@ impl ISpeechMMSysAudio {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechMMSysAudio, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream, ISpeechAudio);
+::windows::imp::interface_hierarchy!(ISpeechMMSysAudio, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream, ISpeechAudio);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechMMSysAudio {
     fn eq(&self, other: &Self) -> bool {
@@ -6230,7 +6230,7 @@ impl ISpeechMemoryStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechMemoryStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
+::windows::imp::interface_hierarchy!(ISpeechMemoryStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechMemoryStream {
     fn eq(&self, other: &Self) -> bool {
@@ -6358,7 +6358,7 @@ impl ISpeechObjectToken {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechObjectToken, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechObjectToken, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechObjectToken {
     fn eq(&self, other: &Self) -> bool {
@@ -6466,7 +6466,7 @@ impl ISpeechObjectTokenCategory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechObjectTokenCategory, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechObjectTokenCategory, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechObjectTokenCategory {
     fn eq(&self, other: &Self) -> bool {
@@ -6538,7 +6538,7 @@ impl ISpeechObjectTokens {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechObjectTokens, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechObjectTokens, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechObjectTokens {
     fn eq(&self, other: &Self) -> bool {
@@ -6606,7 +6606,7 @@ impl ISpeechPhoneConverter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhoneConverter, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhoneConverter, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhoneConverter {
     fn eq(&self, other: &Self) -> bool {
@@ -6682,7 +6682,7 @@ impl ISpeechPhraseAlternate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseAlternate, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseAlternate, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseAlternate {
     fn eq(&self, other: &Self) -> bool {
@@ -6750,7 +6750,7 @@ impl ISpeechPhraseAlternates {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseAlternates, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseAlternates, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseAlternates {
     fn eq(&self, other: &Self) -> bool {
@@ -6853,7 +6853,7 @@ impl ISpeechPhraseElement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseElement, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseElement, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseElement {
     fn eq(&self, other: &Self) -> bool {
@@ -6926,7 +6926,7 @@ impl ISpeechPhraseElements {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseElements, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseElements, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseElements {
     fn eq(&self, other: &Self) -> bool {
@@ -7067,7 +7067,7 @@ impl ISpeechPhraseInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseInfo, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseInfo, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -7165,7 +7165,7 @@ impl ISpeechPhraseInfoBuilder {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseInfoBuilder, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseInfoBuilder, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseInfoBuilder {
     fn eq(&self, other: &Self) -> bool {
@@ -7226,7 +7226,7 @@ impl ISpeechPhraseProperties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseProperties, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseProperties, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseProperties {
     fn eq(&self, other: &Self) -> bool {
@@ -7317,7 +7317,7 @@ impl ISpeechPhraseProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseProperty {
     fn eq(&self, other: &Self) -> bool {
@@ -7394,7 +7394,7 @@ impl ISpeechPhraseReplacement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseReplacement, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseReplacement, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseReplacement {
     fn eq(&self, other: &Self) -> bool {
@@ -7455,7 +7455,7 @@ impl ISpeechPhraseReplacements {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseReplacements, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseReplacements, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseReplacements {
     fn eq(&self, other: &Self) -> bool {
@@ -7540,7 +7540,7 @@ impl ISpeechPhraseRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseRule {
     fn eq(&self, other: &Self) -> bool {
@@ -7611,7 +7611,7 @@ impl ISpeechPhraseRules {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechPhraseRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechPhraseRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechPhraseRules {
     fn eq(&self, other: &Self) -> bool {
@@ -7777,7 +7777,7 @@ impl ISpeechRecoContext {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechRecoContext, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechRecoContext, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechRecoContext {
     fn eq(&self, other: &Self) -> bool {
@@ -7959,7 +7959,7 @@ impl ISpeechRecoGrammar {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechRecoGrammar, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechRecoGrammar, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechRecoGrammar {
     fn eq(&self, other: &Self) -> bool {
@@ -8102,7 +8102,7 @@ impl ISpeechRecoResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechRecoResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechRecoResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechRecoResult {
     fn eq(&self, other: &Self) -> bool {
@@ -8244,7 +8244,7 @@ impl ISpeechRecoResult2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechRecoResult2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
+::windows::imp::interface_hierarchy!(ISpeechRecoResult2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechRecoResult2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8365,7 +8365,7 @@ impl ISpeechRecoResultDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechRecoResultDispatch, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechRecoResultDispatch, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechRecoResultDispatch {
     fn eq(&self, other: &Self) -> bool {
@@ -8473,7 +8473,7 @@ impl ISpeechRecoResultTimes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechRecoResultTimes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechRecoResultTimes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechRecoResultTimes {
     fn eq(&self, other: &Self) -> bool {
@@ -8686,7 +8686,7 @@ impl ISpeechRecognizer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechRecognizer, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechRecognizer, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechRecognizer {
     fn eq(&self, other: &Self) -> bool {
@@ -8857,7 +8857,7 @@ impl ISpeechRecognizerStatus {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechRecognizerStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechRecognizerStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechRecognizerStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -8929,7 +8929,7 @@ impl ISpeechResourceLoader {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechResourceLoader, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechResourceLoader, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechResourceLoader {
     fn eq(&self, other: &Self) -> bool {
@@ -9006,7 +9006,7 @@ impl ISpeechTextSelectionInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechTextSelectionInformation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechTextSelectionInformation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechTextSelectionInformation {
     fn eq(&self, other: &Self) -> bool {
@@ -9217,7 +9217,7 @@ impl ISpeechVoice {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechVoice, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechVoice, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechVoice {
     fn eq(&self, other: &Self) -> bool {
@@ -9385,7 +9385,7 @@ impl ISpeechVoiceStatus {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechVoiceStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechVoiceStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechVoiceStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -9493,7 +9493,7 @@ impl ISpeechWaveFormatEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechWaveFormatEx, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISpeechWaveFormatEx, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechWaveFormatEx {
     fn eq(&self, other: &Self) -> bool {
@@ -9622,7 +9622,7 @@ impl ISpeechXMLRecoResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISpeechXMLRecoResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
+::windows::imp::interface_hierarchy!(ISpeechXMLRecoResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISpeechXMLRecoResult {
     fn eq(&self, other: &Self) -> bool {
@@ -9669,7 +9669,7 @@ pub struct _ISpeechRecoContextEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ISpeechRecoContextEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_ISpeechRecoContextEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_ISpeechRecoContextEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _ISpeechRecoContextEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -9711,7 +9711,7 @@ pub struct _ISpeechVoiceEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ISpeechVoiceEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_ISpeechVoiceEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_ISpeechVoiceEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _ISpeechVoiceEvents {
     fn eq(&self, other: &Self) -> bool {

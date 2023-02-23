@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<usize> {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ActivatePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , cookie : *mut usize ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ActivatePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , cookie : *mut usize ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<usize>();
     ActivatePackageVirtualizationContext(context, &mut result__).from_abi(result__)
 }
@@ -11,7 +11,7 @@ pub unsafe fn AddPackageDependency<P0>(packagedependencyid: P0, rank: i32, optio
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernelbase.dll""system" fn AddPackageDependency ( packagedependencyid : :: windows::core::PCWSTR , rank : i32 , options : AddPackageDependencyOptions , packagedependencycontext : *mut *mut PACKAGEDEPENDENCY_CONTEXT__ , packagefullname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn AddPackageDependency ( packagedependencyid : :: windows::core::PCWSTR , rank : i32 , options : AddPackageDependencyOptions , packagedependencycontext : *mut *mut PACKAGEDEPENDENCY_CONTEXT__ , packagefullname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     AddPackageDependency(packagedependencyid.into().abi(), rank, options, packagedependencycontext, ::core::mem::transmute(packagefullname.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -21,7 +21,7 @@ pub unsafe fn AppPolicyGetClrCompat<P0>(processtoken: P0, policy: *mut AppPolicy
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AppPolicyGetClrCompat ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyClrCompat ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AppPolicyGetClrCompat ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyClrCompat ) -> super::super::super::Foundation:: WIN32_ERROR );
     AppPolicyGetClrCompat(processtoken.into(), policy)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -31,7 +31,7 @@ pub unsafe fn AppPolicyGetCreateFileAccess<P0>(processtoken: P0, policy: *mut Ap
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AppPolicyGetCreateFileAccess ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyCreateFileAccess ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AppPolicyGetCreateFileAccess ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyCreateFileAccess ) -> super::super::super::Foundation:: WIN32_ERROR );
     AppPolicyGetCreateFileAccess(processtoken.into(), policy)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -41,7 +41,7 @@ pub unsafe fn AppPolicyGetLifecycleManagement<P0>(processtoken: P0, policy: *mut
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AppPolicyGetLifecycleManagement ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyLifecycleManagement ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AppPolicyGetLifecycleManagement ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyLifecycleManagement ) -> super::super::super::Foundation:: WIN32_ERROR );
     AppPolicyGetLifecycleManagement(processtoken.into(), policy)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -51,7 +51,7 @@ pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<P0>(processtoken: P0, poli
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AppPolicyGetMediaFoundationCodecLoading ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyMediaFoundationCodecLoading ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AppPolicyGetMediaFoundationCodecLoading ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyMediaFoundationCodecLoading ) -> super::super::super::Foundation:: WIN32_ERROR );
     AppPolicyGetMediaFoundationCodecLoading(processtoken.into(), policy)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -61,7 +61,7 @@ pub unsafe fn AppPolicyGetProcessTerminationMethod<P0>(processtoken: P0, policy:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AppPolicyGetProcessTerminationMethod ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyProcessTerminationMethod ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AppPolicyGetProcessTerminationMethod ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyProcessTerminationMethod ) -> super::super::super::Foundation:: WIN32_ERROR );
     AppPolicyGetProcessTerminationMethod(processtoken.into(), policy)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -71,7 +71,7 @@ pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<P0>(processtoken: P0, policy: 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AppPolicyGetShowDeveloperDiagnostic ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyShowDeveloperDiagnostic ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AppPolicyGetShowDeveloperDiagnostic ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyShowDeveloperDiagnostic ) -> super::super::super::Foundation:: WIN32_ERROR );
     AppPolicyGetShowDeveloperDiagnostic(processtoken.into(), policy)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -81,7 +81,7 @@ pub unsafe fn AppPolicyGetThreadInitializationType<P0>(processtoken: P0, policy:
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AppPolicyGetThreadInitializationType ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyThreadInitializationType ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AppPolicyGetThreadInitializationType ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyThreadInitializationType ) -> super::super::super::Foundation:: WIN32_ERROR );
     AppPolicyGetThreadInitializationType(processtoken.into(), policy)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -91,7 +91,7 @@ pub unsafe fn AppPolicyGetWindowingModel<P0>(processtoken: P0, policy: *mut AppP
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn AppPolicyGetWindowingModel ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyWindowingModel ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AppPolicyGetWindowingModel ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyWindowingModel ) -> super::super::super::Foundation:: WIN32_ERROR );
     AppPolicyGetWindowingModel(processtoken.into(), policy)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -101,7 +101,7 @@ pub unsafe fn CheckIsMSIXPackage<P0>(packagefullname: P0) -> ::windows::core::Re
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CheckIsMSIXPackage ( packagefullname : :: windows::core::PCWSTR , ismsixpackage : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CheckIsMSIXPackage ( packagefullname : :: windows::core::PCWSTR , ismsixpackage : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
     CheckIsMSIXPackage(packagefullname.into().abi(), &mut result__).from_abi(result__)
 }
@@ -109,7 +109,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ClosePackageInfo ( packageinforeference : *const _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ClosePackageInfo ( packageinforeference : *const _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
     ClosePackageInfo(packageinforeference)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -118,14 +118,14 @@ pub unsafe fn CreatePackageVirtualizationContext<P0>(packagefamilyname: P0) -> :
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreatePackageVirtualizationContext ( packagefamilyname : :: windows::core::PCWSTR , context : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreatePackageVirtualizationContext ( packagefamilyname : :: windows::core::PCWSTR , context : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>();
     CreatePackageVirtualizationContext(packagefamilyname.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DeactivatePackageVirtualizationContext ( cookie : usize ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DeactivatePackageVirtualizationContext ( cookie : usize ) -> ( ) );
     DeactivatePackageVirtualizationContext(cookie)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -134,13 +134,13 @@ pub unsafe fn DeletePackageDependency<P0>(packagedependencyid: P0) -> ::windows:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernelbase.dll""system" fn DeletePackageDependency ( packagedependencyid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn DeletePackageDependency ( packagedependencyid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     DeletePackageDependency(packagedependencyid.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
-    ::windows::core::link ! ( "kernel32.dll""system" fn DuplicatePackageVirtualizationContext ( sourcecontext : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , destcontext : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DuplicatePackageVirtualizationContext ( sourcecontext : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , destcontext : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>();
     DuplicatePackageVirtualizationContext(sourcecontext, &mut result__).from_abi(result__)
 }
@@ -151,7 +151,7 @@ pub unsafe fn FindPackagesByPackageFamily<P0>(packagefamilyname: P0, packagefilt
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FindPackagesByPackageFamily ( packagefamilyname : :: windows::core::PCWSTR , packagefilters : u32 , count : *mut u32 , packagefullnames : *mut :: windows::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows::core::PWSTR , packageproperties : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindPackagesByPackageFamily ( packagefamilyname : :: windows::core::PCWSTR , packagefilters : u32 , count : *mut u32 , packagefullnames : *mut :: windows::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows::core::PWSTR , packageproperties : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
     FindPackagesByPackageFamily(packagefamilyname.into().abi(), packagefilters, count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer), ::core::mem::transmute(packageproperties.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -162,7 +162,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn FormatApplicationUserModelId ( packagefamilyname : :: windows::core::PCWSTR , packagerelativeapplicationid : :: windows::core::PCWSTR , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FormatApplicationUserModelId ( packagefamilyname : :: windows::core::PCWSTR , packagerelativeapplicationid : :: windows::core::PCWSTR , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     FormatApplicationUserModelId(packagefamilyname.into().abi(), packagerelativeapplicationid.into().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -172,7 +172,7 @@ pub unsafe fn GetApplicationUserModelId<P0>(hprocess: P0, applicationusermodelid
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetApplicationUserModelId ( hprocess : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetApplicationUserModelId ( hprocess : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetApplicationUserModelId(hprocess.into(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -182,75 +182,75 @@ pub unsafe fn GetApplicationUserModelIdFromToken<P0>(token: P0, applicationuserm
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetApplicationUserModelIdFromToken ( token : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetApplicationUserModelIdFromToken ( token : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetApplicationUserModelIdFromToken(token.into(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCurrentApplicationUserModelId ( applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentApplicationUserModelId ( applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentApplicationUserModelId(applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCurrentPackageFamilyName ( packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackageFamilyName ( packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackageFamilyName(packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCurrentPackageFullName ( packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackageFullName ( packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackageFullName(packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageId(bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCurrentPackageId ( bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackageId ( bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackageId(bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageInfo(flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCurrentPackageInfo ( flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackageInfo ( flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackageInfo(flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetCurrentPackageInfo2 ( flags : u32 , packagepathtype : PackagePathType , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetCurrentPackageInfo2 ( flags : u32 , packagepathtype : PackagePathType , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackageInfo2(flags, packagepathtype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCurrentPackagePath ( pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackagePath ( pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackagePath(pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetCurrentPackagePath2 ( packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetCurrentPackagePath2 ( packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetCurrentPackagePath2(packagepathtype, pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetCurrentPackageVirtualizationContext ( ) -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentPackageVirtualizationContext ( ) -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ );
     GetCurrentPackageVirtualizationContext()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "kernelbase.dll""system" fn GetIdForPackageDependencyContext ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ , packagedependencyid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn GetIdForPackageDependencyContext ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ , packagedependencyid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     GetIdForPackageDependencyContext(packagedependencycontext, &mut result__).from_abi(result__)
 }
@@ -258,7 +258,7 @@ pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: *const 
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetPackageApplicationIds ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackageApplicationIds ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageApplicationIds(packageinforeference, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -268,7 +268,7 @@ pub unsafe fn GetPackageFamilyName<P0>(hprocess: P0, packagefamilynamelength: *m
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetPackageFamilyName ( hprocess : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackageFamilyName ( hprocess : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageFamilyName(hprocess.into(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -278,7 +278,7 @@ pub unsafe fn GetPackageFamilyNameFromToken<P0>(token: P0, packagefamilynameleng
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetPackageFamilyNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetPackageFamilyNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageFamilyNameFromToken(token.into(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -288,7 +288,7 @@ pub unsafe fn GetPackageFullName<P0>(hprocess: P0, packagefullnamelength: *mut u
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetPackageFullName ( hprocess : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackageFullName ( hprocess : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageFullName(hprocess.into(), packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -298,7 +298,7 @@ pub unsafe fn GetPackageFullNameFromToken<P0>(token: P0, packagefullnamelength: 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetPackageFullNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetPackageFullNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageFullNameFromToken(token.into(), packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -308,28 +308,28 @@ pub unsafe fn GetPackageId<P0>(hprocess: P0, bufferlength: *mut u32, buffer: ::c
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetPackageId ( hprocess : super::super::super::Foundation:: HANDLE , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackageId ( hprocess : super::super::super::Foundation:: HANDLE , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageId(hprocess.into(), bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetPackageInfo ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackageInfo ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageInfo(packageinforeference, flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetPackageInfo2 ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , flags : u32 , packagepathtype : PackagePathType , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetPackageInfo2 ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , flags : u32 , packagepathtype : PackagePathType , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackageInfo2(packageinforeference, flags, packagepathtype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetPackagePath ( packageid : *const PACKAGE_ID , reserved : u32 , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackagePath ( packageid : *const PACKAGE_ID , reserved : u32 , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackagePath(packageid, reserved, pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -339,7 +339,7 @@ pub unsafe fn GetPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetPackagePathByFullName ( packagefullname : :: windows::core::PCWSTR , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackagePathByFullName ( packagefullname : :: windows::core::PCWSTR , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackagePathByFullName(packagefullname.into().abi(), pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -349,7 +349,7 @@ pub unsafe fn GetPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetPackagePathByFullName2 ( packagefullname : :: windows::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetPackagePathByFullName2 ( packagefullname : :: windows::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackagePathByFullName2(packagefullname.into().abi(), packagepathtype, pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -359,7 +359,7 @@ pub unsafe fn GetPackagesByPackageFamily<P0>(packagefamilyname: P0, count: *mut 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetPackagesByPackageFamily ( packagefamilyname : :: windows::core::PCWSTR , count : *mut u32 , packagefullnames : *mut :: windows::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetPackagesByPackageFamily ( packagefamilyname : :: windows::core::PCWSTR , count : *mut u32 , packagefullnames : *mut :: windows::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetPackagesByPackageFamily(packagefamilyname.into().abi(), count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -369,7 +369,7 @@ pub unsafe fn GetProcessesInVirtualizationContext<P0>(packagefamilyname: P0, cou
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetProcessesInVirtualizationContext ( packagefamilyname : :: windows::core::PCWSTR , count : *mut u32 , processes : *mut *mut super::super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetProcessesInVirtualizationContext ( packagefamilyname : :: windows::core::PCWSTR , count : *mut u32 , processes : *mut *mut super::super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     GetProcessesInVirtualizationContext(packagefamilyname.into().abi(), count, processes).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -378,7 +378,7 @@ pub unsafe fn GetResolvedPackageFullNameForPackageDependency<P0>(packagedependen
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernelbase.dll""system" fn GetResolvedPackageFullNameForPackageDependency ( packagedependencyid : :: windows::core::PCWSTR , packagefullname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn GetResolvedPackageFullNameForPackageDependency ( packagedependencyid : :: windows::core::PCWSTR , packagefullname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     GetResolvedPackageFullNameForPackageDependency(packagedependencyid.into().abi(), &mut result__).from_abi(result__)
 }
@@ -389,7 +389,7 @@ pub unsafe fn GetStagedPackageOrigin<P0>(packagefullname: P0, origin: *mut Packa
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetStagedPackageOrigin ( packagefullname : :: windows::core::PCWSTR , origin : *mut PackageOrigin ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn GetStagedPackageOrigin ( packagefullname : :: windows::core::PCWSTR , origin : *mut PackageOrigin ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetStagedPackageOrigin(packagefullname.into().abi(), origin)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -399,7 +399,7 @@ pub unsafe fn GetStagedPackagePathByFullName<P0>(packagefullname: P0, pathlength
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetStagedPackagePathByFullName ( packagefullname : :: windows::core::PCWSTR , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStagedPackagePathByFullName ( packagefullname : :: windows::core::PCWSTR , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetStagedPackagePathByFullName(packagefullname.into().abi(), pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -409,7 +409,7 @@ pub unsafe fn GetStagedPackagePathByFullName2<P0>(packagefullname: P0, packagepa
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetStagedPackagePathByFullName2 ( packagefullname : :: windows::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll""system" fn GetStagedPackagePathByFullName2 ( packagefullname : :: windows::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     GetStagedPackagePathByFullName2(packagefullname.into().abi(), packagepathtype, pathlength, ::core::mem::transmute(path))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -419,7 +419,7 @@ pub unsafe fn OpenPackageInfoByFullName<P0>(packagefullname: P0, reserved: u32, 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn OpenPackageInfoByFullName ( packagefullname : :: windows::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OpenPackageInfoByFullName ( packagefullname : :: windows::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
     OpenPackageInfoByFullName(packagefullname.into().abi(), reserved, packageinforeference)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -430,7 +430,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn OpenPackageInfoByFullNameForUser ( usersid : super::super::super::Foundation:: PSID , packagefullname : :: windows::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn OpenPackageInfoByFullNameForUser ( usersid : super::super::super::Foundation:: PSID , packagefullname : :: windows::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
     OpenPackageInfoByFullNameForUser(usersid.into(), packagefullname.into().abi(), reserved, packageinforeference)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -440,21 +440,21 @@ pub unsafe fn PackageFamilyNameFromFullName<P0>(packagefullname: P0, packagefami
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PackageFamilyNameFromFullName ( packagefullname : :: windows::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageFamilyNameFromFullName ( packagefullname : :: windows::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageFamilyNameFromFullName(packagefullname.into().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PackageFamilyNameFromId ( packageid : *const PACKAGE_ID , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageFamilyNameFromId ( packageid : *const PACKAGE_ID , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageFamilyNameFromId(packageid, packagefamilynamelength, ::core::mem::transmute(packagefamilyname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PackageFullNameFromId ( packageid : *const PACKAGE_ID , packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageFullNameFromId ( packageid : *const PACKAGE_ID , packagefullnamelength : *mut u32 , packagefullname : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageFullNameFromId(packageid, packagefullnamelength, ::core::mem::transmute(packagefullname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -464,7 +464,7 @@ pub unsafe fn PackageIdFromFullName<P0>(packagefullname: P0, flags: u32, bufferl
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PackageIdFromFullName ( packagefullname : :: windows::core::PCWSTR , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageIdFromFullName ( packagefullname : :: windows::core::PCWSTR , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageIdFromFullName(packagefullname.into().abi(), flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -474,7 +474,7 @@ pub unsafe fn PackageNameAndPublisherIdFromFamilyName<P0>(packagefamilyname: P0,
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PackageNameAndPublisherIdFromFamilyName ( packagefamilyname : :: windows::core::PCWSTR , packagenamelength : *mut u32 , packagename : :: windows::core::PWSTR , packagepublisheridlength : *mut u32 , packagepublisherid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PackageNameAndPublisherIdFromFamilyName ( packagefamilyname : :: windows::core::PCWSTR , packagenamelength : *mut u32 , packagename : :: windows::core::PWSTR , packagepublisheridlength : *mut u32 , packagepublisherid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     PackageNameAndPublisherIdFromFamilyName(packagefamilyname.into().abi(), packagenamelength, ::core::mem::transmute(packagename), packagepublisheridlength, ::core::mem::transmute(packagepublisherid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -484,19 +484,19 @@ pub unsafe fn ParseApplicationUserModelId<P0>(applicationusermodelid: P0, packag
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ParseApplicationUserModelId ( applicationusermodelid : :: windows::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR , packagerelativeapplicationidlength : *mut u32 , packagerelativeapplicationid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ParseApplicationUserModelId ( applicationusermodelid : :: windows::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows::core::PWSTR , packagerelativeapplicationidlength : *mut u32 , packagerelativeapplicationid : :: windows::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     ParseApplicationUserModelId(applicationusermodelid.into().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname), packagerelativeapplicationidlength, ::core::mem::transmute(packagerelativeapplicationid))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ReleasePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReleasePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> ( ) );
     ReleasePackageVirtualizationContext(context)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "kernelbase.dll""system" fn RemovePackageDependency ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn RemovePackageDependency ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ ) -> :: windows::core::HRESULT );
     RemovePackageDependency(packagedependencycontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -508,7 +508,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "kernelbase.dll""system" fn TryCreatePackageDependency ( user : super::super::super::Foundation:: PSID , packagefamilyname : :: windows::core::PCWSTR , minversion : PACKAGE_VERSION , packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures , lifetimekind : PackageDependencyLifetimeKind , lifetimeartifact : :: windows::core::PCWSTR , options : CreatePackageDependencyOptions , packagedependencyid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "kernelbase.dll""system" fn TryCreatePackageDependency ( user : super::super::super::Foundation:: PSID , packagefamilyname : :: windows::core::PCWSTR , minversion : PACKAGE_VERSION , packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures , lifetimekind : PackageDependencyLifetimeKind , lifetimeartifact : :: windows::core::PCWSTR , options : CreatePackageDependencyOptions , packagedependencyid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     TryCreatePackageDependency(user.into(), packagefamilyname.into().abi(), ::core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.into().abi(), options, &mut result__).from_abi(result__)
 }
@@ -519,7 +519,7 @@ pub unsafe fn VerifyApplicationUserModelId<P0>(applicationusermodelid: P0) -> su
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyApplicationUserModelId ( applicationusermodelid : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyApplicationUserModelId ( applicationusermodelid : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     VerifyApplicationUserModelId(applicationusermodelid.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -529,7 +529,7 @@ pub unsafe fn VerifyPackageFamilyName<P0>(packagefamilyname: P0) -> super::super
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageFamilyName ( packagefamilyname : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageFamilyName ( packagefamilyname : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     VerifyPackageFamilyName(packagefamilyname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -539,14 +539,14 @@ pub unsafe fn VerifyPackageFullName<P0>(packagefullname: P0) -> super::super::su
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageFullName ( packagefullname : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageFullName ( packagefullname : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     VerifyPackageFullName(packagefullname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> super::super::super::Foundation::WIN32_ERROR {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageId ( packageid : *const PACKAGE_ID ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageId ( packageid : *const PACKAGE_ID ) -> super::super::super::Foundation:: WIN32_ERROR );
     VerifyPackageId(packageid)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -556,7 +556,7 @@ pub unsafe fn VerifyPackageRelativeApplicationId<P0>(packagerelativeapplicationi
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageRelativeApplicationId ( packagerelativeapplicationid : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll""system" fn VerifyPackageRelativeApplicationId ( packagerelativeapplicationid : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
     VerifyPackageRelativeApplicationId(packagerelativeapplicationid.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -571,7 +571,7 @@ impl IAppxBlockMapBlock {
         (::windows::core::Vtable::vtable(self).GetCompressedSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBlockMapBlock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBlockMapBlock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBlockMapBlock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -622,7 +622,7 @@ impl IAppxBlockMapBlocksEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBlockMapBlocksEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBlockMapBlocksEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBlockMapBlocksEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -689,7 +689,7 @@ impl IAppxBlockMapFile {
         (::windows::core::Vtable::vtable(self).ValidateFileHash)(::windows::core::Vtable::as_raw(self), filestream.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBlockMapFile, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBlockMapFile, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBlockMapFile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -746,7 +746,7 @@ impl IAppxBlockMapFilesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBlockMapFilesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBlockMapFilesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBlockMapFilesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -811,7 +811,7 @@ impl IAppxBlockMapReader {
         (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBlockMapReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBlockMapReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBlockMapReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -881,7 +881,7 @@ impl IAppxBundleFactory {
         (::windows::core::Vtable::vtable(self).CreateBundleManifestReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -938,7 +938,7 @@ impl IAppxBundleManifestOptionalBundleInfo {
         (::windows::core::Vtable::vtable(self).GetPackageInfoItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -990,7 +990,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfoEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfoEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1056,7 +1056,7 @@ impl IAppxBundleManifestPackageInfo {
         (::windows::core::Vtable::vtable(self).GetResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1113,7 +1113,7 @@ impl IAppxBundleManifestPackageInfo2 {
         (::windows::core::Vtable::vtable(self).GetIsDefaultApplicablePackage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1162,7 +1162,7 @@ impl IAppxBundleManifestPackageInfo3 {
         (::windows::core::Vtable::vtable(self).GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1202,7 +1202,7 @@ impl IAppxBundleManifestPackageInfo4 {
         (::windows::core::Vtable::vtable(self).GetIsStub)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1255,7 +1255,7 @@ impl IAppxBundleManifestPackageInfoEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfoEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleManifestPackageInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfoEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1311,7 +1311,7 @@ impl IAppxBundleManifestReader {
         (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleManifestReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleManifestReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleManifestReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1354,7 +1354,7 @@ impl IAppxBundleManifestReader2 {
         (::windows::core::Vtable::vtable(self).GetOptionalBundles)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleManifestReader2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleManifestReader2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleManifestReader2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1411,7 +1411,7 @@ impl IAppxBundleReader {
         (::windows::core::Vtable::vtable(self).GetPayloadPackage)(::windows::core::Vtable::as_raw(self), filename.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1461,7 +1461,7 @@ impl IAppxBundleWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1508,7 +1508,7 @@ impl IAppxBundleWriter2 {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into().abi(), inputstream.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleWriter2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleWriter2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleWriter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1560,7 +1560,7 @@ impl IAppxBundleWriter3 {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), hashmethodstring.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleWriter3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleWriter3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleWriter3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1628,7 +1628,7 @@ impl IAppxBundleWriter4 {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into().abi(), inputstream.into().abi(), isdefaultapplicablepackage.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxBundleWriter4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxBundleWriter4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxBundleWriter4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1681,7 +1681,7 @@ impl IAppxContentGroup {
         (::windows::core::Vtable::vtable(self).GetFiles)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxContentGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxContentGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxContentGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1732,7 +1732,7 @@ impl IAppxContentGroupFilesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxContentGroupFilesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxContentGroupFilesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxContentGroupFilesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1782,7 +1782,7 @@ impl IAppxContentGroupMapReader {
         (::windows::core::Vtable::vtable(self).GetAutomaticGroups)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxContentGroupMapReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxContentGroupMapReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxContentGroupMapReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1832,7 +1832,7 @@ impl IAppxContentGroupMapWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxContentGroupMapWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxContentGroupMapWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxContentGroupMapWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1884,7 +1884,7 @@ impl IAppxContentGroupsEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxContentGroupsEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxContentGroupsEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxContentGroupsEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1938,7 +1938,7 @@ impl IAppxEncryptedBundleWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxEncryptedBundleWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxEncryptedBundleWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1985,7 +1985,7 @@ impl IAppxEncryptedBundleWriter2 {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into().abi(), inputstream.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxEncryptedBundleWriter2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxEncryptedBundleWriter2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2042,7 +2042,7 @@ impl IAppxEncryptedBundleWriter3 {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into().abi(), inputstream.into().abi(), isdefaultapplicablepackage.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxEncryptedBundleWriter3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxEncryptedBundleWriter3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2095,7 +2095,7 @@ impl IAppxEncryptedPackageWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxEncryptedPackageWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxEncryptedPackageWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2138,7 +2138,7 @@ impl IAppxEncryptedPackageWriter2 {
         (::windows::core::Vtable::vtable(self).AddPayloadFilesEncrypted)(::windows::core::Vtable::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxEncryptedPackageWriter2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxEncryptedPackageWriter2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2248,7 +2248,7 @@ impl IAppxEncryptionFactory {
         (::windows::core::Vtable::vtable(self).CreateEncryptedBundleReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), keyinfo, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxEncryptionFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxEncryptionFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxEncryptionFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2324,7 +2324,7 @@ impl IAppxEncryptionFactory2 {
         (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), contentgroupmapstream.into().abi(), settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxEncryptionFactory2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxEncryptionFactory2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxEncryptionFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2399,7 +2399,7 @@ impl IAppxEncryptionFactory3 {
         (::windows::core::Vtable::vtable(self).CreateEncryptedBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxEncryptionFactory3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxEncryptionFactory3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxEncryptionFactory3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2457,7 +2457,7 @@ impl IAppxEncryptionFactory4 {
         (::windows::core::Vtable::vtable(self).EncryptPackage)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), outputstream.into().abi(), settings, keyinfo, exemptedfiles, memorylimit).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxEncryptionFactory4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxEncryptionFactory4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxEncryptionFactory4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2540,7 +2540,7 @@ impl IAppxFactory {
         (::windows::core::Vtable::vtable(self).CreateValidatedBlockMapReader)(::windows::core::Vtable::as_raw(self), blockmapstream.into().abi(), signaturefilename.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2620,7 +2620,7 @@ impl IAppxFactory2 {
         (::windows::core::Vtable::vtable(self).CreateContentGroupMapWriter)(::windows::core::Vtable::as_raw(self), stream.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxFactory2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxFactory2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2687,7 +2687,7 @@ impl IAppxFile {
         (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxFile, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxFile, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxFile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2744,7 +2744,7 @@ impl IAppxFilesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxFilesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxFilesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxFilesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2797,7 +2797,7 @@ impl IAppxManifestApplication {
         (::windows::core::Vtable::vtable(self).GetAppUserModelId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestApplication, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestApplication, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestApplication {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2848,7 +2848,7 @@ impl IAppxManifestApplicationsEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestApplicationsEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestApplicationsEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestApplicationsEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2906,7 +2906,7 @@ impl IAppxManifestCapabilitiesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestCapabilitiesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestCapabilitiesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestCapabilitiesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2964,7 +2964,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestDeviceCapabilitiesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestDeviceCapabilitiesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestDeviceCapabilitiesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3018,7 +3018,7 @@ impl IAppxManifestDriverConstraint {
         (::windows::core::Vtable::vtable(self).GetMinDate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestDriverConstraint, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestDriverConstraint, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestDriverConstraint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3070,7 +3070,7 @@ impl IAppxManifestDriverConstraintsEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestDriverConstraintsEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestDriverConstraintsEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestDriverConstraintsEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3128,7 +3128,7 @@ impl IAppxManifestDriverDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestDriverDependenciesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestDriverDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestDriverDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3174,7 +3174,7 @@ impl IAppxManifestDriverDependency {
         (::windows::core::Vtable::vtable(self).GetDriverConstraints)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestDriverDependency, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestDriverDependency, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestDriverDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3224,7 +3224,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestHostRuntimeDependenciesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3278,7 +3278,7 @@ impl IAppxManifestHostRuntimeDependency {
         (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestHostRuntimeDependency, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependency, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3318,7 +3318,7 @@ impl IAppxManifestHostRuntimeDependency2 {
         (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestHostRuntimeDependency2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependency2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3368,7 +3368,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestMainPackageDependenciesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestMainPackageDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3422,7 +3422,7 @@ impl IAppxManifestMainPackageDependency {
         (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestMainPackageDependency, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestMainPackageDependency, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3474,7 +3474,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestOSPackageDependenciesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestOSPackageDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3524,7 +3524,7 @@ impl IAppxManifestOSPackageDependency {
         (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestOSPackageDependency, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestOSPackageDependency, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3569,7 +3569,7 @@ impl IAppxManifestOptionalPackageInfo {
         (::windows::core::Vtable::vtable(self).GetMainPackageName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestOptionalPackageInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestOptionalPackageInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestOptionalPackageInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3623,7 +3623,7 @@ impl IAppxManifestPackageDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestPackageDependenciesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestPackageDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestPackageDependenciesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3677,7 +3677,7 @@ impl IAppxManifestPackageDependency {
         (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestPackageDependency, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestPackageDependency, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestPackageDependency {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3729,7 +3729,7 @@ impl IAppxManifestPackageDependency2 {
         (::windows::core::Vtable::vtable(self).GetMaxMajorVersionTested)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestPackageDependency2, ::windows::core::IUnknown, IAppxManifestPackageDependency);
+::windows::imp::interface_hierarchy!(IAppxManifestPackageDependency2, ::windows::core::IUnknown, IAppxManifestPackageDependency);
 impl ::core::cmp::PartialEq for IAppxManifestPackageDependency2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3769,7 +3769,7 @@ impl IAppxManifestPackageDependency3 {
         (::windows::core::Vtable::vtable(self).GetIsOptional)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestPackageDependency3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestPackageDependency3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestPackageDependency3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3843,7 +3843,7 @@ impl IAppxManifestPackageId {
         (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestPackageId, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestPackageId, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestPackageId {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3928,7 +3928,7 @@ impl IAppxManifestPackageId2 {
         (::windows::core::Vtable::vtable(self).GetArchitecture2)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestPackageId2, ::windows::core::IUnknown, IAppxManifestPackageId);
+::windows::imp::interface_hierarchy!(IAppxManifestPackageId2, ::windows::core::IUnknown, IAppxManifestPackageId);
 impl ::core::cmp::PartialEq for IAppxManifestPackageId2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3978,7 +3978,7 @@ impl IAppxManifestProperties {
         (::windows::core::Vtable::vtable(self).GetStringValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4028,7 +4028,7 @@ impl IAppxManifestQualifiedResource {
         (::windows::core::Vtable::vtable(self).GetDXFeatureLevel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestQualifiedResource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestQualifiedResource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestQualifiedResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4080,7 +4080,7 @@ impl IAppxManifestQualifiedResourcesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestQualifiedResourcesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestQualifiedResourcesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestQualifiedResourcesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4163,7 +4163,7 @@ impl IAppxManifestReader {
         (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4253,7 +4253,7 @@ impl IAppxManifestReader2 {
         (::windows::core::Vtable::vtable(self).GetQualifiedResources)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestReader2, ::windows::core::IUnknown, IAppxManifestReader);
+::windows::imp::interface_hierarchy!(IAppxManifestReader2, ::windows::core::IUnknown, IAppxManifestReader);
 impl ::core::cmp::PartialEq for IAppxManifestReader2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4340,7 +4340,7 @@ impl IAppxManifestReader3 {
         (::windows::core::Vtable::vtable(self).GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestReader3, ::windows::core::IUnknown, IAppxManifestReader, IAppxManifestReader2);
+::windows::imp::interface_hierarchy!(IAppxManifestReader3, ::windows::core::IUnknown, IAppxManifestReader, IAppxManifestReader2);
 impl ::core::cmp::PartialEq for IAppxManifestReader3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4432,7 +4432,7 @@ impl IAppxManifestReader4 {
         (::windows::core::Vtable::vtable(self).GetOptionalPackageInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestReader4, ::windows::core::IUnknown, IAppxManifestReader, IAppxManifestReader2, IAppxManifestReader3);
+::windows::imp::interface_hierarchy!(IAppxManifestReader4, ::windows::core::IUnknown, IAppxManifestReader, IAppxManifestReader2, IAppxManifestReader3);
 impl ::core::cmp::PartialEq for IAppxManifestReader4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4470,7 +4470,7 @@ impl IAppxManifestReader5 {
         (::windows::core::Vtable::vtable(self).GetMainPackageDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestReader5, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestReader5, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestReader5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4510,7 +4510,7 @@ impl IAppxManifestReader6 {
         (::windows::core::Vtable::vtable(self).GetIsNonQualifiedResourcePackage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestReader6, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestReader6, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestReader6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4559,7 +4559,7 @@ impl IAppxManifestReader7 {
         (::windows::core::Vtable::vtable(self).GetHostRuntimeDependencies)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestReader7, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestReader7, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestReader7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4611,7 +4611,7 @@ impl IAppxManifestResourcesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestResourcesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestResourcesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestResourcesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4669,7 +4669,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestTargetDeviceFamiliesEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestTargetDeviceFamiliesEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamiliesEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4723,7 +4723,7 @@ impl IAppxManifestTargetDeviceFamily {
         (::windows::core::Vtable::vtable(self).GetMaxVersionTested)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxManifestTargetDeviceFamily, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxManifestTargetDeviceFamily, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamily {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4814,7 +4814,7 @@ impl IAppxPackageEditor {
         (::windows::core::Vtable::vtable(self).UpdatePackageManifest)(::windows::core::Vtable::as_raw(self), packagestream.into().abi(), updatedmanifeststream.into().abi(), ispackageencrypted.into(), options).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxPackageEditor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxPackageEditor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxPackageEditor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4891,7 +4891,7 @@ impl IAppxPackageReader {
         (::windows::core::Vtable::vtable(self).GetManifest)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxPackageReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxPackageReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxPackageReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4947,7 +4947,7 @@ impl IAppxPackageWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), manifest.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxPackageWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxPackageWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxPackageWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4997,7 +4997,7 @@ impl IAppxPackageWriter2 {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), manifest.into().abi(), contentgroupmap.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxPackageWriter2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxPackageWriter2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxPackageWriter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5039,7 +5039,7 @@ impl IAppxPackageWriter3 {
         (::windows::core::Vtable::vtable(self).AddPayloadFiles)(::windows::core::Vtable::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxPackageWriter3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxPackageWriter3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxPackageWriter3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5090,7 +5090,7 @@ impl IAppxPackagingDiagnosticEventSink {
         (::windows::core::Vtable::vtable(self).ReportError)(::windows::core::Vtable::as_raw(self), errormessage.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxPackagingDiagnosticEventSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5131,7 +5131,7 @@ impl IAppxPackagingDiagnosticEventSinkManager {
         (::windows::core::Vtable::vtable(self).SetSinkForProcess)(::windows::core::Vtable::as_raw(self), sink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAppxPackagingDiagnosticEventSinkManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSinkManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSinkManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5173,7 +5173,7 @@ impl IAppxSourceContentGroupMapReader {
         (::windows::core::Vtable::vtable(self).GetAutomaticGroups)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IAppxSourceContentGroupMapReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAppxSourceContentGroupMapReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAppxSourceContentGroupMapReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

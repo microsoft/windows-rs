@@ -9,7 +9,7 @@ impl IDedupBackupSupport {
         (::windows::core::Vtable::vtable(self).RestoreFiles)(::windows::core::Vtable::as_raw(self), numberoffiles, ::core::mem::transmute(filefullpaths), store.into().abi(), flags, fileresults).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDedupBackupSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDedupBackupSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDedupBackupSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -58,7 +58,7 @@ impl IDedupChunkLibrary {
         (::windows::core::Vtable::vtable(self).StartChunking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iiditeratorinterfaceid), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDedupChunkLibrary, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDedupChunkLibrary, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDedupChunkLibrary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -152,7 +152,7 @@ impl IDedupDataPort {
         (::windows::core::Vtable::vtable(self).GetRequestResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, pbatchresult, pbatchcount, pstatus, ppitemresults).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDedupDataPort, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDedupDataPort, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDedupDataPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -214,7 +214,7 @@ impl IDedupDataPortManager {
         (::windows::core::Vtable::vtable(self).GetVolumeDataPort)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDedupDataPortManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDedupDataPortManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDedupDataPortManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -262,7 +262,7 @@ impl IDedupIterateChunksHash32 {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDedupIterateChunksHash32, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDedupIterateChunksHash32, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDedupIterateChunksHash32 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -308,7 +308,7 @@ impl IDedupReadFileCallback {
         (::windows::core::Vtable::vtable(self).PreviewContainerRead)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filefullpath), readoffsets.len() as _, ::core::mem::transmute(readoffsets.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDedupReadFileCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDedupReadFileCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDedupReadFileCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

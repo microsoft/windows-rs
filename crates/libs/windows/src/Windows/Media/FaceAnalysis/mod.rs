@@ -193,7 +193,7 @@ impl ::core::fmt::Debug for DetectedFace {
     }
 }
 impl ::windows::core::RuntimeType for DetectedFace {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.DetectedFace;{8200d454-66bc-34df-9410-e89400195414})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.DetectedFace;{8200d454-66bc-34df-9410-e89400195414})");
 }
 impl ::core::clone::Clone for DetectedFace {
     fn clone(&self) -> Self {
@@ -209,7 +209,7 @@ unsafe impl ::windows::core::Interface for DetectedFace {
 impl ::windows::core::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
 }
-::windows::core::interface_hierarchy!(DetectedFace, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DetectedFace, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DetectedFace {}
 unsafe impl ::core::marker::Sync for DetectedFace {}
 #[doc = "*Required features: `\"Media_FaceAnalysis\"`*"]
@@ -296,7 +296,7 @@ impl FaceDetector {
     }
     #[doc(hidden)]
     pub fn IFaceDetectorStatics<R, F: FnOnce(&IFaceDetectorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FaceDetector, IFaceDetectorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FaceDetector, IFaceDetectorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -312,7 +312,7 @@ impl ::core::fmt::Debug for FaceDetector {
     }
 }
 impl ::windows::core::RuntimeType for FaceDetector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.FaceDetector;{16b672dc-fe6f-3117-8d95-c3f04d51630c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.FaceDetector;{16b672dc-fe6f-3117-8d95-c3f04d51630c})");
 }
 impl ::core::clone::Clone for FaceDetector {
     fn clone(&self) -> Self {
@@ -328,7 +328,7 @@ unsafe impl ::windows::core::Interface for FaceDetector {
 impl ::windows::core::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
 }
-::windows::core::interface_hierarchy!(FaceDetector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FaceDetector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FaceDetector {}
 unsafe impl ::core::marker::Sync for FaceDetector {}
 #[doc = "*Required features: `\"Media_FaceAnalysis\"`*"]
@@ -406,7 +406,7 @@ impl FaceTracker {
     }
     #[doc(hidden)]
     pub fn IFaceTrackerStatics<R, F: FnOnce(&IFaceTrackerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FaceTracker, IFaceTrackerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FaceTracker, IFaceTrackerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -422,7 +422,7 @@ impl ::core::fmt::Debug for FaceTracker {
     }
 }
 impl ::windows::core::RuntimeType for FaceTracker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.FaceTracker;{6ba67d8c-a841-4420-93e6-2420a1884fcf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.FaceTracker;{6ba67d8c-a841-4420-93e6-2420a1884fcf})");
 }
 impl ::core::clone::Clone for FaceTracker {
     fn clone(&self) -> Self {
@@ -438,7 +438,7 @@ unsafe impl ::windows::core::Interface for FaceTracker {
 impl ::windows::core::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";
 }
-::windows::core::interface_hierarchy!(FaceTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FaceTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FaceTracker {}
 unsafe impl ::core::marker::Sync for FaceTracker {}
 #[cfg(feature = "implement")]

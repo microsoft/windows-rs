@@ -87,7 +87,7 @@ impl IRichEditOle {
         (::windows::core::Vtable::vtable(self).ImportDataObject)(::windows::core::Vtable::as_raw(self), lpdataobj.into().abi(), cf, hmetapict).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRichEditOle, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRichEditOle, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRichEditOle {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -233,7 +233,7 @@ impl IRichEditOleCallback {
         (::windows::core::Vtable::vtable(self).GetContextMenu)(::windows::core::Vtable::as_raw(self), seltype, lpoleobj.into().abi(), lpchrg, lphmenu).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRichEditOleCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRichEditOleCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRichEditOleCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -311,7 +311,7 @@ impl IRicheditUiaOverrides {
         (::windows::core::Vtable::vtable(self).GetPropertyOverrideValue)(::windows::core::Vtable::as_raw(self), propertyid, pretvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRicheditUiaOverrides, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRicheditUiaOverrides, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRicheditUiaOverrides {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -350,7 +350,7 @@ pub struct ITextDisplays(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDisplays {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextDisplays, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITextDisplays, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextDisplays {
     fn eq(&self, other: &Self) -> bool {
@@ -474,7 +474,7 @@ impl ITextDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITextDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextDocument {
     fn eq(&self, other: &Self) -> bool {
@@ -826,7 +826,7 @@ impl ITextDocument2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextDocument2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
+::windows::imp::interface_hierarchy!(ITextDocument2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextDocument2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1125,7 +1125,7 @@ impl ITextDocument2Old {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextDocument2Old, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
+::windows::imp::interface_hierarchy!(ITextDocument2Old, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextDocument2Old {
     fn eq(&self, other: &Self) -> bool {
@@ -1412,7 +1412,7 @@ impl ITextFont {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextFont, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITextFont, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextFont {
     fn eq(&self, other: &Self) -> bool {
@@ -1896,7 +1896,7 @@ impl ITextFont2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextFont2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextFont);
+::windows::imp::interface_hierarchy!(ITextFont2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextFont);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextFont2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2196,7 +2196,7 @@ impl ITextHost {
         (::windows::core::Vtable::vtable(self).TxGetSelectionBarWidth)(::windows::core::Vtable::as_raw(self), lselbarwidth).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextHost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextHost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2602,7 +2602,7 @@ impl ITextHost2 {
         (::windows::core::Vtable::vtable(self).TxGetHorzExtent)(::windows::core::Vtable::as_raw(self), plhorzextent).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextHost2, ::windows::core::IUnknown, ITextHost);
+::windows::imp::interface_hierarchy!(ITextHost2, ::windows::core::IUnknown, ITextHost);
 impl ::core::cmp::PartialEq for ITextHost2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2845,7 +2845,7 @@ impl ITextPara {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextPara, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITextPara, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextPara {
     fn eq(&self, other: &Self) -> bool {
@@ -3193,7 +3193,7 @@ impl ITextPara2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextPara2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextPara);
+::windows::imp::interface_hierarchy!(ITextPara2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextPara);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextPara2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3507,7 +3507,7 @@ impl ITextRange {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextRange, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITextRange, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextRange {
     fn eq(&self, other: &Self) -> bool {
@@ -4117,7 +4117,7 @@ impl ITextRange2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextRange2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection);
+::windows::imp::interface_hierarchy!(ITextRange2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextRange2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4394,7 +4394,7 @@ impl ITextRow {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextRow, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITextRow, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextRow {
     fn eq(&self, other: &Self) -> bool {
@@ -4770,7 +4770,7 @@ impl ITextSelection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextSelection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange);
+::windows::imp::interface_hierarchy!(ITextSelection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextSelection {
     fn eq(&self, other: &Self) -> bool {
@@ -5279,7 +5279,7 @@ impl ITextSelection2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextSelection2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection, ITextRange2);
+::windows::imp::interface_hierarchy!(ITextSelection2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection, ITextRange2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextSelection2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5415,7 +5415,7 @@ impl ITextServices {
         (::windows::core::Vtable::vtable(self).TxGetCachedSize)(::windows::core::Vtable::as_raw(self), pdwwidth, pdwheight).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextServices, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextServices, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextServices {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5606,7 +5606,7 @@ impl ITextServices2 {
         (::windows::core::Vtable::vtable(self).TxDrawD2D)(::windows::core::Vtable::as_raw(self), prendertarget.into().abi(), lprcbounds, lprcupdate, lviewid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextServices2, ::windows::core::IUnknown, ITextServices);
+::windows::imp::interface_hierarchy!(ITextServices2, ::windows::core::IUnknown, ITextServices);
 impl ::core::cmp::PartialEq for ITextServices2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5695,7 +5695,7 @@ impl ITextStory {
         (::windows::core::Vtable::vtable(self).SetText)(::windows::core::Vtable::as_raw(self), flags, ::core::mem::transmute_copy(bstr)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITextStory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITextStory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITextStory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5760,7 +5760,7 @@ impl ITextStoryRanges {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextStoryRanges, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITextStoryRanges, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextStoryRanges {
     fn eq(&self, other: &Self) -> bool {
@@ -5829,7 +5829,7 @@ impl ITextStoryRanges2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextStoryRanges2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextStoryRanges);
+::windows::imp::interface_hierarchy!(ITextStoryRanges2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextStoryRanges);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextStoryRanges2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5958,7 +5958,7 @@ impl ITextStrings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ITextStrings, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ITextStrings, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ITextStrings {
     fn eq(&self, other: &Self) -> bool {

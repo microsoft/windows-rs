@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn ProcessIdToSessionId ( dwprocessid : u32 , psessionid : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ProcessIdToSessionId ( dwprocessid : u32 , psessionid : *mut u32 ) -> super::super::Foundation:: BOOL );
     ProcessIdToSessionId(dwprocessid, psessionid)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -12,7 +12,7 @@ pub unsafe fn WTSCloseServer<P0>(hserver: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSCloseServer ( hserver : super::super::Foundation:: HANDLE ) -> ( ) );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSCloseServer ( hserver : super::super::Foundation:: HANDLE ) -> ( ) );
     WTSCloseServer(hserver.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -23,7 +23,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSConnectSessionA ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows::core::PCSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSConnectSessionA ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows::core::PCSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSConnectSessionA(logonid, targetlogonid, ppassword.into().abi(), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -34,7 +34,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSConnectSessionW ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows::core::PCWSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSConnectSessionW ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows::core::PCWSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSConnectSessionW(logonid, targetlogonid, ppassword.into().abi(), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -45,7 +45,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSCreateListenerA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , pbuffer : *const WTSLISTENERCONFIGA , flag : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSCreateListenerA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , pbuffer : *const WTSLISTENERCONFIGA , flag : u32 ) -> super::super::Foundation:: BOOL );
     WTSCreateListenerA(hserver.into(), preserved, reserved, plistenername.into().abi(), pbuffer, flag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -56,7 +56,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSCreateListenerW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , pbuffer : *const WTSLISTENERCONFIGW , flag : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSCreateListenerW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , pbuffer : *const WTSLISTENERCONFIGW , flag : u32 ) -> super::super::Foundation:: BOOL );
     WTSCreateListenerW(hserver.into(), preserved, reserved, plistenername.into().abi(), pbuffer, flag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -67,7 +67,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSDisconnectSession ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSDisconnectSession ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSDisconnectSession(hserver.into(), sessionid, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -77,7 +77,7 @@ pub unsafe fn WTSEnableChildSessions<P0>(benable: P0) -> super::super::Foundatio
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnableChildSessions ( benable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnableChildSessions ( benable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSEnableChildSessions(benable.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -87,7 +87,7 @@ pub unsafe fn WTSEnumerateListenersA<P0>(hserver: P0, preserved: *const ::core::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateListenersA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plisteners : *mut *mut i8 , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateListenersA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plisteners : *mut *mut i8 , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateListenersA(hserver.into(), preserved, reserved, ::core::mem::transmute(plisteners.unwrap_or(::std::ptr::null_mut())), pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -97,7 +97,7 @@ pub unsafe fn WTSEnumerateListenersW<P0>(hserver: P0, preserved: *const ::core::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateListenersW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plisteners : *mut *mut u16 , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateListenersW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plisteners : *mut *mut u16 , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateListenersW(hserver.into(), preserved, reserved, ::core::mem::transmute(plisteners.unwrap_or(::std::ptr::null_mut())), pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -107,7 +107,7 @@ pub unsafe fn WTSEnumerateProcessesA<P0>(hserver: P0, reserved: u32, version: u3
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateProcessesA ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppprocessinfo : *mut *mut WTS_PROCESS_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateProcessesA ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppprocessinfo : *mut *mut WTS_PROCESS_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateProcessesA(hserver.into(), reserved, version, ppprocessinfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -117,7 +117,7 @@ pub unsafe fn WTSEnumerateProcessesExA<P0>(hserver: P0, plevel: *mut u32, sessio
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateProcessesExA ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut :: windows::core::PSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateProcessesExA ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut :: windows::core::PSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateProcessesExA(hserver.into(), plevel, sessionid, ppprocessinfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -127,7 +127,7 @@ pub unsafe fn WTSEnumerateProcessesExW<P0>(hserver: P0, plevel: *mut u32, sessio
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateProcessesExW ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut :: windows::core::PWSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateProcessesExW ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut :: windows::core::PWSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateProcessesExW(hserver.into(), plevel, sessionid, ppprocessinfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -137,7 +137,7 @@ pub unsafe fn WTSEnumerateProcessesW<P0>(hserver: P0, reserved: u32, version: u3
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateProcessesW ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppprocessinfo : *mut *mut WTS_PROCESS_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateProcessesW ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppprocessinfo : *mut *mut WTS_PROCESS_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateProcessesW(hserver.into(), reserved, version, ppprocessinfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -147,7 +147,7 @@ pub unsafe fn WTSEnumerateServersA<P0>(pdomainname: P0, reserved: u32, version: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateServersA ( pdomainname : :: windows::core::PCSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateServersA ( pdomainname : :: windows::core::PCSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateServersA(pdomainname.into().abi(), reserved, version, ppserverinfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -157,7 +157,7 @@ pub unsafe fn WTSEnumerateServersW<P0>(pdomainname: P0, reserved: u32, version: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateServersW ( pdomainname : :: windows::core::PCWSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateServersW ( pdomainname : :: windows::core::PCWSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateServersW(pdomainname.into().abi(), reserved, version, ppserverinfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -167,7 +167,7 @@ pub unsafe fn WTSEnumerateSessionsA<P0>(hserver: P0, reserved: u32, version: u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateSessionsA ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateSessionsA ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateSessionsA(hserver.into(), reserved, version, ppsessioninfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -177,7 +177,7 @@ pub unsafe fn WTSEnumerateSessionsExA<P0>(hserver: P0, plevel: *mut u32, filter:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateSessionsExA ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , filter : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFO_1A , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateSessionsExA ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , filter : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFO_1A , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateSessionsExA(hserver.into(), plevel, filter, ppsessioninfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -187,7 +187,7 @@ pub unsafe fn WTSEnumerateSessionsExW<P0>(hserver: P0, plevel: *mut u32, filter:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateSessionsExW ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , filter : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFO_1W , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateSessionsExW ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , filter : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFO_1W , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateSessionsExW(hserver.into(), plevel, filter, ppsessioninfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -197,40 +197,40 @@ pub unsafe fn WTSEnumerateSessionsW<P0>(hserver: P0, reserved: u32, version: u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateSessionsW ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSEnumerateSessionsW ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateSessionsW(hserver.into(), reserved, version, ppsessioninfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
 pub unsafe fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void) {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSFreeMemory ( pmemory : *mut ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSFreeMemory ( pmemory : *mut ::core::ffi::c_void ) -> ( ) );
     WTSFreeMemory(pmemory)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSFreeMemoryExA ( wtstypeclass : WTS_TYPE_CLASS , pmemory : *const ::core::ffi::c_void , numberofentries : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSFreeMemoryExA ( wtstypeclass : WTS_TYPE_CLASS , pmemory : *const ::core::ffi::c_void , numberofentries : u32 ) -> super::super::Foundation:: BOOL );
     WTSFreeMemoryExA(wtstypeclass, pmemory, numberofentries)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSFreeMemoryExW ( wtstypeclass : WTS_TYPE_CLASS , pmemory : *const ::core::ffi::c_void , numberofentries : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSFreeMemoryExW ( wtstypeclass : WTS_TYPE_CLASS , pmemory : *const ::core::ffi::c_void , numberofentries : u32 ) -> super::super::Foundation:: BOOL );
     WTSFreeMemoryExW(wtstypeclass, pmemory, numberofentries)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
 pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn WTSGetActiveConsoleSessionId ( ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WTSGetActiveConsoleSessionId ( ) -> u32 );
     WTSGetActiveConsoleSessionId()
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSGetChildSessionId ( psessionid : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSGetChildSessionId ( psessionid : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSGetChildSessionId(psessionid)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -241,7 +241,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSGetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSGetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSGetListenerSecurityA(hserver.into(), preserved, reserved, plistenername.into().abi(), securityinformation, psecuritydescriptor, nlength, lpnlengthneeded)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -252,14 +252,14 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSGetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSGetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSGetListenerSecurityW(hserver.into(), preserved, reserved, plistenername.into().abi(), securityinformation, psecuritydescriptor, nlength, lpnlengthneeded)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSIsChildSessionsEnabled ( pbenabled : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSIsChildSessionsEnabled ( pbenabled : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSIsChildSessionsEnabled(pbenabled)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -270,7 +270,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSLogoffSession ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSLogoffSession ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSLogoffSession(hserver.into(), sessionid, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -280,7 +280,7 @@ pub unsafe fn WTSOpenServerA<P0>(pservername: P0) -> super::super::Foundation::H
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSOpenServerA ( pservername : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSOpenServerA ( pservername : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     WTSOpenServerA(pservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -290,7 +290,7 @@ pub unsafe fn WTSOpenServerExA<P0>(pservername: P0) -> super::super::Foundation:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSOpenServerExA ( pservername : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSOpenServerExA ( pservername : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     WTSOpenServerExA(pservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -300,7 +300,7 @@ pub unsafe fn WTSOpenServerExW<P0>(pservername: P0) -> super::super::Foundation:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSOpenServerExW ( pservername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSOpenServerExW ( pservername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     WTSOpenServerExW(pservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -310,7 +310,7 @@ pub unsafe fn WTSOpenServerW<P0>(pservername: P0) -> super::super::Foundation::H
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSOpenServerW ( pservername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSOpenServerW ( pservername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     WTSOpenServerW(pservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -321,7 +321,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQueryListenerConfigA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , pbuffer : *mut WTSLISTENERCONFIGA ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSQueryListenerConfigA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , pbuffer : *mut WTSLISTENERCONFIGA ) -> super::super::Foundation:: BOOL );
     WTSQueryListenerConfigA(hserver.into(), preserved, reserved, plistenername.into().abi(), pbuffer)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -332,7 +332,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQueryListenerConfigW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , pbuffer : *mut WTSLISTENERCONFIGW ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSQueryListenerConfigW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , pbuffer : *mut WTSLISTENERCONFIGW ) -> super::super::Foundation:: BOOL );
     WTSQueryListenerConfigW(hserver.into(), preserved, reserved, plistenername.into().abi(), pbuffer)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -342,7 +342,7 @@ pub unsafe fn WTSQuerySessionInformationA<P0>(hserver: P0, sessionid: u32, wtsin
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQuerySessionInformationA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut :: windows::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSQuerySessionInformationA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut :: windows::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSQuerySessionInformationA(hserver.into(), sessionid, wtsinfoclass, ppbuffer, pbytesreturned)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -352,7 +352,7 @@ pub unsafe fn WTSQuerySessionInformationW<P0>(hserver: P0, sessionid: u32, wtsin
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQuerySessionInformationW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut :: windows::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSQuerySessionInformationW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut :: windows::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSQuerySessionInformationW(hserver.into(), sessionid, wtsinfoclass, ppbuffer, pbytesreturned)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -363,7 +363,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQueryUserConfigA ( pservername : :: windows::core::PCSTR , pusername : :: windows::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSQueryUserConfigA ( pservername : :: windows::core::PCSTR , pusername : :: windows::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSQueryUserConfigA(pservername.into().abi(), pusername.into().abi(), wtsconfigclass, ppbuffer, pbytesreturned)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -374,14 +374,14 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQueryUserConfigW ( pservername : :: windows::core::PCWSTR , pusername : :: windows::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSQueryUserConfigW ( pservername : :: windows::core::PCWSTR , pusername : :: windows::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSQueryUserConfigW(pservername.into().abi(), pusername.into().abi(), wtsconfigclass, ppbuffer, pbytesreturned)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQueryUserToken ( sessionid : u32 , phtoken : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSQueryUserToken ( sessionid : u32 , phtoken : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WTSQueryUserToken(sessionid, phtoken)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -391,7 +391,7 @@ pub unsafe fn WTSRegisterSessionNotification<P0>(hwnd: P0, dwflags: u32) -> supe
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSRegisterSessionNotification ( hwnd : super::super::Foundation:: HWND , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSRegisterSessionNotification ( hwnd : super::super::Foundation:: HWND , dwflags : u32 ) -> super::super::Foundation:: BOOL );
     WTSRegisterSessionNotification(hwnd.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -402,7 +402,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSRegisterSessionNotificationEx ( hserver : super::super::Foundation:: HANDLE , hwnd : super::super::Foundation:: HWND , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSRegisterSessionNotificationEx ( hserver : super::super::Foundation:: HANDLE , hwnd : super::super::Foundation:: HWND , dwflags : u32 ) -> super::super::Foundation:: BOOL );
     WTSRegisterSessionNotificationEx(hserver.into(), hwnd.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -413,7 +413,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSendMessageA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : :: windows::core::PCSTR , titlelength : u32 , pmessage : :: windows::core::PCSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSSendMessageA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : :: windows::core::PCSTR , titlelength : u32 , pmessage : :: windows::core::PCSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSSendMessageA(hserver.into(), sessionid, ::core::mem::transmute(ptitle.as_ptr()), ptitle.len() as _, ::core::mem::transmute(pmessage.as_ptr()), pmessage.len() as _, style, timeout, presponse, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -426,7 +426,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSendMessageW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : :: windows::core::PCWSTR , titlelength : u32 , pmessage : :: windows::core::PCWSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSSendMessageW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : :: windows::core::PCWSTR , titlelength : u32 , pmessage : :: windows::core::PCWSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSSendMessageW(hserver.into(), sessionid, ptitle.into().abi(), titlelength, pmessage.into().abi(), messagelength, style, timeout, presponse, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -438,7 +438,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSSetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
     WTSSetListenerSecurityA(hserver.into(), preserved, reserved, plistenername.into().abi(), securityinformation, psecuritydescriptor.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -450,7 +450,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSSetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
     WTSSetListenerSecurityW(hserver.into(), preserved, reserved, plistenername.into().abi(), securityinformation, psecuritydescriptor.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -460,7 +460,7 @@ pub unsafe fn WTSSetRenderHint<P0>(prenderhintid: *mut u64, hwndowner: P0, rende
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSetRenderHint ( prenderhintid : *mut u64 , hwndowner : super::super::Foundation:: HWND , renderhinttype : u32 , cbhintdatalength : u32 , phintdata : *const u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSSetRenderHint ( prenderhintid : *mut u64 , hwndowner : super::super::Foundation:: HWND , renderhinttype : u32 , cbhintdatalength : u32 , phintdata : *const u8 ) -> :: windows::core::HRESULT );
     WTSSetRenderHint(prenderhintid, hwndowner.into(), renderhinttype, phintdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phintdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -471,7 +471,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSetUserConfigA ( pservername : :: windows::core::PCSTR , pusername : :: windows::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows::core::PCSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSSetUserConfigA ( pservername : :: windows::core::PCSTR , pusername : :: windows::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows::core::PCSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
     WTSSetUserConfigA(pservername.into().abi(), pusername.into().abi(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -483,7 +483,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSetUserConfigW ( pservername : :: windows::core::PCWSTR , pusername : :: windows::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows::core::PCWSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSSetUserConfigW ( pservername : :: windows::core::PCWSTR , pusername : :: windows::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows::core::PCWSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
     WTSSetUserConfigW(pservername.into().abi(), pusername.into().abi(), wtsconfigclass, pbuffer.into().abi(), datalength)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -493,7 +493,7 @@ pub unsafe fn WTSShutdownSystem<P0>(hserver: P0, shutdownflag: u32) -> super::su
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSShutdownSystem ( hserver : super::super::Foundation:: HANDLE , shutdownflag : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSShutdownSystem ( hserver : super::super::Foundation:: HANDLE , shutdownflag : u32 ) -> super::super::Foundation:: BOOL );
     WTSShutdownSystem(hserver.into(), shutdownflag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -503,7 +503,7 @@ pub unsafe fn WTSStartRemoteControlSessionA<P0>(ptargetservername: P0, targetlog
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSStartRemoteControlSessionA ( ptargetservername : :: windows::core::PCSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSStartRemoteControlSessionA ( ptargetservername : :: windows::core::PCSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
     WTSStartRemoteControlSessionA(ptargetservername.into().abi(), targetlogonid, hotkeyvk, hotkeymodifiers)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -513,14 +513,14 @@ pub unsafe fn WTSStartRemoteControlSessionW<P0>(ptargetservername: P0, targetlog
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSStartRemoteControlSessionW ( ptargetservername : :: windows::core::PCWSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSStartRemoteControlSessionW ( ptargetservername : :: windows::core::PCWSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
     WTSStartRemoteControlSessionW(ptargetservername.into().abi(), targetlogonid, hotkeyvk, hotkeymodifiers)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSStopRemoteControlSession ( logonid : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSStopRemoteControlSession ( logonid : u32 ) -> super::super::Foundation:: BOOL );
     WTSStopRemoteControlSession(logonid)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -530,7 +530,7 @@ pub unsafe fn WTSTerminateProcess<P0>(hserver: P0, processid: u32, exitcode: u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSTerminateProcess ( hserver : super::super::Foundation:: HANDLE , processid : u32 , exitcode : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSTerminateProcess ( hserver : super::super::Foundation:: HANDLE , processid : u32 , exitcode : u32 ) -> super::super::Foundation:: BOOL );
     WTSTerminateProcess(hserver.into(), processid, exitcode)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -540,7 +540,7 @@ pub unsafe fn WTSUnRegisterSessionNotification<P0>(hwnd: P0) -> super::super::Fo
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSUnRegisterSessionNotification ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSUnRegisterSessionNotification ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     WTSUnRegisterSessionNotification(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -551,7 +551,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSUnRegisterSessionNotificationEx ( hserver : super::super::Foundation:: HANDLE , hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSUnRegisterSessionNotificationEx ( hserver : super::super::Foundation:: HANDLE , hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     WTSUnRegisterSessionNotificationEx(hserver.into(), hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -561,7 +561,7 @@ pub unsafe fn WTSVirtualChannelClose<P0>(hchannelhandle: P0) -> super::super::Fo
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelClose ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelClose ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelClose(hchannelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -572,9 +572,9 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelOpen ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , pvirtualname : :: windows::core::PCSTR ) -> HwtsVirtualChannelHandle );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelOpen ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , pvirtualname : :: windows::core::PCSTR ) -> HwtsVirtualChannelHandle );
     let result__ = WTSVirtualChannelOpen(hserver.into(), sessionid, pvirtualname.into().abi());
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
@@ -582,9 +582,9 @@ pub unsafe fn WTSVirtualChannelOpenEx<P0>(sessionid: u32, pvirtualname: P0, flag
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelOpenEx ( sessionid : u32 , pvirtualname : :: windows::core::PCSTR , flags : u32 ) -> HwtsVirtualChannelHandle );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelOpenEx ( sessionid : u32 , pvirtualname : :: windows::core::PCSTR , flags : u32 ) -> HwtsVirtualChannelHandle );
     let result__ = WTSVirtualChannelOpenEx(sessionid, pvirtualname.into().abi(), flags);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -593,7 +593,7 @@ pub unsafe fn WTSVirtualChannelPurgeInput<P0>(hchannelhandle: P0) -> super::supe
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelPurgeInput ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelPurgeInput ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelPurgeInput(hchannelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -603,7 +603,7 @@ pub unsafe fn WTSVirtualChannelPurgeOutput<P0>(hchannelhandle: P0) -> super::sup
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelPurgeOutput ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelPurgeOutput ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelPurgeOutput(hchannelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -613,7 +613,7 @@ pub unsafe fn WTSVirtualChannelQuery<P0>(hchannelhandle: P0, param1: WTS_VIRTUAL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelQuery ( hchannelhandle : super::super::Foundation:: HANDLE , param1 : WTS_VIRTUAL_CLASS , ppbuffer : *mut *mut ::core::ffi::c_void , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelQuery ( hchannelhandle : super::super::Foundation:: HANDLE , param1 : WTS_VIRTUAL_CLASS , ppbuffer : *mut *mut ::core::ffi::c_void , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelQuery(hchannelhandle.into(), param1, ppbuffer, pbytesreturned)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -623,7 +623,7 @@ pub unsafe fn WTSVirtualChannelRead<P0>(hchannelhandle: P0, timeout: u32, buffer
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelRead ( hchannelhandle : super::super::Foundation:: HANDLE , timeout : u32 , buffer : :: windows::core::PSTR , buffersize : u32 , pbytesread : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelRead ( hchannelhandle : super::super::Foundation:: HANDLE , timeout : u32 , buffer : :: windows::core::PSTR , buffersize : u32 , pbytesread : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelRead(hchannelhandle.into(), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, pbytesread)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -633,7 +633,7 @@ pub unsafe fn WTSVirtualChannelWrite<P0>(hchannelhandle: P0, buffer: &[u8], pbyt
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelWrite ( hchannelhandle : super::super::Foundation:: HANDLE , buffer : :: windows::core::PCSTR , length : u32 , pbyteswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelWrite ( hchannelhandle : super::super::Foundation:: HANDLE , buffer : :: windows::core::PCSTR , length : u32 , pbyteswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelWrite(hchannelhandle.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, pbyteswritten)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -643,7 +643,7 @@ pub unsafe fn WTSWaitSystemEvent<P0>(hserver: P0, eventmask: u32, peventflags: *
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSWaitSystemEvent ( hserver : super::super::Foundation:: HANDLE , eventmask : u32 , peventflags : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wtsapi32.dll""system" fn WTSWaitSystemEvent ( hserver : super::super::Foundation:: HANDLE , eventmask : u32 , peventflags : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSWaitSystemEvent(hserver.into(), eventmask, peventflags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
@@ -759,7 +759,7 @@ impl IADsTSUserEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IADsTSUserEx, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IADsTSUserEx, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IADsTSUserEx {
     fn eq(&self, other: &Self) -> bool {
@@ -847,7 +847,7 @@ impl IAudioDeviceEndpoint {
         (::windows::core::Vtable::vtable(self).WriteExclusiveModeParametersToSharedMemory)(::windows::core::Vtable::as_raw(self), htargetprocess, hnsperiod, hnsbufferduration, u32latencycoefficient, pu32sharedmemorysize, phsharedmemory).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioDeviceEndpoint, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioDeviceEndpoint, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioDeviceEndpoint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -915,7 +915,7 @@ impl IAudioEndpoint {
         (::windows::core::Vtable::vtable(self).SetEventHandle)(::windows::core::Vtable::as_raw(self), eventhandle.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpoint, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpoint, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpoint {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -968,7 +968,7 @@ impl IAudioEndpointControl {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpointControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpointControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1016,7 +1016,7 @@ impl IAudioEndpointRT {
         (::windows::core::Vtable::vtable(self).SetPinActive)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IAudioEndpointRT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioEndpointRT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioEndpointRT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1064,7 +1064,7 @@ impl IAudioInputEndpointRT {
         (::windows::core::Vtable::vtable(self).PulseEndpoint)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IAudioInputEndpointRT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioInputEndpointRT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioInputEndpointRT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1114,7 +1114,7 @@ impl IAudioOutputEndpointRT {
         (::windows::core::Vtable::vtable(self).PulseEndpoint)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(IAudioOutputEndpointRT, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IAudioOutputEndpointRT, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IAudioOutputEndpointRT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1205,7 +1205,7 @@ impl IRemoteDesktopClient {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRemoteDesktopClient, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRemoteDesktopClient, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteDesktopClient {
     fn eq(&self, other: &Self) -> bool {
@@ -1286,7 +1286,7 @@ impl IRemoteDesktopClientActions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRemoteDesktopClientActions, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRemoteDesktopClientActions, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteDesktopClientActions {
     fn eq(&self, other: &Self) -> bool {
@@ -1351,7 +1351,7 @@ impl IRemoteDesktopClientSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRemoteDesktopClientSettings, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRemoteDesktopClientSettings, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteDesktopClientSettings {
     fn eq(&self, other: &Self) -> bool {
@@ -1439,7 +1439,7 @@ impl IRemoteDesktopClientTouchPointer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRemoteDesktopClientTouchPointer, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRemoteDesktopClientTouchPointer, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRemoteDesktopClientTouchPointer {
     fn eq(&self, other: &Self) -> bool {
@@ -1504,7 +1504,7 @@ impl IRemoteSystemAdditionalInfoProvider {
         (::windows::core::Vtable::vtable(self).GetAdditionalInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(deduplicationid), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRemoteSystemAdditionalInfoProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRemoteSystemAdditionalInfoProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRemoteSystemAdditionalInfoProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1541,7 +1541,7 @@ impl ITSGAccountingEngine {
         (::windows::core::Vtable::vtable(self).DoAccounting)(::windows::core::Vtable::as_raw(self), accountingdatatype, ::core::mem::transmute(accountingdata)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITSGAccountingEngine, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITSGAccountingEngine, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITSGAccountingEngine {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1592,7 +1592,7 @@ impl ITSGAuthenticateUserSink {
         (::windows::core::Vtable::vtable(self).DisconnectUser)(::windows::core::Vtable::as_raw(self), context).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITSGAuthenticateUserSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITSGAuthenticateUserSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITSGAuthenticateUserSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1641,7 +1641,7 @@ impl ITSGAuthenticationEngine {
         (::windows::core::Vtable::vtable(self).CancelAuthentication)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(mainsessionid), context).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITSGAuthenticationEngine, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITSGAuthenticationEngine, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITSGAuthenticationEngine {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1679,7 +1679,7 @@ impl ITSGAuthorizeConnectionSink {
         (::windows::core::Vtable::vtable(self).OnConnectionAuthorized)(::windows::core::Vtable::as_raw(self), hrin, ::core::mem::transmute(mainsessionid), pbsohresponse.len() as _, ::core::mem::transmute(pbsohresponse.as_ptr()), idletimeout, sessiontimeout, sessiontimeoutaction, trustclass, policyattributes).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITSGAuthorizeConnectionSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITSGAuthorizeConnectionSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITSGAuthorizeConnectionSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1716,7 +1716,7 @@ impl ITSGAuthorizeResourceSink {
         (::windows::core::Vtable::vtable(self).OnChannelAuthorized)(::windows::core::Vtable::as_raw(self), hrin, ::core::mem::transmute(mainsessionid), subsessionid, ::core::mem::transmute(allowedresourcenames.as_ptr()), allowedresourcenames.len() as _, ::core::mem::transmute(failedresourcenames.as_ptr()), failedresourcenames.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITSGAuthorizeResourceSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITSGAuthorizeResourceSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITSGAuthorizeResourceSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1774,7 +1774,7 @@ impl ITSGPolicyEngine {
         (::windows::core::Vtable::vtable(self).IsQuarantineEnabled)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITSGPolicyEngine, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITSGPolicyEngine, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITSGPolicyEngine {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1823,7 +1823,7 @@ impl ITsSbBaseNotifySink {
         (::windows::core::Vtable::vtable(self).OnReportStatus)(::windows::core::Vtable::as_raw(self), messagetype, messageid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbBaseNotifySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbBaseNotifySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbBaseNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1924,7 +1924,7 @@ impl ITsSbClientConnection {
         (::windows::core::Vtable::vtable(self).GetDisconnectedSession)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITsSbClientConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbClientConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbClientConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2004,7 +2004,7 @@ impl ITsSbClientConnectionPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-::windows::core::interface_hierarchy!(ITsSbClientConnectionPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
+::windows::imp::interface_hierarchy!(ITsSbClientConnectionPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbClientConnectionPropertySet {
     fn eq(&self, other: &Self) -> bool {
@@ -2066,7 +2066,7 @@ impl ITsSbEnvironment {
         (::windows::core::Vtable::vtable(self).SetEnvironmentPropertySet)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbEnvironment, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbEnvironment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbEnvironment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2129,7 +2129,7 @@ impl ITsSbEnvironmentPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-::windows::core::interface_hierarchy!(ITsSbEnvironmentPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
+::windows::imp::interface_hierarchy!(ITsSbEnvironmentPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbEnvironmentPropertySet {
     fn eq(&self, other: &Self) -> bool {
@@ -2186,7 +2186,7 @@ impl ITsSbFilterPluginStore {
         (::windows::core::Vtable::vtable(self).DeleteProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbFilterPluginStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbFilterPluginStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbFilterPluginStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2237,7 +2237,7 @@ impl ITsSbGenericNotifySink {
         (::windows::core::Vtable::vtable(self).GetWaitTimeout)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITsSbGenericNotifySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbGenericNotifySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbGenericNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2302,7 +2302,7 @@ impl ITsSbGlobalStore {
         (::windows::core::Vtable::vtable(self).GetFarmProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(farmname), ::core::mem::transmute_copy(propertyname), pvarvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbGlobalStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbGlobalStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbGlobalStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2352,7 +2352,7 @@ impl ITsSbLoadBalanceResult {
         (::windows::core::Vtable::vtable(self).TargetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITsSbLoadBalanceResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbLoadBalanceResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbLoadBalanceResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2406,7 +2406,7 @@ impl ITsSbLoadBalancing {
         (::windows::core::Vtable::vtable(self).GetMostSuitableTarget)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), plbsink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbLoadBalancing, ::windows::core::IUnknown, ITsSbPlugin);
+::windows::imp::interface_hierarchy!(ITsSbLoadBalancing, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::cmp::PartialEq for ITsSbLoadBalancing {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2455,7 +2455,7 @@ impl ITsSbLoadBalancingNotifySink {
         (::windows::core::Vtable::vtable(self).OnGetMostSuitableTarget)(::windows::core::Vtable::as_raw(self), plbresult.into().abi(), fisnewconnection.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbLoadBalancingNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
+::windows::imp::interface_hierarchy!(ITsSbLoadBalancingNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::cmp::PartialEq for ITsSbLoadBalancingNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2512,7 +2512,7 @@ impl ITsSbOrchestration {
         (::windows::core::Vtable::vtable(self).PrepareTargetForConnect)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), porchestrationnotifysink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbOrchestration, ::windows::core::IUnknown, ITsSbPlugin);
+::windows::imp::interface_hierarchy!(ITsSbOrchestration, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::cmp::PartialEq for ITsSbOrchestration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2558,7 +2558,7 @@ impl ITsSbOrchestrationNotifySink {
         (::windows::core::Vtable::vtable(self).OnReadyToConnect)(::windows::core::Vtable::as_raw(self), ptarget.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbOrchestrationNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
+::windows::imp::interface_hierarchy!(ITsSbOrchestrationNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::cmp::PartialEq for ITsSbOrchestrationNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2612,7 +2612,7 @@ impl ITsSbPlacement {
         (::windows::core::Vtable::vtable(self).QueryEnvironmentForTarget)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), pplacementsink.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbPlacement, ::windows::core::IUnknown, ITsSbPlugin);
+::windows::imp::interface_hierarchy!(ITsSbPlacement, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::cmp::PartialEq for ITsSbPlacement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2658,7 +2658,7 @@ impl ITsSbPlacementNotifySink {
         (::windows::core::Vtable::vtable(self).OnQueryEnvironmentCompleted)(::windows::core::Vtable::as_raw(self), penvironment.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbPlacementNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
+::windows::imp::interface_hierarchy!(ITsSbPlacementNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::cmp::PartialEq for ITsSbPlacementNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2705,7 +2705,7 @@ impl ITsSbPlugin {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self), hr).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbPlugin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbPlugin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2755,7 +2755,7 @@ impl ITsSbPluginNotifySink {
         (::windows::core::Vtable::vtable(self).OnTerminated)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbPluginNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
+::windows::imp::interface_hierarchy!(ITsSbPluginNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::cmp::PartialEq for ITsSbPluginNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2810,7 +2810,7 @@ impl ITsSbPluginPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-::windows::core::interface_hierarchy!(ITsSbPluginPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
+::windows::imp::interface_hierarchy!(ITsSbPluginPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbPluginPropertySet {
     fn eq(&self, other: &Self) -> bool {
@@ -2870,7 +2870,7 @@ impl ITsSbPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-::windows::core::interface_hierarchy!(ITsSbPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag);
+::windows::imp::interface_hierarchy!(ITsSbPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbPropertySet {
     fn eq(&self, other: &Self) -> bool {
@@ -2965,7 +2965,7 @@ impl ITsSbProvider {
         (::windows::core::Vtable::vtable(self).CreateEnvironmentPropertySetObject)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITsSbProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3053,7 +3053,7 @@ impl ITsSbProvisioning {
         (::windows::core::Vtable::vtable(self).CancelJob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(jobguid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbProvisioning, ::windows::core::IUnknown, ITsSbPlugin);
+::windows::imp::interface_hierarchy!(ITsSbProvisioning, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::cmp::PartialEq for ITsSbProvisioning {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3108,7 +3108,7 @@ impl ITsSbProvisioningPluginNotifySink {
         (::windows::core::Vtable::vtable(self).OnVirtualMachineHostStatusChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vmhost), vmhostnotifystatus, errorcode, ::core::mem::transmute_copy(errordescr)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbProvisioningPluginNotifySink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbProvisioningPluginNotifySink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbProvisioningPluginNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3165,7 +3165,7 @@ impl ITsSbResourceNotification {
         (::windows::core::Vtable::vtable(self).NotifyClientConnectionStateChange)(::windows::core::Vtable::as_raw(self), changetype, pconnection.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbResourceNotification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbResourceNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbResourceNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3210,7 +3210,7 @@ impl ITsSbResourceNotificationEx {
         (::windows::core::Vtable::vtable(self).NotifyClientConnectionStateChangeEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(domain), ::core::mem::transmute_copy(initialprogram), ::core::mem::transmute_copy(poolname), ::core::mem::transmute_copy(targetname), connectionchangetype).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbResourceNotificationEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbResourceNotificationEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbResourceNotificationEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3259,7 +3259,7 @@ impl ITsSbResourcePlugin {
         (::windows::core::Vtable::vtable(self).base__.Terminate)(::windows::core::Vtable::as_raw(self), hr).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbResourcePlugin, ::windows::core::IUnknown, ITsSbPlugin);
+::windows::imp::interface_hierarchy!(ITsSbResourcePlugin, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::cmp::PartialEq for ITsSbResourcePlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3436,7 +3436,7 @@ impl ITsSbResourcePluginStore {
         (::windows::core::Vtable::vtable(self).SetServerDrainMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(serverfqdn), drainmode).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbResourcePluginStore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbResourcePluginStore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbResourcePluginStore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3530,7 +3530,7 @@ impl ITsSbServiceNotification {
         (::windows::core::Vtable::vtable(self).NotifyServiceSuccess)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbServiceNotification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbServiceNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbServiceNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3634,7 +3634,7 @@ impl ITsSbSession {
         (::windows::core::Vtable::vtable(self).SetProtocolType)(::windows::core::Vtable::as_raw(self), val).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbSession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbSession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3770,7 +3770,7 @@ impl ITsSbTarget {
         (::windows::core::Vtable::vtable(self).TargetLoad)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITsSbTarget, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbTarget, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3848,7 +3848,7 @@ impl ITsSbTargetPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-::windows::core::interface_hierarchy!(ITsSbTargetPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
+::windows::imp::interface_hierarchy!(ITsSbTargetPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for ITsSbTargetPropertySet {
     fn eq(&self, other: &Self) -> bool {
@@ -3932,7 +3932,7 @@ impl ITsSbTaskInfo {
         (::windows::core::Vtable::vtable(self).Status)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITsSbTaskInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITsSbTaskInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITsSbTaskInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4008,7 +4008,7 @@ impl ITsSbTaskPlugin {
         (::windows::core::Vtable::vtable(self).SetTaskQueue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pszhostname), pitssbtaskinfo.len() as _, ::core::mem::transmute(pitssbtaskinfo.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbTaskPlugin, ::windows::core::IUnknown, ITsSbPlugin);
+::windows::imp::interface_hierarchy!(ITsSbTaskPlugin, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::cmp::PartialEq for ITsSbTaskPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4063,7 +4063,7 @@ impl ITsSbTaskPluginNotifySink {
         (::windows::core::Vtable::vtable(self).OnReportTasks)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(szhostname)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITsSbTaskPluginNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
+::windows::imp::interface_hierarchy!(ITsSbTaskPluginNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::cmp::PartialEq for ITsSbTaskPluginNotifySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4107,7 +4107,7 @@ impl IWRdsEnhancedFastReconnectArbitrator {
         (::windows::core::Vtable::vtable(self).GetSessionForEnhancedFastReconnect)(::windows::core::Vtable::as_raw(self), psessionidarray, dwsessioncount, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWRdsEnhancedFastReconnectArbitrator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsEnhancedFastReconnectArbitrator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsEnhancedFastReconnectArbitrator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4157,7 +4157,7 @@ impl IWRdsGraphicsChannel {
         (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pchannelevents.into().abi(), popencontext.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsGraphicsChannel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsGraphicsChannel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsGraphicsChannel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4217,7 +4217,7 @@ impl IWRdsGraphicsChannelEvents {
         (::windows::core::Vtable::vtable(self).OnMetricsUpdate)(::windows::core::Vtable::as_raw(self), bandwidth, rtt, lastsentbyteindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsGraphicsChannelEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsGraphicsChannelEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsGraphicsChannelEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4262,7 +4262,7 @@ impl IWRdsGraphicsChannelManager {
         (::windows::core::Vtable::vtable(self).CreateChannel)(::windows::core::Vtable::as_raw(self), pszchannelname, channeltype, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWRdsGraphicsChannelManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsGraphicsChannelManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsGraphicsChannelManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4411,7 +4411,7 @@ impl IWRdsProtocolConnection {
         (::windows::core::Vtable::vtable(self).NotifyCommandProcessCreated)(::windows::core::Vtable::as_raw(self), sessionid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4508,7 +4508,7 @@ impl IWRdsProtocolConnectionCallback {
         (::windows::core::Vtable::vtable(self).GetConnectionId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolConnectionCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolConnectionCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolConnectionCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4552,7 +4552,7 @@ impl IWRdsProtocolConnectionSettings {
         (::windows::core::Vtable::vtable(self).GetConnectionSetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyid), ppropertyentriesout).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolConnectionSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolConnectionSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolConnectionSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4601,7 +4601,7 @@ impl IWRdsProtocolLicenseConnection {
         (::windows::core::Vtable::vtable(self).ProtocolComplete)(::windows::core::Vtable::as_raw(self), ulcomplete).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolLicenseConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolLicenseConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolLicenseConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4654,7 +4654,7 @@ impl IWRdsProtocolListener {
         (::windows::core::Vtable::vtable(self).StopListen)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolListener, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolListener, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolListener {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4699,7 +4699,7 @@ impl IWRdsProtocolListenerCallback {
         (::windows::core::Vtable::vtable(self).OnConnected)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), pwrdsconnectionsettings, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolListenerCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolListenerCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolListenerCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4762,7 +4762,7 @@ impl IWRdsProtocolLogonErrorRedirector {
         (::windows::core::Vtable::vtable(self).RedirectLogonError)(::windows::core::Vtable::as_raw(self), ntsstatus, ntssubstatus, pszcaption.into().abi(), pszmessage.into().abi(), utype, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolLogonErrorRedirector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolLogonErrorRedirector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolLogonErrorRedirector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4834,7 +4834,7 @@ impl IWRdsProtocolManager {
         (::windows::core::Vtable::vtable(self).Uninitialize)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4891,7 +4891,7 @@ impl IWRdsProtocolSettings {
         (::windows::core::Vtable::vtable(self).MergeSettings)(::windows::core::Vtable::as_raw(self), pwrdssettings, wrdsconnectionsettinglevel, pwrdsconnectionsettings).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4942,7 +4942,7 @@ impl IWRdsProtocolShadowCallback {
         (::windows::core::Vtable::vtable(self).InvokeTargetShadow)(::windows::core::Vtable::as_raw(self), ptargetservername.into().abi(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolShadowCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolShadowCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolShadowCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4993,7 +4993,7 @@ impl IWRdsProtocolShadowConnection {
         (::windows::core::Vtable::vtable(self).DoTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsProtocolShadowConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsProtocolShadowConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsProtocolShadowConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5051,7 +5051,7 @@ impl IWRdsWddmIddProps {
         (::windows::core::Vtable::vtable(self).EnableWddmIdd)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWRdsWddmIddProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWRdsWddmIddProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWRdsWddmIddProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5101,7 +5101,7 @@ impl IWTSBitmapRenderService {
         (::windows::core::Vtable::vtable(self).GetMappedRenderer)(::windows::core::Vtable::as_raw(self), mappingid, pmappedrenderercallback.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWTSBitmapRenderService, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSBitmapRenderService, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSBitmapRenderService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5145,7 +5145,7 @@ impl IWTSBitmapRenderer {
         (::windows::core::Vtable::vtable(self).RemoveMapping)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSBitmapRenderer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSBitmapRenderer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSBitmapRenderer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5186,7 +5186,7 @@ impl IWTSBitmapRendererCallback {
         (::windows::core::Vtable::vtable(self).OnTargetSizeChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rcnewsize)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSBitmapRendererCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSBitmapRendererCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSBitmapRendererCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5229,7 +5229,7 @@ impl IWTSListener {
         (::windows::core::Vtable::vtable(self).GetConfiguration)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWTSListener, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSListener, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSListener {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5274,7 +5274,7 @@ impl IWTSListenerCallback {
         (::windows::core::Vtable::vtable(self).OnNewChannelConnection)(::windows::core::Vtable::as_raw(self), pchannel.into().abi(), ::core::mem::transmute_copy(data), pbaccept, ::core::mem::transmute(ppcallback)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSListenerCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSListenerCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSListenerCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5326,7 +5326,7 @@ impl IWTSPlugin {
         (::windows::core::Vtable::vtable(self).Terminated)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSPlugin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSPlugin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5367,7 +5367,7 @@ impl IWTSPluginServiceProvider {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(serviceid), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWTSPluginServiceProvider, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSPluginServiceProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSPluginServiceProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5509,7 +5509,7 @@ impl IWTSProtocolConnection {
         (::windows::core::Vtable::vtable(self).GetShadowConnection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWTSProtocolConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSProtocolConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSProtocolConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5604,7 +5604,7 @@ impl IWTSProtocolConnectionCallback {
         (::windows::core::Vtable::vtable(self).DisplayIOCtl)(::windows::core::Vtable::as_raw(self), displayioctl).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSProtocolConnectionCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSProtocolConnectionCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSProtocolConnectionCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5656,7 +5656,7 @@ impl IWTSProtocolLicenseConnection {
         (::windows::core::Vtable::vtable(self).ProtocolComplete)(::windows::core::Vtable::as_raw(self), ulcomplete).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSProtocolLicenseConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSProtocolLicenseConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSProtocolLicenseConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5705,7 +5705,7 @@ impl IWTSProtocolListener {
         (::windows::core::Vtable::vtable(self).StopListen)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSProtocolListener, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSProtocolListener, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSProtocolListener {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5747,7 +5747,7 @@ impl IWTSProtocolListenerCallback {
         (::windows::core::Vtable::vtable(self).OnConnected)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWTSProtocolListenerCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSProtocolListenerCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSProtocolListenerCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5807,7 +5807,7 @@ impl IWTSProtocolLogonErrorRedirector {
         (::windows::core::Vtable::vtable(self).RedirectLogonError)(::windows::core::Vtable::as_raw(self), ntsstatus, ntssubstatus, pszcaption.into().abi(), pszmessage.into().abi(), utype, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWTSProtocolLogonErrorRedirector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSProtocolLogonErrorRedirector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSProtocolLogonErrorRedirector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5863,7 +5863,7 @@ impl IWTSProtocolManager {
         (::windows::core::Vtable::vtable(self).NotifySessionStateChange)(::windows::core::Vtable::as_raw(self), sessionid, eventid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSProtocolManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSProtocolManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSProtocolManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5911,7 +5911,7 @@ impl IWTSProtocolShadowCallback {
         (::windows::core::Vtable::vtable(self).InvokeTargetShadow)(::windows::core::Vtable::as_raw(self), ptargetservername.into().abi(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSProtocolShadowCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSProtocolShadowCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSProtocolShadowCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5962,7 +5962,7 @@ impl IWTSProtocolShadowConnection {
         (::windows::core::Vtable::vtable(self).DoTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSProtocolShadowConnection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSProtocolShadowConnection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSProtocolShadowConnection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6030,7 +6030,7 @@ impl IWTSSBPlugin {
         (::windows::core::Vtable::vtable(self).WTSSBX_GetUserExternalSession)(::windows::core::Vtable::as_raw(self), username.into().abi(), domainname.into().abi(), applicationtype.into().abi(), redirectorinternalip, psessionid, pmachineconnectinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSSBPlugin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSSBPlugin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSSBPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6081,7 +6081,7 @@ impl IWTSVirtualChannel {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSVirtualChannel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSVirtualChannel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSVirtualChannel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6122,7 +6122,7 @@ impl IWTSVirtualChannelCallback {
         (::windows::core::Vtable::vtable(self).OnClose)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWTSVirtualChannelCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSVirtualChannelCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSVirtualChannelCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6165,7 +6165,7 @@ impl IWTSVirtualChannelManager {
         (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), pszchannelname.into().abi(), uflags, plistenercallback.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWTSVirtualChannelManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWTSVirtualChannelManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWTSVirtualChannelManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6214,7 +6214,7 @@ impl IWorkspace {
         (::windows::core::Vtable::vtable(self).GetProcessId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWorkspace, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWorkspace, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWorkspace {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6279,7 +6279,7 @@ impl IWorkspace2 {
         (::windows::core::Vtable::vtable(self).StartRemoteApplicationEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), ::core::mem::transmute_copy(bstrrequestingappid), ::core::mem::transmute_copy(bstrrequestingappfamilyname), blaunchintoimmersiveclient.into(), ::core::mem::transmute_copy(bstrimmersiveclientactivationcontext), psaparams).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWorkspace2, ::windows::core::IUnknown, IWorkspace);
+::windows::imp::interface_hierarchy!(IWorkspace2, ::windows::core::IUnknown, IWorkspace);
 impl ::core::cmp::PartialEq for IWorkspace2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6348,7 +6348,7 @@ impl IWorkspace3 {
         (::windows::core::Vtable::vtable(self).SetClaimsToken)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstraccesstoken), ullaccesstokenexpiration, ::core::mem::transmute_copy(bstrrefreshtoken)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWorkspace3, ::windows::core::IUnknown, IWorkspace, IWorkspace2);
+::windows::imp::interface_hierarchy!(IWorkspace3, ::windows::core::IUnknown, IWorkspace, IWorkspace2);
 impl ::core::cmp::PartialEq for IWorkspace3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6397,7 +6397,7 @@ impl IWorkspaceClientExt {
         (::windows::core::Vtable::vtable(self).IssueDisconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWorkspaceClientExt, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWorkspaceClientExt, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWorkspaceClientExt {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6443,7 +6443,7 @@ impl IWorkspaceRegistration {
         (::windows::core::Vtable::vtable(self).RemoveResource)(::windows::core::Vtable::as_raw(self), dwcookieconnection).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWorkspaceRegistration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWorkspaceRegistration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWorkspaceRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6497,7 +6497,7 @@ impl IWorkspaceRegistration2 {
         (::windows::core::Vtable::vtable(self).RemoveResourceEx)(::windows::core::Vtable::as_raw(self), dwcookieconnection, ::core::mem::transmute(correlationid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWorkspaceRegistration2, ::windows::core::IUnknown, IWorkspaceRegistration);
+::windows::imp::interface_hierarchy!(IWorkspaceRegistration2, ::windows::core::IUnknown, IWorkspaceRegistration);
 impl ::core::cmp::PartialEq for IWorkspaceRegistration2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6544,7 +6544,7 @@ impl IWorkspaceReportMessage {
         (::windows::core::Vtable::vtable(self).RegisterErrorEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrwkspid), dwerrortype, ::core::mem::transmute_copy(bstrerrormessagetype), dwerrorcode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWorkspaceReportMessage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWorkspaceReportMessage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWorkspaceReportMessage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6628,7 +6628,7 @@ impl IWorkspaceResTypeRegistry {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWorkspaceResTypeRegistry, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWorkspaceResTypeRegistry, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWorkspaceResTypeRegistry {
     fn eq(&self, other: &Self) -> bool {
@@ -6721,7 +6721,7 @@ impl IWorkspaceScriptable {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWorkspaceScriptable, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWorkspaceScriptable, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWorkspaceScriptable {
     fn eq(&self, other: &Self) -> bool {
@@ -6813,7 +6813,7 @@ impl IWorkspaceScriptable2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWorkspaceScriptable2, ::windows::core::IUnknown, super::Com::IDispatch, IWorkspaceScriptable);
+::windows::imp::interface_hierarchy!(IWorkspaceScriptable2, ::windows::core::IUnknown, super::Com::IDispatch, IWorkspaceScriptable);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWorkspaceScriptable2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6911,7 +6911,7 @@ impl IWorkspaceScriptable3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWorkspaceScriptable3, ::windows::core::IUnknown, super::Com::IDispatch, IWorkspaceScriptable, IWorkspaceScriptable2);
+::windows::imp::interface_hierarchy!(IWorkspaceScriptable3, ::windows::core::IUnknown, super::Com::IDispatch, IWorkspaceScriptable, IWorkspaceScriptable2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWorkspaceScriptable3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6983,7 +6983,7 @@ impl ItsPubPlugin {
         (::windows::core::Vtable::vtable(self).ResolveResource)(::windows::core::Vtable::as_raw(self), resourcetype, ::core::mem::transmute(resourcelocation), ::core::mem::transmute(endpointname), userid.into().abi(), alias.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ItsPubPlugin, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ItsPubPlugin, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ItsPubPlugin {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7080,7 +7080,7 @@ impl ItsPubPlugin2 {
         (::windows::core::Vtable::vtable(self).DeletePersonalDesktopAssignment)(::windows::core::Vtable::as_raw(self), userid.into().abi(), poolid.into().abi(), endpointname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ItsPubPlugin2, ::windows::core::IUnknown, ItsPubPlugin);
+::windows::imp::interface_hierarchy!(ItsPubPlugin2, ::windows::core::IUnknown, ItsPubPlugin);
 impl ::core::cmp::PartialEq for ItsPubPlugin2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7119,7 +7119,7 @@ pub struct _ITSWkspEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ITSWkspEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(_ITSWkspEvents, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(_ITSWkspEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _ITSWkspEvents {
     fn eq(&self, other: &Self) -> bool {

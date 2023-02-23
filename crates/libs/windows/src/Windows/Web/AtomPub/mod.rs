@@ -173,8 +173,8 @@ impl AtomPubClient {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AtomPubClient, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AtomPubClient, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
@@ -379,7 +379,7 @@ impl AtomPubClient {
     }
     #[doc(hidden)]
     pub fn IAtomPubClientFactory<R, F: FnOnce(&IAtomPubClientFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AtomPubClient, IAtomPubClientFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AtomPubClient, IAtomPubClientFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -395,7 +395,7 @@ impl ::core::fmt::Debug for AtomPubClient {
     }
 }
 impl ::windows::core::RuntimeType for AtomPubClient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.AtomPubClient;{35392c38-cded-4d4c-9637-05f15c1c9406})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.AtomPubClient;{35392c38-cded-4d4c-9637-05f15c1c9406})");
 }
 impl ::core::clone::Clone for AtomPubClient {
     fn clone(&self) -> Self {
@@ -411,7 +411,7 @@ unsafe impl ::windows::core::Interface for AtomPubClient {
 impl ::windows::core::RuntimeName for AtomPubClient {
     const NAME: &'static str = "Windows.Web.AtomPub.AtomPubClient";
 }
-::windows::core::interface_hierarchy!(AtomPubClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AtomPubClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
 impl ::core::convert::TryFrom<AtomPubClient> for super::Syndication::ISyndicationClient {
     type Error = ::windows::core::Error;
@@ -591,7 +591,7 @@ impl ::core::fmt::Debug for ResourceCollection {
     }
 }
 impl ::windows::core::RuntimeType for ResourceCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ResourceCollection;{7f5fd609-bc88-41d4-88fa-3de6704d428e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ResourceCollection;{7f5fd609-bc88-41d4-88fa-3de6704d428e})");
 }
 impl ::core::clone::Clone for ResourceCollection {
     fn clone(&self) -> Self {
@@ -607,7 +607,7 @@ unsafe impl ::windows::core::Interface for ResourceCollection {
 impl ::windows::core::RuntimeName for ResourceCollection {
     const NAME: &'static str = "Windows.Web.AtomPub.ResourceCollection";
 }
-::windows::core::interface_hierarchy!(ResourceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ResourceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
 impl ::core::convert::TryFrom<ResourceCollection> for super::Syndication::ISyndicationNode {
     type Error = ::windows::core::Error;
@@ -760,7 +760,7 @@ impl ::core::fmt::Debug for ServiceDocument {
     }
 }
 impl ::windows::core::RuntimeType for ServiceDocument {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ServiceDocument;{8b7ec771-2ab3-4dbe-8bcc-778f92b75e51})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ServiceDocument;{8b7ec771-2ab3-4dbe-8bcc-778f92b75e51})");
 }
 impl ::core::clone::Clone for ServiceDocument {
     fn clone(&self) -> Self {
@@ -776,7 +776,7 @@ unsafe impl ::windows::core::Interface for ServiceDocument {
 impl ::windows::core::RuntimeName for ServiceDocument {
     const NAME: &'static str = "Windows.Web.AtomPub.ServiceDocument";
 }
-::windows::core::interface_hierarchy!(ServiceDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ServiceDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
 impl ::core::convert::TryFrom<ServiceDocument> for super::Syndication::ISyndicationNode {
     type Error = ::windows::core::Error;
@@ -938,7 +938,7 @@ impl ::core::fmt::Debug for Workspace {
     }
 }
 impl ::windows::core::RuntimeType for Workspace {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.Workspace;{b41da63b-a4b8-4036-89c5-83c31266ba49})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.Workspace;{b41da63b-a4b8-4036-89c5-83c31266ba49})");
 }
 impl ::core::clone::Clone for Workspace {
     fn clone(&self) -> Self {
@@ -954,7 +954,7 @@ unsafe impl ::windows::core::Interface for Workspace {
 impl ::windows::core::RuntimeName for Workspace {
     const NAME: &'static str = "Windows.Web.AtomPub.Workspace";
 }
-::windows::core::interface_hierarchy!(Workspace, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Workspace, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
 impl ::core::convert::TryFrom<Workspace> for super::Syndication::ISyndicationNode {
     type Error = ::windows::core::Error;

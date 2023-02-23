@@ -929,7 +929,7 @@ impl IStorageFile {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<IStorageFile> for Streams::IInputStreamReference {
     type Error = ::windows::core::Error;
@@ -1005,7 +1005,7 @@ impl ::core::fmt::Debug for IStorageFile {
     }
 }
 impl ::windows::core::RuntimeType for IStorageFile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fa3f6186-4214-428c-a64c-14c9ac7315ea}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{fa3f6186-4214-428c-a64c-14c9ac7315ea}");
 }
 unsafe impl ::windows::core::Vtable for IStorageFile {
     type Vtable = IStorageFile_Vtbl;
@@ -1088,7 +1088,7 @@ impl IStorageFile2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageFile2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageFile2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageFile2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1101,7 +1101,7 @@ impl ::core::fmt::Debug for IStorageFile2 {
     }
 }
 impl ::windows::core::RuntimeType for IStorageFile2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{954e4bcf-0a77-42fb-b777-c2ed58a52e44}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{954e4bcf-0a77-42fb-b777-c2ed58a52e44}");
 }
 unsafe impl ::windows::core::Vtable for IStorageFile2 {
     type Vtable = IStorageFile2_Vtbl;
@@ -1139,7 +1139,7 @@ impl IStorageFilePropertiesWithAvailability {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageFilePropertiesWithAvailability, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageFilePropertiesWithAvailability, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageFilePropertiesWithAvailability {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1152,7 +1152,7 @@ impl ::core::fmt::Debug for IStorageFilePropertiesWithAvailability {
     }
 }
 impl ::windows::core::RuntimeType for IStorageFilePropertiesWithAvailability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{afcbbe9b-582b-4133-9648-e44ca46ee491}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{afcbbe9b-582b-4133-9648-e44ca46ee491}");
 }
 unsafe impl ::windows::core::Vtable for IStorageFilePropertiesWithAvailability {
     type Vtable = IStorageFilePropertiesWithAvailability_Vtbl;
@@ -1414,7 +1414,7 @@ impl IStorageFolder {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageFolder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageFolder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStorageFolder> for IStorageItem {
     type Error = ::windows::core::Error;
     fn try_from(value: IStorageFolder) -> ::windows::core::Result<Self> {
@@ -1446,7 +1446,7 @@ impl ::core::fmt::Debug for IStorageFolder {
     }
 }
 impl ::windows::core::RuntimeType for IStorageFolder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b}");
 }
 unsafe impl ::windows::core::Vtable for IStorageFolder {
     type Vtable = IStorageFolder_Vtbl;
@@ -1518,7 +1518,7 @@ impl IStorageFolder2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageFolder2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageFolder2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageFolder2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1531,7 +1531,7 @@ impl ::core::fmt::Debug for IStorageFolder2 {
     }
 }
 impl ::windows::core::RuntimeType for IStorageFolder2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e827e8b9-08d9-4a8e-a0ac-fe5ed3cbbbd3}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e827e8b9-08d9-4a8e-a0ac-fe5ed3cbbbd3}");
 }
 unsafe impl ::windows::core::Vtable for IStorageFolder2 {
     type Vtable = IStorageFolder2_Vtbl;
@@ -1706,7 +1706,7 @@ impl IStorageItem {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1719,7 +1719,7 @@ impl ::core::fmt::Debug for IStorageItem {
     }
 }
 impl ::windows::core::RuntimeType for IStorageItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4207a996-ca2f-42f7-bde8-8b10457a7f30}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4207a996-ca2f-42f7-bde8-8b10457a7f30}");
 }
 unsafe impl ::windows::core::Vtable for IStorageItem {
     type Vtable = IStorageItem_Vtbl;
@@ -1872,7 +1872,7 @@ impl IStorageItem2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageItem2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageItem2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStorageItem2> for IStorageItem {
     type Error = ::windows::core::Error;
     fn try_from(value: IStorageItem2) -> ::windows::core::Result<Self> {
@@ -1904,7 +1904,7 @@ impl ::core::fmt::Debug for IStorageItem2 {
     }
 }
 impl ::windows::core::RuntimeType for IStorageItem2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{53f926d2-083c-4283-b45b-81c007237e44}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{53f926d2-083c-4283-b45b-81c007237e44}");
 }
 unsafe impl ::windows::core::Vtable for IStorageItem2 {
     type Vtable = IStorageItem2_Vtbl;
@@ -1989,7 +1989,7 @@ impl IStorageItemProperties {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageItemProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageItemProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageItemProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2002,7 +2002,7 @@ impl ::core::fmt::Debug for IStorageItemProperties {
     }
 }
 impl ::windows::core::RuntimeType for IStorageItemProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{86664478-8029-46fe-a789-1c2f3e2ffb5c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{86664478-8029-46fe-a789-1c2f3e2ffb5c}");
 }
 unsafe impl ::windows::core::Vtable for IStorageItemProperties {
     type Vtable = IStorageItemProperties_Vtbl;
@@ -2128,7 +2128,7 @@ impl IStorageItemProperties2 {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageItemProperties2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageItemProperties2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStorageItemProperties2> for IStorageItemProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: IStorageItemProperties2) -> ::windows::core::Result<Self> {
@@ -2160,7 +2160,7 @@ impl ::core::fmt::Debug for IStorageItemProperties2 {
     }
 }
 impl ::windows::core::RuntimeType for IStorageItemProperties2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8e86a951-04b9-4bd2-929d-fef3f71621d0}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8e86a951-04b9-4bd2-929d-fef3f71621d0}");
 }
 unsafe impl ::windows::core::Vtable for IStorageItemProperties2 {
     type Vtable = IStorageItemProperties2_Vtbl;
@@ -2259,7 +2259,7 @@ impl IStorageItemPropertiesWithProvider {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageItemPropertiesWithProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageItemPropertiesWithProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStorageItemPropertiesWithProvider> for IStorageItemProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: IStorageItemPropertiesWithProvider) -> ::windows::core::Result<Self> {
@@ -2291,7 +2291,7 @@ impl ::core::fmt::Debug for IStorageItemPropertiesWithProvider {
     }
 }
 impl ::windows::core::RuntimeType for IStorageItemPropertiesWithProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{861bf39b-6368-4dee-b40e-74684a5ce714}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{861bf39b-6368-4dee-b40e-74684a5ce714}");
 }
 unsafe impl ::windows::core::Vtable for IStorageItemPropertiesWithProvider {
     type Vtable = IStorageItemPropertiesWithProvider_Vtbl;
@@ -2696,7 +2696,7 @@ impl IStreamedFileDataRequest {
         unsafe { (::windows::core::Vtable::vtable(this).FailAndClose)(::windows::core::Vtable::as_raw(this), failuremode).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IStreamedFileDataRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStreamedFileDataRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStreamedFileDataRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2709,7 +2709,7 @@ impl ::core::fmt::Debug for IStreamedFileDataRequest {
     }
 }
 impl ::windows::core::RuntimeType for IStreamedFileDataRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1673fcce-dabd-4d50-beee-180b8a8191b6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1673fcce-dabd-4d50-beee-180b8a8191b6}");
 }
 unsafe impl ::windows::core::Vtable for IStreamedFileDataRequest {
     type Vtable = IStreamedFileDataRequest_Vtbl;
@@ -3122,7 +3122,7 @@ impl AppDataPaths {
     }
     #[doc(hidden)]
     pub fn IAppDataPathsStatics<R, F: FnOnce(&IAppDataPathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppDataPaths, IAppDataPathsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AppDataPaths, IAppDataPathsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3138,7 +3138,7 @@ impl ::core::fmt::Debug for AppDataPaths {
     }
 }
 impl ::windows::core::RuntimeType for AppDataPaths {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AppDataPaths;{7301d60a-79a2-48c9-9ec0-3fda092f79e1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AppDataPaths;{7301d60a-79a2-48c9-9ec0-3fda092f79e1})");
 }
 impl ::core::clone::Clone for AppDataPaths {
     fn clone(&self) -> Self {
@@ -3154,7 +3154,7 @@ unsafe impl ::windows::core::Interface for AppDataPaths {
 impl ::windows::core::RuntimeName for AppDataPaths {
     const NAME: &'static str = "Windows.Storage.AppDataPaths";
 }
-::windows::core::interface_hierarchy!(AppDataPaths, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AppDataPaths, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppDataPaths {}
 unsafe impl ::core::marker::Sync for AppDataPaths {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -3308,12 +3308,12 @@ impl ApplicationData {
     }
     #[doc(hidden)]
     pub fn IApplicationDataStatics<R, F: FnOnce(&IApplicationDataStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationData, IApplicationDataStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationData, IApplicationDataStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IApplicationDataStatics2<R, F: FnOnce(&IApplicationDataStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationData, IApplicationDataStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ApplicationData, IApplicationDataStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3329,7 +3329,7 @@ impl ::core::fmt::Debug for ApplicationData {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationData;{c3da6fb7-b744-4b45-b0b8-223a0938d0dc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationData;{c3da6fb7-b744-4b45-b0b8-223a0938d0dc})");
 }
 impl ::core::clone::Clone for ApplicationData {
     fn clone(&self) -> Self {
@@ -3345,7 +3345,7 @@ unsafe impl ::windows::core::Interface for ApplicationData {
 impl ::windows::core::RuntimeName for ApplicationData {
     const NAME: &'static str = "Windows.Storage.ApplicationData";
 }
-::windows::core::interface_hierarchy!(ApplicationData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ApplicationData> for super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3379,8 +3379,8 @@ impl ApplicationDataCompositeValue {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationDataCompositeValue, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ApplicationDataCompositeValue, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3484,7 +3484,7 @@ impl ::core::fmt::Debug for ApplicationDataCompositeValue {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for ApplicationDataCompositeValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataCompositeValue;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataCompositeValue;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for ApplicationDataCompositeValue {
@@ -3521,7 +3521,7 @@ impl ::core::iter::IntoIterator for &ApplicationDataCompositeValue {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(ApplicationDataCompositeValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationDataCompositeValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ApplicationDataCompositeValue> for super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -3680,7 +3680,7 @@ impl ::core::fmt::Debug for ApplicationDataContainer {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationDataContainer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainer;{c5aefd1e-f467-40ba-8566-ab640a441e1d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainer;{c5aefd1e-f467-40ba-8566-ab640a441e1d})");
 }
 impl ::core::clone::Clone for ApplicationDataContainer {
     fn clone(&self) -> Self {
@@ -3696,7 +3696,7 @@ unsafe impl ::windows::core::Interface for ApplicationDataContainer {
 impl ::windows::core::RuntimeName for ApplicationDataContainer {
     const NAME: &'static str = "Windows.Storage.ApplicationDataContainer";
 }
-::windows::core::interface_hierarchy!(ApplicationDataContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationDataContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ApplicationDataContainer> for super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3828,7 +3828,7 @@ impl ::core::fmt::Debug for ApplicationDataContainerSettings {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for ApplicationDataContainerSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainerSettings;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainerSettings;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for ApplicationDataContainerSettings {
@@ -3865,7 +3865,7 @@ impl ::core::iter::IntoIterator for &ApplicationDataContainerSettings {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(ApplicationDataContainerSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ApplicationDataContainerSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ApplicationDataContainerSettings> for super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -3982,7 +3982,7 @@ impl CachedFileManager {
     }
     #[doc(hidden)]
     pub fn ICachedFileManagerStatics<R, F: FnOnce(&ICachedFileManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CachedFileManager, ICachedFileManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CachedFileManager, ICachedFileManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4058,12 +4058,12 @@ impl DownloadsFolder {
     }
     #[doc(hidden)]
     pub fn IDownloadsFolderStatics<R, F: FnOnce(&IDownloadsFolderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DownloadsFolder, IDownloadsFolderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DownloadsFolder, IDownloadsFolderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDownloadsFolderStatics2<R, F: FnOnce(&IDownloadsFolderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DownloadsFolder, IDownloadsFolderStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DownloadsFolder, IDownloadsFolderStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4265,7 +4265,7 @@ impl FileIO {
     }
     #[doc(hidden)]
     pub fn IFileIOStatics<R, F: FnOnce(&IFileIOStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileIO, IFileIOStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileIO, IFileIOStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4387,37 +4387,37 @@ impl KnownFolders {
     }
     #[doc(hidden)]
     pub fn IKnownFoldersCameraRollStatics<R, F: FnOnce(&IKnownFoldersCameraRollStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownFolders, IKnownFoldersCameraRollStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownFolders, IKnownFoldersCameraRollStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKnownFoldersPlaylistsStatics<R, F: FnOnce(&IKnownFoldersPlaylistsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownFolders, IKnownFoldersPlaylistsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownFolders, IKnownFoldersPlaylistsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKnownFoldersSavedPicturesStatics<R, F: FnOnce(&IKnownFoldersSavedPicturesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownFolders, IKnownFoldersSavedPicturesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownFolders, IKnownFoldersSavedPicturesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKnownFoldersStatics<R, F: FnOnce(&IKnownFoldersStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownFolders, IKnownFoldersStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownFolders, IKnownFoldersStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKnownFoldersStatics2<R, F: FnOnce(&IKnownFoldersStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownFolders, IKnownFoldersStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownFolders, IKnownFoldersStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKnownFoldersStatics3<R, F: FnOnce(&IKnownFoldersStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownFolders, IKnownFoldersStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownFolders, IKnownFoldersStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IKnownFoldersStatics4<R, F: FnOnce(&IKnownFoldersStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownFolders, IKnownFoldersStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownFolders, IKnownFoldersStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4569,7 +4569,7 @@ impl PathIO {
     }
     #[doc(hidden)]
     pub fn IPathIOStatics<R, F: FnOnce(&IPathIOStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PathIO, IPathIOStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PathIO, IPathIOStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4597,7 +4597,7 @@ impl ::core::fmt::Debug for SetVersionDeferral {
     }
 }
 impl ::windows::core::RuntimeType for SetVersionDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionDeferral;{033508a2-781a-437a-b078-3f32badcfe47})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionDeferral;{033508a2-781a-437a-b078-3f32badcfe47})");
 }
 impl ::core::clone::Clone for SetVersionDeferral {
     fn clone(&self) -> Self {
@@ -4613,7 +4613,7 @@ unsafe impl ::windows::core::Interface for SetVersionDeferral {
 impl ::windows::core::RuntimeName for SetVersionDeferral {
     const NAME: &'static str = "Windows.Storage.SetVersionDeferral";
 }
-::windows::core::interface_hierarchy!(SetVersionDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SetVersionDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SetVersionDeferral {}
 unsafe impl ::core::marker::Sync for SetVersionDeferral {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -4654,7 +4654,7 @@ impl ::core::fmt::Debug for SetVersionRequest {
     }
 }
 impl ::windows::core::RuntimeType for SetVersionRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionRequest;{b9c76b9b-1056-4e69-8330-162619956f9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionRequest;{b9c76b9b-1056-4e69-8330-162619956f9b})");
 }
 impl ::core::clone::Clone for SetVersionRequest {
     fn clone(&self) -> Self {
@@ -4670,7 +4670,7 @@ unsafe impl ::windows::core::Interface for SetVersionRequest {
 impl ::windows::core::RuntimeName for SetVersionRequest {
     const NAME: &'static str = "Windows.Storage.SetVersionRequest";
 }
-::windows::core::interface_hierarchy!(SetVersionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SetVersionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SetVersionRequest {}
 unsafe impl ::core::marker::Sync for SetVersionRequest {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -5127,12 +5127,12 @@ impl StorageFile {
     }
     #[doc(hidden)]
     pub fn IStorageFileStatics<R, F: FnOnce(&IStorageFileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageFile, IStorageFileStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageFile, IStorageFileStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStorageFileStatics2<R, F: FnOnce(&IStorageFileStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageFile, IStorageFileStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageFile, IStorageFileStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5148,7 +5148,7 @@ impl ::core::fmt::Debug for StorageFile {
     }
 }
 impl ::windows::core::RuntimeType for StorageFile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFile;{fa3f6186-4214-428c-a64c-14c9ac7315ea})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFile;{fa3f6186-4214-428c-a64c-14c9ac7315ea})");
 }
 impl ::core::clone::Clone for StorageFile {
     fn clone(&self) -> Self {
@@ -5164,7 +5164,7 @@ unsafe impl ::windows::core::Interface for StorageFile {
 impl ::windows::core::RuntimeName for StorageFile {
     const NAME: &'static str = "Windows.Storage.StorageFile";
 }
-::windows::core::interface_hierarchy!(StorageFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageFile> for Streams::IInputStreamReference {
     type Error = ::windows::core::Error;
@@ -5835,12 +5835,12 @@ impl StorageFolder {
     }
     #[doc(hidden)]
     pub fn IStorageFolderStatics<R, F: FnOnce(&IStorageFolderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageFolder, IStorageFolderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageFolder, IStorageFolderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStorageFolderStatics2<R, F: FnOnce(&IStorageFolderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageFolder, IStorageFolderStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageFolder, IStorageFolderStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5856,7 +5856,7 @@ impl ::core::fmt::Debug for StorageFolder {
     }
 }
 impl ::windows::core::RuntimeType for StorageFolder {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFolder;{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFolder;{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b})");
 }
 impl ::core::clone::Clone for StorageFolder {
     fn clone(&self) -> Self {
@@ -5872,7 +5872,7 @@ unsafe impl ::windows::core::Interface for StorageFolder {
 impl ::windows::core::RuntimeName for StorageFolder {
     const NAME: &'static str = "Windows.Storage.StorageFolder";
 }
-::windows::core::interface_hierarchy!(StorageFolder, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageFolder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageFolder> for IStorageFolder {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageFolder) -> ::windows::core::Result<Self> {
@@ -6115,12 +6115,12 @@ impl StorageLibrary {
     }
     #[doc(hidden)]
     pub fn IStorageLibraryStatics<R, F: FnOnce(&IStorageLibraryStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageLibrary, IStorageLibraryStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageLibrary, IStorageLibraryStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStorageLibraryStatics2<R, F: FnOnce(&IStorageLibraryStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageLibrary, IStorageLibraryStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageLibrary, IStorageLibraryStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6136,7 +6136,7 @@ impl ::core::fmt::Debug for StorageLibrary {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibrary {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibrary;{1edd7103-0e5e-4d6c-b5e8-9318983d6a03})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibrary;{1edd7103-0e5e-4d6c-b5e8-9318983d6a03})");
 }
 impl ::core::clone::Clone for StorageLibrary {
     fn clone(&self) -> Self {
@@ -6152,7 +6152,7 @@ unsafe impl ::windows::core::Interface for StorageLibrary {
 impl ::windows::core::RuntimeName for StorageLibrary {
     const NAME: &'static str = "Windows.Storage.StorageLibrary";
 }
-::windows::core::interface_hierarchy!(StorageLibrary, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibrary, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
 pub struct StorageLibraryChange(::windows::core::IUnknown);
@@ -6207,7 +6207,7 @@ impl ::core::fmt::Debug for StorageLibraryChange {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChange;{00980b23-2be2-4909-aa48-159f5203a51e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChange;{00980b23-2be2-4909-aa48-159f5203a51e})");
 }
 impl ::core::clone::Clone for StorageLibraryChange {
     fn clone(&self) -> Self {
@@ -6223,7 +6223,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChange {
 impl ::windows::core::RuntimeName for StorageLibraryChange {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChange";
 }
-::windows::core::interface_hierarchy!(StorageLibraryChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibraryChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryChange {}
 unsafe impl ::core::marker::Sync for StorageLibraryChange {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6268,7 +6268,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeReader {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryChangeReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeReader;{f205bc83-fca2-41f9-8954-ee2e991eb96f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeReader;{f205bc83-fca2-41f9-8954-ee2e991eb96f})");
 }
 impl ::core::clone::Clone for StorageLibraryChangeReader {
     fn clone(&self) -> Self {
@@ -6284,7 +6284,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChangeReader {
 impl ::windows::core::RuntimeName for StorageLibraryChangeReader {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeReader";
 }
-::windows::core::interface_hierarchy!(StorageLibraryChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibraryChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryChangeReader {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeReader {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6327,7 +6327,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeTracker {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryChangeTracker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTracker;{9e157316-6073-44f6-9681-7492d1286c90})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTracker;{9e157316-6073-44f6-9681-7492d1286c90})");
 }
 impl ::core::clone::Clone for StorageLibraryChangeTracker {
     fn clone(&self) -> Self {
@@ -6343,7 +6343,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChangeTracker {
 impl ::windows::core::RuntimeName for StorageLibraryChangeTracker {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTracker";
 }
-::windows::core::interface_hierarchy!(StorageLibraryChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibraryChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryChangeTracker {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeTracker {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6353,8 +6353,8 @@ impl StorageLibraryChangeTrackerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageLibraryChangeTrackerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<StorageLibraryChangeTrackerOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn TrackChangeDetails(&self) -> ::windows::core::Result<bool> {
@@ -6381,7 +6381,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeTrackerOptions {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTrackerOptions;{bb52bcd4-1a6d-59c0-ad2a-823a20532483})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTrackerOptions;{bb52bcd4-1a6d-59c0-ad2a-823a20532483})");
 }
 impl ::core::clone::Clone for StorageLibraryChangeTrackerOptions {
     fn clone(&self) -> Self {
@@ -6397,7 +6397,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerOptions {
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerOptions {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTrackerOptions";
 }
-::windows::core::interface_hierarchy!(StorageLibraryChangeTrackerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibraryChangeTrackerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerOptions {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeTrackerOptions {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6412,7 +6412,7 @@ impl StorageLibraryLastChangeId {
     }
     #[doc(hidden)]
     pub fn IStorageLibraryLastChangeIdStatics<R, F: FnOnce(&IStorageLibraryLastChangeIdStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageLibraryLastChangeId, IStorageLibraryLastChangeIdStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageLibraryLastChangeId, IStorageLibraryLastChangeIdStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6428,7 +6428,7 @@ impl ::core::fmt::Debug for StorageLibraryLastChangeId {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryLastChangeId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryLastChangeId;{5281826a-bbe1-53bc-82ca-81cc7f039329})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryLastChangeId;{5281826a-bbe1-53bc-82ca-81cc7f039329})");
 }
 impl ::core::clone::Clone for StorageLibraryLastChangeId {
     fn clone(&self) -> Self {
@@ -6444,7 +6444,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryLastChangeId {
 impl ::windows::core::RuntimeName for StorageLibraryLastChangeId {
     const NAME: &'static str = "Windows.Storage.StorageLibraryLastChangeId";
 }
-::windows::core::interface_hierarchy!(StorageLibraryLastChangeId, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageLibraryLastChangeId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryLastChangeId {}
 unsafe impl ::core::marker::Sync for StorageLibraryLastChangeId {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6487,7 +6487,7 @@ impl ::core::fmt::Debug for StorageProvider {
     }
 }
 impl ::windows::core::RuntimeType for StorageProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageProvider;{e705eed4-d478-47d6-ba46-1a8ebe114a20})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageProvider;{e705eed4-d478-47d6-ba46-1a8ebe114a20})");
 }
 impl ::core::clone::Clone for StorageProvider {
     fn clone(&self) -> Self {
@@ -6503,7 +6503,7 @@ unsafe impl ::windows::core::Interface for StorageProvider {
 impl ::windows::core::RuntimeName for StorageProvider {
     const NAME: &'static str = "Windows.Storage.StorageProvider";
 }
-::windows::core::interface_hierarchy!(StorageProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
 pub struct StorageStreamTransaction(::windows::core::IUnknown);
@@ -6545,7 +6545,7 @@ impl ::core::fmt::Debug for StorageStreamTransaction {
     }
 }
 impl ::windows::core::RuntimeType for StorageStreamTransaction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageStreamTransaction;{f67cf363-a53d-4d94-ae2c-67232d93acdd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageStreamTransaction;{f67cf363-a53d-4d94-ae2c-67232d93acdd})");
 }
 impl ::core::clone::Clone for StorageStreamTransaction {
     fn clone(&self) -> Self {
@@ -6561,7 +6561,7 @@ unsafe impl ::windows::core::Interface for StorageStreamTransaction {
 impl ::windows::core::RuntimeName for StorageStreamTransaction {
     const NAME: &'static str = "Windows.Storage.StorageStreamTransaction";
 }
-::windows::core::interface_hierarchy!(StorageStreamTransaction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageStreamTransaction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<StorageStreamTransaction> for super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6639,7 +6639,7 @@ impl ::core::fmt::Debug for StreamedFileDataRequest {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeType for StreamedFileDataRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StreamedFileDataRequest;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.StreamedFileDataRequest;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::core::clone::Clone for StreamedFileDataRequest {
@@ -6660,7 +6660,7 @@ impl ::windows::core::RuntimeName for StreamedFileDataRequest {
     const NAME: &'static str = "Windows.Storage.StreamedFileDataRequest";
 }
 #[cfg(feature = "Storage_Streams")]
-::windows::core::interface_hierarchy!(StreamedFileDataRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StreamedFileDataRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<StreamedFileDataRequest> for super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6751,7 +6751,7 @@ impl ::core::fmt::Debug for SystemAudioProperties {
     }
 }
 impl ::windows::core::RuntimeType for SystemAudioProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemAudioProperties;{3f8f38b7-308c-47e1-924d-8645348e5db7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemAudioProperties;{3f8f38b7-308c-47e1-924d-8645348e5db7})");
 }
 impl ::core::clone::Clone for SystemAudioProperties {
     fn clone(&self) -> Self {
@@ -6767,7 +6767,7 @@ unsafe impl ::windows::core::Interface for SystemAudioProperties {
 impl ::windows::core::RuntimeName for SystemAudioProperties {
     const NAME: &'static str = "Windows.Storage.SystemAudioProperties";
 }
-::windows::core::interface_hierarchy!(SystemAudioProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemAudioProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemAudioProperties {}
 unsafe impl ::core::marker::Sync for SystemAudioProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6894,7 +6894,7 @@ impl SystemDataPaths {
     }
     #[doc(hidden)]
     pub fn ISystemDataPathsStatics<R, F: FnOnce(&ISystemDataPathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemDataPaths, ISystemDataPathsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemDataPaths, ISystemDataPathsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6910,7 +6910,7 @@ impl ::core::fmt::Debug for SystemDataPaths {
     }
 }
 impl ::windows::core::RuntimeType for SystemDataPaths {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemDataPaths;{e32abf70-d8fa-45ec-a942-d2e26fb60ba5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemDataPaths;{e32abf70-d8fa-45ec-a942-d2e26fb60ba5})");
 }
 impl ::core::clone::Clone for SystemDataPaths {
     fn clone(&self) -> Self {
@@ -6926,7 +6926,7 @@ unsafe impl ::windows::core::Interface for SystemDataPaths {
 impl ::windows::core::RuntimeName for SystemDataPaths {
     const NAME: &'static str = "Windows.Storage.SystemDataPaths";
 }
-::windows::core::interface_hierarchy!(SystemDataPaths, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemDataPaths, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemDataPaths {}
 unsafe impl ::core::marker::Sync for SystemDataPaths {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6960,7 +6960,7 @@ impl ::core::fmt::Debug for SystemGPSProperties {
     }
 }
 impl ::windows::core::RuntimeType for SystemGPSProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemGPSProperties;{c0f46eb4-c174-481a-bc25-921986f6a6f3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemGPSProperties;{c0f46eb4-c174-481a-bc25-921986f6a6f3})");
 }
 impl ::core::clone::Clone for SystemGPSProperties {
     fn clone(&self) -> Self {
@@ -6976,7 +6976,7 @@ unsafe impl ::windows::core::Interface for SystemGPSProperties {
 impl ::windows::core::RuntimeName for SystemGPSProperties {
     const NAME: &'static str = "Windows.Storage.SystemGPSProperties";
 }
-::windows::core::interface_hierarchy!(SystemGPSProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemGPSProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemGPSProperties {}
 unsafe impl ::core::marker::Sync for SystemGPSProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7010,7 +7010,7 @@ impl ::core::fmt::Debug for SystemImageProperties {
     }
 }
 impl ::windows::core::RuntimeType for SystemImageProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemImageProperties;{011b2e30-8b39-4308-bea1-e8aa61e47826})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemImageProperties;{011b2e30-8b39-4308-bea1-e8aa61e47826})");
 }
 impl ::core::clone::Clone for SystemImageProperties {
     fn clone(&self) -> Self {
@@ -7026,7 +7026,7 @@ unsafe impl ::windows::core::Interface for SystemImageProperties {
 impl ::windows::core::RuntimeName for SystemImageProperties {
     const NAME: &'static str = "Windows.Storage.SystemImageProperties";
 }
-::windows::core::interface_hierarchy!(SystemImageProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemImageProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemImageProperties {}
 unsafe impl ::core::marker::Sync for SystemImageProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7088,7 +7088,7 @@ impl ::core::fmt::Debug for SystemMediaProperties {
     }
 }
 impl ::windows::core::RuntimeType for SystemMediaProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMediaProperties;{a42b3316-8415-40dc-8c44-98361d235430})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMediaProperties;{a42b3316-8415-40dc-8c44-98361d235430})");
 }
 impl ::core::clone::Clone for SystemMediaProperties {
     fn clone(&self) -> Self {
@@ -7104,7 +7104,7 @@ unsafe impl ::windows::core::Interface for SystemMediaProperties {
 impl ::windows::core::RuntimeName for SystemMediaProperties {
     const NAME: &'static str = "Windows.Storage.SystemMediaProperties";
 }
-::windows::core::interface_hierarchy!(SystemMediaProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemMediaProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMediaProperties {}
 unsafe impl ::core::marker::Sync for SystemMediaProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7180,7 +7180,7 @@ impl ::core::fmt::Debug for SystemMusicProperties {
     }
 }
 impl ::windows::core::RuntimeType for SystemMusicProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMusicProperties;{b47988d5-67af-4bc3-8d39-5b89022026a1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMusicProperties;{b47988d5-67af-4bc3-8d39-5b89022026a1})");
 }
 impl ::core::clone::Clone for SystemMusicProperties {
     fn clone(&self) -> Self {
@@ -7196,7 +7196,7 @@ unsafe impl ::windows::core::Interface for SystemMusicProperties {
 impl ::windows::core::RuntimeName for SystemMusicProperties {
     const NAME: &'static str = "Windows.Storage.SystemMusicProperties";
 }
-::windows::core::interface_hierarchy!(SystemMusicProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemMusicProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMusicProperties {}
 unsafe impl ::core::marker::Sync for SystemMusicProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7251,7 +7251,7 @@ impl ::core::fmt::Debug for SystemPhotoProperties {
     }
 }
 impl ::windows::core::RuntimeType for SystemPhotoProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemPhotoProperties;{4734fc3d-ab21-4424-b735-f4353a56c8fc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemPhotoProperties;{4734fc3d-ab21-4424-b735-f4353a56c8fc})");
 }
 impl ::core::clone::Clone for SystemPhotoProperties {
     fn clone(&self) -> Self {
@@ -7267,7 +7267,7 @@ unsafe impl ::windows::core::Interface for SystemPhotoProperties {
 impl ::windows::core::RuntimeName for SystemPhotoProperties {
     const NAME: &'static str = "Windows.Storage.SystemPhotoProperties";
 }
-::windows::core::interface_hierarchy!(SystemPhotoProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemPhotoProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemPhotoProperties {}
 unsafe impl ::core::marker::Sync for SystemPhotoProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7353,7 +7353,7 @@ impl SystemProperties {
     }
     #[doc(hidden)]
     pub fn ISystemProperties<R, F: FnOnce(&ISystemProperties) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemProperties, ISystemProperties> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemProperties, ISystemProperties> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7412,7 +7412,7 @@ impl ::core::fmt::Debug for SystemVideoProperties {
     }
 }
 impl ::windows::core::RuntimeType for SystemVideoProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemVideoProperties;{2040f715-67f8-4322-9b80-4fa9fefb83e8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemVideoProperties;{2040f715-67f8-4322-9b80-4fa9fefb83e8})");
 }
 impl ::core::clone::Clone for SystemVideoProperties {
     fn clone(&self) -> Self {
@@ -7428,7 +7428,7 @@ unsafe impl ::windows::core::Interface for SystemVideoProperties {
 impl ::windows::core::RuntimeName for SystemVideoProperties {
     const NAME: &'static str = "Windows.Storage.SystemVideoProperties";
 }
-::windows::core::interface_hierarchy!(SystemVideoProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemVideoProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemVideoProperties {}
 unsafe impl ::core::marker::Sync for SystemVideoProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7584,7 +7584,7 @@ impl UserDataPaths {
     }
     #[doc(hidden)]
     pub fn IUserDataPathsStatics<R, F: FnOnce(&IUserDataPathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UserDataPaths, IUserDataPathsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<UserDataPaths, IUserDataPathsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7600,7 +7600,7 @@ impl ::core::fmt::Debug for UserDataPaths {
     }
 }
 impl ::windows::core::RuntimeType for UserDataPaths {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.UserDataPaths;{f9c53912-abc4-46ff-8a2b-dc9d7fa6e52f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.UserDataPaths;{f9c53912-abc4-46ff-8a2b-dc9d7fa6e52f})");
 }
 impl ::core::clone::Clone for UserDataPaths {
     fn clone(&self) -> Self {
@@ -7616,7 +7616,7 @@ unsafe impl ::windows::core::Interface for UserDataPaths {
 impl ::windows::core::RuntimeName for UserDataPaths {
     const NAME: &'static str = "Windows.Storage.UserDataPaths";
 }
-::windows::core::interface_hierarchy!(UserDataPaths, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UserDataPaths, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataPaths {}
 unsafe impl ::core::marker::Sync for UserDataPaths {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7647,7 +7647,7 @@ impl ::core::fmt::Debug for ApplicationDataCreateDisposition {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationDataCreateDisposition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataCreateDisposition;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataCreateDisposition;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -7680,7 +7680,7 @@ impl ::core::fmt::Debug for ApplicationDataLocality {
     }
 }
 impl ::windows::core::RuntimeType for ApplicationDataLocality {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -7712,7 +7712,7 @@ impl ::core::fmt::Debug for CreationCollisionOption {
     }
 }
 impl ::windows::core::RuntimeType for CreationCollisionOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.CreationCollisionOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.CreationCollisionOption;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -7742,7 +7742,7 @@ impl ::core::fmt::Debug for FileAccessMode {
     }
 }
 impl ::windows::core::RuntimeType for FileAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAccessMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAccessMode;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -7809,7 +7809,7 @@ impl ::core::ops::Not for FileAttributes {
     }
 }
 impl ::windows::core::RuntimeType for FileAttributes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAttributes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAttributes;u4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -7854,7 +7854,7 @@ impl ::core::fmt::Debug for KnownFolderId {
     }
 }
 impl ::windows::core::RuntimeType for KnownFolderId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFolderId;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFolderId;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -7888,7 +7888,7 @@ impl ::core::fmt::Debug for KnownFoldersAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for KnownFoldersAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFoldersAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFoldersAccessStatus;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -7920,7 +7920,7 @@ impl ::core::fmt::Debug for KnownLibraryId {
     }
 }
 impl ::windows::core::RuntimeType for KnownLibraryId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownLibraryId;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownLibraryId;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -7951,7 +7951,7 @@ impl ::core::fmt::Debug for NameCollisionOption {
     }
 }
 impl ::windows::core::RuntimeType for NameCollisionOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.NameCollisionOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.NameCollisionOption;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -7981,7 +7981,7 @@ impl ::core::fmt::Debug for StorageDeleteOption {
     }
 }
 impl ::windows::core::RuntimeType for StorageDeleteOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageDeleteOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageDeleteOption;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -8045,7 +8045,7 @@ impl ::core::ops::Not for StorageItemTypes {
     }
 }
 impl ::windows::core::RuntimeType for StorageItemTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageItemTypes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageItemTypes;u4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -8083,7 +8083,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeType {
     }
 }
 impl ::windows::core::RuntimeType for StorageLibraryChangeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageLibraryChangeType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageLibraryChangeType;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -8147,7 +8147,7 @@ impl ::core::ops::Not for StorageOpenOptions {
     }
 }
 impl ::windows::core::RuntimeType for StorageOpenOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageOpenOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageOpenOptions;u4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
@@ -8178,15 +8178,15 @@ impl ::core::fmt::Debug for StreamedFileFailureMode {
     }
 }
 impl ::windows::core::RuntimeType for StreamedFileFailureMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StreamedFileFailureMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StreamedFileFailureMode;i4)");
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
 pub struct ApplicationDataSetVersionHandler(pub ::windows::core::IUnknown);
 impl ApplicationDataSetVersionHandler {
     pub fn new<F: FnMut(::core::option::Option<&SetVersionRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = ApplicationDataSetVersionHandlerBox::<F> { vtable: &ApplicationDataSetVersionHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = ApplicationDataSetVersionHandlerBox::<F> { vtable: &ApplicationDataSetVersionHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, setversionrequest: &SetVersionRequest) -> ::windows::core::Result<()> {
         let this = self;
@@ -8197,7 +8197,7 @@ impl ApplicationDataSetVersionHandler {
 struct ApplicationDataSetVersionHandlerBox<F: FnMut(::core::option::Option<&SetVersionRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const ApplicationDataSetVersionHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&SetVersionRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ApplicationDataSetVersionHandlerBox<F> {
     const VTABLE: ApplicationDataSetVersionHandler_Vtbl = ApplicationDataSetVersionHandler_Vtbl {
@@ -8206,7 +8206,7 @@ impl<F: FnMut(::core::option::Option<&SetVersionRequest>) -> ::windows::core::Re
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<ApplicationDataSetVersionHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<ApplicationDataSetVersionHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -8222,7 +8222,7 @@ impl<F: FnMut(::core::option::Option<&SetVersionRequest>) -> ::windows::core::Re
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -8254,7 +8254,7 @@ unsafe impl ::windows::core::Interface for ApplicationDataSetVersionHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa05791e6_cc9f_4687_acab_a364fd785463);
 }
 impl ::windows::core::RuntimeType for ApplicationDataSetVersionHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a05791e6-cc9f-4687-acab-a364fd785463}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a05791e6-cc9f-4687-acab-a364fd785463}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8269,8 +8269,8 @@ pub struct StreamedFileDataRequestedHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl StreamedFileDataRequestedHandler {
     pub fn new<F: FnMut(::core::option::Option<&StreamedFileDataRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = StreamedFileDataRequestedHandlerBox::<F> { vtable: &StreamedFileDataRequestedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = StreamedFileDataRequestedHandlerBox::<F> { vtable: &StreamedFileDataRequestedHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -8284,7 +8284,7 @@ impl StreamedFileDataRequestedHandler {
 struct StreamedFileDataRequestedHandlerBox<F: FnMut(::core::option::Option<&StreamedFileDataRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const StreamedFileDataRequestedHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 #[cfg(feature = "Storage_Streams")]
 impl<F: FnMut(::core::option::Option<&StreamedFileDataRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> StreamedFileDataRequestedHandlerBox<F> {
@@ -8294,7 +8294,7 @@ impl<F: FnMut(::core::option::Option<&StreamedFileDataRequest>) -> ::windows::co
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<StreamedFileDataRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<StreamedFileDataRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -8310,7 +8310,7 @@ impl<F: FnMut(::core::option::Option<&StreamedFileDataRequest>) -> ::windows::co
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -8349,7 +8349,7 @@ unsafe impl ::windows::core::Interface for StreamedFileDataRequestedHandler {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeType for StreamedFileDataRequestedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fef6a824-2fe1-4d07-a35b-b77c50b5f4cc}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{fef6a824-2fe1-4d07-a35b-b77c50b5f4cc}");
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]

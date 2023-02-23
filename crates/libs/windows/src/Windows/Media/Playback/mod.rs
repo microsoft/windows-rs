@@ -365,7 +365,7 @@ impl IMediaEnginePlaybackSource {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(IMediaEnginePlaybackSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IMediaEnginePlaybackSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for IMediaEnginePlaybackSource {
     fn eq(&self, other: &Self) -> bool {
@@ -382,7 +382,7 @@ impl ::core::fmt::Debug for IMediaEnginePlaybackSource {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for IMediaEnginePlaybackSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5c1d0ba7-3856-48b9-8dc6-244bf107bf8c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5c1d0ba7-3856-48b9-8dc6-244bf107bf8c}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for IMediaEnginePlaybackSource {
@@ -1491,7 +1491,7 @@ pub struct IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl {
 #[repr(transparent)]
 pub struct IMediaPlaybackSource(::windows::core::IUnknown);
 impl IMediaPlaybackSource {}
-::windows::core::interface_hierarchy!(IMediaPlaybackSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IMediaPlaybackSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IMediaPlaybackSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1504,7 +1504,7 @@ impl ::core::fmt::Debug for IMediaPlaybackSource {
     }
 }
 impl ::windows::core::RuntimeType for IMediaPlaybackSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ef9dc2bc-9317-4696-b051-2bad643177b5}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ef9dc2bc-9317-4696-b051-2bad643177b5}");
 }
 unsafe impl ::windows::core::Vtable for IMediaPlaybackSource {
     type Vtable = IMediaPlaybackSource_Vtbl;
@@ -2351,7 +2351,7 @@ impl BackgroundMediaPlayer {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IBackgroundMediaPlayerStatics<R, F: FnOnce(&IBackgroundMediaPlayerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundMediaPlayer, IBackgroundMediaPlayerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundMediaPlayer, IBackgroundMediaPlayerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2397,7 +2397,7 @@ impl ::core::fmt::Debug for CurrentMediaPlaybackItemChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CurrentMediaPlaybackItemChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs;{1743a892-5c43-4a15-967a-572d2d0f26c6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs;{1743a892-5c43-4a15-967a-572d2d0f26c6})");
 }
 impl ::core::clone::Clone for CurrentMediaPlaybackItemChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2413,7 +2413,7 @@ unsafe impl ::windows::core::Interface for CurrentMediaPlaybackItemChangedEventA
 impl ::windows::core::RuntimeName for CurrentMediaPlaybackItemChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(CurrentMediaPlaybackItemChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CurrentMediaPlaybackItemChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CurrentMediaPlaybackItemChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentMediaPlaybackItemChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2479,7 +2479,7 @@ impl MediaBreak {
     }
     #[doc(hidden)]
     pub fn IMediaBreakFactory<R, F: FnOnce(&IMediaBreakFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaBreak, IMediaBreakFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaBreak, IMediaBreakFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2495,7 +2495,7 @@ impl ::core::fmt::Debug for MediaBreak {
     }
 }
 impl ::windows::core::RuntimeType for MediaBreak {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreak;{714be270-0def-4ebc-a489-6b34930e1558})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreak;{714be270-0def-4ebc-a489-6b34930e1558})");
 }
 impl ::core::clone::Clone for MediaBreak {
     fn clone(&self) -> Self {
@@ -2511,7 +2511,7 @@ unsafe impl ::windows::core::Interface for MediaBreak {
 impl ::windows::core::RuntimeName for MediaBreak {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreak";
 }
-::windows::core::interface_hierarchy!(MediaBreak, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaBreak, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreak {}
 unsafe impl ::core::marker::Sync for MediaBreak {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2538,7 +2538,7 @@ impl ::core::fmt::Debug for MediaBreakEndedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaBreakEndedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakEndedEventArgs;{32b93276-1c5d-4fee-8732-236dc3a88580})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakEndedEventArgs;{32b93276-1c5d-4fee-8732-236dc3a88580})");
 }
 impl ::core::clone::Clone for MediaBreakEndedEventArgs {
     fn clone(&self) -> Self {
@@ -2554,7 +2554,7 @@ unsafe impl ::windows::core::Interface for MediaBreakEndedEventArgs {
 impl ::windows::core::RuntimeName for MediaBreakEndedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakEndedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaBreakEndedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaBreakEndedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakEndedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakEndedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2656,7 +2656,7 @@ impl ::core::fmt::Debug for MediaBreakManager {
     }
 }
 impl ::windows::core::RuntimeType for MediaBreakManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakManager;{a854ddb1-feb4-4d9b-9d97-0fdbe58e5e39})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakManager;{a854ddb1-feb4-4d9b-9d97-0fdbe58e5e39})");
 }
 impl ::core::clone::Clone for MediaBreakManager {
     fn clone(&self) -> Self {
@@ -2672,7 +2672,7 @@ unsafe impl ::windows::core::Interface for MediaBreakManager {
 impl ::windows::core::RuntimeName for MediaBreakManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakManager";
 }
-::windows::core::interface_hierarchy!(MediaBreakManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaBreakManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakManager {}
 unsafe impl ::core::marker::Sync for MediaBreakManager {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2753,7 +2753,7 @@ impl ::core::fmt::Debug for MediaBreakSchedule {
     }
 }
 impl ::windows::core::RuntimeType for MediaBreakSchedule {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSchedule;{a19a5813-98b6-41d8-83da-f971d22b7bba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSchedule;{a19a5813-98b6-41d8-83da-f971d22b7bba})");
 }
 impl ::core::clone::Clone for MediaBreakSchedule {
     fn clone(&self) -> Self {
@@ -2769,7 +2769,7 @@ unsafe impl ::windows::core::Interface for MediaBreakSchedule {
 impl ::windows::core::RuntimeName for MediaBreakSchedule {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSchedule";
 }
-::windows::core::interface_hierarchy!(MediaBreakSchedule, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaBreakSchedule, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakSchedule {}
 unsafe impl ::core::marker::Sync for MediaBreakSchedule {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2816,7 +2816,7 @@ impl ::core::fmt::Debug for MediaBreakSeekedOverEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaBreakSeekedOverEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSeekedOverEventArgs;{e5aa6746-0606-4492-b9d3-c3c8fde0a4ea})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSeekedOverEventArgs;{e5aa6746-0606-4492-b9d3-c3c8fde0a4ea})");
 }
 impl ::core::clone::Clone for MediaBreakSeekedOverEventArgs {
     fn clone(&self) -> Self {
@@ -2832,7 +2832,7 @@ unsafe impl ::windows::core::Interface for MediaBreakSeekedOverEventArgs {
 impl ::windows::core::RuntimeName for MediaBreakSeekedOverEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSeekedOverEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaBreakSeekedOverEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaBreakSeekedOverEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakSeekedOverEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakSeekedOverEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2859,7 +2859,7 @@ impl ::core::fmt::Debug for MediaBreakSkippedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaBreakSkippedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSkippedEventArgs;{6ee94c05-2f54-4a3e-a3ab-24c3b270b4a3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSkippedEventArgs;{6ee94c05-2f54-4a3e-a3ab-24c3b270b4a3})");
 }
 impl ::core::clone::Clone for MediaBreakSkippedEventArgs {
     fn clone(&self) -> Self {
@@ -2875,7 +2875,7 @@ unsafe impl ::windows::core::Interface for MediaBreakSkippedEventArgs {
 impl ::windows::core::RuntimeName for MediaBreakSkippedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSkippedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaBreakSkippedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaBreakSkippedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakSkippedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakSkippedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2902,7 +2902,7 @@ impl ::core::fmt::Debug for MediaBreakStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaBreakStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakStartedEventArgs;{a87efe71-dfd4-454a-956e-0a4a648395f8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakStartedEventArgs;{a87efe71-dfd4-454a-956e-0a4a648395f8})");
 }
 impl ::core::clone::Clone for MediaBreakStartedEventArgs {
     fn clone(&self) -> Self {
@@ -2918,7 +2918,7 @@ unsafe impl ::windows::core::Interface for MediaBreakStartedEventArgs {
 impl ::windows::core::RuntimeName for MediaBreakStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaBreakStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaBreakStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakStartedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakStartedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2982,7 +2982,7 @@ impl ::core::fmt::Debug for MediaItemDisplayProperties {
     }
 }
 impl ::windows::core::RuntimeType for MediaItemDisplayProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaItemDisplayProperties;{1e3c1b48-7097-4384-a217-c1291dfa8c16})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaItemDisplayProperties;{1e3c1b48-7097-4384-a217-c1291dfa8c16})");
 }
 impl ::core::clone::Clone for MediaItemDisplayProperties {
     fn clone(&self) -> Self {
@@ -2998,7 +2998,7 @@ unsafe impl ::windows::core::Interface for MediaItemDisplayProperties {
 impl ::windows::core::RuntimeName for MediaItemDisplayProperties {
     const NAME: &'static str = "Windows.Media.Playback.MediaItemDisplayProperties";
 }
-::windows::core::interface_hierarchy!(MediaItemDisplayProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaItemDisplayProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaItemDisplayProperties {}
 unsafe impl ::core::marker::Sync for MediaItemDisplayProperties {}
 #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
@@ -3099,7 +3099,7 @@ impl ::core::fmt::Debug for MediaPlaybackAudioTrackList {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::windows::core::RuntimeType for MediaPlaybackAudioTrackList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackAudioTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.AudioTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackAudioTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.AudioTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})))");
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::core::clone::Clone for MediaPlaybackAudioTrackList {
@@ -3136,7 +3136,7 @@ impl ::core::iter::IntoIterator for &MediaPlaybackAudioTrackList {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-::windows::core::interface_hierarchy!(MediaPlaybackAudioTrackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackAudioTrackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::core::convert::TryFrom<MediaPlaybackAudioTrackList> for super::super::Foundation::Collections::IIterable<super::Core::AudioTrack> {
     type Error = ::windows::core::Error;
@@ -3462,7 +3462,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManager {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManager;{5acee5a6-5cb6-4a5a-8521-cc86b1c1ed37})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManager;{5acee5a6-5cb6-4a5a-8521-cc86b1c1ed37})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManager {
     fn clone(&self) -> Self {
@@ -3478,7 +3478,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManager {
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManager";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManager {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManager {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3525,7 +3525,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerAutoRepeatModeReceivedEve
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs;{3d6f4f23-5230-4411-a0e9-bad94c2a045c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs;{3d6f4f23-5230-4411-a0e9-bad94c2a045c})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3541,7 +3541,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerAutoRepeat
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3601,7 +3601,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerCommandBehavior {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerCommandBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerCommandBehavior;{786c1e78-ce78-4a10-afd6-843fcbb90c2e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerCommandBehavior;{786c1e78-ce78-4a10-afd6-843fcbb90c2e})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerCommandBehavior {
     fn clone(&self) -> Self {
@@ -3617,7 +3617,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerCommandBeh
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerCommandBehavior {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerCommandBehavior";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerCommandBehavior, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerCommandBehavior, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerCommandBehavior {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerCommandBehavior {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3657,7 +3657,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerFastForwardReceivedEventA
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerFastForwardReceivedEventArgs;{30f064d9-b491-4d0a-bc21-3098bd1332e9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerFastForwardReceivedEventArgs;{30f064d9-b491-4d0a-bc21-3098bd1332e9})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3673,7 +3673,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerFastForwar
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerFastForwardReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerFastForwardReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerFastForwardReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3713,7 +3713,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerNextReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerNextReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerNextReceivedEventArgs;{e1504433-a2b0-45d4-b9de-5f42ac14a839})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerNextReceivedEventArgs;{e1504433-a2b0-45d4-b9de-5f42ac14a839})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerNextReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3729,7 +3729,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerNextReceiv
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerNextReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerNextReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerNextReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerNextReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerNextReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerNextReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3769,7 +3769,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPauseReceivedEventArgs;{5ceccd1c-c25c-4221-b16c-c3c98ce012d6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPauseReceivedEventArgs;{5ceccd1c-c25c-4221-b16c-c3c98ce012d6})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3785,7 +3785,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPauseRecei
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPauseReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerPauseReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerPauseReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3825,7 +3825,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPlayReceivedEventArgs;{9af0004e-578b-4c56-a006-16159d888a48})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPlayReceivedEventArgs;{9af0004e-578b-4c56-a006-16159d888a48})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3841,7 +3841,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPlayReceiv
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPlayReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerPlayReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerPlayReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3890,7 +3890,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerPositionReceivedEventArgs
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPositionReceivedEventArgs;{5591a754-d627-4bdd-a90d-86a015b24902})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPositionReceivedEventArgs;{5591a754-d627-4bdd-a90d-86a015b24902})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3906,7 +3906,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPositionRe
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPositionReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerPositionReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerPositionReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3946,7 +3946,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerPreviousReceivedEventArgs
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPreviousReceivedEventArgs;{525e3081-4632-4f76-99b1-d771623f6287})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPreviousReceivedEventArgs;{525e3081-4632-4f76-99b1-d771623f6287})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3962,7 +3962,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPreviousRe
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPreviousReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerPreviousReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerPreviousReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4009,7 +4009,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerRateReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerRateReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerRateReceivedEventArgs;{18ea3939-4a16-4169-8b05-3eb9f5ff78eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerRateReceivedEventArgs;{18ea3939-4a16-4169-8b05-3eb9f5ff78eb})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerRateReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -4025,7 +4025,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerRateReceiv
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerRateReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRateReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerRateReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerRateReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRateReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRateReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4065,7 +4065,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerRewindReceivedEventArgs;{9f085947-a3c0-425d-aaef-97ba7898b141})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerRewindReceivedEventArgs;{9f085947-a3c0-425d-aaef-97ba7898b141})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -4081,7 +4081,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerRewindRece
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRewindReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerRewindReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerRewindReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4128,7 +4128,7 @@ impl ::core::fmt::Debug for MediaPlaybackCommandManagerShuffleReceivedEventArgs 
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerShuffleReceivedEventArgs;{50a05cef-63ee-4a96-b7b5-fee08b9ff90c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerShuffleReceivedEventArgs;{50a05cef-63ee-4a96-b7b5-fee08b9ff90c})");
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -4144,7 +4144,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerShuffleRec
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerShuffleReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerShuffleReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackCommandManagerShuffleReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4342,17 +4342,17 @@ impl MediaPlaybackItem {
     }
     #[doc(hidden)]
     pub fn IMediaPlaybackItemFactory<R, F: FnOnce(&IMediaPlaybackItemFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaPlaybackItem, IMediaPlaybackItemFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaPlaybackItem, IMediaPlaybackItemFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaPlaybackItemFactory2<R, F: FnOnce(&IMediaPlaybackItemFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaPlaybackItem, IMediaPlaybackItemFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaPlaybackItem, IMediaPlaybackItemFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaPlaybackItemStatics<R, F: FnOnce(&IMediaPlaybackItemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaPlaybackItem, IMediaPlaybackItemStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaPlaybackItem, IMediaPlaybackItemStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4368,7 +4368,7 @@ impl ::core::fmt::Debug for MediaPlaybackItem {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItem;{047097d2-e4af-48ab-b283-6929e674ece2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItem;{047097d2-e4af-48ab-b283-6929e674ece2})");
 }
 impl ::core::clone::Clone for MediaPlaybackItem {
     fn clone(&self) -> Self {
@@ -4384,7 +4384,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackItem {
 impl ::windows::core::RuntimeName for MediaPlaybackItem {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItem";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaPlaybackItem> for IMediaPlaybackSource {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaPlaybackItem) -> ::windows::core::Result<Self> {
@@ -4437,7 +4437,7 @@ impl ::core::fmt::Debug for MediaPlaybackItemError {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackItemError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemError;{69fbef2b-dcd6-4df9-a450-dbf4c6f1c2c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemError;{69fbef2b-dcd6-4df9-a450-dbf4c6f1c2c2})");
 }
 impl ::core::clone::Clone for MediaPlaybackItemError {
     fn clone(&self) -> Self {
@@ -4453,7 +4453,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackItemError {
 impl ::windows::core::RuntimeName for MediaPlaybackItemError {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemError";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackItemError, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackItemError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackItemError {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemError {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4487,7 +4487,7 @@ impl ::core::fmt::Debug for MediaPlaybackItemFailedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackItemFailedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemFailedEventArgs;{7703134a-e9a7-47c3-862c-c656d30683d4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemFailedEventArgs;{7703134a-e9a7-47c3-862c-c656d30683d4})");
 }
 impl ::core::clone::Clone for MediaPlaybackItemFailedEventArgs {
     fn clone(&self) -> Self {
@@ -4503,7 +4503,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackItemFailedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlaybackItemFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemFailedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackItemFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackItemFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackItemFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4530,7 +4530,7 @@ impl ::core::fmt::Debug for MediaPlaybackItemOpenedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackItemOpenedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemOpenedEventArgs;{cbd9bd82-3037-4fbe-ae8f-39fc39edf4ef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemOpenedEventArgs;{cbd9bd82-3037-4fbe-ae8f-39fc39edf4ef})");
 }
 impl ::core::clone::Clone for MediaPlaybackItemOpenedEventArgs {
     fn clone(&self) -> Self {
@@ -4546,7 +4546,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackItemOpenedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlaybackItemOpenedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemOpenedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackItemOpenedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackItemOpenedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackItemOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemOpenedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4556,8 +4556,8 @@ impl MediaPlaybackList {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaPlaybackList, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaPlaybackList, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4752,7 +4752,7 @@ impl ::core::fmt::Debug for MediaPlaybackList {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackList;{7f77ee9c-dc42-4e26-a98d-7850df8ec925})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackList;{7f77ee9c-dc42-4e26-a98d-7850df8ec925})");
 }
 impl ::core::clone::Clone for MediaPlaybackList {
     fn clone(&self) -> Self {
@@ -4768,7 +4768,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackList {
 impl ::windows::core::RuntimeName for MediaPlaybackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackList";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaPlaybackList> for IMediaPlaybackSource {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaPlaybackList) -> ::windows::core::Result<Self> {
@@ -5219,7 +5219,7 @@ impl ::core::fmt::Debug for MediaPlaybackSession {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSession;{c32b683d-0407-41ba-8946-8b345a5a5435})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSession;{c32b683d-0407-41ba-8946-8b345a5a5435})");
 }
 impl ::core::clone::Clone for MediaPlaybackSession {
     fn clone(&self) -> Self {
@@ -5235,7 +5235,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackSession {
 impl ::windows::core::RuntimeName for MediaPlaybackSession {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSession";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackSession {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSession {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -5262,7 +5262,7 @@ impl ::core::fmt::Debug for MediaPlaybackSessionBufferingStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackSessionBufferingStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSessionBufferingStartedEventArgs;{cd6aafed-74e2-43b5-b115-76236c33791a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSessionBufferingStartedEventArgs;{cd6aafed-74e2-43b5-b115-76236c33791a})");
 }
 impl ::core::clone::Clone for MediaPlaybackSessionBufferingStartedEventArgs {
     fn clone(&self) -> Self {
@@ -5278,7 +5278,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackSessionBufferingStartedE
 impl ::windows::core::RuntimeName for MediaPlaybackSessionBufferingStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionBufferingStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackSessionBufferingStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackSessionBufferingStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackSessionBufferingStartedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSessionBufferingStartedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -5305,7 +5305,7 @@ impl ::core::fmt::Debug for MediaPlaybackSessionOutputDegradationPolicyState {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackSessionOutputDegradationPolicyState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSessionOutputDegradationPolicyState;{558e727d-f633-49f9-965a-abaa1db709be})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSessionOutputDegradationPolicyState;{558e727d-f633-49f9-965a-abaa1db709be})");
 }
 impl ::core::clone::Clone for MediaPlaybackSessionOutputDegradationPolicyState {
     fn clone(&self) -> Self {
@@ -5321,7 +5321,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackSessionOutputDegradation
 impl ::windows::core::RuntimeName for MediaPlaybackSessionOutputDegradationPolicyState {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionOutputDegradationPolicyState";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackSessionOutputDegradationPolicyState, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackSessionOutputDegradationPolicyState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackSessionOutputDegradationPolicyState {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSessionOutputDegradationPolicyState {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -5404,7 +5404,7 @@ impl ::core::fmt::Debug for MediaPlaybackSphericalVideoProjection {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackSphericalVideoProjection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSphericalVideoProjection;{d405b37c-6f0e-4661-b8ee-d487ba9752d5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSphericalVideoProjection;{d405b37c-6f0e-4661-b8ee-d487ba9752d5})");
 }
 impl ::core::clone::Clone for MediaPlaybackSphericalVideoProjection {
     fn clone(&self) -> Self {
@@ -5420,7 +5420,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackSphericalVideoProjection
 impl ::windows::core::RuntimeName for MediaPlaybackSphericalVideoProjection {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSphericalVideoProjection";
 }
-::windows::core::interface_hierarchy!(MediaPlaybackSphericalVideoProjection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackSphericalVideoProjection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackSphericalVideoProjection {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSphericalVideoProjection {}
 #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
@@ -5517,7 +5517,7 @@ impl ::core::fmt::Debug for MediaPlaybackTimedMetadataTrackList {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::windows::core::RuntimeType for MediaPlaybackTimedMetadataTrackList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.TimedMetadataTrack;{9e6aed9e-f67a-49a9-b330-cf03b0e9cf07})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.TimedMetadataTrack;{9e6aed9e-f67a-49a9-b330-cf03b0e9cf07})))");
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::core::clone::Clone for MediaPlaybackTimedMetadataTrackList {
@@ -5554,7 +5554,7 @@ impl ::core::iter::IntoIterator for &MediaPlaybackTimedMetadataTrackList {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-::windows::core::interface_hierarchy!(MediaPlaybackTimedMetadataTrackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackTimedMetadataTrackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::core::convert::TryFrom<MediaPlaybackTimedMetadataTrackList> for super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack> {
     type Error = ::windows::core::Error;
@@ -5701,7 +5701,7 @@ impl ::core::fmt::Debug for MediaPlaybackVideoTrackList {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::windows::core::RuntimeType for MediaPlaybackVideoTrackList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackVideoTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.VideoTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackVideoTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.VideoTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})))");
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::core::clone::Clone for MediaPlaybackVideoTrackList {
@@ -5738,7 +5738,7 @@ impl ::core::iter::IntoIterator for &MediaPlaybackVideoTrackList {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-::windows::core::interface_hierarchy!(MediaPlaybackVideoTrackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlaybackVideoTrackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::core::convert::TryFrom<MediaPlaybackVideoTrackList> for super::super::Foundation::Collections::IIterable<super::Core::VideoTrack> {
     type Error = ::windows::core::Error;
@@ -5816,8 +5816,8 @@ impl MediaPlayer {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaPlayer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaPlayer, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6518,7 +6518,7 @@ impl ::core::fmt::Debug for MediaPlayer {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlayer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayer;{381a83cb-6fff-499b-8d64-2885dfc1249e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayer;{381a83cb-6fff-499b-8d64-2885dfc1249e})");
 }
 impl ::core::clone::Clone for MediaPlayer {
     fn clone(&self) -> Self {
@@ -6534,7 +6534,7 @@ unsafe impl ::windows::core::Interface for MediaPlayer {
 impl ::windows::core::RuntimeName for MediaPlayer {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayer";
 }
-::windows::core::interface_hierarchy!(MediaPlayer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlayer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaPlayer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6585,7 +6585,7 @@ impl ::core::fmt::Debug for MediaPlayerDataReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlayerDataReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerDataReceivedEventArgs;{c75a9405-c801-412a-835b-83fc0e622a8e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerDataReceivedEventArgs;{c75a9405-c801-412a-835b-83fc0e622a8e})");
 }
 impl ::core::clone::Clone for MediaPlayerDataReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -6601,7 +6601,7 @@ unsafe impl ::windows::core::Interface for MediaPlayerDataReceivedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlayerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerDataReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlayerDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlayerDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlayerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -6642,7 +6642,7 @@ impl ::core::fmt::Debug for MediaPlayerFailedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlayerFailedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerFailedEventArgs;{2744e9b9-a7e3-4f16-bac4-7914ebc08301})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerFailedEventArgs;{2744e9b9-a7e3-4f16-bac4-7914ebc08301})");
 }
 impl ::core::clone::Clone for MediaPlayerFailedEventArgs {
     fn clone(&self) -> Self {
@@ -6658,7 +6658,7 @@ unsafe impl ::windows::core::Interface for MediaPlayerFailedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlayerFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerFailedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlayerFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlayerFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlayerFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -6685,7 +6685,7 @@ impl ::core::fmt::Debug for MediaPlayerRateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlayerRateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerRateChangedEventArgs;{40600d58-3b61-4bb2-989f-fc65608b6cab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerRateChangedEventArgs;{40600d58-3b61-4bb2-989f-fc65608b6cab})");
 }
 impl ::core::clone::Clone for MediaPlayerRateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -6701,7 +6701,7 @@ unsafe impl ::windows::core::Interface for MediaPlayerRateChangedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlayerRateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerRateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(MediaPlayerRateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlayerRateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlayerRateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerRateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -6752,7 +6752,7 @@ impl ::core::fmt::Debug for MediaPlayerSurface {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlayerSurface {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerSurface;{0ed653bc-b736-49c3-830b-764a3845313a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerSurface;{0ed653bc-b736-49c3-830b-764a3845313a})");
 }
 impl ::core::clone::Clone for MediaPlayerSurface {
     fn clone(&self) -> Self {
@@ -6768,7 +6768,7 @@ unsafe impl ::windows::core::Interface for MediaPlayerSurface {
 impl ::windows::core::RuntimeName for MediaPlayerSurface {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerSurface";
 }
-::windows::core::interface_hierarchy!(MediaPlayerSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPlayerSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaPlayerSurface> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6838,7 +6838,7 @@ impl PlaybackMediaMarker {
     }
     #[doc(hidden)]
     pub fn IPlaybackMediaMarkerFactory<R, F: FnOnce(&IPlaybackMediaMarkerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlaybackMediaMarker, IPlaybackMediaMarkerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlaybackMediaMarker, IPlaybackMediaMarkerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6854,7 +6854,7 @@ impl ::core::fmt::Debug for PlaybackMediaMarker {
     }
 }
 impl ::windows::core::RuntimeType for PlaybackMediaMarker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarker;{c4d22f5c-3c1c-4444-b6b9-778b0422d41a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarker;{c4d22f5c-3c1c-4444-b6b9-778b0422d41a})");
 }
 impl ::core::clone::Clone for PlaybackMediaMarker {
     fn clone(&self) -> Self {
@@ -6870,7 +6870,7 @@ unsafe impl ::windows::core::Interface for PlaybackMediaMarker {
 impl ::windows::core::RuntimeName for PlaybackMediaMarker {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarker";
 }
-::windows::core::interface_hierarchy!(PlaybackMediaMarker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlaybackMediaMarker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlaybackMediaMarker {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarker {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -6897,7 +6897,7 @@ impl ::core::fmt::Debug for PlaybackMediaMarkerReachedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PlaybackMediaMarkerReachedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarkerReachedEventArgs;{578cd1b9-90e2-4e60-abc4-8740b01f6196})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarkerReachedEventArgs;{578cd1b9-90e2-4e60-abc4-8740b01f6196})");
 }
 impl ::core::clone::Clone for PlaybackMediaMarkerReachedEventArgs {
     fn clone(&self) -> Self {
@@ -6913,7 +6913,7 @@ unsafe impl ::windows::core::Interface for PlaybackMediaMarkerReachedEventArgs {
 impl ::windows::core::RuntimeName for PlaybackMediaMarkerReachedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarkerReachedEventArgs";
 }
-::windows::core::interface_hierarchy!(PlaybackMediaMarkerReachedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlaybackMediaMarkerReachedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlaybackMediaMarkerReachedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarkerReachedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -6957,7 +6957,7 @@ impl ::core::fmt::Debug for PlaybackMediaMarkerSequence {
     }
 }
 impl ::windows::core::RuntimeType for PlaybackMediaMarkerSequence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarkerSequence;{f2810cee-638b-46cf-8817-1d111fe9d8c4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarkerSequence;{f2810cee-638b-46cf-8817-1d111fe9d8c4})");
 }
 impl ::core::clone::Clone for PlaybackMediaMarkerSequence {
     fn clone(&self) -> Self {
@@ -6989,7 +6989,7 @@ impl ::core::iter::IntoIterator for &PlaybackMediaMarkerSequence {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(PlaybackMediaMarkerSequence, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlaybackMediaMarkerSequence, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlaybackMediaMarkerSequence> for super::super::Foundation::Collections::IIterable<PlaybackMediaMarker> {
     type Error = ::windows::core::Error;
@@ -7054,7 +7054,7 @@ impl ::core::fmt::Debug for TimedMetadataPresentationModeChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TimedMetadataPresentationModeChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.TimedMetadataPresentationModeChangedEventArgs;{d1636099-65df-45ae-8cef-dc0b53fdc2bb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.TimedMetadataPresentationModeChangedEventArgs;{d1636099-65df-45ae-8cef-dc0b53fdc2bb})");
 }
 impl ::core::clone::Clone for TimedMetadataPresentationModeChangedEventArgs {
     fn clone(&self) -> Self {
@@ -7070,7 +7070,7 @@ unsafe impl ::windows::core::Interface for TimedMetadataPresentationModeChangedE
 impl ::windows::core::RuntimeName for TimedMetadataPresentationModeChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.TimedMetadataPresentationModeChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(TimedMetadataPresentationModeChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TimedMetadataPresentationModeChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TimedMetadataPresentationModeChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TimedMetadataPresentationModeChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -7103,7 +7103,7 @@ impl ::core::fmt::Debug for AutoLoadedDisplayPropertyKind {
     }
 }
 impl ::windows::core::RuntimeType for AutoLoadedDisplayPropertyKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.AutoLoadedDisplayPropertyKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.AutoLoadedDisplayPropertyKind;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7134,7 +7134,7 @@ impl ::core::fmt::Debug for FailedMediaStreamKind {
     }
 }
 impl ::windows::core::RuntimeType for FailedMediaStreamKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.FailedMediaStreamKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.FailedMediaStreamKind;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7164,7 +7164,7 @@ impl ::core::fmt::Debug for MediaBreakInsertionMethod {
     }
 }
 impl ::windows::core::RuntimeType for MediaBreakInsertionMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaBreakInsertionMethod;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaBreakInsertionMethod;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7195,7 +7195,7 @@ impl ::core::fmt::Debug for MediaCommandEnablingRule {
     }
 }
 impl ::windows::core::RuntimeType for MediaCommandEnablingRule {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaCommandEnablingRule;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaCommandEnablingRule;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7227,7 +7227,7 @@ impl ::core::fmt::Debug for MediaPlaybackItemChangedReason {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackItemChangedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackItemChangedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackItemChangedReason;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7261,7 +7261,7 @@ impl ::core::fmt::Debug for MediaPlaybackItemErrorCode {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackItemErrorCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackItemErrorCode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackItemErrorCode;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7296,7 +7296,7 @@ impl ::core::fmt::Debug for MediaPlaybackSessionVideoConstrictionReason {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackSessionVideoConstrictionReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackSessionVideoConstrictionReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackSessionVideoConstrictionReason;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7329,7 +7329,7 @@ impl ::core::fmt::Debug for MediaPlaybackState {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlaybackState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackState;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7367,7 +7367,7 @@ impl ::core::fmt::Debug for MediaPlayerAudioCategory {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlayerAudioCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerAudioCategory;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerAudioCategory;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7398,7 +7398,7 @@ impl ::core::fmt::Debug for MediaPlayerAudioDeviceType {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlayerAudioDeviceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerAudioDeviceType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerAudioDeviceType;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7431,7 +7431,7 @@ impl ::core::fmt::Debug for MediaPlayerError {
     }
 }
 impl ::windows::core::RuntimeType for MediaPlayerError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerError;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerError;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -7473,7 +7473,7 @@ impl ::core::fmt::Debug for MediaPlayerState {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for MediaPlayerState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerState;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7503,7 +7503,7 @@ impl ::core::fmt::Debug for SphericalVideoProjectionMode {
     }
 }
 impl ::windows::core::RuntimeType for SphericalVideoProjectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.SphericalVideoProjectionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.SphericalVideoProjectionMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7533,7 +7533,7 @@ impl ::core::fmt::Debug for StereoscopicVideoRenderMode {
     }
 }
 impl ::windows::core::RuntimeType for StereoscopicVideoRenderMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.StereoscopicVideoRenderMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.StereoscopicVideoRenderMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
@@ -7565,7 +7565,7 @@ impl ::core::fmt::Debug for TimedMetadataTrackPresentationMode {
     }
 }
 impl ::windows::core::RuntimeType for TimedMetadataTrackPresentationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.TimedMetadataTrackPresentationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.TimedMetadataTrackPresentationMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

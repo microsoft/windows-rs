@@ -18,7 +18,7 @@ pub mod Printing3D;
 #[repr(transparent)]
 pub struct IGeometrySource2D(::windows::core::IUnknown);
 impl IGeometrySource2D {}
-::windows::core::interface_hierarchy!(IGeometrySource2D, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IGeometrySource2D, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IGeometrySource2D {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31,7 +31,7 @@ impl ::core::fmt::Debug for IGeometrySource2D {
     }
 }
 impl ::windows::core::RuntimeType for IGeometrySource2D {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
 }
 unsafe impl ::windows::core::Vtable for IGeometrySource2D {
     type Vtable = IGeometrySource2D_Vtbl;
@@ -70,7 +70,7 @@ impl ::windows::core::TypeKind for DisplayAdapterId {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for DisplayAdapterId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
 }
 impl ::core::cmp::PartialEq for DisplayAdapterId {
     fn eq(&self, other: &Self) -> bool {
@@ -103,7 +103,7 @@ impl ::windows::core::TypeKind for DisplayId {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for DisplayId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
 }
 impl ::core::cmp::PartialEq for DisplayId {
     fn eq(&self, other: &Self) -> bool {
@@ -137,7 +137,7 @@ impl ::windows::core::TypeKind for PointInt32 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for PointInt32 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
 }
 impl ::core::cmp::PartialEq for PointInt32 {
     fn eq(&self, other: &Self) -> bool {
@@ -173,7 +173,7 @@ impl ::windows::core::TypeKind for RectInt32 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for RectInt32 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
 }
 impl ::core::cmp::PartialEq for RectInt32 {
     fn eq(&self, other: &Self) -> bool {
@@ -207,7 +207,7 @@ impl ::windows::core::TypeKind for SizeInt32 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for SizeInt32 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
 }
 impl ::core::cmp::PartialEq for SizeInt32 {
     fn eq(&self, other: &Self) -> bool {

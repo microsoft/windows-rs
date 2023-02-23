@@ -18,7 +18,7 @@ impl IGeometrySource2DInterop {
         (::windows::core::Vtable::vtable(self).TryGetGeometryUsingFactory)(::windows::core::Vtable::as_raw(self), factory.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGeometrySource2DInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGeometrySource2DInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGeometrySource2DInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -89,7 +89,7 @@ impl IGraphicsEffectD2D1Interop {
         (::windows::core::Vtable::vtable(self).GetSourceCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGraphicsEffectD2D1Interop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IGraphicsEffectD2D1Interop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGraphicsEffectD2D1Interop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

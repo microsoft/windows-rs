@@ -6,25 +6,25 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "d3d12.dll""system" fn D3D12CreateDevice ( padapter : * mut::core::ffi::c_void , minimumfeaturelevel : super::Direct3D:: D3D_FEATURE_LEVEL , riid : *const :: windows::core::GUID , ppdevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12CreateDevice ( padapter : * mut::core::ffi::c_void , minimumfeaturelevel : super::Direct3D:: D3D_FEATURE_LEVEL , riid : *const :: windows::core::GUID , ppdevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D12CreateDevice(padapter.into().abi(), minimumfeaturelevel, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d12.dll""system" fn D3D12CreateRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const :: windows::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12CreateRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const :: windows::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D12CreateRootSignatureDeserializer(psrcdata, srcdatasizeinbytes, prootsignaturedeserializerinterface, pprootsignaturedeserializer).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d12.dll""system" fn D3D12CreateVersionedRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const :: windows::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12CreateVersionedRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const :: windows::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D12CreateVersionedRootSignatureDeserializer(psrcdata, srcdatasizeinbytes, prootsignaturedeserializerinterface, pprootsignaturedeserializer).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows::core::GUID, pconfigurationstructs: ::core::option::Option<*const ::core::ffi::c_void>, pconfigurationstructsizes: ::core::option::Option<*const u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d12.dll""system" fn D3D12EnableExperimentalFeatures ( numfeatures : u32 , piids : *const :: windows::core::GUID , pconfigurationstructs : *const ::core::ffi::c_void , pconfigurationstructsizes : *const u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12EnableExperimentalFeatures ( numfeatures : u32 , piids : *const :: windows::core::GUID , pconfigurationstructs : *const ::core::ffi::c_void , pconfigurationstructsizes : *const u32 ) -> :: windows::core::HRESULT );
     D3D12EnableExperimentalFeatures(numfeatures, piids, ::core::mem::transmute(pconfigurationstructs.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pconfigurationstructsizes.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
@@ -33,7 +33,7 @@ pub unsafe fn D3D12GetDebugInterface<T>(result__: *mut ::core::option::Option<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "d3d12.dll""system" fn D3D12GetDebugInterface ( riid : *const :: windows::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12GetDebugInterface ( riid : *const :: windows::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D12GetDebugInterface(&<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
@@ -42,21 +42,21 @@ pub unsafe fn D3D12GetInterface<T>(rclsid: *const ::windows::core::GUID, result_
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::link ! ( "d3d12.dll""system" fn D3D12GetInterface ( rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12GetInterface ( rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D12GetInterface(rclsid, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: ::core::option::Option<*mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d12.dll""system" fn D3D12SerializeRootSignature ( prootsignature : *const D3D12_ROOT_SIGNATURE_DESC , version : D3D_ROOT_SIGNATURE_VERSION , ppblob : *mut * mut::core::ffi::c_void , pperrorblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12SerializeRootSignature ( prootsignature : *const D3D12_ROOT_SIGNATURE_DESC , version : D3D_ROOT_SIGNATURE_VERSION , ppblob : *mut * mut::core::ffi::c_void , pperrorblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D12SerializeRootSignature(prootsignature, version, ::core::mem::transmute(ppblob), ::core::mem::transmute(pperrorblob.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: ::core::option::Option<*mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d12.dll""system" fn D3D12SerializeVersionedRootSignature ( prootsignature : *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC , ppblob : *mut * mut::core::ffi::c_void , pperrorblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d12.dll""system" fn D3D12SerializeVersionedRootSignature ( prootsignature : *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC , ppblob : *mut * mut::core::ffi::c_void , pperrorblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     D3D12SerializeVersionedRootSignature(prootsignature, ::core::mem::transmute(ppblob), ::core::mem::transmute(pperrorblob.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
@@ -91,7 +91,7 @@ impl ID3D12CommandAllocator {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12CommandAllocator, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12CommandAllocator, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12CommandAllocator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -154,7 +154,7 @@ impl ID3D12CommandList {
         (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12CommandList, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D12CommandList, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ::core::cmp::PartialEq for ID3D12CommandList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -280,7 +280,7 @@ impl ID3D12CommandQueue {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID3D12CommandQueue, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12CommandQueue, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12CommandQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -356,7 +356,7 @@ impl ID3D12CommandSignature {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12CommandSignature, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12CommandSignature, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12CommandSignature {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -394,7 +394,7 @@ impl ID3D12Debug {
         (::windows::core::Vtable::vtable(self).EnableDebugLayer)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Debug, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12Debug, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12Debug {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -449,7 +449,7 @@ impl ID3D12Debug1 {
         (::windows::core::Vtable::vtable(self).SetEnableSynchronizedCommandQueueValidation)(::windows::core::Vtable::as_raw(self), enable.into())
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Debug1, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12Debug1, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12Debug1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -496,7 +496,7 @@ impl ID3D12Debug2 {
         (::windows::core::Vtable::vtable(self).SetGPUBasedValidationFlags)(::windows::core::Vtable::as_raw(self), flags)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Debug2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12Debug2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12Debug2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -554,7 +554,7 @@ impl ID3D12Debug3 {
         (::windows::core::Vtable::vtable(self).SetGPUBasedValidationFlags)(::windows::core::Vtable::as_raw(self), flags)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Debug3, ::windows::core::IUnknown, ID3D12Debug);
+::windows::imp::interface_hierarchy!(ID3D12Debug3, ::windows::core::IUnknown, ID3D12Debug);
 impl ::core::cmp::PartialEq for ID3D12Debug3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -623,7 +623,7 @@ impl ID3D12Debug4 {
         (::windows::core::Vtable::vtable(self).DisableDebugLayer)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Debug4, ::windows::core::IUnknown, ID3D12Debug, ID3D12Debug3);
+::windows::imp::interface_hierarchy!(ID3D12Debug4, ::windows::core::IUnknown, ID3D12Debug, ID3D12Debug3);
 impl ::core::cmp::PartialEq for ID3D12Debug4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -692,7 +692,7 @@ impl ID3D12Debug5 {
         (::windows::core::Vtable::vtable(self).SetEnableAutoName)(::windows::core::Vtable::as_raw(self), enable.into())
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Debug5, ::windows::core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4);
+::windows::imp::interface_hierarchy!(ID3D12Debug5, ::windows::core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4);
 impl ::core::cmp::PartialEq for ID3D12Debug5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -772,7 +772,7 @@ impl ID3D12Debug6 {
         (::windows::core::Vtable::vtable(self).SetForceLegacyBarrierValidation)(::windows::core::Vtable::as_raw(self), enable.into())
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Debug6, ::windows::core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4, ID3D12Debug5);
+::windows::imp::interface_hierarchy!(ID3D12Debug6, ::windows::core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4, ID3D12Debug5);
 impl ::core::cmp::PartialEq for ID3D12Debug6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -825,7 +825,7 @@ impl ID3D12DebugCommandList {
         (::windows::core::Vtable::vtable(self).GetFeatureMask)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DebugCommandList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12DebugCommandList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12DebugCommandList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -880,7 +880,7 @@ impl ID3D12DebugCommandList1 {
         (::windows::core::Vtable::vtable(self).GetDebugParameter)(::windows::core::Vtable::as_raw(self), r#type, pdata, datasize).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DebugCommandList1, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12DebugCommandList1, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12DebugCommandList1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -941,7 +941,7 @@ impl ID3D12DebugCommandList2 {
         (::windows::core::Vtable::vtable(self).GetDebugParameter)(::windows::core::Vtable::as_raw(self), r#type, pdata, datasize).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DebugCommandList2, ::windows::core::IUnknown, ID3D12DebugCommandList);
+::windows::imp::interface_hierarchy!(ID3D12DebugCommandList2, ::windows::core::IUnknown, ID3D12DebugCommandList);
 impl ::core::cmp::PartialEq for ID3D12DebugCommandList2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1010,7 +1010,7 @@ impl ID3D12DebugCommandList3 {
         (::windows::core::Vtable::vtable(self).AssertTextureLayout)(::windows::core::Vtable::as_raw(self), presource.into().abi(), subresource, layout)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DebugCommandList3, ::windows::core::IUnknown, ID3D12DebugCommandList, ID3D12DebugCommandList2);
+::windows::imp::interface_hierarchy!(ID3D12DebugCommandList3, ::windows::core::IUnknown, ID3D12DebugCommandList, ID3D12DebugCommandList2);
 impl ::core::cmp::PartialEq for ID3D12DebugCommandList3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1055,7 +1055,7 @@ impl ID3D12DebugCommandQueue {
         (::windows::core::Vtable::vtable(self).AssertResourceState)(::windows::core::Vtable::as_raw(self), presource.into().abi(), subresource, state)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DebugCommandQueue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12DebugCommandQueue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12DebugCommandQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1114,7 +1114,7 @@ impl ID3D12DebugCommandQueue1 {
         (::windows::core::Vtable::vtable(self).AssertTextureLayout)(::windows::core::Vtable::as_raw(self), presource.into().abi(), subresource, layout)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DebugCommandQueue1, ::windows::core::IUnknown, ID3D12DebugCommandQueue);
+::windows::imp::interface_hierarchy!(ID3D12DebugCommandQueue1, ::windows::core::IUnknown, ID3D12DebugCommandQueue);
 impl ::core::cmp::PartialEq for ID3D12DebugCommandQueue1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1160,7 +1160,7 @@ impl ID3D12DebugDevice {
         (::windows::core::Vtable::vtable(self).ReportLiveDeviceObjects)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DebugDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12DebugDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12DebugDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1207,7 +1207,7 @@ impl ID3D12DebugDevice1 {
         (::windows::core::Vtable::vtable(self).ReportLiveDeviceObjects)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DebugDevice1, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12DebugDevice1, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12DebugDevice1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1260,7 +1260,7 @@ impl ID3D12DebugDevice2 {
         (::windows::core::Vtable::vtable(self).GetDebugParameter)(::windows::core::Vtable::as_raw(self), r#type, pdata, datasize).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DebugDevice2, ::windows::core::IUnknown, ID3D12DebugDevice);
+::windows::imp::interface_hierarchy!(ID3D12DebugDevice2, ::windows::core::IUnknown, ID3D12DebugDevice);
 impl ::core::cmp::PartialEq for ID3D12DebugDevice2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1336,7 +1336,7 @@ impl ID3D12DescriptorHeap {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DescriptorHeap, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12DescriptorHeap, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12DescriptorHeap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1625,7 +1625,7 @@ impl ID3D12Device {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device, ::windows::core::IUnknown, ID3D12Object);
+::windows::imp::interface_hierarchy!(ID3D12Device, ::windows::core::IUnknown, ID3D12Object);
 impl ::core::cmp::PartialEq for ID3D12Device {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2011,7 +2011,7 @@ impl ID3D12Device1 {
         (::windows::core::Vtable::vtable(self).SetResidencyPriority)(::windows::core::Vtable::as_raw(self), numobjects, ::core::mem::transmute(ppobjects), ppriorities).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device1, ::windows::core::IUnknown, ID3D12Object, ID3D12Device);
+::windows::imp::interface_hierarchy!(ID3D12Device1, ::windows::core::IUnknown, ID3D12Object, ID3D12Device);
 impl ::core::cmp::PartialEq for ID3D12Device1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2539,7 +2539,7 @@ impl ID3D12Device10 {
         (::windows::core::Vtable::vtable(self).CreateReservedResource2)(::windows::core::Vtable::as_raw(self), pdesc, initiallayout, ::core::mem::transmute(poptimizedclearvalue.unwrap_or(::std::ptr::null())), pprotectedsession.into().abi(), pcastableformats.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcastableformats.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device10, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9);
+::windows::imp::interface_hierarchy!(ID3D12Device10, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9);
 impl ::core::cmp::PartialEq for ID3D12Device10 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3076,7 +3076,7 @@ impl ID3D12Device11 {
         (::windows::core::Vtable::vtable(self).CreateSampler2)(::windows::core::Vtable::as_raw(self), pdesc, ::core::mem::transmute(destdescriptor))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device11, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10);
+::windows::imp::interface_hierarchy!(ID3D12Device11, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10);
 impl ::core::cmp::PartialEq for ID3D12Device11 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3388,7 +3388,7 @@ impl ID3D12Device2 {
         (::windows::core::Vtable::vtable(self).CreatePipelineState)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device2, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1);
+::windows::imp::interface_hierarchy!(ID3D12Device2, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1);
 impl ::core::cmp::PartialEq for ID3D12Device2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3723,7 +3723,7 @@ impl ID3D12Device3 {
         (::windows::core::Vtable::vtable(self).EnqueueMakeResident)(::windows::core::Vtable::as_raw(self), flags, ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr()), pfencetosignal.into().abi(), fencevaluetosignal).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device3, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2);
+::windows::imp::interface_hierarchy!(ID3D12Device3, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2);
 impl ::core::cmp::PartialEq for ID3D12Device3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4109,7 +4109,7 @@ impl ID3D12Device4 {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device4, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3);
+::windows::imp::interface_hierarchy!(ID3D12Device4, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3);
 impl ::core::cmp::PartialEq for ID3D12Device4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4543,7 +4543,7 @@ impl ID3D12Device5 {
         (::windows::core::Vtable::vtable(self).CheckDriverMatchingIdentifier)(::windows::core::Vtable::as_raw(self), serializeddatatype, pidentifiertocheck)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device5, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4);
+::windows::imp::interface_hierarchy!(ID3D12Device5, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4);
 impl ::core::cmp::PartialEq for ID3D12Device5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4981,7 +4981,7 @@ impl ID3D12Device6 {
         (::windows::core::Vtable::vtable(self).SetBackgroundProcessingMode)(::windows::core::Vtable::as_raw(self), mode, measurementsaction, heventtosignaluponcompletion.into(), ::core::mem::transmute(pbfurthermeasurementsdesired.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device6, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5);
+::windows::imp::interface_hierarchy!(ID3D12Device6, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5);
 impl ::core::cmp::PartialEq for ID3D12Device6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5427,7 +5427,7 @@ impl ID3D12Device7 {
         (::windows::core::Vtable::vtable(self).CreateProtectedResourceSession1)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device7, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6);
+::windows::imp::interface_hierarchy!(ID3D12Device7, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6);
 impl ::core::cmp::PartialEq for ID3D12Device7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5908,7 +5908,7 @@ impl ID3D12Device8 {
         (::windows::core::Vtable::vtable(self).GetCopyableFootprints1)(::windows::core::Vtable::as_raw(self), presourcedesc, firstsubresource, numsubresources, baseoffset, ::core::mem::transmute(playouts.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumrows.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(prowsizeinbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ptotalbytes.unwrap_or(::std::ptr::null_mut())))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device8, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7);
+::windows::imp::interface_hierarchy!(ID3D12Device8, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7);
 impl ::core::cmp::PartialEq for ID3D12Device8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6420,7 +6420,7 @@ impl ID3D12Device9 {
         (::windows::core::Vtable::vtable(self).CreateCommandQueue1)(::windows::core::Vtable::as_raw(self), pdesc, creatorid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Device9, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8);
+::windows::imp::interface_hierarchy!(ID3D12Device9, ::windows::core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8);
 impl ::core::cmp::PartialEq for ID3D12Device9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6482,7 +6482,7 @@ impl ID3D12DeviceChild {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DeviceChild, ::windows::core::IUnknown, ID3D12Object);
+::windows::imp::interface_hierarchy!(ID3D12DeviceChild, ::windows::core::IUnknown, ID3D12Object);
 impl ::core::cmp::PartialEq for ID3D12DeviceChild {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6538,7 +6538,7 @@ impl ID3D12DeviceConfiguration {
         (::windows::core::Vtable::vtable(self).CreateVersionedRootSignatureDeserializer)(::windows::core::Vtable::as_raw(self), pblob, size, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DeviceConfiguration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12DeviceConfiguration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12DeviceConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6611,7 +6611,7 @@ impl ID3D12DeviceFactory {
         (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), adapter.into().abi(), featurelevel, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DeviceFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12DeviceFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12DeviceFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6664,7 +6664,7 @@ impl ID3D12DeviceRemovedExtendedData {
         (::windows::core::Vtable::vtable(self).GetPageFaultAllocationOutput)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DeviceRemovedExtendedData, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedData {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6717,7 +6717,7 @@ impl ID3D12DeviceRemovedExtendedData1 {
         (::windows::core::Vtable::vtable(self).GetPageFaultAllocationOutput1)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DeviceRemovedExtendedData1, ::windows::core::IUnknown, ID3D12DeviceRemovedExtendedData);
+::windows::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData1, ::windows::core::IUnknown, ID3D12DeviceRemovedExtendedData);
 impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedData1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6776,7 +6776,7 @@ impl ID3D12DeviceRemovedExtendedData2 {
         (::windows::core::Vtable::vtable(self).GetDeviceState)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DeviceRemovedExtendedData2, ::windows::core::IUnknown, ID3D12DeviceRemovedExtendedData, ID3D12DeviceRemovedExtendedData1);
+::windows::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData2, ::windows::core::IUnknown, ID3D12DeviceRemovedExtendedData, ID3D12DeviceRemovedExtendedData1);
 impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedData2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6822,7 +6822,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings {
         (::windows::core::Vtable::vtable(self).SetWatsonDumpEnablement)(::windows::core::Vtable::as_raw(self), enablement)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedDataSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6872,7 +6872,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings1 {
         (::windows::core::Vtable::vtable(self).SetBreadcrumbContextEnablement)(::windows::core::Vtable::as_raw(self), enablement)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings1, ::windows::core::IUnknown, ID3D12DeviceRemovedExtendedDataSettings);
+::windows::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings1, ::windows::core::IUnknown, ID3D12DeviceRemovedExtendedDataSettings);
 impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedDataSettings1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6928,7 +6928,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings2 {
         (::windows::core::Vtable::vtable(self).UseMarkersOnlyAutoBreadcrumbs)(::windows::core::Vtable::as_raw(self), markersonly.into())
     }
 }
-::windows::core::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings2, ::windows::core::IUnknown, ID3D12DeviceRemovedExtendedDataSettings, ID3D12DeviceRemovedExtendedDataSettings1);
+::windows::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings2, ::windows::core::IUnknown, ID3D12DeviceRemovedExtendedDataSettings, ID3D12DeviceRemovedExtendedDataSettings1);
 impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedDataSettings2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7005,7 +7005,7 @@ impl ID3D12Fence {
         (::windows::core::Vtable::vtable(self).Signal)(::windows::core::Vtable::as_raw(self), value).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Fence, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12Fence, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12Fence {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7087,7 +7087,7 @@ impl ID3D12Fence1 {
         (::windows::core::Vtable::vtable(self).GetCreationFlags)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Fence1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Fence);
+::windows::imp::interface_hierarchy!(ID3D12Fence1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Fence);
 impl ::core::cmp::PartialEq for ID3D12Fence1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7513,7 +7513,7 @@ impl ID3D12GraphicsCommandList {
         (::windows::core::Vtable::vtable(self).ExecuteIndirect)(::windows::core::Vtable::as_raw(self), pcommandsignature.into().abi(), maxcommandcount, pargumentbuffer.into().abi(), argumentbufferoffset, pcountbuffer.into().abi(), countbufferoffset)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7936,7 +7936,7 @@ impl ID3D12GraphicsCommandList1 {
         (::windows::core::Vtable::vtable(self).SetViewInstanceMask)(::windows::core::Vtable::as_raw(self), mask)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8284,7 +8284,7 @@ impl ID3D12GraphicsCommandList2 {
         (::windows::core::Vtable::vtable(self).WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList2, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList2, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8630,7 +8630,7 @@ impl ID3D12GraphicsCommandList3 {
         (::windows::core::Vtable::vtable(self).SetProtectedResourceSession)(::windows::core::Vtable::as_raw(self), pprotectedresourcesession.into().abi())
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList3, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList3, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9016,7 +9016,7 @@ impl ID3D12GraphicsCommandList4 {
         (::windows::core::Vtable::vtable(self).DispatchRays)(::windows::core::Vtable::as_raw(self), pdesc)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList4, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList4, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9425,7 +9425,7 @@ impl ID3D12GraphicsCommandList5 {
         (::windows::core::Vtable::vtable(self).RSSetShadingRateImage)(::windows::core::Vtable::as_raw(self), shadingrateimage.into().abi())
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList5, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList5, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9824,7 +9824,7 @@ impl ID3D12GraphicsCommandList6 {
         (::windows::core::Vtable::vtable(self).DispatchMesh)(::windows::core::Vtable::as_raw(self), threadgroupcountx, threadgroupcounty, threadgroupcountz)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList6, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList6, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10225,7 +10225,7 @@ impl ID3D12GraphicsCommandList7 {
         (::windows::core::Vtable::vtable(self).Barrier)(::windows::core::Vtable::as_raw(self), pbarriergroups.len() as _, ::core::mem::transmute(pbarriergroups.as_ptr()))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList7, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList7, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -10629,7 +10629,7 @@ impl ID3D12GraphicsCommandList8 {
         (::windows::core::Vtable::vtable(self).OMSetFrontAndBackStencilRef)(::windows::core::Vtable::as_raw(self), frontstencilref, backstencilref)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList8, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList7);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList8, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList7);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11039,7 +11039,7 @@ impl ID3D12GraphicsCommandList9 {
         (::windows::core::Vtable::vtable(self).IASetIndexBufferStripCutValue)(::windows::core::Vtable::as_raw(self), ibstripcutvalue)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12GraphicsCommandList9, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList7, ID3D12GraphicsCommandList8);
+::windows::imp::interface_hierarchy!(ID3D12GraphicsCommandList9, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList7, ID3D12GraphicsCommandList8);
 impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList9 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11105,7 +11105,7 @@ impl ID3D12Heap {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Heap, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12Heap, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12Heap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11176,7 +11176,7 @@ impl ID3D12Heap1 {
         (::windows::core::Vtable::vtable(self).GetProtectedResourceSession)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Heap1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Heap);
+::windows::imp::interface_hierarchy!(ID3D12Heap1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Heap);
 impl ::core::cmp::PartialEq for ID3D12Heap1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11351,7 +11351,7 @@ impl ID3D12InfoQueue {
         (::windows::core::Vtable::vtable(self).GetMuteDebugOutput)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12InfoQueue, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12InfoQueue, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12InfoQueue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11590,7 +11590,7 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Vtable::vtable(self).UnregisterMessageCallback)(::windows::core::Vtable::as_raw(self), callbackcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12InfoQueue1, ::windows::core::IUnknown, ID3D12InfoQueue);
+::windows::imp::interface_hierarchy!(ID3D12InfoQueue1, ::windows::core::IUnknown, ID3D12InfoQueue);
 impl ::core::cmp::PartialEq for ID3D12InfoQueue1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11634,7 +11634,7 @@ impl ID3D12LibraryReflection {
         (::windows::core::Vtable::vtable(self).GetFunctionByIndex)(::windows::core::Vtable::as_raw(self), functionindex)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12LibraryReflection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12LibraryReflection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12LibraryReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11674,7 +11674,7 @@ impl ID3D12LifetimeOwner {
         (::windows::core::Vtable::vtable(self).LifetimeStateUpdated)(::windows::core::Vtable::as_raw(self), newstate)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12LifetimeOwner, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12LifetimeOwner, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12LifetimeOwner {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11740,7 +11740,7 @@ impl ID3D12LifetimeTracker {
         (::windows::core::Vtable::vtable(self).DestroyOwnedObject)(::windows::core::Vtable::as_raw(self), pobject.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12LifetimeTracker, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D12LifetimeTracker, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ::core::cmp::PartialEq for ID3D12LifetimeTracker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11803,7 +11803,7 @@ impl ID3D12MetaCommand {
         (::windows::core::Vtable::vtable(self).GetRequiredParameterResourceSize)(::windows::core::Vtable::as_raw(self), stage, parameterindex)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12MetaCommand, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12MetaCommand, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12MetaCommand {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11857,7 +11857,7 @@ impl ID3D12Object {
         (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Object, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12Object, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12Object {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11920,7 +11920,7 @@ impl ID3D12Pageable {
         (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Pageable, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D12Pageable, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ::core::cmp::PartialEq for ID3D12Pageable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12010,7 +12010,7 @@ impl ID3D12PipelineLibrary {
         (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12PipelineLibrary, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D12PipelineLibrary, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ::core::cmp::PartialEq for ID3D12PipelineLibrary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12116,7 +12116,7 @@ impl ID3D12PipelineLibrary1 {
         (::windows::core::Vtable::vtable(self).LoadPipeline)(::windows::core::Vtable::as_raw(self), pname.into().abi(), pdesc, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12PipelineLibrary1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12PipelineLibrary);
+::windows::imp::interface_hierarchy!(ID3D12PipelineLibrary1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12PipelineLibrary);
 impl ::core::cmp::PartialEq for ID3D12PipelineLibrary1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12182,7 +12182,7 @@ impl ID3D12PipelineState {
         (::windows::core::Vtable::vtable(self).GetCachedBlob)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12PipelineState, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12PipelineState, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12PipelineState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12259,7 +12259,7 @@ impl ID3D12ProtectedResourceSession {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID3D12ProtectedResourceSession, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession);
+::windows::imp::interface_hierarchy!(ID3D12ProtectedResourceSession, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession);
 impl ::core::cmp::PartialEq for ID3D12ProtectedResourceSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12338,7 +12338,7 @@ impl ID3D12ProtectedResourceSession1 {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID3D12ProtectedResourceSession1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession, ID3D12ProtectedResourceSession);
+::windows::imp::interface_hierarchy!(ID3D12ProtectedResourceSession1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession, ID3D12ProtectedResourceSession);
 impl ::core::cmp::PartialEq for ID3D12ProtectedResourceSession1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12407,7 +12407,7 @@ impl ID3D12ProtectedSession {
         (::windows::core::Vtable::vtable(self).GetSessionStatus)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12ProtectedSession, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D12ProtectedSession, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ::core::cmp::PartialEq for ID3D12ProtectedSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12468,7 +12468,7 @@ impl ID3D12QueryHeap {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12QueryHeap, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12QueryHeap, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12QueryHeap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12552,7 +12552,7 @@ impl ID3D12Resource {
         (::windows::core::Vtable::vtable(self).GetHeapProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pheapproperties.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pheapflags.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Resource, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12Resource, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12Resource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12652,7 +12652,7 @@ impl ID3D12Resource1 {
         (::windows::core::Vtable::vtable(self).GetProtectedResourceSession)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Resource1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource);
+::windows::imp::interface_hierarchy!(ID3D12Resource1, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource);
 impl ::core::cmp::PartialEq for ID3D12Resource1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12750,7 +12750,7 @@ impl ID3D12Resource2 {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Resource2, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource, ID3D12Resource1);
+::windows::imp::interface_hierarchy!(ID3D12Resource2, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource, ID3D12Resource1);
 impl ::core::cmp::PartialEq for ID3D12Resource2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12813,7 +12813,7 @@ impl ID3D12RootSignature {
         (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12RootSignature, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D12RootSignature, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ::core::cmp::PartialEq for ID3D12RootSignature {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12851,7 +12851,7 @@ impl ID3D12RootSignatureDeserializer {
         (::windows::core::Vtable::vtable(self).GetRootSignatureDesc)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12RootSignatureDeserializer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12RootSignatureDeserializer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12RootSignatureDeserializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12893,7 +12893,7 @@ impl ID3D12SDKConfiguration {
         (::windows::core::Vtable::vtable(self).SetSDKVersion)(::windows::core::Vtable::as_raw(self), sdkversion, sdkpath.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12SDKConfiguration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12SDKConfiguration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12SDKConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -12946,7 +12946,7 @@ impl ID3D12SDKConfiguration1 {
         (::windows::core::Vtable::vtable(self).FreeUnusedSDKs)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12SDKConfiguration1, ::windows::core::IUnknown, ID3D12SDKConfiguration);
+::windows::imp::interface_hierarchy!(ID3D12SDKConfiguration1, ::windows::core::IUnknown, ID3D12SDKConfiguration);
 impl ::core::cmp::PartialEq for ID3D12SDKConfiguration1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13021,7 +13021,7 @@ impl ID3D12ShaderCacheSession {
         result__
     }
 }
-::windows::core::interface_hierarchy!(ID3D12ShaderCacheSession, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
+::windows::imp::interface_hierarchy!(ID3D12ShaderCacheSession, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ::core::cmp::PartialEq for ID3D12ShaderCacheSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13145,7 +13145,7 @@ impl ID3D12ShaderReflection {
         (::windows::core::Vtable::vtable(self).GetRequiresFlags)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12ShaderReflection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12ShaderReflection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12ShaderReflection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13434,7 +13434,7 @@ impl ID3D12SharingContract {
         (::windows::core::Vtable::vtable(self).EndCapturableWork)(::windows::core::Vtable::as_raw(self), guid)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12SharingContract, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12SharingContract, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12SharingContract {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13500,7 +13500,7 @@ impl ID3D12StateObject {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12StateObject, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+::windows::imp::interface_hierarchy!(ID3D12StateObject, ::windows::core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ::core::cmp::PartialEq for ID3D12StateObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13553,7 +13553,7 @@ impl ID3D12StateObjectProperties {
         (::windows::core::Vtable::vtable(self).SetPipelineStackSize)(::windows::core::Vtable::as_raw(self), pipelinestacksizeinbytes)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12StateObjectProperties, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12StateObjectProperties, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12StateObjectProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13616,7 +13616,7 @@ impl ID3D12SwapChainAssistant {
         (::windows::core::Vtable::vtable(self).InsertImplicitSync)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D12SwapChainAssistant, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12SwapChainAssistant, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12SwapChainAssistant {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13671,7 +13671,7 @@ impl ID3D12Tools {
         (::windows::core::Vtable::vtable(self).ShaderInstrumentationEnabled)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12Tools, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12Tools, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12Tools {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13721,7 +13721,7 @@ impl ID3D12VersionedRootSignatureDeserializer {
         (::windows::core::Vtable::vtable(self).GetUnconvertedRootSignatureDesc)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3D12VersionedRootSignatureDeserializer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12VersionedRootSignatureDeserializer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12VersionedRootSignatureDeserializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -13774,7 +13774,7 @@ impl ID3D12VirtualizationGuestDevice {
         (::windows::core::Vtable::vtable(self).CreateFenceFd)(::windows::core::Vtable::as_raw(self), pfence.into().abi(), fencevalue, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D12VirtualizationGuestDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D12VirtualizationGuestDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D12VirtualizationGuestDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

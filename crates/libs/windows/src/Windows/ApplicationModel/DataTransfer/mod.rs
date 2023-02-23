@@ -1444,12 +1444,12 @@ impl Clipboard {
     }
     #[doc(hidden)]
     pub fn IClipboardStatics<R, F: FnOnce(&IClipboardStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Clipboard, IClipboardStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Clipboard, IClipboardStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IClipboardStatics2<R, F: FnOnce(&IClipboardStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Clipboard, IClipboardStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Clipboard, IClipboardStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1463,8 +1463,8 @@ impl ClipboardContentOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ClipboardContentOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ClipboardContentOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn IsRoamable(&self) -> ::windows::core::Result<bool> {
@@ -1520,7 +1520,7 @@ impl ::core::fmt::Debug for ClipboardContentOptions {
     }
 }
 impl ::windows::core::RuntimeType for ClipboardContentOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardContentOptions;{e888a98c-ad4b-5447-a056-ab3556276d2b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardContentOptions;{e888a98c-ad4b-5447-a056-ab3556276d2b})");
 }
 impl ::core::clone::Clone for ClipboardContentOptions {
     fn clone(&self) -> Self {
@@ -1536,7 +1536,7 @@ unsafe impl ::windows::core::Interface for ClipboardContentOptions {
 impl ::windows::core::RuntimeName for ClipboardContentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardContentOptions";
 }
-::windows::core::interface_hierarchy!(ClipboardContentOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClipboardContentOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClipboardContentOptions {}
 unsafe impl ::core::marker::Sync for ClipboardContentOptions {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -1555,7 +1555,7 @@ impl ::core::fmt::Debug for ClipboardHistoryChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ClipboardHistoryChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs;{c0be453f-8ea2-53ce-9aba-8d2212573452})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs;{c0be453f-8ea2-53ce-9aba-8d2212573452})");
 }
 impl ::core::clone::Clone for ClipboardHistoryChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1571,7 +1571,7 @@ unsafe impl ::windows::core::Interface for ClipboardHistoryChangedEventArgs {
 impl ::windows::core::RuntimeName for ClipboardHistoryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(ClipboardHistoryChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClipboardHistoryChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClipboardHistoryChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -1614,7 +1614,7 @@ impl ::core::fmt::Debug for ClipboardHistoryItem {
     }
 }
 impl ::windows::core::RuntimeType for ClipboardHistoryItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem;{0173bd8a-afff-5c50-ab92-3d19f481ec58})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem;{0173bd8a-afff-5c50-ab92-3d19f481ec58})");
 }
 impl ::core::clone::Clone for ClipboardHistoryItem {
     fn clone(&self) -> Self {
@@ -1630,7 +1630,7 @@ unsafe impl ::windows::core::Interface for ClipboardHistoryItem {
 impl ::windows::core::RuntimeName for ClipboardHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem";
 }
-::windows::core::interface_hierarchy!(ClipboardHistoryItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClipboardHistoryItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClipboardHistoryItem {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryItem {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -1666,7 +1666,7 @@ impl ::core::fmt::Debug for ClipboardHistoryItemsResult {
     }
 }
 impl ::windows::core::RuntimeType for ClipboardHistoryItemsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult;{e6dfdee6-0ee2-52e3-852b-f295db65939a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult;{e6dfdee6-0ee2-52e3-852b-f295db65939a})");
 }
 impl ::core::clone::Clone for ClipboardHistoryItemsResult {
     fn clone(&self) -> Self {
@@ -1682,7 +1682,7 @@ unsafe impl ::windows::core::Interface for ClipboardHistoryItemsResult {
 impl ::windows::core::RuntimeName for ClipboardHistoryItemsResult {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult";
 }
-::windows::core::interface_hierarchy!(ClipboardHistoryItemsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ClipboardHistoryItemsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClipboardHistoryItemsResult {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryItemsResult {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -1692,8 +1692,8 @@ impl DataPackage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DataPackage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<DataPackage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn GetView(&self) -> ::windows::core::Result<DataPackageView> {
@@ -1870,7 +1870,7 @@ impl ::core::fmt::Debug for DataPackage {
     }
 }
 impl ::windows::core::RuntimeType for DataPackage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackage;{61ebf5c7-efea-4346-9554-981d7e198ffe})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackage;{61ebf5c7-efea-4346-9554-981d7e198ffe})");
 }
 impl ::core::clone::Clone for DataPackage {
     fn clone(&self) -> Self {
@@ -1886,7 +1886,7 @@ unsafe impl ::windows::core::Interface for DataPackage {
 impl ::windows::core::RuntimeName for DataPackage {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackage";
 }
-::windows::core::interface_hierarchy!(DataPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataPackage {}
 unsafe impl ::core::marker::Sync for DataPackage {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -2148,7 +2148,7 @@ impl ::core::fmt::Debug for DataPackagePropertySet {
     }
 }
 impl ::windows::core::RuntimeType for DataPackagePropertySet {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackagePropertySet;{cd1c93eb-4c4c-443a-a8d3-f5c241e91689})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackagePropertySet;{cd1c93eb-4c4c-443a-a8d3-f5c241e91689})");
 }
 impl ::core::clone::Clone for DataPackagePropertySet {
     fn clone(&self) -> Self {
@@ -2180,7 +2180,7 @@ impl ::core::iter::IntoIterator for &DataPackagePropertySet {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(DataPackagePropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataPackagePropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DataPackagePropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -2398,7 +2398,7 @@ impl ::core::fmt::Debug for DataPackagePropertySetView {
     }
 }
 impl ::windows::core::RuntimeType for DataPackagePropertySetView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackagePropertySetView;{b94cec01-0c1a-4c57-be55-75d01289735d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackagePropertySetView;{b94cec01-0c1a-4c57-be55-75d01289735d})");
 }
 impl ::core::clone::Clone for DataPackagePropertySetView {
     fn clone(&self) -> Self {
@@ -2430,7 +2430,7 @@ impl ::core::iter::IntoIterator for &DataPackagePropertySetView {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(DataPackagePropertySetView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataPackagePropertySetView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DataPackagePropertySetView> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -2658,7 +2658,7 @@ impl ::core::fmt::Debug for DataPackageView {
     }
 }
 impl ::windows::core::RuntimeType for DataPackageView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackageView;{7b840471-5900-4d85-a90b-10cb85fe3552})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackageView;{7b840471-5900-4d85-a90b-10cb85fe3552})");
 }
 impl ::core::clone::Clone for DataPackageView {
     fn clone(&self) -> Self {
@@ -2674,7 +2674,7 @@ unsafe impl ::windows::core::Interface for DataPackageView {
 impl ::windows::core::RuntimeName for DataPackageView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackageView";
 }
-::windows::core::interface_hierarchy!(DataPackageView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataPackageView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataPackageView {}
 unsafe impl ::core::marker::Sync for DataPackageView {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -2698,7 +2698,7 @@ impl ::core::fmt::Debug for DataProviderDeferral {
     }
 }
 impl ::windows::core::RuntimeType for DataProviderDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataProviderDeferral;{c2cf2373-2d26-43d9-b69d-dcb86d03f6da})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataProviderDeferral;{c2cf2373-2d26-43d9-b69d-dcb86d03f6da})");
 }
 impl ::core::clone::Clone for DataProviderDeferral {
     fn clone(&self) -> Self {
@@ -2714,7 +2714,7 @@ unsafe impl ::windows::core::Interface for DataProviderDeferral {
 impl ::windows::core::RuntimeName for DataProviderDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderDeferral";
 }
-::windows::core::interface_hierarchy!(DataProviderDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataProviderDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataProviderDeferral {}
 unsafe impl ::core::marker::Sync for DataProviderDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -2764,7 +2764,7 @@ impl ::core::fmt::Debug for DataProviderRequest {
     }
 }
 impl ::windows::core::RuntimeType for DataProviderRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataProviderRequest;{ebbc7157-d3c8-47da-acde-f82388d5f716})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataProviderRequest;{ebbc7157-d3c8-47da-acde-f82388d5f716})");
 }
 impl ::core::clone::Clone for DataProviderRequest {
     fn clone(&self) -> Self {
@@ -2780,7 +2780,7 @@ unsafe impl ::windows::core::Interface for DataProviderRequest {
 impl ::windows::core::RuntimeName for DataProviderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderRequest";
 }
-::windows::core::interface_hierarchy!(DataProviderRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataProviderRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataProviderRequest {}
 unsafe impl ::core::marker::Sync for DataProviderRequest {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -2831,7 +2831,7 @@ impl ::core::fmt::Debug for DataRequest {
     }
 }
 impl ::windows::core::RuntimeType for DataRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequest;{4341ae3b-fc12-4e53-8c02-ac714c415a27})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequest;{4341ae3b-fc12-4e53-8c02-ac714c415a27})");
 }
 impl ::core::clone::Clone for DataRequest {
     fn clone(&self) -> Self {
@@ -2847,7 +2847,7 @@ unsafe impl ::windows::core::Interface for DataRequest {
 impl ::windows::core::RuntimeName for DataRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequest";
 }
-::windows::core::interface_hierarchy!(DataRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataRequest {}
 unsafe impl ::core::marker::Sync for DataRequest {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -2871,7 +2871,7 @@ impl ::core::fmt::Debug for DataRequestDeferral {
     }
 }
 impl ::windows::core::RuntimeType for DataRequestDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequestDeferral;{6dc4b89f-0386-4263-87c1-ed7dce30890e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequestDeferral;{6dc4b89f-0386-4263-87c1-ed7dce30890e})");
 }
 impl ::core::clone::Clone for DataRequestDeferral {
     fn clone(&self) -> Self {
@@ -2887,7 +2887,7 @@ unsafe impl ::windows::core::Interface for DataRequestDeferral {
 impl ::windows::core::RuntimeName for DataRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestDeferral";
 }
-::windows::core::interface_hierarchy!(DataRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataRequestDeferral {}
 unsafe impl ::core::marker::Sync for DataRequestDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -2914,7 +2914,7 @@ impl ::core::fmt::Debug for DataRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DataRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs;{cb8ba807-6ac5-43c9-8ac5-9ba232163182})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs;{cb8ba807-6ac5-43c9-8ac5-9ba232163182})");
 }
 impl ::core::clone::Clone for DataRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -2930,7 +2930,7 @@ unsafe impl ::windows::core::Interface for DataRequestedEventArgs {
 impl ::windows::core::RuntimeName for DataRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(DataRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DataRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -3002,17 +3002,17 @@ impl DataTransferManager {
     }
     #[doc(hidden)]
     pub fn IDataTransferManagerStatics<R, F: FnOnce(&IDataTransferManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DataTransferManager, IDataTransferManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDataTransferManagerStatics2<R, F: FnOnce(&IDataTransferManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DataTransferManager, IDataTransferManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IDataTransferManagerStatics3<R, F: FnOnce(&IDataTransferManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DataTransferManager, IDataTransferManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3028,7 +3028,7 @@ impl ::core::fmt::Debug for DataTransferManager {
     }
 }
 impl ::windows::core::RuntimeType for DataTransferManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataTransferManager;{a5caee9b-8708-49d1-8d36-67d25a8da00c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataTransferManager;{a5caee9b-8708-49d1-8d36-67d25a8da00c})");
 }
 impl ::core::clone::Clone for DataTransferManager {
     fn clone(&self) -> Self {
@@ -3044,7 +3044,7 @@ unsafe impl ::windows::core::Interface for DataTransferManager {
 impl ::windows::core::RuntimeName for DataTransferManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataTransferManager";
 }
-::windows::core::interface_hierarchy!(DataTransferManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataTransferManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 pub struct HtmlFormatHelper;
 impl HtmlFormatHelper {
@@ -3062,7 +3062,7 @@ impl HtmlFormatHelper {
     }
     #[doc(hidden)]
     pub fn IHtmlFormatHelperStatics<R, F: FnOnce(&IHtmlFormatHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HtmlFormatHelper, IHtmlFormatHelperStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HtmlFormatHelper, IHtmlFormatHelperStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3100,7 +3100,7 @@ impl ::core::fmt::Debug for OperationCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for OperationCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs;{e7af329d-051d-4fab-b1a9-47fd77f70a41})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs;{e7af329d-051d-4fab-b1a9-47fd77f70a41})");
 }
 impl ::core::clone::Clone for OperationCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -3116,7 +3116,7 @@ unsafe impl ::windows::core::Interface for OperationCompletedEventArgs {
 impl ::windows::core::RuntimeName for OperationCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(OperationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OperationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OperationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for OperationCompletedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -3143,7 +3143,7 @@ impl ::core::fmt::Debug for ShareCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ShareCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs;{4574c442-f913-4f60-9df7-cc4060ab1916})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs;{4574c442-f913-4f60-9df7-cc4060ab1916})");
 }
 impl ::core::clone::Clone for ShareCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -3159,7 +3159,7 @@ unsafe impl ::windows::core::Interface for ShareCompletedEventArgs {
 impl ::windows::core::RuntimeName for ShareCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(ShareCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for ShareCompletedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -3215,7 +3215,7 @@ impl ShareProvider {
     }
     #[doc(hidden)]
     pub fn IShareProviderFactory<R, F: FnOnce(&IShareProviderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ShareProvider, IShareProviderFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ShareProvider, IShareProviderFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3231,7 +3231,7 @@ impl ::core::fmt::Debug for ShareProvider {
     }
 }
 impl ::windows::core::RuntimeType for ShareProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProvider;{2fabe026-443e-4cda-af25-8d81070efd80})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProvider;{2fabe026-443e-4cda-af25-8d81070efd80})");
 }
 impl ::core::clone::Clone for ShareProvider {
     fn clone(&self) -> Self {
@@ -3247,7 +3247,7 @@ unsafe impl ::windows::core::Interface for ShareProvider {
 impl ::windows::core::RuntimeName for ShareProvider {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvider";
 }
-::windows::core::interface_hierarchy!(ShareProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareProvider {}
 unsafe impl ::core::marker::Sync for ShareProvider {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -3285,7 +3285,7 @@ impl ::core::fmt::Debug for ShareProviderOperation {
     }
 }
 impl ::windows::core::RuntimeType for ShareProviderOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProviderOperation;{19cef937-d435-4179-b6af-14e0492b69f6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProviderOperation;{19cef937-d435-4179-b6af-14e0492b69f6})");
 }
 impl ::core::clone::Clone for ShareProviderOperation {
     fn clone(&self) -> Self {
@@ -3301,7 +3301,7 @@ unsafe impl ::windows::core::Interface for ShareProviderOperation {
 impl ::windows::core::RuntimeName for ShareProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProviderOperation";
 }
-::windows::core::interface_hierarchy!(ShareProviderOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareProviderOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareProviderOperation {}
 unsafe impl ::core::marker::Sync for ShareProviderOperation {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -3346,7 +3346,7 @@ impl ::core::fmt::Debug for ShareProvidersRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ShareProvidersRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs;{f888f356-a3f8-4fce-85e4-8826e63be799})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs;{f888f356-a3f8-4fce-85e4-8826e63be799})");
 }
 impl ::core::clone::Clone for ShareProvidersRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -3362,7 +3362,7 @@ unsafe impl ::windows::core::Interface for ShareProvidersRequestedEventArgs {
 impl ::windows::core::RuntimeName for ShareProvidersRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(ShareProvidersRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareProvidersRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareProvidersRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ShareProvidersRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -3396,7 +3396,7 @@ impl ::core::fmt::Debug for ShareTargetInfo {
     }
 }
 impl ::windows::core::RuntimeType for ShareTargetInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTargetInfo;{385be607-c6e8-4114-b294-28f3bb6f9904})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTargetInfo;{385be607-c6e8-4114-b294-28f3bb6f9904})");
 }
 impl ::core::clone::Clone for ShareTargetInfo {
     fn clone(&self) -> Self {
@@ -3412,7 +3412,7 @@ unsafe impl ::windows::core::Interface for ShareTargetInfo {
 impl ::windows::core::RuntimeName for ShareTargetInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTargetInfo";
 }
-::windows::core::interface_hierarchy!(ShareTargetInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareTargetInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareTargetInfo {}
 unsafe impl ::core::marker::Sync for ShareTargetInfo {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -3422,8 +3422,8 @@ impl ShareUIOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ShareUIOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ShareUIOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Theme(&self) -> ::windows::core::Result<ShareUITheme> {
@@ -3469,7 +3469,7 @@ impl ::core::fmt::Debug for ShareUIOptions {
     }
 }
 impl ::windows::core::RuntimeType for ShareUIOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareUIOptions;{72fa8a80-342f-4d90-9551-2ae04e37680c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareUIOptions;{72fa8a80-342f-4d90-9551-2ae04e37680c})");
 }
 impl ::core::clone::Clone for ShareUIOptions {
     fn clone(&self) -> Self {
@@ -3485,7 +3485,7 @@ unsafe impl ::windows::core::Interface for ShareUIOptions {
 impl ::windows::core::RuntimeName for ShareUIOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareUIOptions";
 }
-::windows::core::interface_hierarchy!(ShareUIOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ShareUIOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareUIOptions {}
 unsafe impl ::core::marker::Sync for ShareUIOptions {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -3516,7 +3516,7 @@ impl SharedStorageAccessManager {
     }
     #[doc(hidden)]
     pub fn ISharedStorageAccessManagerStatics<R, F: FnOnce(&ISharedStorageAccessManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SharedStorageAccessManager, ISharedStorageAccessManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SharedStorageAccessManager, ISharedStorageAccessManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3584,17 +3584,17 @@ impl StandardDataFormats {
     }
     #[doc(hidden)]
     pub fn IStandardDataFormatsStatics<R, F: FnOnce(&IStandardDataFormatsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStandardDataFormatsStatics2<R, F: FnOnce(&IStandardDataFormatsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStandardDataFormatsStatics3<R, F: FnOnce(&IStandardDataFormatsStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3625,7 +3625,7 @@ impl ::core::fmt::Debug for TargetApplicationChosenEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TargetApplicationChosenEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs;{ca6fb8ac-2987-4ee3-9c54-d8afbcb86c1d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs;{ca6fb8ac-2987-4ee3-9c54-d8afbcb86c1d})");
 }
 impl ::core::clone::Clone for TargetApplicationChosenEventArgs {
     fn clone(&self) -> Self {
@@ -3641,7 +3641,7 @@ unsafe impl ::windows::core::Interface for TargetApplicationChosenEventArgs {
 impl ::windows::core::RuntimeName for TargetApplicationChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs";
 }
-::windows::core::interface_hierarchy!(TargetApplicationChosenEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TargetApplicationChosenEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetApplicationChosenEventArgs {}
 unsafe impl ::core::marker::Sync for TargetApplicationChosenEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -3673,7 +3673,7 @@ impl ::core::fmt::Debug for ClipboardHistoryItemsResultStatus {
     }
 }
 impl ::windows::core::RuntimeType for ClipboardHistoryItemsResultStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
@@ -3738,7 +3738,7 @@ impl ::core::ops::Not for DataPackageOperation {
     }
 }
 impl ::windows::core::RuntimeType for DataPackageOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
@@ -3769,7 +3769,7 @@ impl ::core::fmt::Debug for SetHistoryItemAsContentStatus {
     }
 }
 impl ::windows::core::RuntimeType for SetHistoryItemAsContentStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
@@ -3800,15 +3800,15 @@ impl ::core::fmt::Debug for ShareUITheme {
     }
 }
 impl ::windows::core::RuntimeType for ShareUITheme {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ShareUITheme;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ShareUITheme;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataProviderHandler(pub ::windows::core::IUnknown);
 impl DataProviderHandler {
     pub fn new<F: FnMut(::core::option::Option<&DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = DataProviderHandlerBox::<F> { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = DataProviderHandlerBox::<F> { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, request: &DataProviderRequest) -> ::windows::core::Result<()> {
         let this = self;
@@ -3819,7 +3819,7 @@ impl DataProviderHandler {
 struct DataProviderHandlerBox<F: FnMut(::core::option::Option<&DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DataProviderHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DataProviderHandlerBox<F> {
     const VTABLE: DataProviderHandler_Vtbl = DataProviderHandler_Vtbl {
@@ -3828,7 +3828,7 @@ impl<F: FnMut(::core::option::Option<&DataProviderRequest>) -> ::windows::core::
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<DataProviderHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<DataProviderHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -3844,7 +3844,7 @@ impl<F: FnMut(::core::option::Option<&DataProviderRequest>) -> ::windows::core::
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -3876,7 +3876,7 @@ unsafe impl ::windows::core::Interface for DataProviderHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ecd720_f2f4_4a2d_920e_170a2f482a27);
 }
 impl ::windows::core::RuntimeType for DataProviderHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e7ecd720-f2f4-4a2d-920e-170a2f482a27}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e7ecd720-f2f4-4a2d-920e-170a2f482a27}");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3889,8 +3889,8 @@ pub struct DataProviderHandler_Vtbl {
 pub struct ShareProviderHandler(pub ::windows::core::IUnknown);
 impl ShareProviderHandler {
     pub fn new<F: FnMut(::core::option::Option<&ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = ShareProviderHandlerBox::<F> { vtable: &ShareProviderHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = ShareProviderHandlerBox::<F> { vtable: &ShareProviderHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, operation: &ShareProviderOperation) -> ::windows::core::Result<()> {
         let this = self;
@@ -3901,7 +3901,7 @@ impl ShareProviderHandler {
 struct ShareProviderHandlerBox<F: FnMut(::core::option::Option<&ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const ShareProviderHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ShareProviderHandlerBox<F> {
     const VTABLE: ShareProviderHandler_Vtbl = ShareProviderHandler_Vtbl {
@@ -3910,7 +3910,7 @@ impl<F: FnMut(::core::option::Option<&ShareProviderOperation>) -> ::windows::cor
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<ShareProviderHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<ShareProviderHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -3926,7 +3926,7 @@ impl<F: FnMut(::core::option::Option<&ShareProviderOperation>) -> ::windows::cor
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -3958,7 +3958,7 @@ unsafe impl ::windows::core::Interface for ShareProviderHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7f9d9ba_e1ba_4e4d_bd65_d43845d3212f);
 }
 impl ::windows::core::RuntimeType for ShareProviderHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e7f9d9ba-e1ba-4e4d-bd65-d43845d3212f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e7f9d9ba-e1ba-4e4d-bd65-d43845d3212f}");
 }
 #[repr(C)]
 #[doc(hidden)]

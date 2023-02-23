@@ -422,7 +422,7 @@ impl ::core::fmt::Debug for PrintTicketCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for PrintTicketCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities;{8c45508b-bbdc-4256-a142-2fd615ecb416})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities;{8c45508b-bbdc-4256-a142-2fd615ecb416})");
 }
 impl ::core::clone::Clone for PrintTicketCapabilities {
     fn clone(&self) -> Self {
@@ -438,7 +438,7 @@ unsafe impl ::windows::core::Interface for PrintTicketCapabilities {
 impl ::windows::core::RuntimeName for PrintTicketCapabilities {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities";
 }
-::windows::core::interface_hierarchy!(PrintTicketCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTicketCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketCapabilities {}
 unsafe impl ::core::marker::Sync for PrintTicketCapabilities {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -522,7 +522,7 @@ impl ::core::fmt::Debug for PrintTicketFeature {
     }
 }
 impl ::windows::core::RuntimeType for PrintTicketFeature {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketFeature;{e7607d6a-59f5-4103-8858-b97710963d39})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketFeature;{e7607d6a-59f5-4103-8858-b97710963d39})");
 }
 impl ::core::clone::Clone for PrintTicketFeature {
     fn clone(&self) -> Self {
@@ -538,7 +538,7 @@ unsafe impl ::windows::core::Interface for PrintTicketFeature {
 impl ::windows::core::RuntimeName for PrintTicketFeature {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketFeature";
 }
-::windows::core::interface_hierarchy!(PrintTicketFeature, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTicketFeature, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketFeature {}
 unsafe impl ::core::marker::Sync for PrintTicketFeature {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -620,7 +620,7 @@ impl ::core::fmt::Debug for PrintTicketOption {
     }
 }
 impl ::windows::core::RuntimeType for PrintTicketOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketOption;{b086cf90-b367-4e4b-bd48-9c78a0bb31ce})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketOption;{b086cf90-b367-4e4b-bd48-9c78a0bb31ce})");
 }
 impl ::core::clone::Clone for PrintTicketOption {
     fn clone(&self) -> Self {
@@ -636,7 +636,7 @@ unsafe impl ::windows::core::Interface for PrintTicketOption {
 impl ::windows::core::RuntimeName for PrintTicketOption {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketOption";
 }
-::windows::core::interface_hierarchy!(PrintTicketOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTicketOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketOption {}
 unsafe impl ::core::marker::Sync for PrintTicketOption {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -707,7 +707,7 @@ impl ::core::fmt::Debug for PrintTicketParameterDefinition {
     }
 }
 impl ::windows::core::RuntimeType for PrintTicketParameterDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition;{d6bab4e4-2962-4c01-b7f3-9a9294eb8335})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition;{d6bab4e4-2962-4c01-b7f3-9a9294eb8335})");
 }
 impl ::core::clone::Clone for PrintTicketParameterDefinition {
     fn clone(&self) -> Self {
@@ -723,7 +723,7 @@ unsafe impl ::windows::core::Interface for PrintTicketParameterDefinition {
 impl ::windows::core::RuntimeName for PrintTicketParameterDefinition {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition";
 }
-::windows::core::interface_hierarchy!(PrintTicketParameterDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTicketParameterDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketParameterDefinition {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterDefinition {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -777,7 +777,7 @@ impl ::core::fmt::Debug for PrintTicketParameterInitializer {
     }
 }
 impl ::windows::core::RuntimeType for PrintTicketParameterInitializer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer;{5e3335bb-a0a5-48b1-9d5c-07116ddc597a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer;{5e3335bb-a0a5-48b1-9d5c-07116ddc597a})");
 }
 impl ::core::clone::Clone for PrintTicketParameterInitializer {
     fn clone(&self) -> Self {
@@ -793,7 +793,7 @@ unsafe impl ::windows::core::Interface for PrintTicketParameterInitializer {
 impl ::windows::core::RuntimeName for PrintTicketParameterInitializer {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer";
 }
-::windows::core::interface_hierarchy!(PrintTicketParameterInitializer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTicketParameterInitializer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketParameterInitializer {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterInitializer {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -834,7 +834,7 @@ impl ::core::fmt::Debug for PrintTicketValue {
     }
 }
 impl ::windows::core::RuntimeType for PrintTicketValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketValue;{66b30a32-244d-4e22-a98b-bb3cf1f2dd91})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketValue;{66b30a32-244d-4e22-a98b-bb3cf1f2dd91})");
 }
 impl ::core::clone::Clone for PrintTicketValue {
     fn clone(&self) -> Self {
@@ -850,7 +850,7 @@ unsafe impl ::windows::core::Interface for PrintTicketValue {
 impl ::windows::core::RuntimeName for PrintTicketValue {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketValue";
 }
-::windows::core::interface_hierarchy!(PrintTicketValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTicketValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketValue {}
 unsafe impl ::core::marker::Sync for PrintTicketValue {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -1058,7 +1058,7 @@ impl ::core::fmt::Debug for WorkflowPrintTicket {
     }
 }
 impl ::windows::core::RuntimeType for WorkflowPrintTicket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket;{41d52285-35e8-448e-a8c5-e4b6a2cf826c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket;{41d52285-35e8-448e-a8c5-e4b6a2cf826c})");
 }
 impl ::core::clone::Clone for WorkflowPrintTicket {
     fn clone(&self) -> Self {
@@ -1074,7 +1074,7 @@ unsafe impl ::windows::core::Interface for WorkflowPrintTicket {
 impl ::windows::core::RuntimeName for WorkflowPrintTicket {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket";
 }
-::windows::core::interface_hierarchy!(WorkflowPrintTicket, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WorkflowPrintTicket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WorkflowPrintTicket {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicket {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -1108,7 +1108,7 @@ impl ::core::fmt::Debug for WorkflowPrintTicketValidationResult {
     }
 }
 impl ::windows::core::RuntimeType for WorkflowPrintTicketValidationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult;{0ad1f392-da7b-4a36-bf36-6a99a62e2059})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult;{0ad1f392-da7b-4a36-bf36-6a99a62e2059})");
 }
 impl ::core::clone::Clone for WorkflowPrintTicketValidationResult {
     fn clone(&self) -> Self {
@@ -1124,7 +1124,7 @@ unsafe impl ::windows::core::Interface for WorkflowPrintTicketValidationResult {
 impl ::windows::core::RuntimeName for WorkflowPrintTicketValidationResult {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult";
 }
-::windows::core::interface_hierarchy!(WorkflowPrintTicketValidationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WorkflowPrintTicketValidationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WorkflowPrintTicketValidationResult {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicketValidationResult {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -1155,7 +1155,7 @@ impl ::core::fmt::Debug for PrintTicketFeatureSelectionType {
     }
 }
 impl ::windows::core::RuntimeType for PrintTicketFeatureSelectionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
@@ -1186,7 +1186,7 @@ impl ::core::fmt::Debug for PrintTicketParameterDataType {
     }
 }
 impl ::windows::core::RuntimeType for PrintTicketParameterDataType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
@@ -1217,7 +1217,7 @@ impl ::core::fmt::Debug for PrintTicketValueType {
     }
 }
 impl ::windows::core::RuntimeType for PrintTicketValueType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

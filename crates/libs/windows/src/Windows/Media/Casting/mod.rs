@@ -349,7 +349,7 @@ impl ::core::fmt::Debug for CastingConnection {
     }
 }
 impl ::windows::core::RuntimeType for CastingConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnection;{cd951653-c2f1-4498-8b78-5fb4cd3640dd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnection;{cd951653-c2f1-4498-8b78-5fb4cd3640dd})");
 }
 impl ::core::clone::Clone for CastingConnection {
     fn clone(&self) -> Self {
@@ -365,7 +365,7 @@ unsafe impl ::windows::core::Interface for CastingConnection {
 impl ::windows::core::RuntimeName for CastingConnection {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnection";
 }
-::windows::core::interface_hierarchy!(CastingConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CastingConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<CastingConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -421,7 +421,7 @@ impl ::core::fmt::Debug for CastingConnectionErrorOccurredEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CastingConnectionErrorOccurredEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs;{a7fb3c69-8719-4f00-81fb-961863c79a32})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs;{a7fb3c69-8719-4f00-81fb-961863c79a32})");
 }
 impl ::core::clone::Clone for CastingConnectionErrorOccurredEventArgs {
     fn clone(&self) -> Self {
@@ -437,7 +437,7 @@ unsafe impl ::windows::core::Interface for CastingConnectionErrorOccurredEventAr
 impl ::windows::core::RuntimeName for CastingConnectionErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs";
 }
-::windows::core::interface_hierarchy!(CastingConnectionErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CastingConnectionErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for CastingConnectionErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -515,7 +515,7 @@ impl CastingDevice {
     }
     #[doc(hidden)]
     pub fn ICastingDeviceStatics<R, F: FnOnce(&ICastingDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CastingDevice, ICastingDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CastingDevice, ICastingDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -531,7 +531,7 @@ impl ::core::fmt::Debug for CastingDevice {
     }
 }
 impl ::windows::core::RuntimeType for CastingDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevice;{de721c83-4a43-4ad1-a6d2-2492a796c3f2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevice;{de721c83-4a43-4ad1-a6d2-2492a796c3f2})");
 }
 impl ::core::clone::Clone for CastingDevice {
     fn clone(&self) -> Self {
@@ -547,7 +547,7 @@ unsafe impl ::windows::core::Interface for CastingDevice {
 impl ::windows::core::RuntimeName for CastingDevice {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevice";
 }
-::windows::core::interface_hierarchy!(CastingDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CastingDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingDevice {}
 unsafe impl ::core::marker::Sync for CastingDevice {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -557,8 +557,8 @@ impl CastingDevicePicker {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CastingDevicePicker, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<CastingDevicePicker, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Filter(&self) -> ::windows::core::Result<CastingDevicePickerFilter> {
@@ -636,7 +636,7 @@ impl ::core::fmt::Debug for CastingDevicePicker {
     }
 }
 impl ::windows::core::RuntimeType for CastingDevicePicker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePicker;{dcd39924-0591-49be-aacb-4b82ee756a95})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePicker;{dcd39924-0591-49be-aacb-4b82ee756a95})");
 }
 impl ::core::clone::Clone for CastingDevicePicker {
     fn clone(&self) -> Self {
@@ -652,7 +652,7 @@ unsafe impl ::windows::core::Interface for CastingDevicePicker {
 impl ::windows::core::RuntimeName for CastingDevicePicker {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePicker";
 }
-::windows::core::interface_hierarchy!(CastingDevicePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CastingDevicePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingDevicePicker {}
 unsafe impl ::core::marker::Sync for CastingDevicePicker {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -714,7 +714,7 @@ impl ::core::fmt::Debug for CastingDevicePickerFilter {
     }
 }
 impl ::windows::core::RuntimeType for CastingDevicePickerFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePickerFilter;{be8c619c-b563-4354-ae33-9fdaad8c6291})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePickerFilter;{be8c619c-b563-4354-ae33-9fdaad8c6291})");
 }
 impl ::core::clone::Clone for CastingDevicePickerFilter {
     fn clone(&self) -> Self {
@@ -730,7 +730,7 @@ unsafe impl ::windows::core::Interface for CastingDevicePickerFilter {
 impl ::windows::core::RuntimeName for CastingDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePickerFilter";
 }
-::windows::core::interface_hierarchy!(CastingDevicePickerFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CastingDevicePickerFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingDevicePickerFilter {}
 unsafe impl ::core::marker::Sync for CastingDevicePickerFilter {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -757,7 +757,7 @@ impl ::core::fmt::Debug for CastingDeviceSelectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CastingDeviceSelectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDeviceSelectedEventArgs;{dc439e86-dd57-4d0d-9400-af45e4fb3663})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDeviceSelectedEventArgs;{dc439e86-dd57-4d0d-9400-af45e4fb3663})");
 }
 impl ::core::clone::Clone for CastingDeviceSelectedEventArgs {
     fn clone(&self) -> Self {
@@ -773,7 +773,7 @@ unsafe impl ::windows::core::Interface for CastingDeviceSelectedEventArgs {
 impl ::windows::core::RuntimeName for CastingDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingDeviceSelectedEventArgs";
 }
-::windows::core::interface_hierarchy!(CastingDeviceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CastingDeviceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingDeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for CastingDeviceSelectedEventArgs {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -808,7 +808,7 @@ impl ::core::fmt::Debug for CastingSource {
     }
 }
 impl ::windows::core::RuntimeType for CastingSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingSource;{f429ea72-3467-47e6-a027-522923e9d727})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingSource;{f429ea72-3467-47e6-a027-522923e9d727})");
 }
 impl ::core::clone::Clone for CastingSource {
     fn clone(&self) -> Self {
@@ -824,7 +824,7 @@ unsafe impl ::windows::core::Interface for CastingSource {
 impl ::windows::core::RuntimeName for CastingSource {
     const NAME: &'static str = "Windows.Media.Casting.CastingSource";
 }
-::windows::core::interface_hierarchy!(CastingSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CastingSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingSource {}
 unsafe impl ::core::marker::Sync for CastingSource {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -860,7 +860,7 @@ impl ::core::fmt::Debug for CastingConnectionErrorStatus {
     }
 }
 impl ::windows::core::RuntimeType for CastingConnectionErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
 }
 #[doc = "*Required features: `\"Media_Casting\"`*"]
 #[repr(transparent)]
@@ -893,7 +893,7 @@ impl ::core::fmt::Debug for CastingConnectionState {
     }
 }
 impl ::windows::core::RuntimeType for CastingConnectionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
 }
 #[doc = "*Required features: `\"Media_Casting\"`*"]
 #[repr(transparent)]
@@ -958,7 +958,7 @@ impl ::core::ops::Not for CastingPlaybackTypes {
     }
 }
 impl ::windows::core::RuntimeType for CastingPlaybackTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

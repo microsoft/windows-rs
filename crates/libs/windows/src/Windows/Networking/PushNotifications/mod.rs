@@ -367,7 +367,7 @@ impl ::core::fmt::Debug for PushNotificationChannel {
     }
 }
 impl ::windows::core::RuntimeType for PushNotificationChannel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannel;{2b28102e-ef0b-4f39-9b8a-a3c194de7081})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannel;{2b28102e-ef0b-4f39-9b8a-a3c194de7081})");
 }
 impl ::core::clone::Clone for PushNotificationChannel {
     fn clone(&self) -> Self {
@@ -383,7 +383,7 @@ unsafe impl ::windows::core::Interface for PushNotificationChannel {
 impl ::windows::core::RuntimeName for PushNotificationChannel {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannel";
 }
-::windows::core::interface_hierarchy!(PushNotificationChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PushNotificationChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PushNotificationChannel {}
 unsafe impl ::core::marker::Sync for PushNotificationChannel {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
@@ -442,22 +442,22 @@ impl PushNotificationChannelManager {
     }
     #[doc(hidden)]
     pub fn IPushNotificationChannelManagerStatics<R, F: FnOnce(&IPushNotificationChannelManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPushNotificationChannelManagerStatics2<R, F: FnOnce(&IPushNotificationChannelManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPushNotificationChannelManagerStatics3<R, F: FnOnce(&IPushNotificationChannelManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPushNotificationChannelManagerStatics4<R, F: FnOnce(&IPushNotificationChannelManagerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -543,7 +543,7 @@ impl ::core::fmt::Debug for PushNotificationChannelManagerForUser {
     }
 }
 impl ::windows::core::RuntimeType for PushNotificationChannelManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser;{a4c45704-1182-42c7-8890-f563c4890dc4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser;{a4c45704-1182-42c7-8890-f563c4890dc4})");
 }
 impl ::core::clone::Clone for PushNotificationChannelManagerForUser {
     fn clone(&self) -> Self {
@@ -559,7 +559,7 @@ unsafe impl ::windows::core::Interface for PushNotificationChannelManagerForUser
 impl ::windows::core::RuntimeName for PushNotificationChannelManagerForUser {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser";
 }
-::windows::core::interface_hierarchy!(PushNotificationChannelManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PushNotificationChannelManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PushNotificationChannelManagerForUser {}
 unsafe impl ::core::marker::Sync for PushNotificationChannelManagerForUser {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
@@ -578,7 +578,7 @@ impl ::core::fmt::Debug for PushNotificationChannelsRevokedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PushNotificationChannelsRevokedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs;{20e1a24c-1a34-5beb-aae2-40c232c8c140})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs;{20e1a24c-1a34-5beb-aae2-40c232c8c140})");
 }
 impl ::core::clone::Clone for PushNotificationChannelsRevokedEventArgs {
     fn clone(&self) -> Self {
@@ -594,7 +594,7 @@ unsafe impl ::windows::core::Interface for PushNotificationChannelsRevokedEventA
 impl ::windows::core::RuntimeName for PushNotificationChannelsRevokedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs";
 }
-::windows::core::interface_hierarchy!(PushNotificationChannelsRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PushNotificationChannelsRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PushNotificationChannelsRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationChannelsRevokedEventArgs {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
@@ -666,7 +666,7 @@ impl ::core::fmt::Debug for PushNotificationReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PushNotificationReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs;{d1065e0c-36cd-484c-b935-0a99b753cf00})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs;{d1065e0c-36cd-484c-b935-0a99b753cf00})");
 }
 impl ::core::clone::Clone for PushNotificationReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -682,7 +682,7 @@ unsafe impl ::windows::core::Interface for PushNotificationReceivedEventArgs {
 impl ::windows::core::RuntimeName for PushNotificationReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(PushNotificationReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PushNotificationReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PushNotificationReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
@@ -734,7 +734,7 @@ impl ::core::fmt::Debug for RawNotification {
     }
 }
 impl ::windows::core::RuntimeType for RawNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.RawNotification;{1a227281-3b79-42ac-9963-22ab00d4f0b7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.RawNotification;{1a227281-3b79-42ac-9963-22ab00d4f0b7})");
 }
 impl ::core::clone::Clone for RawNotification {
     fn clone(&self) -> Self {
@@ -750,7 +750,7 @@ unsafe impl ::windows::core::Interface for RawNotification {
 impl ::windows::core::RuntimeName for RawNotification {
     const NAME: &'static str = "Windows.Networking.PushNotifications.RawNotification";
 }
-::windows::core::interface_hierarchy!(RawNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RawNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RawNotification {}
 unsafe impl ::core::marker::Sync for RawNotification {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
@@ -784,7 +784,7 @@ impl ::core::fmt::Debug for PushNotificationType {
     }
 }
 impl ::windows::core::RuntimeType for PushNotificationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.PushNotifications.PushNotificationType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.PushNotifications.PushNotificationType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

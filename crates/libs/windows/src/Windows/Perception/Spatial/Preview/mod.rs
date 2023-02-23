@@ -120,7 +120,7 @@ impl ::core::fmt::Debug for SpatialGraphInteropFrameOfReferencePreview {
     }
 }
 impl ::windows::core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview;{a8271b23-735f-5729-a98e-e64ed189abc5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview;{a8271b23-735f-5729-a98e-e64ed189abc5})");
 }
 impl ::core::clone::Clone for SpatialGraphInteropFrameOfReferencePreview {
     fn clone(&self) -> Self {
@@ -136,7 +136,7 @@ unsafe impl ::windows::core::Interface for SpatialGraphInteropFrameOfReferencePr
 impl ::windows::core::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview";
 }
-::windows::core::interface_hierarchy!(SpatialGraphInteropFrameOfReferencePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpatialGraphInteropFrameOfReferencePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialGraphInteropFrameOfReferencePreview {}
 unsafe impl ::core::marker::Sync for SpatialGraphInteropFrameOfReferencePreview {}
 #[doc = "*Required features: `\"Perception_Spatial_Preview\"`*"]
@@ -194,12 +194,12 @@ impl SpatialGraphInteropPreview {
     }
     #[doc(hidden)]
     pub fn ISpatialGraphInteropPreviewStatics<R, F: FnOnce(&ISpatialGraphInteropPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialGraphInteropPreview, ISpatialGraphInteropPreviewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialGraphInteropPreview, ISpatialGraphInteropPreviewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISpatialGraphInteropPreviewStatics2<R, F: FnOnce(&ISpatialGraphInteropPreviewStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpatialGraphInteropPreview, ISpatialGraphInteropPreviewStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpatialGraphInteropPreview, ISpatialGraphInteropPreviewStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

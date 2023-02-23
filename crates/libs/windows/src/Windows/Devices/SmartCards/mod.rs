@@ -1540,7 +1540,7 @@ impl ::core::fmt::Debug for CardAddedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CardAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardAddedEventArgs;{18bbef98-f18b-4dd3-b118-dfb2c8e23cc6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardAddedEventArgs;{18bbef98-f18b-4dd3-b118-dfb2c8e23cc6})");
 }
 impl ::core::clone::Clone for CardAddedEventArgs {
     fn clone(&self) -> Self {
@@ -1556,7 +1556,7 @@ unsafe impl ::windows::core::Interface for CardAddedEventArgs {
 impl ::windows::core::RuntimeName for CardAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardAddedEventArgs";
 }
-::windows::core::interface_hierarchy!(CardAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CardAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CardAddedEventArgs {}
 unsafe impl ::core::marker::Sync for CardAddedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1583,7 +1583,7 @@ impl ::core::fmt::Debug for CardRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CardRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardRemovedEventArgs;{15331aaf-22d7-4945-afc9-03b46f42a6cd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardRemovedEventArgs;{15331aaf-22d7-4945-afc9-03b46f42a6cd})");
 }
 impl ::core::clone::Clone for CardRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -1599,7 +1599,7 @@ unsafe impl ::windows::core::Interface for CardRemovedEventArgs {
 impl ::windows::core::RuntimeName for CardRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(CardRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CardRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CardRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for CardRemovedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1623,7 +1623,7 @@ impl KnownSmartCardAppletIds {
     }
     #[doc(hidden)]
     pub fn IKnownSmartCardAppletIds<R, F: FnOnce(&IKnownSmartCardAppletIds) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KnownSmartCardAppletIds, IKnownSmartCardAppletIds> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KnownSmartCardAppletIds, IKnownSmartCardAppletIds> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1681,7 +1681,7 @@ impl ::core::fmt::Debug for SmartCard {
     }
 }
 impl ::windows::core::RuntimeType for SmartCard {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCard;{1b718871-6434-43f4-b55a-6a29623870aa})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCard;{1b718871-6434-43f4-b55a-6a29623870aa})");
 }
 impl ::core::clone::Clone for SmartCard {
     fn clone(&self) -> Self {
@@ -1697,7 +1697,7 @@ unsafe impl ::windows::core::Interface for SmartCard {
 impl ::windows::core::RuntimeName for SmartCard {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCard";
 }
-::windows::core::interface_hierarchy!(SmartCard, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCard, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCard {}
 unsafe impl ::core::marker::Sync for SmartCard {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1707,8 +1707,8 @@ impl SmartCardAppletIdGroup {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardAppletIdGroup, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SmartCardAppletIdGroup, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1834,12 +1834,12 @@ impl SmartCardAppletIdGroup {
     }
     #[doc(hidden)]
     pub fn ISmartCardAppletIdGroupFactory<R, F: FnOnce(&ISmartCardAppletIdGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardAppletIdGroup, ISmartCardAppletIdGroupFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardAppletIdGroup, ISmartCardAppletIdGroupFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISmartCardAppletIdGroupStatics<R, F: FnOnce(&ISmartCardAppletIdGroupStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardAppletIdGroup, ISmartCardAppletIdGroupStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardAppletIdGroup, ISmartCardAppletIdGroupStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1855,7 +1855,7 @@ impl ::core::fmt::Debug for SmartCardAppletIdGroup {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardAppletIdGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAppletIdGroup;{7db165e6-6264-56f4-5e03-c86385395eb1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAppletIdGroup;{7db165e6-6264-56f4-5e03-c86385395eb1})");
 }
 impl ::core::clone::Clone for SmartCardAppletIdGroup {
     fn clone(&self) -> Self {
@@ -1871,7 +1871,7 @@ unsafe impl ::windows::core::Interface for SmartCardAppletIdGroup {
 impl ::windows::core::RuntimeName for SmartCardAppletIdGroup {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroup";
 }
-::windows::core::interface_hierarchy!(SmartCardAppletIdGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardAppletIdGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroup {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1950,7 +1950,7 @@ impl ::core::fmt::Debug for SmartCardAppletIdGroupRegistration {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardAppletIdGroupRegistration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration;{df1208d1-31bb-5596-43b1-6d69a0257b3a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration;{df1208d1-31bb-5596-43b1-6d69a0257b3a})");
 }
 impl ::core::clone::Clone for SmartCardAppletIdGroupRegistration {
     fn clone(&self) -> Self {
@@ -1966,7 +1966,7 @@ unsafe impl ::windows::core::Interface for SmartCardAppletIdGroupRegistration {
 impl ::windows::core::RuntimeName for SmartCardAppletIdGroupRegistration {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration";
 }
-::windows::core::interface_hierarchy!(SmartCardAppletIdGroupRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardAppletIdGroupRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroupRegistration {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroupRegistration {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2125,7 +2125,7 @@ impl SmartCardAutomaticResponseApdu {
     }
     #[doc(hidden)]
     pub fn ISmartCardAutomaticResponseApduFactory<R, F: FnOnce(&ISmartCardAutomaticResponseApduFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardAutomaticResponseApdu, ISmartCardAutomaticResponseApduFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardAutomaticResponseApdu, ISmartCardAutomaticResponseApduFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2141,7 +2141,7 @@ impl ::core::fmt::Debug for SmartCardAutomaticResponseApdu {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardAutomaticResponseApdu {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu;{52152bab-c63e-4531-a857-d756d99b986a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu;{52152bab-c63e-4531-a857-d756d99b986a})");
 }
 impl ::core::clone::Clone for SmartCardAutomaticResponseApdu {
     fn clone(&self) -> Self {
@@ -2157,7 +2157,7 @@ unsafe impl ::windows::core::Interface for SmartCardAutomaticResponseApdu {
 impl ::windows::core::RuntimeName for SmartCardAutomaticResponseApdu {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu";
 }
-::windows::core::interface_hierarchy!(SmartCardAutomaticResponseApdu, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardAutomaticResponseApdu, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
 unsafe impl ::core::marker::Sync for SmartCardAutomaticResponseApdu {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2246,7 +2246,7 @@ impl ::core::fmt::Debug for SmartCardChallengeContext {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardChallengeContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardChallengeContext;{192a5319-c9c4-4947-81cc-44794a61ef91})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardChallengeContext;{192a5319-c9c4-4947-81cc-44794a61ef91})");
 }
 impl ::core::clone::Clone for SmartCardChallengeContext {
     fn clone(&self) -> Self {
@@ -2262,7 +2262,7 @@ unsafe impl ::windows::core::Interface for SmartCardChallengeContext {
 impl ::windows::core::RuntimeName for SmartCardChallengeContext {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardChallengeContext";
 }
-::windows::core::interface_hierarchy!(SmartCardChallengeContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardChallengeContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SmartCardChallengeContext> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2323,7 +2323,7 @@ impl ::core::fmt::Debug for SmartCardConnection {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardConnection;{7edb991a-a81a-47bc-a649-156be6b7f231})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardConnection;{7edb991a-a81a-47bc-a649-156be6b7f231})");
 }
 impl ::core::clone::Clone for SmartCardConnection {
     fn clone(&self) -> Self {
@@ -2339,7 +2339,7 @@ unsafe impl ::windows::core::Interface for SmartCardConnection {
 impl ::windows::core::RuntimeName for SmartCardConnection {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardConnection";
 }
-::windows::core::interface_hierarchy!(SmartCardConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SmartCardConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2551,12 +2551,12 @@ impl SmartCardCryptogramGenerator {
     }
     #[doc(hidden)]
     pub fn ISmartCardCryptogramGeneratorStatics<R, F: FnOnce(&ISmartCardCryptogramGeneratorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardCryptogramGenerator, ISmartCardCryptogramGeneratorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardCryptogramGenerator, ISmartCardCryptogramGeneratorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISmartCardCryptogramGeneratorStatics2<R, F: FnOnce(&ISmartCardCryptogramGeneratorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardCryptogramGenerator, ISmartCardCryptogramGeneratorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardCryptogramGenerator, ISmartCardCryptogramGeneratorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2572,7 +2572,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramGenerator {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramGenerator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGenerator;{e39f587b-edd3-4e49-b594-0ff5e4d0c76f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGenerator;{e39f587b-edd3-4e49-b594-0ff5e4d0c76f})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramGenerator {
     fn clone(&self) -> Self {
@@ -2588,7 +2588,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramGenerator {
 impl ::windows::core::RuntimeName for SmartCardCryptogramGenerator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGenerator";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGenerator {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2598,8 +2598,8 @@ impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus> {
@@ -2631,7 +2631,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramGetAllCryptogramMaterialCharacter
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult;{2798e029-d687-4c92-86c6-399e9a0ecb09})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult;{2798e029-d687-4c92-86c6-399e9a0ecb09})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     fn clone(&self) -> Self {
@@ -2647,7 +2647,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMa
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2657,8 +2657,8 @@ impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus> {
@@ -2690,7 +2690,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramGetAllCryptogramMaterialPackageCh
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult;{4e6a8a5c-9773-46c4-a32f-b1e543159e04})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult;{4e6a8a5c-9773-46c4-a32f-b1e543159e04})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     fn clone(&self) -> Self {
@@ -2706,7 +2706,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMa
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2716,8 +2716,8 @@ impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus> {
@@ -2749,7 +2749,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramGetAllCryptogramStorageKeyCharact
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult;{8c7ce857-a7e7-489d-b9d6-368061515012})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult;{8c7ce857-a7e7-489d-b9d6-368061515012})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     fn clone(&self) -> Self {
@@ -2765,7 +2765,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramSt
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2775,8 +2775,8 @@ impl SmartCardCryptogramMaterialCharacteristics {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardCryptogramMaterialCharacteristics, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SmartCardCryptogramMaterialCharacteristics, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn MaterialName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2854,7 +2854,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialCharacteristics {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialCharacteristics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics;{fc9ac5cc-c1d7-4153-923b-a2d43c6c8d49})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics;{fc9ac5cc-c1d7-4153-923b-a2d43c6c8d49})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramMaterialCharacteristics {
     fn clone(&self) -> Self {
@@ -2870,7 +2870,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialCharacteri
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramMaterialCharacteristics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramMaterialCharacteristics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialCharacteristics {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2880,8 +2880,8 @@ impl SmartCardCryptogramMaterialPackageCharacteristics {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardCryptogramMaterialPackageCharacteristics, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SmartCardCryptogramMaterialPackageCharacteristics, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn PackageName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2927,7 +2927,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageCharacteristics {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageCharacteristics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics;{ffb58e1f-0692-4c47-93cf-34d91f9dcd00})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics;{ffb58e1f-0692-4c47-93cf-34d91f9dcd00})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageCharacteristics {
     fn clone(&self) -> Self {
@@ -2943,7 +2943,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPackageCha
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialPackageCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramMaterialPackageCharacteristics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramMaterialPackageCharacteristics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2979,7 +2979,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPossessionProof {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPossessionProof {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof;{e5b9ab8c-a141-4135-9add-b0d2e3aa1fc9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof;{e5b9ab8c-a141-4135-9add-b0d2e3aa1fc9})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramMaterialPossessionProof {
     fn clone(&self) -> Self {
@@ -2995,7 +2995,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPossession
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramMaterialPossessionProof, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramMaterialPossessionProof, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3005,8 +3005,8 @@ impl SmartCardCryptogramPlacementStep {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardCryptogramPlacementStep, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SmartCardCryptogramPlacementStep, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Algorithm(&self) -> ::windows::core::Result<SmartCardCryptogramAlgorithm> {
@@ -3129,7 +3129,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramPlacementStep {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementStep {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep;{947b03eb-8342-4792-a2e5-925636378a53})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep;{947b03eb-8342-4792-a2e5-925636378a53})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramPlacementStep {
     fn clone(&self) -> Self {
@@ -3145,7 +3145,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramPlacementStep {
 impl ::windows::core::RuntimeName for SmartCardCryptogramPlacementStep {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramPlacementStep, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramPlacementStep, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramPlacementStep {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3155,8 +3155,8 @@ impl SmartCardCryptogramStorageKeyCharacteristics {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardCryptogramStorageKeyCharacteristics, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SmartCardCryptogramStorageKeyCharacteristics, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn StorageKeyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3202,7 +3202,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyCharacteristics {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCharacteristics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics;{8552546e-4457-4825-b464-635471a39f5c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics;{8552546e-4457-4825-b464-635471a39f5c})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCharacteristics {
     fn clone(&self) -> Self {
@@ -3218,7 +3218,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyCharacte
 impl ::windows::core::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramStorageKeyCharacteristics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyCharacteristics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyCharacteristics {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3302,7 +3302,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyInfo {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo;{77b0f00d-b097-4f61-a26a-9561639c9c3a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo;{77b0f00d-b097-4f61-a26a-9561639c9c3a})");
 }
 impl ::core::clone::Clone for SmartCardCryptogramStorageKeyInfo {
     fn clone(&self) -> Self {
@@ -3318,7 +3318,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyInfo {
 impl ::windows::core::RuntimeName for SmartCardCryptogramStorageKeyInfo {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo";
 }
-::windows::core::interface_hierarchy!(SmartCardCryptogramStorageKeyInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3419,17 +3419,17 @@ impl SmartCardEmulator {
     }
     #[doc(hidden)]
     pub fn ISmartCardEmulatorStatics<R, F: FnOnce(&ISmartCardEmulatorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardEmulator, ISmartCardEmulatorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardEmulator, ISmartCardEmulatorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISmartCardEmulatorStatics2<R, F: FnOnce(&ISmartCardEmulatorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardEmulator, ISmartCardEmulatorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardEmulator, ISmartCardEmulatorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISmartCardEmulatorStatics3<R, F: FnOnce(&ISmartCardEmulatorStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardEmulator, ISmartCardEmulatorStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardEmulator, ISmartCardEmulatorStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3445,7 +3445,7 @@ impl ::core::fmt::Debug for SmartCardEmulator {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardEmulator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulator;{dfb906b2-875e-47e5-8077-e8bff1b1c6fb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulator;{dfb906b2-875e-47e5-8077-e8bff1b1c6fb})");
 }
 impl ::core::clone::Clone for SmartCardEmulator {
     fn clone(&self) -> Self {
@@ -3461,7 +3461,7 @@ unsafe impl ::windows::core::Interface for SmartCardEmulator {
 impl ::windows::core::RuntimeName for SmartCardEmulator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulator";
 }
-::windows::core::interface_hierarchy!(SmartCardEmulator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardEmulator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulator {}
 unsafe impl ::core::marker::Sync for SmartCardEmulator {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3571,7 +3571,7 @@ impl ::core::fmt::Debug for SmartCardEmulatorApduReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardEmulatorApduReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs;{d55d1576-69d2-5333-5b5f-f8c0d6e9f09f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs;{d55d1576-69d2-5333-5b5f-f8c0d6e9f09f})");
 }
 impl ::core::clone::Clone for SmartCardEmulatorApduReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -3587,7 +3587,7 @@ unsafe impl ::windows::core::Interface for SmartCardEmulatorApduReceivedEventArg
 impl ::windows::core::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(SmartCardEmulatorApduReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardEmulatorApduReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorApduReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorApduReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3621,7 +3621,7 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs;{2186d8d3-c5eb-5262-43df-62a0a1b55557})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs;{2186d8d3-c5eb-5262-43df-62a0a1b55557})");
 }
 impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedEventArgs {
     fn clone(&self) -> Self {
@@ -3637,7 +3637,7 @@ unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionDeactivate
 impl ::windows::core::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(SmartCardEmulatorConnectionDeactivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardEmulatorConnectionDeactivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3671,7 +3671,7 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionProperties {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties;{4e2ca5ee-f969-507d-6cf9-34e2d18df311})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties;{4e2ca5ee-f969-507d-6cf9-34e2d18df311})");
 }
 impl ::core::clone::Clone for SmartCardEmulatorConnectionProperties {
     fn clone(&self) -> Self {
@@ -3687,7 +3687,7 @@ unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionProperties
 impl ::windows::core::RuntimeName for SmartCardEmulatorConnectionProperties {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties";
 }
-::windows::core::interface_hierarchy!(SmartCardEmulatorConnectionProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardEmulatorConnectionProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionProperties {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3697,8 +3697,8 @@ impl SmartCardPinPolicy {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardPinPolicy, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SmartCardPinPolicy, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn MinLength(&self) -> ::windows::core::Result<u32> {
@@ -3780,7 +3780,7 @@ impl ::core::fmt::Debug for SmartCardPinPolicy {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardPinPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinPolicy;{183ce184-4db6-4841-ac9e-2ac1f39b7304})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinPolicy;{183ce184-4db6-4841-ac9e-2ac1f39b7304})");
 }
 impl ::core::clone::Clone for SmartCardPinPolicy {
     fn clone(&self) -> Self {
@@ -3796,7 +3796,7 @@ unsafe impl ::windows::core::Interface for SmartCardPinPolicy {
 impl ::windows::core::RuntimeName for SmartCardPinPolicy {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinPolicy";
 }
-::windows::core::interface_hierarchy!(SmartCardPinPolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardPinPolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinPolicy {}
 unsafe impl ::core::marker::Sync for SmartCardPinPolicy {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3820,7 +3820,7 @@ impl ::core::fmt::Debug for SmartCardPinResetDeferral {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardPinResetDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinResetDeferral;{18c94aac-7805-4004-85e4-bbefac8f6884})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinResetDeferral;{18c94aac-7805-4004-85e4-bbefac8f6884})");
 }
 impl ::core::clone::Clone for SmartCardPinResetDeferral {
     fn clone(&self) -> Self {
@@ -3836,7 +3836,7 @@ unsafe impl ::windows::core::Interface for SmartCardPinResetDeferral {
 impl ::windows::core::RuntimeName for SmartCardPinResetDeferral {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetDeferral";
 }
-::windows::core::interface_hierarchy!(SmartCardPinResetDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardPinResetDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinResetDeferral {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetDeferral {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3891,7 +3891,7 @@ impl ::core::fmt::Debug for SmartCardPinResetRequest {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardPinResetRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinResetRequest;{12fe3c4d-5fb9-4e8e-9ff6-61f475124fef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinResetRequest;{12fe3c4d-5fb9-4e8e-9ff6-61f475124fef})");
 }
 impl ::core::clone::Clone for SmartCardPinResetRequest {
     fn clone(&self) -> Self {
@@ -3907,7 +3907,7 @@ unsafe impl ::windows::core::Interface for SmartCardPinResetRequest {
 impl ::windows::core::RuntimeName for SmartCardPinResetRequest {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetRequest";
 }
-::windows::core::interface_hierarchy!(SmartCardPinResetRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardPinResetRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinResetRequest {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetRequest {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4041,12 +4041,12 @@ impl SmartCardProvisioning {
     }
     #[doc(hidden)]
     pub fn ISmartCardProvisioningStatics<R, F: FnOnce(&ISmartCardProvisioningStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardProvisioning, ISmartCardProvisioningStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardProvisioning, ISmartCardProvisioningStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISmartCardProvisioningStatics2<R, F: FnOnce(&ISmartCardProvisioningStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardProvisioning, ISmartCardProvisioningStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardProvisioning, ISmartCardProvisioningStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4062,7 +4062,7 @@ impl ::core::fmt::Debug for SmartCardProvisioning {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardProvisioning {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardProvisioning;{19eeedbd-1fab-477c-b712-1a2c5af1fd6e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardProvisioning;{19eeedbd-1fab-477c-b712-1a2c5af1fd6e})");
 }
 impl ::core::clone::Clone for SmartCardProvisioning {
     fn clone(&self) -> Self {
@@ -4078,7 +4078,7 @@ unsafe impl ::windows::core::Interface for SmartCardProvisioning {
 impl ::windows::core::RuntimeName for SmartCardProvisioning {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardProvisioning";
 }
-::windows::core::interface_hierarchy!(SmartCardProvisioning, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardProvisioning, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardProvisioning {}
 unsafe impl ::core::marker::Sync for SmartCardProvisioning {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4176,7 +4176,7 @@ impl SmartCardReader {
     }
     #[doc(hidden)]
     pub fn ISmartCardReaderStatics<R, F: FnOnce(&ISmartCardReaderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SmartCardReader, ISmartCardReaderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SmartCardReader, ISmartCardReaderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4192,7 +4192,7 @@ impl ::core::fmt::Debug for SmartCardReader {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardReader;{1074b4e0-54c2-4df0-817a-14c14378f06c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardReader;{1074b4e0-54c2-4df0-817a-14c14378f06c})");
 }
 impl ::core::clone::Clone for SmartCardReader {
     fn clone(&self) -> Self {
@@ -4208,7 +4208,7 @@ unsafe impl ::windows::core::Interface for SmartCardReader {
 impl ::windows::core::RuntimeName for SmartCardReader {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardReader";
 }
-::windows::core::interface_hierarchy!(SmartCardReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardReader {}
 unsafe impl ::core::marker::Sync for SmartCardReader {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4285,7 +4285,7 @@ impl ::core::fmt::Debug for SmartCardTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardTriggerDetails;{5f9bf11e-39ef-4f2b-b44f-0a9155b177bc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardTriggerDetails;{5f9bf11e-39ef-4f2b-b44f-0a9155b177bc})");
 }
 impl ::core::clone::Clone for SmartCardTriggerDetails {
     fn clone(&self) -> Self {
@@ -4301,7 +4301,7 @@ unsafe impl ::windows::core::Interface for SmartCardTriggerDetails {
 impl ::windows::core::RuntimeName for SmartCardTriggerDetails {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardTriggerDetails";
 }
-::windows::core::interface_hierarchy!(SmartCardTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SmartCardTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardTriggerDetails {}
 unsafe impl ::core::marker::Sync for SmartCardTriggerDetails {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4332,7 +4332,7 @@ impl ::core::fmt::Debug for SmartCardActivationPolicyChangeResult {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardActivationPolicyChangeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardActivationPolicyChangeResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardActivationPolicyChangeResult;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4363,7 +4363,7 @@ impl ::core::fmt::Debug for SmartCardAppletIdGroupActivationPolicy {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardAppletIdGroupActivationPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAppletIdGroupActivationPolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAppletIdGroupActivationPolicy;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4394,7 +4394,7 @@ impl ::core::fmt::Debug for SmartCardAutomaticResponseStatus {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardAutomaticResponseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAutomaticResponseStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAutomaticResponseStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4431,7 +4431,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramAlgorithm {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramAlgorithm;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramAlgorithm;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4473,7 +4473,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramGeneratorOperationStatus {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramGeneratorOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramGeneratorOperationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramGeneratorOperationStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4503,7 +4503,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageConfirmationRespon
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageConfirmationResponseFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageConfirmationResponseFormat;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4533,7 +4533,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageFormat {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageFormat;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4563,7 +4563,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialProtectionMethod {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialProtectionMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialProtectionMethod;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialProtectionMethod;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4596,7 +4596,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialType {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialType;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4660,7 +4660,7 @@ impl ::core::ops::Not for SmartCardCryptogramPlacementOptions {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramPlacementOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramPlacementOptions;u4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4690,7 +4690,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyAlgorithm {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyAlgorithm;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyAlgorithm;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4754,7 +4754,7 @@ impl ::core::ops::Not for SmartCardCryptogramStorageKeyCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities;u4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4790,7 +4790,7 @@ impl ::core::fmt::Debug for SmartCardCryptographicKeyAttestationStatus {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardCryptographicKeyAttestationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptographicKeyAttestationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptographicKeyAttestationStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4820,7 +4820,7 @@ impl ::core::fmt::Debug for SmartCardEmulationCategory {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardEmulationCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationCategory;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationCategory;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4851,7 +4851,7 @@ impl ::core::fmt::Debug for SmartCardEmulationType {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardEmulationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationType;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4881,7 +4881,7 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedReason {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactivatedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedReason;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4911,7 +4911,7 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionSource {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionSource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionSource;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4943,7 +4943,7 @@ impl ::core::fmt::Debug for SmartCardEmulatorEnablementPolicy {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardEmulatorEnablementPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -4973,7 +4973,7 @@ impl ::core::fmt::Debug for SmartCardLaunchBehavior {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardLaunchBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardLaunchBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardLaunchBehavior;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -5004,7 +5004,7 @@ impl ::core::fmt::Debug for SmartCardPinCharacterPolicyOption {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardPinCharacterPolicyOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardPinCharacterPolicyOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardPinCharacterPolicyOption;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -5038,7 +5038,7 @@ impl ::core::fmt::Debug for SmartCardReaderKind {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardReaderKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -5069,7 +5069,7 @@ impl ::core::fmt::Debug for SmartCardReaderStatus {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardReaderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -5102,7 +5102,7 @@ impl ::core::fmt::Debug for SmartCardStatus {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -5136,7 +5136,7 @@ impl ::core::fmt::Debug for SmartCardTriggerType {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardTriggerType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardTriggerType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardTriggerType;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
@@ -5167,15 +5167,15 @@ impl ::core::fmt::Debug for SmartCardUnlockPromptingBehavior {
     }
 }
 impl ::windows::core::RuntimeType for SmartCardUnlockPromptingBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardUnlockPromptingBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardUnlockPromptingBehavior;i4)");
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardPinResetHandler(pub ::windows::core::IUnknown);
 impl SmartCardPinResetHandler {
     pub fn new<F: FnMut(::core::option::Option<&SmartCardProvisioning>, ::core::option::Option<&SmartCardPinResetRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = SmartCardPinResetHandlerBox::<F> { vtable: &SmartCardPinResetHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = SmartCardPinResetHandlerBox::<F> { vtable: &SmartCardPinResetHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, sender: &SmartCardProvisioning, request: &SmartCardPinResetRequest) -> ::windows::core::Result<()> {
         let this = self;
@@ -5186,7 +5186,7 @@ impl SmartCardPinResetHandler {
 struct SmartCardPinResetHandlerBox<F: FnMut(::core::option::Option<&SmartCardProvisioning>, ::core::option::Option<&SmartCardPinResetRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const SmartCardPinResetHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&SmartCardProvisioning>, ::core::option::Option<&SmartCardPinResetRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SmartCardPinResetHandlerBox<F> {
     const VTABLE: SmartCardPinResetHandler_Vtbl = SmartCardPinResetHandler_Vtbl {
@@ -5195,7 +5195,7 @@ impl<F: FnMut(::core::option::Option<&SmartCardProvisioning>, ::core::option::Op
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<SmartCardPinResetHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<SmartCardPinResetHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -5211,7 +5211,7 @@ impl<F: FnMut(::core::option::Option<&SmartCardProvisioning>, ::core::option::Op
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -5243,7 +5243,7 @@ unsafe impl ::windows::core::Interface for SmartCardPinResetHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x138d5e40_f3bc_4a5c_b41d_4b4ef684e237);
 }
 impl ::windows::core::RuntimeType for SmartCardPinResetHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{138d5e40-f3bc-4a5c-b41d-4b4ef684e237}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{138d5e40-f3bc-4a5c-b41d-4b4ef684e237}");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -674,7 +674,7 @@ impl ::core::fmt::Debug for PhotoImportDeleteImportedItemsFromSourceResult {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportDeleteImportedItemsFromSourceResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult;{f4e112f8-843d-428a-a1a6-81510292b0ae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult;{f4e112f8-843d-428a-a1a6-81510292b0ae})");
 }
 impl ::core::clone::Clone for PhotoImportDeleteImportedItemsFromSourceResult {
     fn clone(&self) -> Self {
@@ -690,7 +690,7 @@ unsafe impl ::windows::core::Interface for PhotoImportDeleteImportedItemsFromSou
 impl ::windows::core::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult";
 }
-::windows::core::interface_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportDeleteImportedItemsFromSourceResult {}
 unsafe impl ::core::marker::Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -946,7 +946,7 @@ impl ::core::fmt::Debug for PhotoImportFindItemsResult {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportFindItemsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportFindItemsResult;{3915e647-6c78-492b-844e-8fe5e8f6bfb9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportFindItemsResult;{3915e647-6c78-492b-844e-8fe5e8f6bfb9})");
 }
 impl ::core::clone::Clone for PhotoImportFindItemsResult {
     fn clone(&self) -> Self {
@@ -962,7 +962,7 @@ unsafe impl ::windows::core::Interface for PhotoImportFindItemsResult {
 impl ::windows::core::RuntimeName for PhotoImportFindItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportFindItemsResult";
 }
-::windows::core::interface_hierarchy!(PhotoImportFindItemsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportFindItemsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportFindItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportFindItemsResult {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1084,7 +1084,7 @@ impl ::core::fmt::Debug for PhotoImportImportItemsResult {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportImportItemsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportImportItemsResult;{e4d4f478-d419-4443-a84e-f06a850c0b00})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportImportItemsResult;{e4d4f478-d419-4443-a84e-f06a850c0b00})");
 }
 impl ::core::clone::Clone for PhotoImportImportItemsResult {
     fn clone(&self) -> Self {
@@ -1100,7 +1100,7 @@ unsafe impl ::windows::core::Interface for PhotoImportImportItemsResult {
 impl ::windows::core::RuntimeName for PhotoImportImportItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportImportItemsResult";
 }
-::windows::core::interface_hierarchy!(PhotoImportImportItemsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportImportItemsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportImportItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportImportItemsResult {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1227,7 +1227,7 @@ impl ::core::fmt::Debug for PhotoImportItem {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItem;{a9d07e76-9bfc-43b8-b356-633b6a988c9e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItem;{a9d07e76-9bfc-43b8-b356-633b6a988c9e})");
 }
 impl ::core::clone::Clone for PhotoImportItem {
     fn clone(&self) -> Self {
@@ -1243,7 +1243,7 @@ unsafe impl ::windows::core::Interface for PhotoImportItem {
 impl ::windows::core::RuntimeName for PhotoImportItem {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItem";
 }
-::windows::core::interface_hierarchy!(PhotoImportItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportItem {}
 unsafe impl ::core::marker::Sync for PhotoImportItem {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1270,7 +1270,7 @@ impl ::core::fmt::Debug for PhotoImportItemImportedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportItemImportedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItemImportedEventArgs;{42cb2fdd-7d68-47b5-bc7c-ceb73e0c77dc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItemImportedEventArgs;{42cb2fdd-7d68-47b5-bc7c-ceb73e0c77dc})");
 }
 impl ::core::clone::Clone for PhotoImportItemImportedEventArgs {
     fn clone(&self) -> Self {
@@ -1286,7 +1286,7 @@ unsafe impl ::windows::core::Interface for PhotoImportItemImportedEventArgs {
 impl ::windows::core::RuntimeName for PhotoImportItemImportedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItemImportedEventArgs";
 }
-::windows::core::interface_hierarchy!(PhotoImportItemImportedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportItemImportedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportItemImportedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportItemImportedEventArgs {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1318,7 +1318,7 @@ impl PhotoImportManager {
     }
     #[doc(hidden)]
     pub fn IPhotoImportManagerStatics<R, F: FnOnce(&IPhotoImportManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhotoImportManager, IPhotoImportManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhotoImportManager, IPhotoImportManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1383,7 +1383,7 @@ impl ::core::fmt::Debug for PhotoImportOperation {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportOperation;{d9f797e4-a09a-4ee4-a4b1-20940277a5be})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportOperation;{d9f797e4-a09a-4ee4-a4b1-20940277a5be})");
 }
 impl ::core::clone::Clone for PhotoImportOperation {
     fn clone(&self) -> Self {
@@ -1399,7 +1399,7 @@ unsafe impl ::windows::core::Interface for PhotoImportOperation {
 impl ::windows::core::RuntimeName for PhotoImportOperation {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportOperation";
 }
-::windows::core::interface_hierarchy!(PhotoImportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportOperation {}
 unsafe impl ::core::marker::Sync for PhotoImportOperation {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1426,7 +1426,7 @@ impl ::core::fmt::Debug for PhotoImportSelectionChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportSelectionChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSelectionChangedEventArgs;{10461782-fa9d-4c30-8bc9-4d64911572d5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSelectionChangedEventArgs;{10461782-fa9d-4c30-8bc9-4d64911572d5})");
 }
 impl ::core::clone::Clone for PhotoImportSelectionChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1442,7 +1442,7 @@ unsafe impl ::windows::core::Interface for PhotoImportSelectionChangedEventArgs 
 impl ::windows::core::RuntimeName for PhotoImportSelectionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSelectionChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(PhotoImportSelectionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportSelectionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportSelectionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportSelectionChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1565,7 +1565,7 @@ impl ::core::fmt::Debug for PhotoImportSession {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSession;{aa63916e-ecdb-4efe-94c6-5f5cafe34cfb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSession;{aa63916e-ecdb-4efe-94c6-5f5cafe34cfb})");
 }
 impl ::core::clone::Clone for PhotoImportSession {
     fn clone(&self) -> Self {
@@ -1581,7 +1581,7 @@ unsafe impl ::windows::core::Interface for PhotoImportSession {
 impl ::windows::core::RuntimeName for PhotoImportSession {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSession";
 }
-::windows::core::interface_hierarchy!(PhotoImportSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PhotoImportSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1646,7 +1646,7 @@ impl ::core::fmt::Debug for PhotoImportSidecar {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportSidecar {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSidecar;{46d7d757-f802-44c7-9c98-7a71f4bc1486})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSidecar;{46d7d757-f802-44c7-9c98-7a71f4bc1486})");
 }
 impl ::core::clone::Clone for PhotoImportSidecar {
     fn clone(&self) -> Self {
@@ -1662,7 +1662,7 @@ unsafe impl ::windows::core::Interface for PhotoImportSidecar {
 impl ::windows::core::RuntimeName for PhotoImportSidecar {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSidecar";
 }
-::windows::core::interface_hierarchy!(PhotoImportSidecar, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportSidecar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportSidecar {}
 unsafe impl ::core::marker::Sync for PhotoImportSidecar {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1820,7 +1820,7 @@ impl PhotoImportSource {
     }
     #[doc(hidden)]
     pub fn IPhotoImportSourceStatics<R, F: FnOnce(&IPhotoImportSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PhotoImportSource, IPhotoImportSourceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PhotoImportSource, IPhotoImportSourceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1836,7 +1836,7 @@ impl ::core::fmt::Debug for PhotoImportSource {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSource;{1f8ea35e-145b-4cd6-87f1-54965a982fef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSource;{1f8ea35e-145b-4cd6-87f1-54965a982fef})");
 }
 impl ::core::clone::Clone for PhotoImportSource {
     fn clone(&self) -> Self {
@@ -1852,7 +1852,7 @@ unsafe impl ::windows::core::Interface for PhotoImportSource {
 impl ::windows::core::RuntimeName for PhotoImportSource {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSource";
 }
-::windows::core::interface_hierarchy!(PhotoImportSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportSource {}
 unsafe impl ::core::marker::Sync for PhotoImportSource {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1925,7 +1925,7 @@ impl ::core::fmt::Debug for PhotoImportStorageMedium {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportStorageMedium {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportStorageMedium;{f2b9b093-fc85-487f-87c2-58d675d05b07})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportStorageMedium;{f2b9b093-fc85-487f-87c2-58d675d05b07})");
 }
 impl ::core::clone::Clone for PhotoImportStorageMedium {
     fn clone(&self) -> Self {
@@ -1941,7 +1941,7 @@ unsafe impl ::windows::core::Interface for PhotoImportStorageMedium {
 impl ::windows::core::RuntimeName for PhotoImportStorageMedium {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportStorageMedium";
 }
-::windows::core::interface_hierarchy!(PhotoImportStorageMedium, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportStorageMedium, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportStorageMedium {}
 unsafe impl ::core::marker::Sync for PhotoImportStorageMedium {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -2000,7 +2000,7 @@ impl ::core::fmt::Debug for PhotoImportVideoSegment {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportVideoSegment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportVideoSegment;{623c0289-321a-41d8-9166-8c62a333276c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportVideoSegment;{623c0289-321a-41d8-9166-8c62a333276c})");
 }
 impl ::core::clone::Clone for PhotoImportVideoSegment {
     fn clone(&self) -> Self {
@@ -2016,7 +2016,7 @@ unsafe impl ::windows::core::Interface for PhotoImportVideoSegment {
 impl ::windows::core::RuntimeName for PhotoImportVideoSegment {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportVideoSegment";
 }
-::windows::core::interface_hierarchy!(PhotoImportVideoSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PhotoImportVideoSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportVideoSegment {}
 unsafe impl ::core::marker::Sync for PhotoImportVideoSegment {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -2048,7 +2048,7 @@ impl ::core::fmt::Debug for PhotoImportAccessMode {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2080,7 +2080,7 @@ impl ::core::fmt::Debug for PhotoImportConnectionTransport {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportConnectionTransport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2111,7 +2111,7 @@ impl ::core::fmt::Debug for PhotoImportContentType {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportContentType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2143,7 +2143,7 @@ impl ::core::fmt::Debug for PhotoImportContentTypeFilter {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportContentTypeFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2175,7 +2175,7 @@ impl ::core::fmt::Debug for PhotoImportImportMode {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportImportMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2206,7 +2206,7 @@ impl ::core::fmt::Debug for PhotoImportItemSelectionMode {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportItemSelectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2237,7 +2237,7 @@ impl ::core::fmt::Debug for PhotoImportPowerSource {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportPowerSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2272,7 +2272,7 @@ impl ::core::fmt::Debug for PhotoImportSourceType {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportSourceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2304,7 +2304,7 @@ impl ::core::fmt::Debug for PhotoImportStage {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportStage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2335,7 +2335,7 @@ impl ::core::fmt::Debug for PhotoImportStorageMediumType {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportStorageMediumType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2367,7 +2367,7 @@ impl ::core::fmt::Debug for PhotoImportSubfolderCreationMode {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportSubfolderCreationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
@@ -2398,7 +2398,7 @@ impl ::core::fmt::Debug for PhotoImportSubfolderDateFormat {
     }
 }
 impl ::windows::core::RuntimeType for PhotoImportSubfolderDateFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -2424,7 +2424,7 @@ impl ::windows::core::TypeKind for PhotoImportProgress {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for PhotoImportProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Media.Import.PhotoImportProgress;u4;u4;u8;u8;f8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Import.PhotoImportProgress;u4;u4;u8;u8;f8)");
 }
 impl ::core::cmp::PartialEq for PhotoImportProgress {
     fn eq(&self, other: &Self) -> bool {

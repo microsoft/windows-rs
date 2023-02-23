@@ -4,28 +4,28 @@ pub unsafe fn WMCreateBackupRestorer<P0>(pcallback: P0) -> ::windows::core::Resu
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateBackupRestorer ( pcallback : * mut::core::ffi::c_void , ppbackup : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateBackupRestorer ( pcallback : * mut::core::ffi::c_void , ppbackup : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMLicenseBackup>();
     WMCreateBackupRestorer(pcallback.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateEditor ( ppeditor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateEditor ( ppeditor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMMetadataEditor>();
     WMCreateEditor(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateIndexer ( ppindexer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateIndexer ( ppindexer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMIndexer>();
     WMCreateIndexer(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileManager> {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateProfileManager ( ppprofilemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateProfileManager ( ppprofilemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMProfileManager>();
     WMCreateProfileManager(&mut result__).from_abi(result__)
 }
@@ -35,7 +35,7 @@ pub unsafe fn WMCreateReader<P0>(punkcert: P0, dwrights: u32) -> ::windows::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppreader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppreader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMReader>();
     WMCreateReader(punkcert.into().abi(), dwrights, &mut result__).from_abi(result__)
 }
@@ -45,7 +45,7 @@ pub unsafe fn WMCreateSyncReader<P0>(punkcert: P0, dwrights: u32) -> ::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateSyncReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppsyncreader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateSyncReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppsyncreader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMSyncReader>();
     WMCreateSyncReader(punkcert.into().abi(), dwrights, &mut result__).from_abi(result__)
 }
@@ -55,28 +55,28 @@ pub unsafe fn WMCreateWriter<P0>(punkcert: P0) -> ::windows::core::Result<IWMWri
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateWriter ( punkcert : * mut::core::ffi::c_void , ppwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriter ( punkcert : * mut::core::ffi::c_void , ppwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMWriter>();
     WMCreateWriter(punkcert.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileSink> {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateWriterFileSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriterFileSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMWriterFileSink>();
     WMCreateWriterFileSink(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNetworkSink> {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateWriterNetworkSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriterNetworkSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMWriterNetworkSink>();
     WMCreateWriterNetworkSink(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushSink> {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateWriterPushSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriterPushSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMWriterPushSink>();
     WMCreateWriterPushSink(&mut result__).from_abi(result__)
 }
@@ -87,7 +87,7 @@ pub unsafe fn WMIsContentProtected<P0>(pwszfilename: P0, pfisprotected: *mut sup
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "wmvcore.dll""system" fn WMIsContentProtected ( pwszfilename : :: windows::core::PCWSTR , pfisprotected : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMIsContentProtected ( pwszfilename : :: windows::core::PCWSTR , pfisprotected : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     WMIsContentProtected(pwszfilename.into().abi(), pfisprotected).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
@@ -137,7 +137,7 @@ impl INSNetSourceCreator {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(INSNetSourceCreator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INSNetSourceCreator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INSNetSourceCreator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -199,7 +199,7 @@ impl INSSBuffer {
         (::windows::core::Vtable::vtable(self).GetBufferAndLength)(::windows::core::Vtable::as_raw(self), ppdwbuffer, pdwlength).ok()
     }
 }
-::windows::core::interface_hierarchy!(INSSBuffer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INSSBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INSSBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -262,7 +262,7 @@ impl INSSBuffer2 {
         (::windows::core::Vtable::vtable(self).SetSampleProperties)(::windows::core::Vtable::as_raw(self), cbproperties, pbproperties).ok()
     }
 }
-::windows::core::interface_hierarchy!(INSSBuffer2, ::windows::core::IUnknown, INSSBuffer);
+::windows::imp::interface_hierarchy!(INSSBuffer2, ::windows::core::IUnknown, INSSBuffer);
 impl ::core::cmp::PartialEq for INSSBuffer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -328,7 +328,7 @@ impl INSSBuffer3 {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidbufferproperty), pvbufferproperty, pdwbufferpropertysize).ok()
     }
 }
-::windows::core::interface_hierarchy!(INSSBuffer3, ::windows::core::IUnknown, INSSBuffer, INSSBuffer2);
+::windows::imp::interface_hierarchy!(INSSBuffer3, ::windows::core::IUnknown, INSSBuffer, INSSBuffer2);
 impl ::core::cmp::PartialEq for INSSBuffer3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -401,7 +401,7 @@ impl INSSBuffer4 {
         (::windows::core::Vtable::vtable(self).GetPropertyByIndex)(::windows::core::Vtable::as_raw(self), dwbufferpropertyindex, pguidbufferproperty, pvbufferproperty, pdwbufferpropertysize).ok()
     }
 }
-::windows::core::interface_hierarchy!(INSSBuffer4, ::windows::core::IUnknown, INSSBuffer, INSSBuffer2, INSSBuffer3);
+::windows::imp::interface_hierarchy!(INSSBuffer4, ::windows::core::IUnknown, INSSBuffer, INSSBuffer2, INSSBuffer3);
 impl ::core::cmp::PartialEq for INSSBuffer4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -450,7 +450,7 @@ impl IWMAddressAccess {
         (::windows::core::Vtable::vtable(self).RemoveAccessEntry)(::windows::core::Vtable::as_raw(self), aetype, dwentrynum).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMAddressAccess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMAddressAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMAddressAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -507,7 +507,7 @@ impl IWMAddressAccess2 {
         (::windows::core::Vtable::vtable(self).AddAccessEntryEx)(::windows::core::Vtable::as_raw(self), aetype, ::core::mem::transmute_copy(bstraddress), ::core::mem::transmute_copy(bstrmask)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMAddressAccess2, ::windows::core::IUnknown, IWMAddressAccess);
+::windows::imp::interface_hierarchy!(IWMAddressAccess2, ::windows::core::IUnknown, IWMAddressAccess);
 impl ::core::cmp::PartialEq for IWMAddressAccess2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -554,7 +554,7 @@ impl IWMAuthorizer {
         (::windows::core::Vtable::vtable(self).GetSharedData)(::windows::core::Vtable::as_raw(self), dwcertindex, pbshareddata, pbcert, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMAuthorizer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMAuthorizer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMAuthorizer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -618,7 +618,7 @@ impl IWMBackupRestoreProps {
         (::windows::core::Vtable::vtable(self).RemoveAllProps)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMBackupRestoreProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMBackupRestoreProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMBackupRestoreProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -679,7 +679,7 @@ impl IWMBandwidthSharing {
         (::windows::core::Vtable::vtable(self).SetBandwidth)(::windows::core::Vtable::as_raw(self), dwbitrate, msbufferwindow).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMBandwidthSharing, ::windows::core::IUnknown, IWMStreamList);
+::windows::imp::interface_hierarchy!(IWMBandwidthSharing, ::windows::core::IUnknown, IWMStreamList);
 impl ::core::cmp::PartialEq for IWMBandwidthSharing {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -724,7 +724,7 @@ impl IWMClientConnections {
         (::windows::core::Vtable::vtable(self).GetClientProperties)(::windows::core::Vtable::as_raw(self), dwclientnum, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMClientConnections, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMClientConnections, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMClientConnections {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -770,7 +770,7 @@ impl IWMClientConnections2 {
         (::windows::core::Vtable::vtable(self).GetClientInfo)(::windows::core::Vtable::as_raw(self), dwclientnum, ::core::mem::transmute(pwsznetworkaddress), pcchnetworkaddress, ::core::mem::transmute(pwszport), pcchport, ::core::mem::transmute(pwszdnsname), pcchdnsname).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMClientConnections2, ::windows::core::IUnknown, IWMClientConnections);
+::windows::imp::interface_hierarchy!(IWMClientConnections2, ::windows::core::IUnknown, IWMClientConnections);
 impl ::core::cmp::PartialEq for IWMClientConnections2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -816,7 +816,7 @@ impl IWMCodecInfo {
         (::windows::core::Vtable::vtable(self).GetCodecFormat)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, dwformatindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMCodecInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMCodecInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMCodecInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -870,7 +870,7 @@ impl IWMCodecInfo2 {
         (::windows::core::Vtable::vtable(self).GetCodecFormatDesc)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, dwformatindex, ::core::mem::transmute(ppistreamconfig), ::core::mem::transmute(wszdesc), pcchdesc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMCodecInfo2, ::windows::core::IUnknown, IWMCodecInfo);
+::windows::imp::interface_hierarchy!(IWMCodecInfo2, ::windows::core::IUnknown, IWMCodecInfo);
 impl ::core::cmp::PartialEq for IWMCodecInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -947,7 +947,7 @@ impl IWMCodecInfo3 {
         (::windows::core::Vtable::vtable(self).GetCodecEnumerationSetting)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, pszname.into().abi(), ptype, pvalue, pdwsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMCodecInfo3, ::windows::core::IUnknown, IWMCodecInfo, IWMCodecInfo2);
+::windows::imp::interface_hierarchy!(IWMCodecInfo3, ::windows::core::IUnknown, IWMCodecInfo, IWMCodecInfo2);
 impl ::core::cmp::PartialEq for IWMCodecInfo3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -991,7 +991,7 @@ impl IWMCredentialCallback {
         (::windows::core::Vtable::vtable(self).AcquireCredentials)(::windows::core::Vtable::as_raw(self), pwszrealm.into().abi(), pwszsite.into().abi(), ::core::mem::transmute(pwszuser.as_ptr()), pwszuser.len() as _, ::core::mem::transmute(pwszpassword.as_ptr()), pwszpassword.len() as _, hrstatus, pdwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMCredentialCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMCredentialCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMCredentialCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1031,7 +1031,7 @@ impl IWMDRMEditor {
         (::windows::core::Vtable::vtable(self).GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into().abi(), pdwtype, pvalue, pcblength).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMEditor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDRMEditor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDRMEditor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1071,7 +1071,7 @@ impl IWMDRMMessageParser {
         (::windows::core::Vtable::vtable(self).ParseLicenseRequestMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pblicenserequestmsg.as_ptr()), pblicenserequestmsg.len() as _, ::core::mem::transmute(ppdevicecert), pdeviceserialnumber, ::core::mem::transmute(pbstraction)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMMessageParser, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDRMMessageParser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDRMMessageParser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1136,7 +1136,7 @@ impl IWMDRMReader {
         (::windows::core::Vtable::vtable(self).GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into().abi(), pdwtype, pvalue, pcblength).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDRMReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDRMReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1224,7 +1224,7 @@ impl IWMDRMReader2 {
         (::windows::core::Vtable::vtable(self).TryNextLicense)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMReader2, ::windows::core::IUnknown, IWMDRMReader);
+::windows::imp::interface_hierarchy!(IWMDRMReader2, ::windows::core::IUnknown, IWMDRMReader);
 impl ::core::cmp::PartialEq for IWMDRMReader2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1314,7 +1314,7 @@ impl IWMDRMReader3 {
         (::windows::core::Vtable::vtable(self).GetInclusionList)(::windows::core::Vtable::as_raw(self), ppguids, pcguids).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMReader3, ::windows::core::IUnknown, IWMDRMReader, IWMDRMReader2);
+::windows::imp::interface_hierarchy!(IWMDRMReader3, ::windows::core::IUnknown, IWMDRMReader, IWMDRMReader2);
 impl ::core::cmp::PartialEq for IWMDRMReader3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1352,7 +1352,7 @@ impl IWMDRMTranscryptionManager {
         (::windows::core::Vtable::vtable(self).CreateTranscryptor)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMTranscryptionManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDRMTranscryptionManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDRMTranscryptionManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1401,7 +1401,7 @@ impl IWMDRMTranscryptor {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMTranscryptor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDRMTranscryptor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDRMTranscryptor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1477,7 +1477,7 @@ impl IWMDRMTranscryptor2 {
         (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMTranscryptor2, ::windows::core::IUnknown, IWMDRMTranscryptor);
+::windows::imp::interface_hierarchy!(IWMDRMTranscryptor2, ::windows::core::IUnknown, IWMDRMTranscryptor);
 impl ::core::cmp::PartialEq for IWMDRMTranscryptor2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1535,7 +1535,7 @@ impl IWMDRMWriter {
         (::windows::core::Vtable::vtable(self).SetDRMAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDRMWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDRMWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1595,7 +1595,7 @@ impl IWMDRMWriter2 {
         (::windows::core::Vtable::vtable(self).SetWMDRMNetEncryption)(::windows::core::Vtable::as_raw(self), fsamplesencrypted.into(), pbkeyid, cbkeyid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMWriter2, ::windows::core::IUnknown, IWMDRMWriter);
+::windows::imp::interface_hierarchy!(IWMDRMWriter2, ::windows::core::IUnknown, IWMDRMWriter);
 impl ::core::cmp::PartialEq for IWMDRMWriter2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1658,7 +1658,7 @@ impl IWMDRMWriter3 {
         (::windows::core::Vtable::vtable(self).SetProtectStreamSamples)(::windows::core::Vtable::as_raw(self), pimportinitstruct).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMDRMWriter3, ::windows::core::IUnknown, IWMDRMWriter, IWMDRMWriter2);
+::windows::imp::interface_hierarchy!(IWMDRMWriter3, ::windows::core::IUnknown, IWMDRMWriter, IWMDRMWriter2);
 impl ::core::cmp::PartialEq for IWMDRMWriter3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1715,7 +1715,7 @@ impl IWMDeviceRegistration {
         (::windows::core::Vtable::vtable(self).GetRegisteredDeviceByID)(::windows::core::Vtable::as_raw(self), dwregistertype, ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len() as _, ::core::mem::transmute(serialnumber), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMDeviceRegistration, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMDeviceRegistration, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMDeviceRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1758,7 +1758,7 @@ impl IWMGetSecureChannel {
         (::windows::core::Vtable::vtable(self).GetPeerSecureChannelInterface)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMGetSecureChannel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMGetSecureChannel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMGetSecureChannel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1844,7 +1844,7 @@ impl IWMHeaderInfo {
         (::windows::core::Vtable::vtable(self).RemoveScript)(::windows::core::Vtable::as_raw(self), windex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMHeaderInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMHeaderInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMHeaderInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1948,7 +1948,7 @@ impl IWMHeaderInfo2 {
         (::windows::core::Vtable::vtable(self).GetCodecInfo)(::windows::core::Vtable::as_raw(self), windex, pcchname, ::core::mem::transmute(pwszname), pcchdescription, ::core::mem::transmute(pwszdescription), pcodectype, pcbcodecinfo, pbcodecinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMHeaderInfo2, ::windows::core::IUnknown, IWMHeaderInfo);
+::windows::imp::interface_hierarchy!(IWMHeaderInfo2, ::windows::core::IUnknown, IWMHeaderInfo);
 impl ::core::cmp::PartialEq for IWMHeaderInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2074,7 +2074,7 @@ impl IWMHeaderInfo3 {
         (::windows::core::Vtable::vtable(self).AddCodecInfo)(::windows::core::Vtable::as_raw(self), pwszname.into().abi(), pwszdescription.into().abi(), codectype, pbcodecinfo.len() as _, ::core::mem::transmute(pbcodecinfo.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMHeaderInfo3, ::windows::core::IUnknown, IWMHeaderInfo, IWMHeaderInfo2);
+::windows::imp::interface_hierarchy!(IWMHeaderInfo3, ::windows::core::IUnknown, IWMHeaderInfo, IWMHeaderInfo2);
 impl ::core::cmp::PartialEq for IWMHeaderInfo3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2120,7 +2120,7 @@ impl IWMIStreamProps {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), ptype, pvalue, pdwsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMIStreamProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMIStreamProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMIStreamProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2161,7 +2161,7 @@ impl IWMImageInfo {
         (::windows::core::Vtable::vtable(self).GetImage)(::windows::core::Vtable::as_raw(self), windex, pcchmimetype, ::core::mem::transmute(pwszmimetype), pcchdescription, ::core::mem::transmute(pwszdescription), pimagetype, pcbimagedata, pbimagedata).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMImageInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMImageInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMImageInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2206,7 +2206,7 @@ impl IWMIndexer {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMIndexer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMIndexer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMIndexer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2254,7 +2254,7 @@ impl IWMIndexer2 {
         (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), wstreamnum, nindexertype, pvinterval, pvindextype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMIndexer2, ::windows::core::IUnknown, IWMIndexer);
+::windows::imp::interface_hierarchy!(IWMIndexer2, ::windows::core::IUnknown, IWMIndexer);
 impl ::core::cmp::PartialEq for IWMIndexer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2308,7 +2308,7 @@ impl IWMInputMediaProps {
         (::windows::core::Vtable::vtable(self).GetGroupName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszname), pcchname).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMInputMediaProps, ::windows::core::IUnknown, IWMMediaProps);
+::windows::imp::interface_hierarchy!(IWMInputMediaProps, ::windows::core::IUnknown, IWMMediaProps);
 impl ::core::cmp::PartialEq for IWMInputMediaProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2357,7 +2357,7 @@ impl IWMLanguageList {
         (::windows::core::Vtable::vtable(self).AddLanguageByRFC1766String)(::windows::core::Vtable::as_raw(self), pwszlanguagestring.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMLanguageList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMLanguageList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMLanguageList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2402,7 +2402,7 @@ impl IWMLicenseBackup {
         (::windows::core::Vtable::vtable(self).CancelLicenseBackup)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMLicenseBackup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMLicenseBackup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMLicenseBackup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2446,7 +2446,7 @@ impl IWMLicenseRestore {
         (::windows::core::Vtable::vtable(self).CancelLicenseRestore)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMLicenseRestore, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMLicenseRestore, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMLicenseRestore {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2487,7 +2487,7 @@ impl IWMLicenseRevocationAgent {
         (::windows::core::Vtable::vtable(self).ProcessLRB)(::windows::core::Vtable::as_raw(self), psignedlrb, dwsignedlrblength, psignedack, pdwsignedacklength).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMLicenseRevocationAgent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMLicenseRevocationAgent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMLicenseRevocationAgent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2536,7 +2536,7 @@ impl IWMMediaProps {
         (::windows::core::Vtable::vtable(self).SetMediaType)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMMediaProps, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMMediaProps, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMMediaProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2590,7 +2590,7 @@ impl IWMMetadataEditor {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMMetadataEditor, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMMetadataEditor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMMetadataEditor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2644,7 +2644,7 @@ impl IWMMetadataEditor2 {
         (::windows::core::Vtable::vtable(self).OpenEx)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi(), dwdesiredaccess, dwsharemode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMMetadataEditor2, ::windows::core::IUnknown, IWMMetadataEditor);
+::windows::imp::interface_hierarchy!(IWMMetadataEditor2, ::windows::core::IUnknown, IWMMetadataEditor);
 impl ::core::cmp::PartialEq for IWMMetadataEditor2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2694,7 +2694,7 @@ impl IWMMutualExclusion {
         (::windows::core::Vtable::vtable(self).SetType)(::windows::core::Vtable::as_raw(self), guidtype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMMutualExclusion, ::windows::core::IUnknown, IWMStreamList);
+::windows::imp::interface_hierarchy!(IWMMutualExclusion, ::windows::core::IUnknown, IWMStreamList);
 impl ::core::cmp::PartialEq for IWMMutualExclusion {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2782,7 +2782,7 @@ impl IWMMutualExclusion2 {
         (::windows::core::Vtable::vtable(self).RemoveStreamForRecord)(::windows::core::Vtable::as_raw(self), wrecordnumber, wstreamnumber).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMMutualExclusion2, ::windows::core::IUnknown, IWMStreamList, IWMMutualExclusion);
+::windows::imp::interface_hierarchy!(IWMMutualExclusion2, ::windows::core::IUnknown, IWMStreamList, IWMMutualExclusion);
 impl ::core::cmp::PartialEq for IWMMutualExclusion2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2845,7 +2845,7 @@ impl IWMOutputMediaProps {
         (::windows::core::Vtable::vtable(self).GetConnectionName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszname), pcchname).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMOutputMediaProps, ::windows::core::IUnknown, IWMMediaProps);
+::windows::imp::interface_hierarchy!(IWMOutputMediaProps, ::windows::core::IUnknown, IWMMediaProps);
 impl ::core::cmp::PartialEq for IWMOutputMediaProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2887,7 +2887,7 @@ impl IWMPacketSize {
         (::windows::core::Vtable::vtable(self).SetMaxPacketSize)(::windows::core::Vtable::as_raw(self), dwmaxpacketsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMPacketSize, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMPacketSize, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMPacketSize {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2936,7 +2936,7 @@ impl IWMPacketSize2 {
         (::windows::core::Vtable::vtable(self).SetMinPacketSize)(::windows::core::Vtable::as_raw(self), dwminpacketsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMPacketSize2, ::windows::core::IUnknown, IWMPacketSize);
+::windows::imp::interface_hierarchy!(IWMPacketSize2, ::windows::core::IUnknown, IWMPacketSize);
 impl ::core::cmp::PartialEq for IWMPacketSize2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2974,7 +2974,7 @@ impl IWMPlayerHook {
         (::windows::core::Vtable::vtable(self).PreDecode)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMPlayerHook, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMPlayerHook, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMPlayerHook {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3012,7 +3012,7 @@ impl IWMPlayerTimestampHook {
         (::windows::core::Vtable::vtable(self).MapTimestamp)(::windows::core::Vtable::as_raw(self), rtin, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMPlayerTimestampHook, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMPlayerTimestampHook, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMPlayerTimestampHook {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3129,7 +3129,7 @@ impl IWMProfile {
         (::windows::core::Vtable::vtable(self).CreateNewMutualExclusion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMProfile, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMProfile, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMProfile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3267,7 +3267,7 @@ impl IWMProfile2 {
         (::windows::core::Vtable::vtable(self).GetProfileID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMProfile2, ::windows::core::IUnknown, IWMProfile);
+::windows::imp::interface_hierarchy!(IWMProfile2, ::windows::core::IUnknown, IWMProfile);
 impl ::core::cmp::PartialEq for IWMProfile2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3440,7 +3440,7 @@ impl IWMProfile3 {
         (::windows::core::Vtable::vtable(self).GetExpectedPacketCount)(::windows::core::Vtable::as_raw(self), msduration, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMProfile3, ::windows::core::IUnknown, IWMProfile, IWMProfile2);
+::windows::imp::interface_hierarchy!(IWMProfile3, ::windows::core::IUnknown, IWMProfile, IWMProfile2);
 impl ::core::cmp::PartialEq for IWMProfile3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3515,7 +3515,7 @@ impl IWMProfileManager {
         (::windows::core::Vtable::vtable(self).LoadSystemProfile)(::windows::core::Vtable::as_raw(self), dwprofileindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMProfileManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMProfileManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMProfileManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3590,7 +3590,7 @@ impl IWMProfileManager2 {
         (::windows::core::Vtable::vtable(self).SetSystemProfileVersion)(::windows::core::Vtable::as_raw(self), dwversion).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMProfileManager2, ::windows::core::IUnknown, IWMProfileManager);
+::windows::imp::interface_hierarchy!(IWMProfileManager2, ::windows::core::IUnknown, IWMProfileManager);
 impl ::core::cmp::PartialEq for IWMProfileManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3631,7 +3631,7 @@ impl IWMProfileManagerLanguage {
         (::windows::core::Vtable::vtable(self).SetUserLanguageID)(::windows::core::Vtable::as_raw(self), wlangid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMProfileManagerLanguage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMProfileManagerLanguage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMProfileManagerLanguage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3693,7 +3693,7 @@ impl IWMPropertyVault {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMPropertyVault, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMPropertyVault, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMPropertyVault {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3738,7 +3738,7 @@ impl IWMProximityDetection {
         (::windows::core::Vtable::vtable(self).StartDetection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbregistrationmsg.as_ptr()), pbregistrationmsg.len() as _, ::core::mem::transmute(pblocaladdress.as_ptr()), pblocaladdress.len() as _, dwextraportsallowed, ::core::mem::transmute(ppregistrationresponsemsg), pcallback.into().abi(), pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMProximityDetection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMProximityDetection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMProximityDetection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3816,7 +3816,7 @@ impl IWMReader {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3868,7 +3868,7 @@ impl IWMReaderAccelerator {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), dwoutputnum, psubtype).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderAccelerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReaderAccelerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReaderAccelerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4019,7 +4019,7 @@ impl IWMReaderAdvanced {
         (::windows::core::Vtable::vtable(self).NotifyLateDelivery)(::windows::core::Vtable::as_raw(self), cnslateness).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderAdvanced, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReaderAdvanced, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReaderAdvanced {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4294,7 +4294,7 @@ impl IWMReaderAdvanced2 {
         (::windows::core::Vtable::vtable(self).OpenStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), pcallback.into().abi(), pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderAdvanced2, ::windows::core::IUnknown, IWMReaderAdvanced);
+::windows::imp::interface_hierarchy!(IWMReaderAdvanced2, ::windows::core::IUnknown, IWMReaderAdvanced);
 impl ::core::cmp::PartialEq for IWMReaderAdvanced2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4540,7 +4540,7 @@ impl IWMReaderAdvanced3 {
         (::windows::core::Vtable::vtable(self).StartAtPosition)(::windows::core::Vtable::as_raw(self), wstreamnum, pvoffsetstart, pvduration, dwoffsetformat, frate, pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderAdvanced3, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2);
+::windows::imp::interface_hierarchy!(IWMReaderAdvanced3, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2);
 impl ::core::cmp::PartialEq for IWMReaderAdvanced3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4804,7 +4804,7 @@ impl IWMReaderAdvanced4 {
         (::windows::core::Vtable::vtable(self).GetURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszurl), pcchurl).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderAdvanced4, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3);
+::windows::imp::interface_hierarchy!(IWMReaderAdvanced4, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3);
 impl ::core::cmp::PartialEq for IWMReaderAdvanced4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5087,7 +5087,7 @@ impl IWMReaderAdvanced5 {
         (::windows::core::Vtable::vtable(self).SetPlayerHook)(::windows::core::Vtable::as_raw(self), dwoutputnum, phook.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderAdvanced5, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4);
+::windows::imp::interface_hierarchy!(IWMReaderAdvanced5, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4);
 impl ::core::cmp::PartialEq for IWMReaderAdvanced5 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5359,7 +5359,7 @@ impl IWMReaderAdvanced6 {
         (::windows::core::Vtable::vtable(self).SetProtectStreamSamples)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len() as _, dwcertificatetype, dwflags, pbinitializationvector, pcbinitializationvector).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderAdvanced6, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4, IWMReaderAdvanced5);
+::windows::imp::interface_hierarchy!(IWMReaderAdvanced6, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4, IWMReaderAdvanced5);
 impl ::core::cmp::PartialEq for IWMReaderAdvanced6 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5399,7 +5399,7 @@ impl IWMReaderAllocatorEx {
         (::windows::core::Vtable::vtable(self).AllocateForOutputEx)(::windows::core::Vtable::as_raw(self), dwoutputnum, cbbuffer, ::core::mem::transmute(ppbuffer), dwflags, cnssampletime, cnssampleduration, pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderAllocatorEx, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReaderAllocatorEx, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReaderAllocatorEx {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5443,7 +5443,7 @@ impl IWMReaderCallback {
         (::windows::core::Vtable::vtable(self).OnSample)(::windows::core::Vtable::as_raw(self), dwoutputnum, cnssampletime, cnssampleduration, dwflags, psample.into().abi(), pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderCallback, ::windows::core::IUnknown, IWMStatusCallback);
+::windows::imp::interface_hierarchy!(IWMReaderCallback, ::windows::core::IUnknown, IWMStatusCallback);
 impl ::core::cmp::PartialEq for IWMReaderCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5500,7 +5500,7 @@ impl IWMReaderCallbackAdvanced {
         (::windows::core::Vtable::vtable(self).AllocateForOutput)(::windows::core::Vtable::as_raw(self), dwoutputnum, cbbuffer, ::core::mem::transmute(ppbuffer), pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderCallbackAdvanced, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReaderCallbackAdvanced, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReaderCallbackAdvanced {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5728,7 +5728,7 @@ impl IWMReaderNetworkConfig {
         (::windows::core::Vtable::vtable(self).ResetLoggingUrlList)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderNetworkConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReaderNetworkConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReaderNetworkConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6090,7 +6090,7 @@ impl IWMReaderNetworkConfig2 {
         (::windows::core::Vtable::vtable(self).GetMaxNetPacketSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderNetworkConfig2, ::windows::core::IUnknown, IWMReaderNetworkConfig);
+::windows::imp::interface_hierarchy!(IWMReaderNetworkConfig2, ::windows::core::IUnknown, IWMReaderNetworkConfig);
 impl ::core::cmp::PartialEq for IWMReaderNetworkConfig2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6176,7 +6176,7 @@ impl IWMReaderPlaylistBurn {
         (::windows::core::Vtable::vtable(self).EndPlaylistBurn)(::windows::core::Vtable::as_raw(self), hrburnresult).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderPlaylistBurn, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReaderPlaylistBurn, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReaderPlaylistBurn {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6223,7 +6223,7 @@ impl IWMReaderStreamClock {
         (::windows::core::Vtable::vtable(self).KillTimer)(::windows::core::Vtable::as_raw(self), dwtimerid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderStreamClock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReaderStreamClock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReaderStreamClock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6266,7 +6266,7 @@ impl IWMReaderTimecode {
         (::windows::core::Vtable::vtable(self).GetTimecodeRangeBounds)(::windows::core::Vtable::as_raw(self), wstreamnum, wrangenum, pstarttimecode, pendtimecode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderTimecode, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReaderTimecode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReaderTimecode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6307,7 +6307,7 @@ impl IWMReaderTypeNegotiation {
         (::windows::core::Vtable::vtable(self).TryOutputProps)(::windows::core::Vtable::as_raw(self), dwoutputnum, poutput.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMReaderTypeNegotiation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMReaderTypeNegotiation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMReaderTypeNegotiation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6353,7 +6353,7 @@ impl IWMRegisterCallback {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), pcallback.into().abi(), pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMRegisterCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMRegisterCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMRegisterCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6452,7 +6452,7 @@ impl IWMRegisteredDevice {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMRegisteredDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMRegisteredDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMRegisteredDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6522,7 +6522,7 @@ impl IWMSBufferAllocator {
         (::windows::core::Vtable::vtable(self).AllocatePageSizeBuffer)(::windows::core::Vtable::as_raw(self), dwmaxbuffersize, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMSBufferAllocator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMSBufferAllocator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMSBufferAllocator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6613,7 +6613,7 @@ impl IWMSInternalAdminNetSource {
         (::windows::core::Vtable::vtable(self).IsUsingIE)(::windows::core::Vtable::as_raw(self), dwproxycontext, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMSInternalAdminNetSource, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMSInternalAdminNetSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMSInternalAdminNetSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6703,7 +6703,7 @@ impl IWMSInternalAdminNetSource2 {
         (::windows::core::Vtable::vtable(self).FindProxyForURLEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute_copy(bstrhost), ::core::mem::transmute_copy(bstrurl), pfproxyenabled, ::core::mem::transmute(pbstrproxyserver), pdwproxyport, pdwproxycontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMSInternalAdminNetSource2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMSInternalAdminNetSource2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMSInternalAdminNetSource2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6824,7 +6824,7 @@ impl IWMSInternalAdminNetSource3 {
         (::windows::core::Vtable::vtable(self).GetCredentialsEx2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into(), fcleartextauthentication.into(), pdwurlpolicy, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMSInternalAdminNetSource3, ::windows::core::IUnknown, IWMSInternalAdminNetSource2);
+::windows::imp::interface_hierarchy!(IWMSInternalAdminNetSource3, ::windows::core::IUnknown, IWMSInternalAdminNetSource2);
 impl ::core::cmp::PartialEq for IWMSInternalAdminNetSource3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6930,7 +6930,7 @@ impl IWMSecureChannel {
         (::windows::core::Vtable::vtable(self).WMSC_SetSharedData)(::windows::core::Vtable::as_raw(self), dwcertindex, pbshareddata).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMSecureChannel, ::windows::core::IUnknown, IWMAuthorizer);
+::windows::imp::interface_hierarchy!(IWMSecureChannel, ::windows::core::IUnknown, IWMAuthorizer);
 impl ::core::cmp::PartialEq for IWMSecureChannel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6980,7 +6980,7 @@ impl IWMStatusCallback {
         (::windows::core::Vtable::vtable(self).OnStatus)(::windows::core::Vtable::as_raw(self), status, hr, dwtype, pvalue, pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMStatusCallback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMStatusCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMStatusCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7057,7 +7057,7 @@ impl IWMStreamConfig {
         (::windows::core::Vtable::vtable(self).SetBufferWindow)(::windows::core::Vtable::as_raw(self), msbufferwindow).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMStreamConfig, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMStreamConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMStreamConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7164,7 +7164,7 @@ impl IWMStreamConfig2 {
         (::windows::core::Vtable::vtable(self).RemoveAllDataUnitExtensions)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMStreamConfig2, ::windows::core::IUnknown, IWMStreamConfig);
+::windows::imp::interface_hierarchy!(IWMStreamConfig2, ::windows::core::IUnknown, IWMStreamConfig);
 impl ::core::cmp::PartialEq for IWMStreamConfig2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7275,7 +7275,7 @@ impl IWMStreamConfig3 {
         (::windows::core::Vtable::vtable(self).SetLanguage)(::windows::core::Vtable::as_raw(self), pwszlanguagestring.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMStreamConfig3, ::windows::core::IUnknown, IWMStreamConfig, IWMStreamConfig2);
+::windows::imp::interface_hierarchy!(IWMStreamConfig3, ::windows::core::IUnknown, IWMStreamConfig, IWMStreamConfig2);
 impl ::core::cmp::PartialEq for IWMStreamConfig3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7319,7 +7319,7 @@ impl IWMStreamList {
         (::windows::core::Vtable::vtable(self).RemoveStream)(::windows::core::Vtable::as_raw(self), wstreamnum).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMStreamList, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMStreamList, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMStreamList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7365,7 +7365,7 @@ impl IWMStreamPrioritization {
         (::windows::core::Vtable::vtable(self).SetPriorityRecords)(::windows::core::Vtable::as_raw(self), precordarray, crecords).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMStreamPrioritization, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMStreamPrioritization, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMStreamPrioritization {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7503,7 +7503,7 @@ impl IWMSyncReader {
         (::windows::core::Vtable::vtable(self).OpenStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMSyncReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMSyncReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMSyncReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7690,7 +7690,7 @@ impl IWMSyncReader2 {
         (::windows::core::Vtable::vtable(self).GetAllocateForStream)(::windows::core::Vtable::as_raw(self), dwsreamnum, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMSyncReader2, ::windows::core::IUnknown, IWMSyncReader);
+::windows::imp::interface_hierarchy!(IWMSyncReader2, ::windows::core::IUnknown, IWMSyncReader);
 impl ::core::cmp::PartialEq for IWMSyncReader2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7757,7 +7757,7 @@ impl IWMVideoMediaProps {
         (::windows::core::Vtable::vtable(self).SetQuality)(::windows::core::Vtable::as_raw(self), dwquality).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMVideoMediaProps, ::windows::core::IUnknown, IWMMediaProps);
+::windows::imp::interface_hierarchy!(IWMVideoMediaProps, ::windows::core::IUnknown, IWMMediaProps);
 impl ::core::cmp::PartialEq for IWMVideoMediaProps {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7801,7 +7801,7 @@ impl IWMWatermarkInfo {
         (::windows::core::Vtable::vtable(self).GetWatermarkEntry)(::windows::core::Vtable::as_raw(self), wmettype, dwentrynum, pentry).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWatermarkInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMWatermarkInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMWatermarkInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7892,7 +7892,7 @@ impl IWMWriter {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriter, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMWriter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7992,7 +7992,7 @@ impl IWMWriterAdvanced {
         (::windows::core::Vtable::vtable(self).GetSyncTolerance)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterAdvanced, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMWriterAdvanced, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMWriterAdvanced {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8108,7 +8108,7 @@ impl IWMWriterAdvanced2 {
         (::windows::core::Vtable::vtable(self).SetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterAdvanced2, ::windows::core::IUnknown, IWMWriterAdvanced);
+::windows::imp::interface_hierarchy!(IWMWriterAdvanced2, ::windows::core::IUnknown, IWMWriterAdvanced);
 impl ::core::cmp::PartialEq for IWMWriterAdvanced2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8215,7 +8215,7 @@ impl IWMWriterAdvanced3 {
         (::windows::core::Vtable::vtable(self).SetNonBlocking)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterAdvanced3, ::windows::core::IUnknown, IWMWriterAdvanced, IWMWriterAdvanced2);
+::windows::imp::interface_hierarchy!(IWMWriterAdvanced3, ::windows::core::IUnknown, IWMWriterAdvanced, IWMWriterAdvanced2);
 impl ::core::cmp::PartialEq for IWMWriterAdvanced3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8281,7 +8281,7 @@ impl IWMWriterFileSink {
         (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterFileSink, ::windows::core::IUnknown, IWMWriterSink);
+::windows::imp::interface_hierarchy!(IWMWriterFileSink, ::windows::core::IUnknown, IWMWriterSink);
 impl ::core::cmp::PartialEq for IWMWriterFileSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8375,7 +8375,7 @@ impl IWMWriterFileSink2 {
         (::windows::core::Vtable::vtable(self).IsClosed)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterFileSink2, ::windows::core::IUnknown, IWMWriterSink, IWMWriterFileSink);
+::windows::imp::interface_hierarchy!(IWMWriterFileSink2, ::windows::core::IUnknown, IWMWriterSink, IWMWriterFileSink);
 impl ::core::cmp::PartialEq for IWMWriterFileSink2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8528,7 +8528,7 @@ impl IWMWriterFileSink3 {
         (::windows::core::Vtable::vtable(self).CompleteOperations)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterFileSink3, ::windows::core::IUnknown, IWMWriterSink, IWMWriterFileSink, IWMWriterFileSink2);
+::windows::imp::interface_hierarchy!(IWMWriterFileSink3, ::windows::core::IUnknown, IWMWriterSink, IWMWriterFileSink, IWMWriterFileSink2);
 impl ::core::cmp::PartialEq for IWMWriterFileSink3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8635,7 +8635,7 @@ impl IWMWriterNetworkSink {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterNetworkSink, ::windows::core::IUnknown, IWMWriterSink);
+::windows::imp::interface_hierarchy!(IWMWriterNetworkSink, ::windows::core::IUnknown, IWMWriterSink);
 impl ::core::cmp::PartialEq for IWMWriterNetworkSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8728,7 +8728,7 @@ impl IWMWriterPostView {
         (::windows::core::Vtable::vtable(self).GetAllocateForPostView)(::windows::core::Vtable::as_raw(self), wstreamnumber, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterPostView, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMWriterPostView, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMWriterPostView {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8794,7 +8794,7 @@ impl IWMWriterPostViewCallback {
         (::windows::core::Vtable::vtable(self).AllocateForPostView)(::windows::core::Vtable::as_raw(self), wstreamnum, cbbuffer, ::core::mem::transmute(ppbuffer), pvcontext).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterPostViewCallback, ::windows::core::IUnknown, IWMStatusCallback);
+::windows::imp::interface_hierarchy!(IWMWriterPostViewCallback, ::windows::core::IUnknown, IWMStatusCallback);
 impl ::core::cmp::PartialEq for IWMWriterPostViewCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8848,7 +8848,7 @@ impl IWMWriterPreprocess {
         (::windows::core::Vtable::vtable(self).EndPreprocessingPass)(::windows::core::Vtable::as_raw(self), dwinputnum, dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterPreprocess, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMWriterPreprocess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMWriterPreprocess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8927,7 +8927,7 @@ impl IWMWriterPushSink {
         (::windows::core::Vtable::vtable(self).EndSession)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterPushSink, ::windows::core::IUnknown, IWMWriterSink);
+::windows::imp::interface_hierarchy!(IWMWriterPushSink, ::windows::core::IUnknown, IWMWriterSink);
 impl ::core::cmp::PartialEq for IWMWriterPushSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8991,7 +8991,7 @@ impl IWMWriterSink {
         (::windows::core::Vtable::vtable(self).OnEndWriting)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWMWriterSink, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWMWriterSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWMWriterSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -3185,7 +3185,7 @@ pub struct IProximitySensorStatics2_Vtbl {
 #[repr(transparent)]
 pub struct ISensorDataThreshold(::windows::core::IUnknown);
 impl ISensorDataThreshold {}
-::windows::core::interface_hierarchy!(ISensorDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISensorDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISensorDataThreshold {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3198,7 +3198,7 @@ impl ::core::fmt::Debug for ISensorDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for ISensorDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{54daec61-fe4b-4e07-b260-3a4cdfbe396e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{54daec61-fe4b-4e07-b260-3a4cdfbe396e}");
 }
 unsafe impl ::windows::core::Vtable for ISensorDataThreshold {
     type Vtable = ISensorDataThreshold_Vtbl;
@@ -3572,17 +3572,17 @@ impl Accelerometer {
     }
     #[doc(hidden)]
     pub fn IAccelerometerStatics<R, F: FnOnce(&IAccelerometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Accelerometer, IAccelerometerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Accelerometer, IAccelerometerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAccelerometerStatics2<R, F: FnOnce(&IAccelerometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Accelerometer, IAccelerometerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Accelerometer, IAccelerometerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAccelerometerStatics3<R, F: FnOnce(&IAccelerometerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Accelerometer, IAccelerometerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Accelerometer, IAccelerometerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3598,7 +3598,7 @@ impl ::core::fmt::Debug for Accelerometer {
     }
 }
 impl ::windows::core::RuntimeType for Accelerometer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Accelerometer;{df184548-2711-4da7-8098-4b82205d3c7d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Accelerometer;{df184548-2711-4da7-8098-4b82205d3c7d})");
 }
 impl ::core::clone::Clone for Accelerometer {
     fn clone(&self) -> Self {
@@ -3614,7 +3614,7 @@ unsafe impl ::windows::core::Interface for Accelerometer {
 impl ::windows::core::RuntimeName for Accelerometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Accelerometer";
 }
-::windows::core::interface_hierarchy!(Accelerometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Accelerometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Accelerometer {}
 unsafe impl ::core::marker::Sync for Accelerometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3667,7 +3667,7 @@ impl ::core::fmt::Debug for AccelerometerDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for AccelerometerDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerDataThreshold;{f92c1b68-6320-5577-879e-9942621c3dd9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerDataThreshold;{f92c1b68-6320-5577-879e-9942621c3dd9})");
 }
 impl ::core::clone::Clone for AccelerometerDataThreshold {
     fn clone(&self) -> Self {
@@ -3683,7 +3683,7 @@ unsafe impl ::windows::core::Interface for AccelerometerDataThreshold {
 impl ::windows::core::RuntimeName for AccelerometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerDataThreshold";
 }
-::windows::core::interface_hierarchy!(AccelerometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AccelerometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccelerometerDataThreshold {}
 unsafe impl ::core::marker::Sync for AccelerometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3751,7 +3751,7 @@ impl ::core::fmt::Debug for AccelerometerReading {
     }
 }
 impl ::windows::core::RuntimeType for AccelerometerReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReading;{b9fe7acb-d351-40af-8bb6-7aa9ae641fb7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReading;{b9fe7acb-d351-40af-8bb6-7aa9ae641fb7})");
 }
 impl ::core::clone::Clone for AccelerometerReading {
     fn clone(&self) -> Self {
@@ -3767,7 +3767,7 @@ unsafe impl ::windows::core::Interface for AccelerometerReading {
 impl ::windows::core::RuntimeName for AccelerometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReading";
 }
-::windows::core::interface_hierarchy!(AccelerometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AccelerometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccelerometerReading {}
 unsafe impl ::core::marker::Sync for AccelerometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3794,7 +3794,7 @@ impl ::core::fmt::Debug for AccelerometerReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AccelerometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs;{0095c65b-b6ac-475a-9f44-8b32d35a3f25})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs;{0095c65b-b6ac-475a-9f44-8b32d35a3f25})");
 }
 impl ::core::clone::Clone for AccelerometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -3810,7 +3810,7 @@ unsafe impl ::windows::core::Interface for AccelerometerReadingChangedEventArgs 
 impl ::windows::core::RuntimeName for AccelerometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AccelerometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AccelerometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccelerometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3839,7 +3839,7 @@ impl ::core::fmt::Debug for AccelerometerShakenEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AccelerometerShakenEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerShakenEventArgs;{95ff01d1-4a28-4f35-98e8-8178aae4084a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerShakenEventArgs;{95ff01d1-4a28-4f35-98e8-8178aae4084a})");
 }
 impl ::core::clone::Clone for AccelerometerShakenEventArgs {
     fn clone(&self) -> Self {
@@ -3855,7 +3855,7 @@ unsafe impl ::windows::core::Interface for AccelerometerShakenEventArgs {
 impl ::windows::core::RuntimeName for AccelerometerShakenEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerShakenEventArgs";
 }
-::windows::core::interface_hierarchy!(AccelerometerShakenEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AccelerometerShakenEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccelerometerShakenEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerShakenEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3965,7 +3965,7 @@ impl ActivitySensor {
     }
     #[doc(hidden)]
     pub fn IActivitySensorStatics<R, F: FnOnce(&IActivitySensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ActivitySensor, IActivitySensorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ActivitySensor, IActivitySensorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3981,7 +3981,7 @@ impl ::core::fmt::Debug for ActivitySensor {
     }
 }
 impl ::windows::core::RuntimeType for ActivitySensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensor;{cd7a630c-fb5f-48eb-b09b-a2708d1c61ef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensor;{cd7a630c-fb5f-48eb-b09b-a2708d1c61ef})");
 }
 impl ::core::clone::Clone for ActivitySensor {
     fn clone(&self) -> Self {
@@ -3997,7 +3997,7 @@ unsafe impl ::windows::core::Interface for ActivitySensor {
 impl ::windows::core::RuntimeName for ActivitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensor";
 }
-::windows::core::interface_hierarchy!(ActivitySensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivitySensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensor {}
 unsafe impl ::core::marker::Sync for ActivitySensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4040,7 +4040,7 @@ impl ::core::fmt::Debug for ActivitySensorReading {
     }
 }
 impl ::windows::core::RuntimeType for ActivitySensorReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReading;{85125a96-1472-40a2-b2ae-e1ef29226c78})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReading;{85125a96-1472-40a2-b2ae-e1ef29226c78})");
 }
 impl ::core::clone::Clone for ActivitySensorReading {
     fn clone(&self) -> Self {
@@ -4056,7 +4056,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorReading {
 impl ::windows::core::RuntimeName for ActivitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReading";
 }
-::windows::core::interface_hierarchy!(ActivitySensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivitySensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensorReading {}
 unsafe impl ::core::marker::Sync for ActivitySensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4083,7 +4083,7 @@ impl ::core::fmt::Debug for ActivitySensorReadingChangeReport {
     }
 }
 impl ::windows::core::RuntimeType for ActivitySensorReadingChangeReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangeReport;{4f3c2915-d93b-47bd-960a-f20fb2f322b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangeReport;{4f3c2915-d93b-47bd-960a-f20fb2f322b9})");
 }
 impl ::core::clone::Clone for ActivitySensorReadingChangeReport {
     fn clone(&self) -> Self {
@@ -4099,7 +4099,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorReadingChangeReport {
 impl ::windows::core::RuntimeName for ActivitySensorReadingChangeReport {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangeReport";
 }
-::windows::core::interface_hierarchy!(ActivitySensorReadingChangeReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivitySensorReadingChangeReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensorReadingChangeReport {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangeReport {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4126,7 +4126,7 @@ impl ::core::fmt::Debug for ActivitySensorReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ActivitySensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs;{de386717-aeb6-4ec7-946a-d9cc19b951ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs;{de386717-aeb6-4ec7-946a-d9cc19b951ec})");
 }
 impl ::core::clone::Clone for ActivitySensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4142,7 +4142,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorReadingChangedEventArgs
 impl ::windows::core::RuntimeName for ActivitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(ActivitySensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivitySensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4171,7 +4171,7 @@ impl ::core::fmt::Debug for ActivitySensorTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for ActivitySensorTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorTriggerDetails;{2c9e6612-b9ca-4677-b263-243297f79d3a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorTriggerDetails;{2c9e6612-b9ca-4677-b263-243297f79d3a})");
 }
 impl ::core::clone::Clone for ActivitySensorTriggerDetails {
     fn clone(&self) -> Self {
@@ -4187,7 +4187,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorTriggerDetails {
 impl ::windows::core::RuntimeName for ActivitySensorTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorTriggerDetails";
 }
-::windows::core::interface_hierarchy!(ActivitySensorTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivitySensorTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
 unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4267,7 +4267,7 @@ impl Altimeter {
     }
     #[doc(hidden)]
     pub fn IAltimeterStatics<R, F: FnOnce(&IAltimeterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Altimeter, IAltimeterStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Altimeter, IAltimeterStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4283,7 +4283,7 @@ impl ::core::fmt::Debug for Altimeter {
     }
 }
 impl ::windows::core::RuntimeType for Altimeter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Altimeter;{72f057fd-8f04-49f1-b4a7-f4e363b701a2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Altimeter;{72f057fd-8f04-49f1-b4a7-f4e363b701a2})");
 }
 impl ::core::clone::Clone for Altimeter {
     fn clone(&self) -> Self {
@@ -4299,7 +4299,7 @@ unsafe impl ::windows::core::Interface for Altimeter {
 impl ::windows::core::RuntimeName for Altimeter {
     const NAME: &'static str = "Windows.Devices.Sensors.Altimeter";
 }
-::windows::core::interface_hierarchy!(Altimeter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Altimeter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Altimeter {}
 unsafe impl ::core::marker::Sync for Altimeter {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4353,7 +4353,7 @@ impl ::core::fmt::Debug for AltimeterReading {
     }
 }
 impl ::windows::core::RuntimeType for AltimeterReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReading;{fbe8ef73-7f5e-48c8-aa1a-f1f3befc1144})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReading;{fbe8ef73-7f5e-48c8-aa1a-f1f3befc1144})");
 }
 impl ::core::clone::Clone for AltimeterReading {
     fn clone(&self) -> Self {
@@ -4369,7 +4369,7 @@ unsafe impl ::windows::core::Interface for AltimeterReading {
 impl ::windows::core::RuntimeName for AltimeterReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReading";
 }
-::windows::core::interface_hierarchy!(AltimeterReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AltimeterReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AltimeterReading {}
 unsafe impl ::core::marker::Sync for AltimeterReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4396,7 +4396,7 @@ impl ::core::fmt::Debug for AltimeterReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for AltimeterReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReadingChangedEventArgs;{7069d077-446d-47f7-998c-ebc23b45e4a2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReadingChangedEventArgs;{7069d077-446d-47f7-998c-ebc23b45e4a2})");
 }
 impl ::core::clone::Clone for AltimeterReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4412,7 +4412,7 @@ unsafe impl ::windows::core::Interface for AltimeterReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for AltimeterReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(AltimeterReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AltimeterReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AltimeterReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AltimeterReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4513,12 +4513,12 @@ impl Barometer {
     }
     #[doc(hidden)]
     pub fn IBarometerStatics<R, F: FnOnce(&IBarometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Barometer, IBarometerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Barometer, IBarometerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBarometerStatics2<R, F: FnOnce(&IBarometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Barometer, IBarometerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Barometer, IBarometerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4534,7 +4534,7 @@ impl ::core::fmt::Debug for Barometer {
     }
 }
 impl ::windows::core::RuntimeType for Barometer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Barometer;{934475a8-78bf-452f-b017-f0209ce6dab4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Barometer;{934475a8-78bf-452f-b017-f0209ce6dab4})");
 }
 impl ::core::clone::Clone for Barometer {
     fn clone(&self) -> Self {
@@ -4550,7 +4550,7 @@ unsafe impl ::windows::core::Interface for Barometer {
 impl ::windows::core::RuntimeName for Barometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Barometer";
 }
-::windows::core::interface_hierarchy!(Barometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Barometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Barometer {}
 unsafe impl ::core::marker::Sync for Barometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4581,7 +4581,7 @@ impl ::core::fmt::Debug for BarometerDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for BarometerDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerDataThreshold;{076b952c-cb62-5a90-a0d1-f85e4a936394})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerDataThreshold;{076b952c-cb62-5a90-a0d1-f85e4a936394})");
 }
 impl ::core::clone::Clone for BarometerDataThreshold {
     fn clone(&self) -> Self {
@@ -4597,7 +4597,7 @@ unsafe impl ::windows::core::Interface for BarometerDataThreshold {
 impl ::windows::core::RuntimeName for BarometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerDataThreshold";
 }
-::windows::core::interface_hierarchy!(BarometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarometerDataThreshold {}
 unsafe impl ::core::marker::Sync for BarometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4651,7 +4651,7 @@ impl ::core::fmt::Debug for BarometerReading {
     }
 }
 impl ::windows::core::RuntimeType for BarometerReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReading;{f5b9d2e6-1df6-4a1a-a7ad-321d4f5db247})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReading;{f5b9d2e6-1df6-4a1a-a7ad-321d4f5db247})");
 }
 impl ::core::clone::Clone for BarometerReading {
     fn clone(&self) -> Self {
@@ -4667,7 +4667,7 @@ unsafe impl ::windows::core::Interface for BarometerReading {
 impl ::windows::core::RuntimeName for BarometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReading";
 }
-::windows::core::interface_hierarchy!(BarometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarometerReading {}
 unsafe impl ::core::marker::Sync for BarometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4694,7 +4694,7 @@ impl ::core::fmt::Debug for BarometerReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BarometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReadingChangedEventArgs;{3d84945f-037b-404f-9bbb-6232d69543c3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReadingChangedEventArgs;{3d84945f-037b-404f-9bbb-6232d69543c3})");
 }
 impl ::core::clone::Clone for BarometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4710,7 +4710,7 @@ unsafe impl ::windows::core::Interface for BarometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for BarometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(BarometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BarometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for BarometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4826,12 +4826,12 @@ impl Compass {
     }
     #[doc(hidden)]
     pub fn ICompassStatics<R, F: FnOnce(&ICompassStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Compass, ICompassStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Compass, ICompassStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ICompassStatics2<R, F: FnOnce(&ICompassStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Compass, ICompassStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Compass, ICompassStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4847,7 +4847,7 @@ impl ::core::fmt::Debug for Compass {
     }
 }
 impl ::windows::core::RuntimeType for Compass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Compass;{292ffa94-1b45-403c-ba06-b106dba69a64})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Compass;{292ffa94-1b45-403c-ba06-b106dba69a64})");
 }
 impl ::core::clone::Clone for Compass {
     fn clone(&self) -> Self {
@@ -4863,7 +4863,7 @@ unsafe impl ::windows::core::Interface for Compass {
 impl ::windows::core::RuntimeName for Compass {
     const NAME: &'static str = "Windows.Devices.Sensors.Compass";
 }
-::windows::core::interface_hierarchy!(Compass, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Compass, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Compass {}
 unsafe impl ::core::marker::Sync for Compass {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4894,7 +4894,7 @@ impl ::core::fmt::Debug for CompassDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for CompassDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassDataThreshold;{d15b52b3-d39d-5ec8-b2e4-f193e6ab34ed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassDataThreshold;{d15b52b3-d39d-5ec8-b2e4-f193e6ab34ed})");
 }
 impl ::core::clone::Clone for CompassDataThreshold {
     fn clone(&self) -> Self {
@@ -4910,7 +4910,7 @@ unsafe impl ::windows::core::Interface for CompassDataThreshold {
 impl ::windows::core::RuntimeName for CompassDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassDataThreshold";
 }
-::windows::core::interface_hierarchy!(CompassDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompassDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompassDataThreshold {}
 unsafe impl ::core::marker::Sync for CompassDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4980,7 +4980,7 @@ impl ::core::fmt::Debug for CompassReading {
     }
 }
 impl ::windows::core::RuntimeType for CompassReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReading;{82911128-513d-4dc9-b781-5eedfbf02d0c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReading;{82911128-513d-4dc9-b781-5eedfbf02d0c})");
 }
 impl ::core::clone::Clone for CompassReading {
     fn clone(&self) -> Self {
@@ -4996,7 +4996,7 @@ unsafe impl ::windows::core::Interface for CompassReading {
 impl ::windows::core::RuntimeName for CompassReading {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReading";
 }
-::windows::core::interface_hierarchy!(CompassReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompassReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompassReading {}
 unsafe impl ::core::marker::Sync for CompassReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5023,7 +5023,7 @@ impl ::core::fmt::Debug for CompassReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CompassReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReadingChangedEventArgs;{8f1549b0-e8bc-4c7e-b009-4e41df137072})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReadingChangedEventArgs;{8f1549b0-e8bc-4c7e-b009-4e41df137072})");
 }
 impl ::core::clone::Clone for CompassReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5039,7 +5039,7 @@ unsafe impl ::windows::core::Interface for CompassReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for CompassReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(CompassReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompassReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompassReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CompassReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5155,12 +5155,12 @@ impl Gyrometer {
     }
     #[doc(hidden)]
     pub fn IGyrometerStatics<R, F: FnOnce(&IGyrometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Gyrometer, IGyrometerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Gyrometer, IGyrometerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGyrometerStatics2<R, F: FnOnce(&IGyrometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Gyrometer, IGyrometerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Gyrometer, IGyrometerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5176,7 +5176,7 @@ impl ::core::fmt::Debug for Gyrometer {
     }
 }
 impl ::windows::core::RuntimeType for Gyrometer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Gyrometer;{fdb9a9c4-84b1-4ca2-9763-9b589506c70c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Gyrometer;{fdb9a9c4-84b1-4ca2-9763-9b589506c70c})");
 }
 impl ::core::clone::Clone for Gyrometer {
     fn clone(&self) -> Self {
@@ -5192,7 +5192,7 @@ unsafe impl ::windows::core::Interface for Gyrometer {
 impl ::windows::core::RuntimeName for Gyrometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Gyrometer";
 }
-::windows::core::interface_hierarchy!(Gyrometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Gyrometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Gyrometer {}
 unsafe impl ::core::marker::Sync for Gyrometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5245,7 +5245,7 @@ impl ::core::fmt::Debug for GyrometerDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for GyrometerDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerDataThreshold;{8648b31e-6e52-5259-bbad-242a69dc38c8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerDataThreshold;{8648b31e-6e52-5259-bbad-242a69dc38c8})");
 }
 impl ::core::clone::Clone for GyrometerDataThreshold {
     fn clone(&self) -> Self {
@@ -5261,7 +5261,7 @@ unsafe impl ::windows::core::Interface for GyrometerDataThreshold {
 impl ::windows::core::RuntimeName for GyrometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerDataThreshold";
 }
-::windows::core::interface_hierarchy!(GyrometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GyrometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GyrometerDataThreshold {}
 unsafe impl ::core::marker::Sync for GyrometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5329,7 +5329,7 @@ impl ::core::fmt::Debug for GyrometerReading {
     }
 }
 impl ::windows::core::RuntimeType for GyrometerReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReading;{b3d6de5c-1ee4-456f-9de7-e2493b5c8e03})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReading;{b3d6de5c-1ee4-456f-9de7-e2493b5c8e03})");
 }
 impl ::core::clone::Clone for GyrometerReading {
     fn clone(&self) -> Self {
@@ -5345,7 +5345,7 @@ unsafe impl ::windows::core::Interface for GyrometerReading {
 impl ::windows::core::RuntimeName for GyrometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReading";
 }
-::windows::core::interface_hierarchy!(GyrometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GyrometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GyrometerReading {}
 unsafe impl ::core::marker::Sync for GyrometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5372,7 +5372,7 @@ impl ::core::fmt::Debug for GyrometerReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GyrometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReadingChangedEventArgs;{0fdf1895-6f9e-42ce-8d58-388c0ab8356d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReadingChangedEventArgs;{0fdf1895-6f9e-42ce-8d58-388c0ab8356d})");
 }
 impl ::core::clone::Clone for GyrometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5388,7 +5388,7 @@ unsafe impl ::windows::core::Interface for GyrometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for GyrometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(GyrometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GyrometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GyrometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GyrometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5433,7 +5433,7 @@ impl ::core::fmt::Debug for HingeAngleReading {
     }
 }
 impl ::windows::core::RuntimeType for HingeAngleReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleReading;{a3cd45b9-1bf1-4f65-a704-e2da04f182c0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleReading;{a3cd45b9-1bf1-4f65-a704-e2da04f182c0})");
 }
 impl ::core::clone::Clone for HingeAngleReading {
     fn clone(&self) -> Self {
@@ -5449,7 +5449,7 @@ unsafe impl ::windows::core::Interface for HingeAngleReading {
 impl ::windows::core::RuntimeName for HingeAngleReading {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleReading";
 }
-::windows::core::interface_hierarchy!(HingeAngleReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HingeAngleReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HingeAngleReading {}
 unsafe impl ::core::marker::Sync for HingeAngleReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5537,7 +5537,7 @@ impl HingeAngleSensor {
     }
     #[doc(hidden)]
     pub fn IHingeAngleSensorStatics<R, F: FnOnce(&IHingeAngleSensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HingeAngleSensor, IHingeAngleSensorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HingeAngleSensor, IHingeAngleSensorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5553,7 +5553,7 @@ impl ::core::fmt::Debug for HingeAngleSensor {
     }
 }
 impl ::windows::core::RuntimeType for HingeAngleSensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensor;{e9d3be02-bfdf-437f-8c29-88c77393d309})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensor;{e9d3be02-bfdf-437f-8c29-88c77393d309})");
 }
 impl ::core::clone::Clone for HingeAngleSensor {
     fn clone(&self) -> Self {
@@ -5569,7 +5569,7 @@ unsafe impl ::windows::core::Interface for HingeAngleSensor {
 impl ::windows::core::RuntimeName for HingeAngleSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensor";
 }
-::windows::core::interface_hierarchy!(HingeAngleSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HingeAngleSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HingeAngleSensor {}
 unsafe impl ::core::marker::Sync for HingeAngleSensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5596,7 +5596,7 @@ impl ::core::fmt::Debug for HingeAngleSensorReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HingeAngleSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs;{24d9558b-fad0-42b8-a854-78923049a1ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs;{24d9558b-fad0-42b8-a854-78923049a1ba})");
 }
 impl ::core::clone::Clone for HingeAngleSensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5612,7 +5612,7 @@ unsafe impl ::windows::core::Interface for HingeAngleSensorReadingChangedEventAr
 impl ::windows::core::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(HingeAngleSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HingeAngleSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HingeAngleSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for HingeAngleSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5669,7 +5669,7 @@ impl ::core::fmt::Debug for HumanPresenceFeatures {
     }
 }
 impl ::windows::core::RuntimeType for HumanPresenceFeatures {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceFeatures;{bdb09fda-3244-557a-bd29-8b004f59f2cc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceFeatures;{bdb09fda-3244-557a-bd29-8b004f59f2cc})");
 }
 impl ::core::clone::Clone for HumanPresenceFeatures {
     fn clone(&self) -> Self {
@@ -5685,7 +5685,7 @@ unsafe impl ::windows::core::Interface for HumanPresenceFeatures {
 impl ::windows::core::RuntimeName for HumanPresenceFeatures {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceFeatures";
 }
-::windows::core::interface_hierarchy!(HumanPresenceFeatures, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HumanPresenceFeatures, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HumanPresenceFeatures {}
 unsafe impl ::core::marker::Sync for HumanPresenceFeatures {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5763,7 +5763,7 @@ impl HumanPresenceSensor {
     }
     #[doc(hidden)]
     pub fn IHumanPresenceSensorStatics<R, F: FnOnce(&IHumanPresenceSensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HumanPresenceSensor, IHumanPresenceSensorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HumanPresenceSensor, IHumanPresenceSensorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5779,7 +5779,7 @@ impl ::core::fmt::Debug for HumanPresenceSensor {
     }
 }
 impl ::windows::core::RuntimeType for HumanPresenceSensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensor;{2116788b-e389-5cc3-9a97-cb17be1008bd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensor;{2116788b-e389-5cc3-9a97-cb17be1008bd})");
 }
 impl ::core::clone::Clone for HumanPresenceSensor {
     fn clone(&self) -> Self {
@@ -5795,7 +5795,7 @@ unsafe impl ::windows::core::Interface for HumanPresenceSensor {
 impl ::windows::core::RuntimeName for HumanPresenceSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSensor";
 }
-::windows::core::interface_hierarchy!(HumanPresenceSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HumanPresenceSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HumanPresenceSensor {}
 unsafe impl ::core::marker::Sync for HumanPresenceSensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5847,7 +5847,7 @@ impl ::core::fmt::Debug for HumanPresenceSensorReading {
     }
 }
 impl ::windows::core::RuntimeType for HumanPresenceSensorReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensorReading;{83533bf5-a85a-5d50-8be4-6072d745a3bb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensorReading;{83533bf5-a85a-5d50-8be4-6072d745a3bb})");
 }
 impl ::core::clone::Clone for HumanPresenceSensorReading {
     fn clone(&self) -> Self {
@@ -5863,7 +5863,7 @@ unsafe impl ::windows::core::Interface for HumanPresenceSensorReading {
 impl ::windows::core::RuntimeName for HumanPresenceSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSensorReading";
 }
-::windows::core::interface_hierarchy!(HumanPresenceSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HumanPresenceSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HumanPresenceSensorReading {}
 unsafe impl ::core::marker::Sync for HumanPresenceSensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5890,7 +5890,7 @@ impl ::core::fmt::Debug for HumanPresenceSensorReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HumanPresenceSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensorReadingChangedEventArgs;{a9dc4583-fd69-5c5e-ab1f-942204eae2db})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensorReadingChangedEventArgs;{a9dc4583-fd69-5c5e-ab1f-942204eae2db})");
 }
 impl ::core::clone::Clone for HumanPresenceSensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5906,7 +5906,7 @@ unsafe impl ::windows::core::Interface for HumanPresenceSensorReadingChangedEven
 impl ::windows::core::RuntimeName for HumanPresenceSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSensorReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(HumanPresenceSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HumanPresenceSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HumanPresenceSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for HumanPresenceSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6072,7 +6072,7 @@ impl HumanPresenceSettings {
     }
     #[doc(hidden)]
     pub fn IHumanPresenceSettingsStatics<R, F: FnOnce(&IHumanPresenceSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HumanPresenceSettings, IHumanPresenceSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<HumanPresenceSettings, IHumanPresenceSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6088,7 +6088,7 @@ impl ::core::fmt::Debug for HumanPresenceSettings {
     }
 }
 impl ::windows::core::RuntimeType for HumanPresenceSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSettings;{ef4daf5b-07b7-5eb6-86bb-b7ff49ce44fb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSettings;{ef4daf5b-07b7-5eb6-86bb-b7ff49ce44fb})");
 }
 impl ::core::clone::Clone for HumanPresenceSettings {
     fn clone(&self) -> Self {
@@ -6104,7 +6104,7 @@ unsafe impl ::windows::core::Interface for HumanPresenceSettings {
 impl ::windows::core::RuntimeName for HumanPresenceSettings {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSettings";
 }
-::windows::core::interface_hierarchy!(HumanPresenceSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HumanPresenceSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HumanPresenceSettings {}
 unsafe impl ::core::marker::Sync for HumanPresenceSettings {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6239,22 +6239,22 @@ impl Inclinometer {
     }
     #[doc(hidden)]
     pub fn IInclinometerStatics<R, F: FnOnce(&IInclinometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Inclinometer, IInclinometerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Inclinometer, IInclinometerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IInclinometerStatics2<R, F: FnOnce(&IInclinometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Inclinometer, IInclinometerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Inclinometer, IInclinometerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IInclinometerStatics3<R, F: FnOnce(&IInclinometerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Inclinometer, IInclinometerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Inclinometer, IInclinometerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IInclinometerStatics4<R, F: FnOnce(&IInclinometerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Inclinometer, IInclinometerStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Inclinometer, IInclinometerStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6270,7 +6270,7 @@ impl ::core::fmt::Debug for Inclinometer {
     }
 }
 impl ::windows::core::RuntimeType for Inclinometer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Inclinometer;{2648ca6f-2286-406f-9161-f0c4bd806ebf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Inclinometer;{2648ca6f-2286-406f-9161-f0c4bd806ebf})");
 }
 impl ::core::clone::Clone for Inclinometer {
     fn clone(&self) -> Self {
@@ -6286,7 +6286,7 @@ unsafe impl ::windows::core::Interface for Inclinometer {
 impl ::windows::core::RuntimeName for Inclinometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Inclinometer";
 }
-::windows::core::interface_hierarchy!(Inclinometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Inclinometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Inclinometer {}
 unsafe impl ::core::marker::Sync for Inclinometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6339,7 +6339,7 @@ impl ::core::fmt::Debug for InclinometerDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for InclinometerDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerDataThreshold;{f80a4783-7bfe-545e-bb60-a0ebc47bd2fb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerDataThreshold;{f80a4783-7bfe-545e-bb60-a0ebc47bd2fb})");
 }
 impl ::core::clone::Clone for InclinometerDataThreshold {
     fn clone(&self) -> Self {
@@ -6355,7 +6355,7 @@ unsafe impl ::windows::core::Interface for InclinometerDataThreshold {
 impl ::windows::core::RuntimeName for InclinometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerDataThreshold";
 }
-::windows::core::interface_hierarchy!(InclinometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InclinometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InclinometerDataThreshold {}
 unsafe impl ::core::marker::Sync for InclinometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6430,7 +6430,7 @@ impl ::core::fmt::Debug for InclinometerReading {
     }
 }
 impl ::windows::core::RuntimeType for InclinometerReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerReading;{9f44f055-b6f6-497f-b127-1a775e501458})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerReading;{9f44f055-b6f6-497f-b127-1a775e501458})");
 }
 impl ::core::clone::Clone for InclinometerReading {
     fn clone(&self) -> Self {
@@ -6446,7 +6446,7 @@ unsafe impl ::windows::core::Interface for InclinometerReading {
 impl ::windows::core::RuntimeName for InclinometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReading";
 }
-::windows::core::interface_hierarchy!(InclinometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InclinometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InclinometerReading {}
 unsafe impl ::core::marker::Sync for InclinometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6473,7 +6473,7 @@ impl ::core::fmt::Debug for InclinometerReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for InclinometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerReadingChangedEventArgs;{4ae91dc1-e7eb-4938-8511-ae0d6b440438})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerReadingChangedEventArgs;{4ae91dc1-e7eb-4938-8511-ae0d6b440438})");
 }
 impl ::core::clone::Clone for InclinometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -6489,7 +6489,7 @@ unsafe impl ::windows::core::Interface for InclinometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for InclinometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(InclinometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InclinometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InclinometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for InclinometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6590,12 +6590,12 @@ impl LightSensor {
     }
     #[doc(hidden)]
     pub fn ILightSensorStatics<R, F: FnOnce(&ILightSensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LightSensor, ILightSensorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LightSensor, ILightSensorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ILightSensorStatics2<R, F: FnOnce(&ILightSensorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<LightSensor, ILightSensorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<LightSensor, ILightSensorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6611,7 +6611,7 @@ impl ::core::fmt::Debug for LightSensor {
     }
 }
 impl ::windows::core::RuntimeType for LightSensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensor;{f84c0718-0c54-47ae-922e-789f57fb03a0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensor;{f84c0718-0c54-47ae-922e-789f57fb03a0})");
 }
 impl ::core::clone::Clone for LightSensor {
     fn clone(&self) -> Self {
@@ -6627,7 +6627,7 @@ unsafe impl ::windows::core::Interface for LightSensor {
 impl ::windows::core::RuntimeName for LightSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensor";
 }
-::windows::core::interface_hierarchy!(LightSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LightSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LightSensor {}
 unsafe impl ::core::marker::Sync for LightSensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6669,7 +6669,7 @@ impl ::core::fmt::Debug for LightSensorDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for LightSensorDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorDataThreshold;{b160afd1-878f-5492-9f2c-33dc3ae584a3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorDataThreshold;{b160afd1-878f-5492-9f2c-33dc3ae584a3})");
 }
 impl ::core::clone::Clone for LightSensorDataThreshold {
     fn clone(&self) -> Self {
@@ -6685,7 +6685,7 @@ unsafe impl ::windows::core::Interface for LightSensorDataThreshold {
 impl ::windows::core::RuntimeName for LightSensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorDataThreshold";
 }
-::windows::core::interface_hierarchy!(LightSensorDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LightSensorDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LightSensorDataThreshold {}
 unsafe impl ::core::marker::Sync for LightSensorDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6739,7 +6739,7 @@ impl ::core::fmt::Debug for LightSensorReading {
     }
 }
 impl ::windows::core::RuntimeType for LightSensorReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorReading;{ffdf6300-227c-4d2b-b302-fc0142485c68})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorReading;{ffdf6300-227c-4d2b-b302-fc0142485c68})");
 }
 impl ::core::clone::Clone for LightSensorReading {
     fn clone(&self) -> Self {
@@ -6755,7 +6755,7 @@ unsafe impl ::windows::core::Interface for LightSensorReading {
 impl ::windows::core::RuntimeName for LightSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReading";
 }
-::windows::core::interface_hierarchy!(LightSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LightSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LightSensorReading {}
 unsafe impl ::core::marker::Sync for LightSensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6782,7 +6782,7 @@ impl ::core::fmt::Debug for LightSensorReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for LightSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorReadingChangedEventArgs;{a3a2f4cf-258b-420c-b8ab-8edd601ecf50})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorReadingChangedEventArgs;{a3a2f4cf-258b-420c-b8ab-8edd601ecf50})");
 }
 impl ::core::clone::Clone for LightSensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -6798,7 +6798,7 @@ unsafe impl ::windows::core::Interface for LightSensorReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for LightSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(LightSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(LightSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LightSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LightSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6914,12 +6914,12 @@ impl Magnetometer {
     }
     #[doc(hidden)]
     pub fn IMagnetometerStatics<R, F: FnOnce(&IMagnetometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Magnetometer, IMagnetometerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Magnetometer, IMagnetometerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMagnetometerStatics2<R, F: FnOnce(&IMagnetometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Magnetometer, IMagnetometerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Magnetometer, IMagnetometerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6935,7 +6935,7 @@ impl ::core::fmt::Debug for Magnetometer {
     }
 }
 impl ::windows::core::RuntimeType for Magnetometer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Magnetometer;{484f626e-d3c9-4111-b3f6-2cf1faa418d5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Magnetometer;{484f626e-d3c9-4111-b3f6-2cf1faa418d5})");
 }
 impl ::core::clone::Clone for Magnetometer {
     fn clone(&self) -> Self {
@@ -6951,7 +6951,7 @@ unsafe impl ::windows::core::Interface for Magnetometer {
 impl ::windows::core::RuntimeName for Magnetometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Magnetometer";
 }
-::windows::core::interface_hierarchy!(Magnetometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Magnetometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Magnetometer {}
 unsafe impl ::core::marker::Sync for Magnetometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7004,7 +7004,7 @@ impl ::core::fmt::Debug for MagnetometerDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for MagnetometerDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerDataThreshold;{d177cb01-9063-5fa5-b596-b445e9dc3401})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerDataThreshold;{d177cb01-9063-5fa5-b596-b445e9dc3401})");
 }
 impl ::core::clone::Clone for MagnetometerDataThreshold {
     fn clone(&self) -> Self {
@@ -7020,7 +7020,7 @@ unsafe impl ::windows::core::Interface for MagnetometerDataThreshold {
 impl ::windows::core::RuntimeName for MagnetometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerDataThreshold";
 }
-::windows::core::interface_hierarchy!(MagnetometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagnetometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagnetometerDataThreshold {}
 unsafe impl ::core::marker::Sync for MagnetometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7095,7 +7095,7 @@ impl ::core::fmt::Debug for MagnetometerReading {
     }
 }
 impl ::windows::core::RuntimeType for MagnetometerReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerReading;{0c2cc40d-ebfd-4e5c-bb11-afc29b3cae61})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerReading;{0c2cc40d-ebfd-4e5c-bb11-afc29b3cae61})");
 }
 impl ::core::clone::Clone for MagnetometerReading {
     fn clone(&self) -> Self {
@@ -7111,7 +7111,7 @@ unsafe impl ::windows::core::Interface for MagnetometerReading {
 impl ::windows::core::RuntimeName for MagnetometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReading";
 }
-::windows::core::interface_hierarchy!(MagnetometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagnetometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagnetometerReading {}
 unsafe impl ::core::marker::Sync for MagnetometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7138,7 +7138,7 @@ impl ::core::fmt::Debug for MagnetometerReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for MagnetometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerReadingChangedEventArgs;{17eae872-2eb9-4ee7-8ad0-3127537d949b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerReadingChangedEventArgs;{17eae872-2eb9-4ee7-8ad0-3127537d949b})");
 }
 impl ::core::clone::Clone for MagnetometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -7154,7 +7154,7 @@ unsafe impl ::windows::core::Interface for MagnetometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for MagnetometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(MagnetometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MagnetometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagnetometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MagnetometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7294,22 +7294,22 @@ impl OrientationSensor {
     }
     #[doc(hidden)]
     pub fn IOrientationSensorStatics<R, F: FnOnce(&IOrientationSensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<OrientationSensor, IOrientationSensorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<OrientationSensor, IOrientationSensorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IOrientationSensorStatics2<R, F: FnOnce(&IOrientationSensorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<OrientationSensor, IOrientationSensorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<OrientationSensor, IOrientationSensorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IOrientationSensorStatics3<R, F: FnOnce(&IOrientationSensorStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<OrientationSensor, IOrientationSensorStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<OrientationSensor, IOrientationSensorStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IOrientationSensorStatics4<R, F: FnOnce(&IOrientationSensorStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<OrientationSensor, IOrientationSensorStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<OrientationSensor, IOrientationSensorStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7325,7 +7325,7 @@ impl ::core::fmt::Debug for OrientationSensor {
     }
 }
 impl ::windows::core::RuntimeType for OrientationSensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensor;{5e354635-cf6b-4c63-abd8-10252b0bf6ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensor;{5e354635-cf6b-4c63-abd8-10252b0bf6ec})");
 }
 impl ::core::clone::Clone for OrientationSensor {
     fn clone(&self) -> Self {
@@ -7341,7 +7341,7 @@ unsafe impl ::windows::core::Interface for OrientationSensor {
 impl ::windows::core::RuntimeName for OrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensor";
 }
-::windows::core::interface_hierarchy!(OrientationSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OrientationSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OrientationSensor {}
 unsafe impl ::core::marker::Sync for OrientationSensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7409,7 +7409,7 @@ impl ::core::fmt::Debug for OrientationSensorReading {
     }
 }
 impl ::windows::core::RuntimeType for OrientationSensorReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensorReading;{4756c993-6595-4897-bcc6-d537ee757564})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensorReading;{4756c993-6595-4897-bcc6-d537ee757564})");
 }
 impl ::core::clone::Clone for OrientationSensorReading {
     fn clone(&self) -> Self {
@@ -7425,7 +7425,7 @@ unsafe impl ::windows::core::Interface for OrientationSensorReading {
 impl ::windows::core::RuntimeName for OrientationSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReading";
 }
-::windows::core::interface_hierarchy!(OrientationSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OrientationSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OrientationSensorReading {}
 unsafe impl ::core::marker::Sync for OrientationSensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7452,7 +7452,7 @@ impl ::core::fmt::Debug for OrientationSensorReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for OrientationSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs;{012c1186-c3ba-46bc-ae65-7a98996cbfb8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs;{012c1186-c3ba-46bc-ae65-7a98996cbfb8})");
 }
 impl ::core::clone::Clone for OrientationSensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -7468,7 +7468,7 @@ unsafe impl ::windows::core::Interface for OrientationSensorReadingChangedEventA
 impl ::windows::core::RuntimeName for OrientationSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(OrientationSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OrientationSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OrientationSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for OrientationSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7579,12 +7579,12 @@ impl Pedometer {
     }
     #[doc(hidden)]
     pub fn IPedometerStatics<R, F: FnOnce(&IPedometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Pedometer, IPedometerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Pedometer, IPedometerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPedometerStatics2<R, F: FnOnce(&IPedometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Pedometer, IPedometerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Pedometer, IPedometerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7600,7 +7600,7 @@ impl ::core::fmt::Debug for Pedometer {
     }
 }
 impl ::windows::core::RuntimeType for Pedometer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Pedometer;{9a1e013d-3d98-45f8-8920-8e4ecaca5f97})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Pedometer;{9a1e013d-3d98-45f8-8920-8e4ecaca5f97})");
 }
 impl ::core::clone::Clone for Pedometer {
     fn clone(&self) -> Self {
@@ -7616,7 +7616,7 @@ unsafe impl ::windows::core::Interface for Pedometer {
 impl ::windows::core::RuntimeName for Pedometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Pedometer";
 }
-::windows::core::interface_hierarchy!(Pedometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Pedometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Pedometer {}
 unsafe impl ::core::marker::Sync for Pedometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7631,7 +7631,7 @@ impl PedometerDataThreshold {
     }
     #[doc(hidden)]
     pub fn IPedometerDataThresholdFactory<R, F: FnOnce(&IPedometerDataThresholdFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PedometerDataThreshold, IPedometerDataThresholdFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PedometerDataThreshold, IPedometerDataThresholdFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7647,7 +7647,7 @@ impl ::core::fmt::Debug for PedometerDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for PedometerDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerDataThreshold;{54daec61-fe4b-4e07-b260-3a4cdfbe396e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerDataThreshold;{54daec61-fe4b-4e07-b260-3a4cdfbe396e})");
 }
 impl ::core::clone::Clone for PedometerDataThreshold {
     fn clone(&self) -> Self {
@@ -7663,7 +7663,7 @@ unsafe impl ::windows::core::Interface for PedometerDataThreshold {
 impl ::windows::core::RuntimeName for PedometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerDataThreshold";
 }
-::windows::core::interface_hierarchy!(PedometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PedometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PedometerDataThreshold> for ISensorDataThreshold {
     type Error = ::windows::core::Error;
     fn try_from(value: PedometerDataThreshold) -> ::windows::core::Result<Self> {
@@ -7734,7 +7734,7 @@ impl ::core::fmt::Debug for PedometerReading {
     }
 }
 impl ::windows::core::RuntimeType for PedometerReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerReading;{2245dcf4-a8e1-432f-896a-be0dd9b02d24})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerReading;{2245dcf4-a8e1-432f-896a-be0dd9b02d24})");
 }
 impl ::core::clone::Clone for PedometerReading {
     fn clone(&self) -> Self {
@@ -7750,7 +7750,7 @@ unsafe impl ::windows::core::Interface for PedometerReading {
 impl ::windows::core::RuntimeName for PedometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReading";
 }
-::windows::core::interface_hierarchy!(PedometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PedometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PedometerReading {}
 unsafe impl ::core::marker::Sync for PedometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7777,7 +7777,7 @@ impl ::core::fmt::Debug for PedometerReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PedometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerReadingChangedEventArgs;{f855e47e-abbc-4456-86a8-25cf2b333742})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerReadingChangedEventArgs;{f855e47e-abbc-4456-86a8-25cf2b333742})");
 }
 impl ::core::clone::Clone for PedometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -7793,7 +7793,7 @@ unsafe impl ::windows::core::Interface for PedometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for PedometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(PedometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PedometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PedometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PedometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7878,12 +7878,12 @@ impl ProximitySensor {
     }
     #[doc(hidden)]
     pub fn IProximitySensorStatics<R, F: FnOnce(&IProximitySensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProximitySensor, IProximitySensorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProximitySensor, IProximitySensorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IProximitySensorStatics2<R, F: FnOnce(&IProximitySensorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProximitySensor, IProximitySensorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProximitySensor, IProximitySensorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7899,7 +7899,7 @@ impl ::core::fmt::Debug for ProximitySensor {
     }
 }
 impl ::windows::core::RuntimeType for ProximitySensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensor;{54c076b8-ecfb-4944-b928-74fc504d47ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensor;{54c076b8-ecfb-4944-b928-74fc504d47ee})");
 }
 impl ::core::clone::Clone for ProximitySensor {
     fn clone(&self) -> Self {
@@ -7915,7 +7915,7 @@ unsafe impl ::windows::core::Interface for ProximitySensor {
 impl ::windows::core::RuntimeName for ProximitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensor";
 }
-::windows::core::interface_hierarchy!(ProximitySensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProximitySensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximitySensor {}
 unsafe impl ::core::marker::Sync for ProximitySensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7930,7 +7930,7 @@ impl ProximitySensorDataThreshold {
     }
     #[doc(hidden)]
     pub fn IProximitySensorDataThresholdFactory<R, F: FnOnce(&IProximitySensorDataThresholdFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProximitySensorDataThreshold, IProximitySensorDataThresholdFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProximitySensorDataThreshold, IProximitySensorDataThresholdFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -7946,7 +7946,7 @@ impl ::core::fmt::Debug for ProximitySensorDataThreshold {
     }
 }
 impl ::windows::core::RuntimeType for ProximitySensorDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorDataThreshold;{54daec61-fe4b-4e07-b260-3a4cdfbe396e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorDataThreshold;{54daec61-fe4b-4e07-b260-3a4cdfbe396e})");
 }
 impl ::core::clone::Clone for ProximitySensorDataThreshold {
     fn clone(&self) -> Self {
@@ -7962,7 +7962,7 @@ unsafe impl ::windows::core::Interface for ProximitySensorDataThreshold {
 impl ::windows::core::RuntimeName for ProximitySensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDataThreshold";
 }
-::windows::core::interface_hierarchy!(ProximitySensorDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProximitySensorDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ProximitySensorDataThreshold> for ISensorDataThreshold {
     type Error = ::windows::core::Error;
     fn try_from(value: ProximitySensorDataThreshold) -> ::windows::core::Result<Self> {
@@ -8013,7 +8013,7 @@ impl ::core::fmt::Debug for ProximitySensorDisplayOnOffController {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for ProximitySensorDisplayOnOffController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorDisplayOnOffController;{30d5a829-7fa4-4026-83bb-d75bae4ea99e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorDisplayOnOffController;{30d5a829-7fa4-4026-83bb-d75bae4ea99e})");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::clone::Clone for ProximitySensorDisplayOnOffController {
@@ -8034,7 +8034,7 @@ impl ::windows::core::RuntimeName for ProximitySensorDisplayOnOffController {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDisplayOnOffController";
 }
 #[cfg(feature = "Foundation")]
-::windows::core::interface_hierarchy!(ProximitySensorDisplayOnOffController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProximitySensorDisplayOnOffController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ProximitySensorDisplayOnOffController> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -8103,7 +8103,7 @@ impl ::core::fmt::Debug for ProximitySensorReading {
     }
 }
 impl ::windows::core::RuntimeType for ProximitySensorReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorReading;{71228d59-132d-4d5f-8ff9-2f0db8751ced})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorReading;{71228d59-132d-4d5f-8ff9-2f0db8751ced})");
 }
 impl ::core::clone::Clone for ProximitySensorReading {
     fn clone(&self) -> Self {
@@ -8119,7 +8119,7 @@ unsafe impl ::windows::core::Interface for ProximitySensorReading {
 impl ::windows::core::RuntimeName for ProximitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReading";
 }
-::windows::core::interface_hierarchy!(ProximitySensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProximitySensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximitySensorReading {}
 unsafe impl ::core::marker::Sync for ProximitySensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8146,7 +8146,7 @@ impl ::core::fmt::Debug for ProximitySensorReadingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ProximitySensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorReadingChangedEventArgs;{cfc2f366-c3e8-40fd-8cc3-67e289004938})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorReadingChangedEventArgs;{cfc2f366-c3e8-40fd-8cc3-67e289004938})");
 }
 impl ::core::clone::Clone for ProximitySensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -8162,7 +8162,7 @@ unsafe impl ::windows::core::Interface for ProximitySensorReadingChangedEventArg
 impl ::windows::core::RuntimeName for ProximitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReadingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(ProximitySensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProximitySensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ProximitySensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8196,7 +8196,7 @@ impl ::core::fmt::Debug for SensorDataThresholdTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for SensorDataThresholdTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SensorDataThresholdTriggerDetails;{9106f1b7-e88d-48b1-bc90-619c7b349391})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SensorDataThresholdTriggerDetails;{9106f1b7-e88d-48b1-bc90-619c7b349391})");
 }
 impl ::core::clone::Clone for SensorDataThresholdTriggerDetails {
     fn clone(&self) -> Self {
@@ -8212,7 +8212,7 @@ unsafe impl ::windows::core::Interface for SensorDataThresholdTriggerDetails {
 impl ::windows::core::RuntimeName for SensorDataThresholdTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorDataThresholdTriggerDetails";
 }
-::windows::core::interface_hierarchy!(SensorDataThresholdTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SensorDataThresholdTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SensorDataThresholdTriggerDetails {}
 unsafe impl ::core::marker::Sync for SensorDataThresholdTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8260,7 +8260,7 @@ impl ::core::fmt::Debug for SensorQuaternion {
     }
 }
 impl ::windows::core::RuntimeType for SensorQuaternion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SensorQuaternion;{c9c5c827-c71c-46e7-9da3-36a193b232bc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SensorQuaternion;{c9c5c827-c71c-46e7-9da3-36a193b232bc})");
 }
 impl ::core::clone::Clone for SensorQuaternion {
     fn clone(&self) -> Self {
@@ -8276,7 +8276,7 @@ unsafe impl ::windows::core::Interface for SensorQuaternion {
 impl ::windows::core::RuntimeName for SensorQuaternion {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorQuaternion";
 }
-::windows::core::interface_hierarchy!(SensorQuaternion, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SensorQuaternion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SensorQuaternion {}
 unsafe impl ::core::marker::Sync for SensorQuaternion {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8359,7 +8359,7 @@ impl ::core::fmt::Debug for SensorRotationMatrix {
     }
 }
 impl ::windows::core::RuntimeType for SensorRotationMatrix {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SensorRotationMatrix;{0a3d5a67-22f4-4392-9538-65d0bd064aa6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SensorRotationMatrix;{0a3d5a67-22f4-4392-9538-65d0bd064aa6})");
 }
 impl ::core::clone::Clone for SensorRotationMatrix {
     fn clone(&self) -> Self {
@@ -8375,7 +8375,7 @@ unsafe impl ::windows::core::Interface for SensorRotationMatrix {
 impl ::windows::core::RuntimeName for SensorRotationMatrix {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorRotationMatrix";
 }
-::windows::core::interface_hierarchy!(SensorRotationMatrix, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SensorRotationMatrix, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SensorRotationMatrix {}
 unsafe impl ::core::marker::Sync for SensorRotationMatrix {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8448,12 +8448,12 @@ impl SimpleOrientationSensor {
     }
     #[doc(hidden)]
     pub fn ISimpleOrientationSensorStatics<R, F: FnOnce(&ISimpleOrientationSensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SimpleOrientationSensor, ISimpleOrientationSensorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SimpleOrientationSensor, ISimpleOrientationSensorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISimpleOrientationSensorStatics2<R, F: FnOnce(&ISimpleOrientationSensorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SimpleOrientationSensor, ISimpleOrientationSensorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SimpleOrientationSensor, ISimpleOrientationSensorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -8469,7 +8469,7 @@ impl ::core::fmt::Debug for SimpleOrientationSensor {
     }
 }
 impl ::windows::core::RuntimeType for SimpleOrientationSensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SimpleOrientationSensor;{5ff53856-214a-4dee-a3f9-616f1ab06ffd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SimpleOrientationSensor;{5ff53856-214a-4dee-a3f9-616f1ab06ffd})");
 }
 impl ::core::clone::Clone for SimpleOrientationSensor {
     fn clone(&self) -> Self {
@@ -8485,7 +8485,7 @@ unsafe impl ::windows::core::Interface for SimpleOrientationSensor {
 impl ::windows::core::RuntimeName for SimpleOrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensor";
 }
-::windows::core::interface_hierarchy!(SimpleOrientationSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SimpleOrientationSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SimpleOrientationSensor {}
 unsafe impl ::core::marker::Sync for SimpleOrientationSensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8521,7 +8521,7 @@ impl ::core::fmt::Debug for SimpleOrientationSensorOrientationChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SimpleOrientationSensorOrientationChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs;{bcd5c660-23d4-4b4c-a22e-ba81ade0c601})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs;{bcd5c660-23d4-4b4c-a22e-ba81ade0c601})");
 }
 impl ::core::clone::Clone for SimpleOrientationSensorOrientationChangedEventArgs {
     fn clone(&self) -> Self {
@@ -8537,7 +8537,7 @@ unsafe impl ::windows::core::Interface for SimpleOrientationSensorOrientationCha
 impl ::windows::core::RuntimeName for SimpleOrientationSensorOrientationChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(SimpleOrientationSensorOrientationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SimpleOrientationSensorOrientationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SimpleOrientationSensorOrientationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SimpleOrientationSensorOrientationChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8569,7 +8569,7 @@ impl ::core::fmt::Debug for AccelerometerReadingType {
     }
 }
 impl ::windows::core::RuntimeType for AccelerometerReadingType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.AccelerometerReadingType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.AccelerometerReadingType;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8599,7 +8599,7 @@ impl ::core::fmt::Debug for ActivitySensorReadingConfidence {
     }
 }
 impl ::windows::core::RuntimeType for ActivitySensorReadingConfidence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivitySensorReadingConfidence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivitySensorReadingConfidence;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8635,7 +8635,7 @@ impl ::core::fmt::Debug for ActivityType {
     }
 }
 impl ::windows::core::RuntimeType for ActivityType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivityType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivityType;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8666,7 +8666,7 @@ impl ::core::fmt::Debug for HumanEngagement {
     }
 }
 impl ::windows::core::RuntimeType for HumanEngagement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.HumanEngagement;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.HumanEngagement;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8697,7 +8697,7 @@ impl ::core::fmt::Debug for HumanPresence {
     }
 }
 impl ::windows::core::RuntimeType for HumanPresence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.HumanPresence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.HumanPresence;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8729,7 +8729,7 @@ impl ::core::fmt::Debug for MagnetometerAccuracy {
     }
 }
 impl ::windows::core::RuntimeType for MagnetometerAccuracy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.MagnetometerAccuracy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.MagnetometerAccuracy;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8760,7 +8760,7 @@ impl ::core::fmt::Debug for PedometerStepKind {
     }
 }
 impl ::windows::core::RuntimeType for PedometerStepKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.PedometerStepKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.PedometerStepKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8790,7 +8790,7 @@ impl ::core::fmt::Debug for SensorOptimizationGoal {
     }
 }
 impl ::windows::core::RuntimeType for SensorOptimizationGoal {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorOptimizationGoal;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorOptimizationGoal;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8820,7 +8820,7 @@ impl ::core::fmt::Debug for SensorReadingType {
     }
 }
 impl ::windows::core::RuntimeType for SensorReadingType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorReadingType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorReadingType;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8862,7 +8862,7 @@ impl ::core::fmt::Debug for SensorType {
     }
 }
 impl ::windows::core::RuntimeType for SensorType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorType;i4)");
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -8896,7 +8896,7 @@ impl ::core::fmt::Debug for SimpleOrientation {
     }
 }
 impl ::windows::core::RuntimeType for SimpleOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SimpleOrientation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SimpleOrientation;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

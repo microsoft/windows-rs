@@ -27,43 +27,43 @@ pub mod WindowsMediaFormat;
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
-    ::windows::core::link ! ( "winmm.dll""system" fn timeBeginPeriod ( uperiod : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn timeBeginPeriod ( uperiod : u32 ) -> u32 );
     timeBeginPeriod(uperiod)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
-    ::windows::core::link ! ( "winmm.dll""system" fn timeEndPeriod ( uperiod : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn timeEndPeriod ( uperiod : u32 ) -> u32 );
     timeEndPeriod(uperiod)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
-    ::windows::core::link ! ( "winmm.dll""system" fn timeGetDevCaps ( ptc : *mut TIMECAPS , cbtc : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn timeGetDevCaps ( ptc : *mut TIMECAPS , cbtc : u32 ) -> u32 );
     timeGetDevCaps(ptc, cbtc)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
-    ::windows::core::link ! ( "winmm.dll""system" fn timeGetSystemTime ( pmmt : *mut MMTIME , cbmmt : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn timeGetSystemTime ( pmmt : *mut MMTIME , cbmmt : u32 ) -> u32 );
     timeGetSystemTime(pmmt, cbmmt)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeGetTime() -> u32 {
-    ::windows::core::link ! ( "winmm.dll""system" fn timeGetTime ( ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn timeGetTime ( ) -> u32 );
     timeGetTime()
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
-    ::windows::core::link ! ( "winmm.dll""system" fn timeKillEvent ( utimerid : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn timeKillEvent ( utimerid : u32 ) -> u32 );
     timeKillEvent(utimerid)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
-    ::windows::core::link ! ( "winmm.dll""system" fn timeSetEvent ( udelay : u32 , uresolution : u32 , fptc : LPTIMECALLBACK , dwuser : usize , fuevent : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn timeSetEvent ( udelay : u32 , uresolution : u32 , fptc : LPTIMECALLBACK , dwuser : usize , fuevent : u32 ) -> u32 );
     timeSetEvent(udelay, uresolution, fptc, dwuser, fuevent)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
@@ -96,7 +96,7 @@ impl IReferenceClock {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), dwadvisecookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IReferenceClock, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IReferenceClock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IReferenceClock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -164,7 +164,7 @@ impl IReferenceClock2 {
         (::windows::core::Vtable::vtable(self).base__.Unadvise)(::windows::core::Vtable::as_raw(self), dwadvisecookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IReferenceClock2, ::windows::core::IUnknown, IReferenceClock);
+::windows::imp::interface_hierarchy!(IReferenceClock2, ::windows::core::IUnknown, IReferenceClock);
 impl ::core::cmp::PartialEq for IReferenceClock2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -204,7 +204,7 @@ impl IReferenceClockTimerControl {
         (::windows::core::Vtable::vtable(self).GetDefaultTimerResolution)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IReferenceClockTimerControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IReferenceClockTimerControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IReferenceClockTimerControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -255,7 +255,7 @@ impl Geofence {
     }
     #[doc(hidden)]
     pub fn IGeofenceFactory<R, F: FnOnce(&IGeofenceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Geofence, IGeofenceFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Geofence, IGeofenceFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -271,7 +271,7 @@ impl ::core::fmt::Debug for Geofence {
     }
 }
 impl ::windows::core::RuntimeType for Geofence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.Geofence;{9c090823-edb8-47e0-8245-5bf61d321f2d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.Geofence;{9c090823-edb8-47e0-8245-5bf61d321f2d})");
 }
 impl ::core::clone::Clone for Geofence {
     fn clone(&self) -> Self {
@@ -287,7 +287,7 @@ unsafe impl ::windows::core::Interface for Geofence {
 impl ::windows::core::RuntimeName for Geofence {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.Geofence";
 }
-::windows::core::interface_hierarchy!(Geofence, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Geofence, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geofence {}
 unsafe impl ::core::marker::Sync for Geofence {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
@@ -364,7 +364,7 @@ impl GeofenceMonitor {
     }
     #[doc(hidden)]
     pub fn IGeofenceMonitorStatics<R, F: FnOnce(&IGeofenceMonitorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GeofenceMonitor, IGeofenceMonitorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GeofenceMonitor, IGeofenceMonitorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -380,7 +380,7 @@ impl ::core::fmt::Debug for GeofenceMonitor {
     }
 }
 impl ::windows::core::RuntimeType for GeofenceMonitor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceMonitor;{4c0f5f78-1c1f-4621-bbbd-833b92247226})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceMonitor;{4c0f5f78-1c1f-4621-bbbd-833b92247226})");
 }
 impl ::core::clone::Clone for GeofenceMonitor {
     fn clone(&self) -> Self {
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::Interface for GeofenceMonitor {
 impl ::windows::core::RuntimeName for GeofenceMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceMonitor";
 }
-::windows::core::interface_hierarchy!(GeofenceMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GeofenceMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeofenceMonitor {}
 unsafe impl ::core::marker::Sync for GeofenceMonitor {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
@@ -444,7 +444,7 @@ impl ::core::fmt::Debug for GeofenceStateChangeReport {
     }
 }
 impl ::windows::core::RuntimeType for GeofenceStateChangeReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
 }
 impl ::core::clone::Clone for GeofenceStateChangeReport {
     fn clone(&self) -> Self {
@@ -460,7 +460,7 @@ unsafe impl ::windows::core::Interface for GeofenceStateChangeReport {
 impl ::windows::core::RuntimeName for GeofenceStateChangeReport {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport";
 }
-::windows::core::interface_hierarchy!(GeofenceStateChangeReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GeofenceStateChangeReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeofenceStateChangeReport {}
 unsafe impl ::core::marker::Sync for GeofenceStateChangeReport {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
@@ -495,7 +495,7 @@ impl ::core::fmt::Debug for GeofenceMonitorStatus {
     }
 }
 impl ::windows::core::RuntimeType for GeofenceMonitorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
@@ -525,7 +525,7 @@ impl ::core::fmt::Debug for GeofenceRemovalReason {
     }
 }
 impl ::windows::core::RuntimeType for GeofenceRemovalReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason;i4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
@@ -590,7 +590,7 @@ impl ::core::ops::Not for GeofenceState {
     }
 }
 impl ::windows::core::RuntimeType for GeofenceState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceState;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceState;u4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
@@ -655,7 +655,7 @@ impl ::core::ops::Not for MonitoredGeofenceStates {
     }
 }
 impl ::windows::core::RuntimeType for MonitoredGeofenceStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

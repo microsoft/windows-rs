@@ -5,7 +5,7 @@ pub unsafe fn D3D11On12CreateDevice<P0>(pdevice: P0, flags: u32, pfeaturelevels:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "d3d11.dll""system" fn D3D11On12CreateDevice ( pdevice : * mut::core::ffi::c_void , flags : u32 , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , ppcommandqueues : *const * mut::core::ffi::c_void , numqueues : u32 , nodemask : u32 , ppdevice : *mut * mut::core::ffi::c_void , ppimmediatecontext : *mut * mut::core::ffi::c_void , pchosenfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11On12CreateDevice ( pdevice : * mut::core::ffi::c_void , flags : u32 , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , ppcommandqueues : *const * mut::core::ffi::c_void , numqueues : u32 , nodemask : u32 , ppdevice : *mut * mut::core::ffi::c_void , ppimmediatecontext : *mut * mut::core::ffi::c_void , pchosenfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL ) -> :: windows::core::HRESULT );
     D3D11On12CreateDevice(
         pdevice.into().abi(),
         flags,
@@ -44,7 +44,7 @@ impl ID3D11On12Device {
         (::windows::core::Vtable::vtable(self).AcquireWrappedResources)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresources.as_ptr()), ppresources.len() as _)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11On12Device, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3D11On12Device, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3D11On12Device {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -117,7 +117,7 @@ impl ID3D11On12Device1 {
         (::windows::core::Vtable::vtable(self).GetD3D12Device)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ID3D11On12Device1, ::windows::core::IUnknown, ID3D11On12Device);
+::windows::imp::interface_hierarchy!(ID3D11On12Device1, ::windows::core::IUnknown, ID3D11On12Device);
 impl ::core::cmp::PartialEq for ID3D11On12Device1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -198,7 +198,7 @@ impl ID3D11On12Device2 {
         (::windows::core::Vtable::vtable(self).ReturnUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource11.into().abi(), numsync, psignalvalues, ::core::mem::transmute(ppfences)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3D11On12Device2, ::windows::core::IUnknown, ID3D11On12Device, ID3D11On12Device1);
+::windows::imp::interface_hierarchy!(ID3D11On12Device2, ::windows::core::IUnknown, ID3D11On12Device, ID3D11On12Device1);
 impl ::core::cmp::PartialEq for ID3D11On12Device2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

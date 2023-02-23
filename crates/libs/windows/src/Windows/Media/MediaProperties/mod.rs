@@ -499,7 +499,7 @@ impl IMediaEncodingProperties {
         }
     }
 }
-::windows::core::interface_hierarchy!(IMediaEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IMediaEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IMediaEncodingProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -512,7 +512,7 @@ impl ::core::fmt::Debug for IMediaEncodingProperties {
     }
 }
 impl ::windows::core::RuntimeType for IMediaEncodingProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4}");
 }
 unsafe impl ::windows::core::Vtable for IMediaEncodingProperties {
     type Vtable = IMediaEncodingProperties_Vtbl;
@@ -954,8 +954,8 @@ impl AudioEncodingProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEncodingProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<AudioEncodingProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetBitrate(&self, value: u32) -> ::windows::core::Result<()> {
@@ -1095,12 +1095,12 @@ impl AudioEncodingProperties {
     }
     #[doc(hidden)]
     pub fn IAudioEncodingPropertiesStatics<R, F: FnOnce(&IAudioEncodingPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IAudioEncodingPropertiesStatics2<R, F: FnOnce(&IAudioEncodingPropertiesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1116,7 +1116,7 @@ impl ::core::fmt::Debug for AudioEncodingProperties {
     }
 }
 impl ::windows::core::RuntimeType for AudioEncodingProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.AudioEncodingProperties;{62bc7a16-005c-4b3b-8a0b-0a090e9687f3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.AudioEncodingProperties;{62bc7a16-005c-4b3b-8a0b-0a090e9687f3})");
 }
 impl ::core::clone::Clone for AudioEncodingProperties {
     fn clone(&self) -> Self {
@@ -1132,7 +1132,7 @@ unsafe impl ::windows::core::Interface for AudioEncodingProperties {
 impl ::windows::core::RuntimeName for AudioEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.AudioEncodingProperties";
 }
-::windows::core::interface_hierarchy!(AudioEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AudioEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioEncodingProperties> for IMediaEncodingProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioEncodingProperties) -> ::windows::core::Result<Self> {
@@ -1161,8 +1161,8 @@ impl ContainerEncodingProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContainerEncodingProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ContainerEncodingProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Copy(&self) -> ::windows::core::Result<ContainerEncodingProperties> {
@@ -1212,7 +1212,7 @@ impl ::core::fmt::Debug for ContainerEncodingProperties {
     }
 }
 impl ::windows::core::RuntimeType for ContainerEncodingProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ContainerEncodingProperties;{59ac2a57-b32a-479e-8a61-4b7f2e9e7ea0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ContainerEncodingProperties;{59ac2a57-b32a-479e-8a61-4b7f2e9e7ea0})");
 }
 impl ::core::clone::Clone for ContainerEncodingProperties {
     fn clone(&self) -> Self {
@@ -1228,7 +1228,7 @@ unsafe impl ::windows::core::Interface for ContainerEncodingProperties {
 impl ::windows::core::RuntimeName for ContainerEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ContainerEncodingProperties";
 }
-::windows::core::interface_hierarchy!(ContainerEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContainerEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContainerEncodingProperties> for IMediaEncodingProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: ContainerEncodingProperties) -> ::windows::core::Result<Self> {
@@ -1315,7 +1315,7 @@ impl H264ProfileIds {
     }
     #[doc(hidden)]
     pub fn IH264ProfileIdsStatics<R, F: FnOnce(&IH264ProfileIdsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<H264ProfileIds, IH264ProfileIdsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<H264ProfileIds, IH264ProfileIdsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1329,8 +1329,8 @@ impl ImageEncodingProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ImageEncodingProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ImageEncodingProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetWidth(&self, value: u32) -> ::windows::core::Result<()> {
@@ -1427,17 +1427,17 @@ impl ImageEncodingProperties {
     }
     #[doc(hidden)]
     pub fn IImageEncodingPropertiesStatics<R, F: FnOnce(&IImageEncodingPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ImageEncodingProperties, IImageEncodingPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ImageEncodingProperties, IImageEncodingPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IImageEncodingPropertiesStatics2<R, F: FnOnce(&IImageEncodingPropertiesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ImageEncodingProperties, IImageEncodingPropertiesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ImageEncodingProperties, IImageEncodingPropertiesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IImageEncodingPropertiesStatics3<R, F: FnOnce(&IImageEncodingPropertiesStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ImageEncodingProperties, IImageEncodingPropertiesStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ImageEncodingProperties, IImageEncodingPropertiesStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1453,7 +1453,7 @@ impl ::core::fmt::Debug for ImageEncodingProperties {
     }
 }
 impl ::windows::core::RuntimeType for ImageEncodingProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ImageEncodingProperties;{78625635-f331-4189-b1c3-b48d5ae034f1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ImageEncodingProperties;{78625635-f331-4189-b1c3-b48d5ae034f1})");
 }
 impl ::core::clone::Clone for ImageEncodingProperties {
     fn clone(&self) -> Self {
@@ -1469,7 +1469,7 @@ unsafe impl ::windows::core::Interface for ImageEncodingProperties {
 impl ::windows::core::RuntimeName for ImageEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ImageEncodingProperties";
 }
-::windows::core::interface_hierarchy!(ImageEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ImageEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageEncodingProperties> for IMediaEncodingProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageEncodingProperties) -> ::windows::core::Result<Self> {
@@ -1498,8 +1498,8 @@ impl MediaEncodingProfile {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingProfile, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingProfile, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetAudio(&self, value: &AudioEncodingProperties) -> ::windows::core::Result<()> {
@@ -1678,17 +1678,17 @@ impl MediaEncodingProfile {
     }
     #[doc(hidden)]
     pub fn IMediaEncodingProfileStatics<R, F: FnOnce(&IMediaEncodingProfileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaEncodingProfileStatics2<R, F: FnOnce(&IMediaEncodingProfileStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaEncodingProfileStatics3<R, F: FnOnce(&IMediaEncodingProfileStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1704,7 +1704,7 @@ impl ::core::fmt::Debug for MediaEncodingProfile {
     }
 }
 impl ::windows::core::RuntimeType for MediaEncodingProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaEncodingProfile;{e7dbf5a8-1db9-4783-876b-3dfe12acfdb3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaEncodingProfile;{e7dbf5a8-1db9-4783-876b-3dfe12acfdb3})");
 }
 impl ::core::clone::Clone for MediaEncodingProfile {
     fn clone(&self) -> Self {
@@ -1720,7 +1720,7 @@ unsafe impl ::windows::core::Interface for MediaEncodingProfile {
 impl ::windows::core::RuntimeName for MediaEncodingProfile {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaEncodingProfile";
 }
-::windows::core::interface_hierarchy!(MediaEncodingProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaEncodingProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaEncodingProfile {}
 unsafe impl ::core::marker::Sync for MediaEncodingProfile {}
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -2040,32 +2040,32 @@ impl MediaEncodingSubtypes {
     }
     #[doc(hidden)]
     pub fn IMediaEncodingSubtypesStatics<R, F: FnOnce(&IMediaEncodingSubtypesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaEncodingSubtypesStatics2<R, F: FnOnce(&IMediaEncodingSubtypesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaEncodingSubtypesStatics3<R, F: FnOnce(&IMediaEncodingSubtypesStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaEncodingSubtypesStatics4<R, F: FnOnce(&IMediaEncodingSubtypesStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaEncodingSubtypesStatics5<R, F: FnOnce(&IMediaEncodingSubtypesStatics5) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics5> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics5> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IMediaEncodingSubtypesStatics6<R, F: FnOnce(&IMediaEncodingSubtypesStatics6) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics6> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics6> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2081,8 +2081,8 @@ impl MediaPropertySet {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<MediaPropertySet, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<MediaPropertySet, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2171,7 +2171,7 @@ impl ::core::fmt::Debug for MediaPropertySet {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for MediaPropertySet {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaPropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};g16;cinterface(IInspectable)))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaPropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};g16;cinterface(IInspectable)))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for MediaPropertySet {
@@ -2208,7 +2208,7 @@ impl ::core::iter::IntoIterator for &MediaPropertySet {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(MediaPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<MediaPropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -2296,7 +2296,7 @@ impl ::core::fmt::Debug for MediaRatio {
     }
 }
 impl ::windows::core::RuntimeType for MediaRatio {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaRatio;{d2d0fee5-8929-401d-ac78-7d357e378163})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaRatio;{d2d0fee5-8929-401d-ac78-7d357e378163})");
 }
 impl ::core::clone::Clone for MediaRatio {
     fn clone(&self) -> Self {
@@ -2312,7 +2312,7 @@ unsafe impl ::windows::core::Interface for MediaRatio {
 impl ::windows::core::RuntimeName for MediaRatio {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaRatio";
 }
-::windows::core::interface_hierarchy!(MediaRatio, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MediaRatio, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaRatio {}
 unsafe impl ::core::marker::Sync for MediaRatio {}
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -2350,7 +2350,7 @@ impl Mpeg2ProfileIds {
     }
     #[doc(hidden)]
     pub fn IMpeg2ProfileIdsStatics<R, F: FnOnce(&IMpeg2ProfileIdsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Mpeg2ProfileIds, IMpeg2ProfileIdsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Mpeg2ProfileIds, IMpeg2ProfileIdsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2364,8 +2364,8 @@ impl TimedMetadataEncodingProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TimedMetadataEncodingProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<TimedMetadataEncodingProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2436,7 +2436,7 @@ impl TimedMetadataEncodingProperties {
     }
     #[doc(hidden)]
     pub fn ITimedMetadataEncodingPropertiesStatics<R, F: FnOnce(&ITimedMetadataEncodingPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<TimedMetadataEncodingProperties, ITimedMetadataEncodingPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<TimedMetadataEncodingProperties, ITimedMetadataEncodingPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2452,7 +2452,7 @@ impl ::core::fmt::Debug for TimedMetadataEncodingProperties {
     }
 }
 impl ::windows::core::RuntimeType for TimedMetadataEncodingProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.TimedMetadataEncodingProperties;{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.TimedMetadataEncodingProperties;{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4})");
 }
 impl ::core::clone::Clone for TimedMetadataEncodingProperties {
     fn clone(&self) -> Self {
@@ -2468,7 +2468,7 @@ unsafe impl ::windows::core::Interface for TimedMetadataEncodingProperties {
 impl ::windows::core::RuntimeName for TimedMetadataEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.TimedMetadataEncodingProperties";
 }
-::windows::core::interface_hierarchy!(TimedMetadataEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TimedMetadataEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TimedMetadataEncodingProperties> for IMediaEncodingProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: TimedMetadataEncodingProperties) -> ::windows::core::Result<Self> {
@@ -2497,8 +2497,8 @@ impl VideoEncodingProperties {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VideoEncodingProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VideoEncodingProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2641,12 +2641,12 @@ impl VideoEncodingProperties {
     }
     #[doc(hidden)]
     pub fn IVideoEncodingPropertiesStatics<R, F: FnOnce(&IVideoEncodingPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IVideoEncodingPropertiesStatics2<R, F: FnOnce(&IVideoEncodingPropertiesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2662,7 +2662,7 @@ impl ::core::fmt::Debug for VideoEncodingProperties {
     }
 }
 impl ::windows::core::RuntimeType for VideoEncodingProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.VideoEncodingProperties;{76ee6c9a-37c2-4f2a-880a-1282bbb4373d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.VideoEncodingProperties;{76ee6c9a-37c2-4f2a-880a-1282bbb4373d})");
 }
 impl ::core::clone::Clone for VideoEncodingProperties {
     fn clone(&self) -> Self {
@@ -2678,7 +2678,7 @@ unsafe impl ::windows::core::Interface for VideoEncodingProperties {
 impl ::windows::core::RuntimeName for VideoEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.VideoEncodingProperties";
 }
-::windows::core::interface_hierarchy!(VideoEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VideoEncodingProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VideoEncodingProperties> for IMediaEncodingProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: VideoEncodingProperties) -> ::windows::core::Result<Self> {
@@ -2730,7 +2730,7 @@ impl ::core::fmt::Debug for AudioEncodingQuality {
     }
 }
 impl ::windows::core::RuntimeType for AudioEncodingQuality {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
@@ -2794,7 +2794,7 @@ impl ::core::ops::Not for MediaMirroringOptions {
     }
 }
 impl ::windows::core::RuntimeType for MediaMirroringOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaMirroringOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaMirroringOptions;u4)");
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
@@ -2825,7 +2825,7 @@ impl ::core::fmt::Debug for MediaPixelFormat {
     }
 }
 impl ::windows::core::RuntimeType for MediaPixelFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
@@ -2857,7 +2857,7 @@ impl ::core::fmt::Debug for MediaRotation {
     }
 }
 impl ::windows::core::RuntimeType for MediaRotation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
@@ -2887,7 +2887,7 @@ impl ::core::fmt::Debug for MediaThumbnailFormat {
     }
 }
 impl ::windows::core::RuntimeType for MediaThumbnailFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
@@ -2918,7 +2918,7 @@ impl ::core::fmt::Debug for SphericalVideoFrameFormat {
     }
 }
 impl ::windows::core::RuntimeType for SphericalVideoFrameFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
@@ -2949,7 +2949,7 @@ impl ::core::fmt::Debug for StereoscopicVideoPackingMode {
     }
 }
 impl ::windows::core::RuntimeType for StereoscopicVideoPackingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
@@ -2987,7 +2987,7 @@ impl ::core::fmt::Debug for VideoEncodingQuality {
     }
 }
 impl ::windows::core::RuntimeType for VideoEncodingQuality {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.VideoEncodingQuality;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.VideoEncodingQuality;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

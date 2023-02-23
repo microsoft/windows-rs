@@ -14,7 +14,7 @@ impl IGraphicsEffect {
         unsafe { (::windows::core::Vtable::vtable(this).SetName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IGraphicsEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IGraphicsEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IGraphicsEffect> for IGraphicsEffectSource {
     type Error = ::windows::core::Error;
     fn try_from(value: IGraphicsEffect) -> ::windows::core::Result<Self> {
@@ -46,7 +46,7 @@ impl ::core::fmt::Debug for IGraphicsEffect {
     }
 }
 impl ::windows::core::RuntimeType for IGraphicsEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb51c0ce-8fe6-4636-b202-861faa07d8f3}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{cb51c0ce-8fe6-4636-b202-861faa07d8f3}");
 }
 unsafe impl ::windows::core::Vtable for IGraphicsEffect {
     type Vtable = IGraphicsEffect_Vtbl;
@@ -70,7 +70,7 @@ pub struct IGraphicsEffect_Vtbl {
 #[repr(transparent)]
 pub struct IGraphicsEffectSource(::windows::core::IUnknown);
 impl IGraphicsEffectSource {}
-::windows::core::interface_hierarchy!(IGraphicsEffectSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IGraphicsEffectSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IGraphicsEffectSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -83,7 +83,7 @@ impl ::core::fmt::Debug for IGraphicsEffectSource {
     }
 }
 impl ::windows::core::RuntimeType for IGraphicsEffectSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d8f9ddc-4339-4eb9-9216-f9deb75658a2}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2d8f9ddc-4339-4eb9-9216-f9deb75658a2}");
 }
 unsafe impl ::windows::core::Vtable for IGraphicsEffectSource {
     type Vtable = IGraphicsEffectSource_Vtbl;

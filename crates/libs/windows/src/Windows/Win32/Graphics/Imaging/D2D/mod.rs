@@ -30,7 +30,7 @@ impl IWICImageEncoder {
         (::windows::core::Vtable::vtable(self).WriteThumbnail)(::windows::core::Vtable::as_raw(self), pimage.into().abi(), pencoder.into().abi(), pimageparameters).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICImageEncoder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IWICImageEncoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICImageEncoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -222,7 +222,7 @@ impl IWICImagingFactory2 {
         (::windows::core::Vtable::vtable(self).CreateImageEncoder)(::windows::core::Vtable::as_raw(self), pd2ddevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICImagingFactory2, ::windows::core::IUnknown, super::IWICImagingFactory);
+::windows::imp::interface_hierarchy!(IWICImagingFactory2, ::windows::core::IUnknown, super::IWICImagingFactory);
 impl ::core::cmp::PartialEq for IWICImagingFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

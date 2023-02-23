@@ -14,7 +14,7 @@ impl IObjectArray {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IObjectArray, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IObjectArray, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IObjectArray {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -78,7 +78,7 @@ impl IObjectCollection {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IObjectCollection, ::windows::core::IUnknown, IObjectArray);
+::windows::imp::interface_hierarchy!(IObjectCollection, ::windows::core::IUnknown, IObjectArray);
 impl ::core::cmp::PartialEq for IObjectCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

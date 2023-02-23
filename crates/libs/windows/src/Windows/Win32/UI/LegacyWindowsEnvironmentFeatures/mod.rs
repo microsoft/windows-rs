@@ -20,7 +20,7 @@ impl IADesktopP2 {
         (::windows::core::Vtable::vtable(self).MakeDynamicChanges)(::windows::core::Vtable::as_raw(self), poleobj.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IADesktopP2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IADesktopP2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IADesktopP2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -75,7 +75,7 @@ impl IActiveDesktopP {
         (::windows::core::Vtable::vtable(self).GetScheme)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszschemename), pdwcchbuffer, dwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IActiveDesktopP, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IActiveDesktopP, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IActiveDesktopP {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -120,7 +120,7 @@ impl IBriefcaseInitiator {
         (::windows::core::Vtable::vtable(self).IsMonikerInBriefcase)(::windows::core::Vtable::as_raw(self), pmk.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IBriefcaseInitiator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBriefcaseInitiator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBriefcaseInitiator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -190,7 +190,7 @@ impl IEmptyVolumeCache {
         (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEmptyVolumeCache, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEmptyVolumeCache, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEmptyVolumeCache {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -277,7 +277,7 @@ impl IEmptyVolumeCache2 {
         (::windows::core::Vtable::vtable(self).InitializeEx)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into().abi(), pcwszkeyname.into().abi(), ppwszdisplayname, ppwszdescription, ppwszbtntext, pdwflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEmptyVolumeCache2, ::windows::core::IUnknown, IEmptyVolumeCache);
+::windows::imp::interface_hierarchy!(IEmptyVolumeCache2, ::windows::core::IUnknown, IEmptyVolumeCache);
 impl ::core::cmp::PartialEq for IEmptyVolumeCache2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -326,7 +326,7 @@ impl IEmptyVolumeCacheCallBack {
         (::windows::core::Vtable::vtable(self).PurgeProgress)(::windows::core::Vtable::as_raw(self), dwlspacefreed, dwlspacetofree, dwflags, pcwszstatus.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IEmptyVolumeCacheCallBack, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEmptyVolumeCacheCallBack, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEmptyVolumeCacheCallBack {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -376,7 +376,7 @@ impl IReconcilableObject {
         (::windows::core::Vtable::vtable(self).GetProgressFeedbackMaxEstimate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IReconcilableObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IReconcilableObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IReconcilableObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -423,7 +423,7 @@ impl IReconcileInitiator {
         (::windows::core::Vtable::vtable(self).SetProgressFeedback)(::windows::core::Vtable::as_raw(self), ulprogress, ulprogressmax).ok()
     }
 }
-::windows::core::interface_hierarchy!(IReconcileInitiator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IReconcileInitiator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IReconcileInitiator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

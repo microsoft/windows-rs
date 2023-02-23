@@ -387,7 +387,7 @@ impl DeliveryOptimizationSettings {
     }
     #[doc(hidden)]
     pub fn IDeliveryOptimizationSettingsStatics<R, F: FnOnce(&IDeliveryOptimizationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeliveryOptimizationSettings, IDeliveryOptimizationSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DeliveryOptimizationSettings, IDeliveryOptimizationSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -403,7 +403,7 @@ impl ::core::fmt::Debug for DeliveryOptimizationSettings {
     }
 }
 impl ::windows::core::RuntimeType for DeliveryOptimizationSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings;{1810fda0-e853-565e-b874-7a8a7b9a0e0f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings;{1810fda0-e853-565e-b874-7a8a7b9a0e0f})");
 }
 impl ::core::clone::Clone for DeliveryOptimizationSettings {
     fn clone(&self) -> Self {
@@ -419,7 +419,7 @@ unsafe impl ::windows::core::Interface for DeliveryOptimizationSettings {
 impl ::windows::core::RuntimeName for DeliveryOptimizationSettings {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings";
 }
-::windows::core::interface_hierarchy!(DeliveryOptimizationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DeliveryOptimizationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeliveryOptimizationSettings {}
 unsafe impl ::core::marker::Sync for DeliveryOptimizationSettings {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -607,27 +607,27 @@ impl StoreConfiguration {
     }
     #[doc(hidden)]
     pub fn IStoreConfigurationStatics<R, F: FnOnce(&IStoreConfigurationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StoreConfiguration, IStoreConfigurationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StoreConfiguration, IStoreConfigurationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStoreConfigurationStatics2<R, F: FnOnce(&IStoreConfigurationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StoreConfiguration, IStoreConfigurationStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StoreConfiguration, IStoreConfigurationStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStoreConfigurationStatics3<R, F: FnOnce(&IStoreConfigurationStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StoreConfiguration, IStoreConfigurationStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StoreConfiguration, IStoreConfigurationStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStoreConfigurationStatics4<R, F: FnOnce(&IStoreConfigurationStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StoreConfiguration, IStoreConfigurationStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StoreConfiguration, IStoreConfigurationStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStoreConfigurationStatics5<R, F: FnOnce(&IStoreConfigurationStatics5) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StoreConfiguration, IStoreConfigurationStatics5> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StoreConfiguration, IStoreConfigurationStatics5> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -679,7 +679,7 @@ impl ::core::fmt::Debug for StoreHardwareManufacturerInfo {
     }
 }
 impl ::windows::core::RuntimeType for StoreHardwareManufacturerInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo;{f292dc08-c654-43ac-a21f-34801c9d3388})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo;{f292dc08-c654-43ac-a21f-34801c9d3388})");
 }
 impl ::core::clone::Clone for StoreHardwareManufacturerInfo {
     fn clone(&self) -> Self {
@@ -695,7 +695,7 @@ unsafe impl ::windows::core::Interface for StoreHardwareManufacturerInfo {
 impl ::windows::core::RuntimeName for StoreHardwareManufacturerInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo";
 }
-::windows::core::interface_hierarchy!(StoreHardwareManufacturerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StoreHardwareManufacturerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreHardwareManufacturerInfo {}
 unsafe impl ::core::marker::Sync for StoreHardwareManufacturerInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -719,7 +719,7 @@ impl StorePreview {
     }
     #[doc(hidden)]
     pub fn IStorePreview<R, F: FnOnce(&IStorePreview) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorePreview, IStorePreview> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorePreview, IStorePreview> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -780,7 +780,7 @@ impl ::core::fmt::Debug for StorePreviewProductInfo {
     }
 }
 impl ::windows::core::RuntimeType for StorePreviewProductInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo;{1937dbb3-6c01-4c9d-85cd-5babaac2b351})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo;{1937dbb3-6c01-4c9d-85cd-5babaac2b351})");
 }
 impl ::core::clone::Clone for StorePreviewProductInfo {
     fn clone(&self) -> Self {
@@ -796,7 +796,7 @@ unsafe impl ::windows::core::Interface for StorePreviewProductInfo {
 impl ::windows::core::RuntimeName for StorePreviewProductInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo";
 }
-::windows::core::interface_hierarchy!(StorePreviewProductInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePreviewProductInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePreviewProductInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewProductInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -823,7 +823,7 @@ impl ::core::fmt::Debug for StorePreviewPurchaseResults {
     }
 }
 impl ::windows::core::RuntimeType for StorePreviewPurchaseResults {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults;{b0daaed1-d6c5-4e53-a043-fba0d8e61231})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults;{b0daaed1-d6c5-4e53-a043-fba0d8e61231})");
 }
 impl ::core::clone::Clone for StorePreviewPurchaseResults {
     fn clone(&self) -> Self {
@@ -839,7 +839,7 @@ unsafe impl ::windows::core::Interface for StorePreviewPurchaseResults {
 impl ::windows::core::RuntimeName for StorePreviewPurchaseResults {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults";
 }
-::windows::core::interface_hierarchy!(StorePreviewPurchaseResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePreviewPurchaseResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePreviewPurchaseResults {}
 unsafe impl ::core::marker::Sync for StorePreviewPurchaseResults {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -922,7 +922,7 @@ impl ::core::fmt::Debug for StorePreviewSkuInfo {
     }
 }
 impl ::windows::core::RuntimeType for StorePreviewSkuInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo;{81fd76e2-0b26-48d9-98ce-27461c669d6c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo;{81fd76e2-0b26-48d9-98ce-27461c669d6c})");
 }
 impl ::core::clone::Clone for StorePreviewSkuInfo {
     fn clone(&self) -> Self {
@@ -938,7 +938,7 @@ unsafe impl ::windows::core::Interface for StorePreviewSkuInfo {
 impl ::windows::core::RuntimeName for StorePreviewSkuInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo";
 }
-::windows::core::interface_hierarchy!(StorePreviewSkuInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorePreviewSkuInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -968,7 +968,7 @@ impl WebAuthenticationCoreManagerHelper {
     }
     #[doc(hidden)]
     pub fn IWebAuthenticationCoreManagerHelper<R, F: FnOnce(&IWebAuthenticationCoreManagerHelper) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAuthenticationCoreManagerHelper, IWebAuthenticationCoreManagerHelper> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAuthenticationCoreManagerHelper, IWebAuthenticationCoreManagerHelper> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1007,7 +1007,7 @@ impl ::core::fmt::Debug for DeliveryOptimizationDownloadMode {
     }
 }
 impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
@@ -1037,7 +1037,7 @@ impl ::core::fmt::Debug for DeliveryOptimizationDownloadModeSource {
     }
 }
 impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadModeSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
@@ -1100,7 +1100,7 @@ impl ::core::ops::Not for StoreLogOptions {
     }
 }
 impl ::windows::core::RuntimeType for StoreLogOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreLogOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreLogOptions;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
@@ -1132,7 +1132,7 @@ impl ::core::fmt::Debug for StorePreviewProductPurchaseStatus {
     }
 }
 impl ::windows::core::RuntimeType for StorePreviewProductPurchaseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
@@ -1195,7 +1195,7 @@ impl ::core::fmt::Debug for StoreSystemFeature {
     }
 }
 impl ::windows::core::RuntimeType for StoreSystemFeature {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreSystemFeature;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreSystemFeature;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

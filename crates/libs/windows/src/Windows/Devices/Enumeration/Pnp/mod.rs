@@ -243,7 +243,7 @@ impl PnpObject {
     }
     #[doc(hidden)]
     pub fn IPnpObjectStatics<R, F: FnOnce(&IPnpObjectStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PnpObject, IPnpObjectStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PnpObject, IPnpObjectStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -259,7 +259,7 @@ impl ::core::fmt::Debug for PnpObject {
     }
 }
 impl ::windows::core::RuntimeType for PnpObject {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})");
 }
 impl ::core::clone::Clone for PnpObject {
     fn clone(&self) -> Self {
@@ -275,7 +275,7 @@ unsafe impl ::windows::core::Interface for PnpObject {
 impl ::windows::core::RuntimeName for PnpObject {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObject";
 }
-::windows::core::interface_hierarchy!(PnpObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PnpObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PnpObject {}
 unsafe impl ::core::marker::Sync for PnpObject {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
@@ -346,7 +346,7 @@ impl ::core::fmt::Debug for PnpObjectCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for PnpObjectCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for PnpObjectCollection {
@@ -383,7 +383,7 @@ impl ::core::iter::IntoIterator for &PnpObjectCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(PnpObjectCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PnpObjectCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PnpObjectCollection> for super::super::super::Foundation::Collections::IIterable<PnpObject> {
     type Error = ::windows::core::Error;
@@ -472,7 +472,7 @@ impl ::core::fmt::Debug for PnpObjectUpdate {
     }
 }
 impl ::windows::core::RuntimeType for PnpObjectUpdate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectUpdate;{6f59e812-001e-4844-bcc6-432886856a17})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectUpdate;{6f59e812-001e-4844-bcc6-432886856a17})");
 }
 impl ::core::clone::Clone for PnpObjectUpdate {
     fn clone(&self) -> Self {
@@ -488,7 +488,7 @@ unsafe impl ::windows::core::Interface for PnpObjectUpdate {
 impl ::windows::core::RuntimeName for PnpObjectUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectUpdate";
 }
-::windows::core::interface_hierarchy!(PnpObjectUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PnpObjectUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PnpObjectUpdate {}
 unsafe impl ::core::marker::Sync for PnpObjectUpdate {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
@@ -598,7 +598,7 @@ impl ::core::fmt::Debug for PnpObjectWatcher {
     }
 }
 impl ::windows::core::RuntimeType for PnpObjectWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectWatcher;{83c95ca8-4772-4a7a-aca8-e48c42a89c44})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectWatcher;{83c95ca8-4772-4a7a-aca8-e48c42a89c44})");
 }
 impl ::core::clone::Clone for PnpObjectWatcher {
     fn clone(&self) -> Self {
@@ -614,7 +614,7 @@ unsafe impl ::windows::core::Interface for PnpObjectWatcher {
 impl ::windows::core::RuntimeName for PnpObjectWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectWatcher";
 }
-::windows::core::interface_hierarchy!(PnpObjectWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PnpObjectWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PnpObjectWatcher {}
 unsafe impl ::core::marker::Sync for PnpObjectWatcher {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
@@ -652,7 +652,7 @@ impl ::core::fmt::Debug for PnpObjectType {
     }
 }
 impl ::windows::core::RuntimeType for PnpObjectType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

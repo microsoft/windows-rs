@@ -189,7 +189,7 @@ impl IJsonValue {
         }
     }
 }
-::windows::core::interface_hierarchy!(IJsonValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IJsonValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IJsonValue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -202,7 +202,7 @@ impl ::core::fmt::Debug for IJsonValue {
     }
 }
 impl ::windows::core::RuntimeType for IJsonValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e}");
 }
 unsafe impl ::windows::core::Vtable for IJsonValue {
     type Vtable = IJsonValue_Vtbl;
@@ -278,8 +278,8 @@ impl JsonArray {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<JsonArray, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<JsonArray, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -501,7 +501,7 @@ impl JsonArray {
     }
     #[doc(hidden)]
     pub fn IJsonArrayStatics<R, F: FnOnce(&IJsonArrayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<JsonArray, IJsonArrayStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<JsonArray, IJsonArrayStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -517,7 +517,7 @@ impl ::core::fmt::Debug for JsonArray {
     }
 }
 impl ::windows::core::RuntimeType for JsonArray {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonArray;{08c1ddb6-0cbd-4a9a-b5d3-2f852dc37e81})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonArray;{08c1ddb6-0cbd-4a9a-b5d3-2f852dc37e81})");
 }
 impl ::core::clone::Clone for JsonArray {
     fn clone(&self) -> Self {
@@ -549,7 +549,7 @@ impl ::core::iter::IntoIterator for &JsonArray {
         super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(JsonArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(JsonArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<JsonArray> for super::super::Foundation::Collections::IIterable<IJsonValue> {
     type Error = ::windows::core::Error;
@@ -648,7 +648,7 @@ impl JsonError {
     }
     #[doc(hidden)]
     pub fn IJsonErrorStatics2<R, F: FnOnce(&IJsonErrorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<JsonError, IJsonErrorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<JsonError, IJsonErrorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -662,8 +662,8 @@ impl JsonObject {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<JsonObject, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<JsonObject, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -900,7 +900,7 @@ impl JsonObject {
     }
     #[doc(hidden)]
     pub fn IJsonObjectStatics<R, F: FnOnce(&IJsonObjectStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<JsonObject, IJsonObjectStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<JsonObject, IJsonObjectStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -916,7 +916,7 @@ impl ::core::fmt::Debug for JsonObject {
     }
 }
 impl ::windows::core::RuntimeType for JsonObject {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonObject;{064e24dd-29c2-4f83-9ac1-9ee11578beb3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonObject;{064e24dd-29c2-4f83-9ac1-9ee11578beb3})");
 }
 impl ::core::clone::Clone for JsonObject {
     fn clone(&self) -> Self {
@@ -948,7 +948,7 @@ impl ::core::iter::IntoIterator for &JsonObject {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(JsonObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(JsonObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<JsonObject> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IJsonValue>> {
     type Error = ::windows::core::Error;
@@ -1136,12 +1136,12 @@ impl JsonValue {
     }
     #[doc(hidden)]
     pub fn IJsonValueStatics<R, F: FnOnce(&IJsonValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<JsonValue, IJsonValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<JsonValue, IJsonValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IJsonValueStatics2<R, F: FnOnce(&IJsonValueStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<JsonValue, IJsonValueStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<JsonValue, IJsonValueStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1157,7 +1157,7 @@ impl ::core::fmt::Debug for JsonValue {
     }
 }
 impl ::windows::core::RuntimeType for JsonValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonValue;{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonValue;{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e})");
 }
 impl ::core::clone::Clone for JsonValue {
     fn clone(&self) -> Self {
@@ -1173,7 +1173,7 @@ unsafe impl ::windows::core::Interface for JsonValue {
 impl ::windows::core::RuntimeName for JsonValue {
     const NAME: &'static str = "Windows.Data.Json.JsonValue";
 }
-::windows::core::interface_hierarchy!(JsonValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(JsonValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<JsonValue> for IJsonValue {
     type Error = ::windows::core::Error;
     fn try_from(value: JsonValue) -> ::windows::core::Result<Self> {
@@ -1248,7 +1248,7 @@ impl ::core::fmt::Debug for JsonErrorStatus {
     }
 }
 impl ::windows::core::RuntimeType for JsonErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
 }
 #[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
@@ -1282,7 +1282,7 @@ impl ::core::fmt::Debug for JsonValueType {
     }
 }
 impl ::windows::core::RuntimeType for JsonValueType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonValueType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonValueType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -797,7 +797,7 @@ impl ::core::fmt::Debug for BufferProtectUnprotectResult {
     }
 }
 impl ::windows::core::RuntimeType for BufferProtectUnprotectResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.BufferProtectUnprotectResult;{47995edc-6cec-4e3a-b251-9e7485d79e7a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.BufferProtectUnprotectResult;{47995edc-6cec-4e3a-b251-9e7485d79e7a})");
 }
 impl ::core::clone::Clone for BufferProtectUnprotectResult {
     fn clone(&self) -> Self {
@@ -813,7 +813,7 @@ unsafe impl ::windows::core::Interface for BufferProtectUnprotectResult {
 impl ::windows::core::RuntimeName for BufferProtectUnprotectResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.BufferProtectUnprotectResult";
 }
-::windows::core::interface_hierarchy!(BufferProtectUnprotectResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BufferProtectUnprotectResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BufferProtectUnprotectResult {}
 unsafe impl ::core::marker::Sync for BufferProtectUnprotectResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -847,7 +847,7 @@ impl ::core::fmt::Debug for DataProtectionInfo {
     }
 }
 impl ::windows::core::RuntimeType for DataProtectionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.DataProtectionInfo;{8420b0c1-5e31-4405-9540-3f943af0cb26})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.DataProtectionInfo;{8420b0c1-5e31-4405-9540-3f943af0cb26})");
 }
 impl ::core::clone::Clone for DataProtectionInfo {
     fn clone(&self) -> Self {
@@ -863,7 +863,7 @@ unsafe impl ::windows::core::Interface for DataProtectionInfo {
 impl ::windows::core::RuntimeName for DataProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.DataProtectionInfo";
 }
-::windows::core::interface_hierarchy!(DataProtectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DataProtectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataProtectionInfo {}
 unsafe impl ::core::marker::Sync for DataProtectionInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -947,7 +947,7 @@ impl DataProtectionManager {
     }
     #[doc(hidden)]
     pub fn IDataProtectionManagerStatics<R, F: FnOnce(&IDataProtectionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DataProtectionManager, IDataProtectionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<DataProtectionManager, IDataProtectionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -999,7 +999,7 @@ impl ::core::fmt::Debug for FileProtectionInfo {
     }
 }
 impl ::windows::core::RuntimeType for FileProtectionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileProtectionInfo;{4ee96486-147e-4dd0-8faf-5253ed91ad0c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileProtectionInfo;{4ee96486-147e-4dd0-8faf-5253ed91ad0c})");
 }
 impl ::core::clone::Clone for FileProtectionInfo {
     fn clone(&self) -> Self {
@@ -1015,7 +1015,7 @@ unsafe impl ::windows::core::Interface for FileProtectionInfo {
 impl ::windows::core::RuntimeName for FileProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileProtectionInfo";
 }
-::windows::core::interface_hierarchy!(FileProtectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileProtectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FileProtectionInfo {}
 unsafe impl ::core::marker::Sync for FileProtectionInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1175,17 +1175,17 @@ impl FileProtectionManager {
     }
     #[doc(hidden)]
     pub fn IFileProtectionManagerStatics<R, F: FnOnce(&IFileProtectionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IFileProtectionManagerStatics2<R, F: FnOnce(&IFileProtectionManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IFileProtectionManagerStatics3<R, F: FnOnce(&IFileProtectionManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1243,7 +1243,7 @@ impl FileRevocationManager {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IFileRevocationManagerStatics<R, F: FnOnce(&IFileRevocationManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileRevocationManager, IFileRevocationManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileRevocationManager, IFileRevocationManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1274,7 +1274,7 @@ impl FileUnprotectOptions {
     }
     #[doc(hidden)]
     pub fn IFileUnprotectOptionsFactory<R, F: FnOnce(&IFileUnprotectOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileUnprotectOptions, IFileUnprotectOptionsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<FileUnprotectOptions, IFileUnprotectOptionsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1290,7 +1290,7 @@ impl ::core::fmt::Debug for FileUnprotectOptions {
     }
 }
 impl ::windows::core::RuntimeType for FileUnprotectOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileUnprotectOptions;{7d1312f1-3b0d-4dd8-a1f8-1ec53822e2f3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileUnprotectOptions;{7d1312f1-3b0d-4dd8-a1f8-1ec53822e2f3})");
 }
 impl ::core::clone::Clone for FileUnprotectOptions {
     fn clone(&self) -> Self {
@@ -1306,7 +1306,7 @@ unsafe impl ::windows::core::Interface for FileUnprotectOptions {
 impl ::windows::core::RuntimeName for FileUnprotectOptions {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileUnprotectOptions";
 }
-::windows::core::interface_hierarchy!(FileUnprotectOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(FileUnprotectOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FileUnprotectOptions {}
 unsafe impl ::core::marker::Sync for FileUnprotectOptions {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1335,7 +1335,7 @@ impl ::core::fmt::Debug for ProtectedAccessResumedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ProtectedAccessResumedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs;{ac4dca59-5d80-4e95-8c5f-8539450eebe0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs;{ac4dca59-5d80-4e95-8c5f-8539450eebe0})");
 }
 impl ::core::clone::Clone for ProtectedAccessResumedEventArgs {
     fn clone(&self) -> Self {
@@ -1351,7 +1351,7 @@ unsafe impl ::windows::core::Interface for ProtectedAccessResumedEventArgs {
 impl ::windows::core::RuntimeName for ProtectedAccessResumedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs";
 }
-::windows::core::interface_hierarchy!(ProtectedAccessResumedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtectedAccessResumedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedAccessResumedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessResumedEventArgs {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1398,7 +1398,7 @@ impl ::core::fmt::Debug for ProtectedAccessSuspendingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ProtectedAccessSuspendingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs;{75a193e0-a344-429f-b975-04fc1f88c185})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs;{75a193e0-a344-429f-b975-04fc1f88c185})");
 }
 impl ::core::clone::Clone for ProtectedAccessSuspendingEventArgs {
     fn clone(&self) -> Self {
@@ -1414,7 +1414,7 @@ unsafe impl ::windows::core::Interface for ProtectedAccessSuspendingEventArgs {
 impl ::windows::core::RuntimeName for ProtectedAccessSuspendingEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs";
 }
-::windows::core::interface_hierarchy!(ProtectedAccessSuspendingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtectedAccessSuspendingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedAccessSuspendingEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessSuspendingEventArgs {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1450,7 +1450,7 @@ impl ::core::fmt::Debug for ProtectedContainerExportResult {
     }
 }
 impl ::windows::core::RuntimeType for ProtectedContainerExportResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerExportResult;{3948ef95-f7fb-4b42-afb0-df70b41543c1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerExportResult;{3948ef95-f7fb-4b42-afb0-df70b41543c1})");
 }
 impl ::core::clone::Clone for ProtectedContainerExportResult {
     fn clone(&self) -> Self {
@@ -1466,7 +1466,7 @@ unsafe impl ::windows::core::Interface for ProtectedContainerExportResult {
 impl ::windows::core::RuntimeName for ProtectedContainerExportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerExportResult";
 }
-::windows::core::interface_hierarchy!(ProtectedContainerExportResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtectedContainerExportResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedContainerExportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerExportResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1502,7 +1502,7 @@ impl ::core::fmt::Debug for ProtectedContainerImportResult {
     }
 }
 impl ::windows::core::RuntimeType for ProtectedContainerImportResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerImportResult;{cdb780d1-e7bb-4d1a-9339-34dc41149f9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerImportResult;{cdb780d1-e7bb-4d1a-9339-34dc41149f9b})");
 }
 impl ::core::clone::Clone for ProtectedContainerImportResult {
     fn clone(&self) -> Self {
@@ -1518,7 +1518,7 @@ unsafe impl ::windows::core::Interface for ProtectedContainerImportResult {
 impl ::windows::core::RuntimeName for ProtectedContainerImportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerImportResult";
 }
-::windows::core::interface_hierarchy!(ProtectedContainerImportResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtectedContainerImportResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedContainerImportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerImportResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1547,7 +1547,7 @@ impl ::core::fmt::Debug for ProtectedContentRevokedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ProtectedContentRevokedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs;{63686821-58b9-47ee-93d9-f0f741cf43f0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs;{63686821-58b9-47ee-93d9-f0f741cf43f0})");
 }
 impl ::core::clone::Clone for ProtectedContentRevokedEventArgs {
     fn clone(&self) -> Self {
@@ -1563,7 +1563,7 @@ unsafe impl ::windows::core::Interface for ProtectedContentRevokedEventArgs {
 impl ::windows::core::RuntimeName for ProtectedContentRevokedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs";
 }
-::windows::core::interface_hierarchy!(ProtectedContentRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtectedContentRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedContentRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedContentRevokedEventArgs {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1608,7 +1608,7 @@ impl ::core::fmt::Debug for ProtectedFileCreateResult {
     }
 }
 impl ::windows::core::RuntimeType for ProtectedFileCreateResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedFileCreateResult;{28e3ed6a-e9e7-4a03-9f53-bdb16172699b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedFileCreateResult;{28e3ed6a-e9e7-4a03-9f53-bdb16172699b})");
 }
 impl ::core::clone::Clone for ProtectedFileCreateResult {
     fn clone(&self) -> Self {
@@ -1624,7 +1624,7 @@ unsafe impl ::windows::core::Interface for ProtectedFileCreateResult {
 impl ::windows::core::RuntimeName for ProtectedFileCreateResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedFileCreateResult";
 }
-::windows::core::interface_hierarchy!(ProtectedFileCreateResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtectedFileCreateResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedFileCreateResult {}
 unsafe impl ::core::marker::Sync for ProtectedFileCreateResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1689,7 +1689,7 @@ impl ProtectionPolicyAuditInfo {
     }
     #[doc(hidden)]
     pub fn IProtectionPolicyAuditInfoFactory<R, F: FnOnce(&IProtectionPolicyAuditInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProtectionPolicyAuditInfo, IProtectionPolicyAuditInfoFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProtectionPolicyAuditInfo, IProtectionPolicyAuditInfoFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1705,7 +1705,7 @@ impl ::core::fmt::Debug for ProtectionPolicyAuditInfo {
     }
 }
 impl ::windows::core::RuntimeType for ProtectionPolicyAuditInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo;{425ab7e4-feb7-44fc-b3bb-c3c4d7ecbebb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo;{425ab7e4-feb7-44fc-b3bb-c3c4d7ecbebb})");
 }
 impl ::core::clone::Clone for ProtectionPolicyAuditInfo {
     fn clone(&self) -> Self {
@@ -1721,7 +1721,7 @@ unsafe impl ::windows::core::Interface for ProtectionPolicyAuditInfo {
 impl ::windows::core::RuntimeName for ProtectionPolicyAuditInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo";
 }
-::windows::core::interface_hierarchy!(ProtectionPolicyAuditInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtectionPolicyAuditInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectionPolicyAuditInfo {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyAuditInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -2043,22 +2043,22 @@ impl ProtectionPolicyManager {
     }
     #[doc(hidden)]
     pub fn IProtectionPolicyManagerStatics<R, F: FnOnce(&IProtectionPolicyManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IProtectionPolicyManagerStatics2<R, F: FnOnce(&IProtectionPolicyManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IProtectionPolicyManagerStatics3<R, F: FnOnce(&IProtectionPolicyManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IProtectionPolicyManagerStatics4<R, F: FnOnce(&IProtectionPolicyManagerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2074,7 +2074,7 @@ impl ::core::fmt::Debug for ProtectionPolicyManager {
     }
 }
 impl ::windows::core::RuntimeType for ProtectionPolicyManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyManager;{d5703e18-a08d-47e6-a240-9934d7165eb5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyManager;{d5703e18-a08d-47e6-a240-9934d7165eb5})");
 }
 impl ::core::clone::Clone for ProtectionPolicyManager {
     fn clone(&self) -> Self {
@@ -2090,7 +2090,7 @@ unsafe impl ::windows::core::Interface for ProtectionPolicyManager {
 impl ::windows::core::RuntimeName for ProtectionPolicyManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyManager";
 }
-::windows::core::interface_hierarchy!(ProtectionPolicyManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProtectionPolicyManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectionPolicyManager {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyManager {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -2116,7 +2116,7 @@ impl ::core::fmt::Debug for ThreadNetworkContext {
     }
 }
 impl ::windows::core::RuntimeType for ThreadNetworkContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ThreadNetworkContext;{fa4ea8e9-ef13-405a-b12c-d7348c6f41fc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ThreadNetworkContext;{fa4ea8e9-ef13-405a-b12c-d7348c6f41fc})");
 }
 impl ::core::clone::Clone for ThreadNetworkContext {
     fn clone(&self) -> Self {
@@ -2132,7 +2132,7 @@ unsafe impl ::windows::core::Interface for ThreadNetworkContext {
 impl ::windows::core::RuntimeName for ThreadNetworkContext {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ThreadNetworkContext";
 }
-::windows::core::interface_hierarchy!(ThreadNetworkContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ThreadNetworkContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ThreadNetworkContext> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2189,7 +2189,7 @@ impl ::core::fmt::Debug for DataProtectionStatus {
     }
 }
 impl ::windows::core::RuntimeType for DataProtectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.DataProtectionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.DataProtectionStatus;i4)");
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
@@ -2221,7 +2221,7 @@ impl ::core::fmt::Debug for EnforcementLevel {
     }
 }
 impl ::windows::core::RuntimeType for EnforcementLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.EnforcementLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.EnforcementLevel;i4)");
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
@@ -2261,7 +2261,7 @@ impl ::core::fmt::Debug for FileProtectionStatus {
     }
 }
 impl ::windows::core::RuntimeType for FileProtectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.FileProtectionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.FileProtectionStatus;i4)");
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
@@ -2297,7 +2297,7 @@ impl ::core::fmt::Debug for ProtectedImportExportStatus {
     }
 }
 impl ::windows::core::RuntimeType for ProtectedImportExportStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectedImportExportStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectedImportExportStatus;i4)");
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
@@ -2329,7 +2329,7 @@ impl ::core::fmt::Debug for ProtectionPolicyAuditAction {
     }
 }
 impl ::windows::core::RuntimeType for ProtectionPolicyAuditAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyAuditAction;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyAuditAction;i4)");
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
@@ -2360,7 +2360,7 @@ impl ::core::fmt::Debug for ProtectionPolicyEvaluationResult {
     }
 }
 impl ::windows::core::RuntimeType for ProtectionPolicyEvaluationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;i4)");
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
@@ -2390,7 +2390,7 @@ impl ::core::fmt::Debug for ProtectionPolicyRequestAccessBehavior {
     }
 }
 impl ::windows::core::RuntimeType for ProtectionPolicyRequestAccessBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

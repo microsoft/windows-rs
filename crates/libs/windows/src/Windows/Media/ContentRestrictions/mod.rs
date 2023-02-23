@@ -188,7 +188,7 @@ impl ::core::fmt::Debug for ContentRestrictionsBrowsePolicy {
     }
 }
 impl ::windows::core::RuntimeType for ContentRestrictionsBrowsePolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy;{8c0133a4-442e-461a-8757-fad2f5bd37e4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy;{8c0133a4-442e-461a-8757-fad2f5bd37e4})");
 }
 impl ::core::clone::Clone for ContentRestrictionsBrowsePolicy {
     fn clone(&self) -> Self {
@@ -204,7 +204,7 @@ unsafe impl ::windows::core::Interface for ContentRestrictionsBrowsePolicy {
 impl ::windows::core::RuntimeName for ContentRestrictionsBrowsePolicy {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
 }
-::windows::core::interface_hierarchy!(ContentRestrictionsBrowsePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ContentRestrictionsBrowsePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContentRestrictionsBrowsePolicy {}
 unsafe impl ::core::marker::Sync for ContentRestrictionsBrowsePolicy {}
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
@@ -290,7 +290,7 @@ impl RatedContentDescription {
     }
     #[doc(hidden)]
     pub fn IRatedContentDescriptionFactory<R, F: FnOnce(&IRatedContentDescriptionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RatedContentDescription, IRatedContentDescriptionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RatedContentDescription, IRatedContentDescriptionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -306,7 +306,7 @@ impl ::core::fmt::Debug for RatedContentDescription {
     }
 }
 impl ::windows::core::RuntimeType for RatedContentDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentDescription;{694866df-66b2-4dc3-96b1-f090eedee255})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentDescription;{694866df-66b2-4dc3-96b1-f090eedee255})");
 }
 impl ::core::clone::Clone for RatedContentDescription {
     fn clone(&self) -> Self {
@@ -322,7 +322,7 @@ unsafe impl ::windows::core::Interface for RatedContentDescription {
 impl ::windows::core::RuntimeName for RatedContentDescription {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentDescription";
 }
-::windows::core::interface_hierarchy!(RatedContentDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RatedContentDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RatedContentDescription {}
 unsafe impl ::core::marker::Sync for RatedContentDescription {}
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
@@ -332,8 +332,8 @@ impl RatedContentRestrictions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RatedContentRestrictions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<RatedContentRestrictions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -386,7 +386,7 @@ impl RatedContentRestrictions {
     }
     #[doc(hidden)]
     pub fn IRatedContentRestrictionsFactory<R, F: FnOnce(&IRatedContentRestrictionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RatedContentRestrictions, IRatedContentRestrictionsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RatedContentRestrictions, IRatedContentRestrictionsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -402,7 +402,7 @@ impl ::core::fmt::Debug for RatedContentRestrictions {
     }
 }
 impl ::windows::core::RuntimeType for RatedContentRestrictions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentRestrictions;{3f7f23cb-ba07-4401-a49d-8b9222205723})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentRestrictions;{3f7f23cb-ba07-4401-a49d-8b9222205723})");
 }
 impl ::core::clone::Clone for RatedContentRestrictions {
     fn clone(&self) -> Self {
@@ -418,7 +418,7 @@ unsafe impl ::windows::core::Interface for RatedContentRestrictions {
 impl ::windows::core::RuntimeName for RatedContentRestrictions {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentRestrictions";
 }
-::windows::core::interface_hierarchy!(RatedContentRestrictions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RatedContentRestrictions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RatedContentRestrictions {}
 unsafe impl ::core::marker::Sync for RatedContentRestrictions {}
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
@@ -451,7 +451,7 @@ impl ::core::fmt::Debug for ContentAccessRestrictionLevel {
     }
 }
 impl ::windows::core::RuntimeType for ContentAccessRestrictionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
 }
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
@@ -485,7 +485,7 @@ impl ::core::fmt::Debug for RatedContentCategory {
     }
 }
 impl ::windows::core::RuntimeType for RatedContentCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

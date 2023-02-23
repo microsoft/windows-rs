@@ -190,7 +190,7 @@ impl OfflineMapPackage {
     }
     #[doc(hidden)]
     pub fn IOfflineMapPackageStatics<R, F: FnOnce(&IOfflineMapPackageStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<OfflineMapPackage, IOfflineMapPackageStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<OfflineMapPackage, IOfflineMapPackageStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -206,7 +206,7 @@ impl ::core::fmt::Debug for OfflineMapPackage {
     }
 }
 impl ::windows::core::RuntimeType for OfflineMapPackage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackage;{a797673b-a5b5-4144-b525-e68c8862664b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackage;{a797673b-a5b5-4144-b525-e68c8862664b})");
 }
 impl ::core::clone::Clone for OfflineMapPackage {
     fn clone(&self) -> Self {
@@ -222,7 +222,7 @@ unsafe impl ::windows::core::Interface for OfflineMapPackage {
 impl ::windows::core::RuntimeName for OfflineMapPackage {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackage";
 }
-::windows::core::interface_hierarchy!(OfflineMapPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OfflineMapPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OfflineMapPackage {}
 unsafe impl ::core::marker::Sync for OfflineMapPackage {}
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
@@ -258,7 +258,7 @@ impl ::core::fmt::Debug for OfflineMapPackageQueryResult {
     }
 }
 impl ::windows::core::RuntimeType for OfflineMapPackageQueryResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult;{55585411-39e1-4e41-a4e1-5f4872bee199})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult;{55585411-39e1-4e41-a4e1-5f4872bee199})");
 }
 impl ::core::clone::Clone for OfflineMapPackageQueryResult {
     fn clone(&self) -> Self {
@@ -274,7 +274,7 @@ unsafe impl ::windows::core::Interface for OfflineMapPackageQueryResult {
 impl ::windows::core::RuntimeName for OfflineMapPackageQueryResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult";
 }
-::windows::core::interface_hierarchy!(OfflineMapPackageQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OfflineMapPackageQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OfflineMapPackageQueryResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageQueryResult {}
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
@@ -301,7 +301,7 @@ impl ::core::fmt::Debug for OfflineMapPackageStartDownloadResult {
     }
 }
 impl ::windows::core::RuntimeType for OfflineMapPackageStartDownloadResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult;{d965b918-d4d6-4afe-9378-3ec71ef11c3d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult;{d965b918-d4d6-4afe-9378-3ec71ef11c3d})");
 }
 impl ::core::clone::Clone for OfflineMapPackageStartDownloadResult {
     fn clone(&self) -> Self {
@@ -317,7 +317,7 @@ unsafe impl ::windows::core::Interface for OfflineMapPackageStartDownloadResult 
 impl ::windows::core::RuntimeName for OfflineMapPackageStartDownloadResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult";
 }
-::windows::core::interface_hierarchy!(OfflineMapPackageStartDownloadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(OfflineMapPackageStartDownloadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OfflineMapPackageStartDownloadResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageStartDownloadResult {}
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
@@ -350,7 +350,7 @@ impl ::core::fmt::Debug for OfflineMapPackageQueryStatus {
     }
 }
 impl ::windows::core::RuntimeType for OfflineMapPackageQueryStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
 #[repr(transparent)]
@@ -382,7 +382,7 @@ impl ::core::fmt::Debug for OfflineMapPackageStartDownloadStatus {
     }
 }
 impl ::windows::core::RuntimeType for OfflineMapPackageStartDownloadStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus;i4)");
 }
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
 #[repr(transparent)]
@@ -414,7 +414,7 @@ impl ::core::fmt::Debug for OfflineMapPackageStatus {
     }
 }
 impl ::windows::core::RuntimeType for OfflineMapPackageStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

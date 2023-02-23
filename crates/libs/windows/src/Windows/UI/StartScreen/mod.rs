@@ -753,7 +753,7 @@ impl JumpList {
     }
     #[doc(hidden)]
     pub fn IJumpListStatics<R, F: FnOnce(&IJumpListStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<JumpList, IJumpListStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<JumpList, IJumpListStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -769,7 +769,7 @@ impl ::core::fmt::Debug for JumpList {
     }
 }
 impl ::windows::core::RuntimeType for JumpList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpList;{b0234c3e-cd6f-4cb6-a611-61fd505f3ed1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpList;{b0234c3e-cd6f-4cb6-a611-61fd505f3ed1})");
 }
 impl ::core::clone::Clone for JumpList {
     fn clone(&self) -> Self {
@@ -785,7 +785,7 @@ unsafe impl ::windows::core::Interface for JumpList {
 impl ::windows::core::RuntimeName for JumpList {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpList";
 }
-::windows::core::interface_hierarchy!(JumpList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(JumpList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for JumpList {}
 unsafe impl ::core::marker::Sync for JumpList {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -875,7 +875,7 @@ impl JumpListItem {
     }
     #[doc(hidden)]
     pub fn IJumpListItemStatics<R, F: FnOnce(&IJumpListItemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<JumpListItem, IJumpListItemStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<JumpListItem, IJumpListItemStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -891,7 +891,7 @@ impl ::core::fmt::Debug for JumpListItem {
     }
 }
 impl ::windows::core::RuntimeType for JumpListItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpListItem;{7adb6717-8b5d-4820-995b-9b418dbe48b0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpListItem;{7adb6717-8b5d-4820-995b-9b418dbe48b0})");
 }
 impl ::core::clone::Clone for JumpListItem {
     fn clone(&self) -> Self {
@@ -907,7 +907,7 @@ unsafe impl ::windows::core::Interface for JumpListItem {
 impl ::windows::core::RuntimeName for JumpListItem {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpListItem";
 }
-::windows::core::interface_hierarchy!(JumpListItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(JumpListItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for JumpListItem {}
 unsafe impl ::core::marker::Sync for JumpListItem {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -917,8 +917,8 @@ impl SecondaryTile {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SecondaryTile, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SecondaryTile, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetTileId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1272,17 +1272,17 @@ impl SecondaryTile {
     }
     #[doc(hidden)]
     pub fn ISecondaryTileFactory<R, F: FnOnce(&ISecondaryTileFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SecondaryTile, ISecondaryTileFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SecondaryTile, ISecondaryTileFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISecondaryTileFactory2<R, F: FnOnce(&ISecondaryTileFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SecondaryTile, ISecondaryTileFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SecondaryTile, ISecondaryTileFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ISecondaryTileStatics<R, F: FnOnce(&ISecondaryTileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SecondaryTile, ISecondaryTileStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SecondaryTile, ISecondaryTileStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1298,7 +1298,7 @@ impl ::core::fmt::Debug for SecondaryTile {
     }
 }
 impl ::windows::core::RuntimeType for SecondaryTile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTile;{9e9e51e0-2bb5-4bc0-bb8d-42b23abcc88d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTile;{9e9e51e0-2bb5-4bc0-bb8d-42b23abcc88d})");
 }
 impl ::core::clone::Clone for SecondaryTile {
     fn clone(&self) -> Self {
@@ -1314,7 +1314,7 @@ unsafe impl ::windows::core::Interface for SecondaryTile {
 impl ::windows::core::RuntimeName for SecondaryTile {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTile";
 }
-::windows::core::interface_hierarchy!(SecondaryTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SecondaryTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SecondaryTile {}
 unsafe impl ::core::marker::Sync for SecondaryTile {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1501,7 +1501,7 @@ impl ::core::fmt::Debug for SecondaryTileVisualElements {
     }
 }
 impl ::windows::core::RuntimeType for SecondaryTileVisualElements {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTileVisualElements;{1d8df333-815e-413f-9f50-a81da70a96b2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTileVisualElements;{1d8df333-815e-413f-9f50-a81da70a96b2})");
 }
 impl ::core::clone::Clone for SecondaryTileVisualElements {
     fn clone(&self) -> Self {
@@ -1517,7 +1517,7 @@ unsafe impl ::windows::core::Interface for SecondaryTileVisualElements {
 impl ::windows::core::RuntimeName for SecondaryTileVisualElements {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTileVisualElements";
 }
-::windows::core::interface_hierarchy!(SecondaryTileVisualElements, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SecondaryTileVisualElements, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SecondaryTileVisualElements {}
 unsafe impl ::core::marker::Sync for SecondaryTileVisualElements {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1594,7 +1594,7 @@ impl StartScreenManager {
     }
     #[doc(hidden)]
     pub fn IStartScreenManagerStatics<R, F: FnOnce(&IStartScreenManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StartScreenManager, IStartScreenManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StartScreenManager, IStartScreenManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1610,7 +1610,7 @@ impl ::core::fmt::Debug for StartScreenManager {
     }
 }
 impl ::windows::core::RuntimeType for StartScreenManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.StartScreenManager;{4a1dcbcb-26e9-4eb4-8933-859eb6ecdb29})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.StartScreenManager;{4a1dcbcb-26e9-4eb4-8933-859eb6ecdb29})");
 }
 impl ::core::clone::Clone for StartScreenManager {
     fn clone(&self) -> Self {
@@ -1626,7 +1626,7 @@ unsafe impl ::windows::core::Interface for StartScreenManager {
 impl ::windows::core::RuntimeName for StartScreenManager {
     const NAME: &'static str = "Windows.UI.StartScreen.StartScreenManager";
 }
-::windows::core::interface_hierarchy!(StartScreenManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StartScreenManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StartScreenManager {}
 unsafe impl ::core::marker::Sync for StartScreenManager {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1691,7 +1691,7 @@ impl ::core::fmt::Debug for TileMixedRealityModel {
     }
 }
 impl ::windows::core::RuntimeType for TileMixedRealityModel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.TileMixedRealityModel;{b0764e5b-887d-4242-9a19-3d0a4ea78031})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.TileMixedRealityModel;{b0764e5b-887d-4242-9a19-3d0a4ea78031})");
 }
 impl ::core::clone::Clone for TileMixedRealityModel {
     fn clone(&self) -> Self {
@@ -1707,7 +1707,7 @@ unsafe impl ::windows::core::Interface for TileMixedRealityModel {
 impl ::windows::core::RuntimeName for TileMixedRealityModel {
     const NAME: &'static str = "Windows.UI.StartScreen.TileMixedRealityModel";
 }
-::windows::core::interface_hierarchy!(TileMixedRealityModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TileMixedRealityModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileMixedRealityModel {}
 unsafe impl ::core::marker::Sync for TileMixedRealityModel {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1759,7 +1759,7 @@ impl ::core::fmt::Debug for VisualElementsRequest {
     }
 }
 impl ::windows::core::RuntimeType for VisualElementsRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequest;{c138333a-9308-4072-88cc-d068db347c68})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequest;{c138333a-9308-4072-88cc-d068db347c68})");
 }
 impl ::core::clone::Clone for VisualElementsRequest {
     fn clone(&self) -> Self {
@@ -1775,7 +1775,7 @@ unsafe impl ::windows::core::Interface for VisualElementsRequest {
 impl ::windows::core::RuntimeName for VisualElementsRequest {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequest";
 }
-::windows::core::interface_hierarchy!(VisualElementsRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VisualElementsRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VisualElementsRequest {}
 unsafe impl ::core::marker::Sync for VisualElementsRequest {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1799,7 +1799,7 @@ impl ::core::fmt::Debug for VisualElementsRequestDeferral {
     }
 }
 impl ::windows::core::RuntimeType for VisualElementsRequestDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestDeferral;{a1656eb0-0126-4357-8204-bd82bb2a046d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestDeferral;{a1656eb0-0126-4357-8204-bd82bb2a046d})");
 }
 impl ::core::clone::Clone for VisualElementsRequestDeferral {
     fn clone(&self) -> Self {
@@ -1815,7 +1815,7 @@ unsafe impl ::windows::core::Interface for VisualElementsRequestDeferral {
 impl ::windows::core::RuntimeName for VisualElementsRequestDeferral {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestDeferral";
 }
-::windows::core::interface_hierarchy!(VisualElementsRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VisualElementsRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VisualElementsRequestDeferral {}
 unsafe impl ::core::marker::Sync for VisualElementsRequestDeferral {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1842,7 +1842,7 @@ impl ::core::fmt::Debug for VisualElementsRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for VisualElementsRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestedEventArgs;{7b6fc982-3a0d-4ece-af96-cd17e1b00b2d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestedEventArgs;{7b6fc982-3a0d-4ece-af96-cd17e1b00b2d})");
 }
 impl ::core::clone::Clone for VisualElementsRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1858,7 +1858,7 @@ unsafe impl ::windows::core::Interface for VisualElementsRequestedEventArgs {
 impl ::windows::core::RuntimeName for VisualElementsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(VisualElementsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VisualElementsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VisualElementsRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for VisualElementsRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1889,7 +1889,7 @@ impl ::core::fmt::Debug for ForegroundText {
     }
 }
 impl ::windows::core::RuntimeType for ForegroundText {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
 }
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
@@ -1919,7 +1919,7 @@ impl ::core::fmt::Debug for JumpListItemKind {
     }
 }
 impl ::windows::core::RuntimeType for JumpListItemKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListItemKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListItemKind;i4)");
 }
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
@@ -1950,7 +1950,7 @@ impl ::core::fmt::Debug for JumpListSystemGroupKind {
     }
 }
 impl ::windows::core::RuntimeType for JumpListSystemGroupKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListSystemGroupKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListSystemGroupKind;i4)");
 }
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
@@ -1980,7 +1980,7 @@ impl ::core::fmt::Debug for TileMixedRealityModelActivationBehavior {
     }
 }
 impl ::windows::core::RuntimeType for TileMixedRealityModelActivationBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior;i4)");
 }
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
@@ -2045,7 +2045,7 @@ impl ::core::ops::Not for TileOptions {
     }
 }
 impl ::windows::core::RuntimeType for TileOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileOptions;u4)");
 }
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
@@ -2081,7 +2081,7 @@ impl ::core::fmt::Debug for TileSize {
     }
 }
 impl ::windows::core::RuntimeType for TileSize {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileSize;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileSize;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

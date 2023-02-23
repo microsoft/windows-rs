@@ -29,7 +29,7 @@ impl IEnumNetworkConnections {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEnumNetworkConnections, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IEnumNetworkConnections, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEnumNetworkConnections {
     fn eq(&self, other: &Self) -> bool {
@@ -109,7 +109,7 @@ impl IEnumNetworks {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IEnumNetworks, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IEnumNetworks, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IEnumNetworks {
     fn eq(&self, other: &Self) -> bool {
@@ -220,7 +220,7 @@ impl INetwork {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetwork, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetwork, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetwork {
     fn eq(&self, other: &Self) -> bool {
@@ -319,7 +319,7 @@ impl INetworkConnection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetworkConnection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetworkConnection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetworkConnection {
     fn eq(&self, other: &Self) -> bool {
@@ -384,7 +384,7 @@ impl INetworkConnectionCost {
         (::windows::core::Vtable::vtable(self).GetDataPlanStatus)(::windows::core::Vtable::as_raw(self), pdataplanstatus).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetworkConnectionCost, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetworkConnectionCost, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetworkConnectionCost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -428,7 +428,7 @@ impl INetworkConnectionCostEvents {
         (::windows::core::Vtable::vtable(self).ConnectionDataPlanStatusChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(connectionid)).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetworkConnectionCostEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetworkConnectionCostEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetworkConnectionCostEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -469,7 +469,7 @@ impl INetworkConnectionEvents {
         (::windows::core::Vtable::vtable(self).NetworkConnectionPropertyChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(connectionid), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetworkConnectionEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetworkConnectionEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetworkConnectionEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -520,7 +520,7 @@ impl INetworkCostManager {
         (::windows::core::Vtable::vtable(self).SetDestinationAddresses)(::windows::core::Vtable::as_raw(self), pdestipaddrlist.len() as _, ::core::mem::transmute(pdestipaddrlist.as_ptr()), bappend.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetworkCostManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetworkCostManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetworkCostManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -568,7 +568,7 @@ impl INetworkCostManagerEvents {
         (::windows::core::Vtable::vtable(self).DataPlanStatusChanged)(::windows::core::Vtable::as_raw(self), pdestaddr).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetworkCostManagerEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetworkCostManagerEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetworkCostManagerEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -615,7 +615,7 @@ impl INetworkEvents {
         (::windows::core::Vtable::vtable(self).NetworkPropertyChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(networkid), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetworkEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetworkEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetworkEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -701,7 +701,7 @@ impl INetworkListManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(INetworkListManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(INetworkListManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INetworkListManager {
     fn eq(&self, other: &Self) -> bool {
@@ -771,7 +771,7 @@ impl INetworkListManagerEvents {
         (::windows::core::Vtable::vtable(self).ConnectivityChanged)(::windows::core::Vtable::as_raw(self), newconnectivity).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetworkListManagerEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetworkListManagerEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetworkListManagerEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

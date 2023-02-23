@@ -357,7 +357,7 @@ impl ::core::fmt::Debug for GameSaveBlobGetResult {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveBlobGetResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult;{917281e0-7201-4953-aa2c-4008f03aef45})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult;{917281e0-7201-4953-aa2c-4008f03aef45})");
 }
 impl ::core::clone::Clone for GameSaveBlobGetResult {
     fn clone(&self) -> Self {
@@ -373,7 +373,7 @@ unsafe impl ::windows::core::Interface for GameSaveBlobGetResult {
 impl ::windows::core::RuntimeName for GameSaveBlobGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult";
 }
-::windows::core::interface_hierarchy!(GameSaveBlobGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveBlobGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveBlobGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveBlobGetResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -407,7 +407,7 @@ impl ::core::fmt::Debug for GameSaveBlobInfo {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveBlobInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo;{add38034-baf0-4645-b6d0-46edaffb3c2b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo;{add38034-baf0-4645-b6d0-46edaffb3c2b})");
 }
 impl ::core::clone::Clone for GameSaveBlobInfo {
     fn clone(&self) -> Self {
@@ -423,7 +423,7 @@ unsafe impl ::windows::core::Interface for GameSaveBlobInfo {
 impl ::windows::core::RuntimeName for GameSaveBlobInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo";
 }
-::windows::core::interface_hierarchy!(GameSaveBlobInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveBlobInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveBlobInfo {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfo {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -459,7 +459,7 @@ impl ::core::fmt::Debug for GameSaveBlobInfoGetResult {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveBlobInfoGetResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult;{c7578582-3697-42bf-989c-665d923b5231})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult;{c7578582-3697-42bf-989c-665d923b5231})");
 }
 impl ::core::clone::Clone for GameSaveBlobInfoGetResult {
     fn clone(&self) -> Self {
@@ -475,7 +475,7 @@ unsafe impl ::windows::core::Interface for GameSaveBlobInfoGetResult {
 impl ::windows::core::RuntimeName for GameSaveBlobInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult";
 }
-::windows::core::interface_hierarchy!(GameSaveBlobInfoGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveBlobInfoGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveBlobInfoGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfoGetResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -522,7 +522,7 @@ impl ::core::fmt::Debug for GameSaveBlobInfoQuery {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveBlobInfoQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery;{9fdd74b2-eeee-447b-a9d2-7f96c0f83208})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery;{9fdd74b2-eeee-447b-a9d2-7f96c0f83208})");
 }
 impl ::core::clone::Clone for GameSaveBlobInfoQuery {
     fn clone(&self) -> Self {
@@ -538,7 +538,7 @@ unsafe impl ::windows::core::Interface for GameSaveBlobInfoQuery {
 impl ::windows::core::RuntimeName for GameSaveBlobInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery";
 }
-::windows::core::interface_hierarchy!(GameSaveBlobInfoQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveBlobInfoQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveBlobInfoQuery {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfoQuery {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -635,7 +635,7 @@ impl ::core::fmt::Debug for GameSaveContainer {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveContainer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainer;{c3c08f89-563f-4ecd-9c6f-33fd0e323d10})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainer;{c3c08f89-563f-4ecd-9c6f-33fd0e323d10})");
 }
 impl ::core::clone::Clone for GameSaveContainer {
     fn clone(&self) -> Self {
@@ -651,7 +651,7 @@ unsafe impl ::windows::core::Interface for GameSaveContainer {
 impl ::windows::core::RuntimeName for GameSaveContainer {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainer";
 }
-::windows::core::interface_hierarchy!(GameSaveContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveContainer {}
 unsafe impl ::core::marker::Sync for GameSaveContainer {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -708,7 +708,7 @@ impl ::core::fmt::Debug for GameSaveContainerInfo {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveContainerInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo;{b7e27300-155d-4bb4-b2ba-930306f391b5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo;{b7e27300-155d-4bb4-b2ba-930306f391b5})");
 }
 impl ::core::clone::Clone for GameSaveContainerInfo {
     fn clone(&self) -> Self {
@@ -724,7 +724,7 @@ unsafe impl ::windows::core::Interface for GameSaveContainerInfo {
 impl ::windows::core::RuntimeName for GameSaveContainerInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo";
 }
-::windows::core::interface_hierarchy!(GameSaveContainerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveContainerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveContainerInfo {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfo {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -760,7 +760,7 @@ impl ::core::fmt::Debug for GameSaveContainerInfoGetResult {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveContainerInfoGetResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult;{ffc50d74-c581-4f9d-9e39-30a10c1e4c50})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult;{ffc50d74-c581-4f9d-9e39-30a10c1e4c50})");
 }
 impl ::core::clone::Clone for GameSaveContainerInfoGetResult {
     fn clone(&self) -> Self {
@@ -776,7 +776,7 @@ unsafe impl ::windows::core::Interface for GameSaveContainerInfoGetResult {
 impl ::windows::core::RuntimeName for GameSaveContainerInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult";
 }
-::windows::core::interface_hierarchy!(GameSaveContainerInfoGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveContainerInfoGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveContainerInfoGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfoGetResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -823,7 +823,7 @@ impl ::core::fmt::Debug for GameSaveContainerInfoQuery {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveContainerInfoQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery;{3c94e863-6f80-4327-9327-ffc11afd42b3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery;{3c94e863-6f80-4327-9327-ffc11afd42b3})");
 }
 impl ::core::clone::Clone for GameSaveContainerInfoQuery {
     fn clone(&self) -> Self {
@@ -839,7 +839,7 @@ unsafe impl ::windows::core::Interface for GameSaveContainerInfoQuery {
 impl ::windows::core::RuntimeName for GameSaveContainerInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery";
 }
-::windows::core::interface_hierarchy!(GameSaveContainerInfoQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveContainerInfoQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveContainerInfoQuery {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfoQuery {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -866,7 +866,7 @@ impl ::core::fmt::Debug for GameSaveOperationResult {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveOperationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveOperationResult;{cf0f1a05-24a0-4582-9a55-b1bbbb9388d8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveOperationResult;{cf0f1a05-24a0-4582-9a55-b1bbbb9388d8})");
 }
 impl ::core::clone::Clone for GameSaveOperationResult {
     fn clone(&self) -> Self {
@@ -882,7 +882,7 @@ unsafe impl ::windows::core::Interface for GameSaveOperationResult {
 impl ::windows::core::RuntimeName for GameSaveOperationResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveOperationResult";
 }
-::windows::core::interface_hierarchy!(GameSaveOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveOperationResult {}
 unsafe impl ::core::marker::Sync for GameSaveOperationResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -964,7 +964,7 @@ impl GameSaveProvider {
     }
     #[doc(hidden)]
     pub fn IGameSaveProviderStatics<R, F: FnOnce(&IGameSaveProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameSaveProvider, IGameSaveProviderStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameSaveProvider, IGameSaveProviderStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -980,7 +980,7 @@ impl ::core::fmt::Debug for GameSaveProvider {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveProvider;{90a60394-80fe-4211-97f8-a5de14dd95d2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveProvider;{90a60394-80fe-4211-97f8-a5de14dd95d2})");
 }
 impl ::core::clone::Clone for GameSaveProvider {
     fn clone(&self) -> Self {
@@ -996,7 +996,7 @@ unsafe impl ::windows::core::Interface for GameSaveProvider {
 impl ::windows::core::RuntimeName for GameSaveProvider {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProvider";
 }
-::windows::core::interface_hierarchy!(GameSaveProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveProvider {}
 unsafe impl ::core::marker::Sync for GameSaveProvider {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -1030,7 +1030,7 @@ impl ::core::fmt::Debug for GameSaveProviderGetResult {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveProviderGetResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult;{3ab90816-d393-4d65-ac16-41c3e67ab945})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult;{3ab90816-d393-4d65-ac16-41c3e67ab945})");
 }
 impl ::core::clone::Clone for GameSaveProviderGetResult {
     fn clone(&self) -> Self {
@@ -1046,7 +1046,7 @@ unsafe impl ::windows::core::Interface for GameSaveProviderGetResult {
 impl ::windows::core::RuntimeName for GameSaveProviderGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult";
 }
-::windows::core::interface_hierarchy!(GameSaveProviderGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameSaveProviderGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveProviderGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveProviderGetResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -1090,7 +1090,7 @@ impl ::core::fmt::Debug for GameSaveErrorStatus {
     }
 }
 impl ::windows::core::RuntimeType for GameSaveErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -22,7 +22,7 @@ impl IOpcCertificateEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcCertificateEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcCertificateEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcCertificateEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -82,7 +82,7 @@ impl IOpcCertificateSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcCertificateSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcCertificateSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcCertificateSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -181,7 +181,7 @@ impl IOpcDigitalSignature {
         (::windows::core::Vtable::vtable(self).GetSignatureXml)(::windows::core::Vtable::as_raw(self), signaturexml, count).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOpcDigitalSignature, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcDigitalSignature, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcDigitalSignature {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -252,7 +252,7 @@ impl IOpcDigitalSignatureEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcDigitalSignatureEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcDigitalSignatureEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcDigitalSignatureEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -351,7 +351,7 @@ impl IOpcDigitalSignatureManager {
         (::windows::core::Vtable::vtable(self).ReplaceSignatureXml)(::windows::core::Vtable::as_raw(self), signaturepartname.into().abi(), newsignaturexml, count, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcDigitalSignatureManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcDigitalSignatureManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcDigitalSignatureManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -463,7 +463,7 @@ impl IOpcFactory {
         (::windows::core::Vtable::vtable(self).CreateDigitalSignatureManager)(::windows::core::Vtable::as_raw(self), package.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -526,7 +526,7 @@ impl IOpcPackage {
         (::windows::core::Vtable::vtable(self).GetRelationshipSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcPackage, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcPackage, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcPackage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -585,7 +585,7 @@ impl IOpcPart {
         (::windows::core::Vtable::vtable(self).GetCompressionOptions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcPart, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcPart, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcPart {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -649,7 +649,7 @@ impl IOpcPartEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcPartEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcPartEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcPartEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -732,7 +732,7 @@ impl IOpcPartSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcPartSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcPartSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcPartSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -980,7 +980,7 @@ impl IOpcPartUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IOpcPartUri, ::windows::core::IUnknown, super::super::super::System::Com::IUri, IOpcUri);
+::windows::imp::interface_hierarchy!(IOpcPartUri, ::windows::core::IUnknown, super::super::super::System::Com::IUri, IOpcUri);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IOpcPartUri {
     fn eq(&self, other: &Self) -> bool {
@@ -1056,7 +1056,7 @@ impl IOpcRelationship {
         (::windows::core::Vtable::vtable(self).GetTargetMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcRelationship, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcRelationship, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcRelationship {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1120,7 +1120,7 @@ impl IOpcRelationshipEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcRelationshipEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcRelationshipEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcRelationshipEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1171,7 +1171,7 @@ impl IOpcRelationshipSelector {
         (::windows::core::Vtable::vtable(self).GetSelectionCriterion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcRelationshipSelector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcRelationshipSelector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcRelationshipSelector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1226,7 +1226,7 @@ impl IOpcRelationshipSelectorEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcRelationshipSelectorEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcRelationshipSelectorEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcRelationshipSelectorEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1286,7 +1286,7 @@ impl IOpcRelationshipSelectorSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcRelationshipSelectorSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcRelationshipSelectorSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcRelationshipSelectorSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1372,7 +1372,7 @@ impl IOpcRelationshipSet {
         (::windows::core::Vtable::vtable(self).GetRelationshipsContentStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcRelationshipSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcRelationshipSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcRelationshipSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1424,7 +1424,7 @@ impl IOpcSignatureCustomObject {
         (::windows::core::Vtable::vtable(self).GetXml)(::windows::core::Vtable::as_raw(self), xmlmarkup, count).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignatureCustomObject, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignatureCustomObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignatureCustomObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1478,7 +1478,7 @@ impl IOpcSignatureCustomObjectEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignatureCustomObjectEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignatureCustomObjectEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignatureCustomObjectEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1535,7 +1535,7 @@ impl IOpcSignatureCustomObjectSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignatureCustomObjectSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignatureCustomObjectSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignatureCustomObjectSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1592,7 +1592,7 @@ impl IOpcSignaturePartReference {
         (::windows::core::Vtable::vtable(self).GetTransformMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignaturePartReference, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignaturePartReference, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignaturePartReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1653,7 +1653,7 @@ impl IOpcSignaturePartReferenceEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignaturePartReferenceEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignaturePartReferenceEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignaturePartReferenceEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1716,7 +1716,7 @@ impl IOpcSignaturePartReferenceSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignaturePartReferenceSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignaturePartReferenceSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignaturePartReferenceSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1780,7 +1780,7 @@ impl IOpcSignatureReference {
         (::windows::core::Vtable::vtable(self).GetDigestValue)(::windows::core::Vtable::as_raw(self), digestvalue, count).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignatureReference, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignatureReference, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignatureReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1842,7 +1842,7 @@ impl IOpcSignatureReferenceEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignatureReferenceEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignatureReferenceEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignatureReferenceEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1907,7 +1907,7 @@ impl IOpcSignatureReferenceSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignatureReferenceSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignatureReferenceSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignatureReferenceSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1971,7 +1971,7 @@ impl IOpcSignatureRelationshipReference {
         (::windows::core::Vtable::vtable(self).GetRelationshipSelectorEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignatureRelationshipReference, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignatureRelationshipReference, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignatureRelationshipReference {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2033,7 +2033,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignatureRelationshipReferenceEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignatureRelationshipReferenceEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignatureRelationshipReferenceEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2101,7 +2101,7 @@ impl IOpcSignatureRelationshipReferenceSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IOpcSignatureRelationshipReferenceSet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSignatureRelationshipReferenceSet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSignatureRelationshipReferenceSet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2219,7 +2219,7 @@ impl IOpcSigningOptions {
         (::windows::core::Vtable::vtable(self).SetSignaturePartName)(::windows::core::Vtable::as_raw(self), signaturepartname.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOpcSigningOptions, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IOpcSigningOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOpcSigningOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2452,7 +2452,7 @@ impl IOpcUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IOpcUri, ::windows::core::IUnknown, super::super::super::System::Com::IUri);
+::windows::imp::interface_hierarchy!(IOpcUri, ::windows::core::IUnknown, super::super::super::System::Com::IUri);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IOpcUri {
     fn eq(&self, other: &Self) -> bool {

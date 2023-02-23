@@ -934,7 +934,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetectionConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration;{40d8be16-5217-581c-9ab2-ce9b2f2e8e00})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration;{40d8be16-5217-581c-9ab2-ce9b2f2e8e00})");
 }
 impl ::core::clone::Clone for ActivationSignalDetectionConfiguration {
     fn clone(&self) -> Self {
@@ -950,7 +950,7 @@ unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfiguratio
 impl ::windows::core::RuntimeName for ActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration";
 }
-::windows::core::interface_hierarchy!(ActivationSignalDetectionConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivationSignalDetectionConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ActivationSignalDetectionConfiguration> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1006,7 +1006,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationResult
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult;{4c89bc1b-8d12-5e48-a71c-7f6bc1cd66e0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult;{4c89bc1b-8d12-5e48-a71c-7f6bc1cd66e0})");
 }
 impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationResult {
     fn clone(&self) -> Self {
@@ -1022,7 +1022,7 @@ unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfiguratio
 impl ::windows::core::RuntimeName for ActivationSignalDetectionConfigurationCreationResult {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult";
 }
-::windows::core::interface_hierarchy!(ActivationSignalDetectionConfigurationCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivationSignalDetectionConfigurationCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivationSignalDetectionConfigurationCreationResult {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1225,7 +1225,7 @@ impl ::core::fmt::Debug for ActivationSignalDetector {
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector;{b5bf345f-a4d0-5b2b-8e65-b3c55ee756ff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector;{b5bf345f-a4d0-5b2b-8e65-b3c55ee756ff})");
 }
 impl ::core::clone::Clone for ActivationSignalDetector {
     fn clone(&self) -> Self {
@@ -1241,7 +1241,7 @@ unsafe impl ::windows::core::Interface for ActivationSignalDetector {
 impl ::windows::core::RuntimeName for ActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector";
 }
-::windows::core::interface_hierarchy!(ActivationSignalDetector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ActivationSignalDetector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivationSignalDetector {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetector {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1308,7 +1308,7 @@ impl ConversationalAgentDetectorManager {
     }
     #[doc(hidden)]
     pub fn IConversationalAgentDetectorManagerStatics<R, F: FnOnce(&IConversationalAgentDetectorManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ConversationalAgentDetectorManager, IConversationalAgentDetectorManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ConversationalAgentDetectorManager, IConversationalAgentDetectorManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1324,7 +1324,7 @@ impl ::core::fmt::Debug for ConversationalAgentDetectorManager {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentDetectorManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager;{de94fbb0-597a-5df8-8cfb-9dbb583ba3ff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager;{de94fbb0-597a-5df8-8cfb-9dbb583ba3ff})");
 }
 impl ::core::clone::Clone for ConversationalAgentDetectorManager {
     fn clone(&self) -> Self {
@@ -1340,7 +1340,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentDetectorManager {
 impl ::windows::core::RuntimeName for ConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager";
 }
-::windows::core::interface_hierarchy!(ConversationalAgentDetectorManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConversationalAgentDetectorManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentDetectorManager {}
 unsafe impl ::core::marker::Sync for ConversationalAgentDetectorManager {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1681,7 +1681,7 @@ impl ConversationalAgentSession {
     }
     #[doc(hidden)]
     pub fn IConversationalAgentSessionStatics<R, F: FnOnce(&IConversationalAgentSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ConversationalAgentSession, IConversationalAgentSessionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ConversationalAgentSession, IConversationalAgentSessionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1697,7 +1697,7 @@ impl ::core::fmt::Debug for ConversationalAgentSession {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession;{daaae09a-b7ba-57e5-ad13-df520f9b6fa7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession;{daaae09a-b7ba-57e5-ad13-df520f9b6fa7})");
 }
 impl ::core::clone::Clone for ConversationalAgentSession {
     fn clone(&self) -> Self {
@@ -1713,7 +1713,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSession {
 impl ::windows::core::RuntimeName for ConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession";
 }
-::windows::core::interface_hierarchy!(ConversationalAgentSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConversationalAgentSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ConversationalAgentSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1754,7 +1754,7 @@ impl ::core::fmt::Debug for ConversationalAgentSessionInterruptedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs;{9766591f-f63d-5d3e-9bf2-bd0760552686})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs;{9766591f-f63d-5d3e-9bf2-bd0760552686})");
 }
 impl ::core::clone::Clone for ConversationalAgentSessionInterruptedEventArgs {
     fn clone(&self) -> Self {
@@ -1770,7 +1770,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSessionInterrupted
 impl ::windows::core::RuntimeName for ConversationalAgentSessionInterruptedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs";
 }
-::windows::core::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSessionInterruptedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1881,7 +1881,7 @@ impl ::core::fmt::Debug for ConversationalAgentSignal {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentSignal {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal;{20ed25f7-b120-51f2-8603-265d6a47f232})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal;{20ed25f7-b120-51f2-8603-265d6a47f232})");
 }
 impl ::core::clone::Clone for ConversationalAgentSignal {
     fn clone(&self) -> Self {
@@ -1897,7 +1897,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSignal {
 impl ::windows::core::RuntimeName for ConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal";
 }
-::windows::core::interface_hierarchy!(ConversationalAgentSignal, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConversationalAgentSignal, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSignal {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSignal {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1916,7 +1916,7 @@ impl ::core::fmt::Debug for ConversationalAgentSignalDetectedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs;{4d57eb8f-f88a-599b-91d3-d604876708bc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs;{4d57eb8f-f88a-599b-91d3-d604876708bc})");
 }
 impl ::core::clone::Clone for ConversationalAgentSignalDetectedEventArgs {
     fn clone(&self) -> Self {
@@ -1932,7 +1932,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSignalDetectedEven
 impl ::windows::core::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs";
 }
-::windows::core::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSignalDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1959,7 +1959,7 @@ impl ::core::fmt::Debug for ConversationalAgentSystemStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs;{1c2c6e3e-2785-59a7-8e71-38adeef79928})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs;{1c2c6e3e-2785-59a7-8e71-38adeef79928})");
 }
 impl ::core::clone::Clone for ConversationalAgentSystemStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1975,7 +1975,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSystemStateChanged
 impl ::windows::core::RuntimeName for ConversationalAgentSystemStateChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(ConversationalAgentSystemStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ConversationalAgentSystemStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSystemStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSystemStateChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2002,7 +2002,7 @@ impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs;{5129c9fb-4be8-5f14-af2b-88d62b1b4462})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs;{5129c9fb-4be8-5f14-af2b-88d62b1b4462})");
 }
 impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2018,7 +2018,7 @@ unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityCha
 impl ::windows::core::RuntimeName for DetectionConfigurationAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(DetectionConfigurationAvailabilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DetectionConfigurationAvailabilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2075,7 +2075,7 @@ impl ::core::fmt::Debug for DetectionConfigurationAvailabilityInfo {
     }
 }
 impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo;{b5affeb0-40f0-5398-b838-91979c2c6208})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo;{b5affeb0-40f0-5398-b838-91979c2c6208})");
 }
 impl ::core::clone::Clone for DetectionConfigurationAvailabilityInfo {
     fn clone(&self) -> Self {
@@ -2091,7 +2091,7 @@ unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityInf
 impl ::windows::core::RuntimeName for DetectionConfigurationAvailabilityInfo {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo";
 }
-::windows::core::interface_hierarchy!(DetectionConfigurationAvailabilityInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DetectionConfigurationAvailabilityInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityInfo {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityInfo {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2128,7 +2128,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationStatus
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2160,7 +2160,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationRemovalResult 
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2196,7 +2196,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationSetModelDataRe
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2227,7 +2227,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationStateChangeRes
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2266,7 +2266,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectionTrainingDataFormat {
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2297,7 +2297,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectorKind {
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetectorKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2328,7 +2328,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectorPowerState {
     }
 }
 impl ::windows::core::RuntimeType for ActivationSignalDetectorPowerState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2358,7 +2358,7 @@ impl ::core::fmt::Debug for ConversationalAgentActivationKind {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentActivationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2390,7 +2390,7 @@ impl ::core::fmt::Debug for ConversationalAgentActivationResult {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentActivationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2420,7 +2420,7 @@ impl ::core::fmt::Debug for ConversationalAgentSessionUpdateResponse {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentSessionUpdateResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2454,7 +2454,7 @@ impl ::core::fmt::Debug for ConversationalAgentState {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2486,7 +2486,7 @@ impl ::core::fmt::Debug for ConversationalAgentSystemStateChangeType {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2520,7 +2520,7 @@ impl ::core::fmt::Debug for ConversationalAgentVoiceActivationPrerequisiteKind {
     }
 }
 impl ::windows::core::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2551,7 +2551,7 @@ impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangeKind {
     }
 }
 impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2589,7 +2589,7 @@ impl ::core::fmt::Debug for DetectionConfigurationTrainingStatus {
     }
 }
 impl ::windows::core::RuntimeType for DetectionConfigurationTrainingStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
@@ -2631,7 +2631,7 @@ impl ::core::fmt::Debug for SignalDetectorResourceKind {
     }
 }
 impl ::windows::core::RuntimeType for SignalDetectorResourceKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

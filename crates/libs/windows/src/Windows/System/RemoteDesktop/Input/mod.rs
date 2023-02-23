@@ -83,7 +83,7 @@ impl RemoteTextConnection {
     }
     #[doc(hidden)]
     pub fn IRemoteTextConnectionFactory<R, F: FnOnce(&IRemoteTextConnectionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RemoteTextConnection, IRemoteTextConnectionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RemoteTextConnection, IRemoteTextConnectionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -99,7 +99,7 @@ impl ::core::fmt::Debug for RemoteTextConnection {
     }
 }
 impl ::windows::core::RuntimeType for RemoteTextConnection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteDesktop.Input.RemoteTextConnection;{4e7bb02a-183e-5e66-b5e4-3e6e5c570cf1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteDesktop.Input.RemoteTextConnection;{4e7bb02a-183e-5e66-b5e4-3e6e5c570cf1})");
 }
 impl ::core::clone::Clone for RemoteTextConnection {
     fn clone(&self) -> Self {
@@ -115,7 +115,7 @@ unsafe impl ::windows::core::Interface for RemoteTextConnection {
 impl ::windows::core::RuntimeName for RemoteTextConnection {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Input.RemoteTextConnection";
 }
-::windows::core::interface_hierarchy!(RemoteTextConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteTextConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<RemoteTextConnection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -145,8 +145,8 @@ unsafe impl ::core::marker::Sync for RemoteTextConnection {}
 pub struct RemoteTextConnectionDataHandler(pub ::windows::core::IUnknown);
 impl RemoteTextConnectionDataHandler {
     pub fn new<F: FnMut(&[u8]) -> ::windows::core::Result<bool> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = RemoteTextConnectionDataHandlerBox::<F> { vtable: &RemoteTextConnectionDataHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = RemoteTextConnectionDataHandlerBox::<F> { vtable: &RemoteTextConnectionDataHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, pdudata: &[u8]) -> ::windows::core::Result<bool> {
         let this = self;
@@ -160,7 +160,7 @@ impl RemoteTextConnectionDataHandler {
 struct RemoteTextConnectionDataHandlerBox<F: FnMut(&[u8]) -> ::windows::core::Result<bool> + ::core::marker::Send + 'static> {
     vtable: *const RemoteTextConnectionDataHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(&[u8]) -> ::windows::core::Result<bool> + ::core::marker::Send + 'static> RemoteTextConnectionDataHandlerBox<F> {
     const VTABLE: RemoteTextConnectionDataHandler_Vtbl = RemoteTextConnectionDataHandler_Vtbl {
@@ -169,7 +169,7 @@ impl<F: FnMut(&[u8]) -> ::windows::core::Result<bool> + ::core::marker::Send + '
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<RemoteTextConnectionDataHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<RemoteTextConnectionDataHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -185,7 +185,7 @@ impl<F: FnMut(&[u8]) -> ::windows::core::Result<bool> + ::core::marker::Send + '
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -224,7 +224,7 @@ unsafe impl ::windows::core::Interface for RemoteTextConnectionDataHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x099ffbc8_8bcb_41b5_b056_57e77021bf1b);
 }
 impl ::windows::core::RuntimeType for RemoteTextConnectionDataHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{099ffbc8-8bcb-41b5-b056-57e77021bf1b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{099ffbc8-8bcb-41b5-b056-57e77021bf1b}");
 }
 #[repr(C)]
 #[doc(hidden)]

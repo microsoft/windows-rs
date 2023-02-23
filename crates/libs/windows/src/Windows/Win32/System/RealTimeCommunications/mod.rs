@@ -13,7 +13,7 @@ impl INetworkTransportSettings {
         (::windows::core::Vtable::vtable(self).QuerySetting)(::windows::core::Vtable::as_raw(self), settingid, valuein.len() as _, ::core::mem::transmute(valuein.as_ptr()), lengthout, valueout).ok()
     }
 }
-::windows::core::interface_hierarchy!(INetworkTransportSettings, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INetworkTransportSettings, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INetworkTransportSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -60,7 +60,7 @@ impl INotificationTransportSync {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(INotificationTransportSync, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(INotificationTransportSync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INotificationTransportSync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -138,7 +138,7 @@ impl IRTCBuddy {
         (::windows::core::Vtable::vtable(self).Notes)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCBuddy, ::windows::core::IUnknown, IRTCPresenceContact);
+::windows::imp::interface_hierarchy!(IRTCBuddy, ::windows::core::IUnknown, IRTCPresenceContact);
 impl ::core::cmp::PartialEq for IRTCBuddy {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -251,7 +251,7 @@ impl IRTCBuddy2 {
         (::windows::core::Vtable::vtable(self).SubscriptionType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCBuddy2, ::windows::core::IUnknown, IRTCPresenceContact, IRTCBuddy);
+::windows::imp::interface_hierarchy!(IRTCBuddy2, ::windows::core::IUnknown, IRTCPresenceContact, IRTCBuddy);
 impl ::core::cmp::PartialEq for IRTCBuddy2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -305,7 +305,7 @@ impl IRTCBuddyEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCBuddyEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCBuddyEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCBuddyEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -365,7 +365,7 @@ impl IRTCBuddyEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCBuddyEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCBuddyEvent);
+::windows::imp::interface_hierarchy!(IRTCBuddyEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCBuddyEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCBuddyEvent2 {
     fn eq(&self, other: &Self) -> bool {
@@ -448,7 +448,7 @@ impl IRTCBuddyGroup {
         (::windows::core::Vtable::vtable(self).Profile)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCBuddyGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCBuddyGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCBuddyGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -512,7 +512,7 @@ impl IRTCBuddyGroupEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCBuddyGroupEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCBuddyGroupEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCBuddyGroupEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -742,7 +742,7 @@ impl IRTCClient {
         (::windows::core::Vtable::vtable(self).IsTuned)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCClient, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCClient, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1089,7 +1089,7 @@ impl IRTCClient2 {
         (::windows::core::Vtable::vtable(self).get_AllowedPorts)(::windows::core::Vtable::as_raw(self), ltransport, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCClient2, ::windows::core::IUnknown, IRTCClient);
+::windows::imp::interface_hierarchy!(IRTCClient2, ::windows::core::IUnknown, IRTCClient);
 impl ::core::cmp::PartialEq for IRTCClient2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1149,7 +1149,7 @@ impl IRTCClientEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCClientEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCClientEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCClientEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -1200,7 +1200,7 @@ impl IRTCClientPortManagement {
         (::windows::core::Vtable::vtable(self).GetPortRange)(::windows::core::Vtable::as_raw(self), enporttype, plminvalue, plmaxvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCClientPortManagement, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCClientPortManagement, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCClientPortManagement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1334,7 +1334,7 @@ impl IRTCClientPresence {
         (::windows::core::Vtable::vtable(self).SetPrivacyMode)(::windows::core::Vtable::as_raw(self), enmode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCClientPresence, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCClientPresence, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCClientPresence {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1582,7 +1582,7 @@ impl IRTCClientPresence2 {
         (::windows::core::Vtable::vtable(self).AddBuddyEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent.into(), ensubscriptiontype, pprofile.into().abi(), lflags, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCClientPresence2, ::windows::core::IUnknown, IRTCClientPresence);
+::windows::imp::interface_hierarchy!(IRTCClientPresence2, ::windows::core::IUnknown, IRTCClientPresence);
 impl ::core::cmp::PartialEq for IRTCClientPresence2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1675,7 +1675,7 @@ impl IRTCClientProvisioning {
         (::windows::core::Vtable::vtable(self).SessionCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCClientProvisioning, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCClientProvisioning, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCClientProvisioning {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1757,7 +1757,7 @@ impl IRTCClientProvisioning2 {
         (::windows::core::Vtable::vtable(self).EnableProfileEx)(::windows::core::Vtable::as_raw(self), pprofile.into().abi(), lregisterflags, lroamingflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCClientProvisioning2, ::windows::core::IUnknown, IRTCClientProvisioning);
+::windows::imp::interface_hierarchy!(IRTCClientProvisioning2, ::windows::core::IUnknown, IRTCClientProvisioning);
 impl ::core::cmp::PartialEq for IRTCClientProvisioning2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1808,7 +1808,7 @@ impl IRTCCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -1856,7 +1856,7 @@ pub struct IRTCDispatchEventNotification(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCDispatchEventNotification {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCDispatchEventNotification, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCDispatchEventNotification, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCDispatchEventNotification {
     fn eq(&self, other: &Self) -> bool {
@@ -1909,7 +1909,7 @@ impl IRTCEnumBuddies {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCEnumBuddies, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCEnumBuddies, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCEnumBuddies {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1959,7 +1959,7 @@ impl IRTCEnumGroups {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCEnumGroups, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCEnumGroups, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCEnumGroups {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2009,7 +2009,7 @@ impl IRTCEnumParticipants {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCEnumParticipants, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCEnumParticipants, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCEnumParticipants {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2059,7 +2059,7 @@ impl IRTCEnumPresenceDevices {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCEnumPresenceDevices, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCEnumPresenceDevices, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCEnumPresenceDevices {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2109,7 +2109,7 @@ impl IRTCEnumProfiles {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCEnumProfiles, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCEnumProfiles, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCEnumProfiles {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2159,7 +2159,7 @@ impl IRTCEnumUserSearchResults {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCEnumUserSearchResults, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCEnumUserSearchResults, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCEnumUserSearchResults {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2209,7 +2209,7 @@ impl IRTCEnumWatchers {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCEnumWatchers, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCEnumWatchers, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCEnumWatchers {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2254,7 +2254,7 @@ impl IRTCEventNotification {
         (::windows::core::Vtable::vtable(self).Event)(::windows::core::Vtable::as_raw(self), rtcevent, pevent.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCEventNotification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCEventNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCEventNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2310,7 +2310,7 @@ impl IRTCInfoEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCInfoEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCInfoEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCInfoEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -2373,7 +2373,7 @@ impl IRTCIntensityEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCIntensityEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCIntensityEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCIntensityEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -2432,7 +2432,7 @@ impl IRTCMediaEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCMediaEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCMediaEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCMediaEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -2504,7 +2504,7 @@ impl IRTCMediaRequestEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCMediaRequestEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCMediaRequestEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCMediaRequestEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -2578,7 +2578,7 @@ impl IRTCMessagingEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCMessagingEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCMessagingEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCMessagingEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -2646,7 +2646,7 @@ impl IRTCParticipant {
         (::windows::core::Vtable::vtable(self).Session)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCParticipant, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCParticipant, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCParticipant {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2702,7 +2702,7 @@ impl IRTCParticipantStateChangeEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCParticipantStateChangeEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCParticipantStateChangeEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCParticipantStateChangeEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -2754,7 +2754,7 @@ impl IRTCPortManager {
         (::windows::core::Vtable::vtable(self).ReleaseMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport, ::core::mem::transmute_copy(bstrexternallocaladdress), lexternallocaladdress).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCPortManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCPortManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCPortManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2825,7 +2825,7 @@ impl IRTCPresenceContact {
         (::windows::core::Vtable::vtable(self).SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCPresenceContact, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCPresenceContact, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCPresenceContact {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2886,7 +2886,7 @@ impl IRTCPresenceDataEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCPresenceDataEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCPresenceDataEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCPresenceDataEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -2944,7 +2944,7 @@ impl IRTCPresenceDevice {
         (::windows::core::Vtable::vtable(self).GetPresenceData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrnamespace), ::core::mem::transmute(pbstrdata)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCPresenceDevice, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCPresenceDevice, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCPresenceDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3000,7 +3000,7 @@ impl IRTCPresencePropertyEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCPresencePropertyEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCPresencePropertyEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCPresencePropertyEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -3058,7 +3058,7 @@ impl IRTCPresenceStatusEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCPresenceStatusEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCPresenceStatusEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCPresenceStatusEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -3174,7 +3174,7 @@ impl IRTCProfile {
         (::windows::core::Vtable::vtable(self).State)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCProfile, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCProfile, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCProfile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3315,7 +3315,7 @@ impl IRTCProfile2 {
         (::windows::core::Vtable::vtable(self).SetAllowedAuth)(::windows::core::Vtable::as_raw(self), lallowedauth).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCProfile2, ::windows::core::IUnknown, IRTCProfile);
+::windows::imp::interface_hierarchy!(IRTCProfile2, ::windows::core::IUnknown, IRTCProfile);
 impl ::core::cmp::PartialEq for IRTCProfile2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3367,7 +3367,7 @@ impl IRTCProfileEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCProfileEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCProfileEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCProfileEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -3429,7 +3429,7 @@ impl IRTCProfileEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCProfileEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCProfileEvent);
+::windows::imp::interface_hierarchy!(IRTCProfileEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCProfileEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCProfileEvent2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3490,7 +3490,7 @@ impl IRTCReInviteEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCReInviteEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCReInviteEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCReInviteEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -3554,7 +3554,7 @@ impl IRTCRegistrationStateChangeEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCRegistrationStateChangeEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCRegistrationStateChangeEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCRegistrationStateChangeEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -3617,7 +3617,7 @@ impl IRTCRoamingEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCRoamingEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCRoamingEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCRoamingEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -3741,7 +3741,7 @@ impl IRTCSession {
         (::windows::core::Vtable::vtable(self).put_EncryptionKey)(::windows::core::Vtable::as_raw(self), lmediatype, ::core::mem::transmute_copy(encryptionkey)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCSession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCSession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3902,7 +3902,7 @@ impl IRTCSession2 {
         (::windows::core::Vtable::vtable(self).ReInviteWithSessionDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcontenttype), ::core::mem::transmute_copy(bstrsessiondescription), lcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCSession2, ::windows::core::IUnknown, IRTCSession);
+::windows::imp::interface_hierarchy!(IRTCSession2, ::windows::core::IUnknown, IRTCSession);
 impl ::core::cmp::PartialEq for IRTCSession2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3976,7 +3976,7 @@ impl IRTCSessionCallControl {
         (::windows::core::Vtable::vtable(self).IsReferred)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCSessionCallControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCSessionCallControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCSessionCallControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4026,7 +4026,7 @@ impl IRTCSessionDescriptionManager {
         (::windows::core::Vtable::vtable(self).EvaluateSessionDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcontenttype), ::core::mem::transmute_copy(bstrsessiondescription), pfapplicationsession).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCSessionDescriptionManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCSessionDescriptionManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCSessionDescriptionManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4082,7 +4082,7 @@ impl IRTCSessionOperationCompleteEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCSessionOperationCompleteEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCSessionOperationCompleteEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionOperationCompleteEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -4152,7 +4152,7 @@ impl IRTCSessionOperationCompleteEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCSessionOperationCompleteEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCSessionOperationCompleteEvent);
+::windows::imp::interface_hierarchy!(IRTCSessionOperationCompleteEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCSessionOperationCompleteEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionOperationCompleteEvent2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4200,7 +4200,7 @@ impl IRTCSessionPortManagement {
         (::windows::core::Vtable::vtable(self).SetPortManager)(::windows::core::Vtable::as_raw(self), pportmanager.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCSessionPortManagement, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCSessionPortManagement, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCSessionPortManagement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4253,7 +4253,7 @@ impl IRTCSessionReferStatusEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCSessionReferStatusEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCSessionReferStatusEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionReferStatusEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -4325,7 +4325,7 @@ impl IRTCSessionReferredEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCSessionReferredEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCSessionReferredEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionReferredEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -4391,7 +4391,7 @@ impl IRTCSessionStateChangeEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCSessionStateChangeEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCSessionStateChangeEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionStateChangeEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -4471,7 +4471,7 @@ impl IRTCSessionStateChangeEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCSessionStateChangeEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCSessionStateChangeEvent);
+::windows::imp::interface_hierarchy!(IRTCSessionStateChangeEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCSessionStateChangeEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCSessionStateChangeEvent2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4529,7 +4529,7 @@ impl IRTCUserSearch {
         (::windows::core::Vtable::vtable(self).ExecuteSearch)(::windows::core::Vtable::as_raw(self), pquery.into().abi(), pprofile.into().abi(), lcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCUserSearch, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCUserSearch, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCUserSearch {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4589,7 +4589,7 @@ impl IRTCUserSearchQuery {
         (::windows::core::Vtable::vtable(self).SearchDomain)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCUserSearchQuery, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCUserSearchQuery, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCUserSearchQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4633,7 +4633,7 @@ impl IRTCUserSearchResult {
         (::windows::core::Vtable::vtable(self).get_Value)(::windows::core::Vtable::as_raw(self), encolumn, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCUserSearchResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRTCUserSearchResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRTCUserSearchResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4702,7 +4702,7 @@ impl IRTCUserSearchResultsEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCUserSearchResultsEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCUserSearchResultsEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCUserSearchResultsEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -4797,7 +4797,7 @@ impl IRTCWatcher {
         (::windows::core::Vtable::vtable(self).SetState)(::windows::core::Vtable::as_raw(self), enstate).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRTCWatcher, ::windows::core::IUnknown, IRTCPresenceContact);
+::windows::imp::interface_hierarchy!(IRTCWatcher, ::windows::core::IUnknown, IRTCPresenceContact);
 impl ::core::cmp::PartialEq for IRTCWatcher {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4882,7 +4882,7 @@ impl IRTCWatcher2 {
         (::windows::core::Vtable::vtable(self).Scope)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRTCWatcher2, ::windows::core::IUnknown, IRTCPresenceContact, IRTCWatcher);
+::windows::imp::interface_hierarchy!(IRTCWatcher2, ::windows::core::IUnknown, IRTCPresenceContact, IRTCWatcher);
 impl ::core::cmp::PartialEq for IRTCWatcher2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4924,7 +4924,7 @@ impl IRTCWatcherEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCWatcherEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRTCWatcherEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCWatcherEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -4980,7 +4980,7 @@ impl IRTCWatcherEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRTCWatcherEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCWatcherEvent);
+::windows::imp::interface_hierarchy!(IRTCWatcherEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCWatcherEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRTCWatcherEvent2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5032,7 +5032,7 @@ impl ITransportSettingsInternal {
         (::windows::core::Vtable::vtable(self).QuerySetting)(::windows::core::Vtable::as_raw(self), setting).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransportSettingsInternal, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITransportSettingsInternal, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransportSettingsInternal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

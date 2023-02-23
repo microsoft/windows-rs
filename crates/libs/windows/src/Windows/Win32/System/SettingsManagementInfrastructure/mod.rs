@@ -18,7 +18,7 @@ impl IItemEnumerator {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IItemEnumerator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IItemEnumerator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IItemEnumerator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -102,7 +102,7 @@ impl ISettingsContext {
         (::windows::core::Vtable::vtable(self).RevertSetting)(::windows::core::Vtable::as_raw(self), pidentity.into().abi(), pwzsetting.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISettingsContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISettingsContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISettingsContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -231,7 +231,7 @@ impl ISettingsEngine {
         (::windows::core::Vtable::vtable(self).GetSettingsContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISettingsEngine, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISettingsEngine, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISettingsEngine {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -307,7 +307,7 @@ impl ISettingsIdentity {
         (::windows::core::Vtable::vtable(self).SetFlags)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISettingsIdentity, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISettingsIdentity, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISettingsIdentity {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -458,7 +458,7 @@ impl ISettingsItem {
         (::windows::core::Vtable::vtable(self).GetKeyValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISettingsItem, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISettingsItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISettingsItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -580,7 +580,7 @@ impl ISettingsNamespace {
         (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISettingsNamespace, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISettingsNamespace, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISettingsNamespace {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -650,7 +650,7 @@ impl ISettingsResult {
         (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISettingsResult, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISettingsResult, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISettingsResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -817,7 +817,7 @@ impl ITargetInfo {
         (::windows::core::Vtable::vtable(self).GetSchemaHiveMountName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITargetInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ITargetInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITargetInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

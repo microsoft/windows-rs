@@ -14,7 +14,7 @@ impl ISideShowBulkCapabilities {
         (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), in_keycollection.into().abi(), ::core::mem::transmute(inout_pvalues)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISideShowBulkCapabilities, ::windows::core::IUnknown, ISideShowCapabilities);
+::windows::imp::interface_hierarchy!(ISideShowBulkCapabilities, ::windows::core::IUnknown, ISideShowCapabilities);
 impl ::core::cmp::PartialEq for ISideShowBulkCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -53,7 +53,7 @@ impl ISideShowCapabilities {
         (::windows::core::Vtable::vtable(self).GetCapability)(::windows::core::Vtable::as_raw(self), in_keycapability, inout_pvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISideShowCapabilities, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowCapabilities, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowCapabilities {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -98,7 +98,7 @@ impl ISideShowCapabilitiesCollection {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), in_dwindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISideShowCapabilitiesCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowCapabilitiesCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowCapabilitiesCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -149,7 +149,7 @@ impl ISideShowContent {
         (::windows::core::Vtable::vtable(self).DifferentiateContent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISideShowContent, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowContent, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -210,7 +210,7 @@ impl ISideShowContentManager {
         (::windows::core::Vtable::vtable(self).GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISideShowContentManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowContentManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowContentManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -270,7 +270,7 @@ impl ISideShowEvents {
         (::windows::core::Vtable::vtable(self).DeviceRemoved)(::windows::core::Vtable::as_raw(self), in_pidevice.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISideShowEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -326,7 +326,7 @@ impl ISideShowKeyCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISideShowKeyCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowKeyCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowKeyCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -422,7 +422,7 @@ impl ISideShowNotification {
         (::windows::core::Vtable::vtable(self).SetExpirationTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(in_ptime.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISideShowNotification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -489,7 +489,7 @@ impl ISideShowNotificationManager {
         (::windows::core::Vtable::vtable(self).RevokeAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISideShowNotificationManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowNotificationManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowNotificationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -544,7 +544,7 @@ impl ISideShowPropVariantCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISideShowPropVariantCollection, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowPropVariantCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowPropVariantCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -596,7 +596,7 @@ impl ISideShowSession {
         (::windows::core::Vtable::vtable(self).RegisterNotifications)(::windows::core::Vtable::as_raw(self), in_applicationid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISideShowSession, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISideShowSession, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISideShowSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -359,7 +359,7 @@ impl IXmlCharacterData {
         unsafe { (::windows::core::Vtable::vtable(this).SetInnerText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IXmlCharacterData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IXmlCharacterData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IXmlCharacterData> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: IXmlCharacterData) -> ::windows::core::Result<Self> {
@@ -429,7 +429,7 @@ impl ::core::fmt::Debug for IXmlCharacterData {
     }
 }
 impl ::windows::core::RuntimeType for IXmlCharacterData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{132e42ab-4e36-4df6-b1c8-0ce62fd88b26}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{132e42ab-4e36-4df6-b1c8-0ce62fd88b26}");
 }
 unsafe impl ::windows::core::Vtable for IXmlCharacterData {
     type Vtable = IXmlCharacterData_Vtbl;
@@ -1000,7 +1000,7 @@ impl IXmlNode {
         unsafe { (::windows::core::Vtable::vtable(this).SetInnerText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IXmlNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IXmlNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IXmlNode> for IXmlNodeSelector {
     type Error = ::windows::core::Error;
     fn try_from(value: IXmlNode) -> ::windows::core::Result<Self> {
@@ -1051,7 +1051,7 @@ impl ::core::fmt::Debug for IXmlNode {
     }
 }
 impl ::windows::core::RuntimeType for IXmlNode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1c741d59-2122-47d5-a856-83f3d4214875}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1c741d59-2122-47d5-a856-83f3d4214875}");
 }
 unsafe impl ::windows::core::Vtable for IXmlNode {
     type Vtable = IXmlNode_Vtbl;
@@ -1152,7 +1152,7 @@ impl IXmlNodeSelector {
         }
     }
 }
-::windows::core::interface_hierarchy!(IXmlNodeSelector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IXmlNodeSelector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IXmlNodeSelector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1165,7 +1165,7 @@ impl ::core::fmt::Debug for IXmlNodeSelector {
     }
 }
 impl ::windows::core::RuntimeType for IXmlNodeSelector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{63dbba8b-d0db-4fe1-b745-f9433afdc25b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{63dbba8b-d0db-4fe1-b745-f9433afdc25b}");
 }
 unsafe impl ::windows::core::Vtable for IXmlNodeSelector {
     type Vtable = IXmlNodeSelector_Vtbl;
@@ -1210,7 +1210,7 @@ impl IXmlNodeSerializer {
         unsafe { (::windows::core::Vtable::vtable(this).SetInnerText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IXmlNodeSerializer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IXmlNodeSerializer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IXmlNodeSerializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1223,7 +1223,7 @@ impl ::core::fmt::Debug for IXmlNodeSerializer {
     }
 }
 impl ::windows::core::RuntimeType for IXmlNodeSerializer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5cc5b382-e6dd-4991-abef-06d8d2e7bd0c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5cc5b382-e6dd-4991-abef-06d8d2e7bd0c}");
 }
 unsafe impl ::windows::core::Vtable for IXmlNodeSerializer {
     type Vtable = IXmlNodeSerializer_Vtbl;
@@ -1549,7 +1549,7 @@ impl IXmlText {
         unsafe { (::windows::core::Vtable::vtable(this).SetInnerText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IXmlText, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IXmlText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IXmlText> for IXmlCharacterData {
     type Error = ::windows::core::Error;
     fn try_from(value: IXmlText) -> ::windows::core::Result<Self> {
@@ -1638,7 +1638,7 @@ impl ::core::fmt::Debug for IXmlText {
     }
 }
 impl ::windows::core::RuntimeType for IXmlText {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f931a4cb-308d-4760-a1d5-43b67450ac7e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f931a4cb-308d-4760-a1d5-43b67450ac7e}");
 }
 unsafe impl ::windows::core::Vtable for IXmlText {
     type Vtable = IXmlText_Vtbl;
@@ -1925,7 +1925,7 @@ impl ::core::fmt::Debug for DtdEntity {
     }
 }
 impl ::windows::core::RuntimeType for DtdEntity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdEntity;{6a0b5ffc-63b4-480f-9e6a-8a92816aade4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdEntity;{6a0b5ffc-63b4-480f-9e6a-8a92816aade4})");
 }
 impl ::core::clone::Clone for DtdEntity {
     fn clone(&self) -> Self {
@@ -1941,7 +1941,7 @@ unsafe impl ::windows::core::Interface for DtdEntity {
 impl ::windows::core::RuntimeName for DtdEntity {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdEntity";
 }
-::windows::core::interface_hierarchy!(DtdEntity, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DtdEntity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DtdEntity> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: DtdEntity) -> ::windows::core::Result<Self> {
@@ -2262,7 +2262,7 @@ impl ::core::fmt::Debug for DtdNotation {
     }
 }
 impl ::windows::core::RuntimeType for DtdNotation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdNotation;{8cb4e04d-6d46-4edb-ab73-df83c51ad397})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdNotation;{8cb4e04d-6d46-4edb-ab73-df83c51ad397})");
 }
 impl ::core::clone::Clone for DtdNotation {
     fn clone(&self) -> Self {
@@ -2278,7 +2278,7 @@ unsafe impl ::windows::core::Interface for DtdNotation {
 impl ::windows::core::RuntimeName for DtdNotation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdNotation";
 }
-::windows::core::interface_hierarchy!(DtdNotation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DtdNotation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DtdNotation> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: DtdNotation) -> ::windows::core::Result<Self> {
@@ -2610,7 +2610,7 @@ impl ::core::fmt::Debug for XmlAttribute {
     }
 }
 impl ::windows::core::RuntimeType for XmlAttribute {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlAttribute;{ac144aa4-b4f1-4db6-b206-8a22c308db0a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlAttribute;{ac144aa4-b4f1-4db6-b206-8a22c308db0a})");
 }
 impl ::core::clone::Clone for XmlAttribute {
     fn clone(&self) -> Self {
@@ -2626,7 +2626,7 @@ unsafe impl ::windows::core::Interface for XmlAttribute {
 impl ::windows::core::RuntimeName for XmlAttribute {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlAttribute";
 }
-::windows::core::interface_hierarchy!(XmlAttribute, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlAttribute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlAttribute> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlAttribute) -> ::windows::core::Result<Self> {
@@ -2981,7 +2981,7 @@ impl ::core::fmt::Debug for XmlCDataSection {
     }
 }
 impl ::windows::core::RuntimeType for XmlCDataSection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlCDataSection;{4d04b46f-c8bd-45b4-8899-0400d7c2c60f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlCDataSection;{4d04b46f-c8bd-45b4-8899-0400d7c2c60f})");
 }
 impl ::core::clone::Clone for XmlCDataSection {
     fn clone(&self) -> Self {
@@ -2997,7 +2997,7 @@ unsafe impl ::windows::core::Interface for XmlCDataSection {
 impl ::windows::core::RuntimeName for XmlCDataSection {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlCDataSection";
 }
-::windows::core::interface_hierarchy!(XmlCDataSection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlCDataSection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlCDataSection> for IXmlCharacterData {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlCDataSection) -> ::windows::core::Result<Self> {
@@ -3383,7 +3383,7 @@ impl ::core::fmt::Debug for XmlComment {
     }
 }
 impl ::windows::core::RuntimeType for XmlComment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlComment;{bca474d5-b61f-4611-9cac-2e92e3476d47})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlComment;{bca474d5-b61f-4611-9cac-2e92e3476d47})");
 }
 impl ::core::clone::Clone for XmlComment {
     fn clone(&self) -> Self {
@@ -3399,7 +3399,7 @@ unsafe impl ::windows::core::Interface for XmlComment {
 impl ::windows::core::RuntimeName for XmlComment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlComment";
 }
-::windows::core::interface_hierarchy!(XmlComment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlComment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlComment> for IXmlCharacterData {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlComment) -> ::windows::core::Result<Self> {
@@ -3485,8 +3485,8 @@ impl XmlDocument {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<XmlDocument, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<XmlDocument, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Doctype(&self) -> ::windows::core::Result<XmlDocumentType> {
@@ -3931,7 +3931,7 @@ impl XmlDocument {
     }
     #[doc(hidden)]
     pub fn IXmlDocumentStatics<R, F: FnOnce(&IXmlDocumentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<XmlDocument, IXmlDocumentStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<XmlDocument, IXmlDocumentStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3947,7 +3947,7 @@ impl ::core::fmt::Debug for XmlDocument {
     }
 }
 impl ::windows::core::RuntimeType for XmlDocument {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocument;{f7f3a506-1e87-42d6-bcfb-b8c809fa5494})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocument;{f7f3a506-1e87-42d6-bcfb-b8c809fa5494})");
 }
 impl ::core::clone::Clone for XmlDocument {
     fn clone(&self) -> Self {
@@ -3963,7 +3963,7 @@ unsafe impl ::windows::core::Interface for XmlDocument {
 impl ::windows::core::RuntimeName for XmlDocument {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocument";
 }
-::windows::core::interface_hierarchy!(XmlDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlDocument> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlDocument) -> ::windows::core::Result<Self> {
@@ -4270,7 +4270,7 @@ impl ::core::fmt::Debug for XmlDocumentFragment {
     }
 }
 impl ::windows::core::RuntimeType for XmlDocumentFragment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentFragment;{e2ea6a96-0c21-44a5-8bc9-9e4a262708ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentFragment;{e2ea6a96-0c21-44a5-8bc9-9e4a262708ec})");
 }
 impl ::core::clone::Clone for XmlDocumentFragment {
     fn clone(&self) -> Self {
@@ -4286,7 +4286,7 @@ unsafe impl ::windows::core::Interface for XmlDocumentFragment {
 impl ::windows::core::RuntimeName for XmlDocumentFragment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentFragment";
 }
-::windows::core::interface_hierarchy!(XmlDocumentFragment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlDocumentFragment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlDocumentFragment> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlDocumentFragment) -> ::windows::core::Result<Self> {
@@ -4614,7 +4614,7 @@ impl ::core::fmt::Debug for XmlDocumentType {
     }
 }
 impl ::windows::core::RuntimeType for XmlDocumentType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentType;{f7342425-9781-4964-8e94-9b1c6dfc9bc7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentType;{f7342425-9781-4964-8e94-9b1c6dfc9bc7})");
 }
 impl ::core::clone::Clone for XmlDocumentType {
     fn clone(&self) -> Self {
@@ -4630,7 +4630,7 @@ unsafe impl ::windows::core::Interface for XmlDocumentType {
 impl ::windows::core::RuntimeName for XmlDocumentType {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentType";
 }
-::windows::core::interface_hierarchy!(XmlDocumentType, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlDocumentType, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlDocumentType> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlDocumentType) -> ::windows::core::Result<Self> {
@@ -4717,7 +4717,7 @@ impl ::core::fmt::Debug for XmlDomImplementation {
     }
 }
 impl ::windows::core::RuntimeType for XmlDomImplementation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDomImplementation;{6de58132-f11d-4fbb-8cc6-583cba93112f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDomImplementation;{6de58132-f11d-4fbb-8cc6-583cba93112f})");
 }
 impl ::core::clone::Clone for XmlDomImplementation {
     fn clone(&self) -> Self {
@@ -4733,7 +4733,7 @@ unsafe impl ::windows::core::Interface for XmlDomImplementation {
 impl ::windows::core::RuntimeName for XmlDomImplementation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDomImplementation";
 }
-::windows::core::interface_hierarchy!(XmlDomImplementation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlDomImplementation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XmlDomImplementation {}
 unsafe impl ::core::marker::Sync for XmlDomImplementation {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5074,7 +5074,7 @@ impl ::core::fmt::Debug for XmlElement {
     }
 }
 impl ::windows::core::RuntimeType for XmlElement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlElement;{2dfb8a1f-6b10-4ef8-9f83-efcce8faec37})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlElement;{2dfb8a1f-6b10-4ef8-9f83-efcce8faec37})");
 }
 impl ::core::clone::Clone for XmlElement {
     fn clone(&self) -> Self {
@@ -5090,7 +5090,7 @@ unsafe impl ::windows::core::Interface for XmlElement {
 impl ::windows::core::RuntimeName for XmlElement {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlElement";
 }
-::windows::core::interface_hierarchy!(XmlElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlElement> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlElement) -> ::windows::core::Result<Self> {
@@ -5397,7 +5397,7 @@ impl ::core::fmt::Debug for XmlEntityReference {
     }
 }
 impl ::windows::core::RuntimeType for XmlEntityReference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlEntityReference;{2e2f47bc-c3d0-4ccf-bb86-0ab8c36a61cf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlEntityReference;{2e2f47bc-c3d0-4ccf-bb86-0ab8c36a61cf})");
 }
 impl ::core::clone::Clone for XmlEntityReference {
     fn clone(&self) -> Self {
@@ -5413,7 +5413,7 @@ unsafe impl ::windows::core::Interface for XmlEntityReference {
 impl ::windows::core::RuntimeName for XmlEntityReference {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlEntityReference";
 }
-::windows::core::interface_hierarchy!(XmlEntityReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlEntityReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlEntityReference> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlEntityReference) -> ::windows::core::Result<Self> {
@@ -5480,8 +5480,8 @@ impl XmlLoadSettings {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<XmlLoadSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<XmlLoadSettings, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn MaxElementDepth(&self) -> ::windows::core::Result<u32> {
@@ -5552,7 +5552,7 @@ impl ::core::fmt::Debug for XmlLoadSettings {
     }
 }
 impl ::windows::core::RuntimeType for XmlLoadSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlLoadSettings;{58aa07a8-fed6-46f7-b4c5-fb1ba72108d6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlLoadSettings;{58aa07a8-fed6-46f7-b4c5-fb1ba72108d6})");
 }
 impl ::core::clone::Clone for XmlLoadSettings {
     fn clone(&self) -> Self {
@@ -5568,7 +5568,7 @@ unsafe impl ::windows::core::Interface for XmlLoadSettings {
 impl ::windows::core::RuntimeName for XmlLoadSettings {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlLoadSettings";
 }
-::windows::core::interface_hierarchy!(XmlLoadSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlLoadSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XmlLoadSettings {}
 unsafe impl ::core::marker::Sync for XmlLoadSettings {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5707,7 +5707,7 @@ impl ::core::fmt::Debug for XmlNamedNodeMap {
     }
 }
 impl ::windows::core::RuntimeType for XmlNamedNodeMap {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNamedNodeMap;{b3a69eb0-aab0-4b82-a6fa-b1453f7c021b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNamedNodeMap;{b3a69eb0-aab0-4b82-a6fa-b1453f7c021b})");
 }
 impl ::core::clone::Clone for XmlNamedNodeMap {
     fn clone(&self) -> Self {
@@ -5739,7 +5739,7 @@ impl ::core::iter::IntoIterator for &XmlNamedNodeMap {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(XmlNamedNodeMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlNamedNodeMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<XmlNamedNodeMap> for super::super::super::Foundation::Collections::IIterable<IXmlNode> {
     type Error = ::windows::core::Error;
@@ -5866,7 +5866,7 @@ impl ::core::fmt::Debug for XmlNodeList {
     }
 }
 impl ::windows::core::RuntimeType for XmlNodeList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNodeList;{8c60ad77-83a4-4ec1-9c54-7ba429e13da6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNodeList;{8c60ad77-83a4-4ec1-9c54-7ba429e13da6})");
 }
 impl ::core::clone::Clone for XmlNodeList {
     fn clone(&self) -> Self {
@@ -5898,7 +5898,7 @@ impl ::core::iter::IntoIterator for &XmlNodeList {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-::windows::core::interface_hierarchy!(XmlNodeList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlNodeList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<XmlNodeList> for super::super::super::Foundation::Collections::IIterable<IXmlNode> {
     type Error = ::windows::core::Error;
@@ -6210,7 +6210,7 @@ impl ::core::fmt::Debug for XmlProcessingInstruction {
     }
 }
 impl ::windows::core::RuntimeType for XmlProcessingInstruction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlProcessingInstruction;{2707fd1e-1e92-4ece-b6f4-26f069078ddc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlProcessingInstruction;{2707fd1e-1e92-4ece-b6f4-26f069078ddc})");
 }
 impl ::core::clone::Clone for XmlProcessingInstruction {
     fn clone(&self) -> Self {
@@ -6226,7 +6226,7 @@ unsafe impl ::windows::core::Interface for XmlProcessingInstruction {
 impl ::windows::core::RuntimeName for XmlProcessingInstruction {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlProcessingInstruction";
 }
-::windows::core::interface_hierarchy!(XmlProcessingInstruction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlProcessingInstruction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlProcessingInstruction> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlProcessingInstruction) -> ::windows::core::Result<Self> {
@@ -6581,7 +6581,7 @@ impl ::core::fmt::Debug for XmlText {
     }
 }
 impl ::windows::core::RuntimeType for XmlText {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlText;{f931a4cb-308d-4760-a1d5-43b67450ac7e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlText;{f931a4cb-308d-4760-a1d5-43b67450ac7e})");
 }
 impl ::core::clone::Clone for XmlText {
     fn clone(&self) -> Self {
@@ -6597,7 +6597,7 @@ unsafe impl ::windows::core::Interface for XmlText {
 impl ::windows::core::RuntimeName for XmlText {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlText";
 }
-::windows::core::interface_hierarchy!(XmlText, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XmlText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlText> for IXmlCharacterData {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlText) -> ::windows::core::Result<Self> {
@@ -6734,7 +6734,7 @@ impl ::core::fmt::Debug for NodeType {
     }
 }
 impl ::windows::core::RuntimeType for NodeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Xml.Dom.NodeType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Xml.Dom.NodeType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -24,7 +24,7 @@ impl IMILBitmapEffect {
         (::windows::core::Vtable::vtable(self).SetInputSource)(::windows::core::Vtable::as_raw(self), uiindex, pbitmapsource.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffect, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffect, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -74,7 +74,7 @@ impl IMILBitmapEffectConnections {
         (::windows::core::Vtable::vtable(self).GetOutputConnector)(::windows::core::Vtable::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectConnections, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectConnections, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectConnections {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -125,7 +125,7 @@ impl IMILBitmapEffectConnectionsInfo {
         (::windows::core::Vtable::vtable(self).GetOutputConnectorInfo)(::windows::core::Vtable::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectConnectionsInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectConnectionsInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectConnectionsInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -188,7 +188,7 @@ impl IMILBitmapEffectConnector {
         (::windows::core::Vtable::vtable(self).GetBitmapEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectConnector, ::windows::core::IUnknown, IMILBitmapEffectConnectorInfo);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectConnector, ::windows::core::IUnknown, IMILBitmapEffectConnectorInfo);
 impl ::core::cmp::PartialEq for IMILBitmapEffectConnector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -242,7 +242,7 @@ impl IMILBitmapEffectConnectorInfo {
         (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectConnectorInfo, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectConnectorInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectConnectorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -291,7 +291,7 @@ impl IMILBitmapEffectEvents {
         (::windows::core::Vtable::vtable(self).DirtyRegion)(::windows::core::Vtable::as_raw(self), peffect.into().abi(), prect).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -338,7 +338,7 @@ impl IMILBitmapEffectFactory {
         (::windows::core::Vtable::vtable(self).CreateEffectOuter)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectFactory, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -388,7 +388,7 @@ impl IMILBitmapEffectGroup {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), peffect.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectGroup, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectGroup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -438,7 +438,7 @@ impl IMILBitmapEffectGroupImpl {
         (::windows::core::Vtable::vtable(self).GetChildren)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectGroupImpl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectGroupImpl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectGroupImpl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -520,7 +520,7 @@ impl IMILBitmapEffectImpl {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pinner.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectImpl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectImpl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectImpl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -608,7 +608,7 @@ impl IMILBitmapEffectInputConnector {
         (::windows::core::Vtable::vtable(self).GetConnection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectInputConnector, ::windows::core::IUnknown, IMILBitmapEffectConnectorInfo, IMILBitmapEffectConnector);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectInputConnector, ::windows::core::IUnknown, IMILBitmapEffectConnectorInfo, IMILBitmapEffectConnector);
 impl ::core::cmp::PartialEq for IMILBitmapEffectInputConnector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -647,7 +647,7 @@ impl IMILBitmapEffectInteriorInputConnector {
         (::windows::core::Vtable::vtable(self).GetInputConnector)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectInteriorInputConnector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectInteriorInputConnector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectInteriorInputConnector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -685,7 +685,7 @@ impl IMILBitmapEffectInteriorOutputConnector {
         (::windows::core::Vtable::vtable(self).GetOutputConnector)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectInteriorOutputConnector, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectInteriorOutputConnector, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectInteriorOutputConnector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -753,7 +753,7 @@ impl IMILBitmapEffectOutputConnector {
         (::windows::core::Vtable::vtable(self).GetConnection)(::windows::core::Vtable::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectOutputConnector, ::windows::core::IUnknown, IMILBitmapEffectConnectorInfo, IMILBitmapEffectConnector);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectOutputConnector, ::windows::core::IUnknown, IMILBitmapEffectConnectorInfo, IMILBitmapEffectConnector);
 impl ::core::cmp::PartialEq for IMILBitmapEffectOutputConnector {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -800,7 +800,7 @@ impl IMILBitmapEffectOutputConnectorImpl {
         (::windows::core::Vtable::vtable(self).RemoveBackLink)(::windows::core::Vtable::as_raw(self), pconnection.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectOutputConnectorImpl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectOutputConnectorImpl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectOutputConnectorImpl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -878,7 +878,7 @@ impl IMILBitmapEffectPrimitive {
         (::windows::core::Vtable::vtable(self).GetAffineMatrix)(::windows::core::Vtable::as_raw(self), uiindex, pmatrix).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectPrimitive, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectPrimitive, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectPrimitive {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -946,7 +946,7 @@ impl IMILBitmapEffectPrimitiveImpl {
         (::windows::core::Vtable::vtable(self).IsVolatile)(::windows::core::Vtable::as_raw(self), uioutputindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectPrimitiveImpl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectPrimitiveImpl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectPrimitiveImpl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1017,7 +1017,7 @@ impl IMILBitmapEffectRenderContext {
         (::windows::core::Vtable::vtable(self).SetRegionOfInterest)(::windows::core::Vtable::as_raw(self), prect).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectRenderContext, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectRenderContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectRenderContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1079,7 +1079,7 @@ impl IMILBitmapEffectRenderContextImpl {
         (::windows::core::Vtable::vtable(self).UpdateOutputBounds)(::windows::core::Vtable::as_raw(self), prect).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffectRenderContextImpl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffectRenderContextImpl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffectRenderContextImpl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1136,7 +1136,7 @@ impl IMILBitmapEffects {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMILBitmapEffects, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMILBitmapEffects, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMILBitmapEffects {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

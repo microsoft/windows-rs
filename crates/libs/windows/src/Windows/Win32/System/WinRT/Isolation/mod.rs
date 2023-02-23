@@ -12,7 +12,7 @@ impl IIsolatedEnvironmentInterop {
         (::windows::core::Vtable::vtable(self).GetHostHwndInterop)(::windows::core::Vtable::as_raw(self), containerhwnd.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IIsolatedEnvironmentInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IIsolatedEnvironmentInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IIsolatedEnvironmentInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

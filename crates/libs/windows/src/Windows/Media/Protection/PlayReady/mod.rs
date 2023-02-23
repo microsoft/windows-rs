@@ -141,7 +141,7 @@ impl INDClosedCaptionDataReceivedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDClosedCaptionDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDClosedCaptionDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDClosedCaptionDataReceivedEventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -158,7 +158,7 @@ impl ::core::fmt::Debug for INDClosedCaptionDataReceivedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDClosedCaptionDataReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4738d29f-c345-4649-8468-b8c5fc357190}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4738d29f-c345-4649-8468-b8c5fc357190}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDClosedCaptionDataReceivedEventArgs {
@@ -218,7 +218,7 @@ impl INDCustomData {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDCustomData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDCustomData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDCustomData {
     fn eq(&self, other: &Self) -> bool {
@@ -235,7 +235,7 @@ impl ::core::fmt::Debug for INDCustomData {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDCustomData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDCustomData {
@@ -367,7 +367,7 @@ impl INDDownloadEngine {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDDownloadEngine, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDDownloadEngine, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDDownloadEngine {
     fn eq(&self, other: &Self) -> bool {
@@ -384,7 +384,7 @@ impl ::core::fmt::Debug for INDDownloadEngine {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDDownloadEngine {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d223d65-c4b6-4438-8d46-b96e6d0fb21f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2d223d65-c4b6-4438-8d46-b96e6d0fb21f}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDDownloadEngine {
@@ -490,7 +490,7 @@ impl INDDownloadEngineNotifier {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDDownloadEngineNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDDownloadEngineNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDDownloadEngineNotifier {
     fn eq(&self, other: &Self) -> bool {
@@ -507,7 +507,7 @@ impl ::core::fmt::Debug for INDDownloadEngineNotifier {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDDownloadEngineNotifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d720b4d4-f4b8-4530-a809-9193a571e7fc}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d720b4d4-f4b8-4530-a809-9193a571e7fc}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDDownloadEngineNotifier {
@@ -570,7 +570,7 @@ impl INDLicenseFetchCompletedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDLicenseFetchCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDLicenseFetchCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDLicenseFetchCompletedEventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -587,7 +587,7 @@ impl ::core::fmt::Debug for INDLicenseFetchCompletedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDLicenseFetchCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1ee30a1a-11b2-4558-8865-e3a516922517}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1ee30a1a-11b2-4558-8865-e3a516922517}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDLicenseFetchCompletedEventArgs {
@@ -658,7 +658,7 @@ impl INDLicenseFetchDescriptor {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDLicenseFetchDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDLicenseFetchDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDLicenseFetchDescriptor {
     fn eq(&self, other: &Self) -> bool {
@@ -675,7 +675,7 @@ impl ::core::fmt::Debug for INDLicenseFetchDescriptor {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDLicenseFetchDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5498d33a-e686-4935-a567-7ca77ad20fa4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5498d33a-e686-4935-a567-7ca77ad20fa4}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDLicenseFetchDescriptor {
@@ -758,7 +758,7 @@ impl INDLicenseFetchResult {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDLicenseFetchResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDLicenseFetchResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDLicenseFetchResult {
     fn eq(&self, other: &Self) -> bool {
@@ -775,7 +775,7 @@ impl ::core::fmt::Debug for INDLicenseFetchResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDLicenseFetchResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{21d39698-aa62-45ff-a5ff-8037e5433825}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{21d39698-aa62-45ff-a5ff-8037e5433825}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDLicenseFetchResult {
@@ -845,7 +845,7 @@ impl INDMessenger {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDMessenger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDMessenger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDMessenger {
     fn eq(&self, other: &Self) -> bool {
@@ -862,7 +862,7 @@ impl ::core::fmt::Debug for INDMessenger {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDMessenger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d42df95d-a75b-47bf-8249-bc83820da38a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d42df95d-a75b-47bf-8249-bc83820da38a}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDMessenger {
@@ -917,7 +917,7 @@ impl INDProximityDetectionCompletedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDProximityDetectionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDProximityDetectionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDProximityDetectionCompletedEventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -934,7 +934,7 @@ impl ::core::fmt::Debug for INDProximityDetectionCompletedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDProximityDetectionCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a706328-da25-4f8c-9eb7-5d0fc3658bca}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2a706328-da25-4f8c-9eb7-5d0fc3658bca}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDProximityDetectionCompletedEventArgs {
@@ -1001,7 +1001,7 @@ impl INDRegistrationCompletedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDRegistrationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDRegistrationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDRegistrationCompletedEventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -1018,7 +1018,7 @@ impl ::core::fmt::Debug for INDRegistrationCompletedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDRegistrationCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e39b64d-ab5b-4905-acdc-787a77c6374d}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9e39b64d-ab5b-4905-acdc-787a77c6374d}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDRegistrationCompletedEventArgs {
@@ -1073,7 +1073,7 @@ impl INDSendResult {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDSendResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDSendResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDSendResult {
     fn eq(&self, other: &Self) -> bool {
@@ -1090,7 +1090,7 @@ impl ::core::fmt::Debug for INDSendResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDSendResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e3685517-a584-479d-90b7-d689c7bf7c80}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e3685517-a584-479d-90b7-d689c7bf7c80}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDSendResult {
@@ -1133,7 +1133,7 @@ impl INDStartResult {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDStartResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDStartResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDStartResult {
     fn eq(&self, other: &Self) -> bool {
@@ -1150,7 +1150,7 @@ impl ::core::fmt::Debug for INDStartResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDStartResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79f6e96e-f50f-4015-8ba4-c2bc344ebd4e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{79f6e96e-f50f-4015-8ba4-c2bc344ebd4e}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDStartResult {
@@ -1197,7 +1197,7 @@ impl INDStorageFileHelper {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDStorageFileHelper, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDStorageFileHelper, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDStorageFileHelper {
     fn eq(&self, other: &Self) -> bool {
@@ -1214,7 +1214,7 @@ impl ::core::fmt::Debug for INDStorageFileHelper {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDStorageFileHelper {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d8f0bef8-91d2-4d47-a3f9-eaff4edb729f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{d8f0bef8-91d2-4d47-a3f9-eaff4edb729f}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDStorageFileHelper {
@@ -1288,7 +1288,7 @@ impl INDStreamParser {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDStreamParser, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDStreamParser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDStreamParser {
     fn eq(&self, other: &Self) -> bool {
@@ -1305,7 +1305,7 @@ impl ::core::fmt::Debug for INDStreamParser {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDStreamParser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e0baa198-9796-41c9-8695-59437e67e66a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e0baa198-9796-41c9-8695-59437e67e66a}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDStreamParser {
@@ -1393,7 +1393,7 @@ impl INDStreamParserNotifier {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDStreamParserNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDStreamParserNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDStreamParserNotifier {
     fn eq(&self, other: &Self) -> bool {
@@ -1410,7 +1410,7 @@ impl ::core::fmt::Debug for INDStreamParserNotifier {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDStreamParserNotifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c167acd0-2ce6-426c-ace5-5e9275fea715}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{c167acd0-2ce6-426c-ace5-5e9275fea715}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDStreamParserNotifier {
@@ -1583,7 +1583,7 @@ impl INDTransmitterProperties {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(INDTransmitterProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(INDTransmitterProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for INDTransmitterProperties {
     fn eq(&self, other: &Self) -> bool {
@@ -1600,7 +1600,7 @@ impl ::core::fmt::Debug for INDTransmitterProperties {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for INDTransmitterProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e536af23-ac4f-4adc-8c66-4ff7c2702dd6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e536af23-ac4f-4adc-8c66-4ff7c2702dd6}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for INDTransmitterProperties {
@@ -1835,7 +1835,7 @@ impl IPlayReadyDomain {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPlayReadyDomain, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPlayReadyDomain, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPlayReadyDomain {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1848,7 +1848,7 @@ impl ::core::fmt::Debug for IPlayReadyDomain {
     }
 }
 impl ::windows::core::RuntimeType for IPlayReadyDomain {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}");
 }
 unsafe impl ::windows::core::Vtable for IPlayReadyDomain {
     type Vtable = IPlayReadyDomain_Vtbl;
@@ -2043,7 +2043,7 @@ impl IPlayReadyLicense {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPlayReadyLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPlayReadyLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPlayReadyLicense {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2056,7 +2056,7 @@ impl ::core::fmt::Debug for IPlayReadyLicense {
     }
 }
 impl ::windows::core::RuntimeType for IPlayReadyLicense {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}");
 }
 unsafe impl ::windows::core::Vtable for IPlayReadyLicense {
     type Vtable = IPlayReadyLicense_Vtbl;
@@ -2211,7 +2211,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPlayReadyLicenseAcquisitionServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPlayReadyLicenseAcquisitionServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
@@ -2262,7 +2262,7 @@ impl ::core::fmt::Debug for IPlayReadyLicenseAcquisitionServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for IPlayReadyLicenseAcquisitionServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5d85ff45-3e9f-4f48-93e1-9530c8d58c3e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5d85ff45-3e9f-4f48-93e1-9530c8d58c3e}");
 }
 unsafe impl ::windows::core::Vtable for IPlayReadyLicenseAcquisitionServiceRequest {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest_Vtbl;
@@ -2389,7 +2389,7 @@ impl IPlayReadyLicenseSession {
         unsafe { (::windows::core::Vtable::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mpm)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IPlayReadyLicenseSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPlayReadyLicenseSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPlayReadyLicenseSession {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2402,7 +2402,7 @@ impl ::core::fmt::Debug for IPlayReadyLicenseSession {
     }
 }
 impl ::windows::core::RuntimeType for IPlayReadyLicenseSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a1723a39-87fa-4fdd-abbb-a9720e845259}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a1723a39-87fa-4fdd-abbb-a9720e845259}");
 }
 unsafe impl ::windows::core::Vtable for IPlayReadyLicenseSession {
     type Vtable = IPlayReadyLicenseSession_Vtbl;
@@ -2447,7 +2447,7 @@ impl IPlayReadyLicenseSession2 {
         unsafe { (::windows::core::Vtable::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mpm)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IPlayReadyLicenseSession2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPlayReadyLicenseSession2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPlayReadyLicenseSession2> for IPlayReadyLicenseSession {
     type Error = ::windows::core::Error;
     fn try_from(value: IPlayReadyLicenseSession2) -> ::windows::core::Result<Self> {
@@ -2479,7 +2479,7 @@ impl ::core::fmt::Debug for IPlayReadyLicenseSession2 {
     }
 }
 impl ::windows::core::RuntimeType for IPlayReadyLicenseSession2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4909be3a-3aed-4656-8ad7-ee0fd7799510}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4909be3a-3aed-4656-8ad7-ee0fd7799510}");
 }
 unsafe impl ::windows::core::Vtable for IPlayReadyLicenseSession2 {
     type Vtable = IPlayReadyLicenseSession2_Vtbl;
@@ -2708,7 +2708,7 @@ impl IPlayReadySecureStopServiceRequest {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPlayReadySecureStopServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPlayReadySecureStopServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: IPlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
@@ -2759,7 +2759,7 @@ impl ::core::fmt::Debug for IPlayReadySecureStopServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for IPlayReadySecureStopServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b5501ee5-01bf-4401-9677-05630a6a4cc8}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b5501ee5-01bf-4401-9677-05630a6a4cc8}");
 }
 unsafe impl ::windows::core::Vtable for IPlayReadySecureStopServiceRequest {
     type Vtable = IPlayReadySecureStopServiceRequest_Vtbl;
@@ -2891,7 +2891,7 @@ impl IPlayReadyServiceRequest {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPlayReadyServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPlayReadyServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPlayReadyServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: IPlayReadyServiceRequest) -> ::windows::core::Result<Self> {
@@ -2923,7 +2923,7 @@ impl ::core::fmt::Debug for IPlayReadyServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for IPlayReadyServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8bad2836-a703-45a6-a180-76f3565aa725}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8bad2836-a703-45a6-a180-76f3565aa725}");
 }
 unsafe impl ::windows::core::Vtable for IPlayReadyServiceRequest {
     type Vtable = IPlayReadyServiceRequest_Vtbl;
@@ -3251,7 +3251,7 @@ impl NDClient {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn INDClientFactory<R, F: FnOnce(&INDClientFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NDClient, INDClientFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NDClient, INDClientFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3271,7 +3271,7 @@ impl ::core::fmt::Debug for NDClient {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDClient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDClient;{3bd6781b-61b8-46e2-99a5-8abcb6b9f7d6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDClient;{3bd6781b-61b8-46e2-99a5-8abcb6b9f7d6})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDClient {
@@ -3292,7 +3292,7 @@ impl ::windows::core::RuntimeName for NDClient {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDClient";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(NDClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NDClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -3328,7 +3328,7 @@ impl NDCustomData {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn INDCustomDataFactory<R, F: FnOnce(&INDCustomDataFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NDCustomData, INDCustomDataFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NDCustomData, INDCustomDataFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3348,7 +3348,7 @@ impl ::core::fmt::Debug for NDCustomData {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDCustomData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDCustomData;{f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDCustomData;{f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDCustomData {
@@ -3369,7 +3369,7 @@ impl ::windows::core::RuntimeName for NDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDCustomData";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(NDCustomData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NDCustomData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDCustomData> for INDCustomData {
     type Error = ::windows::core::Error;
@@ -3401,8 +3401,8 @@ impl NDDownloadEngineNotifier {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NDDownloadEngineNotifier, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<NDDownloadEngineNotifier, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -3462,7 +3462,7 @@ impl ::core::fmt::Debug for NDDownloadEngineNotifier {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDDownloadEngineNotifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier;{d720b4d4-f4b8-4530-a809-9193a571e7fc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier;{d720b4d4-f4b8-4530-a809-9193a571e7fc})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDDownloadEngineNotifier {
@@ -3483,7 +3483,7 @@ impl ::windows::core::RuntimeName for NDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(NDDownloadEngineNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NDDownloadEngineNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDDownloadEngineNotifier> for INDDownloadEngineNotifier {
     type Error = ::windows::core::Error;
@@ -3564,7 +3564,7 @@ impl NDLicenseFetchDescriptor {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn INDLicenseFetchDescriptorFactory<R, F: FnOnce(&INDLicenseFetchDescriptorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NDLicenseFetchDescriptor, INDLicenseFetchDescriptorFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NDLicenseFetchDescriptor, INDLicenseFetchDescriptorFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3584,7 +3584,7 @@ impl ::core::fmt::Debug for NDLicenseFetchDescriptor {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDLicenseFetchDescriptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor;{5498d33a-e686-4935-a567-7ca77ad20fa4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor;{5498d33a-e686-4935-a567-7ca77ad20fa4})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDLicenseFetchDescriptor {
@@ -3605,7 +3605,7 @@ impl ::windows::core::RuntimeName for NDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(NDLicenseFetchDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NDLicenseFetchDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDLicenseFetchDescriptor> for INDLicenseFetchDescriptor {
     type Error = ::windows::core::Error;
@@ -3637,8 +3637,8 @@ impl NDStorageFileHelper {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NDStorageFileHelper, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<NDStorageFileHelper, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
@@ -3671,7 +3671,7 @@ impl ::core::fmt::Debug for NDStorageFileHelper {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDStorageFileHelper {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDStorageFileHelper;{d8f0bef8-91d2-4d47-a3f9-eaff4edb729f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDStorageFileHelper;{d8f0bef8-91d2-4d47-a3f9-eaff4edb729f})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDStorageFileHelper {
@@ -3692,7 +3692,7 @@ impl ::windows::core::RuntimeName for NDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStorageFileHelper";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(NDStorageFileHelper, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NDStorageFileHelper, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDStorageFileHelper> for INDStorageFileHelper {
     type Error = ::windows::core::Error;
@@ -3724,8 +3724,8 @@ impl NDStreamParserNotifier {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NDStreamParserNotifier, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<NDStreamParserNotifier, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -3783,7 +3783,7 @@ impl ::core::fmt::Debug for NDStreamParserNotifier {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDStreamParserNotifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDStreamParserNotifier;{c167acd0-2ce6-426c-ace5-5e9275fea715})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDStreamParserNotifier;{c167acd0-2ce6-426c-ace5-5e9275fea715})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDStreamParserNotifier {
@@ -3804,7 +3804,7 @@ impl ::windows::core::RuntimeName for NDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStreamParserNotifier";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(NDStreamParserNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NDStreamParserNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDStreamParserNotifier> for INDStreamParserNotifier {
     type Error = ::windows::core::Error;
@@ -3880,7 +3880,7 @@ impl NDTCPMessenger {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn INDTCPMessengerFactory<R, F: FnOnce(&INDTCPMessengerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<NDTCPMessenger, INDTCPMessengerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<NDTCPMessenger, INDTCPMessengerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3900,7 +3900,7 @@ impl ::core::fmt::Debug for NDTCPMessenger {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDTCPMessenger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDTCPMessenger;{d42df95d-a75b-47bf-8249-bc83820da38a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDTCPMessenger;{d42df95d-a75b-47bf-8249-bc83820da38a})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDTCPMessenger {
@@ -3921,7 +3921,7 @@ impl ::windows::core::RuntimeName for NDTCPMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDTCPMessenger";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(NDTCPMessenger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(NDTCPMessenger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDTCPMessenger> for INDMessenger {
     type Error = ::windows::core::Error;
@@ -4068,12 +4068,12 @@ impl PlayReadyContentHeader {
     }
     #[doc(hidden)]
     pub fn IPlayReadyContentHeaderFactory<R, F: FnOnce(&IPlayReadyContentHeaderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyContentHeader, IPlayReadyContentHeaderFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyContentHeader, IPlayReadyContentHeaderFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPlayReadyContentHeaderFactory2<R, F: FnOnce(&IPlayReadyContentHeaderFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyContentHeader, IPlayReadyContentHeaderFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyContentHeader, IPlayReadyContentHeaderFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4089,7 +4089,7 @@ impl ::core::fmt::Debug for PlayReadyContentHeader {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyContentHeader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyContentHeader;{9a438a6a-7f4c-452e-88bd-0148c6387a2c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyContentHeader;{9a438a6a-7f4c-452e-88bd-0148c6387a2c})");
 }
 impl ::core::clone::Clone for PlayReadyContentHeader {
     fn clone(&self) -> Self {
@@ -4105,7 +4105,7 @@ unsafe impl ::windows::core::Interface for PlayReadyContentHeader {
 impl ::windows::core::RuntimeName for PlayReadyContentHeader {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyContentHeader";
 }
-::windows::core::interface_hierarchy!(PlayReadyContentHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyContentHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 pub struct PlayReadyContentResolver;
 impl PlayReadyContentResolver {
@@ -4117,7 +4117,7 @@ impl PlayReadyContentResolver {
     }
     #[doc(hidden)]
     pub fn IPlayReadyContentResolver<R, F: FnOnce(&IPlayReadyContentResolver) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyContentResolver, IPlayReadyContentResolver> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyContentResolver, IPlayReadyContentResolver> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4178,7 +4178,7 @@ impl ::core::fmt::Debug for PlayReadyDomain {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyDomain {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomain;{adcc93ac-97e6-43ef-95e4-d7868f3b16a9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomain;{adcc93ac-97e6-43ef-95e4-d7868f3b16a9})");
 }
 impl ::core::clone::Clone for PlayReadyDomain {
     fn clone(&self) -> Self {
@@ -4194,7 +4194,7 @@ unsafe impl ::windows::core::Interface for PlayReadyDomain {
 impl ::windows::core::RuntimeName for PlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomain";
 }
-::windows::core::interface_hierarchy!(PlayReadyDomain, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyDomain, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyDomain> for IPlayReadyDomain {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyDomain) -> ::windows::core::Result<Self> {
@@ -4239,7 +4239,7 @@ impl PlayReadyDomainIterable {
     }
     #[doc(hidden)]
     pub fn IPlayReadyDomainIterableFactory<R, F: FnOnce(&IPlayReadyDomainIterableFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyDomainIterable, IPlayReadyDomainIterableFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyDomainIterable, IPlayReadyDomainIterableFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4259,7 +4259,7 @@ impl ::core::fmt::Debug for PlayReadyDomainIterable {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for PlayReadyDomainIterable {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for PlayReadyDomainIterable {
@@ -4296,7 +4296,7 @@ impl ::core::iter::IntoIterator for &PlayReadyDomainIterable {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(PlayReadyDomainIterable, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyDomainIterable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadyDomainIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> {
     type Error = ::windows::core::Error;
@@ -4378,7 +4378,7 @@ impl ::core::fmt::Debug for PlayReadyDomainIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for PlayReadyDomainIterator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for PlayReadyDomainIterator {
@@ -4399,7 +4399,7 @@ impl ::windows::core::RuntimeName for PlayReadyDomainIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(PlayReadyDomainIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyDomainIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadyDomainIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> {
     type Error = ::windows::core::Error;
@@ -4429,8 +4429,8 @@ impl PlayReadyDomainJoinServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyDomainJoinServiceRequest, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyDomainJoinServiceRequest, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -4556,7 +4556,7 @@ impl ::core::fmt::Debug for PlayReadyDomainJoinServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyDomainJoinServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest;{171b4a5a-405f-4739-b040-67b9f0c38758})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest;{171b4a5a-405f-4739-b040-67b9f0c38758})");
 }
 impl ::core::clone::Clone for PlayReadyDomainJoinServiceRequest {
     fn clone(&self) -> Self {
@@ -4572,7 +4572,7 @@ unsafe impl ::windows::core::Interface for PlayReadyDomainJoinServiceRequest {
 impl ::windows::core::RuntimeName for PlayReadyDomainJoinServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest";
 }
-::windows::core::interface_hierarchy!(PlayReadyDomainJoinServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyDomainJoinServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyDomainJoinServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyDomainJoinServiceRequest) -> ::windows::core::Result<Self> {
@@ -4618,8 +4618,8 @@ impl PlayReadyDomainLeaveServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyDomainLeaveServiceRequest, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyDomainLeaveServiceRequest, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -4734,7 +4734,7 @@ impl ::core::fmt::Debug for PlayReadyDomainLeaveServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyDomainLeaveServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest;{062d58be-97ad-4917-aa03-46d4c252d464})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest;{062d58be-97ad-4917-aa03-46d4c252d464})");
 }
 impl ::core::clone::Clone for PlayReadyDomainLeaveServiceRequest {
     fn clone(&self) -> Self {
@@ -4750,7 +4750,7 @@ unsafe impl ::windows::core::Interface for PlayReadyDomainLeaveServiceRequest {
 impl ::windows::core::RuntimeName for PlayReadyDomainLeaveServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest";
 }
-::windows::core::interface_hierarchy!(PlayReadyDomainLeaveServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyDomainLeaveServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyDomainLeaveServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyDomainLeaveServiceRequest) -> ::windows::core::Result<Self> {
@@ -4796,8 +4796,8 @@ impl PlayReadyITADataGenerator {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyITADataGenerator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyITADataGenerator, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4826,7 +4826,7 @@ impl ::core::fmt::Debug for PlayReadyITADataGenerator {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyITADataGenerator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator;{24446b8e-10b9-4530-b25b-901a8029a9b2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator;{24446b8e-10b9-4530-b25b-901a8029a9b2})");
 }
 impl ::core::clone::Clone for PlayReadyITADataGenerator {
     fn clone(&self) -> Self {
@@ -4842,7 +4842,7 @@ unsafe impl ::windows::core::Interface for PlayReadyITADataGenerator {
 impl ::windows::core::RuntimeName for PlayReadyITADataGenerator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator";
 }
-::windows::core::interface_hierarchy!(PlayReadyITADataGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyITADataGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
 pub struct PlayReadyIndividualizationServiceRequest(::windows::core::IUnknown);
@@ -4850,8 +4850,8 @@ impl PlayReadyIndividualizationServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyIndividualizationServiceRequest, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyIndividualizationServiceRequest, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -4944,7 +4944,7 @@ impl ::core::fmt::Debug for PlayReadyIndividualizationServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyIndividualizationServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest;{21f5a86b-008c-4611-ab2f-aaa6c69f0e24})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest;{21f5a86b-008c-4611-ab2f-aaa6c69f0e24})");
 }
 impl ::core::clone::Clone for PlayReadyIndividualizationServiceRequest {
     fn clone(&self) -> Self {
@@ -4960,7 +4960,7 @@ unsafe impl ::windows::core::Interface for PlayReadyIndividualizationServiceRequ
 impl ::windows::core::RuntimeName for PlayReadyIndividualizationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest";
 }
-::windows::core::interface_hierarchy!(PlayReadyIndividualizationServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyIndividualizationServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyIndividualizationServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyIndividualizationServiceRequest) -> ::windows::core::Result<Self> {
@@ -5095,7 +5095,7 @@ impl ::core::fmt::Debug for PlayReadyLicense {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyLicense {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicense;{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicense;{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4})");
 }
 impl ::core::clone::Clone for PlayReadyLicense {
     fn clone(&self) -> Self {
@@ -5111,7 +5111,7 @@ unsafe impl ::windows::core::Interface for PlayReadyLicense {
 impl ::windows::core::RuntimeName for PlayReadyLicense {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicense";
 }
-::windows::core::interface_hierarchy!(PlayReadyLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyLicense> for IPlayReadyLicense {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyLicense) -> ::windows::core::Result<Self> {
@@ -5138,8 +5138,8 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyLicenseAcquisitionServiceRequest, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyLicenseAcquisitionServiceRequest, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -5270,7 +5270,7 @@ impl ::core::fmt::Debug for PlayReadyLicenseAcquisitionServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyLicenseAcquisitionServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest;{5d85ff45-3e9f-4f48-93e1-9530c8d58c3e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest;{5d85ff45-3e9f-4f48-93e1-9530c8d58c3e})");
 }
 impl ::core::clone::Clone for PlayReadyLicenseAcquisitionServiceRequest {
     fn clone(&self) -> Self {
@@ -5286,7 +5286,7 @@ unsafe impl ::windows::core::Interface for PlayReadyLicenseAcquisitionServiceReq
 impl ::windows::core::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest";
 }
-::windows::core::interface_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
@@ -5353,8 +5353,8 @@ impl PlayReadyLicenseIterable {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyLicenseIterable, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyLicenseIterable, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5376,7 +5376,7 @@ impl PlayReadyLicenseIterable {
     }
     #[doc(hidden)]
     pub fn IPlayReadyLicenseIterableFactory<R, F: FnOnce(&IPlayReadyLicenseIterableFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyLicenseIterable, IPlayReadyLicenseIterableFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyLicenseIterable, IPlayReadyLicenseIterableFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5396,7 +5396,7 @@ impl ::core::fmt::Debug for PlayReadyLicenseIterable {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for PlayReadyLicenseIterable {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for PlayReadyLicenseIterable {
@@ -5433,7 +5433,7 @@ impl ::core::iter::IntoIterator for &PlayReadyLicenseIterable {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(PlayReadyLicenseIterable, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyLicenseIterable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadyLicenseIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> {
     type Error = ::windows::core::Error;
@@ -5515,7 +5515,7 @@ impl ::core::fmt::Debug for PlayReadyLicenseIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for PlayReadyLicenseIterator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for PlayReadyLicenseIterator {
@@ -5536,7 +5536,7 @@ impl ::windows::core::RuntimeName for PlayReadyLicenseIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(PlayReadyLicenseIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyLicenseIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadyLicenseIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> {
     type Error = ::windows::core::Error;
@@ -5572,7 +5572,7 @@ impl PlayReadyLicenseManagement {
     }
     #[doc(hidden)]
     pub fn IPlayReadyLicenseManagement<R, F: FnOnce(&IPlayReadyLicenseManagement) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyLicenseManagement, IPlayReadyLicenseManagement> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyLicenseManagement, IPlayReadyLicenseManagement> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5617,7 +5617,7 @@ impl PlayReadyLicenseSession {
     }
     #[doc(hidden)]
     pub fn IPlayReadyLicenseSessionFactory<R, F: FnOnce(&IPlayReadyLicenseSessionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyLicenseSession, IPlayReadyLicenseSessionFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyLicenseSession, IPlayReadyLicenseSessionFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5633,7 +5633,7 @@ impl ::core::fmt::Debug for PlayReadyLicenseSession {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyLicenseSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseSession;{a1723a39-87fa-4fdd-abbb-a9720e845259})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseSession;{a1723a39-87fa-4fdd-abbb-a9720e845259})");
 }
 impl ::core::clone::Clone for PlayReadyLicenseSession {
     fn clone(&self) -> Self {
@@ -5649,7 +5649,7 @@ unsafe impl ::windows::core::Interface for PlayReadyLicenseSession {
 impl ::windows::core::RuntimeName for PlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseSession";
 }
-::windows::core::interface_hierarchy!(PlayReadyLicenseSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyLicenseSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyLicenseSession> for IPlayReadyLicenseSession {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyLicenseSession) -> ::windows::core::Result<Self> {
@@ -5695,8 +5695,8 @@ impl PlayReadyMeteringReportServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyMeteringReportServiceRequest, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyMeteringReportServiceRequest, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -5800,7 +5800,7 @@ impl ::core::fmt::Debug for PlayReadyMeteringReportServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyMeteringReportServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest;{c12b231c-0ecd-4f11-a185-1e24a4a67fb7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest;{c12b231c-0ecd-4f11-a185-1e24a4a67fb7})");
 }
 impl ::core::clone::Clone for PlayReadyMeteringReportServiceRequest {
     fn clone(&self) -> Self {
@@ -5816,7 +5816,7 @@ unsafe impl ::windows::core::Interface for PlayReadyMeteringReportServiceRequest
 impl ::windows::core::RuntimeName for PlayReadyMeteringReportServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest";
 }
-::windows::core::interface_hierarchy!(PlayReadyMeteringReportServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyMeteringReportServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyMeteringReportServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyMeteringReportServiceRequest) -> ::windows::core::Result<Self> {
@@ -5862,8 +5862,8 @@ impl PlayReadyRevocationServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyRevocationServiceRequest, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyRevocationServiceRequest, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -5956,7 +5956,7 @@ impl ::core::fmt::Debug for PlayReadyRevocationServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyRevocationServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest;{543d66ac-faf0-4560-84a5-0e4acec939e4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest;{543d66ac-faf0-4560-84a5-0e4acec939e4})");
 }
 impl ::core::clone::Clone for PlayReadyRevocationServiceRequest {
     fn clone(&self) -> Self {
@@ -5972,7 +5972,7 @@ unsafe impl ::windows::core::Interface for PlayReadyRevocationServiceRequest {
 impl ::windows::core::RuntimeName for PlayReadyRevocationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest";
 }
-::windows::core::interface_hierarchy!(PlayReadyRevocationServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadyRevocationServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyRevocationServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyRevocationServiceRequest) -> ::windows::core::Result<Self> {
@@ -6036,7 +6036,7 @@ impl PlayReadySecureStopIterable {
     }
     #[doc(hidden)]
     pub fn IPlayReadySecureStopIterableFactory<R, F: FnOnce(&IPlayReadySecureStopIterableFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadySecureStopIterable, IPlayReadySecureStopIterableFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadySecureStopIterable, IPlayReadySecureStopIterableFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6056,7 +6056,7 @@ impl ::core::fmt::Debug for PlayReadySecureStopIterable {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for PlayReadySecureStopIterable {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{b5501ee5-01bf-4401-9677-05630a6a4cc8}))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{b5501ee5-01bf-4401-9677-05630a6a4cc8}))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for PlayReadySecureStopIterable {
@@ -6093,7 +6093,7 @@ impl ::core::iter::IntoIterator for &PlayReadySecureStopIterable {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(PlayReadySecureStopIterable, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadySecureStopIterable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadySecureStopIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> {
     type Error = ::windows::core::Error;
@@ -6175,7 +6175,7 @@ impl ::core::fmt::Debug for PlayReadySecureStopIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for PlayReadySecureStopIterator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{b5501ee5-01bf-4401-9677-05630a6a4cc8}))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{b5501ee5-01bf-4401-9677-05630a6a4cc8}))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for PlayReadySecureStopIterator {
@@ -6196,7 +6196,7 @@ impl ::windows::core::RuntimeName for PlayReadySecureStopIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(PlayReadySecureStopIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadySecureStopIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadySecureStopIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> {
     type Error = ::windows::core::Error;
@@ -6353,7 +6353,7 @@ impl PlayReadySecureStopServiceRequest {
     }
     #[doc(hidden)]
     pub fn IPlayReadySecureStopServiceRequestFactory<R, F: FnOnce(&IPlayReadySecureStopServiceRequestFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadySecureStopServiceRequest, IPlayReadySecureStopServiceRequestFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadySecureStopServiceRequest, IPlayReadySecureStopServiceRequestFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6369,7 +6369,7 @@ impl ::core::fmt::Debug for PlayReadySecureStopServiceRequest {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadySecureStopServiceRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest;{b5501ee5-01bf-4401-9677-05630a6a4cc8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest;{b5501ee5-01bf-4401-9677-05630a6a4cc8})");
 }
 impl ::core::clone::Clone for PlayReadySecureStopServiceRequest {
     fn clone(&self) -> Self {
@@ -6385,7 +6385,7 @@ unsafe impl ::windows::core::Interface for PlayReadySecureStopServiceRequest {
 impl ::windows::core::RuntimeName for PlayReadySecureStopServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest";
 }
-::windows::core::interface_hierarchy!(PlayReadySecureStopServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadySecureStopServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
@@ -6485,7 +6485,7 @@ impl ::core::fmt::Debug for PlayReadySoapMessage {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadySoapMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySoapMessage;{b659fcb5-ce41-41ba-8a0d-61df5fffa139})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySoapMessage;{b659fcb5-ce41-41ba-8a0d-61df5fffa139})");
 }
 impl ::core::clone::Clone for PlayReadySoapMessage {
     fn clone(&self) -> Self {
@@ -6501,7 +6501,7 @@ unsafe impl ::windows::core::Interface for PlayReadySoapMessage {
 impl ::windows::core::RuntimeName for PlayReadySoapMessage {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySoapMessage";
 }
-::windows::core::interface_hierarchy!(PlayReadySoapMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PlayReadySoapMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 pub struct PlayReadyStatics;
 impl PlayReadyStatics {
@@ -6604,27 +6604,27 @@ impl PlayReadyStatics {
     }
     #[doc(hidden)]
     pub fn IPlayReadyStatics<R, F: FnOnce(&IPlayReadyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyStatics, IPlayReadyStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPlayReadyStatics2<R, F: FnOnce(&IPlayReadyStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyStatics, IPlayReadyStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPlayReadyStatics3<R, F: FnOnce(&IPlayReadyStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyStatics, IPlayReadyStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPlayReadyStatics4<R, F: FnOnce(&IPlayReadyStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyStatics, IPlayReadyStatics4> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics4> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPlayReadyStatics5<R, F: FnOnce(&IPlayReadyStatics5) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PlayReadyStatics, IPlayReadyStatics5> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics5> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -6672,7 +6672,7 @@ impl ::core::fmt::Debug for NDCertificateFeature {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDCertificateFeature {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateFeature;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateFeature;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -6720,7 +6720,7 @@ impl ::core::fmt::Debug for NDCertificatePlatformID {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDCertificatePlatformID {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificatePlatformID;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificatePlatformID;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -6769,7 +6769,7 @@ impl ::core::fmt::Debug for NDCertificateType {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDCertificateType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateType;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -6808,7 +6808,7 @@ impl ::core::fmt::Debug for NDClosedCaptionFormat {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDClosedCaptionFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDClosedCaptionFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDClosedCaptionFormat;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -6847,7 +6847,7 @@ impl ::core::fmt::Debug for NDContentIDType {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDContentIDType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDContentIDType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDContentIDType;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -6885,7 +6885,7 @@ impl ::core::fmt::Debug for NDMediaStreamType {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDMediaStreamType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDMediaStreamType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDMediaStreamType;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -6924,7 +6924,7 @@ impl ::core::fmt::Debug for NDProximityDetectionType {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDProximityDetectionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDProximityDetectionType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDProximityDetectionType;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -6962,7 +6962,7 @@ impl ::core::fmt::Debug for NDStartAsyncOptions {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for NDStartAsyncOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDStartAsyncOptions;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDStartAsyncOptions;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
@@ -6992,7 +6992,7 @@ impl ::core::fmt::Debug for PlayReadyDecryptorSetup {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyDecryptorSetup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyDecryptorSetup;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyDecryptorSetup;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
@@ -7026,7 +7026,7 @@ impl ::core::fmt::Debug for PlayReadyEncryptionAlgorithm {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyEncryptionAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
@@ -7057,7 +7057,7 @@ impl ::core::fmt::Debug for PlayReadyHardwareDRMFeatures {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyHardwareDRMFeatures {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures;i4)");
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
@@ -7087,7 +7087,7 @@ impl ::core::fmt::Debug for PlayReadyITADataFormat {
     }
 }
 impl ::windows::core::RuntimeType for PlayReadyITADataFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyITADataFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyITADataFormat;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

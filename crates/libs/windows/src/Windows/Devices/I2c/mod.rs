@@ -147,7 +147,7 @@ impl II2cDeviceStatics {
         }
     }
 }
-::windows::core::interface_hierarchy!(II2cDeviceStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(II2cDeviceStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for II2cDeviceStatics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -160,7 +160,7 @@ impl ::core::fmt::Debug for II2cDeviceStatics {
     }
 }
 impl ::windows::core::RuntimeType for II2cDeviceStatics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{91a33be3-7334-4512-96bc-fbae9459f5f6}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{91a33be3-7334-4512-96bc-fbae9459f5f6}");
 }
 unsafe impl ::windows::core::Vtable for II2cDeviceStatics {
     type Vtable = II2cDeviceStatics_Vtbl;
@@ -229,7 +229,7 @@ impl I2cConnectionSettings {
     }
     #[doc(hidden)]
     pub fn II2cConnectionSettingsFactory<R, F: FnOnce(&II2cConnectionSettingsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<I2cConnectionSettings, II2cConnectionSettingsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<I2cConnectionSettings, II2cConnectionSettingsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -245,7 +245,7 @@ impl ::core::fmt::Debug for I2cConnectionSettings {
     }
 }
 impl ::windows::core::RuntimeType for I2cConnectionSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cConnectionSettings;{f2db1307-ab6f-4639-a767-54536dc3460f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cConnectionSettings;{f2db1307-ab6f-4639-a767-54536dc3460f})");
 }
 impl ::core::clone::Clone for I2cConnectionSettings {
     fn clone(&self) -> Self {
@@ -261,7 +261,7 @@ unsafe impl ::windows::core::Interface for I2cConnectionSettings {
 impl ::windows::core::RuntimeName for I2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.I2cConnectionSettings";
 }
-::windows::core::interface_hierarchy!(I2cConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(I2cConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for I2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for I2cConnectionSettings {}
 #[doc = "*Required features: `\"Devices_I2c\"`*"]
@@ -297,7 +297,7 @@ impl I2cController {
     }
     #[doc(hidden)]
     pub fn II2cControllerStatics<R, F: FnOnce(&II2cControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<I2cController, II2cControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<I2cController, II2cControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -313,7 +313,7 @@ impl ::core::fmt::Debug for I2cController {
     }
 }
 impl ::windows::core::RuntimeType for I2cController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cController;{c48ab1b2-87a0-4166-8e3e-b4b8f97cd729})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cController;{c48ab1b2-87a0-4166-8e3e-b4b8f97cd729})");
 }
 impl ::core::clone::Clone for I2cController {
     fn clone(&self) -> Self {
@@ -329,7 +329,7 @@ unsafe impl ::windows::core::Interface for I2cController {
 impl ::windows::core::RuntimeName for I2cController {
     const NAME: &'static str = "Windows.Devices.I2c.I2cController";
 }
-::windows::core::interface_hierarchy!(I2cController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(I2cController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for I2cController {}
 unsafe impl ::core::marker::Sync for I2cController {}
 #[doc = "*Required features: `\"Devices_I2c\"`*"]
@@ -411,7 +411,7 @@ impl I2cDevice {
     }
     #[doc(hidden)]
     pub fn II2cDeviceStatics<R, F: FnOnce(&II2cDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<I2cDevice, II2cDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<I2cDevice, II2cDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -427,7 +427,7 @@ impl ::core::fmt::Debug for I2cDevice {
     }
 }
 impl ::windows::core::RuntimeType for I2cDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cDevice;{8636c136-b9c5-4f70-9449-cc46dc6f57eb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cDevice;{8636c136-b9c5-4f70-9449-cc46dc6f57eb})");
 }
 impl ::core::clone::Clone for I2cDevice {
     fn clone(&self) -> Self {
@@ -443,7 +443,7 @@ unsafe impl ::windows::core::Interface for I2cDevice {
 impl ::windows::core::RuntimeName for I2cDevice {
     const NAME: &'static str = "Windows.Devices.I2c.I2cDevice";
 }
-::windows::core::interface_hierarchy!(I2cDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(I2cDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<I2cDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -496,7 +496,7 @@ impl ::core::fmt::Debug for I2cBusSpeed {
     }
 }
 impl ::windows::core::RuntimeType for I2cBusSpeed {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cBusSpeed;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cBusSpeed;i4)");
 }
 #[doc = "*Required features: `\"Devices_I2c\"`*"]
 #[repr(transparent)]
@@ -526,7 +526,7 @@ impl ::core::fmt::Debug for I2cSharingMode {
     }
 }
 impl ::windows::core::RuntimeType for I2cSharingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cSharingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cSharingMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_I2c\"`*"]
 #[repr(transparent)]
@@ -559,7 +559,7 @@ impl ::core::fmt::Debug for I2cTransferStatus {
     }
 }
 impl ::windows::core::RuntimeType for I2cTransferStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Devices_I2c\"`*"]
@@ -582,7 +582,7 @@ impl ::windows::core::TypeKind for I2cTransferResult {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for I2cTransferResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.I2cTransferResult;enum(Windows.Devices.I2c.I2cTransferStatus;i4);u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.I2cTransferResult;enum(Windows.Devices.I2c.I2cTransferStatus;i4);u4)");
 }
 impl ::core::cmp::PartialEq for I2cTransferResult {
     fn eq(&self, other: &Self) -> bool {

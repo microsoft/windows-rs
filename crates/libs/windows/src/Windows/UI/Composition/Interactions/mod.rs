@@ -45,7 +45,7 @@ pub struct ICompositionConditionalValueStatics_Vtbl {
 #[repr(transparent)]
 pub struct ICompositionInteractionSource(::windows::core::IUnknown);
 impl ICompositionInteractionSource {}
-::windows::core::interface_hierarchy!(ICompositionInteractionSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICompositionInteractionSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICompositionInteractionSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -58,7 +58,7 @@ impl ::core::fmt::Debug for ICompositionInteractionSource {
     }
 }
 impl ::windows::core::RuntimeType for ICompositionInteractionSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{043b2431-06e3-495a-ba54-409f0017fac0}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{043b2431-06e3-495a-ba54-409f0017fac0}");
 }
 unsafe impl ::windows::core::Vtable for ICompositionInteractionSource {
     type Vtable = ICompositionInteractionSource_Vtbl;
@@ -731,7 +731,7 @@ impl IInteractionTrackerOwner {
         unsafe { (::windows::core::Vtable::vtable(this).ValuesChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(args)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IInteractionTrackerOwner, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IInteractionTrackerOwner, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IInteractionTrackerOwner {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -744,7 +744,7 @@ impl ::core::fmt::Debug for IInteractionTrackerOwner {
     }
 }
 impl ::windows::core::RuntimeType for IInteractionTrackerOwner {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{db2e8af3-4deb-4e53-b29c-b06c9f96d651}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{db2e8af3-4deb-4e53-b29c-b06c9f96d651}");
 }
 unsafe impl ::windows::core::Vtable for IInteractionTrackerOwner {
     type Vtable = IInteractionTrackerOwner_Vtbl;
@@ -1250,7 +1250,7 @@ impl CompositionConditionalValue {
     }
     #[doc(hidden)]
     pub fn ICompositionConditionalValueStatics<R, F: FnOnce(&ICompositionConditionalValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompositionConditionalValue, ICompositionConditionalValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<CompositionConditionalValue, ICompositionConditionalValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1266,7 +1266,7 @@ impl ::core::fmt::Debug for CompositionConditionalValue {
     }
 }
 impl ::windows::core::RuntimeType for CompositionConditionalValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionConditionalValue;{43250538-eb73-4561-a71d-1a43eaeb7a9b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionConditionalValue;{43250538-eb73-4561-a71d-1a43eaeb7a9b})");
 }
 impl ::core::clone::Clone for CompositionConditionalValue {
     fn clone(&self) -> Self {
@@ -1282,7 +1282,7 @@ unsafe impl ::windows::core::Interface for CompositionConditionalValue {
 impl ::windows::core::RuntimeName for CompositionConditionalValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionConditionalValue";
 }
-::windows::core::interface_hierarchy!(CompositionConditionalValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionConditionalValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionConditionalValue> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionConditionalValue) -> ::windows::core::Result<Self> {
@@ -1499,7 +1499,7 @@ impl ::core::fmt::Debug for CompositionInteractionSourceCollection {
     }
 }
 impl ::windows::core::RuntimeType for CompositionInteractionSourceCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection;{1b468e4b-a5bf-47d8-a547-3894155a158c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection;{1b468e4b-a5bf-47d8-a547-3894155a158c})");
 }
 impl ::core::clone::Clone for CompositionInteractionSourceCollection {
     fn clone(&self) -> Self {
@@ -1531,7 +1531,7 @@ impl ::core::iter::IntoIterator for &CompositionInteractionSourceCollection {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(CompositionInteractionSourceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CompositionInteractionSourceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionInteractionSourceCollection> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
@@ -1767,7 +1767,7 @@ impl ::core::fmt::Debug for InteractionSourceConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for InteractionSourceConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionSourceConfiguration;{a78347e5-a9d1-4d02-985e-b930cd0b9da4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionSourceConfiguration;{a78347e5-a9d1-4d02-985e-b930cd0b9da4})");
 }
 impl ::core::clone::Clone for InteractionSourceConfiguration {
     fn clone(&self) -> Self {
@@ -1783,7 +1783,7 @@ unsafe impl ::windows::core::Interface for InteractionSourceConfiguration {
 impl ::windows::core::RuntimeName for InteractionSourceConfiguration {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionSourceConfiguration";
 }
-::windows::core::interface_hierarchy!(InteractionSourceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionSourceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionSourceConfiguration> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionSourceConfiguration) -> ::windows::core::Result<Self> {
@@ -2306,12 +2306,12 @@ impl InteractionTracker {
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerStatics<R, F: FnOnce(&IInteractionTrackerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InteractionTracker, IInteractionTrackerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InteractionTracker, IInteractionTrackerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerStatics2<R, F: FnOnce(&IInteractionTrackerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InteractionTracker, IInteractionTrackerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InteractionTracker, IInteractionTrackerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2327,7 +2327,7 @@ impl ::core::fmt::Debug for InteractionTracker {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTracker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTracker;{2a8e8cb1-1000-4416-8363-cc27fb877308})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTracker;{2a8e8cb1-1000-4416-8363-cc27fb877308})");
 }
 impl ::core::clone::Clone for InteractionTracker {
     fn clone(&self) -> Self {
@@ -2343,7 +2343,7 @@ unsafe impl ::windows::core::Interface for InteractionTracker {
 impl ::windows::core::RuntimeName for InteractionTracker {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTracker";
 }
-::windows::core::interface_hierarchy!(InteractionTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTracker> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTracker) -> ::windows::core::Result<Self> {
@@ -2433,7 +2433,7 @@ impl ::core::fmt::Debug for InteractionTrackerCustomAnimationStateEnteredArgs {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerCustomAnimationStateEnteredArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs;{8d1c8cf1-d7b0-434c-a5d2-2d7611864834})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs;{8d1c8cf1-d7b0-434c-a5d2-2d7611864834})");
 }
 impl ::core::clone::Clone for InteractionTrackerCustomAnimationStateEnteredArgs {
     fn clone(&self) -> Self {
@@ -2449,7 +2449,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerCustomAnimationStat
 impl ::windows::core::RuntimeName for InteractionTrackerCustomAnimationStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerCustomAnimationStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerCustomAnimationStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerCustomAnimationStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerCustomAnimationStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -2483,7 +2483,7 @@ impl ::core::fmt::Debug for InteractionTrackerIdleStateEnteredArgs {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerIdleStateEnteredArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerIdleStateEnteredArgs;{50012faa-1510-4142-a1a5-019b09f8857b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerIdleStateEnteredArgs;{50012faa-1510-4142-a1a5-019b09f8857b})");
 }
 impl ::core::clone::Clone for InteractionTrackerIdleStateEnteredArgs {
     fn clone(&self) -> Self {
@@ -2499,7 +2499,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerIdleStateEnteredArg
 impl ::windows::core::RuntimeName for InteractionTrackerIdleStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerIdleStateEnteredArgs";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerIdleStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerIdleStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerIdleStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerIdleStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -2624,7 +2624,7 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaModifier {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerInertiaModifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier;{a0e2c920-26b4-4da2-8b61-5e683979bbe2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier;{a0e2c920-26b4-4da2-8b61-5e683979bbe2})");
 }
 impl ::core::clone::Clone for InteractionTrackerInertiaModifier {
     fn clone(&self) -> Self {
@@ -2640,7 +2640,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaModifier {
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerInertiaModifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerInertiaModifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerInertiaModifier> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerInertiaModifier) -> ::windows::core::Result<Self> {
@@ -2838,7 +2838,7 @@ impl InteractionTrackerInertiaMotion {
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerInertiaMotionStatics<R, F: FnOnce(&IInteractionTrackerInertiaMotionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InteractionTrackerInertiaMotion, IInteractionTrackerInertiaMotionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InteractionTrackerInertiaMotion, IInteractionTrackerInertiaMotionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2854,7 +2854,7 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaMotion {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerInertiaMotion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion;{04922fdc-f154-4cb8-bf33-cc1ba611e6db})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion;{04922fdc-f154-4cb8-bf33-cc1ba611e6db})");
 }
 impl ::core::clone::Clone for InteractionTrackerInertiaMotion {
     fn clone(&self) -> Self {
@@ -2870,7 +2870,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaMotion {
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerInertiaMotion, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerInertiaMotion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerInertiaMotion> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerInertiaMotion) -> ::windows::core::Result<Self> {
@@ -3086,7 +3086,7 @@ impl InteractionTrackerInertiaNaturalMotion {
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerInertiaNaturalMotionStatics<R, F: FnOnce(&IInteractionTrackerInertiaNaturalMotionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InteractionTrackerInertiaNaturalMotion, IInteractionTrackerInertiaNaturalMotionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InteractionTrackerInertiaNaturalMotion, IInteractionTrackerInertiaNaturalMotionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3102,7 +3102,7 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaNaturalMotion {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerInertiaNaturalMotion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion;{70acdaae-27dc-48ed-a3c3-6d61c9a029d2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion;{70acdaae-27dc-48ed-a3c3-6d61c9a029d2})");
 }
 impl ::core::clone::Clone for InteractionTrackerInertiaNaturalMotion {
     fn clone(&self) -> Self {
@@ -3118,7 +3118,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaNaturalMotio
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerInertiaNaturalMotion, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerInertiaNaturalMotion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerInertiaNaturalMotion> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerInertiaNaturalMotion) -> ::windows::core::Result<Self> {
@@ -3331,7 +3331,7 @@ impl InteractionTrackerInertiaRestingValue {
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerInertiaRestingValueStatics<R, F: FnOnce(&IInteractionTrackerInertiaRestingValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InteractionTrackerInertiaRestingValue, IInteractionTrackerInertiaRestingValueStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InteractionTrackerInertiaRestingValue, IInteractionTrackerInertiaRestingValueStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3347,7 +3347,7 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaRestingValue {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerInertiaRestingValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue;{86f7ec09-5096-4170-9cc8-df2fe101bb93})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue;{86f7ec09-5096-4170-9cc8-df2fe101bb93})");
 }
 impl ::core::clone::Clone for InteractionTrackerInertiaRestingValue {
     fn clone(&self) -> Self {
@@ -3363,7 +3363,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaRestingValue
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaRestingValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerInertiaRestingValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerInertiaRestingValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerInertiaRestingValue> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerInertiaRestingValue) -> ::windows::core::Result<Self> {
@@ -3525,7 +3525,7 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaStateEnteredArgs {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerInertiaStateEnteredArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs;{87108cf2-e7ff-4f7d-9ffd-d72f1e409b63})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs;{87108cf2-e7ff-4f7d-9ffd-d72f1e409b63})");
 }
 impl ::core::clone::Clone for InteractionTrackerInertiaStateEnteredArgs {
     fn clone(&self) -> Self {
@@ -3541,7 +3541,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaStateEntered
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerInertiaStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerInertiaStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3575,7 +3575,7 @@ impl ::core::fmt::Debug for InteractionTrackerInteractingStateEnteredArgs {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerInteractingStateEnteredArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs;{a7263939-a17b-4011-99fd-b5c24f143748})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs;{a7263939-a17b-4011-99fd-b5c24f143748})");
 }
 impl ::core::clone::Clone for InteractionTrackerInteractingStateEnteredArgs {
     fn clone(&self) -> Self {
@@ -3591,7 +3591,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInteractingStateEnt
 impl ::windows::core::RuntimeName for InteractionTrackerInteractingStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerInteractingStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerInteractingStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerInteractingStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3618,7 +3618,7 @@ impl ::core::fmt::Debug for InteractionTrackerRequestIgnoredArgs {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerRequestIgnoredArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerRequestIgnoredArgs;{80dd82f1-ce25-488f-91dd-cb6455ccff2e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerRequestIgnoredArgs;{80dd82f1-ce25-488f-91dd-cb6455ccff2e})");
 }
 impl ::core::clone::Clone for InteractionTrackerRequestIgnoredArgs {
     fn clone(&self) -> Self {
@@ -3634,7 +3634,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerRequestIgnoredArgs 
 impl ::windows::core::RuntimeName for InteractionTrackerRequestIgnoredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerRequestIgnoredArgs";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerRequestIgnoredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerRequestIgnoredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerRequestIgnoredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerRequestIgnoredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3677,7 +3677,7 @@ impl ::core::fmt::Debug for InteractionTrackerValuesChangedArgs {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerValuesChangedArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerValuesChangedArgs;{cf1578ef-d3df-4501-b9e6-f02fb22f73d0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerValuesChangedArgs;{cf1578ef-d3df-4501-b9e6-f02fb22f73d0})");
 }
 impl ::core::clone::Clone for InteractionTrackerValuesChangedArgs {
     fn clone(&self) -> Self {
@@ -3693,7 +3693,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerValuesChangedArgs {
 impl ::windows::core::RuntimeName for InteractionTrackerValuesChangedArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerValuesChangedArgs";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerValuesChangedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerValuesChangedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerValuesChangedArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerValuesChangedArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3818,7 +3818,7 @@ impl ::core::fmt::Debug for InteractionTrackerVector2InertiaModifier {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaModifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier;{87e08ab0-3086-4853-a4b7-77882ad5d7e3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier;{87e08ab0-3086-4853-a4b7-77882ad5d7e3})");
 }
 impl ::core::clone::Clone for InteractionTrackerVector2InertiaModifier {
     fn clone(&self) -> Self {
@@ -3834,7 +3834,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerVector2InertiaModif
 impl ::windows::core::RuntimeName for InteractionTrackerVector2InertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerVector2InertiaModifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerVector2InertiaModifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerVector2InertiaModifier> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerVector2InertiaModifier) -> ::windows::core::Result<Self> {
@@ -4035,7 +4035,7 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerVector2InertiaNaturalMotionStatics<R, F: FnOnce(&IInteractionTrackerVector2InertiaNaturalMotionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InteractionTrackerVector2InertiaNaturalMotion, IInteractionTrackerVector2InertiaNaturalMotionStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InteractionTrackerVector2InertiaNaturalMotion, IInteractionTrackerVector2InertiaNaturalMotionStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4051,7 +4051,7 @@ impl ::core::fmt::Debug for InteractionTrackerVector2InertiaNaturalMotion {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaNaturalMotion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion;{5f17695c-162d-4c07-9400-c282b28276ca})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion;{5f17695c-162d-4c07-9400-c282b28276ca})");
 }
 impl ::core::clone::Clone for InteractionTrackerVector2InertiaNaturalMotion {
     fn clone(&self) -> Self {
@@ -4067,7 +4067,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerVector2InertiaNatur
 impl ::windows::core::RuntimeName for InteractionTrackerVector2InertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion";
 }
-::windows::core::interface_hierarchy!(InteractionTrackerVector2InertiaNaturalMotion, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InteractionTrackerVector2InertiaNaturalMotion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerVector2InertiaNaturalMotion> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerVector2InertiaNaturalMotion) -> ::windows::core::Result<Self> {
@@ -4488,12 +4488,12 @@ impl VisualInteractionSource {
     }
     #[doc(hidden)]
     pub fn IVisualInteractionSourceStatics<R, F: FnOnce(&IVisualInteractionSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VisualInteractionSource, IVisualInteractionSourceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VisualInteractionSource, IVisualInteractionSourceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IVisualInteractionSourceStatics2<R, F: FnOnce(&IVisualInteractionSourceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VisualInteractionSource, IVisualInteractionSourceStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VisualInteractionSource, IVisualInteractionSourceStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4509,7 +4509,7 @@ impl ::core::fmt::Debug for VisualInteractionSource {
     }
 }
 impl ::windows::core::RuntimeType for VisualInteractionSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.VisualInteractionSource;{ca0e8a86-d8d6-4111-b088-70347bd2b0ed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.VisualInteractionSource;{ca0e8a86-d8d6-4111-b088-70347bd2b0ed})");
 }
 impl ::core::clone::Clone for VisualInteractionSource {
     fn clone(&self) -> Self {
@@ -4525,7 +4525,7 @@ unsafe impl ::windows::core::Interface for VisualInteractionSource {
 impl ::windows::core::RuntimeName for VisualInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.VisualInteractionSource";
 }
-::windows::core::interface_hierarchy!(VisualInteractionSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VisualInteractionSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VisualInteractionSource> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: VisualInteractionSource) -> ::windows::core::Result<Self> {
@@ -4666,7 +4666,7 @@ impl ::core::ops::Not for InteractionBindingAxisModes {
     }
 }
 impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionBindingAxisModes;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionBindingAxisModes;u4)");
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4697,7 +4697,7 @@ impl ::core::fmt::Debug for InteractionChainingMode {
     }
 }
 impl ::windows::core::RuntimeType for InteractionChainingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionChainingMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionChainingMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4728,7 +4728,7 @@ impl ::core::fmt::Debug for InteractionSourceMode {
     }
 }
 impl ::windows::core::RuntimeType for InteractionSourceMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4758,7 +4758,7 @@ impl ::core::fmt::Debug for InteractionSourceRedirectionMode {
     }
 }
 impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4788,7 +4788,7 @@ impl ::core::fmt::Debug for InteractionTrackerClampingOption {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerClampingOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerClampingOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerClampingOption;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4818,7 +4818,7 @@ impl ::core::fmt::Debug for InteractionTrackerPositionUpdateOption {
     }
 }
 impl ::windows::core::RuntimeType for InteractionTrackerPositionUpdateOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption;i4)");
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4850,7 +4850,7 @@ impl ::core::fmt::Debug for VisualInteractionSourceRedirectionMode {
     }
 }
 impl ::windows::core::RuntimeType for VisualInteractionSourceRedirectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.VisualInteractionSourceRedirectionMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.VisualInteractionSourceRedirectionMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

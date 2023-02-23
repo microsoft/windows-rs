@@ -372,7 +372,7 @@ impl ::core::fmt::Debug for SpeechSynthesisStream {
     }
 }
 impl ::windows::core::RuntimeType for SpeechSynthesisStream {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesisStream;{83e46e93-244c-4622-ba0b-6229c4d0d65d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesisStream;{83e46e93-244c-4622-ba0b-6229c4d0d65d})");
 }
 impl ::core::clone::Clone for SpeechSynthesisStream {
     fn clone(&self) -> Self {
@@ -388,7 +388,7 @@ unsafe impl ::windows::core::Interface for SpeechSynthesisStream {
 impl ::windows::core::RuntimeName for SpeechSynthesisStream {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesisStream";
 }
-::windows::core::interface_hierarchy!(SpeechSynthesisStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechSynthesisStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SpeechSynthesisStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -552,8 +552,8 @@ impl SpeechSynthesizer {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechSynthesizer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<SpeechSynthesizer, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -622,12 +622,12 @@ impl SpeechSynthesizer {
     }
     #[doc(hidden)]
     pub fn IInstalledVoicesStatic<R, F: FnOnce(&IInstalledVoicesStatic) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechSynthesizer, IInstalledVoicesStatic> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpeechSynthesizer, IInstalledVoicesStatic> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IInstalledVoicesStatic2<R, F: FnOnce(&IInstalledVoicesStatic2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SpeechSynthesizer, IInstalledVoicesStatic2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SpeechSynthesizer, IInstalledVoicesStatic2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -643,7 +643,7 @@ impl ::core::fmt::Debug for SpeechSynthesizer {
     }
 }
 impl ::windows::core::RuntimeType for SpeechSynthesizer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesizer;{ce9f7c76-97f4-4ced-ad68-d51c458e45c6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesizer;{ce9f7c76-97f4-4ced-ad68-d51c458e45c6})");
 }
 impl ::core::clone::Clone for SpeechSynthesizer {
     fn clone(&self) -> Self {
@@ -659,7 +659,7 @@ unsafe impl ::windows::core::Interface for SpeechSynthesizer {
 impl ::windows::core::RuntimeName for SpeechSynthesizer {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizer";
 }
-::windows::core::interface_hierarchy!(SpeechSynthesizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechSynthesizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SpeechSynthesizer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -778,7 +778,7 @@ impl ::core::fmt::Debug for SpeechSynthesizerOptions {
     }
 }
 impl ::windows::core::RuntimeType for SpeechSynthesizerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions;{a0e23871-cc3d-43c9-91b1-ee185324d83d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions;{a0e23871-cc3d-43c9-91b1-ee185324d83d})");
 }
 impl ::core::clone::Clone for SpeechSynthesizerOptions {
     fn clone(&self) -> Self {
@@ -794,7 +794,7 @@ unsafe impl ::windows::core::Interface for SpeechSynthesizerOptions {
 impl ::windows::core::RuntimeName for SpeechSynthesizerOptions {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions";
 }
-::windows::core::interface_hierarchy!(SpeechSynthesizerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SpeechSynthesizerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechSynthesizerOptions {}
 unsafe impl ::core::marker::Sync for SpeechSynthesizerOptions {}
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
@@ -849,7 +849,7 @@ impl ::core::fmt::Debug for VoiceInformation {
     }
 }
 impl ::windows::core::RuntimeType for VoiceInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.VoiceInformation;{b127d6a4-1291-4604-aa9c-83134083352c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.VoiceInformation;{b127d6a4-1291-4604-aa9c-83134083352c})");
 }
 impl ::core::clone::Clone for VoiceInformation {
     fn clone(&self) -> Self {
@@ -865,7 +865,7 @@ unsafe impl ::windows::core::Interface for VoiceInformation {
 impl ::windows::core::RuntimeName for VoiceInformation {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.VoiceInformation";
 }
-::windows::core::interface_hierarchy!(VoiceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VoiceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceInformation {}
 unsafe impl ::core::marker::Sync for VoiceInformation {}
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
@@ -896,7 +896,7 @@ impl ::core::fmt::Debug for SpeechAppendedSilence {
     }
 }
 impl ::windows::core::RuntimeType for SpeechAppendedSilence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
 }
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
@@ -926,7 +926,7 @@ impl ::core::fmt::Debug for SpeechPunctuationSilence {
     }
 }
 impl ::windows::core::RuntimeType for SpeechPunctuationSilence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
 }
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
@@ -956,7 +956,7 @@ impl ::core::fmt::Debug for VoiceGender {
     }
 }
 impl ::windows::core::RuntimeType for VoiceGender {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

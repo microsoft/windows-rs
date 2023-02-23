@@ -51,7 +51,7 @@ impl WindowManagementPreview {
     }
     #[doc(hidden)]
     pub fn IWindowManagementPreviewStatics<R, F: FnOnce(&IWindowManagementPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowManagementPreview, IWindowManagementPreviewStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WindowManagementPreview, IWindowManagementPreviewStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -67,7 +67,7 @@ impl ::core::fmt::Debug for WindowManagementPreview {
     }
 }
 impl ::windows::core::RuntimeType for WindowManagementPreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.Preview.WindowManagementPreview;{4ef55b0d-561d-513c-a67c-2c02b69cef41})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.Preview.WindowManagementPreview;{4ef55b0d-561d-513c-a67c-2c02b69cef41})");
 }
 impl ::core::clone::Clone for WindowManagementPreview {
     fn clone(&self) -> Self {
@@ -83,7 +83,7 @@ unsafe impl ::windows::core::Interface for WindowManagementPreview {
 impl ::windows::core::RuntimeName for WindowManagementPreview {
     const NAME: &'static str = "Windows.UI.WindowManagement.Preview.WindowManagementPreview";
 }
-::windows::core::interface_hierarchy!(WindowManagementPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WindowManagementPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowManagementPreview {}
 unsafe impl ::core::marker::Sync for WindowManagementPreview {}
 #[cfg(feature = "implement")]

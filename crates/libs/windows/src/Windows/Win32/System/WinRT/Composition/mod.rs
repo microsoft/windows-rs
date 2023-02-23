@@ -12,7 +12,7 @@ impl ICompositionCapabilitiesInteropFactory {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ICompositionCapabilitiesInteropFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -77,7 +77,7 @@ impl ICompositionDrawingSurfaceInterop {
         (::windows::core::Vtable::vtable(self).SuspendDraw)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICompositionDrawingSurfaceInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICompositionDrawingSurfaceInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -161,7 +161,7 @@ impl ICompositionDrawingSurfaceInterop2 {
         (::windows::core::Vtable::vtable(self).CopySurface)(::windows::core::Vtable::as_raw(self), destinationresource.into().abi(), destinationoffsetx, destinationoffsety, ::core::mem::transmute(sourcerectangle.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICompositionDrawingSurfaceInterop2, ::windows::core::IUnknown, ICompositionDrawingSurfaceInterop);
+::windows::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop2, ::windows::core::IUnknown, ICompositionDrawingSurfaceInterop);
 impl ::core::cmp::PartialEq for ICompositionDrawingSurfaceInterop2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -208,7 +208,7 @@ impl ICompositionGraphicsDeviceInterop {
         (::windows::core::Vtable::vtable(self).SetRenderingDevice)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICompositionGraphicsDeviceInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICompositionGraphicsDeviceInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICompositionGraphicsDeviceInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -256,7 +256,7 @@ impl ICompositorDesktopInterop {
         (::windows::core::Vtable::vtable(self).EnsureOnThread)(::windows::core::Vtable::as_raw(self), threadid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICompositorDesktopInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICompositorDesktopInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICompositorDesktopInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -321,7 +321,7 @@ impl ICompositorInterop {
         (::windows::core::Vtable::vtable(self).CreateGraphicsDevice)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ICompositorInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ICompositorInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICompositorInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -372,7 +372,7 @@ impl IDesktopWindowTargetInterop {
         (::windows::core::Vtable::vtable(self).Hwnd)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDesktopWindowTargetInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDesktopWindowTargetInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDesktopWindowTargetInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -415,7 +415,7 @@ impl ISwapChainInterop {
         (::windows::core::Vtable::vtable(self).SetSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISwapChainInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISwapChainInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISwapChainInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -454,7 +454,7 @@ impl IVisualInteractionSourceInterop {
         (::windows::core::Vtable::vtable(self).TryRedirectForManipulation)(::windows::core::Vtable::as_raw(self), pointerinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IVisualInteractionSourceInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IVisualInteractionSourceInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IVisualInteractionSourceInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

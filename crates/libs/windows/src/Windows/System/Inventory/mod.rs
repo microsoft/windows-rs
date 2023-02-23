@@ -95,7 +95,7 @@ impl InstalledDesktopApp {
     }
     #[doc(hidden)]
     pub fn IInstalledDesktopAppStatics<R, F: FnOnce(&IInstalledDesktopAppStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<InstalledDesktopApp, IInstalledDesktopAppStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<InstalledDesktopApp, IInstalledDesktopAppStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -111,7 +111,7 @@ impl ::core::fmt::Debug for InstalledDesktopApp {
     }
 }
 impl ::windows::core::RuntimeType for InstalledDesktopApp {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Inventory.InstalledDesktopApp;{75eab8ed-c0bc-5364-4c28-166e0545167a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Inventory.InstalledDesktopApp;{75eab8ed-c0bc-5364-4c28-166e0545167a})");
 }
 impl ::core::clone::Clone for InstalledDesktopApp {
     fn clone(&self) -> Self {
@@ -127,7 +127,7 @@ unsafe impl ::windows::core::Interface for InstalledDesktopApp {
 impl ::windows::core::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";
 }
-::windows::core::interface_hierarchy!(InstalledDesktopApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InstalledDesktopApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<InstalledDesktopApp> for super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;

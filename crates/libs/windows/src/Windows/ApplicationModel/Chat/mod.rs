@@ -225,7 +225,7 @@ impl IChatItem {
         }
     }
 }
-::windows::core::interface_hierarchy!(IChatItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IChatItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IChatItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -238,7 +238,7 @@ impl ::core::fmt::Debug for IChatItem {
     }
 }
 impl ::windows::core::RuntimeType for IChatItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8751d000-ceb1-4243-b803-15d45a1dd428}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8751d000-ceb1-4243-b803-15d45a1dd428}");
 }
 unsafe impl ::windows::core::Vtable for IChatItem {
     type Vtable = IChatItem_Vtbl;
@@ -1576,7 +1576,7 @@ impl ::core::fmt::Debug for ChatCapabilities {
     }
 }
 impl ::windows::core::RuntimeType for ChatCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatCapabilities;{3aff77bc-39c9-4dd1-ad2d-3964dd9d403f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatCapabilities;{3aff77bc-39c9-4dd1-ad2d-3964dd9d403f})");
 }
 impl ::core::clone::Clone for ChatCapabilities {
     fn clone(&self) -> Self {
@@ -1592,7 +1592,7 @@ unsafe impl ::windows::core::Interface for ChatCapabilities {
 impl ::windows::core::RuntimeName for ChatCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatCapabilities";
 }
-::windows::core::interface_hierarchy!(ChatCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatCapabilities {}
 unsafe impl ::core::marker::Sync for ChatCapabilities {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -1632,12 +1632,12 @@ impl ChatCapabilitiesManager {
     }
     #[doc(hidden)]
     pub fn IChatCapabilitiesManagerStatics<R, F: FnOnce(&IChatCapabilitiesManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatCapabilitiesManager, IChatCapabilitiesManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ChatCapabilitiesManager, IChatCapabilitiesManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IChatCapabilitiesManagerStatics2<R, F: FnOnce(&IChatCapabilitiesManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatCapabilitiesManager, IChatCapabilitiesManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ChatCapabilitiesManager, IChatCapabilitiesManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1804,7 +1804,7 @@ impl ::core::fmt::Debug for ChatConversation {
     }
 }
 impl ::windows::core::RuntimeType for ChatConversation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversation;{a58c080d-1a6f-46dc-8f3d-f5028660b6ee})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversation;{a58c080d-1a6f-46dc-8f3d-f5028660b6ee})");
 }
 impl ::core::clone::Clone for ChatConversation {
     fn clone(&self) -> Self {
@@ -1820,7 +1820,7 @@ unsafe impl ::windows::core::Interface for ChatConversation {
 impl ::windows::core::RuntimeName for ChatConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversation";
 }
-::windows::core::interface_hierarchy!(ChatConversation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatConversation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ChatConversation> for IChatItem {
     type Error = ::windows::core::Error;
     fn try_from(value: ChatConversation) -> ::windows::core::Result<Self> {
@@ -1877,7 +1877,7 @@ impl ::core::fmt::Debug for ChatConversationReader {
     }
 }
 impl ::windows::core::RuntimeType for ChatConversationReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationReader;{055136d2-de32-4a47-a93a-b3dc0833852b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationReader;{055136d2-de32-4a47-a93a-b3dc0833852b})");
 }
 impl ::core::clone::Clone for ChatConversationReader {
     fn clone(&self) -> Self {
@@ -1893,7 +1893,7 @@ unsafe impl ::windows::core::Interface for ChatConversationReader {
 impl ::windows::core::RuntimeName for ChatConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationReader";
 }
-::windows::core::interface_hierarchy!(ChatConversationReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatConversationReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatConversationReader {}
 unsafe impl ::core::marker::Sync for ChatConversationReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -1903,8 +1903,8 @@ impl ChatConversationThreadingInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatConversationThreadingInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ChatConversationThreadingInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ContactId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1973,7 +1973,7 @@ impl ::core::fmt::Debug for ChatConversationThreadingInfo {
     }
 }
 impl ::windows::core::RuntimeType for ChatConversationThreadingInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationThreadingInfo;{331c21dc-7a07-4422-a32c-24be7c6dab24})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationThreadingInfo;{331c21dc-7a07-4422-a32c-24be7c6dab24})");
 }
 impl ::core::clone::Clone for ChatConversationThreadingInfo {
     fn clone(&self) -> Self {
@@ -1989,7 +1989,7 @@ unsafe impl ::windows::core::Interface for ChatConversationThreadingInfo {
 impl ::windows::core::RuntimeName for ChatConversationThreadingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationThreadingInfo";
 }
-::windows::core::interface_hierarchy!(ChatConversationThreadingInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatConversationThreadingInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatConversationThreadingInfo {}
 unsafe impl ::core::marker::Sync for ChatConversationThreadingInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -1999,8 +1999,8 @@ impl ChatMessage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ChatMessage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn ItemKind(&self) -> ::windows::core::Result<ChatItemKind> {
@@ -2315,7 +2315,7 @@ impl ::core::fmt::Debug for ChatMessage {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessage;{4b39052a-1142-5089-76da-f2db3d17cd05})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessage;{4b39052a-1142-5089-76da-f2db3d17cd05})");
 }
 impl ::core::clone::Clone for ChatMessage {
     fn clone(&self) -> Self {
@@ -2331,7 +2331,7 @@ unsafe impl ::windows::core::Interface for ChatMessage {
 impl ::windows::core::RuntimeName for ChatMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessage";
 }
-::windows::core::interface_hierarchy!(ChatMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ChatMessage> for IChatItem {
     type Error = ::windows::core::Error;
     fn try_from(value: ChatMessage) -> ::windows::core::Result<Self> {
@@ -2464,7 +2464,7 @@ impl ChatMessageAttachment {
     }
     #[doc(hidden)]
     pub fn IChatMessageAttachmentFactory<R, F: FnOnce(&IChatMessageAttachmentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatMessageAttachment, IChatMessageAttachmentFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ChatMessageAttachment, IChatMessageAttachmentFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2480,7 +2480,7 @@ impl ::core::fmt::Debug for ChatMessageAttachment {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageAttachment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageAttachment;{c7c4fd74-bf63-58eb-508c-8b863ff16b67})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageAttachment;{c7c4fd74-bf63-58eb-508c-8b863ff16b67})");
 }
 impl ::core::clone::Clone for ChatMessageAttachment {
     fn clone(&self) -> Self {
@@ -2496,7 +2496,7 @@ unsafe impl ::windows::core::Interface for ChatMessageAttachment {
 impl ::windows::core::RuntimeName for ChatMessageAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageAttachment";
 }
-::windows::core::interface_hierarchy!(ChatMessageAttachment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageAttachment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageAttachment {}
 unsafe impl ::core::marker::Sync for ChatMessageAttachment {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2512,7 +2512,7 @@ impl ChatMessageBlocking {
     }
     #[doc(hidden)]
     pub fn IChatMessageBlockingStatic<R, F: FnOnce(&IChatMessageBlockingStatic) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatMessageBlocking, IChatMessageBlockingStatic> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ChatMessageBlocking, IChatMessageBlockingStatic> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2550,7 +2550,7 @@ impl ::core::fmt::Debug for ChatMessageChange {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChange;{1c18c355-421e-54b8-6d38-6b3a6c82fccc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChange;{1c18c355-421e-54b8-6d38-6b3a6c82fccc})");
 }
 impl ::core::clone::Clone for ChatMessageChange {
     fn clone(&self) -> Self {
@@ -2566,7 +2566,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChange {
 impl ::windows::core::RuntimeName for ChatMessageChange {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChange";
 }
-::windows::core::interface_hierarchy!(ChatMessageChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChange {}
 unsafe impl ::core::marker::Sync for ChatMessageChange {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2603,7 +2603,7 @@ impl ::core::fmt::Debug for ChatMessageChangeReader {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageChangeReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeReader;{14267020-28ce-5f26-7b05-9a5c7cce87ca})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeReader;{14267020-28ce-5f26-7b05-9a5c7cce87ca})");
 }
 impl ::core::clone::Clone for ChatMessageChangeReader {
     fn clone(&self) -> Self {
@@ -2619,7 +2619,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChangeReader {
 impl ::windows::core::RuntimeName for ChatMessageChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeReader";
 }
-::windows::core::interface_hierarchy!(ChatMessageChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChangeReader {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2654,7 +2654,7 @@ impl ::core::fmt::Debug for ChatMessageChangeTracker {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageChangeTracker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeTracker;{60b7f066-70a0-5224-508c-242ef7c1d06f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeTracker;{60b7f066-70a0-5224-508c-242ef7c1d06f})");
 }
 impl ::core::clone::Clone for ChatMessageChangeTracker {
     fn clone(&self) -> Self {
@@ -2670,7 +2670,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChangeTracker {
 impl ::windows::core::RuntimeName for ChatMessageChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeTracker";
 }
-::windows::core::interface_hierarchy!(ChatMessageChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChangeTracker {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeTracker {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2694,7 +2694,7 @@ impl ::core::fmt::Debug for ChatMessageChangedDeferral {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageChangedDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedDeferral;{fbc6b30c-788c-4dcc-ace7-6282382968cf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedDeferral;{fbc6b30c-788c-4dcc-ace7-6282382968cf})");
 }
 impl ::core::clone::Clone for ChatMessageChangedDeferral {
     fn clone(&self) -> Self {
@@ -2710,7 +2710,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChangedDeferral {
 impl ::windows::core::RuntimeName for ChatMessageChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedDeferral";
 }
-::windows::core::interface_hierarchy!(ChatMessageChangedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageChangedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChangedDeferral {}
 unsafe impl ::core::marker::Sync for ChatMessageChangedDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2737,7 +2737,7 @@ impl ::core::fmt::Debug for ChatMessageChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs;{b6b73e2d-691c-4edf-8660-6eb9896892e3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs;{b6b73e2d-691c-4edf-8660-6eb9896892e3})");
 }
 impl ::core::clone::Clone for ChatMessageChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2753,7 +2753,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChangedEventArgs {
 impl ::windows::core::RuntimeName for ChatMessageChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(ChatMessageChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ChatMessageChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2812,17 +2812,17 @@ impl ChatMessageManager {
     }
     #[doc(hidden)]
     pub fn IChatMessageManager2Statics<R, F: FnOnce(&IChatMessageManager2Statics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatMessageManager, IChatMessageManager2Statics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ChatMessageManager, IChatMessageManager2Statics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IChatMessageManagerStatic<R, F: FnOnce(&IChatMessageManagerStatic) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatMessageManager, IChatMessageManagerStatic> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ChatMessageManager, IChatMessageManagerStatic> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IChatMessageManagerStatics3<R, F: FnOnce(&IChatMessageManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatMessageManager, IChatMessageManagerStatics3> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ChatMessageManager, IChatMessageManagerStatics3> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2881,7 +2881,7 @@ impl ::core::fmt::Debug for ChatMessageNotificationTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageNotificationTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails;{fd344dfb-3063-4e17-8586-c6c08262e6c0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails;{fd344dfb-3063-4e17-8586-c6c08262e6c0})");
 }
 impl ::core::clone::Clone for ChatMessageNotificationTriggerDetails {
     fn clone(&self) -> Self {
@@ -2897,7 +2897,7 @@ unsafe impl ::windows::core::Interface for ChatMessageNotificationTriggerDetails
 impl ::windows::core::RuntimeName for ChatMessageNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails";
 }
-::windows::core::interface_hierarchy!(ChatMessageNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ChatMessageNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2935,7 +2935,7 @@ impl ::core::fmt::Debug for ChatMessageReader {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageReader;{b6ea78ce-4489-56f9-76aa-e204682514cf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageReader;{b6ea78ce-4489-56f9-76aa-e204682514cf})");
 }
 impl ::core::clone::Clone for ChatMessageReader {
     fn clone(&self) -> Self {
@@ -2951,7 +2951,7 @@ unsafe impl ::windows::core::Interface for ChatMessageReader {
 impl ::windows::core::RuntimeName for ChatMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageReader";
 }
-::windows::core::interface_hierarchy!(ChatMessageReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageReader {}
 unsafe impl ::core::marker::Sync for ChatMessageReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3245,7 +3245,7 @@ impl ::core::fmt::Debug for ChatMessageStore {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStore;{31f2fd01-ccf6-580b-4976-0a07dd5d3b47})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStore;{31f2fd01-ccf6-580b-4976-0a07dd5d3b47})");
 }
 impl ::core::clone::Clone for ChatMessageStore {
     fn clone(&self) -> Self {
@@ -3261,7 +3261,7 @@ unsafe impl ::windows::core::Interface for ChatMessageStore {
 impl ::windows::core::RuntimeName for ChatMessageStore {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStore";
 }
-::windows::core::interface_hierarchy!(ChatMessageStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageStore {}
 unsafe impl ::core::marker::Sync for ChatMessageStore {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3295,7 +3295,7 @@ impl ::core::fmt::Debug for ChatMessageStoreChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageStoreChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs;{65c66fac-fe8c-46d4-9119-57b8410311d5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs;{65c66fac-fe8c-46d4-9119-57b8410311d5})");
 }
 impl ::core::clone::Clone for ChatMessageStoreChangedEventArgs {
     fn clone(&self) -> Self {
@@ -3311,7 +3311,7 @@ unsafe impl ::windows::core::Interface for ChatMessageStoreChangedEventArgs {
 impl ::windows::core::RuntimeName for ChatMessageStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(ChatMessageStoreChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageStoreChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageStoreChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ChatMessageStoreChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3382,7 +3382,7 @@ impl ::core::fmt::Debug for ChatMessageTransport {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageTransport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransport;{63a9dbf8-e6b3-5c9a-5f85-d47925b9bd18})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransport;{63a9dbf8-e6b3-5c9a-5f85-d47925b9bd18})");
 }
 impl ::core::clone::Clone for ChatMessageTransport {
     fn clone(&self) -> Self {
@@ -3398,7 +3398,7 @@ unsafe impl ::windows::core::Interface for ChatMessageTransport {
 impl ::windows::core::RuntimeName for ChatMessageTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransport";
 }
-::windows::core::interface_hierarchy!(ChatMessageTransport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageTransport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageTransport {}
 unsafe impl ::core::marker::Sync for ChatMessageTransport {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3457,7 +3457,7 @@ impl ::core::fmt::Debug for ChatMessageTransportConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageTransportConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration;{879ff725-1a08-4aca-a075-3355126312e6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration;{879ff725-1a08-4aca-a075-3355126312e6})");
 }
 impl ::core::clone::Clone for ChatMessageTransportConfiguration {
     fn clone(&self) -> Self {
@@ -3473,7 +3473,7 @@ unsafe impl ::windows::core::Interface for ChatMessageTransportConfiguration {
 impl ::windows::core::RuntimeName for ChatMessageTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration";
 }
-::windows::core::interface_hierarchy!(ChatMessageTransportConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageTransportConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageTransportConfiguration {}
 unsafe impl ::core::marker::Sync for ChatMessageTransportConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3527,7 +3527,7 @@ impl ::core::fmt::Debug for ChatMessageValidationResult {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageValidationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageValidationResult;{25e93a03-28ec-5889-569b-7e486b126f18})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageValidationResult;{25e93a03-28ec-5889-569b-7e486b126f18})");
 }
 impl ::core::clone::Clone for ChatMessageValidationResult {
     fn clone(&self) -> Self {
@@ -3543,7 +3543,7 @@ unsafe impl ::windows::core::Interface for ChatMessageValidationResult {
 impl ::windows::core::RuntimeName for ChatMessageValidationResult {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageValidationResult";
 }
-::windows::core::interface_hierarchy!(ChatMessageValidationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatMessageValidationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageValidationResult {}
 unsafe impl ::core::marker::Sync for ChatMessageValidationResult {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3553,8 +3553,8 @@ impl ChatQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatQueryOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ChatQueryOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SearchString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3581,7 +3581,7 @@ impl ::core::fmt::Debug for ChatQueryOptions {
     }
 }
 impl ::windows::core::RuntimeType for ChatQueryOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatQueryOptions;{2fd364a6-bf36-42f7-b7e7-923c0aabfe16})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatQueryOptions;{2fd364a6-bf36-42f7-b7e7-923c0aabfe16})");
 }
 impl ::core::clone::Clone for ChatQueryOptions {
     fn clone(&self) -> Self {
@@ -3597,7 +3597,7 @@ unsafe impl ::windows::core::Interface for ChatQueryOptions {
 impl ::windows::core::RuntimeName for ChatQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatQueryOptions";
 }
-::windows::core::interface_hierarchy!(ChatQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatQueryOptions {}
 unsafe impl ::core::marker::Sync for ChatQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3607,8 +3607,8 @@ impl ChatRecipientDeliveryInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ChatRecipientDeliveryInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<ChatRecipientDeliveryInfo, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn TransportAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3708,7 +3708,7 @@ impl ::core::fmt::Debug for ChatRecipientDeliveryInfo {
     }
 }
 impl ::windows::core::RuntimeType for ChatRecipientDeliveryInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo;{ffc7b2a2-283c-4c0a-8a0e-8c33bdbf0545})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo;{ffc7b2a2-283c-4c0a-8a0e-8c33bdbf0545})");
 }
 impl ::core::clone::Clone for ChatRecipientDeliveryInfo {
     fn clone(&self) -> Self {
@@ -3724,7 +3724,7 @@ unsafe impl ::windows::core::Interface for ChatRecipientDeliveryInfo {
 impl ::windows::core::RuntimeName for ChatRecipientDeliveryInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo";
 }
-::windows::core::interface_hierarchy!(ChatRecipientDeliveryInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatRecipientDeliveryInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatRecipientDeliveryInfo {}
 unsafe impl ::core::marker::Sync for ChatRecipientDeliveryInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3762,7 +3762,7 @@ impl ::core::fmt::Debug for ChatSearchReader {
     }
 }
 impl ::windows::core::RuntimeType for ChatSearchReader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSearchReader;{4665fe49-9020-4752-980d-39612325f589})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSearchReader;{4665fe49-9020-4752-980d-39612325f589})");
 }
 impl ::core::clone::Clone for ChatSearchReader {
     fn clone(&self) -> Self {
@@ -3778,7 +3778,7 @@ unsafe impl ::windows::core::Interface for ChatSearchReader {
 impl ::windows::core::RuntimeName for ChatSearchReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSearchReader";
 }
-::windows::core::interface_hierarchy!(ChatSearchReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatSearchReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatSearchReader {}
 unsafe impl ::core::marker::Sync for ChatSearchReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3820,7 +3820,7 @@ impl ::core::fmt::Debug for ChatSyncConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for ChatSyncConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncConfiguration;{09f869b2-69f4-4aff-82b6-06992ff402d2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncConfiguration;{09f869b2-69f4-4aff-82b6-06992ff402d2})");
 }
 impl ::core::clone::Clone for ChatSyncConfiguration {
     fn clone(&self) -> Self {
@@ -3836,7 +3836,7 @@ unsafe impl ::windows::core::Interface for ChatSyncConfiguration {
 impl ::windows::core::RuntimeName for ChatSyncConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncConfiguration";
 }
-::windows::core::interface_hierarchy!(ChatSyncConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatSyncConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatSyncConfiguration {}
 unsafe impl ::core::marker::Sync for ChatSyncConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3903,7 +3903,7 @@ impl ::core::fmt::Debug for ChatSyncManager {
     }
 }
 impl ::windows::core::RuntimeType for ChatSyncManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncManager;{7ba52c63-2650-486f-b4b4-6bd9d3d63c84})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncManager;{7ba52c63-2650-486f-b4b4-6bd9d3d63c84})");
 }
 impl ::core::clone::Clone for ChatSyncManager {
     fn clone(&self) -> Self {
@@ -3919,7 +3919,7 @@ unsafe impl ::windows::core::Interface for ChatSyncManager {
 impl ::windows::core::RuntimeName for ChatSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncManager";
 }
-::windows::core::interface_hierarchy!(ChatSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ChatSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatSyncManager {}
 unsafe impl ::core::marker::Sync for ChatSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3994,7 +3994,7 @@ impl ::core::fmt::Debug for RcsEndUserMessage {
     }
 }
 impl ::windows::core::RuntimeType for RcsEndUserMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessage;{d7cda5eb-cbd7-4f3b-8526-b506dec35c53})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessage;{d7cda5eb-cbd7-4f3b-8526-b506dec35c53})");
 }
 impl ::core::clone::Clone for RcsEndUserMessage {
     fn clone(&self) -> Self {
@@ -4010,7 +4010,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessage {
 impl ::windows::core::RuntimeName for RcsEndUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessage";
 }
-::windows::core::interface_hierarchy!(RcsEndUserMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RcsEndUserMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessage {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessage {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4037,7 +4037,7 @@ impl ::core::fmt::Debug for RcsEndUserMessageAction {
     }
 }
 impl ::windows::core::RuntimeType for RcsEndUserMessageAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAction;{92378737-9b42-46d3-9d5e-3c1b2dae7cb8})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAction;{92378737-9b42-46d3-9d5e-3c1b2dae7cb8})");
 }
 impl ::core::clone::Clone for RcsEndUserMessageAction {
     fn clone(&self) -> Self {
@@ -4053,7 +4053,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageAction {
 impl ::windows::core::RuntimeName for RcsEndUserMessageAction {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAction";
 }
-::windows::core::interface_hierarchy!(RcsEndUserMessageAction, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RcsEndUserMessageAction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessageAction {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAction {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4087,7 +4087,7 @@ impl ::core::fmt::Debug for RcsEndUserMessageAvailableEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs;{2d45ae01-3f89-41ea-9702-9e9ed411aa98})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs;{2d45ae01-3f89-41ea-9702-9e9ed411aa98})");
 }
 impl ::core::clone::Clone for RcsEndUserMessageAvailableEventArgs {
     fn clone(&self) -> Self {
@@ -4103,7 +4103,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableEventArgs {
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs";
 }
-::windows::core::interface_hierarchy!(RcsEndUserMessageAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RcsEndUserMessageAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4137,7 +4137,7 @@ impl ::core::fmt::Debug for RcsEndUserMessageAvailableTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails;{5b97742d-351f-4692-b41e-1b035dc18986})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails;{5b97742d-351f-4692-b41e-1b035dc18986})");
 }
 impl ::core::clone::Clone for RcsEndUserMessageAvailableTriggerDetails {
     fn clone(&self) -> Self {
@@ -4153,7 +4153,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableTriggerDeta
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails";
 }
-::windows::core::interface_hierarchy!(RcsEndUserMessageAvailableTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RcsEndUserMessageAvailableTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTriggerDetails {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4188,7 +4188,7 @@ impl ::core::fmt::Debug for RcsEndUserMessageManager {
     }
 }
 impl ::windows::core::RuntimeType for RcsEndUserMessageManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageManager;{3054ae5a-4d1f-4b59-9433-126c734e86a6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageManager;{3054ae5a-4d1f-4b59-9433-126c734e86a6})");
 }
 impl ::core::clone::Clone for RcsEndUserMessageManager {
     fn clone(&self) -> Self {
@@ -4204,7 +4204,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageManager {
 impl ::windows::core::RuntimeName for RcsEndUserMessageManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageManager";
 }
-::windows::core::interface_hierarchy!(RcsEndUserMessageManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RcsEndUserMessageManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessageManager {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageManager {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4255,12 +4255,12 @@ impl RcsManager {
     }
     #[doc(hidden)]
     pub fn IRcsManagerStatics<R, F: FnOnce(&IRcsManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RcsManager, IRcsManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RcsManager, IRcsManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRcsManagerStatics2<R, F: FnOnce(&IRcsManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RcsManager, IRcsManagerStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RcsManager, IRcsManagerStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4291,7 +4291,7 @@ impl ::core::fmt::Debug for RcsServiceKindSupportedChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RcsServiceKindSupportedChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs;{f47ea244-e783-4866-b3a7-4e5ccf023070})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs;{f47ea244-e783-4866-b3a7-4e5ccf023070})");
 }
 impl ::core::clone::Clone for RcsServiceKindSupportedChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4307,7 +4307,7 @@ unsafe impl ::windows::core::Interface for RcsServiceKindSupportedChangedEventAr
 impl ::windows::core::RuntimeName for RcsServiceKindSupportedChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(RcsServiceKindSupportedChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RcsServiceKindSupportedChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsServiceKindSupportedChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RcsServiceKindSupportedChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4393,7 +4393,7 @@ impl ::core::fmt::Debug for RcsTransport {
     }
 }
 impl ::windows::core::RuntimeType for RcsTransport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransport;{fea34759-f37c-4319-8546-ec84d21d30ff})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransport;{fea34759-f37c-4319-8546-ec84d21d30ff})");
 }
 impl ::core::clone::Clone for RcsTransport {
     fn clone(&self) -> Self {
@@ -4409,7 +4409,7 @@ unsafe impl ::windows::core::Interface for RcsTransport {
 impl ::windows::core::RuntimeName for RcsTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransport";
 }
-::windows::core::interface_hierarchy!(RcsTransport, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RcsTransport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsTransport {}
 unsafe impl ::core::marker::Sync for RcsTransport {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4471,7 +4471,7 @@ impl ::core::fmt::Debug for RcsTransportConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for RcsTransportConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransportConfiguration;{1fccb102-2472-4bb9-9988-c1211c83e8a9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransportConfiguration;{1fccb102-2472-4bb9-9988-c1211c83e8a9})");
 }
 impl ::core::clone::Clone for RcsTransportConfiguration {
     fn clone(&self) -> Self {
@@ -4487,7 +4487,7 @@ unsafe impl ::windows::core::Interface for RcsTransportConfiguration {
 impl ::windows::core::RuntimeName for RcsTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransportConfiguration";
 }
-::windows::core::interface_hierarchy!(RcsTransportConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RcsTransportConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsTransportConfiguration {}
 unsafe impl ::core::marker::Sync for RcsTransportConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4528,7 +4528,7 @@ impl ::core::fmt::Debug for RemoteParticipantComposingChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RemoteParticipantComposingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs;{1ec045a7-cfc9-45c9-9876-449f2bc180f5})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs;{1ec045a7-cfc9-45c9-9876-449f2bc180f5})");
 }
 impl ::core::clone::Clone for RemoteParticipantComposingChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4544,7 +4544,7 @@ unsafe impl ::windows::core::Interface for RemoteParticipantComposingChangedEven
 impl ::windows::core::RuntimeName for RemoteParticipantComposingChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(RemoteParticipantComposingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RemoteParticipantComposingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteParticipantComposingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteParticipantComposingChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4577,7 +4577,7 @@ impl ::core::fmt::Debug for ChatConversationThreadingKind {
     }
 }
 impl ::windows::core::RuntimeType for ChatConversationThreadingKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatConversationThreadingKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatConversationThreadingKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4607,7 +4607,7 @@ impl ::core::fmt::Debug for ChatItemKind {
     }
 }
 impl ::windows::core::RuntimeType for ChatItemKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatItemKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatItemKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4639,7 +4639,7 @@ impl ::core::fmt::Debug for ChatMessageChangeType {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageChangeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageChangeType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageChangeType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4674,7 +4674,7 @@ impl ::core::fmt::Debug for ChatMessageKind {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4706,7 +4706,7 @@ impl ::core::fmt::Debug for ChatMessageOperatorKind {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageOperatorKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageOperatorKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageOperatorKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4748,7 +4748,7 @@ impl ::core::fmt::Debug for ChatMessageStatus {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4780,7 +4780,7 @@ impl ::core::fmt::Debug for ChatMessageTransportKind {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageTransportKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageTransportKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageTransportKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4822,7 +4822,7 @@ impl ::core::fmt::Debug for ChatMessageValidationStatus {
     }
 }
 impl ::windows::core::RuntimeType for ChatMessageValidationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageValidationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageValidationStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4853,7 +4853,7 @@ impl ::core::fmt::Debug for ChatRestoreHistorySpan {
     }
 }
 impl ::windows::core::RuntimeType for ChatRestoreHistorySpan {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatRestoreHistorySpan;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatRestoreHistorySpan;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4889,7 +4889,7 @@ impl ::core::fmt::Debug for ChatStoreChangedEventKind {
     }
 }
 impl ::windows::core::RuntimeType for ChatStoreChangedEventKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatStoreChangedEventKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatStoreChangedEventKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4921,7 +4921,7 @@ impl ::core::fmt::Debug for ChatTransportErrorCodeCategory {
     }
 }
 impl ::windows::core::RuntimeType for ChatTransportErrorCodeCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportErrorCodeCategory;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportErrorCodeCategory;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4955,7 +4955,7 @@ impl ::core::fmt::Debug for ChatTransportInterpretedErrorCode {
     }
 }
 impl ::windows::core::RuntimeType for ChatTransportInterpretedErrorCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportInterpretedErrorCode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportInterpretedErrorCode;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
@@ -4987,7 +4987,7 @@ impl ::core::fmt::Debug for RcsServiceKind {
     }
 }
 impl ::windows::core::RuntimeType for RcsServiceKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.RcsServiceKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.RcsServiceKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

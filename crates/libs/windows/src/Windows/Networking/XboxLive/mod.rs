@@ -509,7 +509,7 @@ impl XboxLiveDeviceAddress {
     }
     #[doc(hidden)]
     pub fn IXboxLiveDeviceAddressStatics<R, F: FnOnce(&IXboxLiveDeviceAddressStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<XboxLiveDeviceAddress, IXboxLiveDeviceAddressStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<XboxLiveDeviceAddress, IXboxLiveDeviceAddressStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -525,7 +525,7 @@ impl ::core::fmt::Debug for XboxLiveDeviceAddress {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveDeviceAddress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveDeviceAddress;{f5bbd279-3c86-4b57-a31a-b9462408fd01})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveDeviceAddress;{f5bbd279-3c86-4b57-a31a-b9462408fd01})");
 }
 impl ::core::clone::Clone for XboxLiveDeviceAddress {
     fn clone(&self) -> Self {
@@ -541,7 +541,7 @@ unsafe impl ::windows::core::Interface for XboxLiveDeviceAddress {
 impl ::windows::core::RuntimeName for XboxLiveDeviceAddress {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveDeviceAddress";
 }
-::windows::core::interface_hierarchy!(XboxLiveDeviceAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XboxLiveDeviceAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveDeviceAddress {}
 unsafe impl ::core::marker::Sync for XboxLiveDeviceAddress {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -643,7 +643,7 @@ impl XboxLiveEndpointPair {
     }
     #[doc(hidden)]
     pub fn IXboxLiveEndpointPairStatics<R, F: FnOnce(&IXboxLiveEndpointPairStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<XboxLiveEndpointPair, IXboxLiveEndpointPairStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<XboxLiveEndpointPair, IXboxLiveEndpointPairStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -659,7 +659,7 @@ impl ::core::fmt::Debug for XboxLiveEndpointPair {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveEndpointPair {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPair;{1e9a839b-813e-44e0-b87f-c87a093475e4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPair;{1e9a839b-813e-44e0-b87f-c87a093475e4})");
 }
 impl ::core::clone::Clone for XboxLiveEndpointPair {
     fn clone(&self) -> Self {
@@ -675,7 +675,7 @@ unsafe impl ::windows::core::Interface for XboxLiveEndpointPair {
 impl ::windows::core::RuntimeName for XboxLiveEndpointPair {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPair";
 }
-::windows::core::interface_hierarchy!(XboxLiveEndpointPair, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XboxLiveEndpointPair, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPair {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -723,7 +723,7 @@ impl ::core::fmt::Debug for XboxLiveEndpointPairCreationResult {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult;{d9a8bb95-2aab-4d1e-9794-33ecc0dcf0fe})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult;{d9a8bb95-2aab-4d1e-9794-33ecc0dcf0fe})");
 }
 impl ::core::clone::Clone for XboxLiveEndpointPairCreationResult {
     fn clone(&self) -> Self {
@@ -739,7 +739,7 @@ unsafe impl ::windows::core::Interface for XboxLiveEndpointPairCreationResult {
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairCreationResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult";
 }
-::windows::core::interface_hierarchy!(XboxLiveEndpointPairCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XboxLiveEndpointPairCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairCreationResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -773,7 +773,7 @@ impl ::core::fmt::Debug for XboxLiveEndpointPairStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveEndpointPairStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs;{592e3b55-de08-44e7-ac3b-b9b9a169583a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs;{592e3b55-de08-44e7-ac3b-b9b9a169583a})");
 }
 impl ::core::clone::Clone for XboxLiveEndpointPairStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -789,7 +789,7 @@ unsafe impl ::windows::core::Interface for XboxLiveEndpointPairStateChangedEvent
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(XboxLiveEndpointPairStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XboxLiveEndpointPairStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairStateChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -914,7 +914,7 @@ impl XboxLiveEndpointPairTemplate {
     }
     #[doc(hidden)]
     pub fn IXboxLiveEndpointPairTemplateStatics<R, F: FnOnce(&IXboxLiveEndpointPairTemplateStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<XboxLiveEndpointPairTemplate, IXboxLiveEndpointPairTemplateStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<XboxLiveEndpointPairTemplate, IXboxLiveEndpointPairTemplateStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -930,7 +930,7 @@ impl ::core::fmt::Debug for XboxLiveEndpointPairTemplate {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveEndpointPairTemplate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate;{6b286ecf-3457-40ce-b9a1-c0cfe0213ea7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate;{6b286ecf-3457-40ce-b9a1-c0cfe0213ea7})");
 }
 impl ::core::clone::Clone for XboxLiveEndpointPairTemplate {
     fn clone(&self) -> Self {
@@ -946,7 +946,7 @@ unsafe impl ::windows::core::Interface for XboxLiveEndpointPairTemplate {
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairTemplate {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate";
 }
-::windows::core::interface_hierarchy!(XboxLiveEndpointPairTemplate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XboxLiveEndpointPairTemplate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairTemplate {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairTemplate {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -973,7 +973,7 @@ impl ::core::fmt::Debug for XboxLiveInboundEndpointPairCreatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveInboundEndpointPairCreatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs;{dc183b62-22ba-48d2-80de-c23968bd198b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs;{dc183b62-22ba-48d2-80de-c23968bd198b})");
 }
 impl ::core::clone::Clone for XboxLiveInboundEndpointPairCreatedEventArgs {
     fn clone(&self) -> Self {
@@ -989,7 +989,7 @@ unsafe impl ::windows::core::Interface for XboxLiveInboundEndpointPairCreatedEve
 impl ::windows::core::RuntimeName for XboxLiveInboundEndpointPairCreatedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs";
 }
-::windows::core::interface_hierarchy!(XboxLiveInboundEndpointPairCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XboxLiveInboundEndpointPairCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -999,8 +999,8 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<XboxLiveQualityOfServiceMeasurement, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<XboxLiveQualityOfServiceMeasurement, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1178,7 +1178,7 @@ impl XboxLiveQualityOfServiceMeasurement {
     }
     #[doc(hidden)]
     pub fn IXboxLiveQualityOfServiceMeasurementStatics<R, F: FnOnce(&IXboxLiveQualityOfServiceMeasurementStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<XboxLiveQualityOfServiceMeasurement, IXboxLiveQualityOfServiceMeasurementStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<XboxLiveQualityOfServiceMeasurement, IXboxLiveQualityOfServiceMeasurementStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1194,7 +1194,7 @@ impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurement {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement;{4d682bce-a5d6-47e6-a236-cfde5fbdf2ed})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement;{4d682bce-a5d6-47e6-a236-cfde5fbdf2ed})");
 }
 impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurement {
     fn clone(&self) -> Self {
@@ -1210,7 +1210,7 @@ unsafe impl ::windows::core::Interface for XboxLiveQualityOfServiceMeasurement {
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServiceMeasurement {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement";
 }
-::windows::core::interface_hierarchy!(XboxLiveQualityOfServiceMeasurement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XboxLiveQualityOfServiceMeasurement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1258,7 +1258,7 @@ impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetricResult {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMetricResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult;{aeec53d1-3561-4782-b0cf-d3ae29d9fa87})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult;{aeec53d1-3561-4782-b0cf-d3ae29d9fa87})");
 }
 impl ::core::clone::Clone for XboxLiveQualityOfServiceMetricResult {
     fn clone(&self) -> Self {
@@ -1274,7 +1274,7 @@ unsafe impl ::windows::core::Interface for XboxLiveQualityOfServiceMetricResult 
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServiceMetricResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult";
 }
-::windows::core::interface_hierarchy!(XboxLiveQualityOfServiceMetricResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XboxLiveQualityOfServiceMetricResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMetricResult {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMetricResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1317,7 +1317,7 @@ impl ::core::fmt::Debug for XboxLiveQualityOfServicePrivatePayloadResult {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveQualityOfServicePrivatePayloadResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult;{5a6302ae-6f38-41c0-9fcc-ea6cb978cafc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult;{5a6302ae-6f38-41c0-9fcc-ea6cb978cafc})");
 }
 impl ::core::clone::Clone for XboxLiveQualityOfServicePrivatePayloadResult {
     fn clone(&self) -> Self {
@@ -1333,7 +1333,7 @@ unsafe impl ::windows::core::Interface for XboxLiveQualityOfServicePrivatePayloa
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServicePrivatePayloadResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult";
 }
-::windows::core::interface_hierarchy!(XboxLiveQualityOfServicePrivatePayloadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(XboxLiveQualityOfServicePrivatePayloadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResult {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1397,7 +1397,7 @@ impl ::core::ops::Not for XboxLiveEndpointPairCreationBehaviors {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationBehaviors {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors;u4)");
 }
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
@@ -1434,7 +1434,7 @@ impl ::core::fmt::Debug for XboxLiveEndpointPairCreationStatus {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
@@ -1469,7 +1469,7 @@ impl ::core::fmt::Debug for XboxLiveEndpointPairState {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveEndpointPairState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairState;i4)");
 }
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
@@ -1500,7 +1500,7 @@ impl ::core::fmt::Debug for XboxLiveNetworkAccessKind {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveNetworkAccessKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveNetworkAccessKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveNetworkAccessKind;i4)");
 }
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
@@ -1540,7 +1540,7 @@ impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurementStatus {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurementStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
@@ -1577,7 +1577,7 @@ impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetric {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMetric {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric;i4)");
 }
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
@@ -1608,7 +1608,7 @@ impl ::core::fmt::Debug for XboxLiveSocketKind {
     }
 }
 impl ::windows::core::RuntimeType for XboxLiveSocketKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveSocketKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveSocketKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

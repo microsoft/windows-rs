@@ -658,7 +658,7 @@ impl IGeoshape {
         }
     }
 }
-::windows::core::interface_hierarchy!(IGeoshape, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IGeoshape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IGeoshape {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -671,7 +671,7 @@ impl ::core::fmt::Debug for IGeoshape {
     }
 }
 impl ::windows::core::RuntimeType for IGeoshape {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c99ca2af-c729-43c1-8fab-d6dec914df7e}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{c99ca2af-c729-43c1-8fab-d6dec914df7e}");
 }
 unsafe impl ::windows::core::Vtable for IGeoshape {
     type Vtable = IGeoshape_Vtbl;
@@ -928,7 +928,7 @@ impl ::core::fmt::Debug for CivicAddress {
     }
 }
 impl ::windows::core::RuntimeType for CivicAddress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.CivicAddress;{a8567a1a-64f4-4d48-bcea-f6b008eca34c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.CivicAddress;{a8567a1a-64f4-4d48-bcea-f6b008eca34c})");
 }
 impl ::core::clone::Clone for CivicAddress {
     fn clone(&self) -> Self {
@@ -944,7 +944,7 @@ unsafe impl ::windows::core::Interface for CivicAddress {
 impl ::windows::core::RuntimeName for CivicAddress {
     const NAME: &'static str = "Windows.Devices.Geolocation.CivicAddress";
 }
-::windows::core::interface_hierarchy!(CivicAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CivicAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CivicAddress {}
 unsafe impl ::core::marker::Sync for CivicAddress {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1063,12 +1063,12 @@ impl GeoboundingBox {
     }
     #[doc(hidden)]
     pub fn IGeoboundingBoxFactory<R, F: FnOnce(&IGeoboundingBoxFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GeoboundingBox, IGeoboundingBoxFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GeoboundingBox, IGeoboundingBoxFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGeoboundingBoxStatics<R, F: FnOnce(&IGeoboundingBoxStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GeoboundingBox, IGeoboundingBoxStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GeoboundingBox, IGeoboundingBoxStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1084,7 +1084,7 @@ impl ::core::fmt::Debug for GeoboundingBox {
     }
 }
 impl ::windows::core::RuntimeType for GeoboundingBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeoboundingBox;{0896c80b-274f-43da-9a06-cbfcdaeb4ec2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeoboundingBox;{0896c80b-274f-43da-9a06-cbfcdaeb4ec2})");
 }
 impl ::core::clone::Clone for GeoboundingBox {
     fn clone(&self) -> Self {
@@ -1100,7 +1100,7 @@ unsafe impl ::windows::core::Interface for GeoboundingBox {
 impl ::windows::core::RuntimeName for GeoboundingBox {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeoboundingBox";
 }
-::windows::core::interface_hierarchy!(GeoboundingBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GeoboundingBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GeoboundingBox> for IGeoshape {
     type Error = ::windows::core::Error;
     fn try_from(value: GeoboundingBox) -> ::windows::core::Result<Self> {
@@ -1181,7 +1181,7 @@ impl Geocircle {
     }
     #[doc(hidden)]
     pub fn IGeocircleFactory<R, F: FnOnce(&IGeocircleFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Geocircle, IGeocircleFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Geocircle, IGeocircleFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1197,7 +1197,7 @@ impl ::core::fmt::Debug for Geocircle {
     }
 }
 impl ::windows::core::RuntimeType for Geocircle {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geocircle;{39e45843-a7f9-4e63-92a7-ba0c28d124b1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geocircle;{39e45843-a7f9-4e63-92a7-ba0c28d124b1})");
 }
 impl ::core::clone::Clone for Geocircle {
     fn clone(&self) -> Self {
@@ -1213,7 +1213,7 @@ unsafe impl ::windows::core::Interface for Geocircle {
 impl ::windows::core::RuntimeName for Geocircle {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocircle";
 }
-::windows::core::interface_hierarchy!(Geocircle, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Geocircle, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Geocircle> for IGeoshape {
     type Error = ::windows::core::Error;
     fn try_from(value: Geocircle) -> ::windows::core::Result<Self> {
@@ -1359,7 +1359,7 @@ impl ::core::fmt::Debug for Geocoordinate {
     }
 }
 impl ::windows::core::RuntimeType for Geocoordinate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geocoordinate;{ee21a3aa-976a-4c70-803d-083ea55bcbc4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geocoordinate;{ee21a3aa-976a-4c70-803d-083ea55bcbc4})");
 }
 impl ::core::clone::Clone for Geocoordinate {
     fn clone(&self) -> Self {
@@ -1375,7 +1375,7 @@ unsafe impl ::windows::core::Interface for Geocoordinate {
 impl ::windows::core::RuntimeName for Geocoordinate {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocoordinate";
 }
-::windows::core::interface_hierarchy!(Geocoordinate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Geocoordinate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geocoordinate {}
 unsafe impl ::core::marker::Sync for Geocoordinate {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1440,7 +1440,7 @@ impl ::core::fmt::Debug for GeocoordinateSatelliteData {
     }
 }
 impl ::windows::core::RuntimeType for GeocoordinateSatelliteData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeocoordinateSatelliteData;{c32a74d9-2608-474c-912c-06dd490f4af7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeocoordinateSatelliteData;{c32a74d9-2608-474c-912c-06dd490f4af7})");
 }
 impl ::core::clone::Clone for GeocoordinateSatelliteData {
     fn clone(&self) -> Self {
@@ -1456,7 +1456,7 @@ unsafe impl ::windows::core::Interface for GeocoordinateSatelliteData {
 impl ::windows::core::RuntimeName for GeocoordinateSatelliteData {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeocoordinateSatelliteData";
 }
-::windows::core::interface_hierarchy!(GeocoordinateSatelliteData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GeocoordinateSatelliteData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeocoordinateSatelliteData {}
 unsafe impl ::core::marker::Sync for GeocoordinateSatelliteData {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1466,8 +1466,8 @@ impl Geolocator {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Geolocator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Geolocator, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn DesiredAccuracy(&self) -> ::windows::core::Result<PositionAccuracy> {
@@ -1630,12 +1630,12 @@ impl Geolocator {
     }
     #[doc(hidden)]
     pub fn IGeolocatorStatics<R, F: FnOnce(&IGeolocatorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Geolocator, IGeolocatorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Geolocator, IGeolocatorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGeolocatorStatics2<R, F: FnOnce(&IGeolocatorStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Geolocator, IGeolocatorStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Geolocator, IGeolocatorStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1651,7 +1651,7 @@ impl ::core::fmt::Debug for Geolocator {
     }
 }
 impl ::windows::core::RuntimeType for Geolocator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geolocator;{a9c3bf62-4524-4989-8aa9-de019d2e551f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geolocator;{a9c3bf62-4524-4989-8aa9-de019d2e551f})");
 }
 impl ::core::clone::Clone for Geolocator {
     fn clone(&self) -> Self {
@@ -1667,7 +1667,7 @@ unsafe impl ::windows::core::Interface for Geolocator {
 impl ::windows::core::RuntimeName for Geolocator {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geolocator";
 }
-::windows::core::interface_hierarchy!(Geolocator, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Geolocator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geolocator {}
 unsafe impl ::core::marker::Sync for Geolocator {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1742,7 +1742,7 @@ impl Geopath {
     }
     #[doc(hidden)]
     pub fn IGeopathFactory<R, F: FnOnce(&IGeopathFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Geopath, IGeopathFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Geopath, IGeopathFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1758,7 +1758,7 @@ impl ::core::fmt::Debug for Geopath {
     }
 }
 impl ::windows::core::RuntimeType for Geopath {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geopath;{e53fd7b9-2da4-4714-a652-de8593289898})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geopath;{e53fd7b9-2da4-4714-a652-de8593289898})");
 }
 impl ::core::clone::Clone for Geopath {
     fn clone(&self) -> Self {
@@ -1774,7 +1774,7 @@ unsafe impl ::windows::core::Interface for Geopath {
 impl ::windows::core::RuntimeName for Geopath {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopath";
 }
-::windows::core::interface_hierarchy!(Geopath, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Geopath, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Geopath> for IGeoshape {
     type Error = ::windows::core::Error;
     fn try_from(value: Geopath) -> ::windows::core::Result<Self> {
@@ -1848,7 +1848,7 @@ impl Geopoint {
     }
     #[doc(hidden)]
     pub fn IGeopointFactory<R, F: FnOnce(&IGeopointFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Geopoint, IGeopointFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Geopoint, IGeopointFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1864,7 +1864,7 @@ impl ::core::fmt::Debug for Geopoint {
     }
 }
 impl ::windows::core::RuntimeType for Geopoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geopoint;{6bfa00eb-e56e-49bb-9caf-cbaa78a8bcef})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geopoint;{6bfa00eb-e56e-49bb-9caf-cbaa78a8bcef})");
 }
 impl ::core::clone::Clone for Geopoint {
     fn clone(&self) -> Self {
@@ -1880,7 +1880,7 @@ unsafe impl ::windows::core::Interface for Geopoint {
 impl ::windows::core::RuntimeName for Geopoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopoint";
 }
-::windows::core::interface_hierarchy!(Geopoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Geopoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Geopoint> for IGeoshape {
     type Error = ::windows::core::Error;
     fn try_from(value: Geopoint) -> ::windows::core::Result<Self> {
@@ -1940,7 +1940,7 @@ impl ::core::fmt::Debug for Geoposition {
     }
 }
 impl ::windows::core::RuntimeType for Geoposition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geoposition;{c18d0454-7d41-4ff7-a957-9dffb4ef7f5b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geoposition;{c18d0454-7d41-4ff7-a957-9dffb4ef7f5b})");
 }
 impl ::core::clone::Clone for Geoposition {
     fn clone(&self) -> Self {
@@ -1956,7 +1956,7 @@ unsafe impl ::windows::core::Interface for Geoposition {
 impl ::windows::core::RuntimeName for Geoposition {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geoposition";
 }
-::windows::core::interface_hierarchy!(Geoposition, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Geoposition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geoposition {}
 unsafe impl ::core::marker::Sync for Geoposition {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1999,7 +1999,7 @@ impl ::core::fmt::Debug for Geovisit {
     }
 }
 impl ::windows::core::RuntimeType for Geovisit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geovisit;{b1877a76-9ef6-41ab-a0dd-793ece76e2de})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geovisit;{b1877a76-9ef6-41ab-a0dd-793ece76e2de})");
 }
 impl ::core::clone::Clone for Geovisit {
     fn clone(&self) -> Self {
@@ -2015,7 +2015,7 @@ unsafe impl ::windows::core::Interface for Geovisit {
 impl ::windows::core::RuntimeName for Geovisit {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geovisit";
 }
-::windows::core::interface_hierarchy!(Geovisit, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Geovisit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geovisit {}
 unsafe impl ::core::marker::Sync for Geovisit {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2025,8 +2025,8 @@ impl GeovisitMonitor {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GeovisitMonitor, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GeovisitMonitor, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn MonitoringScope(&self) -> ::windows::core::Result<VisitMonitoringScope> {
@@ -2069,7 +2069,7 @@ impl GeovisitMonitor {
     }
     #[doc(hidden)]
     pub fn IGeovisitMonitorStatics<R, F: FnOnce(&IGeovisitMonitorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GeovisitMonitor, IGeovisitMonitorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GeovisitMonitor, IGeovisitMonitorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2085,7 +2085,7 @@ impl ::core::fmt::Debug for GeovisitMonitor {
     }
 }
 impl ::windows::core::RuntimeType for GeovisitMonitor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitMonitor;{80118aaf-5944-4591-83c1-396647f54f2c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitMonitor;{80118aaf-5944-4591-83c1-396647f54f2c})");
 }
 impl ::core::clone::Clone for GeovisitMonitor {
     fn clone(&self) -> Self {
@@ -2101,7 +2101,7 @@ unsafe impl ::windows::core::Interface for GeovisitMonitor {
 impl ::windows::core::RuntimeName for GeovisitMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitMonitor";
 }
-::windows::core::interface_hierarchy!(GeovisitMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GeovisitMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitMonitor {}
 unsafe impl ::core::marker::Sync for GeovisitMonitor {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2128,7 +2128,7 @@ impl ::core::fmt::Debug for GeovisitStateChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for GeovisitStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitStateChangedEventArgs;{ceb4d1ff-8b53-4968-beed-4cecd029ce15})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitStateChangedEventArgs;{ceb4d1ff-8b53-4968-beed-4cecd029ce15})");
 }
 impl ::core::clone::Clone for GeovisitStateChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2144,7 +2144,7 @@ unsafe impl ::windows::core::Interface for GeovisitStateChangedEventArgs {
 impl ::windows::core::RuntimeName for GeovisitStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitStateChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(GeovisitStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GeovisitStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GeovisitStateChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2173,7 +2173,7 @@ impl ::core::fmt::Debug for GeovisitTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for GeovisitTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitTriggerDetails;{ea770d9e-d1c9-454b-99b7-b2f8cdd2482f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitTriggerDetails;{ea770d9e-d1c9-454b-99b7-b2f8cdd2482f})");
 }
 impl ::core::clone::Clone for GeovisitTriggerDetails {
     fn clone(&self) -> Self {
@@ -2189,7 +2189,7 @@ unsafe impl ::windows::core::Interface for GeovisitTriggerDetails {
 impl ::windows::core::RuntimeName for GeovisitTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitTriggerDetails";
 }
-::windows::core::interface_hierarchy!(GeovisitTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GeovisitTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitTriggerDetails {}
 unsafe impl ::core::marker::Sync for GeovisitTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2216,7 +2216,7 @@ impl ::core::fmt::Debug for PositionChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PositionChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.PositionChangedEventArgs;{37859ce5-9d1e-46c5-bf3b-6ad8cac1a093})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.PositionChangedEventArgs;{37859ce5-9d1e-46c5-bf3b-6ad8cac1a093})");
 }
 impl ::core::clone::Clone for PositionChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2232,7 +2232,7 @@ unsafe impl ::windows::core::Interface for PositionChangedEventArgs {
 impl ::windows::core::RuntimeName for PositionChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(PositionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PositionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PositionChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2259,7 +2259,7 @@ impl ::core::fmt::Debug for StatusChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for StatusChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.StatusChangedEventArgs;{3453d2da-8c93-4111-a205-9aecfc9be5c0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.StatusChangedEventArgs;{3453d2da-8c93-4111-a205-9aecfc9be5c0})");
 }
 impl ::core::clone::Clone for StatusChangedEventArgs {
     fn clone(&self) -> Self {
@@ -2275,7 +2275,7 @@ unsafe impl ::windows::core::Interface for StatusChangedEventArgs {
 impl ::windows::core::RuntimeName for StatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(StatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for StatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2309,7 +2309,7 @@ impl ::core::fmt::Debug for VenueData {
     }
 }
 impl ::windows::core::RuntimeType for VenueData {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.VenueData;{66f39187-60e3-4b2f-b527-4f53f1c3c677})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.VenueData;{66f39187-60e3-4b2f-b527-4f53f1c3c677})");
 }
 impl ::core::clone::Clone for VenueData {
     fn clone(&self) -> Self {
@@ -2325,7 +2325,7 @@ unsafe impl ::windows::core::Interface for VenueData {
 impl ::windows::core::RuntimeName for VenueData {
     const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";
 }
-::windows::core::interface_hierarchy!(VenueData, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VenueData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VenueData {}
 unsafe impl ::core::marker::Sync for VenueData {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2359,7 +2359,7 @@ impl ::core::fmt::Debug for AltitudeReferenceSystem {
     }
 }
 impl ::windows::core::RuntimeType for AltitudeReferenceSystem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
@@ -2390,7 +2390,7 @@ impl ::core::fmt::Debug for GeolocationAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for GeolocationAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
@@ -2422,7 +2422,7 @@ impl ::core::fmt::Debug for GeoshapeType {
     }
 }
 impl ::windows::core::RuntimeType for GeoshapeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
@@ -2452,7 +2452,7 @@ impl ::core::fmt::Debug for PositionAccuracy {
     }
 }
 impl ::windows::core::RuntimeType for PositionAccuracy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionAccuracy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionAccuracy;i4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
@@ -2487,7 +2487,7 @@ impl ::core::fmt::Debug for PositionSource {
     }
 }
 impl ::windows::core::RuntimeType for PositionSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionSource;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionSource;i4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
@@ -2521,7 +2521,7 @@ impl ::core::fmt::Debug for PositionStatus {
     }
 }
 impl ::windows::core::RuntimeType for PositionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
@@ -2551,7 +2551,7 @@ impl ::core::fmt::Debug for VisitMonitoringScope {
     }
 }
 impl ::windows::core::RuntimeType for VisitMonitoringScope {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitMonitoringScope;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitMonitoringScope;i4)");
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
@@ -2583,7 +2583,7 @@ impl ::core::fmt::Debug for VisitStateChange {
     }
 }
 impl ::windows::core::RuntimeType for VisitStateChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2607,7 +2607,7 @@ impl ::windows::core::TypeKind for BasicGeoposition {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for BasicGeoposition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Geolocation.BasicGeoposition;f8;f8;f8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Geolocation.BasicGeoposition;f8;f8;f8)");
 }
 impl ::core::cmp::PartialEq for BasicGeoposition {
     fn eq(&self, other: &Self) -> bool {

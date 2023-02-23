@@ -206,7 +206,7 @@ impl ::core::fmt::Debug for IndexedResourceCandidate {
     }
 }
 impl ::windows::core::RuntimeType for IndexedResourceCandidate {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate;{0e619ef3-faec-4414-a9d7-54acd5953f29})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate;{0e619ef3-faec-4414-a9d7-54acd5953f29})");
 }
 impl ::core::clone::Clone for IndexedResourceCandidate {
     fn clone(&self) -> Self {
@@ -222,7 +222,7 @@ unsafe impl ::windows::core::Interface for IndexedResourceCandidate {
 impl ::windows::core::RuntimeName for IndexedResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate";
 }
-::windows::core::interface_hierarchy!(IndexedResourceCandidate, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IndexedResourceCandidate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IndexedResourceCandidate {}
 unsafe impl ::core::marker::Sync for IndexedResourceCandidate {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
@@ -256,7 +256,7 @@ impl ::core::fmt::Debug for IndexedResourceQualifier {
     }
 }
 impl ::windows::core::RuntimeType for IndexedResourceQualifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier;{dae3bb9b-d304-497f-a168-a340042c8adb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier;{dae3bb9b-d304-497f-a168-a340042c8adb})");
 }
 impl ::core::clone::Clone for IndexedResourceQualifier {
     fn clone(&self) -> Self {
@@ -272,7 +272,7 @@ unsafe impl ::windows::core::Interface for IndexedResourceQualifier {
 impl ::windows::core::RuntimeName for IndexedResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier";
 }
-::windows::core::interface_hierarchy!(IndexedResourceQualifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IndexedResourceQualifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
 unsafe impl ::core::marker::Sync for IndexedResourceQualifier {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"deprecated\"`*"]
@@ -318,13 +318,13 @@ impl ResourceIndexer {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IResourceIndexerFactory<R, F: FnOnce(&IResourceIndexerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ResourceIndexer, IResourceIndexerFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ResourceIndexer, IResourceIndexerFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IResourceIndexerFactory2<R, F: FnOnce(&IResourceIndexerFactory2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ResourceIndexer, IResourceIndexerFactory2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ResourceIndexer, IResourceIndexerFactory2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -344,7 +344,7 @@ impl ::core::fmt::Debug for ResourceIndexer {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for ResourceIndexer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.ResourceIndexer;{2d4cf9a5-e32f-4ab2-8748-96350a016da3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.ResourceIndexer;{2d4cf9a5-e32f-4ab2-8748-96350a016da3})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for ResourceIndexer {
@@ -365,7 +365,7 @@ impl ::windows::core::RuntimeName for ResourceIndexer {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.ResourceIndexer";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(ResourceIndexer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ResourceIndexer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for ResourceIndexer {}
 #[cfg(feature = "deprecated")]
@@ -399,7 +399,7 @@ impl ::core::fmt::Debug for IndexedResourceType {
     }
 }
 impl ::windows::core::RuntimeType for IndexedResourceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

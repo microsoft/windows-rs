@@ -42,7 +42,7 @@ impl RetailMode {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IRetailModeStatics<R, F: FnOnce(&IRetailModeStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RetailMode, IRetailModeStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RetailMode, IRetailModeStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

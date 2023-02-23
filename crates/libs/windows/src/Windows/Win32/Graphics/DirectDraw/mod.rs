@@ -4,7 +4,7 @@ pub unsafe fn DirectDrawCreate<P0>(lpguid: *mut ::windows::core::GUID, lplpdd: *
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawCreate ( lpguid : *mut :: windows::core::GUID , lplpdd : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreate ( lpguid : *mut :: windows::core::GUID , lplpdd : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectDrawCreate(lpguid, ::core::mem::transmute(lplpdd), punkouter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -13,7 +13,7 @@ pub unsafe fn DirectDrawCreateClipper<P0>(dwflags: u32, lplpddclipper: *mut ::co
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawCreateClipper ( dwflags : u32 , lplpddclipper : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateClipper ( dwflags : u32 , lplpddclipper : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectDrawCreateClipper(dwflags, ::core::mem::transmute(lplpddclipper), punkouter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -22,35 +22,35 @@ pub unsafe fn DirectDrawCreateEx<P0>(lpguid: *mut ::windows::core::GUID, lplpdd:
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawCreateEx ( lpguid : *mut :: windows::core::GUID , lplpdd : *mut *mut ::core::ffi::c_void , iid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateEx ( lpguid : *mut :: windows::core::GUID , lplpdd : *mut *mut ::core::ffi::c_void , iid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectDrawCreateEx(lpguid, lplpdd, iid, punkouter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectDrawEnumerateA(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
     DirectDrawEnumerateExA(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
     DirectDrawEnumerateExW(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DirectDrawEnumerateW(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -75,7 +75,7 @@ impl IDDVideoPortContainer {
         (::windows::core::Vtable::vtable(self).QueryVideoPortStatus)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDDVideoPortContainer, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDDVideoPortContainer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDDVideoPortContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -201,7 +201,7 @@ impl IDirectDraw {
         (::windows::core::Vtable::vtable(self).WaitForVerticalBlank)(::windows::core::Vtable::as_raw(self), param0, param1.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDraw, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDraw, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDraw {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -352,7 +352,7 @@ impl IDirectDraw2 {
         (::windows::core::Vtable::vtable(self).GetAvailableVidMem)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDraw2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDraw2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDraw2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -524,7 +524,7 @@ impl IDirectDraw4 {
         (::windows::core::Vtable::vtable(self).GetDeviceIdentifier)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDraw4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDraw4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDraw4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -714,7 +714,7 @@ impl IDirectDraw7 {
         (::windows::core::Vtable::vtable(self).EvaluateMode)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDraw7, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDraw7, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDraw7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -826,7 +826,7 @@ impl IDirectDrawClipper {
         (::windows::core::Vtable::vtable(self).SetHWnd)(::windows::core::Vtable::as_raw(self), param0, param1.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawClipper, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawClipper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawClipper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -886,7 +886,7 @@ impl IDirectDrawColorControl {
         (::windows::core::Vtable::vtable(self).SetColorControls)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawColorControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawColorControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawColorControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -927,7 +927,7 @@ impl IDirectDrawGammaControl {
         (::windows::core::Vtable::vtable(self).SetGammaRamp)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawGammaControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawGammaControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawGammaControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -971,7 +971,7 @@ impl IDirectDrawKernel {
         (::windows::core::Vtable::vtable(self).ReleaseKernelHandle)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawKernel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawKernel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawKernel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1028,7 +1028,7 @@ impl IDirectDrawPalette {
         (::windows::core::Vtable::vtable(self).SetEntries)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawPalette, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawPalette, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawPalette {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1227,7 +1227,7 @@ impl IDirectDrawSurface {
         (::windows::core::Vtable::vtable(self).UpdateOverlayZOrder)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawSurface, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawSurface, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1479,7 +1479,7 @@ impl IDirectDrawSurface2 {
         (::windows::core::Vtable::vtable(self).PageUnlock)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawSurface2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawSurface2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1737,7 +1737,7 @@ impl IDirectDrawSurface3 {
         (::windows::core::Vtable::vtable(self).SetSurfaceDesc)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawSurface3, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawSurface3, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2013,7 +2013,7 @@ impl IDirectDrawSurface4 {
         (::windows::core::Vtable::vtable(self).ChangeUniquenessValue)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawSurface4, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawSurface4, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2309,7 +2309,7 @@ impl IDirectDrawSurface7 {
         (::windows::core::Vtable::vtable(self).GetLOD)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawSurface7, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawSurface7, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2421,7 +2421,7 @@ impl IDirectDrawSurfaceKernel {
         (::windows::core::Vtable::vtable(self).ReleaseKernelHandle)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawSurfaceKernel, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawSurfaceKernel, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurfaceKernel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2508,7 +2508,7 @@ impl IDirectDrawVideoPort {
         (::windows::core::Vtable::vtable(self).WaitForSync)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawVideoPort, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawVideoPort, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawVideoPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2574,7 +2574,7 @@ impl IDirectDrawVideoPortNotify {
         (::windows::core::Vtable::vtable(self).ReleaseNotification)(::windows::core::Vtable::as_raw(self), param0.into()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectDrawVideoPortNotify, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDirectDrawVideoPortNotify, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawVideoPortNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -1,20 +1,20 @@
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[inline]
 pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
-    ::windows::core::link ! ( "mapi32.dll""system" fn CloseIMsgSession ( lpmsgsess : *mut _MSGSESS ) -> ( ) );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn CloseIMsgSession ( lpmsgsess : *mut _MSGSESS ) -> ( ) );
     CloseIMsgSession(lpmsgsess)
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mapi32.dll""system" fn GetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray , lpppropattrarray : *mut *mut SPropAttrArray ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn GetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray , lpppropattrarray : *mut *mut SPropAttrArray ) -> :: windows::core::HRESULT );
     GetAttribIMsgOnIStg(lpobject, lpproptagarray, lpppropattrarray).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[inline]
 pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn MapStorageSCode ( stgscode : i32 ) -> i32 );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn MapStorageSCode ( stgscode : i32 ) -> i32 );
     MapStorageSCode(stgscode)
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -25,7 +25,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IMalloc>>,
     P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::StructuredStorage::IStorage>>,
 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn OpenIMsgOnIStg ( lpmsgsess : *mut _MSGSESS , lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER , lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE , lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER , lpmalloc : * mut::core::ffi::c_void , lpmapisup : *mut ::core::ffi::c_void , lpstg : * mut::core::ffi::c_void , lpfmsgcallrelease : *mut MSGCALLRELEASE , ulcallerdata : u32 , ulflags : u32 , lppmsg : *mut * mut::core::ffi::c_void ) -> i32 );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn OpenIMsgOnIStg ( lpmsgsess : *mut _MSGSESS , lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER , lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE , lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER , lpmalloc : * mut::core::ffi::c_void , lpmapisup : *mut ::core::ffi::c_void , lpstg : * mut::core::ffi::c_void , lpfmsgcallrelease : *mut MSGCALLRELEASE , ulcallerdata : u32 , ulflags : u32 , lppmsg : *mut * mut::core::ffi::c_void ) -> i32 );
     OpenIMsgOnIStg(lpmsgsess, lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.into().abi(), lpmapisup, lpstg.into().abi(), lpfmsgcallrelease, ulcallerdata, ulflags, ::core::mem::transmute(lppmsg))
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
@@ -35,14 +35,14 @@ pub unsafe fn OpenIMsgSession<P0>(lpmalloc: P0, ulflags: u32, lppmsgsess: *mut *
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IMalloc>>,
 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn OpenIMsgSession ( lpmalloc : * mut::core::ffi::c_void , ulflags : u32 , lppmsgsess : *mut *mut _MSGSESS ) -> i32 );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn OpenIMsgSession ( lpmalloc : * mut::core::ffi::c_void , ulflags : u32 , lppmsgsess : *mut *mut _MSGSESS ) -> i32 );
     OpenIMsgSession(lpmalloc.into().abi(), ulflags, lppmsgsess)
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mapi32.dll""system" fn SetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptags : *mut super::super::System::AddressBook:: SPropTagArray , lppropattrs : *mut SPropAttrArray , lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn SetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptags : *mut super::super::System::AddressBook:: SPropTagArray , lppropattrs : *mut SPropAttrArray , lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray ) -> :: windows::core::HRESULT );
     SetAttribIMsgOnIStg(lpobject, lpproptags, lppropattrs, lpppropproblems).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
@@ -62,7 +62,7 @@ impl DDiscFormat2DataEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DDiscFormat2DataEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DDiscFormat2DataEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DDiscFormat2DataEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -117,7 +117,7 @@ impl DDiscFormat2EraseEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DDiscFormat2EraseEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DDiscFormat2EraseEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DDiscFormat2EraseEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -173,7 +173,7 @@ impl DDiscFormat2RawCDEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DDiscFormat2RawCDEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DDiscFormat2RawCDEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DDiscFormat2RawCDEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -229,7 +229,7 @@ impl DDiscFormat2TrackAtOnceEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DDiscFormat2TrackAtOnceEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DDiscFormat2TrackAtOnceEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DDiscFormat2TrackAtOnceEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -292,7 +292,7 @@ impl DDiscMaster2Events {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DDiscMaster2Events, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DDiscMaster2Events, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DDiscMaster2Events {
     fn eq(&self, other: &Self) -> bool {
@@ -351,7 +351,7 @@ impl DFileSystemImageEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DFileSystemImageEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DFileSystemImageEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DFileSystemImageEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -406,7 +406,7 @@ impl DFileSystemImageImportEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DFileSystemImageImportEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DFileSystemImageImportEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DFileSystemImageImportEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -462,7 +462,7 @@ impl DWriteEngine2Events {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(DWriteEngine2Events, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(DWriteEngine2Events, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for DWriteEngine2Events {
     fn eq(&self, other: &Self) -> bool {
@@ -517,7 +517,7 @@ impl IBlockRange {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IBlockRange, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IBlockRange, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBlockRange {
     fn eq(&self, other: &Self) -> bool {
@@ -568,7 +568,7 @@ impl IBlockRangeList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IBlockRangeList, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IBlockRangeList, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBlockRangeList {
     fn eq(&self, other: &Self) -> bool {
@@ -654,7 +654,7 @@ impl IBootOptions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IBootOptions, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IBootOptions, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IBootOptions {
     fn eq(&self, other: &Self) -> bool {
@@ -716,7 +716,7 @@ impl IBurnVerification {
         (::windows::core::Vtable::vtable(self).BurnVerificationLevel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IBurnVerification, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IBurnVerification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IBurnVerification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -790,7 +790,7 @@ impl IDiscFormat2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscFormat2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDiscFormat2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscFormat2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1069,7 +1069,7 @@ impl IDiscFormat2Data {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscFormat2Data, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
+::windows::imp::interface_hierarchy!(IDiscFormat2Data, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscFormat2Data {
     fn eq(&self, other: &Self) -> bool {
@@ -1245,7 +1245,7 @@ impl IDiscFormat2DataEventArgs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscFormat2DataEventArgs, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWriteEngine2EventArgs);
+::windows::imp::interface_hierarchy!(IDiscFormat2DataEventArgs, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWriteEngine2EventArgs);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscFormat2DataEventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -1370,7 +1370,7 @@ impl IDiscFormat2Erase {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscFormat2Erase, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
+::windows::imp::interface_hierarchy!(IDiscFormat2Erase, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscFormat2Erase {
     fn eq(&self, other: &Self) -> bool {
@@ -1594,7 +1594,7 @@ impl IDiscFormat2RawCD {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscFormat2RawCD, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
+::windows::imp::interface_hierarchy!(IDiscFormat2RawCD, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscFormat2RawCD {
     fn eq(&self, other: &Self) -> bool {
@@ -1737,7 +1737,7 @@ impl IDiscFormat2RawCDEventArgs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscFormat2RawCDEventArgs, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWriteEngine2EventArgs);
+::windows::imp::interface_hierarchy!(IDiscFormat2RawCDEventArgs, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWriteEngine2EventArgs);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscFormat2RawCDEventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -1951,7 +1951,7 @@ impl IDiscFormat2TrackAtOnce {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscFormat2TrackAtOnce, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
+::windows::imp::interface_hierarchy!(IDiscFormat2TrackAtOnce, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscFormat2TrackAtOnce {
     fn eq(&self, other: &Self) -> bool {
@@ -2102,7 +2102,7 @@ impl IDiscFormat2TrackAtOnceEventArgs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscFormat2TrackAtOnceEventArgs, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWriteEngine2EventArgs);
+::windows::imp::interface_hierarchy!(IDiscFormat2TrackAtOnceEventArgs, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IWriteEngine2EventArgs);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscFormat2TrackAtOnceEventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -2193,7 +2193,7 @@ impl IDiscMaster {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDiscMaster, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDiscMaster, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDiscMaster {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2261,7 +2261,7 @@ impl IDiscMaster2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscMaster2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDiscMaster2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscMaster2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2339,7 +2339,7 @@ impl IDiscMasterProgressEvents {
         (::windows::core::Vtable::vtable(self).NotifyEraseComplete)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDiscMasterProgressEvents, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDiscMasterProgressEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDiscMasterProgressEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2438,7 +2438,7 @@ impl IDiscRecorder {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDiscRecorder, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDiscRecorder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDiscRecorder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2591,7 +2591,7 @@ impl IDiscRecorder2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IDiscRecorder2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IDiscRecorder2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiscRecorder2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2748,7 +2748,7 @@ impl IDiscRecorder2Ex {
         (::windows::core::Vtable::vtable(self).GetMaximumPageAlignedTransferSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDiscRecorder2Ex, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDiscRecorder2Ex, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDiscRecorder2Ex {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2821,7 +2821,7 @@ impl IEnumDiscMasterFormats {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDiscMasterFormats, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumDiscMasterFormats, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDiscMasterFormats {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2871,7 +2871,7 @@ impl IEnumDiscRecorders {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDiscRecorders, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumDiscRecorders, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDiscRecorders {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2923,7 +2923,7 @@ impl IEnumFsiItems {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumFsiItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumFsiItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumFsiItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2978,7 +2978,7 @@ impl IEnumProgressItems {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumProgressItems, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IEnumProgressItems, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumProgressItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3262,7 +3262,7 @@ impl IFileSystemImage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFileSystemImage, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFileSystemImage, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFileSystemImage {
     fn eq(&self, other: &Self) -> bool {
@@ -3664,7 +3664,7 @@ impl IFileSystemImage2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFileSystemImage2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFileSystemImage);
+::windows::imp::interface_hierarchy!(IFileSystemImage2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFileSystemImage);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFileSystemImage2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3987,7 +3987,7 @@ impl IFileSystemImage3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFileSystemImage3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFileSystemImage, IFileSystemImage2);
+::windows::imp::interface_hierarchy!(IFileSystemImage3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFileSystemImage, IFileSystemImage2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFileSystemImage3 {
     fn eq(&self, other: &Self) -> bool {
@@ -4066,7 +4066,7 @@ impl IFileSystemImageResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFileSystemImageResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFileSystemImageResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFileSystemImageResult {
     fn eq(&self, other: &Self) -> bool {
@@ -4150,7 +4150,7 @@ impl IFileSystemImageResult2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFileSystemImageResult2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFileSystemImageResult);
+::windows::imp::interface_hierarchy!(IFileSystemImageResult2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFileSystemImageResult);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFileSystemImageResult2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4301,7 +4301,7 @@ impl IFsiDirectoryItem {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsiDirectoryItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsiItem);
+::windows::imp::interface_hierarchy!(IFsiDirectoryItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsiItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsiDirectoryItem {
     fn eq(&self, other: &Self) -> bool {
@@ -4481,7 +4481,7 @@ impl IFsiDirectoryItem2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsiDirectoryItem2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsiItem, IFsiDirectoryItem);
+::windows::imp::interface_hierarchy!(IFsiDirectoryItem2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsiItem, IFsiDirectoryItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsiDirectoryItem2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4605,7 +4605,7 @@ impl IFsiFileItem {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsiFileItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsiItem);
+::windows::imp::interface_hierarchy!(IFsiFileItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsiItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsiFileItem {
     fn eq(&self, other: &Self) -> bool {
@@ -4773,7 +4773,7 @@ impl IFsiFileItem2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsiFileItem2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsiItem, IFsiFileItem);
+::windows::imp::interface_hierarchy!(IFsiFileItem2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFsiItem, IFsiFileItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsiFileItem2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4888,7 +4888,7 @@ impl IFsiItem {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsiItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsiItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsiItem {
     fn eq(&self, other: &Self) -> bool {
@@ -4969,7 +4969,7 @@ impl IFsiNamedStreams {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IFsiNamedStreams, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IFsiNamedStreams, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFsiNamedStreams {
     fn eq(&self, other: &Self) -> bool {
@@ -5046,7 +5046,7 @@ impl IIsoImageManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IIsoImageManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IIsoImageManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IIsoImageManager {
     fn eq(&self, other: &Self) -> bool {
@@ -5131,7 +5131,7 @@ impl IJolietDiscMaster {
         (::windows::core::Vtable::vtable(self).SetJolietProperties)(::windows::core::Vtable::as_raw(self), ppropstg.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IJolietDiscMaster, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IJolietDiscMaster, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IJolietDiscMaster {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5208,7 +5208,7 @@ impl IMultisession {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMultisession, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMultisession, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMultisession {
     fn eq(&self, other: &Self) -> bool {
@@ -5305,7 +5305,7 @@ impl IMultisessionRandomWrite {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMultisessionRandomWrite, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IMultisession);
+::windows::imp::interface_hierarchy!(IMultisessionRandomWrite, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IMultisession);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMultisessionRandomWrite {
     fn eq(&self, other: &Self) -> bool {
@@ -5399,7 +5399,7 @@ impl IMultisessionSequential {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMultisessionSequential, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IMultisession);
+::windows::imp::interface_hierarchy!(IMultisessionSequential, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IMultisession);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMultisessionSequential {
     fn eq(&self, other: &Self) -> bool {
@@ -5502,7 +5502,7 @@ impl IMultisessionSequential2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMultisessionSequential2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IMultisession, IMultisessionSequential);
+::windows::imp::interface_hierarchy!(IMultisessionSequential2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IMultisession, IMultisessionSequential);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMultisessionSequential2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5562,7 +5562,7 @@ impl IProgressItem {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IProgressItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IProgressItem, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IProgressItem {
     fn eq(&self, other: &Self) -> bool {
@@ -5641,7 +5641,7 @@ impl IProgressItems {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IProgressItems, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IProgressItems, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IProgressItems {
     fn eq(&self, other: &Self) -> bool {
@@ -5799,7 +5799,7 @@ impl IRawCDImageCreator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRawCDImageCreator, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRawCDImageCreator, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRawCDImageCreator {
     fn eq(&self, other: &Self) -> bool {
@@ -5941,7 +5941,7 @@ impl IRawCDImageTrackInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IRawCDImageTrackInfo, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IRawCDImageTrackInfo, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IRawCDImageTrackInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -6032,7 +6032,7 @@ impl IRedbookDiscMaster {
         (::windows::core::Vtable::vtable(self).CloseAudioTrack)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRedbookDiscMaster, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IRedbookDiscMaster, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRedbookDiscMaster {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -6162,7 +6162,7 @@ impl IStreamConcatenate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IStreamConcatenate, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
+::windows::imp::interface_hierarchy!(IStreamConcatenate, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IStreamConcatenate {
     fn eq(&self, other: &Self) -> bool {
@@ -6285,7 +6285,7 @@ impl IStreamInterleave {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IStreamInterleave, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
+::windows::imp::interface_hierarchy!(IStreamInterleave, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IStreamInterleave {
     fn eq(&self, other: &Self) -> bool {
@@ -6404,7 +6404,7 @@ impl IStreamPseudoRandomBased {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IStreamPseudoRandomBased, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
+::windows::imp::interface_hierarchy!(IStreamPseudoRandomBased, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IStreamPseudoRandomBased {
     fn eq(&self, other: &Self) -> bool {
@@ -6513,7 +6513,7 @@ impl IWriteEngine2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWriteEngine2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWriteEngine2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWriteEngine2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6609,7 +6609,7 @@ impl IWriteEngine2EventArgs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWriteEngine2EventArgs, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWriteEngine2EventArgs, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWriteEngine2EventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -6673,7 +6673,7 @@ impl IWriteSpeedDescriptor {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWriteSpeedDescriptor, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IWriteSpeedDescriptor, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWriteSpeedDescriptor {
     fn eq(&self, other: &Self) -> bool {

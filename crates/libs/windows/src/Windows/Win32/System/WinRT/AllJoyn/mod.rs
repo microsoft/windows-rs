@@ -10,7 +10,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
         (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, enableaboutdata, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -48,7 +48,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop {
         (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusAttachmentInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -89,7 +89,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
         (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -133,7 +133,7 @@ impl IWindowsDevicesAllJoynBusObjectInterop {
         (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusObjectInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -145,7 +145,7 @@ impl Radio {
     }
     #[doc(hidden)]
     pub fn IRadioStatics<R, F: FnOnce(&IRadioStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Radio, IRadioStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Radio, IRadioStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -161,7 +161,7 @@ impl ::core::fmt::Debug for Radio {
     }
 }
 impl ::windows::core::RuntimeType for Radio {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Radios.Radio;{252118df-b33e-416a-875f-1cf38ae2d83e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Radios.Radio;{252118df-b33e-416a-875f-1cf38ae2d83e})");
 }
 impl ::core::clone::Clone for Radio {
     fn clone(&self) -> Self {
@@ -177,7 +177,7 @@ unsafe impl ::windows::core::Interface for Radio {
 impl ::windows::core::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";
 }
-::windows::core::interface_hierarchy!(Radio, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Radio, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Radio {}
 unsafe impl ::core::marker::Sync for Radio {}
 #[doc = "*Required features: `\"Devices_Radios\"`*"]
@@ -210,7 +210,7 @@ impl ::core::fmt::Debug for RadioAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for RadioAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioAccessStatus;i4)");
 }
 #[doc = "*Required features: `\"Devices_Radios\"`*"]
 #[repr(transparent)]
@@ -243,7 +243,7 @@ impl ::core::fmt::Debug for RadioKind {
     }
 }
 impl ::windows::core::RuntimeType for RadioKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioKind;i4)");
 }
 #[doc = "*Required features: `\"Devices_Radios\"`*"]
 #[repr(transparent)]
@@ -275,7 +275,7 @@ impl ::core::fmt::Debug for RadioState {
     }
 }
 impl ::windows::core::RuntimeType for RadioState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

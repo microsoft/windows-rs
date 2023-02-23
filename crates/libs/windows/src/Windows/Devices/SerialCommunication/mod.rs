@@ -170,7 +170,7 @@ impl ::core::fmt::Debug for ErrorReceivedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ErrorReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.ErrorReceivedEventArgs;{fcc6bf59-1283-4d8a-bfdf-566b33ddb28f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.ErrorReceivedEventArgs;{fcc6bf59-1283-4d8a-bfdf-566b33ddb28f})");
 }
 impl ::core::clone::Clone for ErrorReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -186,7 +186,7 @@ unsafe impl ::windows::core::Interface for ErrorReceivedEventArgs {
 impl ::windows::core::RuntimeName for ErrorReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
 }
-::windows::core::interface_hierarchy!(ErrorReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ErrorReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ErrorReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for ErrorReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
@@ -213,7 +213,7 @@ impl ::core::fmt::Debug for PinChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PinChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.PinChangedEventArgs;{a2bf1db0-fc9c-4607-93d0-fa5e8343ee22})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.PinChangedEventArgs;{a2bf1db0-fc9c-4607-93d0-fa5e8343ee22})");
 }
 impl ::core::clone::Clone for PinChangedEventArgs {
     fn clone(&self) -> Self {
@@ -229,7 +229,7 @@ unsafe impl ::windows::core::Interface for PinChangedEventArgs {
 impl ::windows::core::RuntimeName for PinChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.PinChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(PinChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PinChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PinChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PinChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
@@ -485,7 +485,7 @@ impl SerialDevice {
     }
     #[doc(hidden)]
     pub fn ISerialDeviceStatics<R, F: FnOnce(&ISerialDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SerialDevice, ISerialDeviceStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SerialDevice, ISerialDeviceStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -501,7 +501,7 @@ impl ::core::fmt::Debug for SerialDevice {
     }
 }
 impl ::windows::core::RuntimeType for SerialDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.SerialDevice;{e187ccc6-2210-414f-b65a-f5553a03372a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.SerialDevice;{e187ccc6-2210-414f-b65a-f5553a03372a})");
 }
 impl ::core::clone::Clone for SerialDevice {
     fn clone(&self) -> Self {
@@ -517,7 +517,7 @@ unsafe impl ::windows::core::Interface for SerialDevice {
 impl ::windows::core::RuntimeName for SerialDevice {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.SerialDevice";
 }
-::windows::core::interface_hierarchy!(SerialDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SerialDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SerialDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -573,7 +573,7 @@ impl ::core::fmt::Debug for SerialError {
     }
 }
 impl ::windows::core::RuntimeType for SerialError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
 }
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
@@ -605,7 +605,7 @@ impl ::core::fmt::Debug for SerialHandshake {
     }
 }
 impl ::windows::core::RuntimeType for SerialHandshake {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
 }
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
@@ -638,7 +638,7 @@ impl ::core::fmt::Debug for SerialParity {
     }
 }
 impl ::windows::core::RuntimeType for SerialParity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
 }
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
@@ -671,7 +671,7 @@ impl ::core::fmt::Debug for SerialPinChange {
     }
 }
 impl ::windows::core::RuntimeType for SerialPinChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
 }
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
@@ -702,7 +702,7 @@ impl ::core::fmt::Debug for SerialStopBitCount {
     }
 }
 impl ::windows::core::RuntimeType for SerialStopBitCount {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialStopBitCount;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialStopBitCount;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

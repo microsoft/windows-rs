@@ -1125,7 +1125,7 @@ impl Print3DManager {
     }
     #[doc(hidden)]
     pub fn IPrint3DManagerStatics<R, F: FnOnce(&IPrint3DManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Print3DManager, IPrint3DManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Print3DManager, IPrint3DManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1141,7 +1141,7 @@ impl ::core::fmt::Debug for Print3DManager {
     }
 }
 impl ::windows::core::RuntimeType for Print3DManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DManager;{4d2fcb0a-7366-4971-8bd5-17c4e3e8c6c0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DManager;{4d2fcb0a-7366-4971-8bd5-17c4e3e8c6c0})");
 }
 impl ::core::clone::Clone for Print3DManager {
     fn clone(&self) -> Self {
@@ -1157,7 +1157,7 @@ unsafe impl ::windows::core::Interface for Print3DManager {
 impl ::windows::core::RuntimeName for Print3DManager {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DManager";
 }
-::windows::core::interface_hierarchy!(Print3DManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DManager {}
 unsafe impl ::core::marker::Sync for Print3DManager {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1229,7 +1229,7 @@ impl ::core::fmt::Debug for Print3DTask {
     }
 }
 impl ::windows::core::RuntimeType for Print3DTask {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTask;{8ce3d080-2118-4c28-80de-f426d70191ae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTask;{8ce3d080-2118-4c28-80de-f426d70191ae})");
 }
 impl ::core::clone::Clone for Print3DTask {
     fn clone(&self) -> Self {
@@ -1245,7 +1245,7 @@ unsafe impl ::windows::core::Interface for Print3DTask {
 impl ::windows::core::RuntimeName for Print3DTask {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTask";
 }
-::windows::core::interface_hierarchy!(Print3DTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTask {}
 unsafe impl ::core::marker::Sync for Print3DTask {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1279,7 +1279,7 @@ impl ::core::fmt::Debug for Print3DTaskCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for Print3DTaskCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs;{cc1914af-2614-4f1d-accc-d6fc4fda5455})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs;{cc1914af-2614-4f1d-accc-d6fc4fda5455})");
 }
 impl ::core::clone::Clone for Print3DTaskCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -1295,7 +1295,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskCompletedEventArgs {
 impl ::windows::core::RuntimeName for Print3DTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(Print3DTaskCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DTaskCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskCompletedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1322,7 +1322,7 @@ impl ::core::fmt::Debug for Print3DTaskRequest {
     }
 }
 impl ::windows::core::RuntimeType for Print3DTaskRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskRequest;{2595c46f-2245-4c5a-8731-0d604dc6bc3c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskRequest;{2595c46f-2245-4c5a-8731-0d604dc6bc3c})");
 }
 impl ::core::clone::Clone for Print3DTaskRequest {
     fn clone(&self) -> Self {
@@ -1338,7 +1338,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskRequest {
 impl ::windows::core::RuntimeName for Print3DTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequest";
 }
-::windows::core::interface_hierarchy!(Print3DTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskRequest {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequest {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1365,7 +1365,7 @@ impl ::core::fmt::Debug for Print3DTaskRequestedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for Print3DTaskRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs;{150cb77f-18c5-40d7-9f40-fab3096e05a9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs;{150cb77f-18c5-40d7-9f40-fab3096e05a9})");
 }
 impl ::core::clone::Clone for Print3DTaskRequestedEventArgs {
     fn clone(&self) -> Self {
@@ -1381,7 +1381,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskRequestedEventArgs {
 impl ::windows::core::RuntimeName for Print3DTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs";
 }
-::windows::core::interface_hierarchy!(Print3DTaskRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DTaskRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1408,7 +1408,7 @@ impl ::core::fmt::Debug for Print3DTaskSourceChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for Print3DTaskSourceChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs;{5bcd34af-24e9-4c10-8d07-14c346ba3fcf})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs;{5bcd34af-24e9-4c10-8d07-14c346ba3fcf})");
 }
 impl ::core::clone::Clone for Print3DTaskSourceChangedEventArgs {
     fn clone(&self) -> Self {
@@ -1424,7 +1424,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskSourceChangedEventArgs {
 impl ::windows::core::RuntimeName for Print3DTaskSourceChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(Print3DTaskSourceChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DTaskSourceChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskSourceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceChangedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1448,7 +1448,7 @@ impl ::core::fmt::Debug for Print3DTaskSourceRequestedArgs {
     }
 }
 impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs;{c77c9aba-24af-424d-a3bf-92250c355602})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs;{c77c9aba-24af-424d-a3bf-92250c355602})");
 }
 impl ::core::clone::Clone for Print3DTaskSourceRequestedArgs {
     fn clone(&self) -> Self {
@@ -1464,7 +1464,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskSourceRequestedArgs {
 impl ::windows::core::RuntimeName for Print3DTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs";
 }
-::windows::core::interface_hierarchy!(Print3DTaskSourceRequestedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Print3DTaskSourceRequestedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskSourceRequestedArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceRequestedArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1474,8 +1474,8 @@ impl Printing3D3MFPackage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3D3MFPackage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3D3MFPackage, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1592,7 +1592,7 @@ impl Printing3D3MFPackage {
     }
     #[doc(hidden)]
     pub fn IPrinting3D3MFPackageStatics<R, F: FnOnce(&IPrinting3D3MFPackageStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3D3MFPackage, IPrinting3D3MFPackageStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Printing3D3MFPackage, IPrinting3D3MFPackageStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1608,7 +1608,7 @@ impl ::core::fmt::Debug for Printing3D3MFPackage {
     }
 }
 impl ::windows::core::RuntimeType for Printing3D3MFPackage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3D3MFPackage;{f64dd5c8-2ab7-45a9-a1b7-267e948d5b18})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3D3MFPackage;{f64dd5c8-2ab7-45a9-a1b7-267e948d5b18})");
 }
 impl ::core::clone::Clone for Printing3D3MFPackage {
     fn clone(&self) -> Self {
@@ -1624,7 +1624,7 @@ unsafe impl ::windows::core::Interface for Printing3D3MFPackage {
 impl ::windows::core::RuntimeName for Printing3D3MFPackage {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3D3MFPackage";
 }
-::windows::core::interface_hierarchy!(Printing3D3MFPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3D3MFPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3D3MFPackage {}
 unsafe impl ::core::marker::Sync for Printing3D3MFPackage {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1634,8 +1634,8 @@ impl Printing3DBaseMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DBaseMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DBaseMaterial, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1674,7 +1674,7 @@ impl Printing3DBaseMaterial {
     }
     #[doc(hidden)]
     pub fn IPrinting3DBaseMaterialStatics<R, F: FnOnce(&IPrinting3DBaseMaterialStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DBaseMaterial, IPrinting3DBaseMaterialStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Printing3DBaseMaterial, IPrinting3DBaseMaterialStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1690,7 +1690,7 @@ impl ::core::fmt::Debug for Printing3DBaseMaterial {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DBaseMaterial {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DBaseMaterial;{d0f0e743-c50c-4bcb-9d04-fc16adcea2c9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DBaseMaterial;{d0f0e743-c50c-4bcb-9d04-fc16adcea2c9})");
 }
 impl ::core::clone::Clone for Printing3DBaseMaterial {
     fn clone(&self) -> Self {
@@ -1706,7 +1706,7 @@ unsafe impl ::windows::core::Interface for Printing3DBaseMaterial {
 impl ::windows::core::RuntimeName for Printing3DBaseMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterial";
 }
-::windows::core::interface_hierarchy!(Printing3DBaseMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DBaseMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DBaseMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1737,7 +1737,7 @@ impl Printing3DBaseMaterialGroup {
     }
     #[doc(hidden)]
     pub fn IPrinting3DBaseMaterialGroupFactory<R, F: FnOnce(&IPrinting3DBaseMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DBaseMaterialGroup, IPrinting3DBaseMaterialGroupFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Printing3DBaseMaterialGroup, IPrinting3DBaseMaterialGroupFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1753,7 +1753,7 @@ impl ::core::fmt::Debug for Printing3DBaseMaterialGroup {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DBaseMaterialGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup;{94f070b8-2515-4a8d-a1f0-d0fc13d06021})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup;{94f070b8-2515-4a8d-a1f0-d0fc13d06021})");
 }
 impl ::core::clone::Clone for Printing3DBaseMaterialGroup {
     fn clone(&self) -> Self {
@@ -1769,7 +1769,7 @@ unsafe impl ::windows::core::Interface for Printing3DBaseMaterialGroup {
 impl ::windows::core::RuntimeName for Printing3DBaseMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup";
 }
-::windows::core::interface_hierarchy!(Printing3DBaseMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DBaseMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DBaseMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1779,8 +1779,8 @@ impl Printing3DColorMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DColorMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DColorMaterial, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Value(&self) -> ::windows::core::Result<u32> {
@@ -1822,7 +1822,7 @@ impl ::core::fmt::Debug for Printing3DColorMaterial {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DColorMaterial {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DColorMaterial;{e1899928-7ce7-4285-a35d-f145c9510c7b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DColorMaterial;{e1899928-7ce7-4285-a35d-f145c9510c7b})");
 }
 impl ::core::clone::Clone for Printing3DColorMaterial {
     fn clone(&self) -> Self {
@@ -1838,7 +1838,7 @@ unsafe impl ::windows::core::Interface for Printing3DColorMaterial {
 impl ::windows::core::RuntimeName for Printing3DColorMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterial";
 }
-::windows::core::interface_hierarchy!(Printing3DColorMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DColorMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DColorMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1869,7 +1869,7 @@ impl Printing3DColorMaterialGroup {
     }
     #[doc(hidden)]
     pub fn IPrinting3DColorMaterialGroupFactory<R, F: FnOnce(&IPrinting3DColorMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DColorMaterialGroup, IPrinting3DColorMaterialGroupFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Printing3DColorMaterialGroup, IPrinting3DColorMaterialGroupFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1885,7 +1885,7 @@ impl ::core::fmt::Debug for Printing3DColorMaterialGroup {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DColorMaterialGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DColorMaterialGroup;{001a6bd0-aadf-4226-afe9-f369a0b45004})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DColorMaterialGroup;{001a6bd0-aadf-4226-afe9-f369a0b45004})");
 }
 impl ::core::clone::Clone for Printing3DColorMaterialGroup {
     fn clone(&self) -> Self {
@@ -1901,7 +1901,7 @@ unsafe impl ::windows::core::Interface for Printing3DColorMaterialGroup {
 impl ::windows::core::RuntimeName for Printing3DColorMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterialGroup";
 }
-::windows::core::interface_hierarchy!(Printing3DColorMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DColorMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DColorMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1911,8 +1911,8 @@ impl Printing3DComponent {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DComponent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DComponent, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Mesh(&self) -> ::windows::core::Result<Printing3DMesh> {
@@ -1992,7 +1992,7 @@ impl ::core::fmt::Debug for Printing3DComponent {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DComponent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponent;{7e287845-bf7f-4cdb-a27f-30a01437fede})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponent;{7e287845-bf7f-4cdb-a27f-30a01437fede})");
 }
 impl ::core::clone::Clone for Printing3DComponent {
     fn clone(&self) -> Self {
@@ -2008,7 +2008,7 @@ unsafe impl ::windows::core::Interface for Printing3DComponent {
 impl ::windows::core::RuntimeName for Printing3DComponent {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponent";
 }
-::windows::core::interface_hierarchy!(Printing3DComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DComponent {}
 unsafe impl ::core::marker::Sync for Printing3DComponent {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2018,8 +2018,8 @@ impl Printing3DComponentWithMatrix {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DComponentWithMatrix, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DComponentWithMatrix, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Component(&self) -> ::windows::core::Result<Printing3DComponent> {
@@ -2061,7 +2061,7 @@ impl ::core::fmt::Debug for Printing3DComponentWithMatrix {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DComponentWithMatrix {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponentWithMatrix;{3279f335-0ef0-456b-9a21-49bebe8b51c2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponentWithMatrix;{3279f335-0ef0-456b-9a21-49bebe8b51c2})");
 }
 impl ::core::clone::Clone for Printing3DComponentWithMatrix {
     fn clone(&self) -> Self {
@@ -2077,7 +2077,7 @@ unsafe impl ::windows::core::Interface for Printing3DComponentWithMatrix {
 impl ::windows::core::RuntimeName for Printing3DComponentWithMatrix {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponentWithMatrix";
 }
-::windows::core::interface_hierarchy!(Printing3DComponentWithMatrix, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DComponentWithMatrix, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DComponentWithMatrix {}
 unsafe impl ::core::marker::Sync for Printing3DComponentWithMatrix {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2087,8 +2087,8 @@ impl Printing3DCompositeMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DCompositeMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DCompositeMaterial, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2113,7 +2113,7 @@ impl ::core::fmt::Debug for Printing3DCompositeMaterial {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DCompositeMaterial {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DCompositeMaterial;{462238dd-562e-4f6c-882d-f4d841fd63c7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DCompositeMaterial;{462238dd-562e-4f6c-882d-f4d841fd63c7})");
 }
 impl ::core::clone::Clone for Printing3DCompositeMaterial {
     fn clone(&self) -> Self {
@@ -2129,7 +2129,7 @@ unsafe impl ::windows::core::Interface for Printing3DCompositeMaterial {
 impl ::windows::core::RuntimeName for Printing3DCompositeMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterial";
 }
-::windows::core::interface_hierarchy!(Printing3DCompositeMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DCompositeMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2180,7 +2180,7 @@ impl Printing3DCompositeMaterialGroup {
     }
     #[doc(hidden)]
     pub fn IPrinting3DCompositeMaterialGroupFactory<R, F: FnOnce(&IPrinting3DCompositeMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DCompositeMaterialGroup, IPrinting3DCompositeMaterialGroupFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Printing3DCompositeMaterialGroup, IPrinting3DCompositeMaterialGroupFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2196,7 +2196,7 @@ impl ::core::fmt::Debug for Printing3DCompositeMaterialGroup {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DCompositeMaterialGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup;{8d946a5b-40f1-496d-a5fb-340a5a678e30})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup;{8d946a5b-40f1-496d-a5fb-340a5a678e30})");
 }
 impl ::core::clone::Clone for Printing3DCompositeMaterialGroup {
     fn clone(&self) -> Self {
@@ -2212,7 +2212,7 @@ unsafe impl ::windows::core::Interface for Printing3DCompositeMaterialGroup {
 impl ::windows::core::RuntimeName for Printing3DCompositeMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup";
 }
-::windows::core::interface_hierarchy!(Printing3DCompositeMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DCompositeMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2222,8 +2222,8 @@ impl Printing3DFaceReductionOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DFaceReductionOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DFaceReductionOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn MaxReductionArea(&self) -> ::windows::core::Result<f64> {
@@ -2272,7 +2272,7 @@ impl ::core::fmt::Debug for Printing3DFaceReductionOptions {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DFaceReductionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DFaceReductionOptions;{bbfed397-2d74-46f7-be85-99a67bbb6629})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DFaceReductionOptions;{bbfed397-2d74-46f7-be85-99a67bbb6629})");
 }
 impl ::core::clone::Clone for Printing3DFaceReductionOptions {
     fn clone(&self) -> Self {
@@ -2288,7 +2288,7 @@ unsafe impl ::windows::core::Interface for Printing3DFaceReductionOptions {
 impl ::windows::core::RuntimeName for Printing3DFaceReductionOptions {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DFaceReductionOptions";
 }
-::windows::core::interface_hierarchy!(Printing3DFaceReductionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DFaceReductionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DFaceReductionOptions {}
 unsafe impl ::core::marker::Sync for Printing3DFaceReductionOptions {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2298,8 +2298,8 @@ impl Printing3DMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DMaterial, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2360,7 +2360,7 @@ impl ::core::fmt::Debug for Printing3DMaterial {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DMaterial {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMaterial;{378db256-ed62-4952-b85b-03567d7c465e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMaterial;{378db256-ed62-4952-b85b-03567d7c465e})");
 }
 impl ::core::clone::Clone for Printing3DMaterial {
     fn clone(&self) -> Self {
@@ -2376,7 +2376,7 @@ unsafe impl ::windows::core::Interface for Printing3DMaterial {
 impl ::windows::core::RuntimeName for Printing3DMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMaterial";
 }
-::windows::core::interface_hierarchy!(Printing3DMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2386,8 +2386,8 @@ impl Printing3DMesh {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DMesh, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DMesh, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn VertexCount(&self) -> ::windows::core::Result<u32> {
@@ -2548,7 +2548,7 @@ impl ::core::fmt::Debug for Printing3DMesh {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DMesh {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMesh;{192e90dc-0228-2e01-bc20-c5290cbf32c4})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMesh;{192e90dc-0228-2e01-bc20-c5290cbf32c4})");
 }
 impl ::core::clone::Clone for Printing3DMesh {
     fn clone(&self) -> Self {
@@ -2564,7 +2564,7 @@ unsafe impl ::windows::core::Interface for Printing3DMesh {
 impl ::windows::core::RuntimeName for Printing3DMesh {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMesh";
 }
-::windows::core::interface_hierarchy!(Printing3DMesh, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DMesh, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMesh {}
 unsafe impl ::core::marker::Sync for Printing3DMesh {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2609,7 +2609,7 @@ impl ::core::fmt::Debug for Printing3DMeshVerificationResult {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DMeshVerificationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMeshVerificationResult;{195671ba-e93a-4e8a-a46f-dea8e852197e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMeshVerificationResult;{195671ba-e93a-4e8a-a46f-dea8e852197e})");
 }
 impl ::core::clone::Clone for Printing3DMeshVerificationResult {
     fn clone(&self) -> Self {
@@ -2625,7 +2625,7 @@ unsafe impl ::windows::core::Interface for Printing3DMeshVerificationResult {
 impl ::windows::core::RuntimeName for Printing3DMeshVerificationResult {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMeshVerificationResult";
 }
-::windows::core::interface_hierarchy!(Printing3DMeshVerificationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DMeshVerificationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMeshVerificationResult {}
 unsafe impl ::core::marker::Sync for Printing3DMeshVerificationResult {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2635,8 +2635,8 @@ impl Printing3DModel {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DModel, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DModel, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Unit(&self) -> ::windows::core::Result<Printing3DModelUnit> {
@@ -2811,7 +2811,7 @@ impl ::core::fmt::Debug for Printing3DModel {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DModel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModel;{2d012ef0-52fb-919a-77b0-4b1a3b80324f})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModel;{2d012ef0-52fb-919a-77b0-4b1a3b80324f})");
 }
 impl ::core::clone::Clone for Printing3DModel {
     fn clone(&self) -> Self {
@@ -2827,7 +2827,7 @@ unsafe impl ::windows::core::Interface for Printing3DModel {
 impl ::windows::core::RuntimeName for Printing3DModel {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModel";
 }
-::windows::core::interface_hierarchy!(Printing3DModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DModel {}
 unsafe impl ::core::marker::Sync for Printing3DModel {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2837,8 +2837,8 @@ impl Printing3DModelTexture {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DModelTexture, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DModelTexture, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn TextureResource(&self) -> ::windows::core::Result<Printing3DTextureResource> {
@@ -2887,7 +2887,7 @@ impl ::core::fmt::Debug for Printing3DModelTexture {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DModelTexture {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModelTexture;{5dafcf01-b59d-483c-97bb-a4d546d1c75c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModelTexture;{5dafcf01-b59d-483c-97bb-a4d546d1c75c})");
 }
 impl ::core::clone::Clone for Printing3DModelTexture {
     fn clone(&self) -> Self {
@@ -2903,7 +2903,7 @@ unsafe impl ::windows::core::Interface for Printing3DModelTexture {
 impl ::windows::core::RuntimeName for Printing3DModelTexture {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModelTexture";
 }
-::windows::core::interface_hierarchy!(Printing3DModelTexture, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DModelTexture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DModelTexture {}
 unsafe impl ::core::marker::Sync for Printing3DModelTexture {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2913,8 +2913,8 @@ impl Printing3DMultiplePropertyMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DMultiplePropertyMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DMultiplePropertyMaterial, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2939,7 +2939,7 @@ impl ::core::fmt::Debug for Printing3DMultiplePropertyMaterial {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterial {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial;{25a6254b-c6e9-484d-a214-a25e5776ba62})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial;{25a6254b-c6e9-484d-a214-a25e5776ba62})");
 }
 impl ::core::clone::Clone for Printing3DMultiplePropertyMaterial {
     fn clone(&self) -> Self {
@@ -2955,7 +2955,7 @@ unsafe impl ::windows::core::Interface for Printing3DMultiplePropertyMaterial {
 impl ::windows::core::RuntimeName for Printing3DMultiplePropertyMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial";
 }
-::windows::core::interface_hierarchy!(Printing3DMultiplePropertyMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DMultiplePropertyMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2995,7 +2995,7 @@ impl Printing3DMultiplePropertyMaterialGroup {
     }
     #[doc(hidden)]
     pub fn IPrinting3DMultiplePropertyMaterialGroupFactory<R, F: FnOnce(&IPrinting3DMultiplePropertyMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DMultiplePropertyMaterialGroup, IPrinting3DMultiplePropertyMaterialGroupFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Printing3DMultiplePropertyMaterialGroup, IPrinting3DMultiplePropertyMaterialGroupFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3011,7 +3011,7 @@ impl ::core::fmt::Debug for Printing3DMultiplePropertyMaterialGroup {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterialGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup;{f0950519-aeb9-4515-a39b-a088fbbb277c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup;{f0950519-aeb9-4515-a39b-a088fbbb277c})");
 }
 impl ::core::clone::Clone for Printing3DMultiplePropertyMaterialGroup {
     fn clone(&self) -> Self {
@@ -3027,7 +3027,7 @@ unsafe impl ::windows::core::Interface for Printing3DMultiplePropertyMaterialGro
 impl ::windows::core::RuntimeName for Printing3DMultiplePropertyMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup";
 }
-::windows::core::interface_hierarchy!(Printing3DMultiplePropertyMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DMultiplePropertyMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3037,8 +3037,8 @@ impl Printing3DTexture2CoordMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DTexture2CoordMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DTexture2CoordMaterial, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Texture(&self) -> ::windows::core::Result<Printing3DModelTexture> {
@@ -3087,7 +3087,7 @@ impl ::core::fmt::Debug for Printing3DTexture2CoordMaterial {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterial {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial;{8d844bfb-07e9-4986-9833-8dd3d48c6859})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial;{8d844bfb-07e9-4986-9833-8dd3d48c6859})");
 }
 impl ::core::clone::Clone for Printing3DTexture2CoordMaterial {
     fn clone(&self) -> Self {
@@ -3103,7 +3103,7 @@ unsafe impl ::windows::core::Interface for Printing3DTexture2CoordMaterial {
 impl ::windows::core::RuntimeName for Printing3DTexture2CoordMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial";
 }
-::windows::core::interface_hierarchy!(Printing3DTexture2CoordMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DTexture2CoordMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3145,7 +3145,7 @@ impl Printing3DTexture2CoordMaterialGroup {
     }
     #[doc(hidden)]
     pub fn IPrinting3DTexture2CoordMaterialGroupFactory<R, F: FnOnce(&IPrinting3DTexture2CoordMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DTexture2CoordMaterialGroup, IPrinting3DTexture2CoordMaterialGroupFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Printing3DTexture2CoordMaterialGroup, IPrinting3DTexture2CoordMaterialGroupFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3161,7 +3161,7 @@ impl ::core::fmt::Debug for Printing3DTexture2CoordMaterialGroup {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterialGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup;{627d7ca7-6d90-4fb9-9fc4-9feff3dfa892})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup;{627d7ca7-6d90-4fb9-9fc4-9feff3dfa892})");
 }
 impl ::core::clone::Clone for Printing3DTexture2CoordMaterialGroup {
     fn clone(&self) -> Self {
@@ -3177,7 +3177,7 @@ unsafe impl ::windows::core::Interface for Printing3DTexture2CoordMaterialGroup 
 impl ::windows::core::RuntimeName for Printing3DTexture2CoordMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup";
 }
-::windows::core::interface_hierarchy!(Printing3DTexture2CoordMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DTexture2CoordMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3187,8 +3187,8 @@ impl Printing3DTextureResource {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Printing3DTextureResource, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<Printing3DTextureResource, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3234,7 +3234,7 @@ impl ::core::fmt::Debug for Printing3DTextureResource {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DTextureResource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTextureResource;{a70df32d-6ab1-44ae-bc45-a27382c0d38c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTextureResource;{a70df32d-6ab1-44ae-bc45-a27382c0d38c})");
 }
 impl ::core::clone::Clone for Printing3DTextureResource {
     fn clone(&self) -> Self {
@@ -3250,7 +3250,7 @@ unsafe impl ::windows::core::Interface for Printing3DTextureResource {
 impl ::windows::core::RuntimeName for Printing3DTextureResource {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTextureResource";
 }
-::windows::core::interface_hierarchy!(Printing3DTextureResource, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Printing3DTextureResource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTextureResource {}
 unsafe impl ::core::marker::Sync for Printing3DTextureResource {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3284,7 +3284,7 @@ impl ::core::fmt::Debug for Print3DTaskCompletion {
     }
 }
 impl ::windows::core::RuntimeType for Print3DTaskCompletion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3319,7 +3319,7 @@ impl ::core::fmt::Debug for Print3DTaskDetail {
     }
 }
 impl ::windows::core::RuntimeType for Print3DTaskDetail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3354,7 +3354,7 @@ impl ::core::fmt::Debug for Printing3DBufferFormat {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DBufferFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3384,7 +3384,7 @@ impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DMeshVerificationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3418,7 +3418,7 @@ impl ::core::fmt::Debug for Printing3DModelUnit {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DModelUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3449,7 +3449,7 @@ impl ::core::fmt::Debug for Printing3DObjectType {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DObjectType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3480,7 +3480,7 @@ impl ::core::fmt::Debug for Printing3DPackageCompression {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DPackageCompression {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3512,7 +3512,7 @@ impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
     }
 }
 impl ::windows::core::RuntimeType for Printing3DTextureEdgeBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3535,7 +3535,7 @@ impl ::windows::core::TypeKind for Printing3DBufferDescription {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for Printing3DBufferDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing3D.Printing3DBufferDescription;enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4);u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing3D.Printing3DBufferDescription;enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4);u4)");
 }
 impl ::core::cmp::PartialEq for Printing3DBufferDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -3553,8 +3553,8 @@ impl ::core::default::Default for Printing3DBufferDescription {
 pub struct Print3DTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
 impl Print3DTaskSourceRequestedHandler {
     pub fn new<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = Print3DTaskSourceRequestedHandlerBox::<F> { vtable: &Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = Print3DTaskSourceRequestedHandlerBox::<F> { vtable: &Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, args: &Print3DTaskSourceRequestedArgs) -> ::windows::core::Result<()> {
         let this = self;
@@ -3565,7 +3565,7 @@ impl Print3DTaskSourceRequestedHandler {
 struct Print3DTaskSourceRequestedHandlerBox<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const Print3DTaskSourceRequestedHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> Print3DTaskSourceRequestedHandlerBox<F> {
     const VTABLE: Print3DTaskSourceRequestedHandler_Vtbl = Print3DTaskSourceRequestedHandler_Vtbl {
@@ -3574,7 +3574,7 @@ impl<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::wind
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<Print3DTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<Print3DTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -3590,7 +3590,7 @@ impl<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::wind
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -3622,7 +3622,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskSourceRequestedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9175e70_c917_46de_bb51_d9a94db3711f);
 }
 impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e9175e70-c917-46de-bb51-d9a94db3711f}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e9175e70-c917-46de-bb51-d9a94db3711f}");
 }
 #[repr(C)]
 #[doc(hidden)]

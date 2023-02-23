@@ -21,7 +21,7 @@ impl IDisplayDeviceInterop {
         (::windows::core::Vtable::vtable(self).OpenSharedHandle)(::windows::core::Vtable::as_raw(self), nthandle.into(), ::core::mem::transmute(riid), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDisplayDeviceInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDisplayDeviceInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDisplayDeviceInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -72,7 +72,7 @@ impl IDisplayPathInterop {
         (::windows::core::Vtable::vtable(self).GetSourceId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDisplayPathInterop, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IDisplayPathInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDisplayPathInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -270,7 +270,7 @@ impl IPrintCustomOptionDetails {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrintCustomOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintCustomOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintCustomOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintCustomOptionDetails) -> ::windows::core::Result<Self> {
@@ -302,7 +302,7 @@ impl ::core::fmt::Debug for IPrintCustomOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for IPrintCustomOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e32bde1c-28af-4b90-95da-a3acf320b929}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{e32bde1c-28af-4b90-95da-a3acf320b929}");
 }
 unsafe impl ::windows::core::Vtable for IPrintCustomOptionDetails {
     type Vtable = IPrintCustomOptionDetails_Vtbl;
@@ -502,7 +502,7 @@ impl IPrintItemListOptionDetails {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrintItemListOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintItemListOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintItemListOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintItemListOptionDetails) -> ::windows::core::Result<Self> {
@@ -534,7 +534,7 @@ impl ::core::fmt::Debug for IPrintItemListOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for IPrintItemListOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a2257bf-fe61-43d8-a24f-a3f6ab7320e7}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9a2257bf-fe61-43d8-a24f-a3f6ab7320e7}");
 }
 unsafe impl ::windows::core::Vtable for IPrintItemListOptionDetails {
     type Vtable = IPrintItemListOptionDetails_Vtbl;
@@ -674,7 +674,7 @@ impl IPrintNumberOptionDetails {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrintNumberOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintNumberOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintNumberOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintNumberOptionDetails) -> ::windows::core::Result<Self> {
@@ -706,7 +706,7 @@ impl ::core::fmt::Debug for IPrintNumberOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for IPrintNumberOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4d01bbaf-645c-4de9-965f-6fc6bbc47cab}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4d01bbaf-645c-4de9-965f-6fc6bbc47cab}");
 }
 unsafe impl ::windows::core::Vtable for IPrintNumberOptionDetails {
     type Vtable = IPrintNumberOptionDetails_Vtbl;
@@ -784,7 +784,7 @@ impl IPrintOptionDetails {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrintOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPrintOptionDetails {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -797,7 +797,7 @@ impl ::core::fmt::Debug for IPrintOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for IPrintOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{390686cf-d682-495f-adfe-d7333f5c1808}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{390686cf-d682-495f-adfe-d7333f5c1808}");
 }
 unsafe impl ::windows::core::Vtable for IPrintOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1081,7 +1081,7 @@ impl IPrintTextOptionDetails {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPrintTextOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPrintTextOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintTextOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintTextOptionDetails) -> ::windows::core::Result<Self> {
@@ -1113,7 +1113,7 @@ impl ::core::fmt::Debug for IPrintTextOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for IPrintTextOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ad75e563-5ce4-46bc-9918-ab9fad144c5b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ad75e563-5ce4-46bc-9918-ab9fad144c5b}");
 }
 unsafe impl ::windows::core::Vtable for IPrintTextOptionDetails {
     type Vtable = IPrintTextOptionDetails_Vtbl;
@@ -1233,7 +1233,7 @@ impl ::core::fmt::Debug for PrintBindingOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintBindingOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintBindingOptionDetails {
     fn clone(&self) -> Self {
@@ -1249,7 +1249,7 @@ unsafe impl ::windows::core::Interface for PrintBindingOptionDetails {
 impl ::windows::core::RuntimeName for PrintBindingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintBindingOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintBindingOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintBindingOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintBindingOptionDetails) -> ::windows::core::Result<Self> {
@@ -1391,7 +1391,7 @@ impl ::core::fmt::Debug for PrintBorderingOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintBorderingOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintBorderingOptionDetails {
     fn clone(&self) -> Self {
@@ -1407,7 +1407,7 @@ unsafe impl ::windows::core::Interface for PrintBorderingOptionDetails {
 impl ::windows::core::RuntimeName for PrintBorderingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintBorderingOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintBorderingOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintBorderingOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintBorderingOptionDetails) -> ::windows::core::Result<Self> {
@@ -1549,7 +1549,7 @@ impl ::core::fmt::Debug for PrintCollationOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintCollationOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintCollationOptionDetails {
     fn clone(&self) -> Self {
@@ -1565,7 +1565,7 @@ unsafe impl ::windows::core::Interface for PrintCollationOptionDetails {
 impl ::windows::core::RuntimeName for PrintCollationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintCollationOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintCollationOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCollationOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCollationOptionDetails) -> ::windows::core::Result<Self> {
@@ -1707,7 +1707,7 @@ impl ::core::fmt::Debug for PrintColorModeOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintColorModeOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintColorModeOptionDetails {
     fn clone(&self) -> Self {
@@ -1723,7 +1723,7 @@ unsafe impl ::windows::core::Interface for PrintColorModeOptionDetails {
 impl ::windows::core::RuntimeName for PrintColorModeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintColorModeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintColorModeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintColorModeOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintColorModeOptionDetails) -> ::windows::core::Result<Self> {
@@ -1870,7 +1870,7 @@ impl ::core::fmt::Debug for PrintCopiesOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintCopiesOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintCopiesOptionDetails {
     fn clone(&self) -> Self {
@@ -1886,7 +1886,7 @@ unsafe impl ::windows::core::Interface for PrintCopiesOptionDetails {
 impl ::windows::core::RuntimeName for PrintCopiesOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintCopiesOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintCopiesOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCopiesOptionDetails> for IPrintNumberOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCopiesOptionDetails) -> ::windows::core::Result<Self> {
@@ -1962,7 +1962,7 @@ impl ::core::fmt::Debug for PrintCustomItemDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintCustomItemDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails;{5704b637-5c3a-449a-aa36-b3291b1192fd})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails;{5704b637-5c3a-449a-aa36-b3291b1192fd})");
 }
 impl ::core::clone::Clone for PrintCustomItemDetails {
     fn clone(&self) -> Self {
@@ -1978,7 +1978,7 @@ unsafe impl ::windows::core::Interface for PrintCustomItemDetails {
 impl ::windows::core::RuntimeName for PrintCustomItemDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails";
 }
-::windows::core::interface_hierarchy!(PrintCustomItemDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintCustomItemDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintCustomItemDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomItemDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
@@ -2107,7 +2107,7 @@ impl ::core::fmt::Debug for PrintCustomItemListOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintCustomItemListOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintCustomItemListOptionDetails {
     fn clone(&self) -> Self {
@@ -2123,7 +2123,7 @@ unsafe impl ::windows::core::Interface for PrintCustomItemListOptionDetails {
 impl ::windows::core::RuntimeName for PrintCustomItemListOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintCustomItemListOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintCustomItemListOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCustomItemListOptionDetails> for IPrintCustomOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCustomItemListOptionDetails) -> ::windows::core::Result<Self> {
@@ -2297,7 +2297,7 @@ impl ::core::fmt::Debug for PrintCustomTextOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintCustomTextOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintCustomTextOptionDetails {
     fn clone(&self) -> Self {
@@ -2313,7 +2313,7 @@ unsafe impl ::windows::core::Interface for PrintCustomTextOptionDetails {
 impl ::windows::core::RuntimeName for PrintCustomTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintCustomTextOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintCustomTextOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCustomTextOptionDetails> for IPrintCustomOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCustomTextOptionDetails) -> ::windows::core::Result<Self> {
@@ -2457,7 +2457,7 @@ impl ::core::fmt::Debug for PrintCustomToggleOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintCustomToggleOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintCustomToggleOptionDetails {
     fn clone(&self) -> Self {
@@ -2473,7 +2473,7 @@ unsafe impl ::windows::core::Interface for PrintCustomToggleOptionDetails {
 impl ::windows::core::RuntimeName for PrintCustomToggleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintCustomToggleOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintCustomToggleOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCustomToggleOptionDetails> for IPrintCustomOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCustomToggleOptionDetails) -> ::windows::core::Result<Self> {
@@ -2615,7 +2615,7 @@ impl ::core::fmt::Debug for PrintDuplexOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintDuplexOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintDuplexOptionDetails {
     fn clone(&self) -> Self {
@@ -2631,7 +2631,7 @@ unsafe impl ::windows::core::Interface for PrintDuplexOptionDetails {
 impl ::windows::core::RuntimeName for PrintDuplexOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintDuplexOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintDuplexOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintDuplexOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintDuplexOptionDetails) -> ::windows::core::Result<Self> {
@@ -2773,7 +2773,7 @@ impl ::core::fmt::Debug for PrintHolePunchOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintHolePunchOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintHolePunchOptionDetails {
     fn clone(&self) -> Self {
@@ -2789,7 +2789,7 @@ unsafe impl ::windows::core::Interface for PrintHolePunchOptionDetails {
 impl ::windows::core::RuntimeName for PrintHolePunchOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintHolePunchOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintHolePunchOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintHolePunchOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintHolePunchOptionDetails) -> ::windows::core::Result<Self> {
@@ -2931,7 +2931,7 @@ impl ::core::fmt::Debug for PrintMediaSizeOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintMediaSizeOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintMediaSizeOptionDetails {
     fn clone(&self) -> Self {
@@ -2947,7 +2947,7 @@ unsafe impl ::windows::core::Interface for PrintMediaSizeOptionDetails {
 impl ::windows::core::RuntimeName for PrintMediaSizeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintMediaSizeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintMediaSizeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintMediaSizeOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintMediaSizeOptionDetails) -> ::windows::core::Result<Self> {
@@ -3089,7 +3089,7 @@ impl ::core::fmt::Debug for PrintMediaTypeOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintMediaTypeOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintMediaTypeOptionDetails {
     fn clone(&self) -> Self {
@@ -3105,7 +3105,7 @@ unsafe impl ::windows::core::Interface for PrintMediaTypeOptionDetails {
 impl ::windows::core::RuntimeName for PrintMediaTypeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintMediaTypeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintMediaTypeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintMediaTypeOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintMediaTypeOptionDetails) -> ::windows::core::Result<Self> {
@@ -3247,7 +3247,7 @@ impl ::core::fmt::Debug for PrintOrientationOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintOrientationOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintOrientationOptionDetails {
     fn clone(&self) -> Self {
@@ -3263,7 +3263,7 @@ unsafe impl ::windows::core::Interface for PrintOrientationOptionDetails {
 impl ::windows::core::RuntimeName for PrintOrientationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintOrientationOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintOrientationOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintOrientationOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintOrientationOptionDetails) -> ::windows::core::Result<Self> {
@@ -3396,7 +3396,7 @@ impl ::core::fmt::Debug for PrintPageRangeOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintPageRangeOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintPageRangeOptionDetails {
     fn clone(&self) -> Self {
@@ -3412,7 +3412,7 @@ unsafe impl ::windows::core::Interface for PrintPageRangeOptionDetails {
 impl ::windows::core::RuntimeName for PrintPageRangeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintPageRangeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintPageRangeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintPageRangeOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintPageRangeOptionDetails) -> ::windows::core::Result<Self> {
@@ -3535,7 +3535,7 @@ impl ::core::fmt::Debug for PrintQualityOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintQualityOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintQualityOptionDetails {
     fn clone(&self) -> Self {
@@ -3551,7 +3551,7 @@ unsafe impl ::windows::core::Interface for PrintQualityOptionDetails {
 impl ::windows::core::RuntimeName for PrintQualityOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintQualityOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintQualityOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintQualityOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintQualityOptionDetails) -> ::windows::core::Result<Self> {
@@ -3693,7 +3693,7 @@ impl ::core::fmt::Debug for PrintStapleOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintStapleOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 impl ::core::clone::Clone for PrintStapleOptionDetails {
     fn clone(&self) -> Self {
@@ -3709,7 +3709,7 @@ unsafe impl ::windows::core::Interface for PrintStapleOptionDetails {
 impl ::windows::core::RuntimeName for PrintStapleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintStapleOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintStapleOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintStapleOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintStapleOptionDetails) -> ::windows::core::Result<Self> {
@@ -3774,7 +3774,7 @@ impl ::core::fmt::Debug for PrintTaskOptionChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskOptionChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs;{65197d05-a5ee-4307-9407-9acad147679c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs;{65197d05-a5ee-4307-9407-9acad147679c})");
 }
 impl ::core::clone::Clone for PrintTaskOptionChangedEventArgs {
     fn clone(&self) -> Self {
@@ -3790,7 +3790,7 @@ unsafe impl ::windows::core::Interface for PrintTaskOptionChangedEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskOptionChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(PrintTaskOptionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskOptionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskOptionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskOptionChangedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
@@ -3883,7 +3883,7 @@ impl PrintTaskOptionDetails {
     }
     #[doc(hidden)]
     pub fn IPrintTaskOptionDetailsStatic<R, F: FnOnce(&IPrintTaskOptionDetailsStatic) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PrintTaskOptionDetails, IPrintTaskOptionDetailsStatic> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PrintTaskOptionDetails, IPrintTaskOptionDetailsStatic> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3899,7 +3899,7 @@ impl ::core::fmt::Debug for PrintTaskOptionDetails {
     }
 }
 impl ::windows::core::RuntimeType for PrintTaskOptionDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails;{f5720af1-a89e-42a6-81af-f8e010b38a68})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails;{f5720af1-a89e-42a6-81af-f8e010b38a68})");
 }
 impl ::core::clone::Clone for PrintTaskOptionDetails {
     fn clone(&self) -> Self {
@@ -3915,7 +3915,7 @@ unsafe impl ::windows::core::Interface for PrintTaskOptionDetails {
 impl ::windows::core::RuntimeName for PrintTaskOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails";
 }
-::windows::core::interface_hierarchy!(PrintTaskOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PrintTaskOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintTaskOptionDetails> for super::IPrintTaskOptionsCore {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintTaskOptionDetails) -> ::windows::core::Result<Self> {
@@ -4018,7 +4018,7 @@ impl ::core::ops::Not for PrintOptionStates {
     }
 }
 impl ::windows::core::RuntimeType for PrintOptionStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionStates;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionStates;u4)");
 }
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
@@ -4051,7 +4051,7 @@ impl ::core::fmt::Debug for PrintOptionType {
     }
 }
 impl ::windows::core::RuntimeType for PrintOptionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

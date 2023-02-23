@@ -258,7 +258,7 @@ impl IWebAccount {
         }
     }
 }
-::windows::core::interface_hierarchy!(IWebAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IWebAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IWebAccount {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -271,7 +271,7 @@ impl ::core::fmt::Debug for IWebAccount {
     }
 }
 impl ::windows::core::RuntimeType for IWebAccount {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69473eb2-8031-49be-80bb-96cb46d99aba}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{69473eb2-8031-49be-80bb-96cb46d99aba}");
 }
 unsafe impl ::windows::core::Vtable for IWebAccount {
     type Vtable = IWebAccount_Vtbl;
@@ -524,7 +524,7 @@ impl ::core::fmt::Debug for KeyCredential {
     }
 }
 impl ::windows::core::RuntimeType for KeyCredential {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredential;{9585ef8d-457b-4847-b11a-fa960bbdb138})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredential;{9585ef8d-457b-4847-b11a-fa960bbdb138})");
 }
 impl ::core::clone::Clone for KeyCredential {
     fn clone(&self) -> Self {
@@ -540,7 +540,7 @@ unsafe impl ::windows::core::Interface for KeyCredential {
 impl ::windows::core::RuntimeName for KeyCredential {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredential";
 }
-::windows::core::interface_hierarchy!(KeyCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyCredential {}
 unsafe impl ::core::marker::Sync for KeyCredential {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -585,7 +585,7 @@ impl ::core::fmt::Debug for KeyCredentialAttestationResult {
     }
 }
 impl ::windows::core::RuntimeType for KeyCredentialAttestationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialAttestationResult;{78aab3a1-a3c1-4103-b6cc-472c44171cbb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialAttestationResult;{78aab3a1-a3c1-4103-b6cc-472c44171cbb})");
 }
 impl ::core::clone::Clone for KeyCredentialAttestationResult {
     fn clone(&self) -> Self {
@@ -601,7 +601,7 @@ unsafe impl ::windows::core::Interface for KeyCredentialAttestationResult {
 impl ::windows::core::RuntimeName for KeyCredentialAttestationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialAttestationResult";
 }
-::windows::core::interface_hierarchy!(KeyCredentialAttestationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyCredentialAttestationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyCredentialAttestationResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialAttestationResult {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -649,7 +649,7 @@ impl KeyCredentialManager {
     }
     #[doc(hidden)]
     pub fn IKeyCredentialManagerStatics<R, F: FnOnce(&IKeyCredentialManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyCredentialManager, IKeyCredentialManagerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyCredentialManager, IKeyCredentialManagerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -689,7 +689,7 @@ impl ::core::fmt::Debug for KeyCredentialOperationResult {
     }
 }
 impl ::windows::core::RuntimeType for KeyCredentialOperationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialOperationResult;{f53786c1-5261-4cdd-976d-cc909ac71620})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialOperationResult;{f53786c1-5261-4cdd-976d-cc909ac71620})");
 }
 impl ::core::clone::Clone for KeyCredentialOperationResult {
     fn clone(&self) -> Self {
@@ -705,7 +705,7 @@ unsafe impl ::windows::core::Interface for KeyCredentialOperationResult {
 impl ::windows::core::RuntimeName for KeyCredentialOperationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialOperationResult";
 }
-::windows::core::interface_hierarchy!(KeyCredentialOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyCredentialOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyCredentialOperationResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialOperationResult {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -739,7 +739,7 @@ impl ::core::fmt::Debug for KeyCredentialRetrievalResult {
     }
 }
 impl ::windows::core::RuntimeType for KeyCredentialRetrievalResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialRetrievalResult;{58cd7703-8d87-4249-9b58-f6598cc9644e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialRetrievalResult;{58cd7703-8d87-4249-9b58-f6598cc9644e})");
 }
 impl ::core::clone::Clone for KeyCredentialRetrievalResult {
     fn clone(&self) -> Self {
@@ -755,7 +755,7 @@ unsafe impl ::windows::core::Interface for KeyCredentialRetrievalResult {
 impl ::windows::core::RuntimeName for KeyCredentialRetrievalResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialRetrievalResult";
 }
-::windows::core::interface_hierarchy!(KeyCredentialRetrievalResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyCredentialRetrievalResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyCredentialRetrievalResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialRetrievalResult {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -765,8 +765,8 @@ impl PasswordCredential {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PasswordCredential, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PasswordCredential, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn CreatePasswordCredential(resource: &::windows::core::HSTRING, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING) -> ::windows::core::Result<PasswordCredential> {
@@ -823,7 +823,7 @@ impl PasswordCredential {
     }
     #[doc(hidden)]
     pub fn ICredentialFactory<R, F: FnOnce(&ICredentialFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PasswordCredential, ICredentialFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PasswordCredential, ICredentialFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -839,7 +839,7 @@ impl ::core::fmt::Debug for PasswordCredential {
     }
 }
 impl ::windows::core::RuntimeType for PasswordCredential {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredential;{6ab18989-c720-41a7-a6c1-feadb36329a0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredential;{6ab18989-c720-41a7-a6c1-feadb36329a0})");
 }
 impl ::core::clone::Clone for PasswordCredential {
     fn clone(&self) -> Self {
@@ -855,7 +855,7 @@ unsafe impl ::windows::core::Interface for PasswordCredential {
 impl ::windows::core::RuntimeName for PasswordCredential {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordCredential";
 }
-::windows::core::interface_hierarchy!(PasswordCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PasswordCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PasswordCredential {}
 unsafe impl ::core::marker::Sync for PasswordCredential {}
 #[doc = "*Required features: `\"Security_Credentials\"`, `\"Foundation_Collections\"`*"]
@@ -867,8 +867,8 @@ impl PasswordCredentialPropertyStore {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PasswordCredentialPropertyStore, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PasswordCredentialPropertyStore, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -972,7 +972,7 @@ impl ::core::fmt::Debug for PasswordCredentialPropertyStore {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for PasswordCredentialPropertyStore {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredentialPropertyStore;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredentialPropertyStore;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for PasswordCredentialPropertyStore {
@@ -1009,7 +1009,7 @@ impl ::core::iter::IntoIterator for &PasswordCredentialPropertyStore {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(PasswordCredentialPropertyStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PasswordCredentialPropertyStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -1109,8 +1109,8 @@ impl PasswordVault {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PasswordVault, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<PasswordVault, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn Add(&self, credential: &PasswordCredential) -> ::windows::core::Result<()> {
@@ -1168,7 +1168,7 @@ impl ::core::fmt::Debug for PasswordVault {
     }
 }
 impl ::windows::core::RuntimeType for PasswordVault {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordVault;{61fd2c0b-c8d4-48c1-a54f-bc5a64205af2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordVault;{61fd2c0b-c8d4-48c1-a54f-bc5a64205af2})");
 }
 impl ::core::clone::Clone for PasswordVault {
     fn clone(&self) -> Self {
@@ -1184,7 +1184,7 @@ unsafe impl ::windows::core::Interface for PasswordVault {
 impl ::windows::core::RuntimeName for PasswordVault {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordVault";
 }
-::windows::core::interface_hierarchy!(PasswordVault, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PasswordVault, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PasswordVault {}
 unsafe impl ::core::marker::Sync for PasswordVault {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1263,7 +1263,7 @@ impl WebAccount {
     }
     #[doc(hidden)]
     pub fn IWebAccountFactory<R, F: FnOnce(&IWebAccountFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAccount, IWebAccountFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAccount, IWebAccountFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1279,7 +1279,7 @@ impl ::core::fmt::Debug for WebAccount {
     }
 }
 impl ::windows::core::RuntimeType for WebAccount {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccount;{69473eb2-8031-49be-80bb-96cb46d99aba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccount;{69473eb2-8031-49be-80bb-96cb46d99aba})");
 }
 impl ::core::clone::Clone for WebAccount {
     fn clone(&self) -> Self {
@@ -1295,7 +1295,7 @@ unsafe impl ::windows::core::Interface for WebAccount {
 impl ::windows::core::RuntimeName for WebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccount";
 }
-::windows::core::interface_hierarchy!(WebAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccount> for IWebAccount {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccount) -> ::windows::core::Result<Self> {
@@ -1384,7 +1384,7 @@ impl WebAccountProvider {
     }
     #[doc(hidden)]
     pub fn IWebAccountProviderFactory<R, F: FnOnce(&IWebAccountProviderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAccountProvider, IWebAccountProviderFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<WebAccountProvider, IWebAccountProviderFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1400,7 +1400,7 @@ impl ::core::fmt::Debug for WebAccountProvider {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccountProvider;{29dcc8c3-7ab9-4a7c-a336-b942f9dbf7c7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccountProvider;{29dcc8c3-7ab9-4a7c-a336-b942f9dbf7c7})");
 }
 impl ::core::clone::Clone for WebAccountProvider {
     fn clone(&self) -> Self {
@@ -1416,7 +1416,7 @@ unsafe impl ::windows::core::Interface for WebAccountProvider {
 impl ::windows::core::RuntimeName for WebAccountProvider {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccountProvider";
 }
-::windows::core::interface_hierarchy!(WebAccountProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(WebAccountProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebAccountProvider {}
 unsafe impl ::core::marker::Sync for WebAccountProvider {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1449,7 +1449,7 @@ impl ::core::fmt::Debug for KeyCredentialAttestationStatus {
     }
 }
 impl ::windows::core::RuntimeType for KeyCredentialAttestationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
 }
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1479,7 +1479,7 @@ impl ::core::fmt::Debug for KeyCredentialCreationOption {
     }
 }
 impl ::windows::core::RuntimeType for KeyCredentialCreationOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
 }
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1514,7 +1514,7 @@ impl ::core::fmt::Debug for KeyCredentialStatus {
     }
 }
 impl ::windows::core::RuntimeType for KeyCredentialStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
 }
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1546,7 +1546,7 @@ impl ::core::fmt::Debug for WebAccountPictureSize {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountPictureSize {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
 }
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1577,7 +1577,7 @@ impl ::core::fmt::Debug for WebAccountState {
     }
 }
 impl ::windows::core::RuntimeType for WebAccountState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountState;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

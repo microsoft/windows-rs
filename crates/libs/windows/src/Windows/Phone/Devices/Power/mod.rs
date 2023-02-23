@@ -93,7 +93,7 @@ impl Battery {
     }
     #[doc(hidden)]
     pub fn IBatteryStatics<R, F: FnOnce(&IBatteryStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Battery, IBatteryStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<Battery, IBatteryStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -109,7 +109,7 @@ impl ::core::fmt::Debug for Battery {
     }
 }
 impl ::windows::core::RuntimeType for Battery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Power.Battery;{972adbdd-6720-4702-a476-b9d38a0070e3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Power.Battery;{972adbdd-6720-4702-a476-b9d38a0070e3})");
 }
 impl ::core::clone::Clone for Battery {
     fn clone(&self) -> Self {
@@ -125,7 +125,7 @@ unsafe impl ::windows::core::Interface for Battery {
 impl ::windows::core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Phone.Devices.Power.Battery";
 }
-::windows::core::interface_hierarchy!(Battery, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(Battery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Battery {}
 unsafe impl ::core::marker::Sync for Battery {}
 #[cfg(feature = "implement")]

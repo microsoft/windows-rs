@@ -5,7 +5,7 @@ pub unsafe fn KsCreateAllocator<P0>(connectionhandle: P0, allocatorframing: *con
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ksuser.dll""system" fn KsCreateAllocator ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateAllocator ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     KsCreateAllocator(connectionhandle.into(), allocatorframing, allocatorhandle)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
@@ -15,7 +15,7 @@ pub unsafe fn KsCreateAllocator2<P0>(connectionhandle: P0, allocatorframing: *co
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ksuser.dll""system" fn KsCreateAllocator2 ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateAllocator2 ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreateAllocator2(connectionhandle.into(), allocatorframing, &mut result__).from_abi(result__)
 }
@@ -26,7 +26,7 @@ pub unsafe fn KsCreateClock<P0>(connectionhandle: P0, clockcreate: *const KSCLOC
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ksuser.dll""system" fn KsCreateClock ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateClock ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     KsCreateClock(connectionhandle.into(), clockcreate, clockhandle)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
@@ -36,7 +36,7 @@ pub unsafe fn KsCreateClock2<P0>(connectionhandle: P0, clockcreate: *const KSCLO
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ksuser.dll""system" fn KsCreateClock2 ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateClock2 ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreateClock2(connectionhandle.into(), clockcreate, &mut result__).from_abi(result__)
 }
@@ -47,7 +47,7 @@ pub unsafe fn KsCreatePin<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, d
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ksuser.dll""system" fn KsCreatePin ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreatePin ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     KsCreatePin(filterhandle.into(), connect, desiredaccess, connectionhandle)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
@@ -57,7 +57,7 @@ pub unsafe fn KsCreatePin2<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ksuser.dll""system" fn KsCreatePin2 ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreatePin2 ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreatePin2(filterhandle.into(), connect, desiredaccess, &mut result__).from_abi(result__)
 }
@@ -68,7 +68,7 @@ pub unsafe fn KsCreateTopologyNode<P0>(parenthandle: P0, nodecreate: *const KSNO
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ksuser.dll""system" fn KsCreateTopologyNode ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateTopologyNode ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     KsCreateTopologyNode(parenthandle.into(), nodecreate, desiredaccess, nodehandle)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
@@ -78,7 +78,7 @@ pub unsafe fn KsCreateTopologyNode2<P0>(parenthandle: P0, nodecreate: *const KSN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "ksuser.dll""system" fn KsCreateTopologyNode2 ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateTopologyNode2 ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreateTopologyNode2(parenthandle.into(), nodecreate, desiredaccess, &mut result__).from_abi(result__)
 }
@@ -93,7 +93,7 @@ impl IKsAggregateControl {
         (::windows::core::Vtable::vtable(self).KsRemoveAggregate)(::windows::core::Vtable::as_raw(self), aggregateclass).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKsAggregateControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKsAggregateControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKsAggregateControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -137,7 +137,7 @@ impl IKsControl {
         (::windows::core::Vtable::vtable(self).KsEvent)(::windows::core::Vtable::as_raw(self), event, eventlength, eventdata, datalength, bytesreturned).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKsControl, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKsControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKsControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -182,7 +182,7 @@ impl IKsFormatSupport {
         (::windows::core::Vtable::vtable(self).GetDevicePreferredFormat)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IKsFormatSupport, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKsFormatSupport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKsFormatSupport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -224,7 +224,7 @@ impl IKsJackContainerId {
         (::windows::core::Vtable::vtable(self).GetJackContainerId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IKsJackContainerId, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKsJackContainerId, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKsJackContainerId {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -267,7 +267,7 @@ impl IKsJackDescription {
         (::windows::core::Vtable::vtable(self).GetJackDescription)(::windows::core::Vtable::as_raw(self), njack, pdescription).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKsJackDescription, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKsJackDescription, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKsJackDescription {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -313,7 +313,7 @@ impl IKsJackDescription2 {
         (::windows::core::Vtable::vtable(self).GetJackDescription2)(::windows::core::Vtable::as_raw(self), njack, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IKsJackDescription2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKsJackDescription2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKsJackDescription2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -353,7 +353,7 @@ impl IKsJackSinkInformation {
         (::windows::core::Vtable::vtable(self).GetJackSinkInformation)(::windows::core::Vtable::as_raw(self), pjacksinkinformation).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKsJackSinkInformation, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKsJackSinkInformation, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKsJackSinkInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -400,7 +400,7 @@ impl IKsPropertySet {
         (::windows::core::Vtable::vtable(self).QuerySupported)(::windows::core::Vtable::as_raw(self), propset, id, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IKsPropertySet, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKsPropertySet, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKsPropertySet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -442,7 +442,7 @@ impl IKsTopology {
         (::windows::core::Vtable::vtable(self).CreateNodeInstance)(::windows::core::Vtable::as_raw(self), nodeid, flags, desiredaccess, unkouter.into().abi(), interfaceid, interface).ok()
     }
 }
-::windows::core::interface_hierarchy!(IKsTopology, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IKsTopology, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKsTopology {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

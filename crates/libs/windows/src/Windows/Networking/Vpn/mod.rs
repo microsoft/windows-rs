@@ -327,7 +327,7 @@ impl IVpnChannelStatics {
         unsafe { (::windows::core::Vtable::vtable(this).ProcessEventAsync)(::windows::core::Vtable::as_raw(this), thirdpartyplugin.into().abi(), event.into().abi()).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IVpnChannelStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnChannelStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnChannelStatics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -340,7 +340,7 @@ impl ::core::fmt::Debug for IVpnChannelStatics {
     }
 }
 impl ::windows::core::RuntimeType for IVpnChannelStatics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{88eb062d-e818-4ffd-98a6-363e3736c95d}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{88eb062d-e818-4ffd-98a6-363e3736c95d}");
 }
 unsafe impl ::windows::core::Vtable for IVpnChannelStatics {
     type Vtable = IVpnChannelStatics_Vtbl;
@@ -398,7 +398,7 @@ impl IVpnCredential {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVpnCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnCredential {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -411,7 +411,7 @@ impl ::core::fmt::Debug for IVpnCredential {
     }
 }
 impl ::windows::core::RuntimeType for IVpnCredential {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b7e78af3-a46d-404b-8729-1832522853ac}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b7e78af3-a46d-404b-8729-1832522853ac}");
 }
 unsafe impl ::windows::core::Vtable for IVpnCredential {
     type Vtable = IVpnCredential_Vtbl;
@@ -573,7 +573,7 @@ impl IVpnCustomPrompt {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVpnCustomPrompt, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnCustomPrompt, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnCustomPrompt {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -586,7 +586,7 @@ impl ::core::fmt::Debug for IVpnCustomPrompt {
     }
 }
 impl ::windows::core::RuntimeType for IVpnCustomPrompt {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9b2ebe7b-87d5-433c-b4f6-eee6aa68a244}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9b2ebe7b-87d5-433c-b4f6-eee6aa68a244}");
 }
 unsafe impl ::windows::core::Vtable for IVpnCustomPrompt {
     type Vtable = IVpnCustomPrompt_Vtbl;
@@ -670,7 +670,7 @@ impl IVpnCustomPromptElement {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVpnCustomPromptElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnCustomPromptElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnCustomPromptElement {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -683,7 +683,7 @@ impl ::core::fmt::Debug for IVpnCustomPromptElement {
     }
 }
 impl ::windows::core::RuntimeType for IVpnCustomPromptElement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{73bd5638-6f04-404d-93dd-50a44924a38b}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{73bd5638-6f04-404d-93dd-50a44924a38b}");
 }
 unsafe impl ::windows::core::Vtable for IVpnCustomPromptElement {
     type Vtable = IVpnCustomPromptElement_Vtbl;
@@ -902,7 +902,7 @@ impl IVpnDomainNameInfoFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVpnDomainNameInfoFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnDomainNameInfoFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnDomainNameInfoFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -915,7 +915,7 @@ impl ::core::fmt::Debug for IVpnDomainNameInfoFactory {
     }
 }
 impl ::windows::core::RuntimeType for IVpnDomainNameInfoFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2507bb75-028f-4688-8d3a-c4531df37da8}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2507bb75-028f-4688-8d3a-c4531df37da8}");
 }
 unsafe impl ::windows::core::Vtable for IVpnDomainNameInfoFactory {
     type Vtable = IVpnDomainNameInfoFactory_Vtbl;
@@ -1017,7 +1017,7 @@ impl IVpnInterfaceIdFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVpnInterfaceIdFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnInterfaceIdFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnInterfaceIdFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1030,7 +1030,7 @@ impl ::core::fmt::Debug for IVpnInterfaceIdFactory {
     }
 }
 impl ::windows::core::RuntimeType for IVpnInterfaceIdFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d1000}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d1000}");
 }
 unsafe impl ::windows::core::Vtable for IVpnInterfaceIdFactory {
     type Vtable = IVpnInterfaceIdFactory_Vtbl;
@@ -1196,7 +1196,7 @@ impl IVpnNamespaceInfoFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVpnNamespaceInfoFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnNamespaceInfoFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnNamespaceInfoFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1209,7 +1209,7 @@ impl ::core::fmt::Debug for IVpnNamespaceInfoFactory {
     }
 }
 impl ::windows::core::RuntimeType for IVpnNamespaceInfoFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb3e951a-b0ce-442b-acbb-5f99b202c31c}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{cb3e951a-b0ce-442b-acbb-5f99b202c31c}");
 }
 unsafe impl ::windows::core::Vtable for IVpnNamespaceInfoFactory {
     type Vtable = IVpnNamespaceInfoFactory_Vtbl;
@@ -1366,7 +1366,7 @@ impl IVpnPacketBufferFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVpnPacketBufferFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnPacketBufferFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnPacketBufferFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1379,7 +1379,7 @@ impl ::core::fmt::Debug for IVpnPacketBufferFactory {
     }
 }
 impl ::windows::core::RuntimeType for IVpnPacketBufferFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d9999}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d9999}");
 }
 unsafe impl ::windows::core::Vtable for IVpnPacketBufferFactory {
     type Vtable = IVpnPacketBufferFactory_Vtbl;
@@ -1501,7 +1501,7 @@ impl IVpnPlugIn {
         unsafe { (::windows::core::Vtable::vtable(this).Decapsulate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(channel), ::core::mem::transmute_copy(encapbuffer), ::core::mem::transmute_copy(decapsulatedpackets), ::core::mem::transmute_copy(controlpacketstosend)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IVpnPlugIn, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnPlugIn, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnPlugIn {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1514,7 +1514,7 @@ impl ::core::fmt::Debug for IVpnPlugIn {
     }
 }
 impl ::windows::core::RuntimeType for IVpnPlugIn {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ceb78d07-d0a8-4703-a091-c8c2c0915bc4}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ceb78d07-d0a8-4703-a091-c8c2c0915bc4}");
 }
 unsafe impl ::windows::core::Vtable for IVpnPlugIn {
     type Vtable = IVpnPlugIn_Vtbl;
@@ -1660,7 +1660,7 @@ impl IVpnProfile {
         unsafe { (::windows::core::Vtable::vtable(this).SetAlwaysOn)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IVpnProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnProfile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1673,7 +1673,7 @@ impl ::core::fmt::Debug for IVpnProfile {
     }
 }
 impl ::windows::core::RuntimeType for IVpnProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7875b751-b0d7-43db-8a93-d3fe2479e56a}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{7875b751-b0d7-43db-8a93-d3fe2479e56a}");
 }
 unsafe impl ::windows::core::Vtable for IVpnProfile {
     type Vtable = IVpnProfile_Vtbl;
@@ -1801,7 +1801,7 @@ impl IVpnRouteFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IVpnRouteFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IVpnRouteFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IVpnRouteFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1814,7 +1814,7 @@ impl ::core::fmt::Debug for IVpnRouteFactory {
     }
 }
 impl ::windows::core::RuntimeType for IVpnRouteFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bdeab5ff-45cf-4b99-83fb-db3bc2672b02}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{bdeab5ff-45cf-4b99-83fb-db3bc2672b02}");
 }
 unsafe impl ::windows::core::Vtable for IVpnRouteFactory {
     type Vtable = IVpnRouteFactory_Vtbl;
@@ -1982,7 +1982,7 @@ impl VpnAppId {
     }
     #[doc(hidden)]
     pub fn IVpnAppIdFactory<R, F: FnOnce(&IVpnAppIdFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnAppId, IVpnAppIdFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VpnAppId, IVpnAppIdFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1998,7 +1998,7 @@ impl ::core::fmt::Debug for VpnAppId {
     }
 }
 impl ::windows::core::RuntimeType for VpnAppId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnAppId;{7b06a635-5c58-41d9-94a7-bfbcf1d8ca54})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnAppId;{7b06a635-5c58-41d9-94a7-bfbcf1d8ca54})");
 }
 impl ::core::clone::Clone for VpnAppId {
     fn clone(&self) -> Self {
@@ -2014,7 +2014,7 @@ unsafe impl ::windows::core::Interface for VpnAppId {
 impl ::windows::core::RuntimeName for VpnAppId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnAppId";
 }
-::windows::core::interface_hierarchy!(VpnAppId, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnAppId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnAppId {}
 unsafe impl ::core::marker::Sync for VpnAppId {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2338,7 +2338,7 @@ impl VpnChannel {
     }
     #[doc(hidden)]
     pub fn IVpnChannelStatics<R, F: FnOnce(&IVpnChannelStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnChannel, IVpnChannelStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VpnChannel, IVpnChannelStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2354,7 +2354,7 @@ impl ::core::fmt::Debug for VpnChannel {
     }
 }
 impl ::windows::core::RuntimeType for VpnChannel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannel;{4ac78d07-d1a8-4303-a091-c8d2e0915bc3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannel;{4ac78d07-d1a8-4303-a091-c8d2e0915bc3})");
 }
 impl ::core::clone::Clone for VpnChannel {
     fn clone(&self) -> Self {
@@ -2370,7 +2370,7 @@ unsafe impl ::windows::core::Interface for VpnChannel {
 impl ::windows::core::RuntimeName for VpnChannel {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannel";
 }
-::windows::core::interface_hierarchy!(VpnChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnChannel {}
 unsafe impl ::core::marker::Sync for VpnChannel {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2397,7 +2397,7 @@ impl ::core::fmt::Debug for VpnChannelActivityEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for VpnChannelActivityEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityEventArgs;{a36c88f2-afdc-4775-855d-d4ac0a35fc55})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityEventArgs;{a36c88f2-afdc-4775-855d-d4ac0a35fc55})");
 }
 impl ::core::clone::Clone for VpnChannelActivityEventArgs {
     fn clone(&self) -> Self {
@@ -2413,7 +2413,7 @@ unsafe impl ::windows::core::Interface for VpnChannelActivityEventArgs {
 impl ::windows::core::RuntimeName for VpnChannelActivityEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityEventArgs";
 }
-::windows::core::interface_hierarchy!(VpnChannelActivityEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnChannelActivityEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnChannelActivityEventArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityEventArgs {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2440,7 +2440,7 @@ impl ::core::fmt::Debug for VpnChannelActivityStateChangedArgs {
     }
 }
 impl ::windows::core::RuntimeType for VpnChannelActivityStateChangedArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs;{3d750565-fdc0-4bbe-a23b-45fffc6d97a1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs;{3d750565-fdc0-4bbe-a23b-45fffc6d97a1})");
 }
 impl ::core::clone::Clone for VpnChannelActivityStateChangedArgs {
     fn clone(&self) -> Self {
@@ -2456,7 +2456,7 @@ unsafe impl ::windows::core::Interface for VpnChannelActivityStateChangedArgs {
 impl ::windows::core::RuntimeName for VpnChannelActivityStateChangedArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs";
 }
-::windows::core::interface_hierarchy!(VpnChannelActivityStateChangedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnChannelActivityStateChangedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnChannelActivityStateChangedArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityStateChangedArgs {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2508,7 +2508,7 @@ impl ::core::fmt::Debug for VpnChannelConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for VpnChannelConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelConfiguration;{0e2ddca2-2012-4fe4-b179-8c652c6d107e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelConfiguration;{0e2ddca2-2012-4fe4-b179-8c652c6d107e})");
 }
 impl ::core::clone::Clone for VpnChannelConfiguration {
     fn clone(&self) -> Self {
@@ -2524,7 +2524,7 @@ unsafe impl ::windows::core::Interface for VpnChannelConfiguration {
 impl ::windows::core::RuntimeName for VpnChannelConfiguration {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelConfiguration";
 }
-::windows::core::interface_hierarchy!(VpnChannelConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnChannelConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnChannelConfiguration {}
 unsafe impl ::core::marker::Sync for VpnChannelConfiguration {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2578,7 +2578,7 @@ impl ::core::fmt::Debug for VpnCredential {
     }
 }
 impl ::windows::core::RuntimeType for VpnCredential {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCredential;{b7e78af3-a46d-404b-8729-1832522853ac})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCredential;{b7e78af3-a46d-404b-8729-1832522853ac})");
 }
 impl ::core::clone::Clone for VpnCredential {
     fn clone(&self) -> Self {
@@ -2594,7 +2594,7 @@ unsafe impl ::windows::core::Interface for VpnCredential {
 impl ::windows::core::RuntimeName for VpnCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCredential";
 }
-::windows::core::interface_hierarchy!(VpnCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCredential> for IVpnCredential {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCredential) -> ::windows::core::Result<Self> {
@@ -2623,8 +2623,8 @@ impl VpnCustomCheckBox {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnCustomCheckBox, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnCustomCheckBox, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetInitialCheckState(&self, value: bool) -> ::windows::core::Result<()> {
@@ -2691,7 +2691,7 @@ impl ::core::fmt::Debug for VpnCustomCheckBox {
     }
 }
 impl ::windows::core::RuntimeType for VpnCustomCheckBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomCheckBox;{43878753-03c5-4e61-93d7-a957714c4282})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomCheckBox;{43878753-03c5-4e61-93d7-a957714c4282})");
 }
 impl ::core::clone::Clone for VpnCustomCheckBox {
     fn clone(&self) -> Self {
@@ -2707,7 +2707,7 @@ unsafe impl ::windows::core::Interface for VpnCustomCheckBox {
 impl ::windows::core::RuntimeName for VpnCustomCheckBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomCheckBox";
 }
-::windows::core::interface_hierarchy!(VpnCustomCheckBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCustomCheckBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomCheckBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomCheckBox) -> ::windows::core::Result<Self> {
@@ -2736,8 +2736,8 @@ impl VpnCustomComboBox {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnCustomComboBox, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnCustomComboBox, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2812,7 +2812,7 @@ impl ::core::fmt::Debug for VpnCustomComboBox {
     }
 }
 impl ::windows::core::RuntimeType for VpnCustomComboBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomComboBox;{9a24158e-dba1-4c6f-8270-dcf3c9761c4c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomComboBox;{9a24158e-dba1-4c6f-8270-dcf3c9761c4c})");
 }
 impl ::core::clone::Clone for VpnCustomComboBox {
     fn clone(&self) -> Self {
@@ -2828,7 +2828,7 @@ unsafe impl ::windows::core::Interface for VpnCustomComboBox {
 impl ::windows::core::RuntimeName for VpnCustomComboBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomComboBox";
 }
-::windows::core::interface_hierarchy!(VpnCustomComboBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCustomComboBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomComboBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomComboBox) -> ::windows::core::Result<Self> {
@@ -2857,8 +2857,8 @@ impl VpnCustomEditBox {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnCustomEditBox, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnCustomEditBox, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetDefaultText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2936,7 +2936,7 @@ impl ::core::fmt::Debug for VpnCustomEditBox {
     }
 }
 impl ::windows::core::RuntimeType for VpnCustomEditBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomEditBox;{3002d9a0-cfbf-4c0b-8f3c-66f503c20b39})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomEditBox;{3002d9a0-cfbf-4c0b-8f3c-66f503c20b39})");
 }
 impl ::core::clone::Clone for VpnCustomEditBox {
     fn clone(&self) -> Self {
@@ -2952,7 +2952,7 @@ unsafe impl ::windows::core::Interface for VpnCustomEditBox {
 impl ::windows::core::RuntimeName for VpnCustomEditBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomEditBox";
 }
-::windows::core::interface_hierarchy!(VpnCustomEditBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCustomEditBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomEditBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomEditBox) -> ::windows::core::Result<Self> {
@@ -2981,8 +2981,8 @@ impl VpnCustomErrorBox {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnCustomErrorBox, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnCustomErrorBox, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3031,7 +3031,7 @@ impl ::core::fmt::Debug for VpnCustomErrorBox {
     }
 }
 impl ::windows::core::RuntimeType for VpnCustomErrorBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomErrorBox;{9ec4efb2-c942-42af-b223-588b48328721})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomErrorBox;{9ec4efb2-c942-42af-b223-588b48328721})");
 }
 impl ::core::clone::Clone for VpnCustomErrorBox {
     fn clone(&self) -> Self {
@@ -3047,7 +3047,7 @@ unsafe impl ::windows::core::Interface for VpnCustomErrorBox {
 impl ::windows::core::RuntimeName for VpnCustomErrorBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomErrorBox";
 }
-::windows::core::interface_hierarchy!(VpnCustomErrorBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCustomErrorBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomErrorBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomErrorBox) -> ::windows::core::Result<Self> {
@@ -3076,8 +3076,8 @@ impl VpnCustomPromptBooleanInput {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnCustomPromptBooleanInput, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnCustomPromptBooleanInput, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetInitialValue(&self, value: bool) -> ::windows::core::Result<()> {
@@ -3144,7 +3144,7 @@ impl ::core::fmt::Debug for VpnCustomPromptBooleanInput {
     }
 }
 impl ::windows::core::RuntimeType for VpnCustomPromptBooleanInput {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptBooleanInput;{c4c9a69e-ff47-4527-9f27-a49292019979})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptBooleanInput;{c4c9a69e-ff47-4527-9f27-a49292019979})");
 }
 impl ::core::clone::Clone for VpnCustomPromptBooleanInput {
     fn clone(&self) -> Self {
@@ -3160,7 +3160,7 @@ unsafe impl ::windows::core::Interface for VpnCustomPromptBooleanInput {
 impl ::windows::core::RuntimeName for VpnCustomPromptBooleanInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptBooleanInput";
 }
-::windows::core::interface_hierarchy!(VpnCustomPromptBooleanInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCustomPromptBooleanInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomPromptBooleanInput> for IVpnCustomPromptElement {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomPromptBooleanInput) -> ::windows::core::Result<Self> {
@@ -3189,8 +3189,8 @@ impl VpnCustomPromptOptionSelector {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnCustomPromptOptionSelector, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnCustomPromptOptionSelector, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3255,7 +3255,7 @@ impl ::core::fmt::Debug for VpnCustomPromptOptionSelector {
     }
 }
 impl ::windows::core::RuntimeType for VpnCustomPromptOptionSelector {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptOptionSelector;{3b8f34d9-8ec1-4e95-9a4e-7ba64d38f330})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptOptionSelector;{3b8f34d9-8ec1-4e95-9a4e-7ba64d38f330})");
 }
 impl ::core::clone::Clone for VpnCustomPromptOptionSelector {
     fn clone(&self) -> Self {
@@ -3271,7 +3271,7 @@ unsafe impl ::windows::core::Interface for VpnCustomPromptOptionSelector {
 impl ::windows::core::RuntimeName for VpnCustomPromptOptionSelector {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptOptionSelector";
 }
-::windows::core::interface_hierarchy!(VpnCustomPromptOptionSelector, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCustomPromptOptionSelector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomPromptOptionSelector> for IVpnCustomPromptElement {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomPromptOptionSelector) -> ::windows::core::Result<Self> {
@@ -3300,8 +3300,8 @@ impl VpnCustomPromptText {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnCustomPromptText, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnCustomPromptText, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3361,7 +3361,7 @@ impl ::core::fmt::Debug for VpnCustomPromptText {
     }
 }
 impl ::windows::core::RuntimeType for VpnCustomPromptText {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptText;{3bc8bdee-3a42-49a3-abdd-07b2edea752d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptText;{3bc8bdee-3a42-49a3-abdd-07b2edea752d})");
 }
 impl ::core::clone::Clone for VpnCustomPromptText {
     fn clone(&self) -> Self {
@@ -3377,7 +3377,7 @@ unsafe impl ::windows::core::Interface for VpnCustomPromptText {
 impl ::windows::core::RuntimeName for VpnCustomPromptText {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptText";
 }
-::windows::core::interface_hierarchy!(VpnCustomPromptText, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCustomPromptText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomPromptText> for IVpnCustomPromptElement {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomPromptText) -> ::windows::core::Result<Self> {
@@ -3406,8 +3406,8 @@ impl VpnCustomPromptTextInput {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnCustomPromptTextInput, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnCustomPromptTextInput, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3485,7 +3485,7 @@ impl ::core::fmt::Debug for VpnCustomPromptTextInput {
     }
 }
 impl ::windows::core::RuntimeType for VpnCustomPromptTextInput {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptTextInput;{c9da9c75-913c-47d5-88ba-48fc48930235})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptTextInput;{c9da9c75-913c-47d5-88ba-48fc48930235})");
 }
 impl ::core::clone::Clone for VpnCustomPromptTextInput {
     fn clone(&self) -> Self {
@@ -3501,7 +3501,7 @@ unsafe impl ::windows::core::Interface for VpnCustomPromptTextInput {
 impl ::windows::core::RuntimeName for VpnCustomPromptTextInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptTextInput";
 }
-::windows::core::interface_hierarchy!(VpnCustomPromptTextInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCustomPromptTextInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomPromptTextInput> for IVpnCustomPromptElement {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomPromptTextInput) -> ::windows::core::Result<Self> {
@@ -3530,8 +3530,8 @@ impl VpnCustomTextBox {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnCustomTextBox, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnCustomTextBox, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3591,7 +3591,7 @@ impl ::core::fmt::Debug for VpnCustomTextBox {
     }
 }
 impl ::windows::core::RuntimeType for VpnCustomTextBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomTextBox;{daa4c3ca-8f23-4d36-91f1-76d937827942})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomTextBox;{daa4c3ca-8f23-4d36-91f1-76d937827942})");
 }
 impl ::core::clone::Clone for VpnCustomTextBox {
     fn clone(&self) -> Self {
@@ -3607,7 +3607,7 @@ unsafe impl ::windows::core::Interface for VpnCustomTextBox {
 impl ::windows::core::RuntimeName for VpnCustomTextBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomTextBox";
 }
-::windows::core::interface_hierarchy!(VpnCustomTextBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnCustomTextBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomTextBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomTextBox) -> ::windows::core::Result<Self> {
@@ -3636,8 +3636,8 @@ impl VpnDomainNameAssignment {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnDomainNameAssignment, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnDomainNameAssignment, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3677,7 +3677,7 @@ impl ::core::fmt::Debug for VpnDomainNameAssignment {
     }
 }
 impl ::windows::core::RuntimeType for VpnDomainNameAssignment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameAssignment;{4135b141-ccdb-49b5-9401-039a8ae767e9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameAssignment;{4135b141-ccdb-49b5-9401-039a8ae767e9})");
 }
 impl ::core::clone::Clone for VpnDomainNameAssignment {
     fn clone(&self) -> Self {
@@ -3693,7 +3693,7 @@ unsafe impl ::windows::core::Interface for VpnDomainNameAssignment {
 impl ::windows::core::RuntimeName for VpnDomainNameAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameAssignment";
 }
-::windows::core::interface_hierarchy!(VpnDomainNameAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnDomainNameAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnDomainNameAssignment {}
 unsafe impl ::core::marker::Sync for VpnDomainNameAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -3765,7 +3765,7 @@ impl VpnDomainNameInfo {
     }
     #[doc(hidden)]
     pub fn IVpnDomainNameInfoFactory<R, F: FnOnce(&IVpnDomainNameInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnDomainNameInfo, IVpnDomainNameInfoFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VpnDomainNameInfo, IVpnDomainNameInfoFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3781,7 +3781,7 @@ impl ::core::fmt::Debug for VpnDomainNameInfo {
     }
 }
 impl ::windows::core::RuntimeType for VpnDomainNameInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameInfo;{ad2eb82f-ea8e-4f7a-843e-1a87e32e1b9a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameInfo;{ad2eb82f-ea8e-4f7a-843e-1a87e32e1b9a})");
 }
 impl ::core::clone::Clone for VpnDomainNameInfo {
     fn clone(&self) -> Self {
@@ -3797,7 +3797,7 @@ unsafe impl ::windows::core::Interface for VpnDomainNameInfo {
 impl ::windows::core::RuntimeName for VpnDomainNameInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameInfo";
 }
-::windows::core::interface_hierarchy!(VpnDomainNameInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnDomainNameInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnDomainNameInfo {}
 unsafe impl ::core::marker::Sync for VpnDomainNameInfo {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -3876,7 +3876,7 @@ impl ::core::fmt::Debug for VpnForegroundActivatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for VpnForegroundActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivatedEventArgs;{85b465b0-cadb-4d70-ac92-543a24dc9ebc})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivatedEventArgs;{85b465b0-cadb-4d70-ac92-543a24dc9ebc})");
 }
 impl ::core::clone::Clone for VpnForegroundActivatedEventArgs {
     fn clone(&self) -> Self {
@@ -3892,7 +3892,7 @@ unsafe impl ::windows::core::Interface for VpnForegroundActivatedEventArgs {
 impl ::windows::core::RuntimeName for VpnForegroundActivatedEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
 }
-::windows::core::interface_hierarchy!(VpnForegroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnForegroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<VpnForegroundActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3962,7 +3962,7 @@ impl ::core::fmt::Debug for VpnForegroundActivationOperation {
     }
 }
 impl ::windows::core::RuntimeType for VpnForegroundActivationOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivationOperation;{9e010d57-f17a-4bd5-9b6d-f984f1297d3c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivationOperation;{9e010d57-f17a-4bd5-9b6d-f984f1297d3c})");
 }
 impl ::core::clone::Clone for VpnForegroundActivationOperation {
     fn clone(&self) -> Self {
@@ -3978,7 +3978,7 @@ unsafe impl ::windows::core::Interface for VpnForegroundActivationOperation {
 impl ::windows::core::RuntimeName for VpnForegroundActivationOperation {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivationOperation";
 }
-::windows::core::interface_hierarchy!(VpnForegroundActivationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnForegroundActivationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnForegroundActivationOperation {}
 unsafe impl ::core::marker::Sync for VpnForegroundActivationOperation {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -3997,7 +3997,7 @@ impl VpnInterfaceId {
     }
     #[doc(hidden)]
     pub fn IVpnInterfaceIdFactory<R, F: FnOnce(&IVpnInterfaceIdFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnInterfaceId, IVpnInterfaceIdFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VpnInterfaceId, IVpnInterfaceIdFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4013,7 +4013,7 @@ impl ::core::fmt::Debug for VpnInterfaceId {
     }
 }
 impl ::windows::core::RuntimeType for VpnInterfaceId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnInterfaceId;{9e2ddca2-1712-4ce4-b179-8c652c6d1011})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnInterfaceId;{9e2ddca2-1712-4ce4-b179-8c652c6d1011})");
 }
 impl ::core::clone::Clone for VpnInterfaceId {
     fn clone(&self) -> Self {
@@ -4029,7 +4029,7 @@ unsafe impl ::windows::core::Interface for VpnInterfaceId {
 impl ::windows::core::RuntimeName for VpnInterfaceId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnInterfaceId";
 }
-::windows::core::interface_hierarchy!(VpnInterfaceId, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnInterfaceId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnInterfaceId {}
 unsafe impl ::core::marker::Sync for VpnInterfaceId {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4039,8 +4039,8 @@ impl VpnManagementAgent {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnManagementAgent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnManagementAgent, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4161,7 +4161,7 @@ impl ::core::fmt::Debug for VpnManagementAgent {
     }
 }
 impl ::windows::core::RuntimeType for VpnManagementAgent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnManagementAgent;{193696cd-a5c4-4abe-852b-785be4cb3e34})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnManagementAgent;{193696cd-a5c4-4abe-852b-785be4cb3e34})");
 }
 impl ::core::clone::Clone for VpnManagementAgent {
     fn clone(&self) -> Self {
@@ -4177,7 +4177,7 @@ unsafe impl ::windows::core::Interface for VpnManagementAgent {
 impl ::windows::core::RuntimeName for VpnManagementAgent {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnManagementAgent";
 }
-::windows::core::interface_hierarchy!(VpnManagementAgent, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnManagementAgent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnManagementAgent {}
 unsafe impl ::core::marker::Sync for VpnManagementAgent {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4187,8 +4187,8 @@ impl VpnNamespaceAssignment {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnNamespaceAssignment, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnNamespaceAssignment, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4238,7 +4238,7 @@ impl ::core::fmt::Debug for VpnNamespaceAssignment {
     }
 }
 impl ::windows::core::RuntimeType for VpnNamespaceAssignment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceAssignment;{d7f7db18-307d-4c0e-bd62-8fa270bbadd6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceAssignment;{d7f7db18-307d-4c0e-bd62-8fa270bbadd6})");
 }
 impl ::core::clone::Clone for VpnNamespaceAssignment {
     fn clone(&self) -> Self {
@@ -4254,7 +4254,7 @@ unsafe impl ::windows::core::Interface for VpnNamespaceAssignment {
 impl ::windows::core::RuntimeName for VpnNamespaceAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceAssignment";
 }
-::windows::core::interface_hierarchy!(VpnNamespaceAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnNamespaceAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnNamespaceAssignment {}
 unsafe impl ::core::marker::Sync for VpnNamespaceAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4326,7 +4326,7 @@ impl VpnNamespaceInfo {
     }
     #[doc(hidden)]
     pub fn IVpnNamespaceInfoFactory<R, F: FnOnce(&IVpnNamespaceInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnNamespaceInfo, IVpnNamespaceInfoFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VpnNamespaceInfo, IVpnNamespaceInfoFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4342,7 +4342,7 @@ impl ::core::fmt::Debug for VpnNamespaceInfo {
     }
 }
 impl ::windows::core::RuntimeType for VpnNamespaceInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceInfo;{30edfb43-444f-44c5-8167-a35a91f1af94})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceInfo;{30edfb43-444f-44c5-8167-a35a91f1af94})");
 }
 impl ::core::clone::Clone for VpnNamespaceInfo {
     fn clone(&self) -> Self {
@@ -4358,7 +4358,7 @@ unsafe impl ::windows::core::Interface for VpnNamespaceInfo {
 impl ::windows::core::RuntimeName for VpnNamespaceInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceInfo";
 }
-::windows::core::interface_hierarchy!(VpnNamespaceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnNamespaceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnNamespaceInfo {}
 unsafe impl ::core::marker::Sync for VpnNamespaceInfo {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4368,8 +4368,8 @@ impl VpnNativeProfile {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnNativeProfile, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnNativeProfile, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4536,7 +4536,7 @@ impl ::core::fmt::Debug for VpnNativeProfile {
     }
 }
 impl ::windows::core::RuntimeType for VpnNativeProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNativeProfile;{a4aee29e-6417-4333-9842-f0a66db69802})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNativeProfile;{a4aee29e-6417-4333-9842-f0a66db69802})");
 }
 impl ::core::clone::Clone for VpnNativeProfile {
     fn clone(&self) -> Self {
@@ -4552,7 +4552,7 @@ unsafe impl ::windows::core::Interface for VpnNativeProfile {
 impl ::windows::core::RuntimeName for VpnNativeProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNativeProfile";
 }
-::windows::core::interface_hierarchy!(VpnNativeProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnNativeProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnNativeProfile> for IVpnProfile {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnNativeProfile) -> ::windows::core::Result<Self> {
@@ -4638,7 +4638,7 @@ impl VpnPacketBuffer {
     }
     #[doc(hidden)]
     pub fn IVpnPacketBufferFactory<R, F: FnOnce(&IVpnPacketBufferFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnPacketBuffer, IVpnPacketBufferFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VpnPacketBuffer, IVpnPacketBufferFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4654,7 +4654,7 @@ impl ::core::fmt::Debug for VpnPacketBuffer {
     }
 }
 impl ::windows::core::RuntimeType for VpnPacketBuffer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBuffer;{c2f891fc-4d5c-4a63-b70d-4e307eacce55})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBuffer;{c2f891fc-4d5c-4a63-b70d-4e307eacce55})");
 }
 impl ::core::clone::Clone for VpnPacketBuffer {
     fn clone(&self) -> Self {
@@ -4670,7 +4670,7 @@ unsafe impl ::windows::core::Interface for VpnPacketBuffer {
 impl ::windows::core::RuntimeName for VpnPacketBuffer {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBuffer";
 }
-::windows::core::interface_hierarchy!(VpnPacketBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnPacketBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnPacketBuffer {}
 unsafe impl ::core::marker::Sync for VpnPacketBuffer {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4743,7 +4743,7 @@ impl ::core::fmt::Debug for VpnPacketBufferList {
     }
 }
 impl ::windows::core::RuntimeType for VpnPacketBufferList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBufferList;{c2f891fc-4d5c-4a63-b70d-4e307eacce77})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBufferList;{c2f891fc-4d5c-4a63-b70d-4e307eacce77})");
 }
 impl ::core::clone::Clone for VpnPacketBufferList {
     fn clone(&self) -> Self {
@@ -4775,7 +4775,7 @@ impl ::core::iter::IntoIterator for &VpnPacketBufferList {
         self.First().unwrap()
     }
 }
-::windows::core::interface_hierarchy!(VpnPacketBufferList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnPacketBufferList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<VpnPacketBufferList> for super::super::Foundation::Collections::IIterable<VpnPacketBuffer> {
     type Error = ::windows::core::Error;
@@ -4842,7 +4842,7 @@ impl ::core::fmt::Debug for VpnPickedCredential {
     }
 }
 impl ::windows::core::RuntimeType for VpnPickedCredential {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPickedCredential;{9a793ac7-8854-4e52-ad97-24dd9a842bce})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPickedCredential;{9a793ac7-8854-4e52-ad97-24dd9a842bce})");
 }
 impl ::core::clone::Clone for VpnPickedCredential {
     fn clone(&self) -> Self {
@@ -4858,7 +4858,7 @@ unsafe impl ::windows::core::Interface for VpnPickedCredential {
 impl ::windows::core::RuntimeName for VpnPickedCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPickedCredential";
 }
-::windows::core::interface_hierarchy!(VpnPickedCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnPickedCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnPickedCredential {}
 unsafe impl ::core::marker::Sync for VpnPickedCredential {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4868,8 +4868,8 @@ impl VpnPlugInProfile {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnPlugInProfile, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnPlugInProfile, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5003,7 +5003,7 @@ impl ::core::fmt::Debug for VpnPlugInProfile {
     }
 }
 impl ::windows::core::RuntimeType for VpnPlugInProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPlugInProfile;{0edf0da4-4f00-4589-8d7b-4bf988f6542c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPlugInProfile;{0edf0da4-4f00-4589-8d7b-4bf988f6542c})");
 }
 impl ::core::clone::Clone for VpnPlugInProfile {
     fn clone(&self) -> Self {
@@ -5019,7 +5019,7 @@ unsafe impl ::windows::core::Interface for VpnPlugInProfile {
 impl ::windows::core::RuntimeName for VpnPlugInProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPlugInProfile";
 }
-::windows::core::interface_hierarchy!(VpnPlugInProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnPlugInProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnPlugInProfile> for IVpnProfile {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnPlugInProfile) -> ::windows::core::Result<Self> {
@@ -5075,7 +5075,7 @@ impl VpnRoute {
     }
     #[doc(hidden)]
     pub fn IVpnRouteFactory<R, F: FnOnce(&IVpnRouteFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnRoute, IVpnRouteFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VpnRoute, IVpnRouteFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5091,7 +5091,7 @@ impl ::core::fmt::Debug for VpnRoute {
     }
 }
 impl ::windows::core::RuntimeType for VpnRoute {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRoute;{b5731b83-0969-4699-938e-7776db29cfb3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRoute;{b5731b83-0969-4699-938e-7776db29cfb3})");
 }
 impl ::core::clone::Clone for VpnRoute {
     fn clone(&self) -> Self {
@@ -5107,7 +5107,7 @@ unsafe impl ::windows::core::Interface for VpnRoute {
 impl ::windows::core::RuntimeName for VpnRoute {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRoute";
 }
-::windows::core::interface_hierarchy!(VpnRoute, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnRoute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnRoute {}
 unsafe impl ::core::marker::Sync for VpnRoute {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -5117,8 +5117,8 @@ impl VpnRouteAssignment {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnRouteAssignment, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnRouteAssignment, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5221,7 +5221,7 @@ impl ::core::fmt::Debug for VpnRouteAssignment {
     }
 }
 impl ::windows::core::RuntimeType for VpnRouteAssignment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRouteAssignment;{db64de22-ce39-4a76-9550-f61039f80e48})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRouteAssignment;{db64de22-ce39-4a76-9550-f61039f80e48})");
 }
 impl ::core::clone::Clone for VpnRouteAssignment {
     fn clone(&self) -> Self {
@@ -5237,7 +5237,7 @@ unsafe impl ::windows::core::Interface for VpnRouteAssignment {
 impl ::windows::core::RuntimeName for VpnRouteAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRouteAssignment";
 }
-::windows::core::interface_hierarchy!(VpnRouteAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnRouteAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnRouteAssignment {}
 unsafe impl ::core::marker::Sync for VpnRouteAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -5266,7 +5266,7 @@ impl ::core::fmt::Debug for VpnSystemHealth {
     }
 }
 impl ::windows::core::RuntimeType for VpnSystemHealth {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnSystemHealth;{99a8f8af-c0ee-4e75-817a-f231aee5123d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnSystemHealth;{99a8f8af-c0ee-4e75-817a-f231aee5123d})");
 }
 impl ::core::clone::Clone for VpnSystemHealth {
     fn clone(&self) -> Self {
@@ -5282,7 +5282,7 @@ unsafe impl ::windows::core::Interface for VpnSystemHealth {
 impl ::windows::core::RuntimeName for VpnSystemHealth {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnSystemHealth";
 }
-::windows::core::interface_hierarchy!(VpnSystemHealth, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnSystemHealth, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnSystemHealth {}
 unsafe impl ::core::marker::Sync for VpnSystemHealth {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -5375,7 +5375,7 @@ impl VpnTrafficFilter {
     }
     #[doc(hidden)]
     pub fn IVpnTrafficFilterFactory<R, F: FnOnce(&IVpnTrafficFilterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnTrafficFilter, IVpnTrafficFilterFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<VpnTrafficFilter, IVpnTrafficFilterFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5391,7 +5391,7 @@ impl ::core::fmt::Debug for VpnTrafficFilter {
     }
 }
 impl ::windows::core::RuntimeType for VpnTrafficFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilter;{2f691b60-6c9f-47f5-ac36-bb1b042e2c50})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilter;{2f691b60-6c9f-47f5-ac36-bb1b042e2c50})");
 }
 impl ::core::clone::Clone for VpnTrafficFilter {
     fn clone(&self) -> Self {
@@ -5407,7 +5407,7 @@ unsafe impl ::windows::core::Interface for VpnTrafficFilter {
 impl ::windows::core::RuntimeName for VpnTrafficFilter {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilter";
 }
-::windows::core::interface_hierarchy!(VpnTrafficFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnTrafficFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnTrafficFilter {}
 unsafe impl ::core::marker::Sync for VpnTrafficFilter {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -5417,8 +5417,8 @@ impl VpnTrafficFilterAssignment {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<VpnTrafficFilterAssignment, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<VpnTrafficFilterAssignment, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5465,7 +5465,7 @@ impl ::core::fmt::Debug for VpnTrafficFilterAssignment {
     }
 }
 impl ::windows::core::RuntimeType for VpnTrafficFilterAssignment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilterAssignment;{56ccd45c-e664-471e-89cd-601603b9e0f3})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilterAssignment;{56ccd45c-e664-471e-89cd-601603b9e0f3})");
 }
 impl ::core::clone::Clone for VpnTrafficFilterAssignment {
     fn clone(&self) -> Self {
@@ -5481,7 +5481,7 @@ unsafe impl ::windows::core::Interface for VpnTrafficFilterAssignment {
 impl ::windows::core::RuntimeName for VpnTrafficFilterAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilterAssignment";
 }
-::windows::core::interface_hierarchy!(VpnTrafficFilterAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(VpnTrafficFilterAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnTrafficFilterAssignment {}
 unsafe impl ::core::marker::Sync for VpnTrafficFilterAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -5513,7 +5513,7 @@ impl ::core::fmt::Debug for VpnAppIdType {
     }
 }
 impl ::windows::core::RuntimeType for VpnAppIdType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAppIdType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAppIdType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5545,7 +5545,7 @@ impl ::core::fmt::Debug for VpnAuthenticationMethod {
     }
 }
 impl ::windows::core::RuntimeType for VpnAuthenticationMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAuthenticationMethod;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAuthenticationMethod;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5575,7 +5575,7 @@ impl ::core::fmt::Debug for VpnChannelActivityEventType {
     }
 }
 impl ::windows::core::RuntimeType for VpnChannelActivityEventType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelActivityEventType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelActivityEventType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5639,7 +5639,7 @@ impl ::core::ops::Not for VpnChannelRequestCredentialsOptions {
     }
 }
 impl ::windows::core::RuntimeType for VpnChannelRequestCredentialsOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelRequestCredentialsOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelRequestCredentialsOptions;u4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5674,7 +5674,7 @@ impl ::core::fmt::Debug for VpnCredentialType {
     }
 }
 impl ::windows::core::RuntimeType for VpnCredentialType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnCredentialType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnCredentialType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5704,7 +5704,7 @@ impl ::core::fmt::Debug for VpnDataPathType {
     }
 }
 impl ::windows::core::RuntimeType for VpnDataPathType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDataPathType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDataPathType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5735,7 +5735,7 @@ impl ::core::fmt::Debug for VpnDomainNameType {
     }
 }
 impl ::windows::core::RuntimeType for VpnDomainNameType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDomainNameType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDomainNameType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5770,7 +5770,7 @@ impl ::core::fmt::Debug for VpnIPProtocol {
     }
 }
 impl ::windows::core::RuntimeType for VpnIPProtocol {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnIPProtocol;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnIPProtocol;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5802,7 +5802,7 @@ impl ::core::fmt::Debug for VpnManagementConnectionStatus {
     }
 }
 impl ::windows::core::RuntimeType for VpnManagementConnectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementConnectionStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementConnectionStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5849,7 +5849,7 @@ impl ::core::fmt::Debug for VpnManagementErrorStatus {
     }
 }
 impl ::windows::core::RuntimeType for VpnManagementErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementErrorStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementErrorStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5880,7 +5880,7 @@ impl ::core::fmt::Debug for VpnNativeProtocolType {
     }
 }
 impl ::windows::core::RuntimeType for VpnNativeProtocolType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnNativeProtocolType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnNativeProtocolType;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5910,7 +5910,7 @@ impl ::core::fmt::Debug for VpnPacketBufferStatus {
     }
 }
 impl ::windows::core::RuntimeType for VpnPacketBufferStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnPacketBufferStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnPacketBufferStatus;i4)");
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
@@ -5940,7 +5940,7 @@ impl ::core::fmt::Debug for VpnRoutingPolicyType {
     }
 }
 impl ::windows::core::RuntimeType for VpnRoutingPolicyType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnRoutingPolicyType;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnRoutingPolicyType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

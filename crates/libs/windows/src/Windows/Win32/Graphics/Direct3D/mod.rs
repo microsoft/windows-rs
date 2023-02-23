@@ -13,7 +13,7 @@ impl ID3DBlob {
         (::windows::core::Vtable::vtable(self).GetBufferSize)(::windows::core::Vtable::as_raw(self))
     }
 }
-::windows::core::interface_hierarchy!(ID3DBlob, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3DBlob, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3DBlob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -57,7 +57,7 @@ impl ID3DDestructionNotifier {
         (::windows::core::Vtable::vtable(self).UnregisterDestructionCallback)(::windows::core::Vtable::as_raw(self), callbackid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ID3DDestructionNotifier, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ID3DDestructionNotifier, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ID3DDestructionNotifier {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

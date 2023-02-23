@@ -276,7 +276,7 @@ impl IBackgroundTransferBase {
         unsafe { (::windows::core::Vtable::vtable(this).SetCostPolicy)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTransferBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTransferBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundTransferBase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -289,7 +289,7 @@ impl ::core::fmt::Debug for IBackgroundTransferBase {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTransferBase {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a9da250-c769-458c-afe8-feb8d4d3b2ef}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2a9da250-c769-458c-afe8-feb8d4d3b2ef}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTransferBase {
     type Vtable = IBackgroundTransferBase_Vtbl;
@@ -432,7 +432,7 @@ impl IBackgroundTransferContentPartFactory {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTransferContentPartFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTransferContentPartFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundTransferContentPartFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -445,7 +445,7 @@ impl ::core::fmt::Debug for IBackgroundTransferContentPartFactory {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTransferContentPartFactory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{90ef98a9-7a01-4a0b-9f80-a0b0bb370f8d}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{90ef98a9-7a01-4a0b-9f80-a0b0bb370f8d}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTransferContentPartFactory {
     type Vtable = IBackgroundTransferContentPartFactory_Vtbl;
@@ -594,7 +594,7 @@ impl IBackgroundTransferOperation {
         }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTransferOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTransferOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundTransferOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -607,7 +607,7 @@ impl ::core::fmt::Debug for IBackgroundTransferOperation {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTransferOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ded06846-90ca-44fb-8fb1-124154c0d539}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ded06846-90ca-44fb-8fb1-124154c0d539}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTransferOperation {
     type Vtable = IBackgroundTransferOperation_Vtbl;
@@ -658,7 +658,7 @@ impl IBackgroundTransferOperationPriority {
         unsafe { (::windows::core::Vtable::vtable(this).SetPriority)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-::windows::core::interface_hierarchy!(IBackgroundTransferOperationPriority, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IBackgroundTransferOperationPriority, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IBackgroundTransferOperationPriority {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -671,7 +671,7 @@ impl ::core::fmt::Debug for IBackgroundTransferOperationPriority {
     }
 }
 impl ::windows::core::RuntimeType for IBackgroundTransferOperationPriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{04854327-5254-4b3a-915e-0aa49275c0f9}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{04854327-5254-4b3a-915e-0aa49275c0f9}");
 }
 unsafe impl ::windows::core::Vtable for IBackgroundTransferOperationPriority {
     type Vtable = IBackgroundTransferOperationPriority_Vtbl;
@@ -1284,8 +1284,8 @@ impl BackgroundDownloader {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundDownloader, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BackgroundDownloader, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -1524,23 +1524,23 @@ impl BackgroundDownloader {
     }
     #[doc(hidden)]
     pub fn IBackgroundDownloaderFactory<R, F: FnOnce(&IBackgroundDownloaderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundDownloader, IBackgroundDownloaderFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBackgroundDownloaderStaticMethods<R, F: FnOnce(&IBackgroundDownloaderStaticMethods) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundDownloader, IBackgroundDownloaderStaticMethods> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderStaticMethods> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBackgroundDownloaderStaticMethods2<R, F: FnOnce(&IBackgroundDownloaderStaticMethods2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundDownloader, IBackgroundDownloaderStaticMethods2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderStaticMethods2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IBackgroundDownloaderUserConsent<R, F: FnOnce(&IBackgroundDownloaderUserConsent) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundDownloader, IBackgroundDownloaderUserConsent> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderUserConsent> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1556,7 +1556,7 @@ impl ::core::fmt::Debug for BackgroundDownloader {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundDownloader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundDownloader;{c1c79333-6649-4b1d-a826-a4b3dd234d0b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundDownloader;{c1c79333-6649-4b1d-a826-a4b3dd234d0b})");
 }
 impl ::core::clone::Clone for BackgroundDownloader {
     fn clone(&self) -> Self {
@@ -1572,7 +1572,7 @@ unsafe impl ::windows::core::Interface for BackgroundDownloader {
 impl ::windows::core::RuntimeName for BackgroundDownloader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundDownloader";
 }
-::windows::core::interface_hierarchy!(BackgroundDownloader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundDownloader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackgroundDownloader> for IBackgroundTransferBase {
     type Error = ::windows::core::Error;
     fn try_from(value: BackgroundDownloader) -> ::windows::core::Result<Self> {
@@ -1601,8 +1601,8 @@ impl BackgroundTransferCompletionGroup {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundTransferCompletionGroup, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BackgroundTransferCompletionGroup, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -1638,7 +1638,7 @@ impl ::core::fmt::Debug for BackgroundTransferCompletionGroup {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup;{2d930225-986b-574d-7950-0add47f5d706})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup;{2d930225-986b-574d-7950-0add47f5d706})");
 }
 impl ::core::clone::Clone for BackgroundTransferCompletionGroup {
     fn clone(&self) -> Self {
@@ -1654,7 +1654,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroup {
 impl ::windows::core::RuntimeName for BackgroundTransferCompletionGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup";
 }
-::windows::core::interface_hierarchy!(BackgroundTransferCompletionGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTransferCompletionGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroup {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -1692,7 +1692,7 @@ impl ::core::fmt::Debug for BackgroundTransferCompletionGroupTriggerDetails {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroupTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails;{7b6be286-6e47-5136-7fcb-fa4389f46f5b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails;{7b6be286-6e47-5136-7fcb-fa4389f46f5b})");
 }
 impl ::core::clone::Clone for BackgroundTransferCompletionGroupTriggerDetails {
     fn clone(&self) -> Self {
@@ -1708,7 +1708,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroupTrig
 impl ::windows::core::RuntimeName for BackgroundTransferCompletionGroupTriggerDetails {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails";
 }
-::windows::core::interface_hierarchy!(BackgroundTransferCompletionGroupTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTransferCompletionGroupTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroupTriggerDetails {}
 unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroupTriggerDetails {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -1718,8 +1718,8 @@ impl BackgroundTransferContentPart {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundTransferContentPart, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BackgroundTransferContentPart, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1754,7 +1754,7 @@ impl BackgroundTransferContentPart {
     }
     #[doc(hidden)]
     pub fn IBackgroundTransferContentPartFactory<R, F: FnOnce(&IBackgroundTransferContentPartFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundTransferContentPart, IBackgroundTransferContentPartFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundTransferContentPart, IBackgroundTransferContentPartFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1770,7 +1770,7 @@ impl ::core::fmt::Debug for BackgroundTransferContentPart {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTransferContentPart {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart;{e8e15657-d7d1-4ed8-838e-674ac217ace6})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart;{e8e15657-d7d1-4ed8-838e-674ac217ace6})");
 }
 impl ::core::clone::Clone for BackgroundTransferContentPart {
     fn clone(&self) -> Self {
@@ -1786,7 +1786,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferContentPart {
 impl ::windows::core::RuntimeName for BackgroundTransferContentPart {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart";
 }
-::windows::core::interface_hierarchy!(BackgroundTransferContentPart, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTransferContentPart, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferContentPart {}
 unsafe impl ::core::marker::Sync for BackgroundTransferContentPart {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -1802,7 +1802,7 @@ impl BackgroundTransferError {
     }
     #[doc(hidden)]
     pub fn IBackgroundTransferErrorStaticMethods<R, F: FnOnce(&IBackgroundTransferErrorStaticMethods) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundTransferError, IBackgroundTransferErrorStaticMethods> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundTransferError, IBackgroundTransferErrorStaticMethods> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1839,7 +1839,7 @@ impl BackgroundTransferGroup {
     }
     #[doc(hidden)]
     pub fn IBackgroundTransferGroupStatics<R, F: FnOnce(&IBackgroundTransferGroupStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundTransferGroup, IBackgroundTransferGroupStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundTransferGroup, IBackgroundTransferGroupStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1855,7 +1855,7 @@ impl ::core::fmt::Debug for BackgroundTransferGroup {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTransferGroup {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferGroup;{d8c3e3e4-6459-4540-85eb-aaa1c8903677})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferGroup;{d8c3e3e4-6459-4540-85eb-aaa1c8903677})");
 }
 impl ::core::clone::Clone for BackgroundTransferGroup {
     fn clone(&self) -> Self {
@@ -1871,7 +1871,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferGroup {
 impl ::windows::core::RuntimeName for BackgroundTransferGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferGroup";
 }
-::windows::core::interface_hierarchy!(BackgroundTransferGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTransferGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTransferGroup {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -1916,7 +1916,7 @@ impl ::core::fmt::Debug for BackgroundTransferRangesDownloadedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTransferRangesDownloadedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs;{3ebc7453-bf48-4a88-9248-b0c165184f5c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs;{3ebc7453-bf48-4a88-9248-b0c165184f5c})");
 }
 impl ::core::clone::Clone for BackgroundTransferRangesDownloadedEventArgs {
     fn clone(&self) -> Self {
@@ -1932,7 +1932,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferRangesDownloadedEve
 impl ::windows::core::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs";
 }
-::windows::core::interface_hierarchy!(BackgroundTransferRangesDownloadedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundTransferRangesDownloadedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferRangesDownloadedEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTransferRangesDownloadedEventArgs {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -1942,8 +1942,8 @@ impl BackgroundUploader {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundUploader, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<BackgroundUploader, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2204,23 +2204,23 @@ impl BackgroundUploader {
     }
     #[doc(hidden)]
     pub fn IBackgroundUploaderFactory<R, F: FnOnce(&IBackgroundUploaderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundUploader, IBackgroundUploaderFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBackgroundUploaderStaticMethods<R, F: FnOnce(&IBackgroundUploaderStaticMethods) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundUploader, IBackgroundUploaderStaticMethods> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderStaticMethods> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IBackgroundUploaderStaticMethods2<R, F: FnOnce(&IBackgroundUploaderStaticMethods2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundUploader, IBackgroundUploaderStaticMethods2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderStaticMethods2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IBackgroundUploaderUserConsent<R, F: FnOnce(&IBackgroundUploaderUserConsent) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundUploader, IBackgroundUploaderUserConsent> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderUserConsent> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2236,7 +2236,7 @@ impl ::core::fmt::Debug for BackgroundUploader {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundUploader {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundUploader;{c595c9ae-cead-465b-8801-c55ac90a01ce})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundUploader;{c595c9ae-cead-465b-8801-c55ac90a01ce})");
 }
 impl ::core::clone::Clone for BackgroundUploader {
     fn clone(&self) -> Self {
@@ -2252,7 +2252,7 @@ unsafe impl ::windows::core::Interface for BackgroundUploader {
 impl ::windows::core::RuntimeName for BackgroundUploader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundUploader";
 }
-::windows::core::interface_hierarchy!(BackgroundUploader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(BackgroundUploader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackgroundUploader> for IBackgroundTransferBase {
     type Error = ::windows::core::Error;
     fn try_from(value: BackgroundUploader) -> ::windows::core::Result<Self> {
@@ -2308,12 +2308,12 @@ impl ContentPrefetcher {
     }
     #[doc(hidden)]
     pub fn IContentPrefetcher<R, F: FnOnce(&IContentPrefetcher) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContentPrefetcher, IContentPrefetcher> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContentPrefetcher, IContentPrefetcher> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IContentPrefetcherTime<R, F: FnOnce(&IContentPrefetcherTime) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContentPrefetcher, IContentPrefetcherTime> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ContentPrefetcher, IContentPrefetcherTime> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2536,7 +2536,7 @@ impl ::core::fmt::Debug for DownloadOperation {
     }
 }
 impl ::windows::core::RuntimeType for DownloadOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.DownloadOperation;{bd87ebb0-5714-4e09-ba68-bef73903b0d7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.DownloadOperation;{bd87ebb0-5714-4e09-ba68-bef73903b0d7})");
 }
 impl ::core::clone::Clone for DownloadOperation {
     fn clone(&self) -> Self {
@@ -2552,7 +2552,7 @@ unsafe impl ::windows::core::Interface for DownloadOperation {
 impl ::windows::core::RuntimeName for DownloadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.DownloadOperation";
 }
-::windows::core::interface_hierarchy!(DownloadOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DownloadOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DownloadOperation> for IBackgroundTransferOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: DownloadOperation) -> ::windows::core::Result<Self> {
@@ -2642,7 +2642,7 @@ impl ::core::fmt::Debug for ResponseInformation {
     }
 }
 impl ::windows::core::RuntimeType for ResponseInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.ResponseInformation;{f8bb9a12-f713-4792-8b68-d9d297f91d2e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.ResponseInformation;{f8bb9a12-f713-4792-8b68-d9d297f91d2e})");
 }
 impl ::core::clone::Clone for ResponseInformation {
     fn clone(&self) -> Self {
@@ -2658,7 +2658,7 @@ unsafe impl ::windows::core::Interface for ResponseInformation {
 impl ::windows::core::RuntimeName for ResponseInformation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ResponseInformation";
 }
-::windows::core::interface_hierarchy!(ResponseInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ResponseInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ResponseInformation {}
 unsafe impl ::core::marker::Sync for ResponseInformation {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"deprecated\"`*"]
@@ -2693,7 +2693,7 @@ impl ::core::fmt::Debug for UnconstrainedTransferRequestResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeType for UnconstrainedTransferRequestResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult;{4c24b81f-d944-4112-a98e-6a69522b7ebb})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult;{4c24b81f-d944-4112-a98e-6a69522b7ebb})");
 }
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for UnconstrainedTransferRequestResult {
@@ -2714,7 +2714,7 @@ impl ::windows::core::RuntimeName for UnconstrainedTransferRequestResult {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult";
 }
 #[cfg(feature = "deprecated")]
-::windows::core::interface_hierarchy!(UnconstrainedTransferRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UnconstrainedTransferRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for UnconstrainedTransferRequestResult {}
 #[cfg(feature = "deprecated")]
@@ -2859,7 +2859,7 @@ impl ::core::fmt::Debug for UploadOperation {
     }
 }
 impl ::windows::core::RuntimeType for UploadOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UploadOperation;{3e5624e0-7389-434c-8b35-427fd36bbdae})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UploadOperation;{3e5624e0-7389-434c-8b35-427fd36bbdae})");
 }
 impl ::core::clone::Clone for UploadOperation {
     fn clone(&self) -> Self {
@@ -2875,7 +2875,7 @@ unsafe impl ::windows::core::Interface for UploadOperation {
 impl ::windows::core::RuntimeName for UploadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UploadOperation";
 }
-::windows::core::interface_hierarchy!(UploadOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(UploadOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UploadOperation> for IBackgroundTransferOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: UploadOperation) -> ::windows::core::Result<Self> {
@@ -2944,7 +2944,7 @@ impl ::core::fmt::Debug for BackgroundTransferBehavior {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTransferBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferBehavior;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferBehavior;i4)");
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 #[repr(transparent)]
@@ -2975,7 +2975,7 @@ impl ::core::fmt::Debug for BackgroundTransferCostPolicy {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTransferCostPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy;i4)");
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 #[repr(transparent)]
@@ -3006,7 +3006,7 @@ impl ::core::fmt::Debug for BackgroundTransferPriority {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTransferPriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferPriority;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferPriority;i4)");
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
 #[repr(transparent)]
@@ -3044,7 +3044,7 @@ impl ::core::fmt::Debug for BackgroundTransferStatus {
     }
 }
 impl ::windows::core::RuntimeType for BackgroundTransferStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -3070,7 +3070,7 @@ impl ::windows::core::TypeKind for BackgroundDownloadProgress {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for BackgroundDownloadProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundDownloadProgress;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundDownloadProgress;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
 }
 impl ::core::cmp::PartialEq for BackgroundDownloadProgress {
     fn eq(&self, other: &Self) -> bool {
@@ -3104,7 +3104,7 @@ impl ::windows::core::TypeKind for BackgroundTransferFileRange {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for BackgroundTransferFileRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange;u8;u8)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange;u8;u8)");
 }
 impl ::core::cmp::PartialEq for BackgroundTransferFileRange {
     fn eq(&self, other: &Self) -> bool {
@@ -3143,7 +3143,7 @@ impl ::windows::core::TypeKind for BackgroundUploadProgress {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for BackgroundUploadProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundUploadProgress;u8;u8;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundUploadProgress;u8;u8;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
 }
 impl ::core::cmp::PartialEq for BackgroundUploadProgress {
     fn eq(&self, other: &Self) -> bool {

@@ -990,7 +990,7 @@ impl IPointerPointTransform {
         }
     }
 }
-::windows::core::interface_hierarchy!(IPointerPointTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IPointerPointTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IPointerPointTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1003,7 +1003,7 @@ impl ::core::fmt::Debug for IPointerPointTransform {
     }
 }
 impl ::windows::core::RuntimeType for IPointerPointTransform {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4d5fe14f-b87c-4028-bc9c-59e9947fb056}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{4d5fe14f-b87c-4028-bc9c-59e9947fb056}");
 }
 unsafe impl ::windows::core::Vtable for IPointerPointTransform {
     type Vtable = IPointerPointTransform_Vtbl;
@@ -2017,7 +2017,7 @@ impl ::core::fmt::Debug for AttachableInputObject {
     }
 }
 impl ::windows::core::RuntimeType for AttachableInputObject {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.AttachableInputObject;{9b822734-a3c1-542a-b2f4-0e32b773fb07})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.AttachableInputObject;{9b822734-a3c1-542a-b2f4-0e32b773fb07})");
 }
 impl ::core::clone::Clone for AttachableInputObject {
     fn clone(&self) -> Self {
@@ -2033,7 +2033,7 @@ unsafe impl ::windows::core::Interface for AttachableInputObject {
 impl ::windows::core::RuntimeName for AttachableInputObject {
     const NAME: &'static str = "Windows.UI.Input.AttachableInputObject";
 }
-::windows::core::interface_hierarchy!(AttachableInputObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AttachableInputObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AttachableInputObject> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2107,7 +2107,7 @@ impl ::core::fmt::Debug for CrossSlidingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for CrossSlidingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.CrossSlidingEventArgs;{e9374738-6f88-41d9-8720-78e08e398349})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.CrossSlidingEventArgs;{e9374738-6f88-41d9-8720-78e08e398349})");
 }
 impl ::core::clone::Clone for CrossSlidingEventArgs {
     fn clone(&self) -> Self {
@@ -2123,7 +2123,7 @@ unsafe impl ::windows::core::Interface for CrossSlidingEventArgs {
 impl ::windows::core::RuntimeName for CrossSlidingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.CrossSlidingEventArgs";
 }
-::windows::core::interface_hierarchy!(CrossSlidingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(CrossSlidingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct DraggingEventArgs(::windows::core::IUnknown);
@@ -2173,7 +2173,7 @@ impl ::core::fmt::Debug for DraggingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for DraggingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.DraggingEventArgs;{1c905384-083c-4bd3-b559-179cddeb33ec})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.DraggingEventArgs;{1c905384-083c-4bd3-b559-179cddeb33ec})");
 }
 impl ::core::clone::Clone for DraggingEventArgs {
     fn clone(&self) -> Self {
@@ -2189,7 +2189,7 @@ unsafe impl ::windows::core::Interface for DraggingEventArgs {
 impl ::windows::core::RuntimeName for DraggingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.DraggingEventArgs";
 }
-::windows::core::interface_hierarchy!(DraggingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(DraggingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct EdgeGesture(::windows::core::IUnknown);
@@ -2247,7 +2247,7 @@ impl EdgeGesture {
     }
     #[doc(hidden)]
     pub fn IEdgeGestureStatics<R, F: FnOnce(&IEdgeGestureStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EdgeGesture, IEdgeGestureStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<EdgeGesture, IEdgeGestureStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -2263,7 +2263,7 @@ impl ::core::fmt::Debug for EdgeGesture {
     }
 }
 impl ::windows::core::RuntimeType for EdgeGesture {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGesture;{580d5292-2ab1-49aa-a7f0-33bd3f8df9f1})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGesture;{580d5292-2ab1-49aa-a7f0-33bd3f8df9f1})");
 }
 impl ::core::clone::Clone for EdgeGesture {
     fn clone(&self) -> Self {
@@ -2279,7 +2279,7 @@ unsafe impl ::windows::core::Interface for EdgeGesture {
 impl ::windows::core::RuntimeName for EdgeGesture {
     const NAME: &'static str = "Windows.UI.Input.EdgeGesture";
 }
-::windows::core::interface_hierarchy!(EdgeGesture, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EdgeGesture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct EdgeGestureEventArgs(::windows::core::IUnknown);
@@ -2304,7 +2304,7 @@ impl ::core::fmt::Debug for EdgeGestureEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for EdgeGestureEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGestureEventArgs;{44fa4a24-2d09-42e1-8b5e-368208796a4c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGestureEventArgs;{44fa4a24-2d09-42e1-8b5e-368208796a4c})");
 }
 impl ::core::clone::Clone for EdgeGestureEventArgs {
     fn clone(&self) -> Self {
@@ -2320,7 +2320,7 @@ unsafe impl ::windows::core::Interface for EdgeGestureEventArgs {
 impl ::windows::core::RuntimeName for EdgeGestureEventArgs {
     const NAME: &'static str = "Windows.UI.Input.EdgeGestureEventArgs";
 }
-::windows::core::interface_hierarchy!(EdgeGestureEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(EdgeGestureEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct GestureRecognizer(::windows::core::IUnknown);
@@ -2328,8 +2328,8 @@ impl GestureRecognizer {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GestureRecognizer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::imp::FactoryCache<GestureRecognizer, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     pub fn GestureSettings(&self) -> ::windows::core::Result<GestureSettings> {
@@ -2799,7 +2799,7 @@ impl ::core::fmt::Debug for GestureRecognizer {
     }
 }
 impl ::windows::core::RuntimeType for GestureRecognizer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.GestureRecognizer;{b47a37bf-3d6b-4f88-83e8-6dcb4012ffb0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.GestureRecognizer;{b47a37bf-3d6b-4f88-83e8-6dcb4012ffb0})");
 }
 impl ::core::clone::Clone for GestureRecognizer {
     fn clone(&self) -> Self {
@@ -2815,7 +2815,7 @@ unsafe impl ::windows::core::Interface for GestureRecognizer {
 impl ::windows::core::RuntimeName for GestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.GestureRecognizer";
 }
-::windows::core::interface_hierarchy!(GestureRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GestureRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct HoldingEventArgs(::windows::core::IUnknown);
@@ -2872,7 +2872,7 @@ impl ::core::fmt::Debug for HoldingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for HoldingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.HoldingEventArgs;{2bf755c5-e799-41b4-bb40-242f40959b71})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.HoldingEventArgs;{2bf755c5-e799-41b4-bb40-242f40959b71})");
 }
 impl ::core::clone::Clone for HoldingEventArgs {
     fn clone(&self) -> Self {
@@ -2888,7 +2888,7 @@ unsafe impl ::windows::core::Interface for HoldingEventArgs {
 impl ::windows::core::RuntimeName for HoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.HoldingEventArgs";
 }
-::windows::core::interface_hierarchy!(HoldingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(HoldingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct InputActivationListener(::windows::core::IUnknown);
@@ -2934,7 +2934,7 @@ impl ::core::fmt::Debug for InputActivationListener {
     }
 }
 impl ::windows::core::RuntimeType for InputActivationListener {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListener;{5d6d4ed2-28c7-5ae3-aa74-c918a9f243ca})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListener;{5d6d4ed2-28c7-5ae3-aa74-c918a9f243ca})");
 }
 impl ::core::clone::Clone for InputActivationListener {
     fn clone(&self) -> Self {
@@ -2950,7 +2950,7 @@ unsafe impl ::windows::core::Interface for InputActivationListener {
 impl ::windows::core::RuntimeName for InputActivationListener {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListener";
 }
-::windows::core::interface_hierarchy!(InputActivationListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InputActivationListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<InputActivationListener> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3014,7 +3014,7 @@ impl ::core::fmt::Debug for InputActivationListenerActivationChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for InputActivationListenerActivationChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListenerActivationChangedEventArgs;{7699b465-1dcf-5791-b4b9-6cafbeed2056})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListenerActivationChangedEventArgs;{7699b465-1dcf-5791-b4b9-6cafbeed2056})");
 }
 impl ::core::clone::Clone for InputActivationListenerActivationChangedEventArgs {
     fn clone(&self) -> Self {
@@ -3030,7 +3030,7 @@ unsafe impl ::windows::core::Interface for InputActivationListenerActivationChan
 impl ::windows::core::RuntimeName for InputActivationListenerActivationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListenerActivationChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(InputActivationListenerActivationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(InputActivationListenerActivationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InputActivationListenerActivationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for InputActivationListenerActivationChangedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -3086,7 +3086,7 @@ impl KeyboardDeliveryInterceptor {
     }
     #[doc(hidden)]
     pub fn IKeyboardDeliveryInterceptorStatics<R, F: FnOnce(&IKeyboardDeliveryInterceptorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<KeyboardDeliveryInterceptor, IKeyboardDeliveryInterceptorStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<KeyboardDeliveryInterceptor, IKeyboardDeliveryInterceptorStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3102,7 +3102,7 @@ impl ::core::fmt::Debug for KeyboardDeliveryInterceptor {
     }
 }
 impl ::windows::core::RuntimeType for KeyboardDeliveryInterceptor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.KeyboardDeliveryInterceptor;{b4baf068-8f49-446c-8db5-8c0ffe85cc9e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.KeyboardDeliveryInterceptor;{b4baf068-8f49-446c-8db5-8c0ffe85cc9e})");
 }
 impl ::core::clone::Clone for KeyboardDeliveryInterceptor {
     fn clone(&self) -> Self {
@@ -3118,7 +3118,7 @@ unsafe impl ::windows::core::Interface for KeyboardDeliveryInterceptor {
 impl ::windows::core::RuntimeName for KeyboardDeliveryInterceptor {
     const NAME: &'static str = "Windows.UI.Input.KeyboardDeliveryInterceptor";
 }
-::windows::core::interface_hierarchy!(KeyboardDeliveryInterceptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(KeyboardDeliveryInterceptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyboardDeliveryInterceptor {}
 unsafe impl ::core::marker::Sync for KeyboardDeliveryInterceptor {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -3188,7 +3188,7 @@ impl ::core::fmt::Debug for ManipulationCompletedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ManipulationCompletedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationCompletedEventArgs;{b34ab22b-d19b-46ff-9f38-dec7754bb9e7})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationCompletedEventArgs;{b34ab22b-d19b-46ff-9f38-dec7754bb9e7})");
 }
 impl ::core::clone::Clone for ManipulationCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -3204,7 +3204,7 @@ unsafe impl ::windows::core::Interface for ManipulationCompletedEventArgs {
 impl ::windows::core::RuntimeName for ManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationCompletedEventArgs";
 }
-::windows::core::interface_hierarchy!(ManipulationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ManipulationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct ManipulationInertiaStartingEventArgs(::windows::core::IUnknown);
@@ -3274,7 +3274,7 @@ impl ::core::fmt::Debug for ManipulationInertiaStartingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ManipulationInertiaStartingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationInertiaStartingEventArgs;{dd37a898-26bf-467a-9ce5-ccf3fb11371e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationInertiaStartingEventArgs;{dd37a898-26bf-467a-9ce5-ccf3fb11371e})");
 }
 impl ::core::clone::Clone for ManipulationInertiaStartingEventArgs {
     fn clone(&self) -> Self {
@@ -3290,7 +3290,7 @@ unsafe impl ::windows::core::Interface for ManipulationInertiaStartingEventArgs 
 impl ::windows::core::RuntimeName for ManipulationInertiaStartingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationInertiaStartingEventArgs";
 }
-::windows::core::interface_hierarchy!(ManipulationInertiaStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ManipulationInertiaStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct ManipulationStartedEventArgs(::windows::core::IUnknown);
@@ -3342,7 +3342,7 @@ impl ::core::fmt::Debug for ManipulationStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ManipulationStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationStartedEventArgs;{ddec873e-cfce-4932-8c1d-3c3d011a34c0})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationStartedEventArgs;{ddec873e-cfce-4932-8c1d-3c3d011a34c0})");
 }
 impl ::core::clone::Clone for ManipulationStartedEventArgs {
     fn clone(&self) -> Self {
@@ -3358,7 +3358,7 @@ unsafe impl ::windows::core::Interface for ManipulationStartedEventArgs {
 impl ::windows::core::RuntimeName for ManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(ManipulationStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ManipulationStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct ManipulationUpdatedEventArgs(::windows::core::IUnknown);
@@ -3435,7 +3435,7 @@ impl ::core::fmt::Debug for ManipulationUpdatedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ManipulationUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationUpdatedEventArgs;{cb354ce5-abb8-4f9f-b3ce-8181aa61ad82})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationUpdatedEventArgs;{cb354ce5-abb8-4f9f-b3ce-8181aa61ad82})");
 }
 impl ::core::clone::Clone for ManipulationUpdatedEventArgs {
     fn clone(&self) -> Self {
@@ -3451,7 +3451,7 @@ unsafe impl ::windows::core::Interface for ManipulationUpdatedEventArgs {
 impl ::windows::core::RuntimeName for ManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationUpdatedEventArgs";
 }
-::windows::core::interface_hierarchy!(ManipulationUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ManipulationUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct MouseWheelParameters(::windows::core::IUnknown);
@@ -3521,7 +3521,7 @@ impl ::core::fmt::Debug for MouseWheelParameters {
     }
 }
 impl ::windows::core::RuntimeType for MouseWheelParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.MouseWheelParameters;{ead0ca44-9ded-4037-8149-5e4cc2564468})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.MouseWheelParameters;{ead0ca44-9ded-4037-8149-5e4cc2564468})");
 }
 impl ::core::clone::Clone for MouseWheelParameters {
     fn clone(&self) -> Self {
@@ -3537,7 +3537,7 @@ unsafe impl ::windows::core::Interface for MouseWheelParameters {
 impl ::windows::core::RuntimeName for MouseWheelParameters {
     const NAME: &'static str = "Windows.UI.Input.MouseWheelParameters";
 }
-::windows::core::interface_hierarchy!(MouseWheelParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(MouseWheelParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct PointerPoint(::windows::core::IUnknown);
@@ -3642,7 +3642,7 @@ impl PointerPoint {
     }
     #[doc(hidden)]
     pub fn IPointerPointStatics<R, F: FnOnce(&IPointerPointStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PointerPoint, IPointerPointStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PointerPoint, IPointerPointStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3658,7 +3658,7 @@ impl ::core::fmt::Debug for PointerPoint {
     }
 }
 impl ::windows::core::RuntimeType for PointerPoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPoint;{e995317d-7296-42d9-8233-c5be73b74a4a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPoint;{e995317d-7296-42d9-8233-c5be73b74a4a})");
 }
 impl ::core::clone::Clone for PointerPoint {
     fn clone(&self) -> Self {
@@ -3674,7 +3674,7 @@ unsafe impl ::windows::core::Interface for PointerPoint {
 impl ::windows::core::RuntimeName for PointerPoint {
     const NAME: &'static str = "Windows.UI.Input.PointerPoint";
 }
-::windows::core::interface_hierarchy!(PointerPoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PointerPoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct PointerPointProperties(::windows::core::IUnknown);
@@ -3873,7 +3873,7 @@ impl ::core::fmt::Debug for PointerPointProperties {
     }
 }
 impl ::windows::core::RuntimeType for PointerPointProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPointProperties;{c79d8a4b-c163-4ee7-803f-67ce79f9972d})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPointProperties;{c79d8a4b-c163-4ee7-803f-67ce79f9972d})");
 }
 impl ::core::clone::Clone for PointerPointProperties {
     fn clone(&self) -> Self {
@@ -3889,7 +3889,7 @@ unsafe impl ::windows::core::Interface for PointerPointProperties {
 impl ::windows::core::RuntimeName for PointerPointProperties {
     const NAME: &'static str = "Windows.UI.Input.PointerPointProperties";
 }
-::windows::core::interface_hierarchy!(PointerPointProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PointerPointProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct PointerVisualizationSettings(::windows::core::IUnknown);
@@ -3924,7 +3924,7 @@ impl PointerVisualizationSettings {
     }
     #[doc(hidden)]
     pub fn IPointerVisualizationSettingsStatics<R, F: FnOnce(&IPointerVisualizationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PointerVisualizationSettings, IPointerVisualizationSettingsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PointerVisualizationSettings, IPointerVisualizationSettingsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -3940,7 +3940,7 @@ impl ::core::fmt::Debug for PointerVisualizationSettings {
     }
 }
 impl ::windows::core::RuntimeType for PointerVisualizationSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerVisualizationSettings;{4d1e6461-84f7-499d-bd91-2a36e2b7aaa2})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerVisualizationSettings;{4d1e6461-84f7-499d-bd91-2a36e2b7aaa2})");
 }
 impl ::core::clone::Clone for PointerVisualizationSettings {
     fn clone(&self) -> Self {
@@ -3956,7 +3956,7 @@ unsafe impl ::windows::core::Interface for PointerVisualizationSettings {
 impl ::windows::core::RuntimeName for PointerVisualizationSettings {
     const NAME: &'static str = "Windows.UI.Input.PointerVisualizationSettings";
 }
-::windows::core::interface_hierarchy!(PointerVisualizationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PointerVisualizationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PointerVisualizationSettings {}
 unsafe impl ::core::marker::Sync for PointerVisualizationSettings {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4156,7 +4156,7 @@ impl RadialController {
     }
     #[doc(hidden)]
     pub fn IRadialControllerStatics<R, F: FnOnce(&IRadialControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RadialController, IRadialControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RadialController, IRadialControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4172,7 +4172,7 @@ impl ::core::fmt::Debug for RadialController {
     }
 }
 impl ::windows::core::RuntimeType for RadialController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialController;{3055d1c8-df51-43d4-b23b-0e1037467a09})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialController;{3055d1c8-df51-43d4-b23b-0e1037467a09})");
 }
 impl ::core::clone::Clone for RadialController {
     fn clone(&self) -> Self {
@@ -4188,7 +4188,7 @@ unsafe impl ::windows::core::Interface for RadialController {
 impl ::windows::core::RuntimeName for RadialController {
     const NAME: &'static str = "Windows.UI.Input.RadialController";
 }
-::windows::core::interface_hierarchy!(RadialController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialController {}
 unsafe impl ::core::marker::Sync for RadialController {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4224,7 +4224,7 @@ impl ::core::fmt::Debug for RadialControllerButtonClickedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerButtonClickedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonClickedEventArgs;{206aa438-e651-11e5-bf62-2c27d7404e85})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonClickedEventArgs;{206aa438-e651-11e5-bf62-2c27d7404e85})");
 }
 impl ::core::clone::Clone for RadialControllerButtonClickedEventArgs {
     fn clone(&self) -> Self {
@@ -4240,7 +4240,7 @@ unsafe impl ::windows::core::Interface for RadialControllerButtonClickedEventArg
 impl ::windows::core::RuntimeName for RadialControllerButtonClickedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonClickedEventArgs";
 }
-::windows::core::interface_hierarchy!(RadialControllerButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerButtonClickedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4276,7 +4276,7 @@ impl ::core::fmt::Debug for RadialControllerButtonHoldingEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerButtonHoldingEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonHoldingEventArgs;{3d577eee-3cee-11e6-b535-001bdc06ab3b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonHoldingEventArgs;{3d577eee-3cee-11e6-b535-001bdc06ab3b})");
 }
 impl ::core::clone::Clone for RadialControllerButtonHoldingEventArgs {
     fn clone(&self) -> Self {
@@ -4292,7 +4292,7 @@ unsafe impl ::windows::core::Interface for RadialControllerButtonHoldingEventArg
 impl ::windows::core::RuntimeName for RadialControllerButtonHoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonHoldingEventArgs";
 }
-::windows::core::interface_hierarchy!(RadialControllerButtonHoldingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerButtonHoldingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerButtonHoldingEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerButtonHoldingEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4328,7 +4328,7 @@ impl ::core::fmt::Debug for RadialControllerButtonPressedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerButtonPressedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonPressedEventArgs;{3d577eed-4cee-11e6-b535-001bdc06ab3b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonPressedEventArgs;{3d577eed-4cee-11e6-b535-001bdc06ab3b})");
 }
 impl ::core::clone::Clone for RadialControllerButtonPressedEventArgs {
     fn clone(&self) -> Self {
@@ -4344,7 +4344,7 @@ unsafe impl ::windows::core::Interface for RadialControllerButtonPressedEventArg
 impl ::windows::core::RuntimeName for RadialControllerButtonPressedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonPressedEventArgs";
 }
-::windows::core::interface_hierarchy!(RadialControllerButtonPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerButtonPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerButtonPressedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerButtonPressedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4380,7 +4380,7 @@ impl ::core::fmt::Debug for RadialControllerButtonReleasedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerButtonReleasedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonReleasedEventArgs;{3d577eef-3cee-11e6-b535-001bdc06ab3b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonReleasedEventArgs;{3d577eef-3cee-11e6-b535-001bdc06ab3b})");
 }
 impl ::core::clone::Clone for RadialControllerButtonReleasedEventArgs {
     fn clone(&self) -> Self {
@@ -4396,7 +4396,7 @@ unsafe impl ::windows::core::Interface for RadialControllerButtonReleasedEventAr
 impl ::windows::core::RuntimeName for RadialControllerButtonReleasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonReleasedEventArgs";
 }
-::windows::core::interface_hierarchy!(RadialControllerButtonReleasedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerButtonReleasedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerButtonReleasedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerButtonReleasedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4472,12 +4472,12 @@ impl RadialControllerConfiguration {
     }
     #[doc(hidden)]
     pub fn IRadialControllerConfigurationStatics<R, F: FnOnce(&IRadialControllerConfigurationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRadialControllerConfigurationStatics2<R, F: FnOnce(&IRadialControllerConfigurationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4493,7 +4493,7 @@ impl ::core::fmt::Debug for RadialControllerConfiguration {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerConfiguration;{a6b79ecb-6a52-4430-910c-56370a9d6b42})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerConfiguration;{a6b79ecb-6a52-4430-910c-56370a9d6b42})");
 }
 impl ::core::clone::Clone for RadialControllerConfiguration {
     fn clone(&self) -> Self {
@@ -4509,7 +4509,7 @@ unsafe impl ::windows::core::Interface for RadialControllerConfiguration {
 impl ::windows::core::RuntimeName for RadialControllerConfiguration {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerConfiguration";
 }
-::windows::core::interface_hierarchy!(RadialControllerConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerConfiguration {}
 unsafe impl ::core::marker::Sync for RadialControllerConfiguration {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4552,7 +4552,7 @@ impl ::core::fmt::Debug for RadialControllerControlAcquiredEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerControlAcquiredEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerControlAcquiredEventArgs;{206aa439-e651-11e5-bf62-2c27d7404e85})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerControlAcquiredEventArgs;{206aa439-e651-11e5-bf62-2c27d7404e85})");
 }
 impl ::core::clone::Clone for RadialControllerControlAcquiredEventArgs {
     fn clone(&self) -> Self {
@@ -4568,7 +4568,7 @@ unsafe impl ::windows::core::Interface for RadialControllerControlAcquiredEventA
 impl ::windows::core::RuntimeName for RadialControllerControlAcquiredEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerControlAcquiredEventArgs";
 }
-::windows::core::interface_hierarchy!(RadialControllerControlAcquiredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerControlAcquiredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerControlAcquiredEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerControlAcquiredEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4626,7 +4626,7 @@ impl ::core::fmt::Debug for RadialControllerMenu {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerMenu {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenu;{8506b35d-f640-4412-aba0-bad077e5ea8a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenu;{8506b35d-f640-4412-aba0-bad077e5ea8a})");
 }
 impl ::core::clone::Clone for RadialControllerMenu {
     fn clone(&self) -> Self {
@@ -4642,7 +4642,7 @@ unsafe impl ::windows::core::Interface for RadialControllerMenu {
 impl ::windows::core::RuntimeName for RadialControllerMenu {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenu";
 }
-::windows::core::interface_hierarchy!(RadialControllerMenu, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerMenu, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerMenu {}
 unsafe impl ::core::marker::Sync for RadialControllerMenu {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4715,12 +4715,12 @@ impl RadialControllerMenuItem {
     }
     #[doc(hidden)]
     pub fn IRadialControllerMenuItemStatics<R, F: FnOnce(&IRadialControllerMenuItemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IRadialControllerMenuItemStatics2<R, F: FnOnce(&IRadialControllerMenuItemStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4736,7 +4736,7 @@ impl ::core::fmt::Debug for RadialControllerMenuItem {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerMenuItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenuItem;{c80fc98d-ad0b-4c9c-8f2f-136a2373a6ba})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenuItem;{c80fc98d-ad0b-4c9c-8f2f-136a2373a6ba})");
 }
 impl ::core::clone::Clone for RadialControllerMenuItem {
     fn clone(&self) -> Self {
@@ -4752,7 +4752,7 @@ unsafe impl ::windows::core::Interface for RadialControllerMenuItem {
 impl ::windows::core::RuntimeName for RadialControllerMenuItem {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenuItem";
 }
-::windows::core::interface_hierarchy!(RadialControllerMenuItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerMenuItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerMenuItem {}
 unsafe impl ::core::marker::Sync for RadialControllerMenuItem {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4802,7 +4802,7 @@ impl ::core::fmt::Debug for RadialControllerRotationChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerRotationChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerRotationChangedEventArgs;{206aa435-e651-11e5-bf62-2c27d7404e85})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerRotationChangedEventArgs;{206aa435-e651-11e5-bf62-2c27d7404e85})");
 }
 impl ::core::clone::Clone for RadialControllerRotationChangedEventArgs {
     fn clone(&self) -> Self {
@@ -4818,7 +4818,7 @@ unsafe impl ::windows::core::Interface for RadialControllerRotationChangedEventA
 impl ::windows::core::RuntimeName for RadialControllerRotationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerRotationChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(RadialControllerRotationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerRotationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerRotationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerRotationChangedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4856,7 +4856,7 @@ impl ::core::fmt::Debug for RadialControllerScreenContact {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerScreenContact {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContact;{206aa434-e651-11e5-bf62-2c27d7404e85})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContact;{206aa434-e651-11e5-bf62-2c27d7404e85})");
 }
 impl ::core::clone::Clone for RadialControllerScreenContact {
     fn clone(&self) -> Self {
@@ -4872,7 +4872,7 @@ unsafe impl ::windows::core::Interface for RadialControllerScreenContact {
 impl ::windows::core::RuntimeName for RadialControllerScreenContact {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContact";
 }
-::windows::core::interface_hierarchy!(RadialControllerScreenContact, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerScreenContact, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerScreenContact {}
 unsafe impl ::core::marker::Sync for RadialControllerScreenContact {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4915,7 +4915,7 @@ impl ::core::fmt::Debug for RadialControllerScreenContactContinuedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerScreenContactContinuedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs;{206aa437-e651-11e5-bf62-2c27d7404e85})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs;{206aa437-e651-11e5-bf62-2c27d7404e85})");
 }
 impl ::core::clone::Clone for RadialControllerScreenContactContinuedEventArgs {
     fn clone(&self) -> Self {
@@ -4931,7 +4931,7 @@ unsafe impl ::windows::core::Interface for RadialControllerScreenContactContinue
 impl ::windows::core::RuntimeName for RadialControllerScreenContactContinuedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs";
 }
-::windows::core::interface_hierarchy!(RadialControllerScreenContactContinuedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerScreenContactContinuedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerScreenContactContinuedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerScreenContactContinuedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4967,7 +4967,7 @@ impl ::core::fmt::Debug for RadialControllerScreenContactEndedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerScreenContactEndedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactEndedEventArgs;{3d577ef2-3cee-11e6-b535-001bdc06ab3b})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactEndedEventArgs;{3d577ef2-3cee-11e6-b535-001bdc06ab3b})");
 }
 impl ::core::clone::Clone for RadialControllerScreenContactEndedEventArgs {
     fn clone(&self) -> Self {
@@ -4983,7 +4983,7 @@ unsafe impl ::windows::core::Interface for RadialControllerScreenContactEndedEve
 impl ::windows::core::RuntimeName for RadialControllerScreenContactEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactEndedEventArgs";
 }
-::windows::core::interface_hierarchy!(RadialControllerScreenContactEndedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerScreenContactEndedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerScreenContactEndedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerScreenContactEndedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -5026,7 +5026,7 @@ impl ::core::fmt::Debug for RadialControllerScreenContactStartedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerScreenContactStartedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactStartedEventArgs;{206aa436-e651-11e5-bf62-2c27d7404e85})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactStartedEventArgs;{206aa436-e651-11e5-bf62-2c27d7404e85})");
 }
 impl ::core::clone::Clone for RadialControllerScreenContactStartedEventArgs {
     fn clone(&self) -> Self {
@@ -5042,7 +5042,7 @@ unsafe impl ::windows::core::Interface for RadialControllerScreenContactStartedE
 impl ::windows::core::RuntimeName for RadialControllerScreenContactStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactStartedEventArgs";
 }
-::windows::core::interface_hierarchy!(RadialControllerScreenContactStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RadialControllerScreenContactStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerScreenContactStartedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerScreenContactStartedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -5087,7 +5087,7 @@ impl ::core::fmt::Debug for RightTappedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for RightTappedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RightTappedEventArgs;{4cbf40bd-af7a-4a36-9476-b1dce141709a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RightTappedEventArgs;{4cbf40bd-af7a-4a36-9476-b1dce141709a})");
 }
 impl ::core::clone::Clone for RightTappedEventArgs {
     fn clone(&self) -> Self {
@@ -5103,7 +5103,7 @@ unsafe impl ::windows::core::Interface for RightTappedEventArgs {
 impl ::windows::core::RuntimeName for RightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RightTappedEventArgs";
 }
-::windows::core::interface_hierarchy!(RightTappedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(RightTappedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 pub struct SystemButtonEventController(::windows::core::IUnknown);
@@ -5184,7 +5184,7 @@ impl SystemButtonEventController {
     }
     #[doc(hidden)]
     pub fn ISystemButtonEventControllerStatics<R, F: FnOnce(&ISystemButtonEventControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SystemButtonEventController, ISystemButtonEventControllerStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SystemButtonEventController, ISystemButtonEventControllerStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -5200,7 +5200,7 @@ impl ::core::fmt::Debug for SystemButtonEventController {
     }
 }
 impl ::windows::core::RuntimeType for SystemButtonEventController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemButtonEventController;{59b893a9-73bc-52b5-ba41-82511b2cb46c})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemButtonEventController;{59b893a9-73bc-52b5-ba41-82511b2cb46c})");
 }
 impl ::core::clone::Clone for SystemButtonEventController {
     fn clone(&self) -> Self {
@@ -5216,7 +5216,7 @@ unsafe impl ::windows::core::Interface for SystemButtonEventController {
 impl ::windows::core::RuntimeName for SystemButtonEventController {
     const NAME: &'static str = "Windows.UI.Input.SystemButtonEventController";
 }
-::windows::core::interface_hierarchy!(SystemButtonEventController, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemButtonEventController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SystemButtonEventController> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5291,7 +5291,7 @@ impl ::core::fmt::Debug for SystemFunctionButtonEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SystemFunctionButtonEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionButtonEventArgs;{4833896f-80d1-5dd6-92a7-62a508ffef5a})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionButtonEventArgs;{4833896f-80d1-5dd6-92a7-62a508ffef5a})");
 }
 impl ::core::clone::Clone for SystemFunctionButtonEventArgs {
     fn clone(&self) -> Self {
@@ -5307,7 +5307,7 @@ unsafe impl ::windows::core::Interface for SystemFunctionButtonEventArgs {
 impl ::windows::core::RuntimeName for SystemFunctionButtonEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionButtonEventArgs";
 }
-::windows::core::interface_hierarchy!(SystemFunctionButtonEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemFunctionButtonEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemFunctionButtonEventArgs {}
 unsafe impl ::core::marker::Sync for SystemFunctionButtonEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -5352,7 +5352,7 @@ impl ::core::fmt::Debug for SystemFunctionLockChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SystemFunctionLockChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockChangedEventArgs;{cd040608-fcf9-585c-beab-f1d2eaf364ab})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockChangedEventArgs;{cd040608-fcf9-585c-beab-f1d2eaf364ab})");
 }
 impl ::core::clone::Clone for SystemFunctionLockChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5368,7 +5368,7 @@ unsafe impl ::windows::core::Interface for SystemFunctionLockChangedEventArgs {
 impl ::windows::core::RuntimeName for SystemFunctionLockChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(SystemFunctionLockChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemFunctionLockChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemFunctionLockChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SystemFunctionLockChangedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -5413,7 +5413,7 @@ impl ::core::fmt::Debug for SystemFunctionLockIndicatorChangedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for SystemFunctionLockIndicatorChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs;{b212b94e-7a6f-58ae-b304-bae61d0371b9})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs;{b212b94e-7a6f-58ae-b304-bae61d0371b9})");
 }
 impl ::core::clone::Clone for SystemFunctionLockIndicatorChangedEventArgs {
     fn clone(&self) -> Self {
@@ -5429,7 +5429,7 @@ unsafe impl ::windows::core::Interface for SystemFunctionLockIndicatorChangedEve
 impl ::windows::core::RuntimeName for SystemFunctionLockIndicatorChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs";
 }
-::windows::core::interface_hierarchy!(SystemFunctionLockIndicatorChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SystemFunctionLockIndicatorChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemFunctionLockIndicatorChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SystemFunctionLockIndicatorChangedEventArgs {}
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -5481,7 +5481,7 @@ impl ::core::fmt::Debug for TappedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for TappedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.TappedEventArgs;{cfa126e4-253a-4c3c-953b-395c37aed309})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Input.TappedEventArgs;{cfa126e4-253a-4c3c-953b-395c37aed309})");
 }
 impl ::core::clone::Clone for TappedEventArgs {
     fn clone(&self) -> Self {
@@ -5497,7 +5497,7 @@ unsafe impl ::windows::core::Interface for TappedEventArgs {
 impl ::windows::core::RuntimeName for TappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.TappedEventArgs";
 }
-::windows::core::interface_hierarchy!(TappedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(TappedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -5531,7 +5531,7 @@ impl ::core::fmt::Debug for CrossSlidingState {
     }
 }
 impl ::windows::core::RuntimeType for CrossSlidingState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
@@ -5562,7 +5562,7 @@ impl ::core::fmt::Debug for DraggingState {
     }
 }
 impl ::windows::core::RuntimeType for DraggingState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
@@ -5593,7 +5593,7 @@ impl ::core::fmt::Debug for EdgeGestureKind {
     }
 }
 impl ::windows::core::RuntimeType for EdgeGestureKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
@@ -5625,7 +5625,7 @@ impl ::core::fmt::Debug for GazeInputAccessStatus {
     }
 }
 impl ::windows::core::RuntimeType for GazeInputAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
@@ -5704,7 +5704,7 @@ impl ::core::ops::Not for GestureSettings {
     }
 }
 impl ::windows::core::RuntimeType for GestureSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
@@ -5735,7 +5735,7 @@ impl ::core::fmt::Debug for HoldingState {
     }
 }
 impl ::windows::core::RuntimeType for HoldingState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
@@ -5767,7 +5767,7 @@ impl ::core::fmt::Debug for InputActivationState {
     }
 }
 impl ::windows::core::RuntimeType for InputActivationState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
@@ -5806,7 +5806,7 @@ impl ::core::fmt::Debug for PointerUpdateKind {
     }
 }
 impl ::windows::core::RuntimeType for PointerUpdateKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
@@ -5843,7 +5843,7 @@ impl ::core::fmt::Debug for RadialControllerMenuKnownIcon {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerMenuKnownIcon {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]
 #[repr(transparent)]
@@ -5876,7 +5876,7 @@ impl ::core::fmt::Debug for RadialControllerSystemMenuItemKind {
     }
 }
 impl ::windows::core::RuntimeType for RadialControllerSystemMenuItemKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -5901,7 +5901,7 @@ impl ::windows::core::TypeKind for CrossSlideThresholds {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::windows::core::RuntimeType for CrossSlideThresholds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.CrossSlideThresholds;f4;f4;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.CrossSlideThresholds;f4;f4;f4;f4)");
 }
 impl ::core::cmp::PartialEq for CrossSlideThresholds {
     fn eq(&self, other: &Self) -> bool {
@@ -5943,7 +5943,7 @@ impl ::windows::core::TypeKind for ManipulationDelta {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for ManipulationDelta {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationDelta;struct(Windows.Foundation.Point;f4;f4);f4;f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationDelta;struct(Windows.Foundation.Point;f4;f4);f4;f4;f4)");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for ManipulationDelta {
@@ -5987,7 +5987,7 @@ impl ::windows::core::TypeKind for ManipulationVelocities {
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeType for ManipulationVelocities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationVelocities;struct(Windows.Foundation.Point;f4;f4);f4;f4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationVelocities;struct(Windows.Foundation.Point;f4;f4);f4;f4)");
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for ManipulationVelocities {

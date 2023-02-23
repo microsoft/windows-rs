@@ -205,7 +205,7 @@ impl IStorageItemAccessList {
         }
     }
 }
-::windows::core::interface_hierarchy!(IStorageItemAccessList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(IStorageItemAccessList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for IStorageItemAccessList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -218,7 +218,7 @@ impl ::core::fmt::Debug for IStorageItemAccessList {
     }
 }
 impl ::windows::core::RuntimeType for IStorageItemAccessList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2caff6ad-de90-47f5-b2c3-dd36c9fdd453}");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2caff6ad-de90-47f5-b2c3-dd36c9fdd453}");
 }
 unsafe impl ::windows::core::Vtable for IStorageItemAccessList {
     type Vtable = IStorageItemAccessList_Vtbl;
@@ -392,7 +392,7 @@ impl ::core::fmt::Debug for AccessListEntryView {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeType for AccessListEntryView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.AccessListEntryView;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};struct(Windows.Storage.AccessCache.AccessListEntry;string;string)))");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.AccessListEntryView;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};struct(Windows.Storage.AccessCache.AccessListEntry;string;string)))");
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::clone::Clone for AccessListEntryView {
@@ -429,7 +429,7 @@ impl ::core::iter::IntoIterator for &AccessListEntryView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows::core::interface_hierarchy!(AccessListEntryView, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(AccessListEntryView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<AccessListEntryView> for super::super::Foundation::Collections::IIterable<AccessListEntry> {
     type Error = ::windows::core::Error;
@@ -498,7 +498,7 @@ impl ::core::fmt::Debug for ItemRemovedEventArgs {
     }
 }
 impl ::windows::core::RuntimeType for ItemRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.ItemRemovedEventArgs;{59677e5c-55be-4c66-ba66-5eaea79d2631})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.ItemRemovedEventArgs;{59677e5c-55be-4c66-ba66-5eaea79d2631})");
 }
 impl ::core::clone::Clone for ItemRemovedEventArgs {
     fn clone(&self) -> Self {
@@ -514,7 +514,7 @@ unsafe impl ::windows::core::Interface for ItemRemovedEventArgs {
 impl ::windows::core::RuntimeName for ItemRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.AccessCache.ItemRemovedEventArgs";
 }
-::windows::core::interface_hierarchy!(ItemRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ItemRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 pub struct StorageApplicationPermissions;
 impl StorageApplicationPermissions {
@@ -548,12 +548,12 @@ impl StorageApplicationPermissions {
     }
     #[doc(hidden)]
     pub fn IStorageApplicationPermissionsStatics<R, F: FnOnce(&IStorageApplicationPermissionsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageApplicationPermissions, IStorageApplicationPermissionsStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageApplicationPermissions, IStorageApplicationPermissionsStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IStorageApplicationPermissionsStatics2<R, F: FnOnce(&IStorageApplicationPermissionsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageApplicationPermissions, IStorageApplicationPermissionsStatics2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<StorageApplicationPermissions, IStorageApplicationPermissionsStatics2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -711,7 +711,7 @@ impl ::core::fmt::Debug for StorageItemAccessList {
     }
 }
 impl ::windows::core::RuntimeType for StorageItemAccessList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemAccessList;{2caff6ad-de90-47f5-b2c3-dd36c9fdd453})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemAccessList;{2caff6ad-de90-47f5-b2c3-dd36c9fdd453})");
 }
 impl ::core::clone::Clone for StorageItemAccessList {
     fn clone(&self) -> Self {
@@ -727,7 +727,7 @@ unsafe impl ::windows::core::Interface for StorageItemAccessList {
 impl ::windows::core::RuntimeName for StorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemAccessList";
 }
-::windows::core::interface_hierarchy!(StorageItemAccessList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageItemAccessList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageItemAccessList> for IStorageItemAccessList {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageItemAccessList) -> ::windows::core::Result<Self> {
@@ -932,7 +932,7 @@ impl ::core::fmt::Debug for StorageItemMostRecentlyUsedList {
     }
 }
 impl ::windows::core::RuntimeType for StorageItemMostRecentlyUsedList {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList;{016239d5-510d-411e-8cf1-c3d1effa4c33})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList;{016239d5-510d-411e-8cf1-c3d1effa4c33})");
 }
 impl ::core::clone::Clone for StorageItemMostRecentlyUsedList {
     fn clone(&self) -> Self {
@@ -948,7 +948,7 @@ unsafe impl ::windows::core::Interface for StorageItemMostRecentlyUsedList {
 impl ::windows::core::RuntimeName for StorageItemMostRecentlyUsedList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList";
 }
-::windows::core::interface_hierarchy!(StorageItemMostRecentlyUsedList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(StorageItemMostRecentlyUsedList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageItemMostRecentlyUsedList> for IStorageItemAccessList {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageItemMostRecentlyUsedList) -> ::windows::core::Result<Self> {
@@ -1032,7 +1032,7 @@ impl ::core::ops::Not for AccessCacheOptions {
     }
 }
 impl ::windows::core::RuntimeType for AccessCacheOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
 }
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
@@ -1062,7 +1062,7 @@ impl ::core::fmt::Debug for RecentStorageItemVisibility {
     }
 }
 impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
@@ -1084,7 +1084,7 @@ impl ::windows::core::TypeKind for AccessListEntry {
     type TypeKind = ::windows::core::ValueType;
 }
 impl ::windows::core::RuntimeType for AccessListEntry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");
 }
 impl ::core::cmp::PartialEq for AccessListEntry {
     fn eq(&self, other: &Self) -> bool {

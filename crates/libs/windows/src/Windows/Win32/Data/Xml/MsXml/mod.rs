@@ -43,7 +43,7 @@ impl IMXAttributes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMXAttributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMXAttributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMXAttributes {
     fn eq(&self, other: &Self) -> bool {
@@ -157,7 +157,7 @@ impl IMXNamespaceManager {
         (::windows::core::Vtable::vtable(self).getURI)(::windows::core::Vtable::as_raw(self), pwchprefix.into().abi(), pcontextnode.into().abi(), ::core::mem::transmute(pwchuri), pcchuri).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMXNamespaceManager, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IMXNamespaceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMXNamespaceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -227,7 +227,7 @@ impl IMXNamespacePrefixes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMXNamespacePrefixes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMXNamespacePrefixes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMXNamespacePrefixes {
     fn eq(&self, other: &Self) -> bool {
@@ -282,7 +282,7 @@ impl IMXReaderControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMXReaderControl, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMXReaderControl, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMXReaderControl {
     fn eq(&self, other: &Self) -> bool {
@@ -336,7 +336,7 @@ impl IMXSchemaDeclHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMXSchemaDeclHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMXSchemaDeclHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMXSchemaDeclHandler {
     fn eq(&self, other: &Self) -> bool {
@@ -481,7 +481,7 @@ impl IMXWriter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMXWriter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMXWriter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMXWriter {
     fn eq(&self, other: &Self) -> bool {
@@ -642,7 +642,7 @@ impl IMXXMLFilter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IMXXMLFilter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IMXXMLFilter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMXXMLFilter {
     fn eq(&self, other: &Self) -> bool {
@@ -769,7 +769,7 @@ impl ISAXAttributes {
         (::windows::core::Vtable::vtable(self).getValueFromQName)(::windows::core::Vtable::as_raw(self), pwchqname.into().abi(), cchqname, ppwchvalue, pcchvalue).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISAXAttributes, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISAXAttributes, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISAXAttributes {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -882,7 +882,7 @@ impl ISAXContentHandler {
         (::windows::core::Vtable::vtable(self).skippedEntity)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISAXContentHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISAXContentHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISAXContentHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -943,7 +943,7 @@ impl ISAXDTDHandler {
         (::windows::core::Vtable::vtable(self).unparsedEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname, pwchpublicid.into().abi(), cchpublicid, pwchsystemid.into().abi(), cchsystemid, pwchnotationname.into().abi(), cchnotationname).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISAXDTDHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISAXDTDHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISAXDTDHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1010,7 +1010,7 @@ impl ISAXDeclHandler {
         (::windows::core::Vtable::vtable(self).externalEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname, pwchpublicid.into().abi(), cchpublicid, pwchsystemid.into().abi(), cchsystemid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISAXDeclHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISAXDeclHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISAXDeclHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1057,7 +1057,7 @@ impl ISAXEntityResolver {
         (::windows::core::Vtable::vtable(self).resolveEntity)(::windows::core::Vtable::as_raw(self), pwchpublicid.into().abi(), pwchsystemid.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISAXEntityResolver, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISAXEntityResolver, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISAXEntityResolver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1115,7 +1115,7 @@ impl ISAXErrorHandler {
         (::windows::core::Vtable::vtable(self).ignorableWarning)(::windows::core::Vtable::as_raw(self), plocator.into().abi(), pwcherrormessage.into().abi(), hrerrorcode).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISAXErrorHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISAXErrorHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISAXErrorHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1186,7 +1186,7 @@ impl ISAXLexicalHandler {
         (::windows::core::Vtable::vtable(self).comment)(::windows::core::Vtable::as_raw(self), pwchchars.into().abi(), cchchars).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISAXLexicalHandler, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISAXLexicalHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISAXLexicalHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1242,7 +1242,7 @@ impl ISAXLocator {
         (::windows::core::Vtable::vtable(self).getSystemId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISAXLocator, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISAXLocator, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISAXLocator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1395,7 +1395,7 @@ impl ISAXXMLFilter {
         (::windows::core::Vtable::vtable(self).putParent)(::windows::core::Vtable::as_raw(self), preader.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISAXXMLFilter, ::windows::core::IUnknown, ISAXXMLReader);
+::windows::imp::interface_hierarchy!(ISAXXMLFilter, ::windows::core::IUnknown, ISAXXMLReader);
 impl ::core::cmp::PartialEq for ISAXXMLFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1536,7 +1536,7 @@ impl ISAXXMLReader {
         (::windows::core::Vtable::vtable(self).parseURL)(::windows::core::Vtable::as_raw(self), pwchurl.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISAXXMLReader, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(ISAXXMLReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISAXXMLReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1692,7 +1692,7 @@ impl ISchema {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchema, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
+::windows::imp::interface_hierarchy!(ISchema, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchema {
     fn eq(&self, other: &Self) -> bool {
@@ -1824,7 +1824,7 @@ impl ISchemaAny {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaAny, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
+::windows::imp::interface_hierarchy!(ISchemaAny, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaAny {
     fn eq(&self, other: &Self) -> bool {
@@ -1939,7 +1939,7 @@ impl ISchemaAttribute {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
+::windows::imp::interface_hierarchy!(ISchemaAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaAttribute {
     fn eq(&self, other: &Self) -> bool {
@@ -2046,7 +2046,7 @@ impl ISchemaAttributeGroup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaAttributeGroup, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
+::windows::imp::interface_hierarchy!(ISchemaAttributeGroup, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaAttributeGroup {
     fn eq(&self, other: &Self) -> bool {
@@ -2252,7 +2252,7 @@ impl ISchemaComplexType {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaComplexType, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaType);
+::windows::imp::interface_hierarchy!(ISchemaComplexType, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaType);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaComplexType {
     fn eq(&self, other: &Self) -> bool {
@@ -2420,7 +2420,7 @@ impl ISchemaElement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaElement, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
+::windows::imp::interface_hierarchy!(ISchemaElement, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaElement {
     fn eq(&self, other: &Self) -> bool {
@@ -2548,7 +2548,7 @@ impl ISchemaIdentityConstraint {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaIdentityConstraint, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
+::windows::imp::interface_hierarchy!(ISchemaIdentityConstraint, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaIdentityConstraint {
     fn eq(&self, other: &Self) -> bool {
@@ -2637,7 +2637,7 @@ impl ISchemaItem {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaItem, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISchemaItem, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaItem {
     fn eq(&self, other: &Self) -> bool {
@@ -2722,7 +2722,7 @@ impl ISchemaItemCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaItemCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISchemaItemCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaItemCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -2834,7 +2834,7 @@ impl ISchemaModelGroup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaModelGroup, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
+::windows::imp::interface_hierarchy!(ISchemaModelGroup, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaModelGroup {
     fn eq(&self, other: &Self) -> bool {
@@ -2926,7 +2926,7 @@ impl ISchemaNotation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaNotation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
+::windows::imp::interface_hierarchy!(ISchemaNotation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaNotation {
     fn eq(&self, other: &Self) -> bool {
@@ -3020,7 +3020,7 @@ impl ISchemaParticle {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaParticle, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
+::windows::imp::interface_hierarchy!(ISchemaParticle, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaParticle {
     fn eq(&self, other: &Self) -> bool {
@@ -3083,7 +3083,7 @@ impl ISchemaStringCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaStringCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(ISchemaStringCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaStringCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -3252,7 +3252,7 @@ impl ISchemaType {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISchemaType, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
+::windows::imp::interface_hierarchy!(ISchemaType, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISchemaType {
     fn eq(&self, other: &Self) -> bool {
@@ -3425,7 +3425,7 @@ impl IServerXMLHTTPRequest {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IServerXMLHTTPRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLHTTPRequest);
+::windows::imp::interface_hierarchy!(IServerXMLHTTPRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLHTTPRequest);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IServerXMLHTTPRequest {
     fn eq(&self, other: &Self) -> bool {
@@ -3575,7 +3575,7 @@ impl IServerXMLHTTPRequest2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IServerXMLHTTPRequest2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLHTTPRequest, IServerXMLHTTPRequest);
+::windows::imp::interface_hierarchy!(IServerXMLHTTPRequest2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLHTTPRequest, IServerXMLHTTPRequest);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IServerXMLHTTPRequest2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3685,7 +3685,7 @@ impl IVBMXNamespaceManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBMXNamespaceManager, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBMXNamespaceManager, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBMXNamespaceManager {
     fn eq(&self, other: &Self) -> bool {
@@ -3808,7 +3808,7 @@ impl IVBSAXAttributes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXAttributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXAttributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXAttributes {
     fn eq(&self, other: &Self) -> bool {
@@ -3906,7 +3906,7 @@ impl IVBSAXContentHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXContentHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXContentHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXContentHandler {
     fn eq(&self, other: &Self) -> bool {
@@ -3972,7 +3972,7 @@ impl IVBSAXDTDHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXDTDHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXDTDHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXDTDHandler {
     fn eq(&self, other: &Self) -> bool {
@@ -4029,7 +4029,7 @@ impl IVBSAXDeclHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXDeclHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXDeclHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXDeclHandler {
     fn eq(&self, other: &Self) -> bool {
@@ -4081,7 +4081,7 @@ impl IVBSAXEntityResolver {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXEntityResolver, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXEntityResolver, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXEntityResolver {
     fn eq(&self, other: &Self) -> bool {
@@ -4152,7 +4152,7 @@ impl IVBSAXErrorHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXErrorHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXErrorHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXErrorHandler {
     fn eq(&self, other: &Self) -> bool {
@@ -4228,7 +4228,7 @@ impl IVBSAXLexicalHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXLexicalHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXLexicalHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXLexicalHandler {
     fn eq(&self, other: &Self) -> bool {
@@ -4294,7 +4294,7 @@ impl IVBSAXLocator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXLocator, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXLocator, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXLocator {
     fn eq(&self, other: &Self) -> bool {
@@ -4355,7 +4355,7 @@ impl IVBSAXXMLFilter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXXMLFilter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXXMLFilter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXXMLFilter {
     fn eq(&self, other: &Self) -> bool {
@@ -4509,7 +4509,7 @@ impl IVBSAXXMLReader {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IVBSAXXMLReader, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IVBSAXXMLReader, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IVBSAXXMLReader {
     fn eq(&self, other: &Self) -> bool {
@@ -4617,7 +4617,7 @@ impl IXMLAttribute {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLAttribute {
     fn eq(&self, other: &Self) -> bool {
@@ -4873,7 +4873,7 @@ impl IXMLDOMAttribute {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMAttribute {
     fn eq(&self, other: &Self) -> bool {
@@ -5153,7 +5153,7 @@ impl IXMLDOMCDATASection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMCDATASection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData, IXMLDOMText);
+::windows::imp::interface_hierarchy!(IXMLDOMCDATASection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData, IXMLDOMText);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMCDATASection {
     fn eq(&self, other: &Self) -> bool {
@@ -5418,7 +5418,7 @@ impl IXMLDOMCharacterData {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMCharacterData, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMCharacterData, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMCharacterData {
     fn eq(&self, other: &Self) -> bool {
@@ -5691,7 +5691,7 @@ impl IXMLDOMComment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMComment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
+::windows::imp::interface_hierarchy!(IXMLDOMComment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMComment {
     fn eq(&self, other: &Self) -> bool {
@@ -6121,7 +6121,7 @@ impl IXMLDOMDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMDocument {
     fn eq(&self, other: &Self) -> bool {
@@ -6708,7 +6708,7 @@ impl IXMLDOMDocument2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMDocument2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument);
+::windows::imp::interface_hierarchy!(IXMLDOMDocument2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMDocument2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7215,7 +7215,7 @@ impl IXMLDOMDocument3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMDocument3, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument, IXMLDOMDocument2);
+::windows::imp::interface_hierarchy!(IXMLDOMDocument3, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument, IXMLDOMDocument2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMDocument3 {
     fn eq(&self, other: &Self) -> bool {
@@ -7464,7 +7464,7 @@ impl IXMLDOMDocumentFragment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMDocumentFragment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMDocumentFragment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMDocumentFragment {
     fn eq(&self, other: &Self) -> bool {
@@ -7720,7 +7720,7 @@ impl IXMLDOMDocumentType {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMDocumentType, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMDocumentType, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMDocumentType {
     fn eq(&self, other: &Self) -> bool {
@@ -8019,7 +8019,7 @@ impl IXMLDOMElement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMElement, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMElement, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMElement {
     fn eq(&self, other: &Self) -> bool {
@@ -8300,7 +8300,7 @@ impl IXMLDOMEntity {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMEntity, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMEntity, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMEntity {
     fn eq(&self, other: &Self) -> bool {
@@ -8550,7 +8550,7 @@ impl IXMLDOMEntityReference {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMEntityReference, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMEntityReference, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMEntityReference {
     fn eq(&self, other: &Self) -> bool {
@@ -8598,7 +8598,7 @@ impl IXMLDOMImplementation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMImplementation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDOMImplementation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMImplementation {
     fn eq(&self, other: &Self) -> bool {
@@ -8700,7 +8700,7 @@ impl IXMLDOMNamedNodeMap {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMNamedNodeMap, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDOMNamedNodeMap, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMNamedNodeMap {
     fn eq(&self, other: &Self) -> bool {
@@ -8972,7 +8972,7 @@ impl IXMLDOMNode {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMNode, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDOMNode, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMNode {
     fn eq(&self, other: &Self) -> bool {
@@ -9151,7 +9151,7 @@ impl IXMLDOMNodeList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMNodeList, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDOMNodeList, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMNodeList {
     fn eq(&self, other: &Self) -> bool {
@@ -9413,7 +9413,7 @@ impl IXMLDOMNotation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMNotation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMNotation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMNotation {
     fn eq(&self, other: &Self) -> bool {
@@ -9485,7 +9485,7 @@ impl IXMLDOMParseError {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMParseError, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDOMParseError, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMParseError {
     fn eq(&self, other: &Self) -> bool {
@@ -9574,7 +9574,7 @@ impl IXMLDOMParseError2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMParseError2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMParseError);
+::windows::imp::interface_hierarchy!(IXMLDOMParseError2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMParseError);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMParseError2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9647,7 +9647,7 @@ impl IXMLDOMParseErrorCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMParseErrorCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDOMParseErrorCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMParseErrorCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -9908,7 +9908,7 @@ impl IXMLDOMProcessingInstruction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMProcessingInstruction, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXMLDOMProcessingInstruction, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMProcessingInstruction {
     fn eq(&self, other: &Self) -> bool {
@@ -9988,7 +9988,7 @@ impl IXMLDOMSchemaCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMSchemaCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDOMSchemaCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMSchemaCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -10113,7 +10113,7 @@ impl IXMLDOMSchemaCollection2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMSchemaCollection2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMSchemaCollection);
+::windows::imp::interface_hierarchy!(IXMLDOMSchemaCollection2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMSchemaCollection);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMSchemaCollection2 {
     fn eq(&self, other: &Self) -> bool {
@@ -10257,7 +10257,7 @@ impl IXMLDOMSelection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMSelection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNodeList);
+::windows::imp::interface_hierarchy!(IXMLDOMSelection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNodeList);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMSelection {
     fn eq(&self, other: &Self) -> bool {
@@ -10563,7 +10563,7 @@ impl IXMLDOMText {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDOMText, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
+::windows::imp::interface_hierarchy!(IXMLDOMText, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDOMText {
     fn eq(&self, other: &Self) -> bool {
@@ -10640,7 +10640,7 @@ impl IXMLDSOControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDSOControl, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDSOControl, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDSOControl {
     fn eq(&self, other: &Self) -> bool {
@@ -10758,7 +10758,7 @@ impl IXMLDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDocument {
     fn eq(&self, other: &Self) -> bool {
@@ -10893,7 +10893,7 @@ impl IXMLDocument2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLDocument2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLDocument2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLDocument2 {
     fn eq(&self, other: &Self) -> bool {
@@ -11024,7 +11024,7 @@ impl IXMLElement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLElement, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLElement, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLElement {
     fn eq(&self, other: &Self) -> bool {
@@ -11163,7 +11163,7 @@ impl IXMLElement2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLElement2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLElement2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLElement2 {
     fn eq(&self, other: &Self) -> bool {
@@ -11257,7 +11257,7 @@ impl IXMLElementCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLElementCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLElementCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLElementCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -11307,7 +11307,7 @@ impl IXMLError {
         (::windows::core::Vtable::vtable(self).GetErrorInfo)(::windows::core::Vtable::as_raw(self), perrorreturn).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXMLError, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXMLError, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXMLError {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11410,7 +11410,7 @@ impl IXMLHTTPRequest {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLHTTPRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLHTTPRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLHTTPRequest {
     fn eq(&self, other: &Self) -> bool {
@@ -11549,7 +11549,7 @@ impl IXMLHTTPRequest2 {
         (::windows::core::Vtable::vtable(self).GetResponseHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXMLHTTPRequest2, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXMLHTTPRequest2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXMLHTTPRequest2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11642,7 +11642,7 @@ impl IXMLHTTPRequest2Callback {
         (::windows::core::Vtable::vtable(self).OnError)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), hrerror).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXMLHTTPRequest2Callback, ::windows::core::IUnknown);
+::windows::imp::interface_hierarchy!(IXMLHTTPRequest2Callback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXMLHTTPRequest2Callback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11759,7 +11759,7 @@ impl IXMLHTTPRequest3 {
         (::windows::core::Vtable::vtable(self).SetClientCertificate)(::windows::core::Vtable::as_raw(self), pbclientcertificatehash.len() as _, ::core::mem::transmute(pbclientcertificatehash.as_ptr()), pwszpin.into().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXMLHTTPRequest3, ::windows::core::IUnknown, IXMLHTTPRequest2);
+::windows::imp::interface_hierarchy!(IXMLHTTPRequest3, ::windows::core::IUnknown, IXMLHTTPRequest2);
 impl ::core::cmp::PartialEq for IXMLHTTPRequest3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11843,7 +11843,7 @@ impl IXMLHTTPRequest3Callback {
         (::windows::core::Vtable::vtable(self).OnClientCertificateRequested)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), rgpwszissuerlist.len() as _, ::core::mem::transmute(rgpwszissuerlist.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXMLHTTPRequest3Callback, ::windows::core::IUnknown, IXMLHTTPRequest2Callback);
+::windows::imp::interface_hierarchy!(IXMLHTTPRequest3Callback, ::windows::core::IUnknown, IXMLHTTPRequest2Callback);
 impl ::core::cmp::PartialEq for IXMLHTTPRequest3Callback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -11947,7 +11947,7 @@ impl IXMLHttpRequest {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXMLHttpRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXMLHttpRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXMLHttpRequest {
     fn eq(&self, other: &Self) -> bool {
@@ -12093,7 +12093,7 @@ impl IXSLProcessor {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXSLProcessor, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXSLProcessor, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXSLProcessor {
     fn eq(&self, other: &Self) -> bool {
@@ -12197,7 +12197,7 @@ impl IXSLTemplate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXSLTemplate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(IXSLTemplate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXSLTemplate {
     fn eq(&self, other: &Self) -> bool {
@@ -12506,7 +12506,7 @@ impl IXTLRuntime {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IXTLRuntime, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
+::windows::imp::interface_hierarchy!(IXTLRuntime, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IXTLRuntime {
     fn eq(&self, other: &Self) -> bool {
@@ -12578,7 +12578,7 @@ pub struct XMLDOMDocumentEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl XMLDOMDocumentEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(XMLDOMDocumentEvents, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
+::windows::imp::interface_hierarchy!(XMLDOMDocumentEvents, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for XMLDOMDocumentEvents {
     fn eq(&self, other: &Self) -> bool {
