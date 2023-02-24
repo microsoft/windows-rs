@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use std::collections::BTreeMap;
-use std::convert::TryFrom;
+use std::convert::{TryFrom, TryInto};
 use windows::{core::*, Foundation::Collections::*, Win32::Foundation::E_BOUNDS};
 
 #[test]
@@ -14,7 +14,8 @@ fn primitive() -> Result<()> {
     let mut right = None;
     m.Split(&mut left, &mut right)?;
 
-    let m = IMapView::<i32, u64>::try_from(BTreeMap::from([(1, 10), (2, 20)]))?;
+    let m = BTreeMap::from([(1, 10), (2, 20)]);
+    let m: IMapView<i32, u64> = m.try_into()?;
     assert_eq!(m.Lookup(1i32)?, 10u64);
     assert_eq!(m.Lookup(2)?, 20);
     assert_eq!(m.Size()?, 2);
@@ -108,4 +109,28 @@ where
         None => Ok(false),
         Some(pair) => Ok(&pair.Key()? == key && &pair.Value()? == value),
     }
+}
+
+#[test]
+fn hstring() -> Result<()> {
+    let m = IMapView::<HSTRING, i32>::try_from(BTreeMap::new())?;
+    assert_eq!(m.Lookup(h!("missing")).unwrap_err().code(), E_BOUNDS);
+    assert_eq!(m.Size()?, 0);
+    assert_eq!(m.HasKey(h!("missing"))?, false);
+
+    let m = BTreeMap::from([("one".into(), 1), ("two".into(), 2)]);
+    assert!(m.contains_key(h!("one")));
+
+    let m = IMapView::<HSTRING, i32>::try_from(m)?;
+    assert_eq!(m.Lookup(h!("one"))?, 1);
+    assert_eq!(m.Lookup(h!("two"))?, 2);
+    assert_eq!(m.Size()?, 2);
+    assert_eq!(m.HasKey(h!("one"))?, true);
+    assert_eq!(m.HasKey(h!("three"))?, false);
+
+    let able: IIterable<IKeyValuePair<HSTRING, i32>> = m.cast()?;
+    let m2: IMapView<HSTRING, i32> = able.cast()?;
+    assert_eq!(m, m2);
+
+    Ok(())
 }
