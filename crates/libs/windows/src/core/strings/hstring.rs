@@ -200,7 +200,7 @@ impl Eq for HSTRING {}
 
 impl Ord for HSTRING {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.as_wide().cmp(&other.as_wide())
+        self.as_wide().cmp(other.as_wide())
     }
 }
 
