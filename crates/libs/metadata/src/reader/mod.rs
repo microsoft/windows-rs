@@ -339,7 +339,7 @@ impl<'a> Reader<'a> {
     // ClassLayout table queries
     //
 
-    pub fn class_layout_packing_size(&self, row: ClassLayout) -> usize {
+    fn class_layout_packing_size(&self, row: ClassLayout) -> usize {
         self.row_usize(row.0, 0)
     }
 
@@ -831,6 +831,16 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_class_layout(&self, row: TypeDef) -> Option<ClassLayout> {
         self.row_equal_range(row.0, TABLE_CLASSLAYOUT, 2, (row.0.row + 1) as _).map(ClassLayout).next()
+    }
+    pub fn type_def_packing_size(&self, row: TypeDef) -> Option<usize> {
+        if let Some(layout) = self.type_def_class_layout(row) {
+            let packing_size = self.class_layout_packing_size(layout);
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/380
+            if packing_size < 4 {
+                return Some(packing_size);
+            }
+        }
+        None
     }
     pub fn type_def_underlying_type(&self, row: TypeDef) -> Type {
         let field = self.type_def_fields(row).next().expect("Field not found");
