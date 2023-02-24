@@ -25,9 +25,16 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
     let flags = gen.reader.type_def_flags(def);
     let cfg = cfg.union(&gen.reader.type_def_cfg(def, &[]));
 
-    let repr = if let Some(layout) = gen.reader.type_def_class_layout(def) {
-        let packing = Literal::usize_unsuffixed(gen.reader.class_layout_packing_size(layout));
+    let repr = if let Some(packing_size) = gen.reader.type_def_packing_size(def) {
+        let packing = Literal::usize_unsuffixed(packing_size);
         quote! { #[repr(C, packed(#packing))] }
+    } else if TypeName::CONTEXT == TypeName::new(gen.namespace, struct_name) {
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1044
+        if cfg.arches.contains("x86") {
+            quote! { #[repr(C, align(4))] }
+        } else {
+            quote! { #[repr(C, align(16))] }
+        }
     } else {
         quote! { #[repr(C)] }
     };
