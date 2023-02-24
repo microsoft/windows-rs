@@ -48,6 +48,7 @@ pub fn gen_impl(namespace: &str) -> TokenStream {
     match namespace {
         "Windows.Foundation.Collections" => concat!(
             include_str!("impl/Foundation/Collections/Iterable.rs"),
+            include_str!("impl/Foundation/Collections/MapView.rs"),
             include_str!("impl/Foundation/Collections/VectorView.rs"),
         ),
         _ => "",

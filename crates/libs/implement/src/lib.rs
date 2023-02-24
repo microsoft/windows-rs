@@ -3,7 +3,6 @@ use quote::{quote, ToTokens};
 #[proc_macro_attribute]
 pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
-    let generics: Vec<proc_macro2::TokenStream> = attributes.generics().iter().map(|g| syn::parse_str::<proc_macro2::TokenStream>(g).expect("Invalid token stream")).collect();
     let interfaces_len = proc_macro2::Literal::usize_unsuffixed(attributes.implement.len());
 
     let identity_type = if let Some(first) = attributes.implement.get(0) {
@@ -21,6 +20,14 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         where_clause.predicates.to_tokens(&mut constraints);
     }
 
+    let generics = if original_type2.generics.lt_token.is_some() {
+        let mut params = quote! {};
+        original_type2.generics.params.to_tokens(&mut params);
+        quote! { <#params> }
+    } else {
+        quote! { <> }
+    };
+
     let impl_ident = quote::format_ident!("{}_Impl", original_ident);
     let vtbl_idents = attributes.implement.iter().map(|implement| implement.to_vtbl_ident());
     let vtbl_idents2 = vtbl_idents.clone();
@@ -28,7 +35,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let vtbl_ident = implement.to_vtbl_ident();
         let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);
-        quote! { #vtbl_ident::new::<Self, #original_ident::<#(#generics,)*>, #offset>() }
+        quote! { #vtbl_ident::new::<Self, #original_ident::#generics, #offset>() }
     });
 
     let offset = attributes.implement.iter().enumerate().map(|(offset, _)| proc_macro2::Literal::usize_unsuffixed(offset));
@@ -47,24 +54,24 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         let interface_ident = implement.to_ident();
         let offset = proc_macro2::Literal::usize_unsuffixed(enumerate);
         quote! {
-            impl <#(#generics,)*> ::core::convert::From<#original_ident::<#(#generics,)*>> for #interface_ident where #constraints {
-                fn from(this: #original_ident::<#(#generics,)*>) -> Self {
-                    let this = #impl_ident::<#(#generics,)*>::new(this);
+            impl #generics ::core::convert::From<#original_ident::#generics> for #interface_ident where #constraints {
+                fn from(this: #original_ident::#generics) -> Self {
+                    let this = #impl_ident::#generics::new(this);
                     let mut this = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
                     let vtable_ptr = &this.vtables.#offset;
                     // SAFETY: interfaces are in-memory equivalent to pointers to their vtables.
                     unsafe { ::core::mem::transmute(vtable_ptr) }
                 }
             }
-            impl <#(#generics,)*> ::windows::core::AsImpl<#original_ident::<#(#generics,)*>> for #interface_ident where #constraints {
-                fn as_impl(&self) -> &#original_ident::<#(#generics,)*> {
+            impl #generics ::windows::core::AsImpl<#original_ident::#generics> for #interface_ident where #constraints {
+                fn as_impl(&self) -> &#original_ident::#generics {
                     let this = ::windows::core::Vtable::as_raw(self);
                     // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
                     // is guaranteed to live at least as long as `self`.
                     unsafe {
                         // Subtract away the vtable offset plus 1, for the `identity` field, to get
                         // to the impl struct which contains that original implementation type.
-                        let this = (this as *mut *mut ::core::ffi::c_void).sub(1 + #offset) as *mut #impl_ident::<#(#generics,)*>;
+                        let this = (this as *mut *mut ::core::ffi::c_void).sub(1 + #offset) as *mut #impl_ident::#generics;
                         &(*this).this
                     }
                 }
@@ -74,16 +81,16 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
     let tokens = quote! {
         #[repr(C)]
-        struct #impl_ident<#(#generics,)*> where #constraints {
+        struct #impl_ident#generics where #constraints {
             identity: *const ::windows::core::IInspectable_Vtbl,
             vtables: (#(*const #vtbl_idents,)*),
-             this: #original_ident::<#(#generics,)*>,
+             this: #original_ident::#generics,
             count: ::windows::imp::WeakRefCount,
         }
-        impl <#(#generics,)*> #impl_ident::<#(#generics,)*> where #constraints {
+        impl #generics #impl_ident::#generics where #constraints {
             const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
             const IDENTITY: ::windows::core::IInspectable_Vtbl = ::windows::core::IInspectable_Vtbl::new::<Self, #identity_type, 0>();
-            fn new(this: #original_ident::<#(#generics,)*>) -> Self {
+            fn new(this: #original_ident::#generics) -> Self {
                 Self {
                     identity: &Self::IDENTITY,
                     vtables:(#(&Self::VTABLES.#offset,)*),
@@ -92,8 +99,8 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
             }
         }
-         impl <#(#generics,)*> ::windows::core::IUnknownImpl for #impl_ident::<#(#generics,)*> where #constraints {
-            type Impl = #original_ident::<#(#generics,)*>;
+         impl #generics ::windows::core::IUnknownImpl for #impl_ident::#generics where #constraints {
+            type Impl = #original_ident::#generics;
             fn get_impl(&self) -> &Self::Impl {
                 &self.this
             }
@@ -134,7 +141,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 remaining
             }
          }
-        impl <#(#generics,)*> #original_ident::<#(#generics,)*> where #constraints {
+        impl #generics #original_ident::#generics where #constraints {
             /// Try casting as the provided interface
             ///
             /// # Safety
@@ -142,23 +149,23 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             /// This function can only be safely called if `self` has been heap allocated and pinned using
             /// the mechanisms provided by `implement` macro.
             unsafe fn cast<I: ::windows::core::Interface>(&self) -> ::windows::core::Result<I> {
-                let boxed = (self as *const _ as *const *mut ::core::ffi::c_void).sub(1 + #interfaces_len) as *mut #impl_ident::<#(#generics,)*>;
+                let boxed = (self as *const _ as *const *mut ::core::ffi::c_void).sub(1 + #interfaces_len) as *mut #impl_ident::#generics;
                 let mut result = None;
-                <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
+                <#impl_ident::#generics as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
             }
         }
-        impl <#(#generics,)*> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IUnknown where #constraints {
-            fn from(this: #original_ident::<#(#generics,)*>) -> Self {
-                let this = #impl_ident::<#(#generics,)*>::new(this);
+        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows::core::IUnknown where #constraints {
+            fn from(this: #original_ident::#generics) -> Self {
+                let this = #impl_ident::#generics::new(this);
                 let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
                 unsafe {
                     ::core::mem::transmute(&boxed.identity)
                 }
             }
         }
-        impl <#(#generics,)*> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IInspectable where #constraints {
-            fn from(this: #original_ident::<#(#generics,)*>) -> Self {
-                let this = #impl_ident::<#(#generics,)*>::new(this);
+        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows::core::IInspectable where #constraints {
+            fn from(this: #original_ident::#generics) -> Self {
+                let this = #impl_ident::#generics::new(this);
                 let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
                 unsafe {
                     ::core::mem::transmute(&boxed.identity)
@@ -191,19 +198,6 @@ impl ImplementType {
             <#ident as ::windows::core::Vtable>::Vtable
         }
     }
-    fn generics(&self) -> std::collections::BTreeSet<String> {
-        let mut set = std::collections::BTreeSet::new();
-
-        if self.type_name.len() == 1 && self.type_name == self.type_name.to_uppercase() {
-            set.insert(self.type_name.clone());
-        }
-
-        for def in &self.generics {
-            set.append(&mut def.generics());
-        }
-
-        set
-    }
 }
 
 #[derive(Default)]
@@ -224,16 +218,6 @@ impl syn::parse::Parse for ImplementAttributes {
 }
 
 impl ImplementAttributes {
-    fn generics(&self) -> std::collections::BTreeSet<String> {
-        let mut set = std::collections::BTreeSet::new();
-
-        for def in &self.implement {
-            set.append(&mut def.generics());
-        }
-
-        set
-    }
-
     fn parse_implement(&mut self, cursor: syn::parse::ParseStream) -> syn::parse::Result<()> {
         let tree = cursor.parse::<UseTree2>()?;
         self.walk_implement(&tree, &mut String::new())?;

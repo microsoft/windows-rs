@@ -196,6 +196,20 @@ impl std::convert::From<&std::ffi::OsString> for HSTRING {
     }
 }
 
+impl Eq for HSTRING {}
+
+impl Ord for HSTRING {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.as_wide().cmp(other.as_wide())
+    }
+}
+
+impl PartialOrd for HSTRING {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
 impl PartialEq for HSTRING {
     fn eq(&self, other: &Self) -> bool {
         *self.as_wide() == *other.as_wide()
