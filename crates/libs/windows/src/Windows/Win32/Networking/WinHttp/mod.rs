@@ -2087,7 +2087,7 @@ impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2429,7 +2429,7 @@ impl ::core::default::Default for WINHTTP_MATCH_CONNECTION_GUID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
@@ -2781,7 +2781,7 @@ impl ::core::default::Default for WINHTTP_REQUEST_STATS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_REQUEST_STATS {
@@ -2833,7 +2833,7 @@ impl ::core::default::Default for WINHTTP_REQUEST_TIMES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_REQUEST_TIMES {
@@ -2887,7 +2887,7 @@ impl ::core::default::Default for WINHTTP_RESOLVER_CACHE_CONFIG {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {

@@ -4134,7 +4134,7 @@ impl ::core::clone::Clone for ATM_CONNECTION_ID {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct ATM_PVC_PARAMS {
     pub PvcConnectionId: ATM_CONNECTION_ID,

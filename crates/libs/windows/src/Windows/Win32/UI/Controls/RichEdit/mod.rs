@@ -9841,7 +9841,7 @@ impl ::core::default::Default for CHARRANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLIPBOARDFORMAT {
@@ -9906,7 +9906,7 @@ impl ::core::default::Default for COMPCOLOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
@@ -9927,7 +9927,7 @@ impl ::core::default::Default for EDITSTREAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENCORRECTTEXT {
@@ -9953,7 +9953,7 @@ impl ::core::default::Default for ENCORRECTTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDCOMPOSITIONNOTIFY {
@@ -9978,7 +9978,7 @@ impl ::core::default::Default for ENDCOMPOSITIONNOTIFY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDROPFILES {
@@ -10005,7 +10005,7 @@ impl ::core::default::Default for ENDROPFILES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENLINK {
@@ -10033,7 +10033,7 @@ impl ::core::default::Default for ENLINK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENLOWFIRTF {
@@ -10058,7 +10058,7 @@ impl ::core::default::Default for ENLOWFIRTF {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENOLEOPFAILED {
@@ -10085,7 +10085,7 @@ impl ::core::default::Default for ENOLEOPFAILED {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENPROTECTED {
@@ -10113,7 +10113,7 @@ impl ::core::default::Default for ENPROTECTED {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENSAVECLIPBOARD {
@@ -10139,7 +10139,7 @@ impl ::core::default::Default for ENSAVECLIPBOARD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
@@ -10159,7 +10159,7 @@ impl ::core::default::Default for FINDTEXTA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
@@ -10180,7 +10180,7 @@ impl ::core::default::Default for FINDTEXTEXA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
@@ -10201,7 +10201,7 @@ impl ::core::default::Default for FINDTEXTEXW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
@@ -10221,7 +10221,7 @@ impl ::core::default::Default for FINDTEXTW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct FORMATRANGE {
@@ -10249,7 +10249,7 @@ impl ::core::default::Default for FORMATRANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GETCONTEXTMENUEX {
@@ -10276,7 +10276,7 @@ impl ::core::default::Default for GETCONTEXTMENUEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct GETTEXTEX {
     pub cb: u32,
@@ -10330,7 +10330,7 @@ impl ::core::default::Default for GETTEXTLENGTHEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUPTYPINGCHANGE {
@@ -10355,7 +10355,7 @@ impl ::core::default::Default for GROUPTYPINGCHANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
@@ -10439,7 +10439,7 @@ impl ::core::default::Default for IMECOMPTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSGFILTER {
@@ -10466,7 +10466,7 @@ impl ::core::default::Default for MSGFILTER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBJECTPOSITIONS {
@@ -10573,7 +10573,7 @@ impl ::core::default::Default for PARAFORMAT2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct PUNCTUATION {
     pub iSize: u32,
@@ -10638,7 +10638,7 @@ impl ::core::default::Default for REOBJECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct REPASTESPECIAL {
@@ -10663,7 +10663,7 @@ impl ::core::default::Default for REPASTESPECIAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REQRESIZE {
@@ -10688,7 +10688,7 @@ impl ::core::default::Default for REQRESIZE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
@@ -10709,7 +10709,7 @@ impl ::core::default::Default for RICHEDIT_IMAGE_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SELCHANGE {
@@ -10870,7 +10870,7 @@ impl ::core::default::Default for TABLEROWPARMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
@@ -10890,7 +10890,7 @@ impl ::core::default::Default for TEXTRANGEA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,

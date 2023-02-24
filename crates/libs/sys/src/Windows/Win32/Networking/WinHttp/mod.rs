@@ -1372,7 +1372,7 @@ impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1541,7 +1541,7 @@ impl ::core::clone::Clone for WINHTTP_MATCH_CONNECTION_GUID {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
@@ -1688,7 +1688,7 @@ impl ::core::clone::Clone for WINHTTP_REQUEST_STATS {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_REQUEST_STATS {
@@ -1720,7 +1720,7 @@ impl ::core::clone::Clone for WINHTTP_REQUEST_TIMES {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_REQUEST_TIMES {
@@ -1754,7 +1754,7 @@ impl ::core::clone::Clone for WINHTTP_RESOLVER_CACHE_CONFIG {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {

@@ -2666,7 +2666,7 @@ impl ::core::clone::Clone for JET_COMMIT_ID {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -3644,7 +3644,7 @@ impl ::core::clone::Clone for JET_OBJECTINFO {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_OBJECTINFO {
@@ -3772,7 +3772,7 @@ impl ::core::clone::Clone for JET_RBSINFOMISC {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -3817,7 +3817,7 @@ impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -3892,7 +3892,7 @@ impl ::core::clone::Clone for JET_RECSIZE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_RECSIZE {
@@ -3937,7 +3937,7 @@ impl ::core::clone::Clone for JET_RECSIZE2 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_RECSIZE2 {
@@ -4432,7 +4432,7 @@ impl ::core::clone::Clone for JET_THREADSTATS2 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_THREADSTATS2 {

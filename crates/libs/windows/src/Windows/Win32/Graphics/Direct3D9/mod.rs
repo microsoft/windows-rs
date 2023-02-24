@@ -6109,7 +6109,7 @@ impl ::core::default::Default for D3DADAPTER_IDENTIFIER9 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -6172,7 +6172,7 @@ impl ::core::default::Default for D3DAES_CTR_IV {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct D3DAES_CTR_IV {
@@ -7007,7 +7007,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -8428,7 +8428,7 @@ impl ::core::default::Default for D3DMEMORYPRESSURE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct D3DMEMORYPRESSURE {
@@ -8482,7 +8482,7 @@ impl ::core::default::Default for D3DPRESENTSTATS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct D3DPRESENTSTATS {

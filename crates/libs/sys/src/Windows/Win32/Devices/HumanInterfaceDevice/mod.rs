@@ -6209,7 +6209,7 @@ impl ::core::clone::Clone for HIDD_ATTRIBUTES {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut ::core::ffi::c_void,
@@ -6379,7 +6379,7 @@ impl ::core::clone::Clone for HIDP_DATA_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: u8,
@@ -6427,7 +6427,7 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: u16,

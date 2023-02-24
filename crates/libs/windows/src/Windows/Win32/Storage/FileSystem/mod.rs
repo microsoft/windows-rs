@@ -17108,7 +17108,7 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
@@ -17127,7 +17127,7 @@ impl ::core::default::Default for TXF_ID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_ID_0 {
     pub LowPart: i64,
@@ -17147,7 +17147,7 @@ impl ::core::default::Default for TXF_ID_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
@@ -17172,7 +17172,7 @@ impl ::core::default::Default for TXF_LOG_RECORD_AFFECTED_FILE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
@@ -17193,7 +17193,7 @@ impl ::core::default::Default for TXF_LOG_RECORD_BASE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_TRUNCATE {
     pub Version: u16,
@@ -17220,7 +17220,7 @@ impl ::core::default::Default for TXF_LOG_RECORD_TRUNCATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_WRITE {
     pub Version: u16,

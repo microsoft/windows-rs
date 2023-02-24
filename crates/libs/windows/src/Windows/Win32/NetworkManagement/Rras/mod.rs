@@ -7384,7 +7384,7 @@ impl ::core::default::Default for PROJECTION_INFO2_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASADPARAMS {
@@ -7594,7 +7594,7 @@ impl ::core::default::Default for RASCOMMSETTINGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNA {
@@ -7692,7 +7692,7 @@ impl ::core::default::Default for RASCONNSTATUSW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNW {
@@ -7836,7 +7836,7 @@ impl ::core::default::Default for RASCTRYINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
@@ -7933,7 +7933,7 @@ impl ::core::default::Default for RASDEVINFOW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
@@ -7953,7 +7953,7 @@ impl ::core::default::Default for RASDEVSPECIFICINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALDLG {
@@ -7985,7 +7985,7 @@ impl ::core::default::Default for RASDIALDLG {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALEXTENSIONS {
@@ -8016,7 +8016,7 @@ impl ::core::default::Default for RASDIALEXTENSIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALPARAMSA {
@@ -8050,7 +8050,7 @@ impl ::core::default::Default for RASDIALPARAMSA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
@@ -8079,7 +8079,7 @@ impl ::core::default::Default for RASDIALPARAMSW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASEAPINFO {
     pub dwSizeofEapInfo: u32,
@@ -8255,7 +8255,7 @@ impl ::core::default::Default for RASENTRYA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYDLGA {
@@ -8287,7 +8287,7 @@ impl ::core::default::Default for RASENTRYDLGA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYDLGW {
@@ -8477,7 +8477,7 @@ impl ::core::default::Default for RASENTRYW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASIKEV2_PROJECTION_INFO {
@@ -8658,7 +8658,7 @@ impl ::core::default::Default for RASNOUSERW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGA {
@@ -8691,7 +8691,7 @@ impl ::core::default::Default for RASPBDLGA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGW {

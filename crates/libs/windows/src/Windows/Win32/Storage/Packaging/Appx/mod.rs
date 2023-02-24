@@ -6445,7 +6445,7 @@ impl ::core::default::Default for PACKAGEDEPENDENCY_CONTEXT__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct PACKAGE_ID {
     pub reserved: u32,
@@ -6470,7 +6470,7 @@ impl ::core::default::Default for PACKAGE_ID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
@@ -6513,7 +6513,7 @@ impl ::core::default::Default for PACKAGE_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub union PACKAGE_VERSION_0 {
     pub Version: u64,

@@ -188,7 +188,7 @@ pub const VDM_KGDT_R3_CODE: u32 = 24u32;
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
 pub const WOW_SYSTEM: u32 = 1u32;
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GLOBALENTRY {
@@ -231,7 +231,7 @@ impl ::core::clone::Clone for IMAGE_NOTE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MODULEENTRY {

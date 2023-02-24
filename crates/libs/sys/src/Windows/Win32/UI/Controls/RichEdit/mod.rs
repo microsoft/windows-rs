@@ -2816,7 +2816,7 @@ impl ::core::clone::Clone for CHARRANGE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLIPBOARDFORMAT {
@@ -2847,7 +2847,7 @@ impl ::core::clone::Clone for COMPCOLOR {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
@@ -2860,7 +2860,7 @@ impl ::core::clone::Clone for EDITSTREAM {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENCORRECTTEXT {
@@ -2876,7 +2876,7 @@ impl ::core::clone::Clone for ENCORRECTTEXT {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDCOMPOSITIONNOTIFY {
@@ -2891,7 +2891,7 @@ impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDROPFILES {
@@ -2908,7 +2908,7 @@ impl ::core::clone::Clone for ENDROPFILES {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENLINK {
@@ -2926,7 +2926,7 @@ impl ::core::clone::Clone for ENLINK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENLOWFIRTF {
@@ -2941,7 +2941,7 @@ impl ::core::clone::Clone for ENLOWFIRTF {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENOLEOPFAILED {
@@ -2958,7 +2958,7 @@ impl ::core::clone::Clone for ENOLEOPFAILED {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENPROTECTED {
@@ -2976,7 +2976,7 @@ impl ::core::clone::Clone for ENPROTECTED {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENSAVECLIPBOARD {
@@ -2992,7 +2992,7 @@ impl ::core::clone::Clone for ENSAVECLIPBOARD {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
@@ -3004,7 +3004,7 @@ impl ::core::clone::Clone for FINDTEXTA {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
@@ -3017,7 +3017,7 @@ impl ::core::clone::Clone for FINDTEXTEXA {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
@@ -3030,7 +3030,7 @@ impl ::core::clone::Clone for FINDTEXTEXW {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
@@ -3042,7 +3042,7 @@ impl ::core::clone::Clone for FINDTEXTW {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct FORMATRANGE {
@@ -3060,7 +3060,7 @@ impl ::core::clone::Clone for FORMATRANGE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GETCONTEXTMENUEX {
@@ -3077,7 +3077,7 @@ impl ::core::clone::Clone for GETCONTEXTMENUEX {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct GETTEXTEX {
     pub cb: u32,
@@ -3104,7 +3104,7 @@ impl ::core::clone::Clone for GETTEXTLENGTHEX {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUPTYPINGCHANGE {
@@ -3119,7 +3119,7 @@ impl ::core::clone::Clone for GROUPTYPINGCHANGE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
@@ -3157,7 +3157,7 @@ impl ::core::clone::Clone for IMECOMPTEXT {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSGFILTER {
@@ -3174,7 +3174,7 @@ impl ::core::clone::Clone for MSGFILTER {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBJECTPOSITIONS {
@@ -3247,7 +3247,7 @@ impl ::core::clone::Clone for PARAFORMAT2 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct PUNCTUATION {
     pub iSize: u32,
@@ -3282,7 +3282,7 @@ impl ::core::clone::Clone for REOBJECT {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct REPASTESPECIAL {
@@ -3297,7 +3297,7 @@ impl ::core::clone::Clone for REPASTESPECIAL {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REQRESIZE {
@@ -3312,7 +3312,7 @@ impl ::core::clone::Clone for REQRESIZE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
@@ -3331,7 +3331,7 @@ impl ::core::clone::Clone for RICHEDIT_IMAGE_PARAMETERS {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SELCHANGE {
@@ -3406,7 +3406,7 @@ impl ::core::clone::Clone for TABLEROWPARMS {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
@@ -3418,7 +3418,7 @@ impl ::core::clone::Clone for TEXTRANGEA {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,

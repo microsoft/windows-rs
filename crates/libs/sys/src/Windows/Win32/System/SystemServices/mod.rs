@@ -7911,7 +7911,7 @@ impl ::core::clone::Clone for HIBERFILE_BUCKET {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u64,
@@ -9006,7 +9006,7 @@ impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY32_0_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_TLS_DIRECTORY64 {
     pub StartAddressOfRawData: u64,
@@ -9260,7 +9260,7 @@ impl ::core::clone::Clone for NETWORK_APP_INSTANCE_EA {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct NON_PAGED_DEBUG_INFO {
     pub Signature: u16,

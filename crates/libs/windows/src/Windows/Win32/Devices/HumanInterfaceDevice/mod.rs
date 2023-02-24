@@ -10521,7 +10521,7 @@ impl ::core::default::Default for HIDD_ATTRIBUTES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut ::core::ffi::c_void,
@@ -10862,7 +10862,7 @@ impl ::core::default::Default for HIDP_DATA_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: u8,
@@ -10953,7 +10953,7 @@ impl ::core::default::Default for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: u16,

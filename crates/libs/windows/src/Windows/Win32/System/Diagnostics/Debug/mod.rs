@@ -41431,7 +41431,7 @@ impl ::core::default::Default for BUSDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -41609,7 +41609,7 @@ impl ::core::default::Default for CONTEXT_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -41795,7 +41795,7 @@ impl ::core::default::Default for CONTEXT_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -41868,7 +41868,7 @@ impl ::core::default::Default for CPU_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct CPU_INFORMATION_0 {
     pub ProcessorFeatures: [u64; 2],
@@ -47067,7 +47067,7 @@ impl ::core::default::Default for IMAGE_FUNCTION_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGE_FUNCTION_ENTRY64 {
     pub StartingAddress: u64,
@@ -47088,7 +47088,7 @@ impl ::core::default::Default for IMAGE_FUNCTION_ENTRY64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union IMAGE_FUNCTION_ENTRY64_0 {
     pub EndOfPrologue: u64,
@@ -47314,7 +47314,7 @@ impl ::core::default::Default for IMAGE_LOAD_CONFIG_DIRECTORY32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub Size: u32,
@@ -47568,7 +47568,7 @@ impl ::core::default::Default for IMAGE_OPTIONAL_HEADER32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
@@ -49688,7 +49688,7 @@ impl ::core::default::Default for M128A {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
@@ -49713,7 +49713,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_CALLBACK_INPUT {
@@ -49775,7 +49775,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INPUT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
@@ -49832,7 +49832,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
@@ -49985,7 +49985,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
@@ -50005,7 +50005,7 @@ impl ::core::default::Default for MINIDUMP_DIRECTORY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_EXCEPTION {
     pub ExceptionCode: u32,
@@ -50030,7 +50030,7 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
@@ -50056,7 +50056,7 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
@@ -50083,7 +50083,7 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION_INFORMATION64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadId: u32,
@@ -50105,7 +50105,7 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION_STREAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub MinimumAddress: u64,
@@ -50128,7 +50128,7 @@ impl ::core::default::Default for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
@@ -50152,7 +50152,7 @@ impl ::core::default::Default for MINIDUMP_FUNCTION_TABLE_STREAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
@@ -50174,7 +50174,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_DATA_STREAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub Handle: u64,
@@ -50199,7 +50199,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub Handle: u64,
@@ -50226,7 +50226,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_DESCRIPTOR_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: u32,
@@ -50247,7 +50247,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_OBJECT_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
@@ -50269,7 +50269,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_OPERATION_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HEADER {
     pub Signature: u32,
@@ -50314,7 +50314,7 @@ impl ::core::default::Default for MINIDUMP_HEADER_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
     pub BaseOfImage: u64,
@@ -50333,7 +50333,7 @@ impl ::core::default::Default for MINIDUMP_INCLUDE_MODULE_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -50352,7 +50352,7 @@ impl ::core::default::Default for MINIDUMP_INCLUDE_THREAD_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MINIDUMP_IO_CALLBACK {
@@ -50379,7 +50379,7 @@ impl ::core::default::Default for MINIDUMP_IO_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
@@ -50399,7 +50399,7 @@ impl ::core::default::Default for MINIDUMP_LOCATION_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64 {
     pub DataSize: u64,
@@ -50419,7 +50419,7 @@ impl ::core::default::Default for MINIDUMP_LOCATION_DESCRIPTOR64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY64_LIST {
     pub NumberOfMemoryRanges: u64,
@@ -50440,7 +50440,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY64_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR {
     pub StartOfMemoryRange: u64,
@@ -50460,7 +50460,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64 {
     pub StartOfMemoryRange: u64,
@@ -50480,7 +50480,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_DESCRIPTOR64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_MEMORY_INFO {
@@ -50512,7 +50512,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_INFO_LIST {
     pub SizeOfHeader: u32,
@@ -50533,7 +50533,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_INFO_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_LIST {
     pub NumberOfMemoryRanges: u32,
@@ -50553,7 +50553,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
@@ -50577,7 +50577,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
@@ -50606,7 +50606,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_3 {
@@ -50645,7 +50645,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_3 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_4 {
@@ -50686,7 +50686,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_5 {
@@ -50729,7 +50729,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_5 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE {
@@ -50762,7 +50762,7 @@ impl ::core::default::Default for MINIDUMP_MODULE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_CALLBACK {
@@ -50795,7 +50795,7 @@ impl ::core::default::Default for MINIDUMP_MODULE_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_LIST {
@@ -50820,7 +50820,7 @@ impl ::core::default::Default for MINIDUMP_MODULE_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub Revision: u16,
@@ -50849,7 +50849,7 @@ impl ::core::default::Default for MINIDUMP_PROCESS_VM_COUNTERS_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub Revision: u16,
@@ -50888,7 +50888,7 @@ impl ::core::default::Default for MINIDUMP_PROCESS_VM_COUNTERS_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     pub Offset: u64,
@@ -50909,7 +50909,7 @@ impl ::core::default::Default for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
@@ -50929,7 +50929,7 @@ impl ::core::default::Default for MINIDUMP_STRING {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub TimerResolution: u32,
@@ -50957,7 +50957,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_BASIC_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     pub AvailablePages: u64,
@@ -50979,7 +50979,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION 
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     pub CurrentSize: u64,
@@ -51006,7 +51006,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_INFO {
     pub ProcessorArchitecture: PROCESSOR_ARCHITECTURE,
@@ -51137,7 +51137,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_1_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub Revision: u16,
@@ -51161,7 +51161,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub IdleProcessTime: u64,
@@ -51257,7 +51257,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD {
     pub ThreadId: u32,
@@ -51282,7 +51282,7 @@ impl ::core::default::Default for MINIDUMP_THREAD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -51317,7 +51317,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -51351,7 +51351,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_EX {
     pub ThreadId: u32,
@@ -51377,7 +51377,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -51414,7 +51414,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -51450,7 +51450,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_EX_LIST {
     pub NumberOfThreads: u32,
@@ -51470,7 +51470,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_INFO {
     pub ThreadId: u32,
@@ -51498,7 +51498,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
@@ -51519,7 +51519,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_INFO_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_LIST {
     pub NumberOfThreads: u32,
@@ -51539,7 +51539,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_NAME {
     pub ThreadId: u32,
@@ -51559,7 +51559,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_NAME_LIST {
     pub NumberOfThreadNames: u32,
@@ -51579,7 +51579,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_NAME_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_TOKEN_INFO_HEADER {
     pub TokenSize: u32,
@@ -51600,7 +51600,7 @@ impl ::core::default::Default for MINIDUMP_TOKEN_INFO_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
@@ -51622,7 +51622,7 @@ impl ::core::default::Default for MINIDUMP_TOKEN_INFO_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_UNLOADED_MODULE {
     pub BaseOfImage: u64,
@@ -51645,7 +51645,7 @@ impl ::core::default::Default for MINIDUMP_UNLOADED_MODULE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
@@ -51666,7 +51666,7 @@ impl ::core::default::Default for MINIDUMP_UNLOADED_MODULE_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
@@ -51686,7 +51686,7 @@ impl ::core::default::Default for MINIDUMP_USER_RECORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
@@ -51707,7 +51707,7 @@ impl ::core::default::Default for MINIDUMP_USER_STREAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
@@ -51727,7 +51727,7 @@ impl ::core::default::Default for MINIDUMP_USER_STREAM_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Offset: u64,
@@ -51750,7 +51750,7 @@ impl ::core::default::Default for MINIDUMP_VM_POST_READ_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
     pub Offset: u64,
@@ -51771,7 +51771,7 @@ impl ::core::default::Default for MINIDUMP_VM_PRE_READ_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_VM_QUERY_CALLBACK {
     pub Offset: u64,
@@ -55969,7 +55969,7 @@ impl ::core::default::Default for XSTATE_CONFIGURATION_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
     pub SizeOfInfo: u32,

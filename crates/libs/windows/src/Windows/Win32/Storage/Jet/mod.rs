@@ -4796,7 +4796,7 @@ impl ::core::default::Default for JET_COMMIT_ID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -6598,7 +6598,7 @@ impl ::core::default::Default for JET_OBJECTINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_OBJECTINFO {
@@ -6883,7 +6883,7 @@ impl ::core::default::Default for JET_RBSINFOMISC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -6952,7 +6952,7 @@ impl ::core::default::Default for JET_RBSREVERTINFOMISC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -7092,7 +7092,7 @@ impl ::core::default::Default for JET_RECSIZE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_RECSIZE {
@@ -7157,7 +7157,7 @@ impl ::core::default::Default for JET_RECSIZE2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_RECSIZE2 {
@@ -8241,7 +8241,7 @@ impl ::core::default::Default for JET_THREADSTATS2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_THREADSTATS2 {

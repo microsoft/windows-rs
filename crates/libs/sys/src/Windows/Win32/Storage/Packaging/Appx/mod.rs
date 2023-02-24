@@ -625,7 +625,7 @@ impl ::core::clone::Clone for PACKAGEDEPENDENCY_CONTEXT__ {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct PACKAGE_ID {
     pub reserved: u32,
@@ -642,7 +642,7 @@ impl ::core::clone::Clone for PACKAGE_ID {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
@@ -669,7 +669,7 @@ impl ::core::clone::Clone for PACKAGE_VERSION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub union PACKAGE_VERSION_0 {
     pub Version: u64,

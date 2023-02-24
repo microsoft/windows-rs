@@ -1079,7 +1079,7 @@ impl ::core::fmt::Debug for SNMP_STATUS {
         f.debug_tuple("SNMP_STATUS").field(&self.0).finish()
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AsnAny {
@@ -1104,7 +1104,7 @@ impl ::core::default::Default for AsnAny {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union AsnAny_0 {
@@ -1139,7 +1139,7 @@ impl ::core::default::Default for AsnAny_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
@@ -1159,7 +1159,7 @@ impl ::core::default::Default for AsnObjectIdentifier {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AsnOctetString {
@@ -1185,7 +1185,7 @@ impl ::core::default::Default for AsnOctetString {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SnmpVarBind {
@@ -1210,7 +1210,7 @@ impl ::core::default::Default for SnmpVarBind {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SnmpVarBindList {

@@ -9629,7 +9629,7 @@ impl ::core::clone::Clone for TRUSTED_POSIX_OFFSET_INFO {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_ALL_INFORMATION {

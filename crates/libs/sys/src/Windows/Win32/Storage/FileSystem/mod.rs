@@ -6016,7 +6016,7 @@ impl ::core::clone::Clone for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
@@ -6027,7 +6027,7 @@ impl ::core::clone::Clone for TXF_ID {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_ID_0 {
     pub LowPart: i64,
@@ -6039,7 +6039,7 @@ impl ::core::clone::Clone for TXF_ID_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
@@ -6056,7 +6056,7 @@ impl ::core::clone::Clone for TXF_LOG_RECORD_AFFECTED_FILE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
@@ -6069,7 +6069,7 @@ impl ::core::clone::Clone for TXF_LOG_RECORD_BASE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_TRUNCATE {
     pub Version: u16,
@@ -6088,7 +6088,7 @@ impl ::core::clone::Clone for TXF_LOG_RECORD_TRUNCATE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_WRITE {
     pub Version: u16,

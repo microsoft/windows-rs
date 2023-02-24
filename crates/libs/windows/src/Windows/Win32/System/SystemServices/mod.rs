@@ -9817,7 +9817,7 @@ impl ::core::default::Default for HIBERFILE_BUCKET {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u64,
@@ -11907,7 +11907,7 @@ impl ::core::default::Default for IMAGE_TLS_DIRECTORY32_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_TLS_DIRECTORY64 {
     pub StartAddressOfRawData: u64,
@@ -12374,7 +12374,7 @@ impl ::core::default::Default for NETWORK_APP_INSTANCE_EA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct NON_PAGED_DEBUG_INFO {
     pub Signature: u16,

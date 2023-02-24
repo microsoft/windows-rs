@@ -7044,7 +7044,7 @@ impl ::core::clone::Clone for BUSDATA {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -7137,7 +7137,7 @@ impl ::core::clone::Clone for CONTEXT_0_0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -7251,7 +7251,7 @@ impl ::core::clone::Clone for CONTEXT_0_0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, align(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -7304,7 +7304,7 @@ impl ::core::clone::Clone for CPU_INFORMATION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct CPU_INFORMATION_0 {
     pub ProcessorFeatures: [u64; 2],
@@ -9635,7 +9635,7 @@ impl ::core::clone::Clone for IMAGE_FUNCTION_ENTRY {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGE_FUNCTION_ENTRY64 {
     pub StartingAddress: u64,
@@ -9648,7 +9648,7 @@ impl ::core::clone::Clone for IMAGE_FUNCTION_ENTRY64 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union IMAGE_FUNCTION_ENTRY64_0 {
     pub EndOfPrologue: u64,
@@ -9732,7 +9732,7 @@ impl ::core::clone::Clone for IMAGE_LOAD_CONFIG_DIRECTORY32 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub Size: u32,
@@ -9863,7 +9863,7 @@ impl ::core::clone::Clone for IMAGE_OPTIONAL_HEADER32 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
@@ -10760,7 +10760,7 @@ impl ::core::clone::Clone for M128A {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
@@ -10775,7 +10775,7 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_INFORMATION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_CALLBACK_INPUT {
@@ -10817,7 +10817,7 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_INPUT_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
@@ -10854,7 +10854,7 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
@@ -10929,7 +10929,7 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT_0_4 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
@@ -10941,7 +10941,7 @@ impl ::core::clone::Clone for MINIDUMP_DIRECTORY {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_EXCEPTION {
     pub ExceptionCode: u32,
@@ -10958,7 +10958,7 @@ impl ::core::clone::Clone for MINIDUMP_EXCEPTION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
@@ -10974,7 +10974,7 @@ impl ::core::clone::Clone for MINIDUMP_EXCEPTION_INFORMATION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
@@ -10991,7 +10991,7 @@ impl ::core::clone::Clone for MINIDUMP_EXCEPTION_INFORMATION64 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadId: u32,
@@ -11005,7 +11005,7 @@ impl ::core::clone::Clone for MINIDUMP_EXCEPTION_STREAM {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub MinimumAddress: u64,
@@ -11020,7 +11020,7 @@ impl ::core::clone::Clone for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
@@ -11036,7 +11036,7 @@ impl ::core::clone::Clone for MINIDUMP_FUNCTION_TABLE_STREAM {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
@@ -11050,7 +11050,7 @@ impl ::core::clone::Clone for MINIDUMP_HANDLE_DATA_STREAM {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub Handle: u64,
@@ -11067,7 +11067,7 @@ impl ::core::clone::Clone for MINIDUMP_HANDLE_DESCRIPTOR {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub Handle: u64,
@@ -11086,7 +11086,7 @@ impl ::core::clone::Clone for MINIDUMP_HANDLE_DESCRIPTOR_2 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: u32,
@@ -11099,7 +11099,7 @@ impl ::core::clone::Clone for MINIDUMP_HANDLE_OBJECT_INFORMATION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
@@ -11113,7 +11113,7 @@ impl ::core::clone::Clone for MINIDUMP_HANDLE_OPERATION_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HEADER {
     pub Signature: u32,
@@ -11142,7 +11142,7 @@ impl ::core::clone::Clone for MINIDUMP_HEADER_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
     pub BaseOfImage: u64,
@@ -11153,7 +11153,7 @@ impl ::core::clone::Clone for MINIDUMP_INCLUDE_MODULE_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -11164,7 +11164,7 @@ impl ::core::clone::Clone for MINIDUMP_INCLUDE_THREAD_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MINIDUMP_IO_CALLBACK {
@@ -11181,7 +11181,7 @@ impl ::core::clone::Clone for MINIDUMP_IO_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
@@ -11193,7 +11193,7 @@ impl ::core::clone::Clone for MINIDUMP_LOCATION_DESCRIPTOR {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64 {
     pub DataSize: u64,
@@ -11205,7 +11205,7 @@ impl ::core::clone::Clone for MINIDUMP_LOCATION_DESCRIPTOR64 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY64_LIST {
     pub NumberOfMemoryRanges: u64,
@@ -11218,7 +11218,7 @@ impl ::core::clone::Clone for MINIDUMP_MEMORY64_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR {
     pub StartOfMemoryRange: u64,
@@ -11230,7 +11230,7 @@ impl ::core::clone::Clone for MINIDUMP_MEMORY_DESCRIPTOR {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64 {
     pub StartOfMemoryRange: u64,
@@ -11242,7 +11242,7 @@ impl ::core::clone::Clone for MINIDUMP_MEMORY_DESCRIPTOR64 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_MEMORY_INFO {
@@ -11264,7 +11264,7 @@ impl ::core::clone::Clone for MINIDUMP_MEMORY_INFO {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_INFO_LIST {
     pub SizeOfHeader: u32,
@@ -11277,7 +11277,7 @@ impl ::core::clone::Clone for MINIDUMP_MEMORY_INFO_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_LIST {
     pub NumberOfMemoryRanges: u32,
@@ -11289,7 +11289,7 @@ impl ::core::clone::Clone for MINIDUMP_MEMORY_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
@@ -11305,7 +11305,7 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
@@ -11326,7 +11326,7 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_2 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_3 {
@@ -11355,7 +11355,7 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_3 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_4 {
@@ -11386,7 +11386,7 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_4 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_5 {
@@ -11419,7 +11419,7 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_5 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE {
@@ -11442,7 +11442,7 @@ impl ::core::clone::Clone for MINIDUMP_MODULE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_CALLBACK {
@@ -11465,7 +11465,7 @@ impl ::core::clone::Clone for MINIDUMP_MODULE_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_LIST {
@@ -11480,7 +11480,7 @@ impl ::core::clone::Clone for MINIDUMP_MODULE_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub Revision: u16,
@@ -11501,7 +11501,7 @@ impl ::core::clone::Clone for MINIDUMP_PROCESS_VM_COUNTERS_1 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub Revision: u16,
@@ -11532,7 +11532,7 @@ impl ::core::clone::Clone for MINIDUMP_PROCESS_VM_COUNTERS_2 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     pub Offset: u64,
@@ -11545,7 +11545,7 @@ impl ::core::clone::Clone for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
@@ -11557,7 +11557,7 @@ impl ::core::clone::Clone for MINIDUMP_STRING {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub TimerResolution: u32,
@@ -11577,7 +11577,7 @@ impl ::core::clone::Clone for MINIDUMP_SYSTEM_BASIC_INFORMATION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     pub AvailablePages: u64,
@@ -11591,7 +11591,7 @@ impl ::core::clone::Clone for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     pub CurrentSize: u64,
@@ -11610,7 +11610,7 @@ impl ::core::clone::Clone for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_INFO {
     pub ProcessorArchitecture: PROCESSOR_ARCHITECTURE,
@@ -11679,7 +11679,7 @@ impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_1_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub Revision: u16,
@@ -11695,7 +11695,7 @@ impl ::core::clone::Clone for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub IdleProcessTime: u64,
@@ -11783,7 +11783,7 @@ impl ::core::clone::Clone for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD {
     pub ThreadId: u32,
@@ -11800,7 +11800,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -11823,7 +11823,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -11845,7 +11845,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_EX {
     pub ThreadId: u32,
@@ -11863,7 +11863,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_EX {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -11888,7 +11888,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -11912,7 +11912,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_EX_LIST {
     pub NumberOfThreads: u32,
@@ -11924,7 +11924,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_EX_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_INFO {
     pub ThreadId: u32,
@@ -11944,7 +11944,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_INFO {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
@@ -11957,7 +11957,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_INFO_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_LIST {
     pub NumberOfThreads: u32,
@@ -11969,7 +11969,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_NAME {
     pub ThreadId: u32,
@@ -11981,7 +11981,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_NAME {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_NAME_LIST {
     pub NumberOfThreadNames: u32,
@@ -11993,7 +11993,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_NAME_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_TOKEN_INFO_HEADER {
     pub TokenSize: u32,
@@ -12006,7 +12006,7 @@ impl ::core::clone::Clone for MINIDUMP_TOKEN_INFO_HEADER {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
@@ -12020,7 +12020,7 @@ impl ::core::clone::Clone for MINIDUMP_TOKEN_INFO_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_UNLOADED_MODULE {
     pub BaseOfImage: u64,
@@ -12035,7 +12035,7 @@ impl ::core::clone::Clone for MINIDUMP_UNLOADED_MODULE {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
@@ -12048,7 +12048,7 @@ impl ::core::clone::Clone for MINIDUMP_UNLOADED_MODULE_LIST {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
@@ -12060,7 +12060,7 @@ impl ::core::clone::Clone for MINIDUMP_USER_RECORD {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
@@ -12073,7 +12073,7 @@ impl ::core::clone::Clone for MINIDUMP_USER_STREAM {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
@@ -12085,7 +12085,7 @@ impl ::core::clone::Clone for MINIDUMP_USER_STREAM_INFORMATION {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Offset: u64,
@@ -12100,7 +12100,7 @@ impl ::core::clone::Clone for MINIDUMP_VM_POST_READ_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
     pub Offset: u64,
@@ -12113,7 +12113,7 @@ impl ::core::clone::Clone for MINIDUMP_VM_PRE_READ_CALLBACK {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_VM_QUERY_CALLBACK {
     pub Offset: u64,
@@ -14241,7 +14241,7 @@ impl ::core::clone::Clone for XSTATE_CONFIGURATION_0_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
     pub SizeOfInfo: u32,

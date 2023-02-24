@@ -2040,7 +2040,7 @@ impl ::core::default::Default for DMUS_DOWNLOADINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct DMUS_EVENTHEADER {
     pub cbEvent: u32,

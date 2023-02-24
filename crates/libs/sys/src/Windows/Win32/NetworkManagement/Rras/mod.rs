@@ -3300,7 +3300,7 @@ impl ::core::clone::Clone for PROJECTION_INFO2_0 {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASADPARAMS {
@@ -3395,7 +3395,7 @@ impl ::core::clone::Clone for RASCOMMSETTINGS {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNA {
@@ -3463,7 +3463,7 @@ impl ::core::clone::Clone for RASCONNSTATUSW {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNW {
@@ -3535,7 +3535,7 @@ impl ::core::clone::Clone for RASCTRYINFO {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
@@ -3579,7 +3579,7 @@ impl ::core::clone::Clone for RASDEVINFOW {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
@@ -3591,7 +3591,7 @@ impl ::core::clone::Clone for RASDEVSPECIFICINFO {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALDLG {
@@ -3613,7 +3613,7 @@ impl ::core::clone::Clone for RASDIALDLG {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALEXTENSIONS {
@@ -3634,7 +3634,7 @@ impl ::core::clone::Clone for RASDIALEXTENSIONS {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALPARAMSA {
@@ -3658,7 +3658,7 @@ impl ::core::clone::Clone for RASDIALPARAMSA {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
@@ -3679,7 +3679,7 @@ impl ::core::clone::Clone for RASDIALPARAMSW {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub struct RASEAPINFO {
     pub dwSizeofEapInfo: u32,
@@ -3794,7 +3794,7 @@ impl ::core::clone::Clone for RASENTRYA {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYDLGA {
@@ -3816,7 +3816,7 @@ impl ::core::clone::Clone for RASENTRYDLGA {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYDLGW {
@@ -3943,7 +3943,7 @@ impl ::core::clone::Clone for RASENTRYW {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASIKEV2_PROJECTION_INFO {
@@ -4033,7 +4033,7 @@ impl ::core::clone::Clone for RASNOUSERW {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGA {
@@ -4056,7 +4056,7 @@ impl ::core::clone::Clone for RASPBDLGA {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGW {

@@ -54493,7 +54493,7 @@ impl ::core::default::Default for D3DCONTENTPROTECTIONCAPS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct D3DCONTENTPROTECTIONCAPS {
