@@ -3,7 +3,7 @@ use super::Type;
 /// Similar to the Rust Standard Library's `ManuallyDrop` wrapper, the `windows` crate's `ManuallyDrop`
 /// makes it easier to work with Win32 structs that lack ownership semantics but nevertheless allow
 /// callers to reference such non-blittable fields. Rust's `ManuallyDrop` is not used primarily because
-// it makes it very difficult to reference the wrapped value without taking ownership of it.
+/// it makes it very difficult to reference the wrapped value without taking ownership of it.
 #[repr(transparent)]
 #[derive(Debug)]
 pub struct ManuallyDrop<T: Type<T>> {
