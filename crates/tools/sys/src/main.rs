@@ -62,7 +62,8 @@ fn main() {
         return;
     }
     let win32 = reader.tree("Windows.Win32", &EXCLUDE_NAMESPACES).expect("`Windows.Win32` namespace not found");
-    let root = metadata::reader::Tree { namespace: "Windows", nested: BTreeMap::from([("Win32", win32)]) };
+    let wdk = reader.tree("Windows.Wdk", &EXCLUDE_NAMESPACES).expect("`Windows.Win32` namespace not found");
+    let root = metadata::reader::Tree { namespace: "Windows", nested: BTreeMap::from([("Win32", win32), ("Wdk", wdk)]) };
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
     output.pop();

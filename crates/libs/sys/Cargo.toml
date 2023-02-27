@@ -21,6 +21,9 @@ windows-targets = { path = "../targets",  version = "0.42.1" }
 
 [features]
 default = []
+Wdk = []
+Wdk_System = ["Wdk"]
+Wdk_System_OfflineRegistry = ["Wdk_System"]
 Win32 = []
 Win32_Data = ["Win32"]
 Win32_Data_HtmlHelp = ["Win32_Data"]
