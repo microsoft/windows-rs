@@ -154,12 +154,13 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterA<P0>(pname: P0, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE
+pub unsafe fn AddPrinterA<P0>(pname: P0, level: u32, pprinter: *const u8) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::imp::link ! ( "winspool.drv""system" fn AddPrinterA ( pname : :: windows::core::PCSTR , level : u32 , pprinter : *const u8 ) -> super::super::Foundation:: HANDLE );
-    AddPrinterA(pname.into().abi(), level, pprinter)
+    let result__ = AddPrinterA(pname.into().abi(), level, pprinter);
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -246,12 +247,13 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterW<P0>(pname: P0, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE
+pub unsafe fn AddPrinterW<P0>(pname: P0, level: u32, pprinter: *const u8) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::imp::link ! ( "winspool.drv""system" fn AddPrinterW ( pname : :: windows::core::PCWSTR , level : u32 , pprinter : *const u8 ) -> super::super::Foundation:: HANDLE );
-    AddPrinterW(pname.into().abi(), level, pprinter)
+    let result__ = AddPrinterW(pname.into().abi(), level, pprinter);
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1563,12 +1565,13 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSpoolFileHandle<P0>(hprinter: P0) -> super::super::Foundation::HANDLE
+pub unsafe fn GetSpoolFileHandle<P0>(hprinter: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "winspool.drv""system" fn GetSpoolFileHandle ( hprinter : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
-    GetSpoolFileHandle(hprinter.into())
+    let result__ = GetSpoolFileHandle(hprinter.into());
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

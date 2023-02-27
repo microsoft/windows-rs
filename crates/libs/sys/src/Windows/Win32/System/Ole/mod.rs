@@ -215,7 +215,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "oledlg.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleUIUpdateLinksW ( lpoleuilinkcntr : IOleUILinkContainerW , hwndparent : super::super::Foundation:: HWND , lpsztitle : :: windows_sys::core::PCWSTR , clinks : i32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn OleUninitialize ( ) -> ( ) );
-::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn QueryPathOfRegTypeLib ( guid : *const :: windows_sys::core::GUID , wmaj : u16 , wmin : u16 , lcid : u32 , lpbstrpathname : *mut *mut u16 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn QueryPathOfRegTypeLib ( guid : *const :: windows_sys::core::GUID , wmaj : u16 , wmin : u16 , lcid : u32 , lpbstrpathname : *mut :: windows_sys::core::BSTR ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn RegisterActiveObject ( punk : :: windows_sys::core::IUnknown , rclsid : *const :: windows_sys::core::GUID , dwflags : ACTIVEOBJECT_FLAGS , pdwregister : *mut u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn RegisterDragDrop ( hwnd : super::super::Foundation:: HWND , pdroptarget : IDropTarget ) -> :: windows_sys::core::HRESULT );
@@ -333,7 +333,7 @@
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VarBoolFromUI4 ( ulin : u32 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VarBoolFromUI8 ( i64in : u64 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarBstrCat ( bstrleft : :: windows_sys::core::BSTR , bstrright : :: windows_sys::core::BSTR , pbstrresult : *mut *mut u16 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarBstrCat ( bstrleft : :: windows_sys::core::BSTR , bstrright : :: windows_sys::core::BSTR , pbstrresult : *mut :: windows_sys::core::BSTR ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarBstrCmp ( bstrleft : :: windows_sys::core::BSTR , bstrright : :: windows_sys::core::BSTR , lcid : u32 , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VarBstrFromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , lcid : u32 , dwflags : u32 , pbstrout : *mut :: windows_sys::core::BSTR ) -> :: windows_sys::core::HRESULT );

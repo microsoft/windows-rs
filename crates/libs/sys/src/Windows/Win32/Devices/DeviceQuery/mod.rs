@@ -206,7 +206,7 @@ impl ::core::clone::Clone for DEV_OBJECT {
 #[cfg(feature = "Win32_Devices_Properties")]
 pub struct DEV_QUERY_PARAMETER {
     pub Key: super::Properties::DEVPROPKEY,
-    pub Type: u32,
+    pub Type: super::Properties::DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut ::core::ffi::c_void,
 }

@@ -35,8 +35,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "avrt.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn AvSetMmThreadPriority ( avrthandle : super::super::Foundation:: HANDLE , priority : AVRT_PRIORITY ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CallbackMayRunLong ( pci : *mut TP_CALLBACK_INSTANCE ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CancelThreadpoolIo ( pio : *mut TP_IO ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CallbackMayRunLong ( pci : PTP_CALLBACK_INSTANCE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CancelThreadpoolIo ( pio : PTP_IO ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CancelWaitableTimer ( htimer : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -47,10 +47,10 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CloseThreadpoolCleanupGroup ( ptpcg : isize ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CloseThreadpoolCleanupGroupMembers ( ptpcg : isize , fcancelpendingcallbacks : super::super::Foundation:: BOOL , pvcleanupcontext : *mut ::core::ffi::c_void ) -> ( ) );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CloseThreadpoolIo ( pio : *mut TP_IO ) -> ( ) );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CloseThreadpoolTimer ( pti : *mut TP_TIMER ) -> ( ) );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CloseThreadpoolWait ( pwa : *mut TP_WAIT ) -> ( ) );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CloseThreadpoolWork ( pwk : *mut TP_WORK ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CloseThreadpoolIo ( pio : PTP_IO ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CloseThreadpoolTimer ( pti : PTP_TIMER ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CloseThreadpoolWait ( pwa : PTP_WAIT ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CloseThreadpoolWork ( pwk : PTP_WORK ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn ConvertFiberToThread ( ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn ConvertThreadToFiber ( lpparameter : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
@@ -108,10 +108,10 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpool ( reserved : *const ::core::ffi::c_void ) -> PTP_POOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpoolCleanupGroup ( ) -> isize );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CreateThreadpoolIo ( fl : super::super::Foundation:: HANDLE , pfnio : PTP_WIN32_IO_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_IO );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpoolTimer ( pfnti : PTP_TIMER_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_TIMER );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpoolWait ( pfnwa : PTP_WAIT_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_WAIT );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpoolWork ( pfnwk : PTP_WORK_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_WORK );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CreateThreadpoolIo ( fl : super::super::Foundation:: HANDLE , pfnio : PTP_WIN32_IO_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> PTP_IO );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpoolTimer ( pfnti : PTP_TIMER_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> PTP_TIMER );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpoolWait ( pfnwa : PTP_WAIT_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> PTP_WAIT );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpoolWork ( pfnwk : PTP_WORK_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> PTP_WORK );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CreateTimerQueue ( ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
@@ -143,7 +143,7 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn DeleteUmsThreadContext ( umsthread : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn DequeueUmsCompletionListItems ( umscompletionlist : *const ::core::ffi::c_void , waittimeout : u32 , umsthreadlist : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn DisassociateCurrentThreadFromCallback ( pci : *mut TP_CALLBACK_INSTANCE ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn DisassociateCurrentThreadFromCallback ( pci : PTP_CALLBACK_INSTANCE ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"] fn EnterCriticalSection ( lpcriticalsection : *mut RTL_CRITICAL_SECTION ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
@@ -162,7 +162,7 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn FlsSetValue ( dwflsindex : u32 , lpflsdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn FlushProcessWriteBuffers ( ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn FreeLibraryWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , r#mod : super::super::Foundation:: HINSTANCE ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn FreeLibraryWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , r#mod : super::super::Foundation:: HINSTANCE ) -> ( ) );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn GetActiveProcessorCount ( groupnumber : u16 ) -> u32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn GetActiveProcessorGroupCount ( ) -> u16 );
 #[cfg(feature = "Win32_Foundation")]
@@ -311,7 +311,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn IsThreadAFiber ( ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn IsThreadpoolTimerSet ( pti : *mut TP_TIMER ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn IsThreadpoolTimerSet ( pti : PTP_TIMER ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn IsWow64Process ( hprocess : super::super::Foundation:: HANDLE , wow64process : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
@@ -319,7 +319,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"] fn LeaveCriticalSection ( lpcriticalsection : *mut RTL_CRITICAL_SECTION ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"] fn LeaveCriticalSectionWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , pcs : *mut RTL_CRITICAL_SECTION ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"] fn LeaveCriticalSectionWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , pcs : *mut RTL_CRITICAL_SECTION ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ntdll.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn NtQueryInformationProcess ( processhandle : super::super::Foundation:: HANDLE , processinformationclass : PROCESSINFOCLASS , processinformation : *mut ::core::ffi::c_void , processinformationlength : u32 , returnlength : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
 #[cfg(feature = "Win32_Foundation")]
@@ -373,13 +373,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn ReleaseMutex ( hmutex : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn ReleaseMutexWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , r#mut : super::super::Foundation:: HANDLE ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn ReleaseMutexWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , r#mut : super::super::Foundation:: HANDLE ) -> ( ) );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn ReleaseSRWLockExclusive ( srwlock : *mut RTL_SRWLOCK ) -> ( ) );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn ReleaseSRWLockShared ( srwlock : *mut RTL_SRWLOCK ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn ReleaseSemaphore ( hsemaphore : super::super::Foundation:: HANDLE , lreleasecount : i32 , lppreviouscount : *mut i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn ReleaseSemaphoreWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , sem : super::super::Foundation:: HANDLE , crel : u32 ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn ReleaseSemaphoreWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , sem : super::super::Foundation:: HANDLE , crel : u32 ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn ResetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -389,7 +389,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetEventWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , evt : super::super::Foundation:: HANDLE ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetEventWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , evt : super::super::Foundation:: HANDLE ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetPriorityClass ( hprocess : super::super::Foundation:: HANDLE , dwpriorityclass : PROCESS_CREATION_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -450,13 +450,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolThreadMinimum ( ptpp : PTP_POOL , cthrdmic : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolTimer ( pti : *mut TP_TIMER , pftduetime : *const super::super::Foundation:: FILETIME , msperiod : u32 , mswindowlength : u32 ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolTimer ( pti : PTP_TIMER , pftduetime : *const super::super::Foundation:: FILETIME , msperiod : u32 , mswindowlength : u32 ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolTimerEx ( pti : *mut TP_TIMER , pftduetime : *const super::super::Foundation:: FILETIME , msperiod : u32 , mswindowlength : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolTimerEx ( pti : PTP_TIMER , pftduetime : *const super::super::Foundation:: FILETIME , msperiod : u32 , mswindowlength : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolWait ( pwa : *mut TP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolWait ( pwa : PTP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolWaitEx ( pwa : *mut TP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME , reserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolWaitEx ( pwa : PTP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME , reserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetTimerQueueTimer ( timerqueue : super::super::Foundation:: HANDLE , callback : WAITORTIMERCALLBACK , parameter : *const ::core::ffi::c_void , duetime : u32 , period : u32 , preferio : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
@@ -472,8 +472,8 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SleepConditionVariableSRW ( conditionvariable : *mut RTL_CONDITION_VARIABLE , srwlock : *mut RTL_SRWLOCK , dwmilliseconds : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SleepEx ( dwmilliseconds : u32 , balertable : super::super::Foundation:: BOOL ) -> u32 );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn StartThreadpoolIo ( pio : *mut TP_IO ) -> ( ) );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn SubmitThreadpoolWork ( pwk : *mut TP_WORK ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn StartThreadpoolIo ( pio : PTP_IO ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn SubmitThreadpoolWork ( pwk : PTP_WORK ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SuspendThread ( hthread : super::super::Foundation:: HANDLE ) -> u32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn SwitchToFiber ( lpfiber : *const ::core::ffi::c_void ) -> ( ) );
@@ -516,13 +516,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitForSingleObjectEx ( hhandle : super::super::Foundation:: HANDLE , dwmilliseconds : u32 , balertable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitForThreadpoolIoCallbacks ( pio : *mut TP_IO , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitForThreadpoolIoCallbacks ( pio : PTP_IO , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitForThreadpoolTimerCallbacks ( pti : *mut TP_TIMER , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitForThreadpoolTimerCallbacks ( pti : PTP_TIMER , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitForThreadpoolWaitCallbacks ( pwa : *mut TP_WAIT , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitForThreadpoolWaitCallbacks ( pwa : PTP_WAIT , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitForThreadpoolWorkCallbacks ( pwk : *mut TP_WORK , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitForThreadpoolWorkCallbacks ( pwk : PTP_WORK , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "api-ms-win-core-synch-l1-2-0.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn WaitOnAddress ( address : *const ::core::ffi::c_void , compareaddress : *const ::core::ffi::c_void , addresssize : usize , dwmilliseconds : u32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn WakeAllConditionVariable ( conditionvariable : *mut RTL_CONDITION_VARIABLE ) -> ( ) );
@@ -1461,7 +1461,12 @@ impl ::core::clone::Clone for PROCESS_PROTECTION_LEVEL_INFORMATION {
         *self
     }
 }
+pub type PTP_CALLBACK_INSTANCE = isize;
+pub type PTP_IO = isize;
 pub type PTP_POOL = isize;
+pub type PTP_TIMER = isize;
+pub type PTP_WAIT = isize;
+pub type PTP_WORK = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1767,10 +1772,6 @@ impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1_0 {
     }
 }
 #[repr(C)]
-pub struct TP_CALLBACK_INSTANCE(pub u8);
-#[repr(C)]
-pub struct TP_IO(pub u8);
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
@@ -1782,12 +1783,6 @@ impl ::core::clone::Clone for TP_POOL_STACK_INFORMATION {
         *self
     }
 }
-#[repr(C)]
-pub struct TP_TIMER(pub u8);
-#[repr(C)]
-pub struct TP_WAIT(pub u8);
-#[repr(C)]
-pub struct TP_WORK(pub u8);
 pub type TimerQueueHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_SystemServices\"`*"]
@@ -1860,15 +1855,15 @@ pub type PTIMERAPCROUTINE = ::core::option::Option<unsafe extern "system" fn(lpa
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_SIMPLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void) -> ()>;
+pub type PTP_SIMPLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_TIMER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: *mut TP_TIMER) -> ()>;
+pub type PTP_TIMER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: PTP_TIMER) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_WAIT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32) -> ()>;
+pub type PTP_WAIT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: PTP_WAIT, waitresult: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_WIN32_IO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, overlapped: *mut ::core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: *mut TP_IO) -> ()>;
+pub type PTP_WIN32_IO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, overlapped: *mut ::core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: PTP_IO) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: *mut TP_WORK) -> ()>;
+pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: PTP_WORK) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN) -> ()>;

@@ -49,8 +49,8 @@ fn main() -> Result<()> {
                     w!("Caption"),
                     0,
                     &mut value,
-                    std::ptr::null_mut(),
-                    std::ptr::null_mut(),
+                    None,
+                    None,
                 )?;
                 println!(
                     "{}",

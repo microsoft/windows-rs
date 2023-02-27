@@ -40094,8 +40094,8 @@ impl IVideoProcAmp_Vtbl {
         iid == &<IVideoProcAmp as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IVideoWindow_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetCaption(&self, strcaption: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Caption(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -40106,7 +40106,7 @@ pub trait IVideoWindow_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetAutoShow(&self, autoshow: i32) -> ::windows::core::Result<()>;
     fn AutoShow(&self) -> ::windows::core::Result<i32>;
     fn SetWindowState(&self, windowstate: i32) -> ::windows::core::Result<()>;
-    fn WindowState(&self) -> ::windows::core::Result<i32>;
+    fn WindowState(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD>;
     fn SetBackgroundPalette(&self, backgroundpalette: i32) -> ::windows::core::Result<()>;
     fn BackgroundPalette(&self) -> ::windows::core::Result<i32>;
     fn SetVisible(&self, visible: i32) -> ::windows::core::Result<()>;
@@ -40137,9 +40137,9 @@ pub trait IVideoWindow_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn HideCursor(&self, hidecursor: OA_BOOL) -> ::windows::core::Result<()>;
     fn IsCursorHidden(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IVideoWindow {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IVideoWindow_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>() -> IVideoWindow_Vtbl {
         unsafe extern "system" fn SetCaption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcaption: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
@@ -40211,7 +40211,7 @@ impl IVideoWindow_Vtbl {
             let this = (*this).get_impl();
             this.SetWindowState(::core::mem::transmute_copy(&windowstate)).into()
         }
-        unsafe extern "system" fn WindowState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, windowstate: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WindowState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, windowstate: *mut super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.WindowState() {

@@ -1092,9 +1092,9 @@ pub unsafe fn OleUninitialize() {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
-pub unsafe fn QueryPathOfRegTypeLib(guid: *const ::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32) -> ::windows::core::Result<*mut u16> {
-    ::windows::imp::link ! ( "oleaut32.dll""system" fn QueryPathOfRegTypeLib ( guid : *const :: windows::core::GUID , wmaj : u16 , wmin : u16 , lcid : u32 , lpbstrpathname : *mut *mut u16 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<*mut u16>();
+pub unsafe fn QueryPathOfRegTypeLib(guid: *const ::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32) -> ::windows::core::Result<::windows::core::BSTR> {
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn QueryPathOfRegTypeLib ( guid : *const :: windows::core::GUID , wmaj : u16 , wmin : u16 , lcid : u32 , lpbstrpathname : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
     QueryPathOfRegTypeLib(guid, wmaj, wmin, lcid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -1574,9 +1574,9 @@ pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::core::Result<super::super
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
-pub unsafe fn VarBstrCat(bstrleft: &::windows::core::BSTR, bstrright: &::windows::core::BSTR) -> ::windows::core::Result<*mut u16> {
-    ::windows::imp::link ! ( "oleaut32.dll""system" fn VarBstrCat ( bstrleft : ::std::mem::MaybeUninit <::windows::core::BSTR > , bstrright : ::std::mem::MaybeUninit <::windows::core::BSTR > , pbstrresult : *mut *mut u16 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<*mut u16>();
+pub unsafe fn VarBstrCat(bstrleft: &::windows::core::BSTR, bstrright: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn VarBstrCat ( bstrleft : ::std::mem::MaybeUninit <::windows::core::BSTR > , bstrright : ::std::mem::MaybeUninit <::windows::core::BSTR > , pbstrresult : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
     VarBstrCat(::core::mem::transmute_copy(bstrleft), ::core::mem::transmute_copy(bstrright), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -9544,7 +9544,9 @@ impl IPropertyPage {
     pub unsafe fn SetObjects(&self, ppunk: &[::core::option::Option<::windows::core::IUnknown>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetObjects)(::windows::core::Vtable::as_raw(self), ppunk.len() as _, ::core::mem::transmute(ppunk.as_ptr())).ok()
     }
-    pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn Show(&self, ncmdshow: super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), ncmdshow).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9608,7 +9610,10 @@ pub struct IPropertyPage_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPageInfo: usize,
     pub SetObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cobjects: u32, ppunk: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncmdshow: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncmdshow: super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    Show: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9651,7 +9656,9 @@ impl IPropertyPage2 {
     pub unsafe fn SetObjects(&self, ppunk: &[::core::option::Option<::windows::core::IUnknown>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetObjects)(::windows::core::Vtable::as_raw(self), ppunk.len() as _, ::core::mem::transmute(ppunk.as_ptr())).ok()
     }
-    pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn Show(&self, ncmdshow: super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Show)(::windows::core::Vtable::as_raw(self), ncmdshow).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

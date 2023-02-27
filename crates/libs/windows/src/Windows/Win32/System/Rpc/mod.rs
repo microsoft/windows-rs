@@ -546,38 +546,38 @@ pub unsafe fn NDRCContextUnmarshall(pccontext: ::core::option::Option<*mut isize
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextMarshall ( ccontext : *const NDR_SCONTEXT_1 , pbuff : *mut ::core::ffi::c_void , userrundownin : NDR_RUNDOWN ) -> ( ) );
+pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextMarshall ( ccontext : *const NDR_SCONTEXT , pbuff : *mut ::core::ffi::c_void , userrundownin : NDR_RUNDOWN ) -> ( ) );
     NDRSContextMarshall(ccontext, pbuff, userrundownin)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN, ctxguard: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32) {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextMarshall2 ( bindinghandle : *const ::core::ffi::c_void , ccontext : *const NDR_SCONTEXT_1 , pbuff : *mut ::core::ffi::c_void , userrundownin : NDR_RUNDOWN , ctxguard : *const ::core::ffi::c_void , flags : u32 ) -> ( ) );
+pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN, ctxguard: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32) {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextMarshall2 ( bindinghandle : *const ::core::ffi::c_void , ccontext : *const NDR_SCONTEXT , pbuff : *mut ::core::ffi::c_void , userrundownin : NDR_RUNDOWN , ctxguard : *const ::core::ffi::c_void , flags : u32 ) -> ( ) );
     NDRSContextMarshall2(bindinghandle, ccontext, pbuff, userrundownin, ::core::mem::transmute(ctxguard.unwrap_or(::std::ptr::null())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextMarshallEx ( bindinghandle : *const ::core::ffi::c_void , ccontext : *const NDR_SCONTEXT_1 , pbuff : *mut ::core::ffi::c_void , userrundownin : NDR_RUNDOWN ) -> ( ) );
+pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextMarshallEx ( bindinghandle : *const ::core::ffi::c_void , ccontext : *const NDR_SCONTEXT , pbuff : *mut ::core::ffi::c_void , userrundownin : NDR_RUNDOWN ) -> ( ) );
     NDRSContextMarshallEx(bindinghandle, ccontext, pbuff, userrundownin)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn NDRSContextUnmarshall(pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1 {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextUnmarshall ( pbuff : *const ::core::ffi::c_void , datarepresentation : u32 ) -> *mut NDR_SCONTEXT_1 );
+pub unsafe fn NDRSContextUnmarshall(pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextUnmarshall ( pbuff : *const ::core::ffi::c_void , datarepresentation : u32 ) -> *mut NDR_SCONTEXT );
     NDRSContextUnmarshall(pbuff, datarepresentation)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn NDRSContextUnmarshall2(bindinghandle: *const ::core::ffi::c_void, pbuff: ::core::option::Option<*const ::core::ffi::c_void>, datarepresentation: u32, ctxguard: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32) -> *mut NDR_SCONTEXT_1 {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextUnmarshall2 ( bindinghandle : *const ::core::ffi::c_void , pbuff : *const ::core::ffi::c_void , datarepresentation : u32 , ctxguard : *const ::core::ffi::c_void , flags : u32 ) -> *mut NDR_SCONTEXT_1 );
+pub unsafe fn NDRSContextUnmarshall2(bindinghandle: *const ::core::ffi::c_void, pbuff: ::core::option::Option<*const ::core::ffi::c_void>, datarepresentation: u32, ctxguard: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32) -> *mut NDR_SCONTEXT {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextUnmarshall2 ( bindinghandle : *const ::core::ffi::c_void , pbuff : *const ::core::ffi::c_void , datarepresentation : u32 , ctxguard : *const ::core::ffi::c_void , flags : u32 ) -> *mut NDR_SCONTEXT );
     NDRSContextUnmarshall2(bindinghandle, ::core::mem::transmute(pbuff.unwrap_or(::std::ptr::null())), datarepresentation, ::core::mem::transmute(ctxguard.unwrap_or(::std::ptr::null())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1 {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextUnmarshallEx ( bindinghandle : *const ::core::ffi::c_void , pbuff : *const ::core::ffi::c_void , datarepresentation : u32 ) -> *mut NDR_SCONTEXT_1 );
+pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NDRSContextUnmarshallEx ( bindinghandle : *const ::core::ffi::c_void , pbuff : *const ::core::ffi::c_void , datarepresentation : u32 ) -> *mut NDR_SCONTEXT );
     NDRSContextUnmarshallEx(bindinghandle, pbuff, datarepresentation)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
@@ -955,8 +955,8 @@ pub unsafe fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESS
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrContextHandleInitialize(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT_1 {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrContextHandleInitialize ( pstubmsg : *const MIDL_STUB_MESSAGE , pformat : *const u8 ) -> *mut NDR_SCONTEXT_1 );
+pub unsafe fn NdrContextHandleInitialize(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrContextHandleInitialize ( pstubmsg : *const MIDL_STUB_MESSAGE , pformat : *const u8 ) -> *mut NDR_SCONTEXT );
     NdrContextHandleInitialize(pstubmsg, pformat)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
@@ -1551,29 +1551,29 @@ pub unsafe fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE) {
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: NDR_RUNDOWN) {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrServerContextMarshall ( pstubmsg : *mut MIDL_STUB_MESSAGE , contexthandle : *mut NDR_SCONTEXT_1 , rundownroutine : NDR_RUNDOWN ) -> ( ) );
+pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT, rundownroutine: NDR_RUNDOWN) {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrServerContextMarshall ( pstubmsg : *mut MIDL_STUB_MESSAGE , contexthandle : *mut NDR_SCONTEXT , rundownroutine : NDR_RUNDOWN ) -> ( ) );
     NdrServerContextMarshall(pstubmsg, contexthandle, rundownroutine)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: NDR_RUNDOWN, pformat: *mut u8) {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrServerContextNewMarshall ( pstubmsg : *mut MIDL_STUB_MESSAGE , contexthandle : *mut NDR_SCONTEXT_1 , rundownroutine : NDR_RUNDOWN , pformat : *mut u8 ) -> ( ) );
+pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT, rundownroutine: NDR_RUNDOWN, pformat: *mut u8) {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrServerContextNewMarshall ( pstubmsg : *mut MIDL_STUB_MESSAGE , contexthandle : *mut NDR_SCONTEXT , rundownroutine : NDR_RUNDOWN , pformat : *mut u8 ) -> ( ) );
     NdrServerContextNewMarshall(pstubmsg, contexthandle, rundownroutine, pformat)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerContextNewUnmarshall(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT_1 {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrServerContextNewUnmarshall ( pstubmsg : *const MIDL_STUB_MESSAGE , pformat : *const u8 ) -> *mut NDR_SCONTEXT_1 );
+pub unsafe fn NdrServerContextNewUnmarshall(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrServerContextNewUnmarshall ( pstubmsg : *const MIDL_STUB_MESSAGE , pformat : *const u8 ) -> *mut NDR_SCONTEXT );
     NdrServerContextNewUnmarshall(pstubmsg, pformat)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *mut NDR_SCONTEXT_1 {
-    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrServerContextUnmarshall ( pstubmsg : *mut MIDL_STUB_MESSAGE ) -> *mut NDR_SCONTEXT_1 );
+pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *mut NDR_SCONTEXT {
+    ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrServerContextUnmarshall ( pstubmsg : *mut MIDL_STUB_MESSAGE ) -> *mut NDR_SCONTEXT );
     NdrServerContextUnmarshall(pstubmsg)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
@@ -5577,7 +5577,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub _bitfield: i32,
     pub dwDestContext: u32,
     pub pvDestContext: *mut ::core::ffi::c_void,
-    pub SavedContextHandles: *mut *mut NDR_SCONTEXT_1,
+    pub SavedContextHandles: *mut *mut NDR_SCONTEXT,
     pub ParamNumber: i32,
     pub pRpcChannelBuffer: ::windows::core::ManuallyDrop<super::Com::IRpcChannelBuffer>,
     pub pArrayInfo: *mut ARRAY_INFO,
@@ -8058,31 +8058,31 @@ impl ::core::default::Default for NDR_EXPR_DESC {
 pub struct NDR_POINTER_QUEUE_STATE(pub u8);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub struct NDR_SCONTEXT_1 {
+pub struct NDR_SCONTEXT {
     pub pad: [*mut ::core::ffi::c_void; 2],
     pub userContext: *mut ::core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR_SCONTEXT_1 {}
-impl ::core::clone::Clone for NDR_SCONTEXT_1 {
+impl ::core::marker::Copy for NDR_SCONTEXT {}
+impl ::core::clone::Clone for NDR_SCONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR_SCONTEXT_1 {
+impl ::core::fmt::Debug for NDR_SCONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDR_SCONTEXT_1").field("pad", &self.pad).field("userContext", &self.userContext).finish()
+        f.debug_struct("NDR_SCONTEXT").field("pad", &self.pad).field("userContext", &self.userContext).finish()
     }
 }
-impl ::windows::core::TypeKind for NDR_SCONTEXT_1 {
+impl ::windows::core::TypeKind for NDR_SCONTEXT {
     type TypeKind = ::windows::core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR_SCONTEXT_1 {
+impl ::core::cmp::PartialEq for NDR_SCONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.pad == other.pad && self.userContext == other.userContext
     }
 }
-impl ::core::cmp::Eq for NDR_SCONTEXT_1 {}
-impl ::core::default::Default for NDR_SCONTEXT_1 {
+impl ::core::cmp::Eq for NDR_SCONTEXT {}
+impl ::core::default::Default for NDR_SCONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -10771,7 +10771,7 @@ impl ::core::default::Default for RPC_VERSION {
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub struct SCONTEXT_QUEUE {
     pub NumberOfObjects: u32,
-    pub ArrayOfObjects: *mut *mut NDR_SCONTEXT_1,
+    pub ArrayOfObjects: *mut *mut NDR_SCONTEXT,
 }
 impl ::core::marker::Copy for SCONTEXT_QUEUE {}
 impl ::core::clone::Clone for SCONTEXT_QUEUE {
@@ -11011,37 +11011,6 @@ pub struct _NDR_ASYNC_MESSAGE(pub u8);
 pub struct _NDR_CORRELATION_INFO(pub u8);
 #[repr(C)]
 pub struct _NDR_PROC_CONTEXT(pub u8);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub struct _NDR_SCONTEXT {
-    pub pad: [*mut ::core::ffi::c_void; 2],
-    pub userContext: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for _NDR_SCONTEXT {}
-impl ::core::clone::Clone for _NDR_SCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _NDR_SCONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_NDR_SCONTEXT").field("pad", &self.pad).field("userContext", &self.userContext).finish()
-    }
-}
-impl ::windows::core::TypeKind for _NDR_SCONTEXT {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::cmp::PartialEq for _NDR_SCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pad == other.pad && self.userContext == other.userContext
-    }
-}
-impl ::core::cmp::Eq for _NDR_SCONTEXT {}
-impl ::core::default::Default for _NDR_SCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub type CS_TAG_GETTING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]

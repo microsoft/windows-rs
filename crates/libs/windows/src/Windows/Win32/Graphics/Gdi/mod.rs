@@ -8366,31 +8366,31 @@ impl ::core::fmt::Debug for OBJ_TYPE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_ARM_STYLE(pub u32);
+pub struct PAN_ARM_STYLE(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_ARM_ANY: PAN_ARM_STYLE = PAN_ARM_STYLE(0u32);
+pub const PAN_ARM_ANY: PAN_ARM_STYLE = PAN_ARM_STYLE(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_ARM_NO_FIT: PAN_ARM_STYLE = PAN_ARM_STYLE(1u32);
+pub const PAN_ARM_NO_FIT: PAN_ARM_STYLE = PAN_ARM_STYLE(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(2u32);
+pub const PAN_STRAIGHT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(3u32);
+pub const PAN_STRAIGHT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(4u32);
+pub const PAN_STRAIGHT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(5u32);
+pub const PAN_STRAIGHT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(6u32);
+pub const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(7u32);
+pub const PAN_BENT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(7u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(8u32);
+pub const PAN_BENT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(9u32);
+pub const PAN_BENT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(9u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(10u32);
+pub const PAN_BENT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(10u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(11u32);
+pub const PAN_BENT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(11u8);
 impl ::core::marker::Copy for PAN_ARM_STYLE {}
 impl ::core::clone::Clone for PAN_ARM_STYLE {
     fn clone(&self) -> Self {
@@ -8413,29 +8413,29 @@ impl ::core::fmt::Debug for PAN_ARM_STYLE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_CONTRAST(pub u32);
+pub struct PAN_CONTRAST(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_ANY: PAN_CONTRAST = PAN_CONTRAST(0u32);
+pub const PAN_CONTRAST_ANY: PAN_CONTRAST = PAN_CONTRAST(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_NO_FIT: PAN_CONTRAST = PAN_CONTRAST(1u32);
+pub const PAN_CONTRAST_NO_FIT: PAN_CONTRAST = PAN_CONTRAST(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_INDEX: PAN_CONTRAST = PAN_CONTRAST(4u32);
+pub const PAN_CONTRAST_INDEX: PAN_CONTRAST = PAN_CONTRAST(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_NONE: PAN_CONTRAST = PAN_CONTRAST(2u32);
+pub const PAN_CONTRAST_NONE: PAN_CONTRAST = PAN_CONTRAST(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_VERY_LOW: PAN_CONTRAST = PAN_CONTRAST(3u32);
+pub const PAN_CONTRAST_VERY_LOW: PAN_CONTRAST = PAN_CONTRAST(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_LOW: PAN_CONTRAST = PAN_CONTRAST(4u32);
+pub const PAN_CONTRAST_LOW: PAN_CONTRAST = PAN_CONTRAST(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_MEDIUM_LOW: PAN_CONTRAST = PAN_CONTRAST(5u32);
+pub const PAN_CONTRAST_MEDIUM_LOW: PAN_CONTRAST = PAN_CONTRAST(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_MEDIUM: PAN_CONTRAST = PAN_CONTRAST(6u32);
+pub const PAN_CONTRAST_MEDIUM: PAN_CONTRAST = PAN_CONTRAST(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_MEDIUM_HIGH: PAN_CONTRAST = PAN_CONTRAST(7u32);
+pub const PAN_CONTRAST_MEDIUM_HIGH: PAN_CONTRAST = PAN_CONTRAST(7u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_HIGH: PAN_CONTRAST = PAN_CONTRAST(8u32);
+pub const PAN_CONTRAST_HIGH: PAN_CONTRAST = PAN_CONTRAST(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_VERY_HIGH: PAN_CONTRAST = PAN_CONTRAST(9u32);
+pub const PAN_CONTRAST_VERY_HIGH: PAN_CONTRAST = PAN_CONTRAST(9u8);
 impl ::core::marker::Copy for PAN_CONTRAST {}
 impl ::core::clone::Clone for PAN_CONTRAST {
     fn clone(&self) -> Self {
@@ -8458,19 +8458,19 @@ impl ::core::fmt::Debug for PAN_CONTRAST {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_FAMILY_TYPE(pub u32);
+pub struct PAN_FAMILY_TYPE(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_ANY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(0u32);
+pub const PAN_FAMILY_ANY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_NO_FIT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(1u32);
+pub const PAN_FAMILY_NO_FIT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_TEXT_DISPLAY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(2u32);
+pub const PAN_FAMILY_TEXT_DISPLAY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_SCRIPT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(3u32);
+pub const PAN_FAMILY_SCRIPT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_DECORATIVE: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(4u32);
+pub const PAN_FAMILY_DECORATIVE: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_PICTORIAL: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(5u32);
+pub const PAN_FAMILY_PICTORIAL: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(5u8);
 impl ::core::marker::Copy for PAN_FAMILY_TYPE {}
 impl ::core::clone::Clone for PAN_FAMILY_TYPE {
     fn clone(&self) -> Self {
@@ -8493,39 +8493,39 @@ impl ::core::fmt::Debug for PAN_FAMILY_TYPE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_LETT_FORM(pub u32);
+pub struct PAN_LETT_FORM(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_FORM_ANY: PAN_LETT_FORM = PAN_LETT_FORM(0u32);
+pub const PAN_LETT_FORM_ANY: PAN_LETT_FORM = PAN_LETT_FORM(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_FORM_NO_FIT: PAN_LETT_FORM = PAN_LETT_FORM(1u32);
+pub const PAN_LETT_FORM_NO_FIT: PAN_LETT_FORM = PAN_LETT_FORM(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(2u32);
+pub const PAN_LETT_NORMAL_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(3u32);
+pub const PAN_LETT_NORMAL_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(4u32);
+pub const PAN_LETT_NORMAL_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(5u32);
+pub const PAN_LETT_NORMAL_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(6u32);
+pub const PAN_LETT_NORMAL_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(7u32);
+pub const PAN_LETT_NORMAL_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(7u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(8u32);
+pub const PAN_LETT_NORMAL_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(9u32);
+pub const PAN_LETT_OBLIQUE_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(9u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(10u32);
+pub const PAN_LETT_OBLIQUE_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(10u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(11u32);
+pub const PAN_LETT_OBLIQUE_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(11u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(12u32);
+pub const PAN_LETT_OBLIQUE_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(12u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(13u32);
+pub const PAN_LETT_OBLIQUE_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(13u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(14u32);
+pub const PAN_LETT_OBLIQUE_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(14u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(15u32);
+pub const PAN_LETT_OBLIQUE_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(15u8);
 impl ::core::marker::Copy for PAN_LETT_FORM {}
 impl ::core::clone::Clone for PAN_LETT_FORM {
     fn clone(&self) -> Self {
@@ -8548,37 +8548,37 @@ impl ::core::fmt::Debug for PAN_LETT_FORM {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_MIDLINE(pub u32);
+pub struct PAN_MIDLINE(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_ANY: PAN_MIDLINE = PAN_MIDLINE(0u32);
+pub const PAN_MIDLINE_ANY: PAN_MIDLINE = PAN_MIDLINE(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_NO_FIT: PAN_MIDLINE = PAN_MIDLINE(1u32);
+pub const PAN_MIDLINE_NO_FIT: PAN_MIDLINE = PAN_MIDLINE(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_INDEX: PAN_MIDLINE = PAN_MIDLINE(8u32);
+pub const PAN_MIDLINE_INDEX: PAN_MIDLINE = PAN_MIDLINE(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_STANDARD_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(2u32);
+pub const PAN_MIDLINE_STANDARD_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_STANDARD_POINTED: PAN_MIDLINE = PAN_MIDLINE(3u32);
+pub const PAN_MIDLINE_STANDARD_POINTED: PAN_MIDLINE = PAN_MIDLINE(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_STANDARD_SERIFED: PAN_MIDLINE = PAN_MIDLINE(4u32);
+pub const PAN_MIDLINE_STANDARD_SERIFED: PAN_MIDLINE = PAN_MIDLINE(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_HIGH_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(5u32);
+pub const PAN_MIDLINE_HIGH_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_HIGH_POINTED: PAN_MIDLINE = PAN_MIDLINE(6u32);
+pub const PAN_MIDLINE_HIGH_POINTED: PAN_MIDLINE = PAN_MIDLINE(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_HIGH_SERIFED: PAN_MIDLINE = PAN_MIDLINE(7u32);
+pub const PAN_MIDLINE_HIGH_SERIFED: PAN_MIDLINE = PAN_MIDLINE(7u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_CONSTANT_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(8u32);
+pub const PAN_MIDLINE_CONSTANT_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_CONSTANT_POINTED: PAN_MIDLINE = PAN_MIDLINE(9u32);
+pub const PAN_MIDLINE_CONSTANT_POINTED: PAN_MIDLINE = PAN_MIDLINE(9u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_CONSTANT_SERIFED: PAN_MIDLINE = PAN_MIDLINE(10u32);
+pub const PAN_MIDLINE_CONSTANT_SERIFED: PAN_MIDLINE = PAN_MIDLINE(10u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_LOW_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(11u32);
+pub const PAN_MIDLINE_LOW_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(11u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_LOW_POINTED: PAN_MIDLINE = PAN_MIDLINE(12u32);
+pub const PAN_MIDLINE_LOW_POINTED: PAN_MIDLINE = PAN_MIDLINE(12u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_LOW_SERIFED: PAN_MIDLINE = PAN_MIDLINE(13u32);
+pub const PAN_MIDLINE_LOW_SERIFED: PAN_MIDLINE = PAN_MIDLINE(13u8);
 impl ::core::marker::Copy for PAN_MIDLINE {}
 impl ::core::clone::Clone for PAN_MIDLINE {
     fn clone(&self) -> Self {
@@ -8601,27 +8601,27 @@ impl ::core::fmt::Debug for PAN_MIDLINE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_PROPORTION(pub u32);
+pub struct PAN_PROPORTION(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_ANY: PAN_PROPORTION = PAN_PROPORTION(0u32);
+pub const PAN_PROP_ANY: PAN_PROPORTION = PAN_PROPORTION(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_NO_FIT: PAN_PROPORTION = PAN_PROPORTION(1u32);
+pub const PAN_PROP_NO_FIT: PAN_PROPORTION = PAN_PROPORTION(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_OLD_STYLE: PAN_PROPORTION = PAN_PROPORTION(2u32);
+pub const PAN_PROP_OLD_STYLE: PAN_PROPORTION = PAN_PROPORTION(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_MODERN: PAN_PROPORTION = PAN_PROPORTION(3u32);
+pub const PAN_PROP_MODERN: PAN_PROPORTION = PAN_PROPORTION(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_EVEN_WIDTH: PAN_PROPORTION = PAN_PROPORTION(4u32);
+pub const PAN_PROP_EVEN_WIDTH: PAN_PROPORTION = PAN_PROPORTION(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(5u32);
+pub const PAN_PROP_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(6u32);
+pub const PAN_PROP_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_VERY_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(7u32);
+pub const PAN_PROP_VERY_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(7u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_VERY_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(8u32);
+pub const PAN_PROP_VERY_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_MONOSPACED: PAN_PROPORTION = PAN_PROPORTION(9u32);
+pub const PAN_PROP_MONOSPACED: PAN_PROPORTION = PAN_PROPORTION(9u8);
 impl ::core::marker::Copy for PAN_PROPORTION {}
 impl ::core::clone::Clone for PAN_PROPORTION {
     fn clone(&self) -> Self {
@@ -8644,39 +8644,39 @@ impl ::core::fmt::Debug for PAN_PROPORTION {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_SERIF_STYLE(pub u32);
+pub struct PAN_SERIF_STYLE(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_ANY: PAN_SERIF_STYLE = PAN_SERIF_STYLE(0u32);
+pub const PAN_SERIF_ANY: PAN_SERIF_STYLE = PAN_SERIF_STYLE(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_NO_FIT: PAN_SERIF_STYLE = PAN_SERIF_STYLE(1u32);
+pub const PAN_SERIF_NO_FIT: PAN_SERIF_STYLE = PAN_SERIF_STYLE(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(2u32);
+pub const PAN_SERIF_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_OBTUSE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(3u32);
+pub const PAN_SERIF_OBTUSE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(4u32);
+pub const PAN_SERIF_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_OBTUSE_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(5u32);
+pub const PAN_SERIF_OBTUSE_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_SQUARE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(6u32);
+pub const PAN_SERIF_SQUARE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_THIN: PAN_SERIF_STYLE = PAN_SERIF_STYLE(7u32);
+pub const PAN_SERIF_THIN: PAN_SERIF_STYLE = PAN_SERIF_STYLE(7u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_BONE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(8u32);
+pub const PAN_SERIF_BONE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_EXAGGERATED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(9u32);
+pub const PAN_SERIF_EXAGGERATED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(9u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_TRIANGLE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(10u32);
+pub const PAN_SERIF_TRIANGLE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(10u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_NORMAL_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(11u32);
+pub const PAN_SERIF_NORMAL_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(11u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_OBTUSE_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(12u32);
+pub const PAN_SERIF_OBTUSE_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(12u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_PERP_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(13u32);
+pub const PAN_SERIF_PERP_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(13u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_FLARED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(14u32);
+pub const PAN_SERIF_FLARED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(14u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_ROUNDED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(15u32);
+pub const PAN_SERIF_ROUNDED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(15u8);
 impl ::core::marker::Copy for PAN_SERIF_STYLE {}
 impl ::core::clone::Clone for PAN_SERIF_STYLE {
     fn clone(&self) -> Self {
@@ -8699,25 +8699,25 @@ impl ::core::fmt::Debug for PAN_SERIF_STYLE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_STROKE_VARIATION(pub u32);
+pub struct PAN_STROKE_VARIATION(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_ANY: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(0u32);
+pub const PAN_STROKE_ANY: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_NO_FIT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(1u32);
+pub const PAN_STROKE_NO_FIT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_DIAG: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(2u32);
+pub const PAN_STROKE_GRADUAL_DIAG: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_TRAN: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(3u32);
+pub const PAN_STROKE_GRADUAL_TRAN: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(4u32);
+pub const PAN_STROKE_GRADUAL_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(5u32);
+pub const PAN_STROKE_GRADUAL_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_RAPID_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(6u32);
+pub const PAN_STROKE_RAPID_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_RAPID_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(7u32);
+pub const PAN_STROKE_RAPID_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(7u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_INSTANT_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(8u32);
+pub const PAN_STROKE_INSTANT_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(8u8);
 impl ::core::marker::Copy for PAN_STROKE_VARIATION {}
 impl ::core::clone::Clone for PAN_STROKE_VARIATION {
     fn clone(&self) -> Self {
@@ -8740,33 +8740,33 @@ impl ::core::fmt::Debug for PAN_STROKE_VARIATION {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_WEIGHT(pub u32);
+pub struct PAN_WEIGHT(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_ANY: PAN_WEIGHT = PAN_WEIGHT(0u32);
+pub const PAN_WEIGHT_ANY: PAN_WEIGHT = PAN_WEIGHT(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_NO_FIT: PAN_WEIGHT = PAN_WEIGHT(1u32);
+pub const PAN_WEIGHT_NO_FIT: PAN_WEIGHT = PAN_WEIGHT(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_INDEX: PAN_WEIGHT = PAN_WEIGHT(2u32);
+pub const PAN_WEIGHT_INDEX: PAN_WEIGHT = PAN_WEIGHT(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_VERY_LIGHT: PAN_WEIGHT = PAN_WEIGHT(2u32);
+pub const PAN_WEIGHT_VERY_LIGHT: PAN_WEIGHT = PAN_WEIGHT(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_LIGHT: PAN_WEIGHT = PAN_WEIGHT(3u32);
+pub const PAN_WEIGHT_LIGHT: PAN_WEIGHT = PAN_WEIGHT(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_THIN: PAN_WEIGHT = PAN_WEIGHT(4u32);
+pub const PAN_WEIGHT_THIN: PAN_WEIGHT = PAN_WEIGHT(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_BOOK: PAN_WEIGHT = PAN_WEIGHT(5u32);
+pub const PAN_WEIGHT_BOOK: PAN_WEIGHT = PAN_WEIGHT(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_MEDIUM: PAN_WEIGHT = PAN_WEIGHT(6u32);
+pub const PAN_WEIGHT_MEDIUM: PAN_WEIGHT = PAN_WEIGHT(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_DEMI: PAN_WEIGHT = PAN_WEIGHT(7u32);
+pub const PAN_WEIGHT_DEMI: PAN_WEIGHT = PAN_WEIGHT(7u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_BOLD: PAN_WEIGHT = PAN_WEIGHT(8u32);
+pub const PAN_WEIGHT_BOLD: PAN_WEIGHT = PAN_WEIGHT(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_HEAVY: PAN_WEIGHT = PAN_WEIGHT(9u32);
+pub const PAN_WEIGHT_HEAVY: PAN_WEIGHT = PAN_WEIGHT(9u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_BLACK: PAN_WEIGHT = PAN_WEIGHT(10u32);
+pub const PAN_WEIGHT_BLACK: PAN_WEIGHT = PAN_WEIGHT(10u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_NORD: PAN_WEIGHT = PAN_WEIGHT(11u32);
+pub const PAN_WEIGHT_NORD: PAN_WEIGHT = PAN_WEIGHT(11u8);
 impl ::core::marker::Copy for PAN_WEIGHT {}
 impl ::core::clone::Clone for PAN_WEIGHT {
     fn clone(&self) -> Self {
@@ -8789,25 +8789,25 @@ impl ::core::fmt::Debug for PAN_WEIGHT {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAN_XHEIGHT(pub u32);
+pub struct PAN_XHEIGHT(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_ANY: PAN_XHEIGHT = PAN_XHEIGHT(0u32);
+pub const PAN_XHEIGHT_ANY: PAN_XHEIGHT = PAN_XHEIGHT(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_NO_FIT: PAN_XHEIGHT = PAN_XHEIGHT(1u32);
+pub const PAN_XHEIGHT_NO_FIT: PAN_XHEIGHT = PAN_XHEIGHT(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_INDEX: PAN_XHEIGHT = PAN_XHEIGHT(9u32);
+pub const PAN_XHEIGHT_INDEX: PAN_XHEIGHT = PAN_XHEIGHT(9u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_CONSTANT_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(2u32);
+pub const PAN_XHEIGHT_CONSTANT_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_CONSTANT_STD: PAN_XHEIGHT = PAN_XHEIGHT(3u32);
+pub const PAN_XHEIGHT_CONSTANT_STD: PAN_XHEIGHT = PAN_XHEIGHT(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_CONSTANT_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(4u32);
+pub const PAN_XHEIGHT_CONSTANT_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_DUCKING_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(5u32);
+pub const PAN_XHEIGHT_DUCKING_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_DUCKING_STD: PAN_XHEIGHT = PAN_XHEIGHT(6u32);
+pub const PAN_XHEIGHT_DUCKING_STD: PAN_XHEIGHT = PAN_XHEIGHT(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_DUCKING_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(7u32);
+pub const PAN_XHEIGHT_DUCKING_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(7u8);
 impl ::core::marker::Copy for PAN_XHEIGHT {}
 impl ::core::clone::Clone for PAN_XHEIGHT {
     fn clone(&self) -> Self {

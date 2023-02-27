@@ -399,58 +399,6 @@ pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 pub const DEVPROP_TYPEMOD_LIST: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_BOOLEAN: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_BYTE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_CURRENCY: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DATE: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DECIMAL: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DEVPROPKEY: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DEVPROPTYPE: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DOUBLE: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_EMPTY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_ERROR: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_FILETIME: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_FLOAT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_GUID: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_INT16: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_INT32: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_INT64: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_NTSTATUS: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_NULL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_SBYTE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_STRING: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_STRING_INDIRECT: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_UINT16: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_UINT32: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_UINT64: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 pub const MAX_DEVPROP_TYPE: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
@@ -479,6 +427,85 @@ impl ::windows::core::TypeKind for DEVPROPSTORE {
 impl ::core::fmt::Debug for DEVPROPSTORE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DEVPROPSTORE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROPTYPE(pub u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_EMPTY: DEVPROPTYPE = DEVPROPTYPE(0u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_NULL: DEVPROPTYPE = DEVPROPTYPE(1u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_SBYTE: DEVPROPTYPE = DEVPROPTYPE(2u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_BYTE: DEVPROPTYPE = DEVPROPTYPE(3u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_INT16: DEVPROPTYPE = DEVPROPTYPE(4u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_UINT16: DEVPROPTYPE = DEVPROPTYPE(5u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_INT32: DEVPROPTYPE = DEVPROPTYPE(6u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_UINT32: DEVPROPTYPE = DEVPROPTYPE(7u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_INT64: DEVPROPTYPE = DEVPROPTYPE(8u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_UINT64: DEVPROPTYPE = DEVPROPTYPE(9u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_FLOAT: DEVPROPTYPE = DEVPROPTYPE(10u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DOUBLE: DEVPROPTYPE = DEVPROPTYPE(11u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DECIMAL: DEVPROPTYPE = DEVPROPTYPE(12u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_GUID: DEVPROPTYPE = DEVPROPTYPE(13u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_CURRENCY: DEVPROPTYPE = DEVPROPTYPE(14u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DATE: DEVPROPTYPE = DEVPROPTYPE(15u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_FILETIME: DEVPROPTYPE = DEVPROPTYPE(16u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_BOOLEAN: DEVPROPTYPE = DEVPROPTYPE(17u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_STRING: DEVPROPTYPE = DEVPROPTYPE(18u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_STRING_LIST: DEVPROPTYPE = DEVPROPTYPE(8210u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR: DEVPROPTYPE = DEVPROPTYPE(19u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: DEVPROPTYPE = DEVPROPTYPE(20u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DEVPROPKEY: DEVPROPTYPE = DEVPROPTYPE(21u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DEVPROPTYPE: DEVPROPTYPE = DEVPROPTYPE(22u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_BINARY: DEVPROPTYPE = DEVPROPTYPE(4099u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_ERROR: DEVPROPTYPE = DEVPROPTYPE(23u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_NTSTATUS: DEVPROPTYPE = DEVPROPTYPE(24u32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_STRING_INDIRECT: DEVPROPTYPE = DEVPROPTYPE(25u32);
+impl ::core::marker::Copy for DEVPROPTYPE {}
+impl ::core::clone::Clone for DEVPROPTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROPTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for DEVPROPTYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROPTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROPTYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -517,7 +544,7 @@ impl ::core::default::Default for DEVPROPCOMPKEY {
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
-    pub Type: u32,
+    pub Type: DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut ::core::ffi::c_void,
 }

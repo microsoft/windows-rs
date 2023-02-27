@@ -79,45 +79,45 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn AssocQueryStringA<P0, P1>(flags: ASSOCF, str: ASSOCSTR, pszassoc: P0, pszextra: P1, pszout: ::windows::core::PSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn AssocQueryStringA<P0, P1>(flags: ASSOCF, str: ASSOCSTR, pszassoc: P0, pszextra: P1, pszout: ::windows::core::PSTR, pcchout: *mut u32) -> ::windows::core::HRESULT
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryStringA ( flags : ASSOCF , str : ASSOCSTR , pszassoc : :: windows::core::PCSTR , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
-    AssocQueryStringA(flags, str, pszassoc.into().abi(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout).ok()
+    AssocQueryStringA(flags, str, pszassoc.into().abi(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn AssocQueryStringByKeyA<P0, P1>(flags: ASSOCF, str: ASSOCSTR, hkassoc: P0, pszextra: P1, pszout: ::windows::core::PSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn AssocQueryStringByKeyA<P0, P1>(flags: ASSOCF, str: ASSOCSTR, hkassoc: P0, pszextra: P1, pszout: ::windows::core::PSTR, pcchout: *mut u32) -> ::windows::core::HRESULT
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyA ( flags : ASSOCF , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
-    AssocQueryStringByKeyA(flags, str, hkassoc.into(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout).ok()
+    AssocQueryStringByKeyA(flags, str, hkassoc.into(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn AssocQueryStringByKeyW<P0, P1>(flags: ASSOCF, str: ASSOCSTR, hkassoc: P0, pszextra: P1, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn AssocQueryStringByKeyW<P0, P1>(flags: ASSOCF, str: ASSOCSTR, hkassoc: P0, pszextra: P1, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::HRESULT
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyW ( flags : ASSOCF , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
-    AssocQueryStringByKeyW(flags, str, hkassoc.into(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout).ok()
+    AssocQueryStringByKeyW(flags, str, hkassoc.into(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn AssocQueryStringW<P0, P1>(flags: ASSOCF, str: ASSOCSTR, pszassoc: P0, pszextra: P1, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn AssocQueryStringW<P0, P1>(flags: ASSOCF, str: ASSOCSTR, pszassoc: P0, pszextra: P1, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::HRESULT
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::imp::link ! ( "shlwapi.dll""system" fn AssocQueryStringW ( flags : ASSOCF , str : ASSOCSTR , pszassoc : :: windows::core::PCWSTR , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
-    AssocQueryStringW(flags, str, pszassoc.into().abi(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout).ok()
+    AssocQueryStringW(flags, str, pszassoc.into().abi(), pszextra.into().abi(), ::core::mem::transmute(pszout), pcchout)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
@@ -9962,7 +9962,7 @@ impl IBrowserService {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: i32) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: ShellWindowTypeConstants) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -10080,7 +10080,7 @@ pub struct IBrowserService_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetPalette: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub RegisterWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fforceregister: super::super::Foundation::BOOL, swc: i32) -> ::windows::core::HRESULT,
+    pub RegisterWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fforceregister: super::super::Foundation::BOOL, swc: ShellWindowTypeConstants) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RegisterWindow: usize,
 }
@@ -10256,7 +10256,7 @@ impl IBrowserService2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: i32) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: ShellWindowTypeConstants) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -10968,7 +10968,7 @@ impl IBrowserService3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: i32) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: ShellWindowTypeConstants) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -11541,7 +11541,7 @@ impl IBrowserService4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: i32) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: ShellWindowTypeConstants) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -19846,11 +19846,11 @@ impl IFolderView {
         let mut result__ = ::windows::core::zeroed::<*mut Common::ITEMIDLIST>();
         (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), iitemindex, &mut result__).from_abi(result__)
     }
-    pub unsafe fn ItemCount(&self, uflags: u32) -> ::windows::core::Result<i32> {
+    pub unsafe fn ItemCount(&self, uflags: _SVGIO) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Vtable::vtable(self).ItemCount)(::windows::core::Vtable::as_raw(self), uflags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Items<T>(&self, uflags: u32) -> ::windows::core::Result<T>
+    pub unsafe fn Items<T>(&self, uflags: _SVGIO) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -19928,8 +19928,8 @@ pub struct IFolderView_Vtbl {
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iitemindex: i32, ppidl: *mut *mut Common::ITEMIDLIST) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_Common"))]
     Item: usize,
-    pub ItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uflags: u32, pcitems: *mut i32) -> ::windows::core::HRESULT,
-    pub Items: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uflags: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uflags: _SVGIO, pcitems: *mut i32) -> ::windows::core::HRESULT,
+    pub Items: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uflags: _SVGIO, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSelectionMarkedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piitem: *mut i32) -> ::windows::core::HRESULT,
     pub GetFocusedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piitem: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -19975,11 +19975,11 @@ impl IFolderView2 {
         let mut result__ = ::windows::core::zeroed::<*mut Common::ITEMIDLIST>();
         (::windows::core::Vtable::vtable(self).base__.Item)(::windows::core::Vtable::as_raw(self), iitemindex, &mut result__).from_abi(result__)
     }
-    pub unsafe fn ItemCount(&self, uflags: u32) -> ::windows::core::Result<i32> {
+    pub unsafe fn ItemCount(&self, uflags: _SVGIO) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Vtable::vtable(self).base__.ItemCount)(::windows::core::Vtable::as_raw(self), uflags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Items<T>(&self, uflags: u32) -> ::windows::core::Result<T>
+    pub unsafe fn Items<T>(&self, uflags: _SVGIO) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -31543,11 +31543,15 @@ impl IShellLinkA {
     pub unsafe fn SetHotkey(&self, whotkey: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetHotkey)(::windows::core::Vtable::as_raw(self), whotkey).ok()
     }
-    pub unsafe fn GetShowCmd(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn GetShowCmd(&self) -> ::windows::core::Result<super::WindowsAndMessaging::SHOW_WINDOW_CMD> {
+        let mut result__ = ::windows::core::zeroed::<super::WindowsAndMessaging::SHOW_WINDOW_CMD>();
         (::windows::core::Vtable::vtable(self).GetShowCmd)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetShowCmd(&self, ishowcmd: i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn SetShowCmd(&self, ishowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetShowCmd)(::windows::core::Vtable::as_raw(self), ishowcmd).ok()
     }
     pub unsafe fn GetIconLocation(&self, psziconpath: &mut [u8], piicon: *mut i32) -> ::windows::core::Result<()> {
@@ -31627,8 +31631,14 @@ pub struct IShellLinkA_Vtbl {
     pub SetArguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszargs: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetHotkey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwhotkey: *mut u16) -> ::windows::core::HRESULT,
     pub SetHotkey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whotkey: u16) -> ::windows::core::HRESULT,
-    pub GetShowCmd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pishowcmd: *mut i32) -> ::windows::core::HRESULT,
-    pub SetShowCmd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ishowcmd: i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub GetShowCmd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pishowcmd: *mut super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    GetShowCmd: usize,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub SetShowCmd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ishowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    SetShowCmd: usize,
     pub GetIconLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psziconpath: ::windows::core::PSTR, cch: i32, piicon: *mut i32) -> ::windows::core::HRESULT,
     pub SetIconLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psziconpath: ::windows::core::PCSTR, iicon: i32) -> ::windows::core::HRESULT,
     pub SetRelativePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpathrel: ::windows::core::PCSTR, dwreserved: u32) -> ::windows::core::HRESULT,
@@ -31973,11 +31983,15 @@ impl IShellLinkW {
     pub unsafe fn SetHotkey(&self, whotkey: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetHotkey)(::windows::core::Vtable::as_raw(self), whotkey).ok()
     }
-    pub unsafe fn GetShowCmd(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn GetShowCmd(&self) -> ::windows::core::Result<super::WindowsAndMessaging::SHOW_WINDOW_CMD> {
+        let mut result__ = ::windows::core::zeroed::<super::WindowsAndMessaging::SHOW_WINDOW_CMD>();
         (::windows::core::Vtable::vtable(self).GetShowCmd)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetShowCmd(&self, ishowcmd: i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn SetShowCmd(&self, ishowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetShowCmd)(::windows::core::Vtable::as_raw(self), ishowcmd).ok()
     }
     pub unsafe fn GetIconLocation(&self, psziconpath: &mut [u16], piicon: *mut i32) -> ::windows::core::Result<()> {
@@ -32057,8 +32071,14 @@ pub struct IShellLinkW_Vtbl {
     pub SetArguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszargs: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetHotkey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwhotkey: *mut u16) -> ::windows::core::HRESULT,
     pub SetHotkey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whotkey: u16) -> ::windows::core::HRESULT,
-    pub GetShowCmd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pishowcmd: *mut i32) -> ::windows::core::HRESULT,
-    pub SetShowCmd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ishowcmd: i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub GetShowCmd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pishowcmd: *mut super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    GetShowCmd: usize,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub SetShowCmd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ishowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    SetShowCmd: usize,
     pub GetIconLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psziconpath: ::windows::core::PWSTR, cch: i32, piicon: *mut i32) -> ::windows::core::HRESULT,
     pub SetIconLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psziconpath: ::windows::core::PCWSTR, iicon: i32) -> ::windows::core::HRESULT,
     pub SetRelativePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpathrel: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT,
@@ -36154,7 +36174,7 @@ impl IShellView {
     pub unsafe fn SelectItem(&self, pidlitem: *const Common::ITEMIDLIST, uflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SelectItem)(::windows::core::Vtable::as_raw(self), pidlitem, uflags).ok()
     }
-    pub unsafe fn GetItemObject<T>(&self, uitem: u32) -> ::windows::core::Result<T>
+    pub unsafe fn GetItemObject<T>(&self, uitem: _SVGIO) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -36222,7 +36242,7 @@ pub struct IShellView_Vtbl {
     pub SelectItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidlitem: *const Common::ITEMIDLIST, uflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_Common"))]
     SelectItem: usize,
-    pub GetItemObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uitem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetItemObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uitem: _SVGIO, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(feature = "Win32_System_Ole")]
@@ -36296,7 +36316,7 @@ impl IShellView2 {
     pub unsafe fn SelectItem(&self, pidlitem: *const Common::ITEMIDLIST, uflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SelectItem)(::windows::core::Vtable::as_raw(self), pidlitem, uflags).ok()
     }
-    pub unsafe fn GetItemObject<T>(&self, uitem: u32) -> ::windows::core::Result<T>
+    pub unsafe fn GetItemObject<T>(&self, uitem: _SVGIO) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -36443,7 +36463,7 @@ impl IShellView3 {
     pub unsafe fn SelectItem(&self, pidlitem: *const Common::ITEMIDLIST, uflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SelectItem)(::windows::core::Vtable::as_raw(self), pidlitem, uflags).ok()
     }
-    pub unsafe fn GetItemObject<T>(&self, uitem: u32) -> ::windows::core::Result<T>
+    pub unsafe fn GetItemObject<T>(&self, uitem: _SVGIO) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -36541,7 +36561,7 @@ impl IShellWindows {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Register<P0>(&self, pid: P0, hwnd: i32, swclass: i32) -> ::windows::core::Result<i32>
+    pub unsafe fn Register<P0>(&self, pid: P0, hwnd: i32, swclass: ShellWindowTypeConstants) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
@@ -36550,7 +36570,7 @@ impl IShellWindows {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: ShellWindowTypeConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Vtable::vtable(self).RegisterPending)(::windows::core::Vtable::as_raw(self), lthreadid, pvarloc, pvarlocroot, swclass, &mut result__).from_abi(result__)
     }
@@ -36572,7 +36592,7 @@ impl IShellWindows {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindWindowSW(&self, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32, phwnd: *mut i32, swfwoptions: i32, ppdispout: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()> {
+    pub unsafe fn FindWindowSW(&self, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FindWindowSW)(::windows::core::Vtable::as_raw(self), pvarloc, pvarlocroot, swclass, phwnd, swfwoptions, ::core::mem::transmute(ppdispout)).ok()
     }
     pub unsafe fn OnCreated<P0>(&self, lcookie: i32, punk: P0) -> ::windows::core::Result<()>
@@ -36632,11 +36652,11 @@ pub struct IShellWindows_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut ::core::ffi::c_void, hwnd: i32, swclass: i32, plcookie: *mut i32) -> ::windows::core::HRESULT,
+    pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut ::core::ffi::c_void, hwnd: i32, swclass: ShellWindowTypeConstants, plcookie: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Register: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RegisterPending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32, plcookie: *mut i32) -> ::windows::core::HRESULT,
+    pub RegisterPending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: ShellWindowTypeConstants, plcookie: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     RegisterPending: usize,
     pub Revoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcookie: i32) -> ::windows::core::HRESULT,
@@ -36649,7 +36669,7 @@ pub struct IShellWindows_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnActivated: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindWindowSW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32, phwnd: *mut i32, swfwoptions: i32, ppdispout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindWindowSW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     FindWindowSW: usize,
     pub OnCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcookie: i32, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

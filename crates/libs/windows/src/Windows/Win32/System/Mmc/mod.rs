@@ -306,15 +306,15 @@ impl Document {
         let mut result__ = ::windows::core::zeroed::<View>();
         (::windows::core::Vtable::vtable(self).ActiveView)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Name(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name)).ok()
     }
-    pub unsafe fn Location(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Location(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Location)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -408,9 +408,9 @@ pub struct Document_Vtbl {
     pub ActiveView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, view: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ActiveView: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsSaved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, issaved: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -440,16 +440,16 @@ pub struct Document_Vtbl {
 pub struct Extension(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Extension {
-    pub unsafe fn Name(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Vendor(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Vendor(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Vendor)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Version(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Version(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Version)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -458,8 +458,8 @@ impl Extension {
         let mut result__ = ::windows::core::zeroed::<Extensions>();
         (::windows::core::Vtable::vtable(self).Extensions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SnapinCLSID(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn SnapinCLSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).SnapinCLSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -514,14 +514,14 @@ unsafe impl ::windows::core::Interface for Extension {
 #[doc(hidden)]
 pub struct Extension_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub Vendor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendor: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Vendor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendor: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Extensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extensions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Extensions: usize,
-    pub SnapinCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapinclsid: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub SnapinCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapinclsid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub EnableAllExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2739,11 +2739,11 @@ pub struct INodeProperties(::windows::core::IUnknown);
 impl INodeProperties {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetProperty<P0>(&self, pdataobject: P0, szpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<*mut u16>
+    pub unsafe fn GetProperty<P0>(&self, pdataobject: P0, szpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pdataobject.into().abi(), ::core::mem::transmute_copy(szpropertyname), &mut result__).from_abi(result__)
     }
 }
@@ -2775,7 +2775,7 @@ unsafe impl ::windows::core::Interface for INodeProperties {
 pub struct INodeProperties_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, szpropertyname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrproperty: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, szpropertyname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrproperty: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetProperty: usize,
 }
@@ -3798,20 +3798,20 @@ pub struct IViewExtensionCallback_Vtbl {
 pub struct MenuItem(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl MenuItem {
-    pub unsafe fn DisplayName(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).DisplayName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn LanguageIndependentName(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn LanguageIndependentName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).LanguageIndependentName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Path(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Path)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn LanguageIndependentPath(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn LanguageIndependentPath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).LanguageIndependentPath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Execute(&self) -> ::windows::core::Result<()> {
@@ -3859,10 +3859,10 @@ unsafe impl ::windows::core::Interface for MenuItem {
 #[doc(hidden)]
 pub struct MenuItem_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub LanguageIndependentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageindependentname: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub LanguageIndependentPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageindependentpath: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub LanguageIndependentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageindependentname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub LanguageIndependentPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageindependentpath: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Execute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -3875,16 +3875,16 @@ pub struct MenuItem_Vtbl {
 pub struct Node(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Node {
-    pub unsafe fn Name(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn get_Property(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn get_Property(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).get_Property)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Bookmark(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Bookmark(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Bookmark)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3893,8 +3893,8 @@ impl Node {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
         (::windows::core::Vtable::vtable(self).IsScopeNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Nodetype(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Nodetype(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Nodetype)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3933,14 +3933,14 @@ unsafe impl ::windows::core::Interface for Node {
 #[doc(hidden)]
 pub struct Node_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows::core::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bookmark: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows::core::BSTR>, propertyvalue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bookmark: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsScopeNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isscopenode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsScopeNode: usize,
-    pub Nodetype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodetype: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub Nodetype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodetype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4089,8 +4089,8 @@ impl Property {
     pub unsafe fn SetValue(&self, value: super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    pub unsafe fn Name(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4137,7 +4137,7 @@ pub struct Property_Vtbl {
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetValue: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4249,16 +4249,16 @@ pub struct ScopeNamespace_Vtbl {
 pub struct SnapIn(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl SnapIn {
-    pub unsafe fn Name(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Vendor(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Vendor(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Vendor)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Version(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Version(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Version)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4267,8 +4267,8 @@ impl SnapIn {
         let mut result__ = ::windows::core::zeroed::<Extensions>();
         (::windows::core::Vtable::vtable(self).Extensions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SnapinCLSID(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn SnapinCLSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).SnapinCLSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4321,14 +4321,14 @@ unsafe impl ::windows::core::Interface for SnapIn {
 #[doc(hidden)]
 pub struct SnapIn_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub Vendor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendor: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Vendor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendor: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Extensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extensions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Extensions: usize,
-    pub SnapinCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapinclsid: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub SnapinCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapinclsid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, properties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4605,8 +4605,8 @@ impl View {
     pub unsafe fn SetStatusBarText(&self, statusbartext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetStatusBarText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(statusbartext)).ok()
     }
-    pub unsafe fn Memento(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+    pub unsafe fn Memento(&self) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).Memento)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ViewMemento(&self, memento: &::windows::core::BSTR) -> ::windows::core::Result<()> {
@@ -4620,11 +4620,11 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_CellContents<P0>(&self, node: P0, column: i32) -> ::windows::core::Result<*mut u16>
+    pub unsafe fn get_CellContents<P0>(&self, node: P0, column: i32) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::std::convert::Into<::windows::core::InParam<Node>>,
     {
-        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Vtable::vtable(self).get_CellContents)(::windows::core::Vtable::as_raw(self), node.into().abi(), column, &mut result__).from_abi(result__)
     }
     pub unsafe fn ExportList(&self, file: &::windows::core::BSTR, exportoptions: _ExportListOptions) -> ::windows::core::Result<()> {
@@ -4779,14 +4779,14 @@ pub struct View_Vtbl {
     pub Back: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Forward: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetStatusBarText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statusbartext: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Memento: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memento: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub Memento: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memento: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub ViewMemento: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memento: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Columns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, columns: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Columns: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_CellContents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: *mut ::core::ffi::c_void, column: i32, cellcontents: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub get_CellContents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: *mut ::core::ffi::c_void, column: i32, cellcontents: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_CellContents: usize,
     pub ExportList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::std::mem::MaybeUninit<::windows::core::BSTR>, exportoptions: _ExportListOptions) -> ::windows::core::HRESULT,

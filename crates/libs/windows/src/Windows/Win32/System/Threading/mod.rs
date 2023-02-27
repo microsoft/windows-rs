@@ -186,15 +186,21 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CallbackMayRunLong(pci: *mut TP_CALLBACK_INSTANCE) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CallbackMayRunLong ( pci : *mut TP_CALLBACK_INSTANCE ) -> super::super::Foundation:: BOOL );
-    CallbackMayRunLong(pci)
+pub unsafe fn CallbackMayRunLong<P0>(pci: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<PTP_CALLBACK_INSTANCE>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CallbackMayRunLong ( pci : PTP_CALLBACK_INSTANCE ) -> super::super::Foundation:: BOOL );
+    CallbackMayRunLong(pci.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CancelThreadpoolIo(pio: *mut TP_IO) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CancelThreadpoolIo ( pio : *mut TP_IO ) -> ( ) );
-    CancelThreadpoolIo(pio)
+pub unsafe fn CancelThreadpoolIo<P0>(pio: P0)
+where
+    P0: ::std::convert::Into<PTP_IO>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CancelThreadpoolIo ( pio : PTP_IO ) -> ( ) );
+    CancelThreadpoolIo(pio.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -254,27 +260,39 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CloseThreadpoolIo(pio: *mut TP_IO) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CloseThreadpoolIo ( pio : *mut TP_IO ) -> ( ) );
-    CloseThreadpoolIo(pio)
+pub unsafe fn CloseThreadpoolIo<P0>(pio: P0)
+where
+    P0: ::std::convert::Into<PTP_IO>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CloseThreadpoolIo ( pio : PTP_IO ) -> ( ) );
+    CloseThreadpoolIo(pio.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CloseThreadpoolTimer(pti: *mut TP_TIMER) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CloseThreadpoolTimer ( pti : *mut TP_TIMER ) -> ( ) );
-    CloseThreadpoolTimer(pti)
+pub unsafe fn CloseThreadpoolTimer<P0>(pti: P0)
+where
+    P0: ::std::convert::Into<PTP_TIMER>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CloseThreadpoolTimer ( pti : PTP_TIMER ) -> ( ) );
+    CloseThreadpoolTimer(pti.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CloseThreadpoolWait(pwa: *mut TP_WAIT) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CloseThreadpoolWait ( pwa : *mut TP_WAIT ) -> ( ) );
-    CloseThreadpoolWait(pwa)
+pub unsafe fn CloseThreadpoolWait<P0>(pwa: P0)
+where
+    P0: ::std::convert::Into<PTP_WAIT>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CloseThreadpoolWait ( pwa : PTP_WAIT ) -> ( ) );
+    CloseThreadpoolWait(pwa.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CloseThreadpoolWork(pwk: *mut TP_WORK) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CloseThreadpoolWork ( pwk : *mut TP_WORK ) -> ( ) );
-    CloseThreadpoolWork(pwk)
+pub unsafe fn CloseThreadpoolWork<P0>(pwk: P0)
+where
+    P0: ::std::convert::Into<PTP_WORK>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CloseThreadpoolWork ( pwk : PTP_WORK ) -> ( ) );
+    CloseThreadpoolWork(pwk.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -607,30 +625,34 @@ pub unsafe fn CreateThreadpoolCleanupGroup() -> isize {
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateThreadpoolIo<P0>(fl: P0, pfnio: PTP_WIN32_IO_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> *mut TP_IO
+pub unsafe fn CreateThreadpoolIo<P0>(fl: P0, pfnio: PTP_WIN32_IO_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> ::windows::core::Result<PTP_IO>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateThreadpoolIo ( fl : super::super::Foundation:: HANDLE , pfnio : PTP_WIN32_IO_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_IO );
-    CreateThreadpoolIo(fl.into(), pfnio, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateThreadpoolIo ( fl : super::super::Foundation:: HANDLE , pfnio : PTP_WIN32_IO_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> PTP_IO );
+    let result__ = CreateThreadpoolIo(fl.into(), pfnio, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())));
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> *mut TP_TIMER {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateThreadpoolTimer ( pfnti : PTP_TIMER_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_TIMER );
-    CreateThreadpoolTimer(pfnti, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
+pub unsafe fn CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> ::windows::core::Result<PTP_TIMER> {
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateThreadpoolTimer ( pfnti : PTP_TIMER_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> PTP_TIMER );
+    let result__ = CreateThreadpoolTimer(pfnti, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())));
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> *mut TP_WAIT {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateThreadpoolWait ( pfnwa : PTP_WAIT_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_WAIT );
-    CreateThreadpoolWait(pfnwa, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
+pub unsafe fn CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> ::windows::core::Result<PTP_WAIT> {
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateThreadpoolWait ( pfnwa : PTP_WAIT_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> PTP_WAIT );
+    let result__ = CreateThreadpoolWait(pfnwa, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())));
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> *mut TP_WORK {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateThreadpoolWork ( pfnwk : PTP_WORK_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_WORK );
-    CreateThreadpoolWork(pfnwk, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
+pub unsafe fn CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> ::windows::core::Result<PTP_WORK> {
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateThreadpoolWork ( pfnwk : PTP_WORK_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> PTP_WORK );
+    let result__ = CreateThreadpoolWork(pfnwk, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())));
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -778,9 +800,12 @@ pub unsafe fn DequeueUmsCompletionListItems(umscompletionlist: *const ::core::ff
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTANCE) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn DisassociateCurrentThreadFromCallback ( pci : *mut TP_CALLBACK_INSTANCE ) -> ( ) );
-    DisassociateCurrentThreadFromCallback(pci)
+pub unsafe fn DisassociateCurrentThreadFromCallback<P0>(pci: P0)
+where
+    P0: ::std::convert::Into<PTP_CALLBACK_INSTANCE>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn DisassociateCurrentThreadFromCallback ( pci : PTP_CALLBACK_INSTANCE ) -> ( ) );
+    DisassociateCurrentThreadFromCallback(pci.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -857,12 +882,13 @@ pub unsafe fn FlushProcessWriteBuffers() {
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeLibraryWhenCallbackReturns<P0>(pci: *mut TP_CALLBACK_INSTANCE, r#mod: P0)
+pub unsafe fn FreeLibraryWhenCallbackReturns<P0, P1>(pci: P0, r#mod: P1)
 where
-    P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P0: ::std::convert::Into<PTP_CALLBACK_INSTANCE>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FreeLibraryWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , r#mod : super::super::Foundation:: HINSTANCE ) -> ( ) );
-    FreeLibraryWhenCallbackReturns(pci, r#mod.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FreeLibraryWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , r#mod : super::super::Foundation:: HINSTANCE ) -> ( ) );
+    FreeLibraryWhenCallbackReturns(pci.into(), r#mod.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1530,9 +1556,12 @@ pub unsafe fn IsThreadAFiber() -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsThreadpoolTimerSet(pti: *mut TP_TIMER) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn IsThreadpoolTimerSet ( pti : *mut TP_TIMER ) -> super::super::Foundation:: BOOL );
-    IsThreadpoolTimerSet(pti)
+pub unsafe fn IsThreadpoolTimerSet<P0>(pti: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<PTP_TIMER>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IsThreadpoolTimerSet ( pti : PTP_TIMER ) -> super::super::Foundation:: BOOL );
+    IsThreadpoolTimerSet(pti.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1564,9 +1593,12 @@ pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION)
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, pcs: *mut RTL_CRITICAL_SECTION) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn LeaveCriticalSectionWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , pcs : *mut RTL_CRITICAL_SECTION ) -> ( ) );
-    LeaveCriticalSectionWhenCallbackReturns(pci, pcs)
+pub unsafe fn LeaveCriticalSectionWhenCallbackReturns<P0>(pci: P0, pcs: *mut RTL_CRITICAL_SECTION)
+where
+    P0: ::std::convert::Into<PTP_CALLBACK_INSTANCE>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LeaveCriticalSectionWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , pcs : *mut RTL_CRITICAL_SECTION ) -> ( ) );
+    LeaveCriticalSectionWhenCallbackReturns(pci.into(), pcs)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1840,12 +1872,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReleaseMutexWhenCallbackReturns<P0>(pci: *mut TP_CALLBACK_INSTANCE, r#mut: P0)
+pub unsafe fn ReleaseMutexWhenCallbackReturns<P0, P1>(pci: P0, r#mut: P1)
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::std::convert::Into<PTP_CALLBACK_INSTANCE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn ReleaseMutexWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , r#mut : super::super::Foundation:: HANDLE ) -> ( ) );
-    ReleaseMutexWhenCallbackReturns(pci, r#mut.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReleaseMutexWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , r#mut : super::super::Foundation:: HANDLE ) -> ( ) );
+    ReleaseMutexWhenCallbackReturns(pci.into(), r#mut.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1872,12 +1905,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReleaseSemaphoreWhenCallbackReturns<P0>(pci: *mut TP_CALLBACK_INSTANCE, sem: P0, crel: u32)
+pub unsafe fn ReleaseSemaphoreWhenCallbackReturns<P0, P1>(pci: P0, sem: P1, crel: u32)
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::std::convert::Into<PTP_CALLBACK_INSTANCE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn ReleaseSemaphoreWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , sem : super::super::Foundation:: HANDLE , crel : u32 ) -> ( ) );
-    ReleaseSemaphoreWhenCallbackReturns(pci, sem.into(), crel)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ReleaseSemaphoreWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , sem : super::super::Foundation:: HANDLE , crel : u32 ) -> ( ) );
+    ReleaseSemaphoreWhenCallbackReturns(pci.into(), sem.into(), crel)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1919,12 +1953,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetEventWhenCallbackReturns<P0>(pci: *mut TP_CALLBACK_INSTANCE, evt: P0)
+pub unsafe fn SetEventWhenCallbackReturns<P0, P1>(pci: P0, evt: P1)
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::std::convert::Into<PTP_CALLBACK_INSTANCE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetEventWhenCallbackReturns ( pci : *mut TP_CALLBACK_INSTANCE , evt : super::super::Foundation:: HANDLE ) -> ( ) );
-    SetEventWhenCallbackReturns(pci, evt.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetEventWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , evt : super::super::Foundation:: HANDLE ) -> ( ) );
+    SetEventWhenCallbackReturns(pci.into(), evt.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2216,36 +2251,44 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: ::core::option::Option<*const super::super::Foundation::FILETIME>, msperiod: u32, mswindowlength: u32) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadpoolTimer ( pti : *mut TP_TIMER , pftduetime : *const super::super::Foundation:: FILETIME , msperiod : u32 , mswindowlength : u32 ) -> ( ) );
-    SetThreadpoolTimer(pti, ::core::mem::transmute(pftduetime.unwrap_or(::std::ptr::null())), msperiod, mswindowlength)
-}
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetThreadpoolTimerEx(pti: *mut TP_TIMER, pftduetime: ::core::option::Option<*const super::super::Foundation::FILETIME>, msperiod: u32, mswindowlength: u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadpoolTimerEx ( pti : *mut TP_TIMER , pftduetime : *const super::super::Foundation:: FILETIME , msperiod : u32 , mswindowlength : u32 ) -> super::super::Foundation:: BOOL );
-    SetThreadpoolTimerEx(pti, ::core::mem::transmute(pftduetime.unwrap_or(::std::ptr::null())), msperiod, mswindowlength)
-}
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetThreadpoolWait<P0>(pwa: *mut TP_WAIT, h: P0, pfttimeout: ::core::option::Option<*const super::super::Foundation::FILETIME>)
+pub unsafe fn SetThreadpoolTimer<P0>(pti: P0, pftduetime: ::core::option::Option<*const super::super::Foundation::FILETIME>, msperiod: u32, mswindowlength: u32)
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::std::convert::Into<PTP_TIMER>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadpoolWait ( pwa : *mut TP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME ) -> ( ) );
-    SetThreadpoolWait(pwa, h.into(), ::core::mem::transmute(pfttimeout.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadpoolTimer ( pti : PTP_TIMER , pftduetime : *const super::super::Foundation:: FILETIME , msperiod : u32 , mswindowlength : u32 ) -> ( ) );
+    SetThreadpoolTimer(pti.into(), ::core::mem::transmute(pftduetime.unwrap_or(::std::ptr::null())), msperiod, mswindowlength)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetThreadpoolWaitEx<P0>(pwa: *mut TP_WAIT, h: P0, pfttimeout: ::core::option::Option<*const super::super::Foundation::FILETIME>, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn SetThreadpoolTimerEx<P0>(pti: P0, pftduetime: ::core::option::Option<*const super::super::Foundation::FILETIME>, msperiod: u32, mswindowlength: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::std::convert::Into<PTP_TIMER>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadpoolWaitEx ( pwa : *mut TP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME , reserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SetThreadpoolWaitEx(pwa, h.into(), ::core::mem::transmute(pfttimeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadpoolTimerEx ( pti : PTP_TIMER , pftduetime : *const super::super::Foundation:: FILETIME , msperiod : u32 , mswindowlength : u32 ) -> super::super::Foundation:: BOOL );
+    SetThreadpoolTimerEx(pti.into(), ::core::mem::transmute(pftduetime.unwrap_or(::std::ptr::null())), msperiod, mswindowlength)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetThreadpoolWait<P0, P1>(pwa: P0, h: P1, pfttimeout: ::core::option::Option<*const super::super::Foundation::FILETIME>)
+where
+    P0: ::std::convert::Into<PTP_WAIT>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadpoolWait ( pwa : PTP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME ) -> ( ) );
+    SetThreadpoolWait(pwa.into(), h.into(), ::core::mem::transmute(pfttimeout.unwrap_or(::std::ptr::null())))
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetThreadpoolWaitEx<P0, P1>(pwa: P0, h: P1, pfttimeout: ::core::option::Option<*const super::super::Foundation::FILETIME>, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<PTP_WAIT>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadpoolWaitEx ( pwa : PTP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME , reserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    SetThreadpoolWaitEx(pwa.into(), h.into(), ::core::mem::transmute(pfttimeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2318,15 +2361,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn StartThreadpoolIo(pio: *mut TP_IO) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn StartThreadpoolIo ( pio : *mut TP_IO ) -> ( ) );
-    StartThreadpoolIo(pio)
+pub unsafe fn StartThreadpoolIo<P0>(pio: P0)
+where
+    P0: ::std::convert::Into<PTP_IO>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn StartThreadpoolIo ( pio : PTP_IO ) -> ( ) );
+    StartThreadpoolIo(pio.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn SubmitThreadpoolWork(pwk: *mut TP_WORK) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SubmitThreadpoolWork ( pwk : *mut TP_WORK ) -> ( ) );
-    SubmitThreadpoolWork(pwk)
+pub unsafe fn SubmitThreadpoolWork<P0>(pwk: P0)
+where
+    P0: ::std::convert::Into<PTP_WORK>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SubmitThreadpoolWork ( pwk : PTP_WORK ) -> ( ) );
+    SubmitThreadpoolWork(pwk.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2515,42 +2564,46 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WaitForThreadpoolIoCallbacks<P0>(pio: *mut TP_IO, fcancelpendingcallbacks: P0)
+pub unsafe fn WaitForThreadpoolIoCallbacks<P0, P1>(pio: P0, fcancelpendingcallbacks: P1)
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::std::convert::Into<PTP_IO>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForThreadpoolIoCallbacks ( pio : *mut TP_IO , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
-    WaitForThreadpoolIoCallbacks(pio, fcancelpendingcallbacks.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForThreadpoolIoCallbacks ( pio : PTP_IO , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
+    WaitForThreadpoolIoCallbacks(pio.into(), fcancelpendingcallbacks.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WaitForThreadpoolTimerCallbacks<P0>(pti: *mut TP_TIMER, fcancelpendingcallbacks: P0)
+pub unsafe fn WaitForThreadpoolTimerCallbacks<P0, P1>(pti: P0, fcancelpendingcallbacks: P1)
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::std::convert::Into<PTP_TIMER>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForThreadpoolTimerCallbacks ( pti : *mut TP_TIMER , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
-    WaitForThreadpoolTimerCallbacks(pti, fcancelpendingcallbacks.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForThreadpoolTimerCallbacks ( pti : PTP_TIMER , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
+    WaitForThreadpoolTimerCallbacks(pti.into(), fcancelpendingcallbacks.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WaitForThreadpoolWaitCallbacks<P0>(pwa: *mut TP_WAIT, fcancelpendingcallbacks: P0)
+pub unsafe fn WaitForThreadpoolWaitCallbacks<P0, P1>(pwa: P0, fcancelpendingcallbacks: P1)
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::std::convert::Into<PTP_WAIT>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForThreadpoolWaitCallbacks ( pwa : *mut TP_WAIT , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
-    WaitForThreadpoolWaitCallbacks(pwa, fcancelpendingcallbacks.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForThreadpoolWaitCallbacks ( pwa : PTP_WAIT , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
+    WaitForThreadpoolWaitCallbacks(pwa.into(), fcancelpendingcallbacks.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WaitForThreadpoolWorkCallbacks<P0>(pwk: *mut TP_WORK, fcancelpendingcallbacks: P0)
+pub unsafe fn WaitForThreadpoolWorkCallbacks<P0, P1>(pwk: P0, fcancelpendingcallbacks: P1)
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::std::convert::Into<PTP_WORK>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForThreadpoolWorkCallbacks ( pwk : *mut TP_WORK , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
-    WaitForThreadpoolWorkCallbacks(pwk, fcancelpendingcallbacks.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitForThreadpoolWorkCallbacks ( pwk : PTP_WORK , fcancelpendingcallbacks : super::super::Foundation:: BOOL ) -> ( ) );
+    WaitForThreadpoolWorkCallbacks(pwk.into(), fcancelpendingcallbacks.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4931,6 +4984,70 @@ impl ::core::default::Default for PROCESS_PROTECTION_LEVEL_INFORMATION {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PTP_CALLBACK_INSTANCE(pub isize);
+impl PTP_CALLBACK_INSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for PTP_CALLBACK_INSTANCE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PTP_CALLBACK_INSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PTP_CALLBACK_INSTANCE {}
+impl ::core::fmt::Debug for PTP_CALLBACK_INSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PTP_CALLBACK_INSTANCE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<PTP_CALLBACK_INSTANCE>> for PTP_CALLBACK_INSTANCE {
+    fn from(optional: ::core::option::Option<PTP_CALLBACK_INSTANCE>) -> PTP_CALLBACK_INSTANCE {
+        optional.unwrap_or_default()
+    }
+}
+impl ::windows::core::TypeKind for PTP_CALLBACK_INSTANCE {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PTP_IO(pub isize);
+impl PTP_IO {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for PTP_IO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PTP_IO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PTP_IO {}
+impl ::core::fmt::Debug for PTP_IO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PTP_IO").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<PTP_IO>> for PTP_IO {
+    fn from(optional: ::core::option::Option<PTP_IO>) -> PTP_IO {
+        optional.unwrap_or_default()
+    }
+}
+impl ::windows::core::TypeKind for PTP_IO {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PTP_POOL(pub isize);
 impl ::core::default::Default for PTP_POOL {
     fn default() -> Self {
@@ -4954,6 +5071,102 @@ impl ::core::convert::From<::core::option::Option<PTP_POOL>> for PTP_POOL {
     }
 }
 impl ::windows::core::TypeKind for PTP_POOL {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PTP_TIMER(pub isize);
+impl PTP_TIMER {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for PTP_TIMER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PTP_TIMER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PTP_TIMER {}
+impl ::core::fmt::Debug for PTP_TIMER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PTP_TIMER").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<PTP_TIMER>> for PTP_TIMER {
+    fn from(optional: ::core::option::Option<PTP_TIMER>) -> PTP_TIMER {
+        optional.unwrap_or_default()
+    }
+}
+impl ::windows::core::TypeKind for PTP_TIMER {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PTP_WAIT(pub isize);
+impl PTP_WAIT {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for PTP_WAIT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PTP_WAIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PTP_WAIT {}
+impl ::core::fmt::Debug for PTP_WAIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PTP_WAIT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<PTP_WAIT>> for PTP_WAIT {
+    fn from(optional: ::core::option::Option<PTP_WAIT>) -> PTP_WAIT {
+        optional.unwrap_or_default()
+    }
+}
+impl ::windows::core::TypeKind for PTP_WAIT {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PTP_WORK(pub isize);
+impl PTP_WORK {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for PTP_WORK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PTP_WORK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PTP_WORK {}
+impl ::core::fmt::Debug for PTP_WORK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PTP_WORK").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<PTP_WORK>> for PTP_WORK {
+    fn from(optional: ::core::option::Option<PTP_WORK>) -> PTP_WORK {
+        optional.unwrap_or_default()
+    }
+}
+impl ::windows::core::TypeKind for PTP_WORK {
     type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
@@ -5630,10 +5843,6 @@ impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3_1_0 {
     }
 }
 #[repr(C)]
-pub struct TP_CALLBACK_INSTANCE(pub u8);
-#[repr(C)]
-pub struct TP_IO(pub u8);
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
@@ -5664,12 +5873,6 @@ impl ::core::default::Default for TP_POOL_STACK_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct TP_TIMER(pub u8);
-#[repr(C)]
-pub struct TP_WAIT(pub u8);
-#[repr(C)]
-pub struct TP_WORK(pub u8);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimerQueueHandle(pub isize);
@@ -5824,15 +6027,15 @@ pub type PTIMERAPCROUTINE = ::core::option::Option<unsafe extern "system" fn(lpa
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_SIMPLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void) -> ()>;
+pub type PTP_SIMPLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_TIMER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: *mut TP_TIMER) -> ()>;
+pub type PTP_TIMER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: PTP_TIMER) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_WAIT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32) -> ()>;
+pub type PTP_WAIT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: PTP_WAIT, waitresult: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_WIN32_IO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, overlapped: *mut ::core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: *mut TP_IO) -> ()>;
+pub type PTP_WIN32_IO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, overlapped: *mut ::core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: PTP_IO) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: *mut TP_WORK) -> ()>;
+pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: PTP_WORK) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN) -> ()>;

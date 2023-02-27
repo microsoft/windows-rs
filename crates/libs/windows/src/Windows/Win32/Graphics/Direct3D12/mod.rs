@@ -7443,8 +7443,8 @@ impl ID3D12GraphicsCommandList {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7834,8 +7834,8 @@ impl ID3D12GraphicsCommandList1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8179,8 +8179,8 @@ impl ID3D12GraphicsCommandList2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8519,8 +8519,8 @@ impl ID3D12GraphicsCommandList3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8865,8 +8865,8 @@ impl ID3D12GraphicsCommandList4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9265,8 +9265,8 @@ impl ID3D12GraphicsCommandList5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9661,8 +9661,8 @@ impl ID3D12GraphicsCommandList6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10059,8 +10059,8 @@ impl ID3D12GraphicsCommandList7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10460,8 +10460,8 @@ impl ID3D12GraphicsCommandList8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10864,8 +10864,8 @@ impl ID3D12GraphicsCommandList9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+    pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, prects: ::core::option::Option<&[super::super::Foundation::RECT]>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.ClearRenderTargetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetview), colorrgba, prects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

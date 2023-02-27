@@ -18097,7 +18097,7 @@ impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IMFVirtualCamera_Impl: Sized + IMFAttributes_Impl {
     fn AddDeviceSourceInfo(&self, devicesourceinfo: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn AddProperty(&self, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: u32, pbdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
+    fn AddProperty(&self, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
     fn AddRegistryEntry(&self, entryname: &::windows::core::PCWSTR, subkeypath: &::windows::core::PCWSTR, dwregtype: u32, pbdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
     fn Start(&self, pcallback: ::core::option::Option<&IMFAsyncCallback>) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
@@ -18118,7 +18118,7 @@ impl IMFVirtualCamera_Vtbl {
             let this = (*this).get_impl();
             this.AddDeviceSourceInfo(::core::mem::transmute(&devicesourceinfo)).into()
         }
-        unsafe extern "system" fn AddProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVirtualCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: u32, pbdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVirtualCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddProperty(::core::mem::transmute_copy(&pkey), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pbdata), ::core::mem::transmute_copy(&cbdata)).into()

@@ -2973,15 +2973,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
-pub unsafe fn PrivateExtractIconsA(szfilename: &[u8; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: ::core::option::Option<*mut HICON>, piconid: ::core::option::Option<*mut u32>, nicons: u32, flags: u32) -> u32 {
+pub unsafe fn PrivateExtractIconsA(szfilename: &[u8; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: ::core::option::Option<&mut [HICON]>, piconid: ::core::option::Option<*mut u32>, flags: u32) -> u32 {
     ::windows::imp::link ! ( "user32.dll""system" fn PrivateExtractIconsA ( szfilename : :: windows::core::PCSTR , niconindex : i32 , cxicon : i32 , cyicon : i32 , phicon : *mut HICON , piconid : *mut u32 , nicons : u32 , flags : u32 ) -> u32 );
-    PrivateExtractIconsA(::core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(piconid.unwrap_or(::std::ptr::null_mut())), nicons, flags)
+    PrivateExtractIconsA(::core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(piconid.unwrap_or(::std::ptr::null_mut())), phicon.as_deref().map_or(0, |slice| slice.len() as _), flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
-pub unsafe fn PrivateExtractIconsW(szfilename: &[u16; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: ::core::option::Option<*mut HICON>, piconid: ::core::option::Option<*mut u32>, nicons: u32, flags: u32) -> u32 {
+pub unsafe fn PrivateExtractIconsW(szfilename: &[u16; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: ::core::option::Option<&mut [HICON]>, piconid: ::core::option::Option<*mut u32>, flags: u32) -> u32 {
     ::windows::imp::link ! ( "user32.dll""system" fn PrivateExtractIconsW ( szfilename : :: windows::core::PCWSTR , niconindex : i32 , cxicon : i32 , cyicon : i32 , phicon : *mut HICON , piconid : *mut u32 , nicons : u32 , flags : u32 ) -> u32 );
-    PrivateExtractIconsW(::core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(piconid.unwrap_or(::std::ptr::null_mut())), nicons, flags)
+    PrivateExtractIconsW(::core::mem::transmute(szfilename.as_ptr()), niconindex, cxicon, cyicon, ::core::mem::transmute(phicon.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(piconid.unwrap_or(::std::ptr::null_mut())), phicon.as_deref().map_or(0, |slice| slice.len() as _), flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3157,12 +3157,12 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ScrollWindowEx<P0, P1>(hwnd: P0, dx: i32, dy: i32, prcscroll: ::core::option::Option<*const super::super::Foundation::RECT>, prcclip: ::core::option::Option<*const super::super::Foundation::RECT>, hrgnupdate: P1, prcupdate: ::core::option::Option<*mut super::super::Foundation::RECT>, flags: SHOW_WINDOW_CMD) -> i32
+pub unsafe fn ScrollWindowEx<P0, P1>(hwnd: P0, dx: i32, dy: i32, prcscroll: ::core::option::Option<*const super::super::Foundation::RECT>, prcclip: ::core::option::Option<*const super::super::Foundation::RECT>, hrgnupdate: P1, prcupdate: ::core::option::Option<*mut super::super::Foundation::RECT>, flags: SCROLL_WINDOW_FLAGS) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Graphics::Gdi::HRGN>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn ScrollWindowEx ( hwnd : super::super::Foundation:: HWND , dx : i32 , dy : i32 , prcscroll : *const super::super::Foundation:: RECT , prcclip : *const super::super::Foundation:: RECT , hrgnupdate : super::super::Graphics::Gdi:: HRGN , prcupdate : *mut super::super::Foundation:: RECT , flags : SHOW_WINDOW_CMD ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn ScrollWindowEx ( hwnd : super::super::Foundation:: HWND , dx : i32 , dy : i32 , prcscroll : *const super::super::Foundation:: RECT , prcclip : *const super::super::Foundation:: RECT , hrgnupdate : super::super::Graphics::Gdi:: HRGN , prcupdate : *mut super::super::Foundation:: RECT , flags : SCROLL_WINDOW_FLAGS ) -> i32 );
     ScrollWindowEx(hwnd.into(), dx, dy, ::core::mem::transmute(prcscroll.unwrap_or(::std::ptr::null())), ::core::mem::transmute(prcclip.unwrap_or(::std::ptr::null())), hrgnupdate.into(), ::core::mem::transmute(prcupdate.unwrap_or(::std::ptr::null_mut())), flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
@@ -9075,6 +9075,70 @@ impl ::core::ops::Not for SCROLLINFO_MASK {
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SCROLL_WINDOW_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_SCROLLCHILDREN: SCROLL_WINDOW_FLAGS = SCROLL_WINDOW_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_INVALIDATE: SCROLL_WINDOW_FLAGS = SCROLL_WINDOW_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_ERASE: SCROLL_WINDOW_FLAGS = SCROLL_WINDOW_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_SMOOTHSCROLL: SCROLL_WINDOW_FLAGS = SCROLL_WINDOW_FLAGS(16u32);
+impl ::core::marker::Copy for SCROLL_WINDOW_FLAGS {}
+impl ::core::clone::Clone for SCROLL_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SCROLL_WINDOW_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for SCROLL_WINDOW_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for SCROLL_WINDOW_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCROLL_WINDOW_FLAGS").field(&self.0).finish()
+    }
+}
+impl SCROLL_WINDOW_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SCROLL_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCROLL_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCROLL_WINDOW_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCROLL_WINDOW_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCROLL_WINDOW_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(2u32);
@@ -9229,51 +9293,35 @@ impl ::core::ops::Not for SET_WINDOW_POS_FLAGS {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHOW_WINDOW_CMD(pub u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_FORCEMINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SW_HIDE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(0u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_MAXIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_MINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(6u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_RESTORE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(9u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_SHOW: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(5u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_SHOWDEFAULT: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(10u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_SHOWMAXIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_SHOWMINIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_SHOWMINNOACTIVE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(7u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_SHOWNA: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(8u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_SHOWNOACTIVATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SW_SHOWNORMAL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SW_NORMAL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_SHOWMINIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_SHOWMAXIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_MAXIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_SHOWNOACTIVATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_SHOW: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(5u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_MINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(6u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_SHOWMINNOACTIVE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(7u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_SHOWNA: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(8u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_RESTORE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(9u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_SHOWDEFAULT: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(10u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_FORCEMINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SW_MAX: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_PARENTCLOSING: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_OTHERZOOM: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_PARENTOPENING: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_OTHERUNZOOM: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_SCROLLCHILDREN: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_INVALIDATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_ERASE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SW_SMOOTHSCROLL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(16u32);
 impl ::core::marker::Copy for SHOW_WINDOW_CMD {}
 impl ::core::clone::Clone for SHOW_WINDOW_CMD {
     fn clone(&self) -> Self {
@@ -9293,37 +9341,35 @@ impl ::core::fmt::Debug for SHOW_WINDOW_CMD {
         f.debug_tuple("SHOW_WINDOW_CMD").field(&self.0).finish()
     }
 }
-impl SHOW_WINDOW_CMD {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SHOW_WINDOW_STATUS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_PARENTCLOSING: SHOW_WINDOW_STATUS = SHOW_WINDOW_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_OTHERZOOM: SHOW_WINDOW_STATUS = SHOW_WINDOW_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_PARENTOPENING: SHOW_WINDOW_STATUS = SHOW_WINDOW_STATUS(3u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SW_OTHERUNZOOM: SHOW_WINDOW_STATUS = SHOW_WINDOW_STATUS(4u32);
+impl ::core::marker::Copy for SHOW_WINDOW_STATUS {}
+impl ::core::clone::Clone for SHOW_WINDOW_STATUS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
-impl ::core::ops::BitOr for SHOW_WINDOW_CMD {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
+impl ::core::default::Default for SHOW_WINDOW_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
-impl ::core::ops::BitAnd for SHOW_WINDOW_CMD {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
+impl ::windows::core::TypeKind for SHOW_WINDOW_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
-impl ::core::ops::BitOrAssign for SHOW_WINDOW_CMD {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SHOW_WINDOW_CMD {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SHOW_WINDOW_CMD {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
+impl ::core::fmt::Debug for SHOW_WINDOW_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHOW_WINDOW_STATUS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
