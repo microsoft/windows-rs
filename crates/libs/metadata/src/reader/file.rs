@@ -53,11 +53,12 @@ fn error_invalid_winmd() -> Error {
 
 impl File {
     pub fn with_default(paths: &[&str]) -> Result<Vec<Self>> {
-        let mut files = Vec::new();
-        files.push(Self::from_buffer(std::include_bytes!("../../default/Windows.winmd").to_vec(), "Windows.winmd".to_string())?);
-        files.push(Self::from_buffer(std::include_bytes!("../../default/Windows.Wdk.winmd").to_vec(), "Windows.Wdk.winmd".to_string())?);
-        files.push(Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.winmd").to_vec(), "Windows.Win32.winmd".to_string())?);
-        files.push(Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.Interop.winmd").to_vec(), "Windows.Win32.Interop.winmd".to_string())?);
+        let mut files = vec![
+            Self::from_buffer(std::include_bytes!("../../default/Windows.winmd").to_vec(), "Windows.winmd".to_string())?,
+            Self::from_buffer(std::include_bytes!("../../default/Windows.Wdk.winmd").to_vec(), "Windows.Wdk.winmd".to_string())?,
+            Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.winmd").to_vec(), "Windows.Win32.winmd".to_string())?,
+            Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.Interop.winmd").to_vec(), "Windows.Win32.Interop.winmd".to_string())?,
+        ];
 
         for path in paths {
             files.push(Self::new(path)?);
