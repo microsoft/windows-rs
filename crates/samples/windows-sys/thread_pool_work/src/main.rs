@@ -6,7 +6,7 @@ fn main() {
     unsafe {
         let work = CreateThreadpoolWork(Some(callback), std::ptr::null_mut(), std::ptr::null());
 
-        if work.is_null() {
+        if work == 0 {
             println!("{:?}", GetLastError());
             return;
         }
@@ -22,11 +22,7 @@ fn main() {
     println!("counter: {}", *counter);
 }
 
-extern "system" fn callback(
-    _: *mut TP_CALLBACK_INSTANCE,
-    _: *mut std::ffi::c_void,
-    _: *mut TP_WORK,
-) {
+extern "system" fn callback(_: PTP_CALLBACK_INSTANCE, _: *mut std::ffi::c_void, _: PTP_WORK) {
     let mut counter = COUNTER.write().unwrap();
     *counter += 1;
 }

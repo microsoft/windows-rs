@@ -45,13 +45,7 @@ fn main() -> Result<()> {
 
             if let Some(row) = &row[0] {
                 let mut value = Default::default();
-                row.Get(
-                    w!("Caption"),
-                    0,
-                    &mut value,
-                    std::ptr::null_mut(),
-                    std::ptr::null_mut(),
-                )?;
+                row.Get(w!("Caption"), 0, &mut value, None, None)?;
                 println!(
                     "{}",
                     VarFormat(

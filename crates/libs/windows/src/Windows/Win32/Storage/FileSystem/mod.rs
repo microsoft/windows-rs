@@ -3907,22 +3907,22 @@ pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbac
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WriteFile<P0>(hfile: P0, lpbuffer: ::core::option::Option<*const ::core::ffi::c_void>, nnumberofbytestowrite: u32, lpnumberofbyteswritten: ::core::option::Option<*mut u32>, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn WriteFile<P0>(hfile: P0, lpbuffer: ::core::option::Option<&[u8]>, lpnumberofbyteswritten: ::core::option::Option<*mut u32>, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn WriteFile ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofbytestowrite : u32 , lpnumberofbyteswritten : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
-    WriteFile(hfile.into(), ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null())), nnumberofbytestowrite, ::core::mem::transmute(lpnumberofbyteswritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WriteFile ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const u8 , nnumberofbytestowrite : u32 , lpnumberofbyteswritten : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    WriteFile(hfile.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnumberofbyteswritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WriteFileEx<P0>(hfile: P0, lpbuffer: ::core::option::Option<*const ::core::ffi::c_void>, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL
+pub unsafe fn WriteFileEx<P0>(hfile: P0, lpbuffer: ::core::option::Option<&[u8]>, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn WriteFileEx ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofbytestowrite : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE ) -> super::super::Foundation:: BOOL );
-    WriteFileEx(hfile.into(), ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null())), nnumberofbytestowrite, lpoverlapped, lpcompletionroutine)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WriteFileEx ( hfile : super::super::Foundation:: HANDLE , lpbuffer : *const u8 , nnumberofbytestowrite : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE ) -> super::super::Foundation:: BOOL );
+    WriteFileEx(hfile.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), lpoverlapped, lpcompletionroutine)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]

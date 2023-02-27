@@ -243,11 +243,11 @@ where
     ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeySetPropVariant ( plist : *mut SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , typecheck : super::super::Foundation:: BOOLEAN , pvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeySetPropVariant(plist, pkey, typecheck.into(), pvalue).ok()
 }
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: ::core::option::Option<*mut u32>, propvariantsize: ::core::option::Option<*mut u32>, propvariantpointer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, remappedtype: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropVariantGetInformation ( propvariantvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , propvariantoffset : *mut u32 , propvariantsize : *mut u32 , propvariantpointer : *mut *mut ::core::ffi::c_void , remappedtype : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
+pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: ::core::option::Option<*mut u32>, propvariantsize: ::core::option::Option<*mut u32>, propvariantpointer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, remappedtype: ::core::option::Option<*mut super::Properties::DEVPROPTYPE>) -> ::windows::core::Result<()> {
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropVariantGetInformation ( propvariantvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , propvariantoffset : *mut u32 , propvariantsize : *mut u32 , propvariantpointer : *mut *mut ::core::ffi::c_void , remappedtype : *mut super::Properties:: DEVPROPTYPE ) -> super::super::Foundation:: NTSTATUS );
     PropVariantGetInformation(propvariantvalue, ::core::mem::transmute(propvariantoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propvariantsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propvariantpointer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remappedtype.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]

@@ -2254,7 +2254,7 @@ pub trait ITextHost_Impl: Sized {
     fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL;
     fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL;
     fn TxKillTimer(&self, idtimer: u32);
-    fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD);
+    fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS);
     fn TxSetCapture(&self, fcapture: super::super::super::Foundation::BOOL);
     fn TxSetFocus(&self);
     fn TxSetCursor(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: super::super::super::Foundation::BOOL);
@@ -2351,7 +2351,7 @@ impl ITextHost_Vtbl {
             let this = (*this).get_impl();
             this.TxKillTimer(::core::mem::transmute_copy(&idtimer))
         }
-        unsafe extern "system" fn TxScrollWindowEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD) {
+        unsafe extern "system" fn TxScrollWindowEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TxScrollWindowEx(::core::mem::transmute_copy(&dx), ::core::mem::transmute_copy(&dy), ::core::mem::transmute_copy(&lprcscroll), ::core::mem::transmute_copy(&lprcclip), ::core::mem::transmute_copy(&hrgnupdate), ::core::mem::transmute_copy(&lprcupdate), ::core::mem::transmute_copy(&fuscroll))

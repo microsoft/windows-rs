@@ -28132,7 +28132,7 @@ impl IMFVirtualCamera {
     }
     #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
     #[cfg(feature = "Win32_Devices_Properties")]
-    pub unsafe fn AddProperty(&self, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: u32, pbdata: &[u8]) -> ::windows::core::Result<()> {
+    pub unsafe fn AddProperty(&self, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddProperty)(::windows::core::Vtable::as_raw(self), pkey, r#type, ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _).ok()
     }
     pub unsafe fn AddRegistryEntry<P0, P1>(&self, entryname: P0, subkeypath: P1, dwregtype: u32, pbdata: &[u8]) -> ::windows::core::Result<()>
@@ -28212,7 +28212,7 @@ pub struct IMFVirtualCamera_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub AddDeviceSourceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicesourceinfo: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Devices_Properties")]
-    pub AddProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: u32, pbdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT,
+    pub AddProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_Properties"))]
     AddProperty: usize,
     pub AddRegistryEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entryname: ::windows::core::PCWSTR, subkeypath: ::windows::core::PCWSTR, dwregtype: u32, pbdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT,

@@ -2297,7 +2297,7 @@ pub trait IBrowserService_Impl: Sized {
     fn GetSetCodePage(&self, pvarin: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn OnHttpEquiv(&self, psv: ::core::option::Option<&IShellView>, fdone: super::super::Foundation::BOOL, pvarargin: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn GetPalette(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HPALETTE>;
-    fn RegisterWindow(&self, fforceregister: super::super::Foundation::BOOL, swc: i32) -> ::windows::core::Result<()>;
+    fn RegisterWindow(&self, fforceregister: super::super::Foundation::BOOL, swc: ShellWindowTypeConstants) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::windows::core::RuntimeName for IBrowserService {}
@@ -2527,7 +2527,7 @@ impl IBrowserService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fforceregister: super::super::Foundation::BOOL, swc: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fforceregister: super::super::Foundation::BOOL, swc: ShellWindowTypeConstants) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RegisterWindow(::core::mem::transmute_copy(&fforceregister), ::core::mem::transmute_copy(&swc)).into()
@@ -8427,8 +8427,8 @@ pub trait IFolderView_Impl: Sized {
     fn SetCurrentViewMode(&self, viewmode: u32) -> ::windows::core::Result<()>;
     fn GetFolder(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Item(&self, iitemindex: i32) -> ::windows::core::Result<*mut Common::ITEMIDLIST>;
-    fn ItemCount(&self, uflags: u32) -> ::windows::core::Result<i32>;
-    fn Items(&self, uflags: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ItemCount(&self, uflags: _SVGIO) -> ::windows::core::Result<i32>;
+    fn Items(&self, uflags: _SVGIO, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetSelectionMarkedItem(&self) -> ::windows::core::Result<i32>;
     fn GetFocusedItem(&self) -> ::windows::core::Result<i32>;
     fn GetItemPosition(&self, pidl: *const Common::ITEMIDLIST) -> ::windows::core::Result<super::super::Foundation::POINT>;
@@ -8475,7 +8475,7 @@ impl IFolderView_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFolderView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uflags: u32, pcitems: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFolderView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uflags: _SVGIO, pcitems: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ItemCount(::core::mem::transmute_copy(&uflags)) {
@@ -8486,7 +8486,7 @@ impl IFolderView_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Items<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFolderView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uflags: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Items<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFolderView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uflags: _SVGIO, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Items(::core::mem::transmute_copy(&uflags), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
@@ -16542,8 +16542,8 @@ impl IShellLibrary_Vtbl {
         iid == &<IShellLibrary as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_Shell_Common\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common"))]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IShellLinkA_Impl: Sized {
     fn GetPath(&self, pszfile: ::windows::core::PSTR, cch: i32, pfd: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAA, fflags: u32) -> ::windows::core::Result<()>;
     fn GetIDList(&self) -> ::windows::core::Result<*mut Common::ITEMIDLIST>;
@@ -16556,17 +16556,17 @@ pub trait IShellLinkA_Impl: Sized {
     fn SetArguments(&self, pszargs: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
     fn GetHotkey(&self) -> ::windows::core::Result<u16>;
     fn SetHotkey(&self, whotkey: u16) -> ::windows::core::Result<()>;
-    fn GetShowCmd(&self) -> ::windows::core::Result<i32>;
-    fn SetShowCmd(&self, ishowcmd: i32) -> ::windows::core::Result<()>;
+    fn GetShowCmd(&self) -> ::windows::core::Result<super::WindowsAndMessaging::SHOW_WINDOW_CMD>;
+    fn SetShowCmd(&self, ishowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::Result<()>;
     fn GetIconLocation(&self, psziconpath: ::windows::core::PSTR, cch: i32, piicon: *mut i32) -> ::windows::core::Result<()>;
     fn SetIconLocation(&self, psziconpath: &::windows::core::PCSTR, iicon: i32) -> ::windows::core::Result<()>;
     fn SetRelativePath(&self, pszpathrel: &::windows::core::PCSTR, dwreserved: u32) -> ::windows::core::Result<()>;
     fn Resolve(&self, hwnd: super::super::Foundation::HWND, fflags: u32) -> ::windows::core::Result<()>;
     fn SetPath(&self, pszfile: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IShellLinkA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IShellLinkA_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkA_Impl, const OFFSET: isize>() -> IShellLinkA_Vtbl {
         unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfile: ::windows::core::PSTR, cch: i32, pfd: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAA, fflags: u32) -> ::windows::core::HRESULT {
@@ -16636,7 +16636,7 @@ impl IShellLinkA_Vtbl {
             let this = (*this).get_impl();
             this.SetHotkey(::core::mem::transmute_copy(&whotkey)).into()
         }
-        unsafe extern "system" fn GetShowCmd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pishowcmd: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetShowCmd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pishowcmd: *mut super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetShowCmd() {
@@ -16647,7 +16647,7 @@ impl IShellLinkA_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShowCmd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ishowcmd: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShowCmd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ishowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetShowCmd(::core::mem::transmute_copy(&ishowcmd)).into()
@@ -16950,8 +16950,8 @@ impl IShellLinkDual2_Vtbl {
         iid == &<IShellLinkDual2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IShellLinkDual as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_Shell_Common\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common"))]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IShellLinkW_Impl: Sized {
     fn GetPath(&self, pszfile: ::windows::core::PWSTR, cch: i32, pfd: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW, fflags: u32) -> ::windows::core::Result<()>;
     fn GetIDList(&self) -> ::windows::core::Result<*mut Common::ITEMIDLIST>;
@@ -16964,17 +16964,17 @@ pub trait IShellLinkW_Impl: Sized {
     fn SetArguments(&self, pszargs: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetHotkey(&self) -> ::windows::core::Result<u16>;
     fn SetHotkey(&self, whotkey: u16) -> ::windows::core::Result<()>;
-    fn GetShowCmd(&self) -> ::windows::core::Result<i32>;
-    fn SetShowCmd(&self, ishowcmd: i32) -> ::windows::core::Result<()>;
+    fn GetShowCmd(&self) -> ::windows::core::Result<super::WindowsAndMessaging::SHOW_WINDOW_CMD>;
+    fn SetShowCmd(&self, ishowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::Result<()>;
     fn GetIconLocation(&self, psziconpath: ::windows::core::PWSTR, cch: i32, piicon: *mut i32) -> ::windows::core::Result<()>;
     fn SetIconLocation(&self, psziconpath: &::windows::core::PCWSTR, iicon: i32) -> ::windows::core::Result<()>;
     fn SetRelativePath(&self, pszpathrel: &::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
     fn Resolve(&self, hwnd: super::super::Foundation::HWND, fflags: u32) -> ::windows::core::Result<()>;
     fn SetPath(&self, pszfile: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IShellLinkW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IShellLinkW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkW_Impl, const OFFSET: isize>() -> IShellLinkW_Vtbl {
         unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfile: ::windows::core::PWSTR, cch: i32, pfd: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW, fflags: u32) -> ::windows::core::HRESULT {
@@ -17044,7 +17044,7 @@ impl IShellLinkW_Vtbl {
             let this = (*this).get_impl();
             this.SetHotkey(::core::mem::transmute_copy(&whotkey)).into()
         }
-        unsafe extern "system" fn GetShowCmd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pishowcmd: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetShowCmd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pishowcmd: *mut super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetShowCmd() {
@@ -17055,7 +17055,7 @@ impl IShellLinkW_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShowCmd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ishowcmd: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShowCmd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ishowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetShowCmd(::core::mem::transmute_copy(&ishowcmd)).into()
@@ -18577,7 +18577,7 @@ pub trait IShellView_Impl: Sized + super::super::System::Ole::IOleWindow_Impl {
     fn AddPropertySheetPages(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn SaveViewState(&self) -> ::windows::core::Result<()>;
     fn SelectItem(&self, pidlitem: *const Common::ITEMIDLIST, uflags: u32) -> ::windows::core::Result<()>;
-    fn GetItemObject(&self, uitem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetItemObject(&self, uitem: _SVGIO, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IShellView {}
@@ -18646,7 +18646,7 @@ impl IShellView_Vtbl {
             let this = (*this).get_impl();
             this.SelectItem(::core::mem::transmute_copy(&pidlitem), ::core::mem::transmute_copy(&uflags)).into()
         }
-        unsafe extern "system" fn GetItemObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uitem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uitem: _SVGIO, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetItemObject(::core::mem::transmute_copy(&uitem), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
@@ -18748,12 +18748,12 @@ pub trait IShellWindows_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn Item(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Register(&self, pid: ::core::option::Option<&super::super::System::Com::IDispatch>, hwnd: i32, swclass: i32) -> ::windows::core::Result<i32>;
-    fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32) -> ::windows::core::Result<i32>;
+    fn Register(&self, pid: ::core::option::Option<&super::super::System::Com::IDispatch>, hwnd: i32, swclass: ShellWindowTypeConstants) -> ::windows::core::Result<i32>;
+    fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: ShellWindowTypeConstants) -> ::windows::core::Result<i32>;
     fn Revoke(&self, lcookie: i32) -> ::windows::core::Result<()>;
     fn OnNavigate(&self, lcookie: i32, pvarloc: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn OnActivated(&self, lcookie: i32, factive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn FindWindowSW(&self, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32, phwnd: *mut i32, swfwoptions: i32, ppdispout: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn FindWindowSW(&self, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn OnCreated(&self, lcookie: i32, punk: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn ProcessAttachDetach(&self, fattach: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
@@ -18795,7 +18795,7 @@ impl IShellWindows_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Register<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut ::core::ffi::c_void, hwnd: i32, swclass: i32, plcookie: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Register<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut ::core::ffi::c_void, hwnd: i32, swclass: ShellWindowTypeConstants, plcookie: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Register(::windows::core::from_raw_borrowed(&pid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&swclass)) {
@@ -18806,7 +18806,7 @@ impl IShellWindows_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterPending<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32, plcookie: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterPending<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: ShellWindowTypeConstants, plcookie: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RegisterPending(::core::mem::transmute_copy(&lthreadid), ::core::mem::transmute_copy(&pvarloc), ::core::mem::transmute_copy(&pvarlocroot), ::core::mem::transmute_copy(&swclass)) {
@@ -18832,7 +18832,7 @@ impl IShellWindows_Vtbl {
             let this = (*this).get_impl();
             this.OnActivated(::core::mem::transmute_copy(&lcookie), ::core::mem::transmute_copy(&factive)).into()
         }
-        unsafe extern "system" fn FindWindowSW<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32, phwnd: *mut i32, swfwoptions: i32, ppdispout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindWindowSW<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.FindWindowSW(::core::mem::transmute_copy(&pvarloc), ::core::mem::transmute_copy(&pvarlocroot), ::core::mem::transmute_copy(&swclass), ::core::mem::transmute_copy(&phwnd), ::core::mem::transmute_copy(&swfwoptions), ::core::mem::transmute_copy(&ppdispout)).into()

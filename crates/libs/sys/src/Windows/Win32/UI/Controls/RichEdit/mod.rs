@@ -2770,7 +2770,7 @@ pub struct CHARFORMATA {
     pub yHeight: i32,
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
-    pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
+    pub bCharSet: super::super::super::Graphics::Gdi::FONT_CHARSET,
     pub bPitchAndFamily: u8,
     pub szFaceName: [super::super::super::Foundation::CHAR; 32],
 }
@@ -2792,7 +2792,7 @@ pub struct CHARFORMATW {
     pub yHeight: i32,
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
-    pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
+    pub bCharSet: super::super::super::Graphics::Gdi::FONT_CHARSET,
     pub bPitchAndFamily: u8,
     pub szFaceName: [u16; 32],
 }

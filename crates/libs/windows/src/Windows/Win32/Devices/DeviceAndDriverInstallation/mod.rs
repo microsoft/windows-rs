@@ -407,15 +407,15 @@ pub unsafe fn CM_Get_Class_Name_ExW(classguid: *const ::windows::core::GUID, buf
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Get_Class_PropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_Class_PropertyW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+pub unsafe fn CM_Get_Class_PropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_Class_PropertyW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 ) -> CONFIGRET );
     CM_Get_Class_PropertyW(classguid, propertykey, propertytype, ::core::mem::transmute(propertybuffer.unwrap_or(::std::ptr::null_mut())), propertybuffersize, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Get_Class_Property_ExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_Class_Property_ExW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+pub unsafe fn CM_Get_Class_Property_ExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_Class_Property_ExW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
     CM_Get_Class_Property_ExW(classguid, propertykey, propertytype, ::core::mem::transmute(propertybuffer.unwrap_or(::std::ptr::null_mut())), propertybuffersize, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
@@ -495,15 +495,15 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Get_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_DevNode_PropertyW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+pub unsafe fn CM_Get_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_DevNode_PropertyW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 ) -> CONFIGRET );
     CM_Get_DevNode_PropertyW(dndevinst, propertykey, propertytype, ::core::mem::transmute(propertybuffer.unwrap_or(::std::ptr::null_mut())), propertybuffersize, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Get_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_DevNode_Property_ExW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+pub unsafe fn CM_Get_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_DevNode_Property_ExW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
     CM_Get_DevNode_Property_ExW(dndevinst, propertykey, propertytype, ::core::mem::transmute(propertybuffer.unwrap_or(::std::ptr::null_mut())), propertybuffersize, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
@@ -775,21 +775,21 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_Device_Interface_PropertyW ( pszdeviceinterface : :: windows::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_Device_Interface_PropertyW ( pszdeviceinterface : :: windows::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 ) -> CONFIGRET );
     CM_Get_Device_Interface_PropertyW(pszdeviceinterface.into().abi(), propertykey, propertytype, ::core::mem::transmute(propertybuffer.unwrap_or(::std::ptr::null_mut())), propertybuffersize, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<*mut u8>, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_Device_Interface_Property_ExW ( pszdeviceinterface : :: windows::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Get_Device_Interface_Property_ExW ( pszdeviceinterface : :: windows::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
     CM_Get_Device_Interface_Property_ExW(pszdeviceinterface.into().abi(), propertykey, propertytype, ::core::mem::transmute(propertybuffer.unwrap_or(::std::ptr::null_mut())), propertybuffersize, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
@@ -1421,15 +1421,15 @@ pub unsafe fn CM_Run_Detection_Ex(ulflags: u32, hmachine: isize) -> CONFIGRET {
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Set_Class_PropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32) -> CONFIGRET {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_Class_PropertyW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 ) -> CONFIGRET );
+pub unsafe fn CM_Set_Class_PropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32) -> CONFIGRET {
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_Class_PropertyW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 ) -> CONFIGRET );
     CM_Set_Class_PropertyW(classguid, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Set_Class_Property_ExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_Class_Property_ExW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+pub unsafe fn CM_Set_Class_Property_ExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_Class_Property_ExW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
     CM_Set_Class_Property_ExW(classguid, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -1459,15 +1459,15 @@ pub unsafe fn CM_Set_DevNode_Problem_Ex(dndevinst: u32, ulproblem: u32, ulflags:
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32) -> CONFIGRET {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_DevNode_PropertyW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 ) -> CONFIGRET );
+pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32) -> CONFIGRET {
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_DevNode_PropertyW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 ) -> CONFIGRET );
     CM_Set_DevNode_PropertyW(dndevinst, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_DevNode_Property_ExW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_DevNode_Property_ExW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
     CM_Set_DevNode_Property_ExW(dndevinst, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -1497,21 +1497,21 @@ pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Set_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Set_Device_Interface_PropertyW<P0>(pszdeviceinterface: P0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32) -> CONFIGRET
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_Device_Interface_PropertyW ( pszdeviceinterface : :: windows::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 ) -> CONFIGRET );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_Device_Interface_PropertyW ( pszdeviceinterface : :: windows::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 ) -> CONFIGRET );
     CM_Set_Device_Interface_PropertyW(pszdeviceinterface.into().abi(), propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn CM_Set_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Set_Device_Interface_Property_ExW<P0>(pszdeviceinterface: P0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_Device_Interface_Property_ExW ( pszdeviceinterface : :: windows::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+    ::windows::imp::link ! ( "cfgmgr32.dll""system" fn CM_Set_Device_Interface_Property_ExW ( pszdeviceinterface : :: windows::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
     CM_Set_Device_Interface_Property_ExW(pszdeviceinterface.into().abi(), propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -2722,11 +2722,11 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyExW<P0>(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, flags: u32, machinename: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiGetClassPropertyExW<P0>(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, flags: u32, machinename: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiGetClassPropertyExW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 , machinename : :: windows::core::PCWSTR , reserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiGetClassPropertyExW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 , machinename : :: windows::core::PCWSTR , reserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     SetupDiGetClassPropertyExW(classguid, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), flags, machinename.into().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
@@ -2749,8 +2749,8 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, flags: u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiGetClassPropertyW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+pub unsafe fn SetupDiGetClassPropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, flags: u32) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiGetClassPropertyW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
     SetupDiGetClassPropertyW(classguid, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -2908,11 +2908,11 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInterfacePropertyW<P0>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiGetDeviceInterfacePropertyW<P0>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiGetDeviceInterfacePropertyW ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiGetDeviceInterfacePropertyW ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
     SetupDiGetDeviceInterfacePropertyW(deviceinfoset.into(), deviceinterfacedata, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
@@ -2928,11 +2928,11 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn SetupDiGetDevicePropertyW<P0>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiGetDevicePropertyW<P0>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiGetDevicePropertyW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiGetDevicePropertyW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut super::Properties:: DEVPROPTYPE , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
     SetupDiGetDevicePropertyW(deviceinfoset.into(), deviceinfodata, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -3409,18 +3409,18 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn SetupDiSetClassPropertyExW<P0>(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, flags: u32, machinename: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiSetClassPropertyExW<P0>(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, flags: u32, machinename: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiSetClassPropertyExW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 , machinename : :: windows::core::PCWSTR , reserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiSetClassPropertyExW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 , machinename : :: windows::core::PCWSTR , reserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     SetupDiSetClassPropertyExW(classguid, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), flags, machinename.into().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn SetupDiSetClassPropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, flags: u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiSetClassPropertyW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+pub unsafe fn SetupDiSetClassPropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, flags: u32) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiSetClassPropertyW ( classguid : *const :: windows::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
     SetupDiSetClassPropertyW(classguid, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -3476,21 +3476,21 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn SetupDiSetDeviceInterfacePropertyW<P0>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiSetDeviceInterfacePropertyW<P0>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiSetDeviceInterfacePropertyW ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiSetDeviceInterfacePropertyW ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
     SetupDiSetDeviceInterfacePropertyW(deviceinfoset.into(), deviceinterfacedata, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn SetupDiSetDevicePropertyW<P0>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: ::core::option::Option<&[u8]>, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiSetDevicePropertyW<P0>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: ::core::option::Option<&[u8]>, flags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiSetDevicePropertyW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupDiSetDevicePropertyW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : super::Properties:: DEVPROPTYPE , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
     SetupDiSetDevicePropertyW(deviceinfoset.into(), deviceinfodata, propertykey, propertytype, ::core::mem::transmute(propertybuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len() as _), flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]

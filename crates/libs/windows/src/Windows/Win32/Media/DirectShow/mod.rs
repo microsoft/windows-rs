@@ -47578,8 +47578,10 @@ impl IVideoWindow {
     pub unsafe fn SetWindowState(&self, windowstate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetWindowState)(::windows::core::Vtable::as_raw(self), windowstate).ok()
     }
-    pub unsafe fn WindowState(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn WindowState(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD> {
+        let mut result__ = ::windows::core::zeroed::<super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD>();
         (::windows::core::Vtable::vtable(self).WindowState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBackgroundPalette(&self, backgroundpalette: i32) -> ::windows::core::Result<()> {
@@ -47725,7 +47727,10 @@ pub struct IVideoWindow_Vtbl {
     pub SetAutoShow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoshow: i32) -> ::windows::core::HRESULT,
     pub AutoShow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoshow: *mut i32) -> ::windows::core::HRESULT,
     pub SetWindowState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowstate: i32) -> ::windows::core::HRESULT,
-    pub WindowState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowstate: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub WindowState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowstate: *mut super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    WindowState: usize,
     pub SetBackgroundPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, backgroundpalette: i32) -> ::windows::core::HRESULT,
     pub BackgroundPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbackgroundpalette: *mut i32) -> ::windows::core::HRESULT,
     pub SetVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visible: i32) -> ::windows::core::HRESULT,

@@ -4251,7 +4251,7 @@ pub trait IPropertyPage_Impl: Sized {
     fn Deactivate(&self) -> ::windows::core::Result<()>;
     fn GetPageInfo(&self, ppageinfo: *mut PROPPAGEINFO) -> ::windows::core::Result<()>;
     fn SetObjects(&self, cobjects: u32, ppunk: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Show(&self, ncmdshow: u32) -> ::windows::core::Result<()>;
+    fn Show(&self, ncmdshow: super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::Result<()>;
     fn Move(&self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn IsPageDirty(&self) -> ::windows::core::Result<()>;
     fn Apply(&self) -> ::windows::core::Result<()>;
@@ -4288,7 +4288,7 @@ impl IPropertyPage_Vtbl {
             let this = (*this).get_impl();
             this.SetObjects(::core::mem::transmute_copy(&cobjects), ::core::mem::transmute_copy(&ppunk)).into()
         }
-        unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncmdshow: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncmdshow: super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Show(::core::mem::transmute_copy(&ncmdshow)).into()
