@@ -111,6 +111,7 @@ jobs:
           cargo clippy -p test_structs &&
           cargo clippy -p test_sys &&
           cargo clippy -p test_unions &&
+          cargo clippy -p test_wdk &&
           cargo clippy -p test_weak &&
           cargo clippy -p test_weak_ref &&
           cargo clippy -p test_win32 &&
