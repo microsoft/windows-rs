@@ -77,11 +77,6 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
                 f.debug_tuple(#name).field(&self.0).finish()
             }
         }
-        impl ::core::convert::From<::core::option::Option<#ident>> for #ident {
-            fn from(optional: ::core::option::Option<#ident>) -> #ident {
-                optional.unwrap_or_default()
-            }
-        }
         impl ::windows::core::TypeKind for #ident {
             type TypeKind = ::windows::core::CopyType;
         }
@@ -93,11 +88,7 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
         dependency.push_str(type_name.name);
 
         tokens.combine(&quote! {
-            impl ::core::convert::From<#ident> for #dependency {
-                fn from(item: #ident) -> #dependency {
-                    #dependency(item.0)
-                }
-            }
+            impl windows::core::CanInto<#dependency> for #ident {}
         });
     }
 

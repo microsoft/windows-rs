@@ -51,20 +51,20 @@ pub fn gen(
         if return_type.is_winrt_array() {
             quote! {
                 let mut result__ = ::core::mem::MaybeUninit::zeroed();
-                (::windows::core::Vtable::vtable(this).#vname)(::windows::core::Vtable::as_raw(this), #args #return_arg)
+                (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #return_arg)
                     .and_then(|| result__.assume_init())
             }
         } else {
             let return_type = gen.type_name(return_type);
             quote! {
                 let mut result__ = ::windows::core::zeroed::<#return_type>();
-                    (::windows::core::Vtable::vtable(this).#vname)(::windows::core::Vtable::as_raw(this), #args #return_arg)
+                    (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #return_arg)
                         .from_abi(result__)
             }
         }
     } else {
         quote! {
-            (::windows::core::Vtable::vtable(this).#vname)(::windows::core::Vtable::as_raw(this), #args).ok()
+            (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args).ok()
         }
     };
 
@@ -84,7 +84,7 @@ pub fn gen(
                 #doc
                 #features
                 pub fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
-                    let this = &::windows::core::Interface::cast::<#interface_name>(self)?;
+                    let this = &::windows::core::ComInterface::cast::<#interface_name>(self)?;
                     unsafe {
                         #vcall
                     }
@@ -157,9 +157,9 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
                     quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
                 }
             } else if gen.reader.signature_param_is_failible_param(param) {
-                quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
+                quote! { #name.try_into_param()?.abi(), }
             } else if gen.reader.signature_param_is_borrowed(param) {
-                quote! { #name.into().abi(), }
+                quote! { #name.into_param().abi(), }
             } else if gen.reader.type_is_blittable(&param.ty) {
                 if param.ty.is_winrt_const_ref() {
                     quote! { &#name, }

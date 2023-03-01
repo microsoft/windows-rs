@@ -281,15 +281,7 @@ impl<'a> Gen<'a> {
     pub fn constraint_generics(&self, params: &[SignatureParam]) -> TokenStream {
         let mut generics = self
             .generic_params(params)
-            .map(|(position, param)| -> TokenStream {
-                let mut p = format!("P{position}");
-                if param.kind == SignatureParamKind::TryInto {
-                    p.push_str(", E");
-                    p.push_str(&position.to_string());
-                }
-
-                p.into()
-            })
+            .map(|(position, _)| -> TokenStream { format!("P{position}").into() })
             .peekable();
 
         if generics.peek().is_some() {
@@ -318,21 +310,13 @@ impl<'a> Gen<'a> {
             match param.kind {
                 SignatureParamKind::TryInto => {
                     let name: TokenStream = gen_name(position);
-                    let error_name: TokenStream = format!("E{position}").into();
                     let into = self.type_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::InParam<#into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
+                    tokens.combine(&quote! { #name: ::windows::core::TryIntoParam<#into>, });
                 }
                 SignatureParamKind::IntoParam => {
                     let name: TokenStream = gen_name(position);
                     let into = self.type_name(&param.ty);
-                    tokens.combine(
-                        &quote! { #name: ::std::convert::Into<::windows::core::InParam<#into>>, },
-                    );
-                }
-                SignatureParamKind::Into => {
-                    let name: TokenStream = gen_name(position);
-                    let into = self.type_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
+                    tokens.combine(&quote! { #name: ::windows::core::IntoParam<#into>, });
                 }
                 _ => {}
             }
@@ -787,12 +771,12 @@ impl<'a> Gen<'a> {
                     }
                 }
                 #features
-                unsafe impl ::windows::core::Vtable for #ident {
+                unsafe impl ::windows::core::Interface for #ident {
                     type Vtable = #vtbl;
                 }
                 #features
-                unsafe impl ::windows::core::Interface for #ident {
-                    const IID: ::windows::core::GUID = <#default_name as ::windows::core::Interface>::IID;
+                unsafe impl ::windows::core::ComInterface for #ident {
+                    const IID: ::windows::core::GUID = <#default_name as ::windows::core::ComInterface>::IID;
                 }
             }
         } else {
@@ -816,7 +800,7 @@ impl<'a> Gen<'a> {
 
             let mut tokens = quote! {
                 #features
-                unsafe impl<#constraints> ::windows::core::Vtable for #ident {
+                unsafe impl<#constraints> ::windows::core::Interface for #ident {
                     type Vtable = #vtbl;
                 }
                 #features
@@ -830,7 +814,7 @@ impl<'a> Gen<'a> {
             if has_unknown_base {
                 tokens.combine(&quote! {
                     #features
-                    unsafe impl<#constraints> ::windows::core::Interface for #ident {
+                    unsafe impl<#constraints> ::windows::core::ComInterface for #ident {
                         const IID: ::windows::core::GUID = #guid;
                     }
                 });
@@ -1021,7 +1005,7 @@ impl<'a> Gen<'a> {
                 SignatureKind::Query(query) | SignatureKind::QueryOptional(query)
                     if query.guid == position =>
                 {
-                    quote! { &<T as ::windows::core::Interface>::IID, }
+                    quote! { &<T as ::windows::core::ComInterface>::IID, }
                 }
                 _ => {
                     let name = self.param_name(param.def);
@@ -1047,13 +1031,10 @@ impl<'a> Gen<'a> {
                             }
                         }
                         SignatureParamKind::TryInto => {
-                            quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
+                            quote! { #name.try_into_param()?.abi(), }
                         }
                         SignatureParamKind::IntoParam => {
-                            quote! { #name.into().abi(), }
-                        }
-                        SignatureParamKind::Into => {
-                            quote! { #name.into(), }
+                            quote! { #name.into_param().abi(), }
                         }
                         SignatureParamKind::OptionalPointer => {
                             if flags.contains(ParamAttributes::OUTPUT) {
@@ -1167,9 +1148,7 @@ impl<'a> Gen<'a> {
                     }
                 }
                 SignatureParamKind::ArrayRelativePtr(_) => {}
-                SignatureParamKind::TryInto
-                | SignatureParamKind::IntoParam
-                | SignatureParamKind::Into => {
+                SignatureParamKind::TryInto | SignatureParamKind::IntoParam => {
                     let (position, _) = generic_params.next().unwrap();
                     let kind: TokenStream = format!("P{position}").into();
                     tokens.combine(&quote! { #name: #kind, });

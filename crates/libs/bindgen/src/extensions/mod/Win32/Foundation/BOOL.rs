@@ -66,3 +66,8 @@ impl ::core::ops::Not for BOOL {
         }
     }
 }
+impl windows::core::IntoParam<BOOL> for bool {
+    fn into_param(self) -> windows::core::Param<BOOL> {
+        windows::core::Param::Owned(self.into())
+    }
+}

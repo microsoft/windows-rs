@@ -99,7 +99,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
-                expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
 
             quote! {
                 #doc
@@ -117,7 +117,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
-                expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
 
             quote! {
                 #doc
