@@ -39,7 +39,7 @@ impl ICustomGameControllerFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICustomGameControllerFactory as ::windows::core::Interface>::IID
+        iid == &<ICustomGameControllerFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -69,7 +69,7 @@ impl IGameControllerInputSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameControllerInputSink as ::windows::core::Interface>::IID
+        iid == &<IGameControllerInputSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -155,7 +155,7 @@ impl IGameControllerProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameControllerProvider as ::windows::core::Interface>::IID
+        iid == &<IGameControllerProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -185,7 +185,7 @@ impl IGipGameControllerInputSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGipGameControllerInputSink as ::windows::core::Interface>::IID
+        iid == &<IGipGameControllerInputSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -208,7 +208,7 @@ impl IHidGameControllerInputSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHidGameControllerInputSink as ::windows::core::Interface>::IID
+        iid == &<IHidGameControllerInputSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -231,6 +231,6 @@ impl IXusbGameControllerInputSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXusbGameControllerInputSink as ::windows::core::Interface>::IID
+        iid == &<IXusbGameControllerInputSink as ::windows::core::ComInterface>::IID
     }
 }

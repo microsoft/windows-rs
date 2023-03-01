@@ -47,7 +47,7 @@ impl IITDatabase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IITDatabase as ::windows::core::Interface>::IID
+        iid == &<IITDatabase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -190,7 +190,7 @@ impl IITPropList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IITPropList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersistStreamInit as ::windows::core::Interface>::IID
+        iid == &<IITPropList as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersistStreamInit as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -417,7 +417,7 @@ impl IITResultSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IITResultSet as ::windows::core::Interface>::IID
+        iid == &<IITResultSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -525,7 +525,7 @@ impl IITWordWheel_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IITWordWheel as ::windows::core::Interface>::IID
+        iid == &<IITWordWheel as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"implement\"`*"]
@@ -553,7 +553,7 @@ impl IStemSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStemSink as ::windows::core::Interface>::IID
+        iid == &<IStemSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -605,7 +605,7 @@ impl IStemmerConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStemmerConfig as ::windows::core::Interface>::IID
+        iid == &<IStemmerConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`, `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -691,6 +691,6 @@ impl IWordBreakerConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWordBreakerConfig as ::windows::core::Interface>::IID
+        iid == &<IWordBreakerConfig as ::windows::core::ComInterface>::IID
     }
 }

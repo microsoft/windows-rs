@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbBulkInEndpointDescriptor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbBulkInEndpointDescriptor {
+unsafe impl ::windows::core::Interface for IUsbBulkInEndpointDescriptor {
     type Vtable = IUsbBulkInEndpointDescriptor_Vtbl;
 }
 impl ::core::clone::Clone for IUsbBulkInEndpointDescriptor {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IUsbBulkInEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbBulkInEndpointDescriptor {
+unsafe impl ::windows::core::ComInterface for IUsbBulkInEndpointDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c6e4846_06cf_42a9_9dc2_971c1b14b6e3);
 }
 #[repr(C)]
@@ -23,7 +23,7 @@ pub struct IUsbBulkInEndpointDescriptor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbBulkInPipe(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbBulkInPipe {
+unsafe impl ::windows::core::Interface for IUsbBulkInPipe {
     type Vtable = IUsbBulkInPipe_Vtbl;
 }
 impl ::core::clone::Clone for IUsbBulkInPipe {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for IUsbBulkInPipe {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbBulkInPipe {
+unsafe impl ::windows::core::ComInterface for IUsbBulkInPipe {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf01d2d3b_4548_4d50_b326_d82cdabe1220);
 }
 #[repr(C)]
@@ -55,7 +55,7 @@ pub struct IUsbBulkInPipe_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbBulkOutEndpointDescriptor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbBulkOutEndpointDescriptor {
+unsafe impl ::windows::core::Interface for IUsbBulkOutEndpointDescriptor {
     type Vtable = IUsbBulkOutEndpointDescriptor_Vtbl;
 }
 impl ::core::clone::Clone for IUsbBulkOutEndpointDescriptor {
@@ -63,7 +63,7 @@ impl ::core::clone::Clone for IUsbBulkOutEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbBulkOutEndpointDescriptor {
+unsafe impl ::windows::core::ComInterface for IUsbBulkOutEndpointDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2820847a_ffee_4f60_9be1_956cac3ecb65);
 }
 #[repr(C)]
@@ -77,7 +77,7 @@ pub struct IUsbBulkOutEndpointDescriptor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbBulkOutPipe(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbBulkOutPipe {
+unsafe impl ::windows::core::Interface for IUsbBulkOutPipe {
     type Vtable = IUsbBulkOutPipe_Vtbl;
 }
 impl ::core::clone::Clone for IUsbBulkOutPipe {
@@ -85,7 +85,7 @@ impl ::core::clone::Clone for IUsbBulkOutPipe {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbBulkOutPipe {
+unsafe impl ::windows::core::ComInterface for IUsbBulkOutPipe {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8e9ee6e_0115_45aa_8b21_37b225bccee7);
 }
 #[repr(C)]
@@ -107,7 +107,7 @@ pub struct IUsbBulkOutPipe_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbConfiguration(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbConfiguration {
+unsafe impl ::windows::core::Interface for IUsbConfiguration {
     type Vtable = IUsbConfiguration_Vtbl;
 }
 impl ::core::clone::Clone for IUsbConfiguration {
@@ -115,7 +115,7 @@ impl ::core::clone::Clone for IUsbConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbConfiguration {
+unsafe impl ::windows::core::ComInterface for IUsbConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68177429_36a9_46d7_b873_fc689251ec30);
 }
 #[repr(C)]
@@ -135,7 +135,7 @@ pub struct IUsbConfiguration_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbConfigurationDescriptor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbConfigurationDescriptor {
+unsafe impl ::windows::core::Interface for IUsbConfigurationDescriptor {
     type Vtable = IUsbConfigurationDescriptor_Vtbl;
 }
 impl ::core::clone::Clone for IUsbConfigurationDescriptor {
@@ -143,7 +143,7 @@ impl ::core::clone::Clone for IUsbConfigurationDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbConfigurationDescriptor {
+unsafe impl ::windows::core::ComInterface for IUsbConfigurationDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2176d92_b442_407a_8207_7d646c0385f3);
 }
 #[repr(C)]
@@ -158,7 +158,7 @@ pub struct IUsbConfigurationDescriptor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbConfigurationDescriptorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbConfigurationDescriptorStatics {
+unsafe impl ::windows::core::Interface for IUsbConfigurationDescriptorStatics {
     type Vtable = IUsbConfigurationDescriptorStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUsbConfigurationDescriptorStatics {
@@ -166,7 +166,7 @@ impl ::core::clone::Clone for IUsbConfigurationDescriptorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbConfigurationDescriptorStatics {
+unsafe impl ::windows::core::ComInterface for IUsbConfigurationDescriptorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x424ced93_e740_40a1_92bd_da120ea04914);
 }
 #[repr(C)]
@@ -179,7 +179,7 @@ pub struct IUsbConfigurationDescriptorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbControlRequestType(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbControlRequestType {
+unsafe impl ::windows::core::Interface for IUsbControlRequestType {
     type Vtable = IUsbControlRequestType_Vtbl;
 }
 impl ::core::clone::Clone for IUsbControlRequestType {
@@ -187,7 +187,7 @@ impl ::core::clone::Clone for IUsbControlRequestType {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbControlRequestType {
+unsafe impl ::windows::core::ComInterface for IUsbControlRequestType {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e9465a6_d73d_46de_94be_aae7f07c0f5c);
 }
 #[repr(C)]
@@ -206,7 +206,7 @@ pub struct IUsbControlRequestType_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbDescriptor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbDescriptor {
+unsafe impl ::windows::core::Interface for IUsbDescriptor {
     type Vtable = IUsbDescriptor_Vtbl;
 }
 impl ::core::clone::Clone for IUsbDescriptor {
@@ -214,7 +214,7 @@ impl ::core::clone::Clone for IUsbDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbDescriptor {
+unsafe impl ::windows::core::ComInterface for IUsbDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a89f216_5f9d_4874_8904_da9ad3f5528f);
 }
 #[repr(C)]
@@ -231,7 +231,7 @@ pub struct IUsbDescriptor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbDevice {
+unsafe impl ::windows::core::Interface for IUsbDevice {
     type Vtable = IUsbDevice_Vtbl;
 }
 impl ::core::clone::Clone for IUsbDevice {
@@ -239,7 +239,7 @@ impl ::core::clone::Clone for IUsbDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbDevice {
+unsafe impl ::windows::core::ComInterface for IUsbDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5249b992_c456_44d5_ad5e_24f5a089f63b);
 }
 #[repr(C)]
@@ -269,7 +269,7 @@ pub struct IUsbDevice_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbDeviceClass(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbDeviceClass {
+unsafe impl ::windows::core::Interface for IUsbDeviceClass {
     type Vtable = IUsbDeviceClass_Vtbl;
 }
 impl ::core::clone::Clone for IUsbDeviceClass {
@@ -277,7 +277,7 @@ impl ::core::clone::Clone for IUsbDeviceClass {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbDeviceClass {
+unsafe impl ::windows::core::ComInterface for IUsbDeviceClass {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x051942f9_845e_47eb_b12a_38f2f617afe7);
 }
 #[repr(C)]
@@ -306,7 +306,7 @@ pub struct IUsbDeviceClass_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbDeviceClasses(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbDeviceClasses {
+unsafe impl ::windows::core::Interface for IUsbDeviceClasses {
     type Vtable = IUsbDeviceClasses_Vtbl;
 }
 impl ::core::clone::Clone for IUsbDeviceClasses {
@@ -314,7 +314,7 @@ impl ::core::clone::Clone for IUsbDeviceClasses {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbDeviceClasses {
+unsafe impl ::windows::core::ComInterface for IUsbDeviceClasses {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x686f955d_9b92_4b30_9781_c22c55ac35cb);
 }
 #[repr(C)]
@@ -325,7 +325,7 @@ pub struct IUsbDeviceClasses_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbDeviceClassesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbDeviceClassesStatics {
+unsafe impl ::windows::core::Interface for IUsbDeviceClassesStatics {
     type Vtable = IUsbDeviceClassesStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUsbDeviceClassesStatics {
@@ -333,7 +333,7 @@ impl ::core::clone::Clone for IUsbDeviceClassesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbDeviceClassesStatics {
+unsafe impl ::windows::core::ComInterface for IUsbDeviceClassesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb20b0527_c580_4599_a165_981b4fd03230);
 }
 #[repr(C)]
@@ -353,7 +353,7 @@ pub struct IUsbDeviceClassesStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbDeviceDescriptor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbDeviceDescriptor {
+unsafe impl ::windows::core::Interface for IUsbDeviceDescriptor {
     type Vtable = IUsbDeviceDescriptor_Vtbl;
 }
 impl ::core::clone::Clone for IUsbDeviceDescriptor {
@@ -361,7 +361,7 @@ impl ::core::clone::Clone for IUsbDeviceDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbDeviceDescriptor {
+unsafe impl ::windows::core::ComInterface for IUsbDeviceDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f48d1f6_ba97_4322_b92c_b5b189216588);
 }
 #[repr(C)]
@@ -378,7 +378,7 @@ pub struct IUsbDeviceDescriptor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbDeviceStatics {
+unsafe impl ::windows::core::Interface for IUsbDeviceStatics {
     type Vtable = IUsbDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUsbDeviceStatics {
@@ -386,7 +386,7 @@ impl ::core::clone::Clone for IUsbDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IUsbDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x066b85a2_09b7_4446_8502_6fe6dcaa7309);
 }
 #[repr(C)]
@@ -405,7 +405,7 @@ pub struct IUsbDeviceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbEndpointDescriptor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbEndpointDescriptor {
+unsafe impl ::windows::core::Interface for IUsbEndpointDescriptor {
     type Vtable = IUsbEndpointDescriptor_Vtbl;
 }
 impl ::core::clone::Clone for IUsbEndpointDescriptor {
@@ -413,7 +413,7 @@ impl ::core::clone::Clone for IUsbEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbEndpointDescriptor {
+unsafe impl ::windows::core::ComInterface for IUsbEndpointDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b4862d9_8df7_4b40_ac83_578f139f0575);
 }
 #[repr(C)]
@@ -431,7 +431,7 @@ pub struct IUsbEndpointDescriptor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbEndpointDescriptorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbEndpointDescriptorStatics {
+unsafe impl ::windows::core::Interface for IUsbEndpointDescriptorStatics {
     type Vtable = IUsbEndpointDescriptorStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUsbEndpointDescriptorStatics {
@@ -439,7 +439,7 @@ impl ::core::clone::Clone for IUsbEndpointDescriptorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbEndpointDescriptorStatics {
+unsafe impl ::windows::core::ComInterface for IUsbEndpointDescriptorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc890b201_9a6a_495e_a82c_295b9e708106);
 }
 #[repr(C)]
@@ -452,7 +452,7 @@ pub struct IUsbEndpointDescriptorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbInterface(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbInterface {
+unsafe impl ::windows::core::Interface for IUsbInterface {
     type Vtable = IUsbInterface_Vtbl;
 }
 impl ::core::clone::Clone for IUsbInterface {
@@ -460,7 +460,7 @@ impl ::core::clone::Clone for IUsbInterface {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbInterface {
+unsafe impl ::windows::core::ComInterface for IUsbInterface {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0322b95_7f47_48ab_a727_678c25be2112);
 }
 #[repr(C)]
@@ -496,7 +496,7 @@ pub struct IUsbInterface_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbInterfaceDescriptor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbInterfaceDescriptor {
+unsafe impl ::windows::core::Interface for IUsbInterfaceDescriptor {
     type Vtable = IUsbInterfaceDescriptor_Vtbl;
 }
 impl ::core::clone::Clone for IUsbInterfaceDescriptor {
@@ -504,7 +504,7 @@ impl ::core::clone::Clone for IUsbInterfaceDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbInterfaceDescriptor {
+unsafe impl ::windows::core::ComInterface for IUsbInterfaceDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x199670c7_b7ee_4f90_8cd5_94a2e257598a);
 }
 #[repr(C)]
@@ -520,7 +520,7 @@ pub struct IUsbInterfaceDescriptor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbInterfaceDescriptorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbInterfaceDescriptorStatics {
+unsafe impl ::windows::core::Interface for IUsbInterfaceDescriptorStatics {
     type Vtable = IUsbInterfaceDescriptorStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUsbInterfaceDescriptorStatics {
@@ -528,7 +528,7 @@ impl ::core::clone::Clone for IUsbInterfaceDescriptorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbInterfaceDescriptorStatics {
+unsafe impl ::windows::core::ComInterface for IUsbInterfaceDescriptorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe34a9ff5_77d6_48b6_b0be_16c6422316fe);
 }
 #[repr(C)]
@@ -541,7 +541,7 @@ pub struct IUsbInterfaceDescriptorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbInterfaceSetting(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbInterfaceSetting {
+unsafe impl ::windows::core::Interface for IUsbInterfaceSetting {
     type Vtable = IUsbInterfaceSetting_Vtbl;
 }
 impl ::core::clone::Clone for IUsbInterfaceSetting {
@@ -549,7 +549,7 @@ impl ::core::clone::Clone for IUsbInterfaceSetting {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbInterfaceSetting {
+unsafe impl ::windows::core::ComInterface for IUsbInterfaceSetting {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1827bba7_8da7_4af7_8f4c_7f3032e781f5);
 }
 #[repr(C)]
@@ -586,7 +586,7 @@ pub struct IUsbInterfaceSetting_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbInterruptInEndpointDescriptor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbInterruptInEndpointDescriptor {
+unsafe impl ::windows::core::Interface for IUsbInterruptInEndpointDescriptor {
     type Vtable = IUsbInterruptInEndpointDescriptor_Vtbl;
 }
 impl ::core::clone::Clone for IUsbInterruptInEndpointDescriptor {
@@ -594,7 +594,7 @@ impl ::core::clone::Clone for IUsbInterruptInEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbInterruptInEndpointDescriptor {
+unsafe impl ::windows::core::ComInterface for IUsbInterruptInEndpointDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0528967_c911_4c3a_86b2_419c2da89039);
 }
 #[repr(C)]
@@ -612,7 +612,7 @@ pub struct IUsbInterruptInEndpointDescriptor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbInterruptInEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbInterruptInEventArgs {
+unsafe impl ::windows::core::Interface for IUsbInterruptInEventArgs {
     type Vtable = IUsbInterruptInEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUsbInterruptInEventArgs {
@@ -620,7 +620,7 @@ impl ::core::clone::Clone for IUsbInterruptInEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbInterruptInEventArgs {
+unsafe impl ::windows::core::ComInterface for IUsbInterruptInEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7b04092_1418_4936_8209_299cf5605583);
 }
 #[repr(C)]
@@ -635,7 +635,7 @@ pub struct IUsbInterruptInEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbInterruptInPipe(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbInterruptInPipe {
+unsafe impl ::windows::core::Interface for IUsbInterruptInPipe {
     type Vtable = IUsbInterruptInPipe_Vtbl;
 }
 impl ::core::clone::Clone for IUsbInterruptInPipe {
@@ -643,7 +643,7 @@ impl ::core::clone::Clone for IUsbInterruptInPipe {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbInterruptInPipe {
+unsafe impl ::windows::core::ComInterface for IUsbInterruptInPipe {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa007116_84d7_48c7_8a3f_4c0b235f2ea6);
 }
 #[repr(C)]
@@ -667,7 +667,7 @@ pub struct IUsbInterruptInPipe_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbInterruptOutEndpointDescriptor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbInterruptOutEndpointDescriptor {
+unsafe impl ::windows::core::Interface for IUsbInterruptOutEndpointDescriptor {
     type Vtable = IUsbInterruptOutEndpointDescriptor_Vtbl;
 }
 impl ::core::clone::Clone for IUsbInterruptOutEndpointDescriptor {
@@ -675,7 +675,7 @@ impl ::core::clone::Clone for IUsbInterruptOutEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbInterruptOutEndpointDescriptor {
+unsafe impl ::windows::core::ComInterface for IUsbInterruptOutEndpointDescriptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc9fed81_10ca_4533_952d_9e278341e80f);
 }
 #[repr(C)]
@@ -693,7 +693,7 @@ pub struct IUsbInterruptOutEndpointDescriptor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbInterruptOutPipe(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbInterruptOutPipe {
+unsafe impl ::windows::core::Interface for IUsbInterruptOutPipe {
     type Vtable = IUsbInterruptOutPipe_Vtbl;
 }
 impl ::core::clone::Clone for IUsbInterruptOutPipe {
@@ -701,7 +701,7 @@ impl ::core::clone::Clone for IUsbInterruptOutPipe {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbInterruptOutPipe {
+unsafe impl ::windows::core::ComInterface for IUsbInterruptOutPipe {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe984c8a9_aaf9_49d0_b96c_f661ab4a7f95);
 }
 #[repr(C)]
@@ -723,7 +723,7 @@ pub struct IUsbInterruptOutPipe_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbSetupPacket(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbSetupPacket {
+unsafe impl ::windows::core::Interface for IUsbSetupPacket {
     type Vtable = IUsbSetupPacket_Vtbl;
 }
 impl ::core::clone::Clone for IUsbSetupPacket {
@@ -731,7 +731,7 @@ impl ::core::clone::Clone for IUsbSetupPacket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbSetupPacket {
+unsafe impl ::windows::core::ComInterface for IUsbSetupPacket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104ba132_c78f_4c51_b654_e49d02f2cb03);
 }
 #[repr(C)]
@@ -752,7 +752,7 @@ pub struct IUsbSetupPacket_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUsbSetupPacketFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUsbSetupPacketFactory {
+unsafe impl ::windows::core::Interface for IUsbSetupPacketFactory {
     type Vtable = IUsbSetupPacketFactory_Vtbl;
 }
 impl ::core::clone::Clone for IUsbSetupPacketFactory {
@@ -760,7 +760,7 @@ impl ::core::clone::Clone for IUsbSetupPacketFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUsbSetupPacketFactory {
+unsafe impl ::windows::core::ComInterface for IUsbSetupPacketFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9257d50_1b2e_4a41_a2a7_338f0cef3c14);
 }
 #[repr(C)]
@@ -780,21 +780,21 @@ impl UsbBulkInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxPacketSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointNumber(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).EndpointNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pipe(&self) -> ::windows::core::Result<UsbBulkInPipe> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbBulkInPipe>();
-            (::windows::core::Vtable::vtable(this).Pipe)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Pipe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -817,11 +817,11 @@ impl ::core::clone::Clone for UsbBulkInEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbBulkInEndpointDescriptor {
+unsafe impl ::windows::core::Interface for UsbBulkInEndpointDescriptor {
     type Vtable = IUsbBulkInEndpointDescriptor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbBulkInEndpointDescriptor {
-    const IID: ::windows::core::GUID = <IUsbBulkInEndpointDescriptor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbBulkInEndpointDescriptor {
+    const IID: ::windows::core::GUID = <IUsbBulkInEndpointDescriptor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbBulkInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInEndpointDescriptor";
@@ -837,14 +837,14 @@ impl UsbBulkInPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxTransferSizeBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxTransferSizeBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointDescriptor(&self) -> ::windows::core::Result<UsbBulkInEndpointDescriptor> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbBulkInEndpointDescriptor>();
-            (::windows::core::Vtable::vtable(this).EndpointDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -853,23 +853,23 @@ impl UsbBulkInPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ClearStallAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClearStallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetReadOptions(&self, value: UsbReadOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetReadOptions)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ReadOptions(&self) -> ::windows::core::Result<UsbReadOptions> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbReadOptions>();
-            (::windows::core::Vtable::vtable(this).ReadOptions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReadOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FlushBuffer(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).FlushBuffer)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).FlushBuffer)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -877,7 +877,7 @@ impl UsbBulkInPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IInputStream>();
-            (::windows::core::Vtable::vtable(this).InputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -900,11 +900,11 @@ impl ::core::clone::Clone for UsbBulkInPipe {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbBulkInPipe {
+unsafe impl ::windows::core::Interface for UsbBulkInPipe {
     type Vtable = IUsbBulkInPipe_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbBulkInPipe {
-    const IID: ::windows::core::GUID = <IUsbBulkInPipe as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbBulkInPipe {
+    const IID: ::windows::core::GUID = <IUsbBulkInPipe as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInPipe";
@@ -920,21 +920,21 @@ impl UsbBulkOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxPacketSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointNumber(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).EndpointNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pipe(&self) -> ::windows::core::Result<UsbBulkOutPipe> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbBulkOutPipe>();
-            (::windows::core::Vtable::vtable(this).Pipe)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Pipe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -957,11 +957,11 @@ impl ::core::clone::Clone for UsbBulkOutEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbBulkOutEndpointDescriptor {
+unsafe impl ::windows::core::Interface for UsbBulkOutEndpointDescriptor {
     type Vtable = IUsbBulkOutEndpointDescriptor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbBulkOutEndpointDescriptor {
-    const IID: ::windows::core::GUID = <IUsbBulkOutEndpointDescriptor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbBulkOutEndpointDescriptor {
+    const IID: ::windows::core::GUID = <IUsbBulkOutEndpointDescriptor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbBulkOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutEndpointDescriptor";
@@ -977,7 +977,7 @@ impl UsbBulkOutPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbBulkOutEndpointDescriptor>();
-            (::windows::core::Vtable::vtable(this).EndpointDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -986,18 +986,18 @@ impl UsbBulkOutPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ClearStallAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClearStallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetWriteOptions(&self, value: UsbWriteOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetWriteOptions)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbWriteOptions>();
-            (::windows::core::Vtable::vtable(this).WriteOptions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WriteOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1006,7 +1006,7 @@ impl UsbBulkOutPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).OutputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1029,11 +1029,11 @@ impl ::core::clone::Clone for UsbBulkOutPipe {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbBulkOutPipe {
+unsafe impl ::windows::core::Interface for UsbBulkOutPipe {
     type Vtable = IUsbBulkOutPipe_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbBulkOutPipe {
-    const IID: ::windows::core::GUID = <IUsbBulkOutPipe as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbBulkOutPipe {
+    const IID: ::windows::core::GUID = <IUsbBulkOutPipe as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutPipe";
@@ -1051,14 +1051,14 @@ impl UsbConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterface>>();
-            (::windows::core::Vtable::vtable(this).UsbInterfaces)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsbInterfaces)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConfigurationDescriptor(&self) -> ::windows::core::Result<UsbConfigurationDescriptor> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbConfigurationDescriptor>();
-            (::windows::core::Vtable::vtable(this).ConfigurationDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConfigurationDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1067,7 +1067,7 @@ impl UsbConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>();
-            (::windows::core::Vtable::vtable(this).Descriptors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1090,11 +1090,11 @@ impl ::core::clone::Clone for UsbConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbConfiguration {
+unsafe impl ::windows::core::Interface for UsbConfiguration {
     type Vtable = IUsbConfiguration_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbConfiguration {
-    const IID: ::windows::core::GUID = <IUsbConfiguration as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbConfiguration {
+    const IID: ::windows::core::GUID = <IUsbConfiguration as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfiguration";
@@ -1110,40 +1110,40 @@ impl UsbConfigurationDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).ConfigurationValue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConfigurationValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxPowerMilliamps(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxPowerMilliamps)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxPowerMilliamps)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SelfPowered(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SelfPowered)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelfPowered)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoteWakeup(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).RemoteWakeup)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemoteWakeup)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryParse(descriptor: &UsbDescriptor, parsed: &mut ::core::option::Option<UsbConfigurationDescriptor>) -> ::windows::core::Result<bool> {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TryParse)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(descriptor), parsed as *mut _ as _, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), parsed as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
     pub fn Parse(descriptor: &UsbDescriptor) -> ::windows::core::Result<UsbConfigurationDescriptor> {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbConfigurationDescriptor>();
-            (::windows::core::Vtable::vtable(this).Parse)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(descriptor), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1171,11 +1171,11 @@ impl ::core::clone::Clone for UsbConfigurationDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbConfigurationDescriptor {
+unsafe impl ::windows::core::Interface for UsbConfigurationDescriptor {
     type Vtable = IUsbConfigurationDescriptor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbConfigurationDescriptor {
-    const IID: ::windows::core::GUID = <IUsbConfigurationDescriptor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbConfigurationDescriptor {
+    const IID: ::windows::core::GUID = <IUsbConfigurationDescriptor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbConfigurationDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfigurationDescriptor";
@@ -1198,45 +1198,45 @@ impl UsbControlRequestType {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbTransferDirection>();
-            (::windows::core::Vtable::vtable(this).Direction)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDirection(&self, value: UsbTransferDirection) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDirection)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ControlTransferType(&self) -> ::windows::core::Result<UsbControlTransferType> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbControlTransferType>();
-            (::windows::core::Vtable::vtable(this).ControlTransferType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ControlTransferType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetControlTransferType(&self, value: UsbControlTransferType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetControlTransferType)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetControlTransferType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Recipient(&self) -> ::windows::core::Result<UsbControlRecipient> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbControlRecipient>();
-            (::windows::core::Vtable::vtable(this).Recipient)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Recipient)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRecipient(&self, value: UsbControlRecipient) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRecipient)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRecipient)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn AsByte(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).AsByte)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AsByte)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAsByte(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAsByte)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAsByte)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UsbControlRequestType {
@@ -1258,11 +1258,11 @@ impl ::core::clone::Clone for UsbControlRequestType {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbControlRequestType {
+unsafe impl ::windows::core::Interface for UsbControlRequestType {
     type Vtable = IUsbControlRequestType_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbControlRequestType {
-    const IID: ::windows::core::GUID = <IUsbControlRequestType as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbControlRequestType {
+    const IID: ::windows::core::GUID = <IUsbControlRequestType as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbControlRequestType {
     const NAME: &'static str = "Windows.Devices.Usb.UsbControlRequestType";
@@ -1278,25 +1278,24 @@ impl UsbDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).Length)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DescriptorType(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).DescriptorType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DescriptorType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadDescriptorBuffer<P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
+    pub fn ReadDescriptorBuffer<P0>(&self, buffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReadDescriptorBuffer)(::windows::core::Vtable::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReadDescriptorBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into_param()?.abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UsbDescriptor {
@@ -1318,11 +1317,11 @@ impl ::core::clone::Clone for UsbDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbDescriptor {
+unsafe impl ::windows::core::Interface for UsbDescriptor {
     type Vtable = IUsbDescriptor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbDescriptor {
-    const IID: ::windows::core::GUID = <IUsbDescriptor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbDescriptor {
+    const IID: ::windows::core::GUID = <IUsbDescriptor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDescriptor";
@@ -1337,20 +1336,19 @@ impl UsbDevice {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendControlOutTransferAsync<P0, E0>(&self, setuppacket: &UsbSetupPacket, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    pub fn SendControlOutTransferAsync<P0>(&self, setuppacket: &UsbSetupPacket, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<u32>>();
-            (::windows::core::Vtable::vtable(this).SendControlOutTransferAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(setuppacket), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SendControlOutTransferAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(setuppacket), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1359,20 +1357,19 @@ impl UsbDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<u32>>();
-            (::windows::core::Vtable::vtable(this).SendControlOutTransferAsyncNoBuffer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(setuppacket), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SendControlOutTransferAsyncNoBuffer)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(setuppacket), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendControlInTransferAsync<P0, E0>(&self, setuppacket: &UsbSetupPacket, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn SendControlInTransferAsync<P0>(&self, setuppacket: &UsbSetupPacket, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>();
-            (::windows::core::Vtable::vtable(this).SendControlInTransferAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(setuppacket), buffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SendControlInTransferAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(setuppacket), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1381,52 +1378,52 @@ impl UsbDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>();
-            (::windows::core::Vtable::vtable(this).SendControlInTransferAsyncNoBuffer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(setuppacket), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SendControlInTransferAsyncNoBuffer)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(setuppacket), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultInterface(&self) -> ::windows::core::Result<UsbInterface> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbInterface>();
-            (::windows::core::Vtable::vtable(this).DefaultInterface)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultInterface)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DeviceDescriptor(&self) -> ::windows::core::Result<UsbDeviceDescriptor> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceDescriptor>();
-            (::windows::core::Vtable::vtable(this).DeviceDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Configuration(&self) -> ::windows::core::Result<UsbConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbConfiguration>();
-            (::windows::core::Vtable::vtable(this).Configuration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Configuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeviceSelector(vendorid: u32, productid: u32, winusbinterfaceclass: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), vendorid, productid, winusbinterfaceclass, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), vendorid, productid, winusbinterfaceclass, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorGuidOnly(winusbinterfaceclass: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorGuidOnly)(::windows::core::Vtable::as_raw(this), winusbinterfaceclass, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorGuidOnly)(::windows::core::Interface::as_raw(this), winusbinterfaceclass, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorVidPidOnly(vendorid: u32, productid: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorVidPidOnly)(::windows::core::Vtable::as_raw(this), vendorid, productid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorVidPidOnly)(::windows::core::Interface::as_raw(this), vendorid, productid, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceClassSelector(usbclass: &UsbDeviceClass) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceClassSelector)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(usbclass), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceClassSelector)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(usbclass), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1434,7 +1431,7 @@ impl UsbDevice {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UsbDevice>>();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1462,38 +1459,18 @@ impl ::core::clone::Clone for UsbDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbDevice {
+unsafe impl ::windows::core::Interface for UsbDevice {
     type Vtable = IUsbDevice_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbDevice {
-    const IID: ::windows::core::GUID = <IUsbDevice as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbDevice {
+    const IID: ::windows::core::GUID = <IUsbDevice as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDevice";
 }
 ::windows::imp::interface_hierarchy!(UsbDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<UsbDevice> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: UsbDevice) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&UsbDevice> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &UsbDevice) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&UsbDevice> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &UsbDevice) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for UsbDevice {}
 unsafe impl ::core::marker::Send for UsbDevice {}
 unsafe impl ::core::marker::Sync for UsbDevice {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1511,12 +1488,12 @@ impl UsbDeviceClass {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).ClassCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClassCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetClassCode(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetClassCode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetClassCode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1524,18 +1501,17 @@ impl UsbDeviceClass {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<u8>>();
-            (::windows::core::Vtable::vtable(this).SubclassCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SubclassCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSubclassCode<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSubclassCode<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u8>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<u8>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSubclassCode)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubclassCode)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1543,18 +1519,17 @@ impl UsbDeviceClass {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<u8>>();
-            (::windows::core::Vtable::vtable(this).ProtocolCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProtocolCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetProtocolCode<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetProtocolCode<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<u8>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<u8>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProtocolCode)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtocolCode)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UsbDeviceClass {
@@ -1576,11 +1551,11 @@ impl ::core::clone::Clone for UsbDeviceClass {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbDeviceClass {
+unsafe impl ::windows::core::Interface for UsbDeviceClass {
     type Vtable = IUsbDeviceClass_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbDeviceClass {
-    const IID: ::windows::core::GUID = <IUsbDeviceClass as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbDeviceClass {
+    const IID: ::windows::core::GUID = <IUsbDeviceClass as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClass";
@@ -1595,55 +1570,55 @@ impl UsbDeviceClasses {
     pub fn CdcControl() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceClass>();
-            (::windows::core::Vtable::vtable(this).CdcControl)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CdcControl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Physical() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceClass>();
-            (::windows::core::Vtable::vtable(this).Physical)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Physical)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn PersonalHealthcare() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceClass>();
-            (::windows::core::Vtable::vtable(this).PersonalHealthcare)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PersonalHealthcare)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ActiveSync() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceClass>();
-            (::windows::core::Vtable::vtable(this).ActiveSync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActiveSync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn PalmSync() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceClass>();
-            (::windows::core::Vtable::vtable(this).PalmSync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PalmSync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DeviceFirmwareUpdate() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceClass>();
-            (::windows::core::Vtable::vtable(this).DeviceFirmwareUpdate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceFirmwareUpdate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Irda() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceClass>();
-            (::windows::core::Vtable::vtable(this).Irda)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Irda)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Measurement() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceClass>();
-            (::windows::core::Vtable::vtable(this).Measurement)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Measurement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn VendorSpecific() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbDeviceClass>();
-            (::windows::core::Vtable::vtable(this).VendorSpecific)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).VendorSpecific)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1671,11 +1646,11 @@ impl ::core::clone::Clone for UsbDeviceClasses {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbDeviceClasses {
+unsafe impl ::windows::core::Interface for UsbDeviceClasses {
     type Vtable = IUsbDeviceClasses_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbDeviceClasses {
-    const IID: ::windows::core::GUID = <IUsbDeviceClasses as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbDeviceClasses {
+    const IID: ::windows::core::GUID = <IUsbDeviceClasses as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDeviceClasses {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClasses";
@@ -1691,42 +1666,42 @@ impl UsbDeviceDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).BcdUsb)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BcdUsb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxPacketSize0(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).MaxPacketSize0)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize0)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VendorId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).VendorId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).VendorId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProductId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ProductId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProductId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BcdDeviceRevision(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).BcdDeviceRevision)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BcdDeviceRevision)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NumberOfConfigurations(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).NumberOfConfigurations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NumberOfConfigurations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1749,11 +1724,11 @@ impl ::core::clone::Clone for UsbDeviceDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbDeviceDescriptor {
+unsafe impl ::windows::core::Interface for UsbDeviceDescriptor {
     type Vtable = IUsbDeviceDescriptor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbDeviceDescriptor {
-    const IID: ::windows::core::GUID = <IUsbDeviceDescriptor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbDeviceDescriptor {
+    const IID: ::windows::core::GUID = <IUsbDeviceDescriptor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDeviceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceDescriptor";
@@ -1769,61 +1744,61 @@ impl UsbEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).EndpointNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Direction(&self) -> ::windows::core::Result<UsbTransferDirection> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbTransferDirection>();
-            (::windows::core::Vtable::vtable(this).Direction)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointType(&self) -> ::windows::core::Result<UsbEndpointType> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbEndpointType>();
-            (::windows::core::Vtable::vtable(this).EndpointType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AsBulkInEndpointDescriptor(&self) -> ::windows::core::Result<UsbBulkInEndpointDescriptor> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbBulkInEndpointDescriptor>();
-            (::windows::core::Vtable::vtable(this).AsBulkInEndpointDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AsBulkInEndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AsInterruptInEndpointDescriptor(&self) -> ::windows::core::Result<UsbInterruptInEndpointDescriptor> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbInterruptInEndpointDescriptor>();
-            (::windows::core::Vtable::vtable(this).AsInterruptInEndpointDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AsInterruptInEndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AsBulkOutEndpointDescriptor(&self) -> ::windows::core::Result<UsbBulkOutEndpointDescriptor> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbBulkOutEndpointDescriptor>();
-            (::windows::core::Vtable::vtable(this).AsBulkOutEndpointDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AsBulkOutEndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AsInterruptOutEndpointDescriptor(&self) -> ::windows::core::Result<UsbInterruptOutEndpointDescriptor> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbInterruptOutEndpointDescriptor>();
-            (::windows::core::Vtable::vtable(this).AsInterruptOutEndpointDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AsInterruptOutEndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryParse(descriptor: &UsbDescriptor, parsed: &mut ::core::option::Option<UsbEndpointDescriptor>) -> ::windows::core::Result<bool> {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TryParse)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(descriptor), parsed as *mut _ as _, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), parsed as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
     pub fn Parse(descriptor: &UsbDescriptor) -> ::windows::core::Result<UsbEndpointDescriptor> {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbEndpointDescriptor>();
-            (::windows::core::Vtable::vtable(this).Parse)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(descriptor), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1851,11 +1826,11 @@ impl ::core::clone::Clone for UsbEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbEndpointDescriptor {
+unsafe impl ::windows::core::Interface for UsbEndpointDescriptor {
     type Vtable = IUsbEndpointDescriptor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbEndpointDescriptor {
-    const IID: ::windows::core::GUID = <IUsbEndpointDescriptor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbEndpointDescriptor {
+    const IID: ::windows::core::GUID = <IUsbEndpointDescriptor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbEndpointDescriptor";
@@ -1873,7 +1848,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>>();
-            (::windows::core::Vtable::vtable(this).BulkInPipes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BulkInPipes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1882,7 +1857,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterruptInPipe>>();
-            (::windows::core::Vtable::vtable(this).InterruptInPipes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InterruptInPipes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1891,7 +1866,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbBulkOutPipe>>();
-            (::windows::core::Vtable::vtable(this).BulkOutPipes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BulkOutPipes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1900,7 +1875,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterruptOutPipe>>();
-            (::windows::core::Vtable::vtable(this).InterruptOutPipes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InterruptOutPipes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1909,14 +1884,14 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterfaceSetting>>();
-            (::windows::core::Vtable::vtable(this).InterfaceSettings)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InterfaceSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InterfaceNumber(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).InterfaceNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InterfaceNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1925,7 +1900,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>();
-            (::windows::core::Vtable::vtable(this).Descriptors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1948,11 +1923,11 @@ impl ::core::clone::Clone for UsbInterface {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbInterface {
+unsafe impl ::windows::core::Interface for UsbInterface {
     type Vtable = IUsbInterface_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbInterface {
-    const IID: ::windows::core::GUID = <IUsbInterface as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbInterface {
+    const IID: ::windows::core::GUID = <IUsbInterface as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterface";
@@ -1968,47 +1943,47 @@ impl UsbInterfaceDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).ClassCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClassCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SubclassCode(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).SubclassCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SubclassCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProtocolCode(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).ProtocolCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProtocolCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AlternateSettingNumber(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).AlternateSettingNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AlternateSettingNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InterfaceNumber(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).InterfaceNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InterfaceNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryParse(descriptor: &UsbDescriptor, parsed: &mut ::core::option::Option<UsbInterfaceDescriptor>) -> ::windows::core::Result<bool> {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TryParse)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(descriptor), parsed as *mut _ as _, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), parsed as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
     pub fn Parse(descriptor: &UsbDescriptor) -> ::windows::core::Result<UsbInterfaceDescriptor> {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbInterfaceDescriptor>();
-            (::windows::core::Vtable::vtable(this).Parse)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(descriptor), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2036,11 +2011,11 @@ impl ::core::clone::Clone for UsbInterfaceDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbInterfaceDescriptor {
+unsafe impl ::windows::core::Interface for UsbInterfaceDescriptor {
     type Vtable = IUsbInterfaceDescriptor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbInterfaceDescriptor {
-    const IID: ::windows::core::GUID = <IUsbInterfaceDescriptor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbInterfaceDescriptor {
+    const IID: ::windows::core::GUID = <IUsbInterfaceDescriptor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterfaceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceDescriptor";
@@ -2058,7 +2033,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>>();
-            (::windows::core::Vtable::vtable(this).BulkInEndpoints)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BulkInEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2067,7 +2042,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterruptInEndpointDescriptor>>();
-            (::windows::core::Vtable::vtable(this).InterruptInEndpoints)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InterruptInEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2076,7 +2051,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbBulkOutEndpointDescriptor>>();
-            (::windows::core::Vtable::vtable(this).BulkOutEndpoints)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BulkOutEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2085,14 +2060,14 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterruptOutEndpointDescriptor>>();
-            (::windows::core::Vtable::vtable(this).InterruptOutEndpoints)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InterruptOutEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Selected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Selected)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Selected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2101,14 +2076,14 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).SelectSettingAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectSettingAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InterfaceDescriptor(&self) -> ::windows::core::Result<UsbInterfaceDescriptor> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbInterfaceDescriptor>();
-            (::windows::core::Vtable::vtable(this).InterfaceDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InterfaceDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2117,7 +2092,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>();
-            (::windows::core::Vtable::vtable(this).Descriptors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2140,11 +2115,11 @@ impl ::core::clone::Clone for UsbInterfaceSetting {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbInterfaceSetting {
+unsafe impl ::windows::core::Interface for UsbInterfaceSetting {
     type Vtable = IUsbInterfaceSetting_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbInterfaceSetting {
-    const IID: ::windows::core::GUID = <IUsbInterfaceSetting as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbInterfaceSetting {
+    const IID: ::windows::core::GUID = <IUsbInterfaceSetting as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceSetting";
@@ -2160,14 +2135,14 @@ impl UsbInterruptInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxPacketSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointNumber(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).EndpointNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2176,14 +2151,14 @@ impl UsbInterruptInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Interval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Interval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pipe(&self) -> ::windows::core::Result<UsbInterruptInPipe> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbInterruptInPipe>();
-            (::windows::core::Vtable::vtable(this).Pipe)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Pipe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2206,11 +2181,11 @@ impl ::core::clone::Clone for UsbInterruptInEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbInterruptInEndpointDescriptor {
+unsafe impl ::windows::core::Interface for UsbInterruptInEndpointDescriptor {
     type Vtable = IUsbInterruptInEndpointDescriptor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbInterruptInEndpointDescriptor {
-    const IID: ::windows::core::GUID = <IUsbInterruptInEndpointDescriptor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbInterruptInEndpointDescriptor {
+    const IID: ::windows::core::GUID = <IUsbInterruptInEndpointDescriptor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEndpointDescriptor";
@@ -2228,7 +2203,7 @@ impl UsbInterruptInEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).InterruptData)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InterruptData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2251,11 +2226,11 @@ impl ::core::clone::Clone for UsbInterruptInEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbInterruptInEventArgs {
+unsafe impl ::windows::core::Interface for UsbInterruptInEventArgs {
     type Vtable = IUsbInterruptInEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbInterruptInEventArgs {
-    const IID: ::windows::core::GUID = <IUsbInterruptInEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbInterruptInEventArgs {
+    const IID: ::windows::core::GUID = <IUsbInterruptInEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEventArgs";
@@ -2271,7 +2246,7 @@ impl UsbInterruptInPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbInterruptInEndpointDescriptor>();
-            (::windows::core::Vtable::vtable(this).EndpointDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2280,7 +2255,7 @@ impl UsbInterruptInPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ClearStallAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClearStallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2289,14 +2264,14 @@ impl UsbInterruptInPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).DataReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DataReceived)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveDataReceived)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UsbInterruptInPipe {
@@ -2318,11 +2293,11 @@ impl ::core::clone::Clone for UsbInterruptInPipe {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbInterruptInPipe {
+unsafe impl ::windows::core::Interface for UsbInterruptInPipe {
     type Vtable = IUsbInterruptInPipe_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbInterruptInPipe {
-    const IID: ::windows::core::GUID = <IUsbInterruptInPipe as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbInterruptInPipe {
+    const IID: ::windows::core::GUID = <IUsbInterruptInPipe as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInPipe";
@@ -2338,14 +2313,14 @@ impl UsbInterruptOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxPacketSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointNumber(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).EndpointNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2354,14 +2329,14 @@ impl UsbInterruptOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Interval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Interval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pipe(&self) -> ::windows::core::Result<UsbInterruptOutPipe> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbInterruptOutPipe>();
-            (::windows::core::Vtable::vtable(this).Pipe)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Pipe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2384,11 +2359,11 @@ impl ::core::clone::Clone for UsbInterruptOutEndpointDescriptor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbInterruptOutEndpointDescriptor {
+unsafe impl ::windows::core::Interface for UsbInterruptOutEndpointDescriptor {
     type Vtable = IUsbInterruptOutEndpointDescriptor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbInterruptOutEndpointDescriptor {
-    const IID: ::windows::core::GUID = <IUsbInterruptOutEndpointDescriptor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbInterruptOutEndpointDescriptor {
+    const IID: ::windows::core::GUID = <IUsbInterruptOutEndpointDescriptor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor";
@@ -2404,7 +2379,7 @@ impl UsbInterruptOutPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbInterruptOutEndpointDescriptor>();
-            (::windows::core::Vtable::vtable(this).EndpointDescriptor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2413,18 +2388,18 @@ impl UsbInterruptOutPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ClearStallAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClearStallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetWriteOptions(&self, value: UsbWriteOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetWriteOptions)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbWriteOptions>();
-            (::windows::core::Vtable::vtable(this).WriteOptions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WriteOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2433,7 +2408,7 @@ impl UsbInterruptOutPipe {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).OutputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2456,11 +2431,11 @@ impl ::core::clone::Clone for UsbInterruptOutPipe {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbInterruptOutPipe {
+unsafe impl ::windows::core::Interface for UsbInterruptOutPipe {
     type Vtable = IUsbInterruptOutPipe_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbInterruptOutPipe {
-    const IID: ::windows::core::GUID = <IUsbInterruptOutPipe as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbInterruptOutPipe {
+    const IID: ::windows::core::GUID = <IUsbInterruptOutPipe as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutPipe";
@@ -2483,67 +2458,66 @@ impl UsbSetupPacket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbControlRequestType>();
-            (::windows::core::Vtable::vtable(this).RequestType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRequestType(&self, value: &UsbControlRequestType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRequestType)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Request(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRequest(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRequest)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequest)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Value(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetValue(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetValue)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Index(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Index)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Index)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIndex(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIndex)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Length)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetLength(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetLength)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLength)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateWithEightByteBuffer<P0, E0>(eightbytebuffer: P0) -> ::windows::core::Result<UsbSetupPacket>
+    pub fn CreateWithEightByteBuffer<P0>(eightbytebuffer: P0) -> ::windows::core::Result<UsbSetupPacket>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         Self::IUsbSetupPacketFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UsbSetupPacket>();
-            (::windows::core::Vtable::vtable(this).CreateWithEightByteBuffer)(::windows::core::Vtable::as_raw(this), eightbytebuffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateWithEightByteBuffer)(::windows::core::Interface::as_raw(this), eightbytebuffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2571,11 +2545,11 @@ impl ::core::clone::Clone for UsbSetupPacket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UsbSetupPacket {
+unsafe impl ::windows::core::Interface for UsbSetupPacket {
     type Vtable = IUsbSetupPacket_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UsbSetupPacket {
-    const IID: ::windows::core::GUID = <IUsbSetupPacket as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UsbSetupPacket {
+    const IID: ::windows::core::GUID = <IUsbSetupPacket as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbSetupPacket {
     const NAME: &'static str = "Windows.Devices.Usb.UsbSetupPacket";

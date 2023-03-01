@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameControllerProviderInfoStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameControllerProviderInfoStatics {
+unsafe impl ::windows::core::Interface for IGameControllerProviderInfoStatics {
     type Vtable = IGameControllerProviderInfoStatics_Vtbl;
 }
 impl ::core::clone::Clone for IGameControllerProviderInfoStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IGameControllerProviderInfoStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameControllerProviderInfoStatics {
+unsafe impl ::windows::core::ComInterface for IGameControllerProviderInfoStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
 }
 #[repr(C)]
@@ -30,26 +30,24 @@ pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn GetParentProviderId<P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn GetParentProviderId<P0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Custom::IGameControllerProvider>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Custom::IGameControllerProvider>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetParentProviderId)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetParentProviderId)(::windows::core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn GetProviderId<P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn GetProviderId<P0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Custom::IGameControllerProvider>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Custom::IGameControllerProvider>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetProviderId)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetProviderId)(::windows::core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

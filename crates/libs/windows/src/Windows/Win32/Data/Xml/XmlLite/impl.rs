@@ -209,7 +209,7 @@ impl IXmlReader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXmlReader as ::windows::core::Interface>::IID
+        iid == &<IXmlReader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"implement\"`*"]
@@ -233,7 +233,7 @@ impl IXmlResolver_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveUri: ResolveUri::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXmlResolver as ::windows::core::Interface>::IID
+        iid == &<IXmlResolver as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -459,7 +459,7 @@ impl IXmlWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXmlWriter as ::windows::core::Interface>::IID
+        iid == &<IXmlWriter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -678,6 +678,6 @@ impl IXmlWriterLite_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXmlWriterLite as ::windows::core::Interface>::IID
+        iid == &<IXmlWriterLite as ::windows::core::ComInterface>::IID
     }
 }

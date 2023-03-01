@@ -39,7 +39,7 @@ impl IGpioControllerProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGpioControllerProvider as ::windows::core::Interface>::IID
+        iid == &<IGpioControllerProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -184,7 +184,7 @@ impl IGpioPinProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGpioPinProvider as ::windows::core::Interface>::IID
+        iid == &<IGpioPinProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -214,6 +214,6 @@ impl IGpioProvider_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IGpioProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGpioProvider as ::windows::core::Interface>::IID
+        iid == &<IGpioProvider as ::windows::core::ComInterface>::IID
     }
 }

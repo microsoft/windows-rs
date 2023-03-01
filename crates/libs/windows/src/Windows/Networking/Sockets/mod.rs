@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IControlChannelTrigger(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IControlChannelTrigger {
+unsafe impl ::windows::core::Interface for IControlChannelTrigger {
     type Vtable = IControlChannelTrigger_Vtbl;
 }
 impl ::core::clone::Clone for IControlChannelTrigger {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IControlChannelTrigger {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IControlChannelTrigger {
+unsafe impl ::windows::core::ComInterface for IControlChannelTrigger {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1431a7_ee96_40e8_a199_8703cd969ec3);
 }
 #[repr(C)]
@@ -37,7 +37,7 @@ pub struct IControlChannelTrigger_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IControlChannelTrigger2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IControlChannelTrigger2 {
+unsafe impl ::windows::core::Interface for IControlChannelTrigger2 {
     type Vtable = IControlChannelTrigger2_Vtbl;
 }
 impl ::core::clone::Clone for IControlChannelTrigger2 {
@@ -45,7 +45,7 @@ impl ::core::clone::Clone for IControlChannelTrigger2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IControlChannelTrigger2 {
+unsafe impl ::windows::core::ComInterface for IControlChannelTrigger2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf00d237_51be_4514_9725_3556e1879580);
 }
 #[repr(C)]
@@ -62,7 +62,7 @@ impl IControlChannelTriggerEventDetails {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ControlChannelTrigger>();
-            (::windows::core::Vtable::vtable(this).ControlChannelTrigger)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ControlChannelTrigger)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -81,7 +81,7 @@ impl ::core::fmt::Debug for IControlChannelTriggerEventDetails {
 impl ::windows::core::RuntimeType for IControlChannelTriggerEventDetails {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
 }
-unsafe impl ::windows::core::Vtable for IControlChannelTriggerEventDetails {
+unsafe impl ::windows::core::Interface for IControlChannelTriggerEventDetails {
     type Vtable = IControlChannelTriggerEventDetails_Vtbl;
 }
 impl ::core::clone::Clone for IControlChannelTriggerEventDetails {
@@ -89,7 +89,7 @@ impl ::core::clone::Clone for IControlChannelTriggerEventDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IControlChannelTriggerEventDetails {
+unsafe impl ::windows::core::ComInterface for IControlChannelTriggerEventDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b36e047_89bb_4236_96ac_71d012bb4869);
 }
 #[repr(C)]
@@ -101,7 +101,7 @@ pub struct IControlChannelTriggerEventDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IControlChannelTriggerFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IControlChannelTriggerFactory {
+unsafe impl ::windows::core::Interface for IControlChannelTriggerFactory {
     type Vtable = IControlChannelTriggerFactory_Vtbl;
 }
 impl ::core::clone::Clone for IControlChannelTriggerFactory {
@@ -109,7 +109,7 @@ impl ::core::clone::Clone for IControlChannelTriggerFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IControlChannelTriggerFactory {
+unsafe impl ::windows::core::ComInterface for IControlChannelTriggerFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda4b7cf0_8d71_446f_88c3_b95184a2d6cd);
 }
 #[repr(C)]
@@ -127,21 +127,21 @@ impl IControlChannelTriggerResetEventDetails {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ControlChannelTriggerResetReason>();
-            (::windows::core::Vtable::vtable(this).ResetReason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ResetReason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareSlotReset(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).HardwareSlotReset)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HardwareSlotReset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SoftwareSlotReset(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SoftwareSlotReset)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SoftwareSlotReset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -160,7 +160,7 @@ impl ::core::fmt::Debug for IControlChannelTriggerResetEventDetails {
 impl ::windows::core::RuntimeType for IControlChannelTriggerResetEventDetails {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{6851038e-8ec4-42fe-9bb2-21e91b7bfcb1}");
 }
-unsafe impl ::windows::core::Vtable for IControlChannelTriggerResetEventDetails {
+unsafe impl ::windows::core::Interface for IControlChannelTriggerResetEventDetails {
     type Vtable = IControlChannelTriggerResetEventDetails_Vtbl;
 }
 impl ::core::clone::Clone for IControlChannelTriggerResetEventDetails {
@@ -168,7 +168,7 @@ impl ::core::clone::Clone for IControlChannelTriggerResetEventDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IControlChannelTriggerResetEventDetails {
+unsafe impl ::windows::core::ComInterface for IControlChannelTriggerResetEventDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6851038e_8ec4_42fe_9bb2_21e91b7bfcb1);
 }
 #[repr(C)]
@@ -182,7 +182,7 @@ pub struct IControlChannelTriggerResetEventDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDatagramSocket(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDatagramSocket {
+unsafe impl ::windows::core::Interface for IDatagramSocket {
     type Vtable = IDatagramSocket_Vtbl;
 }
 impl ::core::clone::Clone for IDatagramSocket {
@@ -190,7 +190,7 @@ impl ::core::clone::Clone for IDatagramSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDatagramSocket {
+unsafe impl ::windows::core::ComInterface for IDatagramSocket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
 }
 #[repr(C)]
@@ -240,7 +240,7 @@ pub struct IDatagramSocket_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDatagramSocket2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDatagramSocket2 {
+unsafe impl ::windows::core::Interface for IDatagramSocket2 {
     type Vtable = IDatagramSocket2_Vtbl;
 }
 impl ::core::clone::Clone for IDatagramSocket2 {
@@ -248,7 +248,7 @@ impl ::core::clone::Clone for IDatagramSocket2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDatagramSocket2 {
+unsafe impl ::windows::core::ComInterface for IDatagramSocket2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd83ba354_9a9d_4185_a20a_1424c9c2a7cd);
 }
 #[repr(C)]
@@ -263,7 +263,7 @@ pub struct IDatagramSocket2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDatagramSocket3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDatagramSocket3 {
+unsafe impl ::windows::core::Interface for IDatagramSocket3 {
     type Vtable = IDatagramSocket3_Vtbl;
 }
 impl ::core::clone::Clone for IDatagramSocket3 {
@@ -271,7 +271,7 @@ impl ::core::clone::Clone for IDatagramSocket3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDatagramSocket3 {
+unsafe impl ::windows::core::ComInterface for IDatagramSocket3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37544f09_ab92_4306_9ac1_0c381283d9c6);
 }
 #[repr(C)]
@@ -294,7 +294,7 @@ pub struct IDatagramSocket3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDatagramSocketControl(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDatagramSocketControl {
+unsafe impl ::windows::core::Interface for IDatagramSocketControl {
     type Vtable = IDatagramSocketControl_Vtbl;
 }
 impl ::core::clone::Clone for IDatagramSocketControl {
@@ -302,7 +302,7 @@ impl ::core::clone::Clone for IDatagramSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDatagramSocketControl {
+unsafe impl ::windows::core::ComInterface for IDatagramSocketControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52ac3f2e_349a_4135_bb58_b79b2647d390);
 }
 #[repr(C)]
@@ -317,7 +317,7 @@ pub struct IDatagramSocketControl_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDatagramSocketControl2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDatagramSocketControl2 {
+unsafe impl ::windows::core::Interface for IDatagramSocketControl2 {
     type Vtable = IDatagramSocketControl2_Vtbl;
 }
 impl ::core::clone::Clone for IDatagramSocketControl2 {
@@ -325,7 +325,7 @@ impl ::core::clone::Clone for IDatagramSocketControl2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDatagramSocketControl2 {
+unsafe impl ::windows::core::ComInterface for IDatagramSocketControl2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ead5c2_979c_4415_82a1_3cfaf646c192);
 }
 #[repr(C)]
@@ -340,7 +340,7 @@ pub struct IDatagramSocketControl2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDatagramSocketControl3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDatagramSocketControl3 {
+unsafe impl ::windows::core::Interface for IDatagramSocketControl3 {
     type Vtable = IDatagramSocketControl3_Vtbl;
 }
 impl ::core::clone::Clone for IDatagramSocketControl3 {
@@ -348,7 +348,7 @@ impl ::core::clone::Clone for IDatagramSocketControl3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDatagramSocketControl3 {
+unsafe impl ::windows::core::ComInterface for IDatagramSocketControl3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4eb8256_1f6d_4598_9b57_d42a001df349);
 }
 #[repr(C)]
@@ -361,7 +361,7 @@ pub struct IDatagramSocketControl3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDatagramSocketInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDatagramSocketInformation {
+unsafe impl ::windows::core::Interface for IDatagramSocketInformation {
     type Vtable = IDatagramSocketInformation_Vtbl;
 }
 impl ::core::clone::Clone for IDatagramSocketInformation {
@@ -369,7 +369,7 @@ impl ::core::clone::Clone for IDatagramSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDatagramSocketInformation {
+unsafe impl ::windows::core::ComInterface for IDatagramSocketInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f1a569a_55fb_48cd_9706_7a974f7b1585);
 }
 #[repr(C)]
@@ -384,7 +384,7 @@ pub struct IDatagramSocketInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDatagramSocketMessageReceivedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDatagramSocketMessageReceivedEventArgs {
+unsafe impl ::windows::core::Interface for IDatagramSocketMessageReceivedEventArgs {
     type Vtable = IDatagramSocketMessageReceivedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IDatagramSocketMessageReceivedEventArgs {
@@ -392,7 +392,7 @@ impl ::core::clone::Clone for IDatagramSocketMessageReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDatagramSocketMessageReceivedEventArgs {
+unsafe impl ::windows::core::ComInterface for IDatagramSocketMessageReceivedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d107e);
 }
 #[repr(C)]
@@ -414,7 +414,7 @@ pub struct IDatagramSocketMessageReceivedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDatagramSocketStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDatagramSocketStatics {
+unsafe impl ::windows::core::Interface for IDatagramSocketStatics {
     type Vtable = IDatagramSocketStatics_Vtbl;
 }
 impl ::core::clone::Clone for IDatagramSocketStatics {
@@ -422,7 +422,7 @@ impl ::core::clone::Clone for IDatagramSocketStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDatagramSocketStatics {
+unsafe impl ::windows::core::ComInterface for IDatagramSocketStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9c62aee_1494_4a21_bb7e_8589fc751d9d);
 }
 #[repr(C)]
@@ -441,7 +441,7 @@ pub struct IDatagramSocketStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMessageWebSocket(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMessageWebSocket {
+unsafe impl ::windows::core::Interface for IMessageWebSocket {
     type Vtable = IMessageWebSocket_Vtbl;
 }
 impl ::core::clone::Clone for IMessageWebSocket {
@@ -449,7 +449,7 @@ impl ::core::clone::Clone for IMessageWebSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMessageWebSocket {
+unsafe impl ::windows::core::ComInterface for IMessageWebSocket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
 }
 #[repr(C)]
@@ -470,7 +470,7 @@ pub struct IMessageWebSocket_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMessageWebSocket2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMessageWebSocket2 {
+unsafe impl ::windows::core::Interface for IMessageWebSocket2 {
     type Vtable = IMessageWebSocket2_Vtbl;
 }
 impl ::core::clone::Clone for IMessageWebSocket2 {
@@ -478,7 +478,7 @@ impl ::core::clone::Clone for IMessageWebSocket2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMessageWebSocket2 {
+unsafe impl ::windows::core::ComInterface for IMessageWebSocket2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed0cee7_f9c8_440a_9ad5_737281d9742e);
 }
 #[repr(C)]
@@ -497,7 +497,7 @@ pub struct IMessageWebSocket2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMessageWebSocket3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMessageWebSocket3 {
+unsafe impl ::windows::core::Interface for IMessageWebSocket3 {
     type Vtable = IMessageWebSocket3_Vtbl;
 }
 impl ::core::clone::Clone for IMessageWebSocket3 {
@@ -505,7 +505,7 @@ impl ::core::clone::Clone for IMessageWebSocket3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMessageWebSocket3 {
+unsafe impl ::windows::core::ComInterface for IMessageWebSocket3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59d9defb_71af_4349_8487_911fcf681597);
 }
 #[repr(C)]
@@ -524,7 +524,7 @@ pub struct IMessageWebSocket3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMessageWebSocketControl(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMessageWebSocketControl {
+unsafe impl ::windows::core::Interface for IMessageWebSocketControl {
     type Vtable = IMessageWebSocketControl_Vtbl;
 }
 impl ::core::clone::Clone for IMessageWebSocketControl {
@@ -532,7 +532,7 @@ impl ::core::clone::Clone for IMessageWebSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMessageWebSocketControl {
+unsafe impl ::windows::core::ComInterface for IMessageWebSocketControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8118388a_c629_4f0a_80fb_81fc05538862);
 }
 #[repr(C)]
@@ -547,7 +547,7 @@ pub struct IMessageWebSocketControl_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMessageWebSocketControl2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMessageWebSocketControl2 {
+unsafe impl ::windows::core::Interface for IMessageWebSocketControl2 {
     type Vtable = IMessageWebSocketControl2_Vtbl;
 }
 impl ::core::clone::Clone for IMessageWebSocketControl2 {
@@ -555,7 +555,7 @@ impl ::core::clone::Clone for IMessageWebSocketControl2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMessageWebSocketControl2 {
+unsafe impl ::windows::core::ComInterface for IMessageWebSocketControl2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30fd791_080c_400a_a712_27dfa9e744d8);
 }
 #[repr(C)]
@@ -588,7 +588,7 @@ pub struct IMessageWebSocketControl2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMessageWebSocketMessageReceivedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMessageWebSocketMessageReceivedEventArgs {
+unsafe impl ::windows::core::Interface for IMessageWebSocketMessageReceivedEventArgs {
     type Vtable = IMessageWebSocketMessageReceivedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IMessageWebSocketMessageReceivedEventArgs {
@@ -596,7 +596,7 @@ impl ::core::clone::Clone for IMessageWebSocketMessageReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMessageWebSocketMessageReceivedEventArgs {
+unsafe impl ::windows::core::ComInterface for IMessageWebSocketMessageReceivedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
 }
 #[repr(C)]
@@ -616,7 +616,7 @@ pub struct IMessageWebSocketMessageReceivedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMessageWebSocketMessageReceivedEventArgs2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMessageWebSocketMessageReceivedEventArgs2 {
+unsafe impl ::windows::core::Interface for IMessageWebSocketMessageReceivedEventArgs2 {
     type Vtable = IMessageWebSocketMessageReceivedEventArgs2_Vtbl;
 }
 impl ::core::clone::Clone for IMessageWebSocketMessageReceivedEventArgs2 {
@@ -624,7 +624,7 @@ impl ::core::clone::Clone for IMessageWebSocketMessageReceivedEventArgs2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMessageWebSocketMessageReceivedEventArgs2 {
+unsafe impl ::windows::core::ComInterface for IMessageWebSocketMessageReceivedEventArgs2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89ce06fd_dd6f_4a07_87f9_f9eb4d89d83d);
 }
 #[repr(C)]
@@ -636,7 +636,7 @@ pub struct IMessageWebSocketMessageReceivedEventArgs2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IServerMessageWebSocket(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IServerMessageWebSocket {
+unsafe impl ::windows::core::Interface for IServerMessageWebSocket {
     type Vtable = IServerMessageWebSocket_Vtbl;
 }
 impl ::core::clone::Clone for IServerMessageWebSocket {
@@ -644,7 +644,7 @@ impl ::core::clone::Clone for IServerMessageWebSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IServerMessageWebSocket {
+unsafe impl ::windows::core::ComInterface for IServerMessageWebSocket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3ac9240_813b_5efd_7e11_ae2305fc77f1);
 }
 #[repr(C)]
@@ -678,7 +678,7 @@ pub struct IServerMessageWebSocket_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IServerMessageWebSocketControl(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IServerMessageWebSocketControl {
+unsafe impl ::windows::core::Interface for IServerMessageWebSocketControl {
     type Vtable = IServerMessageWebSocketControl_Vtbl;
 }
 impl ::core::clone::Clone for IServerMessageWebSocketControl {
@@ -686,7 +686,7 @@ impl ::core::clone::Clone for IServerMessageWebSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IServerMessageWebSocketControl {
+unsafe impl ::windows::core::ComInterface for IServerMessageWebSocketControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c2f051_1c1f_587a_4519_2181610192b7);
 }
 #[repr(C)]
@@ -699,7 +699,7 @@ pub struct IServerMessageWebSocketControl_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IServerMessageWebSocketInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IServerMessageWebSocketInformation {
+unsafe impl ::windows::core::Interface for IServerMessageWebSocketInformation {
     type Vtable = IServerMessageWebSocketInformation_Vtbl;
 }
 impl ::core::clone::Clone for IServerMessageWebSocketInformation {
@@ -707,7 +707,7 @@ impl ::core::clone::Clone for IServerMessageWebSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IServerMessageWebSocketInformation {
+unsafe impl ::windows::core::ComInterface for IServerMessageWebSocketInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09afa8915f5d);
 }
 #[repr(C)]
@@ -721,7 +721,7 @@ pub struct IServerMessageWebSocketInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IServerStreamWebSocket(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IServerStreamWebSocket {
+unsafe impl ::windows::core::Interface for IServerStreamWebSocket {
     type Vtable = IServerStreamWebSocket_Vtbl;
 }
 impl ::core::clone::Clone for IServerStreamWebSocket {
@@ -729,7 +729,7 @@ impl ::core::clone::Clone for IServerStreamWebSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IServerStreamWebSocket {
+unsafe impl ::windows::core::ComInterface for IServerStreamWebSocket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ced5bbf_74f6_55e4_79df_9132680dfee8);
 }
 #[repr(C)]
@@ -758,7 +758,7 @@ pub struct IServerStreamWebSocket_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IServerStreamWebSocketInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IServerStreamWebSocketInformation {
+unsafe impl ::windows::core::Interface for IServerStreamWebSocketInformation {
     type Vtable = IServerStreamWebSocketInformation_Vtbl;
 }
 impl ::core::clone::Clone for IServerStreamWebSocketInformation {
@@ -766,7 +766,7 @@ impl ::core::clone::Clone for IServerStreamWebSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IServerStreamWebSocketInformation {
+unsafe impl ::windows::core::ComInterface for IServerStreamWebSocketInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09aba8915f5d);
 }
 #[repr(C)]
@@ -780,7 +780,7 @@ pub struct IServerStreamWebSocketInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISocketActivityContext(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISocketActivityContext {
+unsafe impl ::windows::core::Interface for ISocketActivityContext {
     type Vtable = ISocketActivityContext_Vtbl;
 }
 impl ::core::clone::Clone for ISocketActivityContext {
@@ -788,7 +788,7 @@ impl ::core::clone::Clone for ISocketActivityContext {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISocketActivityContext {
+unsafe impl ::windows::core::ComInterface for ISocketActivityContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43b04d64_4c85_4396_a637_1d973f6ebd49);
 }
 #[repr(C)]
@@ -803,7 +803,7 @@ pub struct ISocketActivityContext_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISocketActivityContextFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISocketActivityContextFactory {
+unsafe impl ::windows::core::Interface for ISocketActivityContextFactory {
     type Vtable = ISocketActivityContextFactory_Vtbl;
 }
 impl ::core::clone::Clone for ISocketActivityContextFactory {
@@ -811,7 +811,7 @@ impl ::core::clone::Clone for ISocketActivityContextFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISocketActivityContextFactory {
+unsafe impl ::windows::core::ComInterface for ISocketActivityContextFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb99fc3c3_088c_4388_83ae_2525138e049a);
 }
 #[repr(C)]
@@ -826,7 +826,7 @@ pub struct ISocketActivityContextFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISocketActivityInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISocketActivityInformation {
+unsafe impl ::windows::core::Interface for ISocketActivityInformation {
     type Vtable = ISocketActivityInformation_Vtbl;
 }
 impl ::core::clone::Clone for ISocketActivityInformation {
@@ -834,7 +834,7 @@ impl ::core::clone::Clone for ISocketActivityInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISocketActivityInformation {
+unsafe impl ::windows::core::ComInterface for ISocketActivityInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d8a42e4_a87e_4b74_9968_185b2511defe);
 }
 #[repr(C)]
@@ -852,7 +852,7 @@ pub struct ISocketActivityInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISocketActivityInformationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISocketActivityInformationStatics {
+unsafe impl ::windows::core::Interface for ISocketActivityInformationStatics {
     type Vtable = ISocketActivityInformationStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISocketActivityInformationStatics {
@@ -860,7 +860,7 @@ impl ::core::clone::Clone for ISocketActivityInformationStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISocketActivityInformationStatics {
+unsafe impl ::windows::core::ComInterface for ISocketActivityInformationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8570b47a_7e7d_4736_8041_1327a6543c56);
 }
 #[repr(C)]
@@ -875,7 +875,7 @@ pub struct ISocketActivityInformationStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISocketActivityTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISocketActivityTriggerDetails {
+unsafe impl ::windows::core::Interface for ISocketActivityTriggerDetails {
     type Vtable = ISocketActivityTriggerDetails_Vtbl;
 }
 impl ::core::clone::Clone for ISocketActivityTriggerDetails {
@@ -883,7 +883,7 @@ impl ::core::clone::Clone for ISocketActivityTriggerDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISocketActivityTriggerDetails {
+unsafe impl ::windows::core::ComInterface for ISocketActivityTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f406a7_fc9f_4f81_acad_355fef51e67b);
 }
 #[repr(C)]
@@ -896,7 +896,7 @@ pub struct ISocketActivityTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISocketErrorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISocketErrorStatics {
+unsafe impl ::windows::core::Interface for ISocketErrorStatics {
     type Vtable = ISocketErrorStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISocketErrorStatics {
@@ -904,7 +904,7 @@ impl ::core::clone::Clone for ISocketErrorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISocketErrorStatics {
+unsafe impl ::windows::core::ComInterface for ISocketErrorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x828337f4_7d56_4d8e_b7b4_a07dd7c1bca9);
 }
 #[repr(C)]
@@ -916,7 +916,7 @@ pub struct ISocketErrorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocket(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocket {
+unsafe impl ::windows::core::Interface for IStreamSocket {
     type Vtable = IStreamSocket_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocket {
@@ -924,7 +924,7 @@ impl ::core::clone::Clone for IStreamSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocket {
+unsafe impl ::windows::core::ComInterface for IStreamSocket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49);
 }
 #[repr(C)]
@@ -965,7 +965,7 @@ pub struct IStreamSocket_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocket2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocket2 {
+unsafe impl ::windows::core::Interface for IStreamSocket2 {
     type Vtable = IStreamSocket2_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocket2 {
@@ -973,7 +973,7 @@ impl ::core::clone::Clone for IStreamSocket2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocket2 {
+unsafe impl ::windows::core::ComInterface for IStreamSocket2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29d0e575_f314_4d09_adf0_0fbd967fbd9f);
 }
 #[repr(C)]
@@ -988,7 +988,7 @@ pub struct IStreamSocket2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocket3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocket3 {
+unsafe impl ::windows::core::Interface for IStreamSocket3 {
     type Vtable = IStreamSocket3_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocket3 {
@@ -996,7 +996,7 @@ impl ::core::clone::Clone for IStreamSocket3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocket3 {
+unsafe impl ::windows::core::ComInterface for IStreamSocket3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f430b00_9d28_4854_bac3_2301941ec223);
 }
 #[repr(C)]
@@ -1019,7 +1019,7 @@ pub struct IStreamSocket3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketControl(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketControl {
+unsafe impl ::windows::core::Interface for IStreamSocketControl {
     type Vtable = IStreamSocketControl_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketControl {
@@ -1027,7 +1027,7 @@ impl ::core::clone::Clone for IStreamSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketControl {
+unsafe impl ::windows::core::ComInterface for IStreamSocketControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
 }
 #[repr(C)]
@@ -1048,7 +1048,7 @@ pub struct IStreamSocketControl_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketControl2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketControl2 {
+unsafe impl ::windows::core::Interface for IStreamSocketControl2 {
     type Vtable = IStreamSocketControl2_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketControl2 {
@@ -1056,7 +1056,7 @@ impl ::core::clone::Clone for IStreamSocketControl2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketControl2 {
+unsafe impl ::windows::core::ComInterface for IStreamSocketControl2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2d09a56_060f_44c1_b8e2_1fbf60bd62c5);
 }
 #[repr(C)]
@@ -1071,7 +1071,7 @@ pub struct IStreamSocketControl2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketControl3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketControl3 {
+unsafe impl ::windows::core::Interface for IStreamSocketControl3 {
     type Vtable = IStreamSocketControl3_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketControl3 {
@@ -1079,7 +1079,7 @@ impl ::core::clone::Clone for IStreamSocketControl3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketControl3 {
+unsafe impl ::windows::core::ComInterface for IStreamSocketControl3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc56a444c_4e74_403e_894c_b31cae5c7342);
 }
 #[repr(C)]
@@ -1100,7 +1100,7 @@ pub struct IStreamSocketControl3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketControl4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketControl4 {
+unsafe impl ::windows::core::Interface for IStreamSocketControl4 {
     type Vtable = IStreamSocketControl4_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketControl4 {
@@ -1108,7 +1108,7 @@ impl ::core::clone::Clone for IStreamSocketControl4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketControl4 {
+unsafe impl ::windows::core::ComInterface for IStreamSocketControl4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x964e2b3d_ec27_4888_b3ce_c74b418423ad);
 }
 #[repr(C)]
@@ -1121,7 +1121,7 @@ pub struct IStreamSocketControl4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketInformation {
+unsafe impl ::windows::core::Interface for IStreamSocketInformation {
     type Vtable = IStreamSocketInformation_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketInformation {
@@ -1129,7 +1129,7 @@ impl ::core::clone::Clone for IStreamSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketInformation {
+unsafe impl ::windows::core::ComInterface for IStreamSocketInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b80ae30_5e68_4205_88f0_dc85d2e25ded);
 }
 #[repr(C)]
@@ -1153,7 +1153,7 @@ pub struct IStreamSocketInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketInformation2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketInformation2 {
+unsafe impl ::windows::core::Interface for IStreamSocketInformation2 {
     type Vtable = IStreamSocketInformation2_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketInformation2 {
@@ -1161,7 +1161,7 @@ impl ::core::clone::Clone for IStreamSocketInformation2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketInformation2 {
+unsafe impl ::windows::core::ComInterface for IStreamSocketInformation2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12c28452_4bdc_4ee4_976a_cf130e9d92e3);
 }
 #[repr(C)]
@@ -1185,7 +1185,7 @@ pub struct IStreamSocketInformation2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketListener(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketListener {
+unsafe impl ::windows::core::Interface for IStreamSocketListener {
     type Vtable = IStreamSocketListener_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketListener {
@@ -1193,7 +1193,7 @@ impl ::core::clone::Clone for IStreamSocketListener {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketListener {
+unsafe impl ::windows::core::ComInterface for IStreamSocketListener {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
 }
 #[repr(C)]
@@ -1222,7 +1222,7 @@ pub struct IStreamSocketListener_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketListener2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketListener2 {
+unsafe impl ::windows::core::Interface for IStreamSocketListener2 {
     type Vtable = IStreamSocketListener2_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketListener2 {
@@ -1230,7 +1230,7 @@ impl ::core::clone::Clone for IStreamSocketListener2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketListener2 {
+unsafe impl ::windows::core::ComInterface for IStreamSocketListener2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x658dc13e_bb3e_4458_b232_ed1088694b98);
 }
 #[repr(C)]
@@ -1249,7 +1249,7 @@ pub struct IStreamSocketListener2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketListener3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketListener3 {
+unsafe impl ::windows::core::Interface for IStreamSocketListener3 {
     type Vtable = IStreamSocketListener3_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketListener3 {
@@ -1257,7 +1257,7 @@ impl ::core::clone::Clone for IStreamSocketListener3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketListener3 {
+unsafe impl ::windows::core::ComInterface for IStreamSocketListener3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4798201c_bdf8_4919_8542_28d450e74507);
 }
 #[repr(C)]
@@ -1276,7 +1276,7 @@ pub struct IStreamSocketListener3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketListenerConnectionReceivedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketListenerConnectionReceivedEventArgs {
+unsafe impl ::windows::core::Interface for IStreamSocketListenerConnectionReceivedEventArgs {
     type Vtable = IStreamSocketListenerConnectionReceivedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketListenerConnectionReceivedEventArgs {
@@ -1284,7 +1284,7 @@ impl ::core::clone::Clone for IStreamSocketListenerConnectionReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketListenerConnectionReceivedEventArgs {
+unsafe impl ::windows::core::ComInterface for IStreamSocketListenerConnectionReceivedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c472ea9_373f_447b_85b1_ddd4548803ba);
 }
 #[repr(C)]
@@ -1296,7 +1296,7 @@ pub struct IStreamSocketListenerConnectionReceivedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketListenerControl(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketListenerControl {
+unsafe impl ::windows::core::Interface for IStreamSocketListenerControl {
     type Vtable = IStreamSocketListenerControl_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketListenerControl {
@@ -1304,7 +1304,7 @@ impl ::core::clone::Clone for IStreamSocketListenerControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketListenerControl {
+unsafe impl ::windows::core::ComInterface for IStreamSocketListenerControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20d8c576_8d8a_4dba_9722_a16c4d984980);
 }
 #[repr(C)]
@@ -1317,7 +1317,7 @@ pub struct IStreamSocketListenerControl_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketListenerControl2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketListenerControl2 {
+unsafe impl ::windows::core::Interface for IStreamSocketListenerControl2 {
     type Vtable = IStreamSocketListenerControl2_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketListenerControl2 {
@@ -1325,7 +1325,7 @@ impl ::core::clone::Clone for IStreamSocketListenerControl2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketListenerControl2 {
+unsafe impl ::windows::core::ComInterface for IStreamSocketListenerControl2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x948bb665_2c3e_404b_b8b0_8eb249a2b0a1);
 }
 #[repr(C)]
@@ -1344,7 +1344,7 @@ pub struct IStreamSocketListenerControl2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketListenerInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketListenerInformation {
+unsafe impl ::windows::core::Interface for IStreamSocketListenerInformation {
     type Vtable = IStreamSocketListenerInformation_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketListenerInformation {
@@ -1352,7 +1352,7 @@ impl ::core::clone::Clone for IStreamSocketListenerInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketListenerInformation {
+unsafe impl ::windows::core::ComInterface for IStreamSocketListenerInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62ba82f_a63a_430b_bf62_29e93e5633b4);
 }
 #[repr(C)]
@@ -1364,7 +1364,7 @@ pub struct IStreamSocketListenerInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamSocketStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamSocketStatics {
+unsafe impl ::windows::core::Interface for IStreamSocketStatics {
     type Vtable = IStreamSocketStatics_Vtbl;
 }
 impl ::core::clone::Clone for IStreamSocketStatics {
@@ -1372,7 +1372,7 @@ impl ::core::clone::Clone for IStreamSocketStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamSocketStatics {
+unsafe impl ::windows::core::ComInterface for IStreamSocketStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa420bc4a_6e2e_4af5_b556_355ae0cd4f29);
 }
 #[repr(C)]
@@ -1391,7 +1391,7 @@ pub struct IStreamSocketStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamWebSocket(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamWebSocket {
+unsafe impl ::windows::core::Interface for IStreamWebSocket {
     type Vtable = IStreamWebSocket_Vtbl;
 }
 impl ::core::clone::Clone for IStreamWebSocket {
@@ -1399,7 +1399,7 @@ impl ::core::clone::Clone for IStreamWebSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamWebSocket {
+unsafe impl ::windows::core::ComInterface for IStreamWebSocket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4a49d8_b289_45bb_97eb_c7525205a843);
 }
 #[repr(C)]
@@ -1416,7 +1416,7 @@ pub struct IStreamWebSocket_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamWebSocket2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamWebSocket2 {
+unsafe impl ::windows::core::Interface for IStreamWebSocket2 {
     type Vtable = IStreamWebSocket2_Vtbl;
 }
 impl ::core::clone::Clone for IStreamWebSocket2 {
@@ -1424,7 +1424,7 @@ impl ::core::clone::Clone for IStreamWebSocket2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamWebSocket2 {
+unsafe impl ::windows::core::ComInterface for IStreamWebSocket2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa4d08cb_93f5_4678_8236_57cce5417ed5);
 }
 #[repr(C)]
@@ -1443,7 +1443,7 @@ pub struct IStreamWebSocket2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamWebSocketControl(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamWebSocketControl {
+unsafe impl ::windows::core::Interface for IStreamWebSocketControl {
     type Vtable = IStreamWebSocketControl_Vtbl;
 }
 impl ::core::clone::Clone for IStreamWebSocketControl {
@@ -1451,7 +1451,7 @@ impl ::core::clone::Clone for IStreamWebSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamWebSocketControl {
+unsafe impl ::windows::core::ComInterface for IStreamWebSocketControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4f478b1_a45a_48db_953a_645b7d964c07);
 }
 #[repr(C)]
@@ -1464,7 +1464,7 @@ pub struct IStreamWebSocketControl_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStreamWebSocketControl2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStreamWebSocketControl2 {
+unsafe impl ::windows::core::Interface for IStreamWebSocketControl2 {
     type Vtable = IStreamWebSocketControl2_Vtbl;
 }
 impl ::core::clone::Clone for IStreamWebSocketControl2 {
@@ -1472,7 +1472,7 @@ impl ::core::clone::Clone for IStreamWebSocketControl2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStreamWebSocketControl2 {
+unsafe impl ::windows::core::ComInterface for IStreamWebSocketControl2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x215d9f7e_fa58_40da_9f11_a48dafe95037);
 }
 #[repr(C)]
@@ -1510,7 +1510,7 @@ impl IWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).OutputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1519,12 +1519,12 @@ impl IWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRequestHeader)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(headername), ::core::mem::transmute_copy(headervalue)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestHeader)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(headername), ::core::mem::transmute_copy(headervalue)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1532,49 +1532,29 @@ impl IWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveClosed)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).CloseWithStatus)(::windows::core::Vtable::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CloseWithStatus)(::windows::core::Interface::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 ::windows::imp::interface_hierarchy!(IWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<IWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: IWebSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&IWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IWebSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&IWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IWebSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl windows::core::CanTryInto<super::super::Foundation::IClosable> for IWebSocket {}
 impl ::core::cmp::PartialEq for IWebSocket {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1589,7 +1569,7 @@ impl ::core::fmt::Debug for IWebSocket {
 impl ::windows::core::RuntimeType for IWebSocket {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
 }
-unsafe impl ::windows::core::Vtable for IWebSocket {
+unsafe impl ::windows::core::Interface for IWebSocket {
     type Vtable = IWebSocket_Vtbl;
 }
 impl ::core::clone::Clone for IWebSocket {
@@ -1597,7 +1577,7 @@ impl ::core::clone::Clone for IWebSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWebSocket {
+unsafe impl ::windows::core::ComInterface for IWebSocket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf877396f_99b1_4e18_bc08_850c9adf156e);
 }
 #[repr(C)]
@@ -1626,7 +1606,7 @@ pub struct IWebSocket_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebSocketClosedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWebSocketClosedEventArgs {
+unsafe impl ::windows::core::Interface for IWebSocketClosedEventArgs {
     type Vtable = IWebSocketClosedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IWebSocketClosedEventArgs {
@@ -1634,7 +1614,7 @@ impl ::core::clone::Clone for IWebSocketClosedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWebSocketClosedEventArgs {
+unsafe impl ::windows::core::ComInterface for IWebSocketClosedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
 }
 #[repr(C)]
@@ -1652,12 +1632,12 @@ impl IWebSocketControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -1665,14 +1645,14 @@ impl IWebSocketControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Credentials::PasswordCredential>();
-            (::windows::core::Vtable::vtable(this).ServerCredential)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServerCredential)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -1680,14 +1660,14 @@ impl IWebSocketControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Credentials::PasswordCredential>();
-            (::windows::core::Vtable::vtable(this).ProxyCredential)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProxyCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProxyCredential)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1695,7 +1675,7 @@ impl IWebSocketControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).SupportedProtocols)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedProtocols)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1714,7 +1694,7 @@ impl ::core::fmt::Debug for IWebSocketControl {
 impl ::windows::core::RuntimeType for IWebSocketControl {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2ec4bdc3-d9a5-455a-9811-de24d45337e9}");
 }
-unsafe impl ::windows::core::Vtable for IWebSocketControl {
+unsafe impl ::windows::core::Interface for IWebSocketControl {
     type Vtable = IWebSocketControl_Vtbl;
 }
 impl ::core::clone::Clone for IWebSocketControl {
@@ -1722,7 +1702,7 @@ impl ::core::clone::Clone for IWebSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWebSocketControl {
+unsafe impl ::windows::core::ComInterface for IWebSocketControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec4bdc3_d9a5_455a_9811_de24d45337e9);
 }
 #[repr(C)]
@@ -1762,80 +1742,62 @@ impl IWebSocketControl2 {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>();
-            (::windows::core::Vtable::vtable(this).IgnorableServerCertificateErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IgnorableServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Credentials::PasswordCredential>();
-            (::windows::core::Vtable::vtable(this).ServerCredential)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetServerCredential)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Credentials::PasswordCredential>();
-            (::windows::core::Vtable::vtable(this).ProxyCredential)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProxyCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetProxyCredential)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedProtocols(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).SupportedProtocols)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedProtocols)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::imp::interface_hierarchy!(IWebSocketControl2, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<IWebSocketControl2> for IWebSocketControl {
-    type Error = ::windows::core::Error;
-    fn try_from(value: IWebSocketControl2) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&IWebSocketControl2> for IWebSocketControl {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IWebSocketControl2) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&IWebSocketControl2> for ::windows::core::InParam<IWebSocketControl> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IWebSocketControl2) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl windows::core::CanTryInto<IWebSocketControl> for IWebSocketControl2 {}
 impl ::core::cmp::PartialEq for IWebSocketControl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1850,7 +1812,7 @@ impl ::core::fmt::Debug for IWebSocketControl2 {
 impl ::windows::core::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
 }
-unsafe impl ::windows::core::Vtable for IWebSocketControl2 {
+unsafe impl ::windows::core::Interface for IWebSocketControl2 {
     type Vtable = IWebSocketControl2_Vtbl;
 }
 impl ::core::clone::Clone for IWebSocketControl2 {
@@ -1858,7 +1820,7 @@ impl ::core::clone::Clone for IWebSocketControl2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWebSocketControl2 {
+unsafe impl ::windows::core::ComInterface for IWebSocketControl2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c3be03_f2ca_461e_af4e_9665bc2d0620);
 }
 #[repr(C)]
@@ -1873,7 +1835,7 @@ pub struct IWebSocketControl2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebSocketErrorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWebSocketErrorStatics {
+unsafe impl ::windows::core::Interface for IWebSocketErrorStatics {
     type Vtable = IWebSocketErrorStatics_Vtbl;
 }
 impl ::core::clone::Clone for IWebSocketErrorStatics {
@@ -1881,7 +1843,7 @@ impl ::core::clone::Clone for IWebSocketErrorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWebSocketErrorStatics {
+unsafe impl ::windows::core::ComInterface for IWebSocketErrorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27cdf35b_1f61_4709_8e02_61283ada4e9d);
 }
 #[repr(C)]
@@ -1901,21 +1863,21 @@ impl IWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).LocalAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BandwidthStatistics>();
-            (::windows::core::Vtable::vtable(this).BandwidthStatistics)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BandwidthStatistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Protocol)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Protocol)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1934,7 +1896,7 @@ impl ::core::fmt::Debug for IWebSocketInformation {
 impl ::windows::core::RuntimeType for IWebSocketInformation {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{5e01e316-c92a-47a5-b25f-07847639d181}");
 }
-unsafe impl ::windows::core::Vtable for IWebSocketInformation {
+unsafe impl ::windows::core::Interface for IWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
 }
 impl ::core::clone::Clone for IWebSocketInformation {
@@ -1942,7 +1904,7 @@ impl ::core::clone::Clone for IWebSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWebSocketInformation {
+unsafe impl ::windows::core::ComInterface for IWebSocketInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
 }
 #[repr(C)]
@@ -1963,14 +1925,14 @@ impl IWebSocketInformation2 {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Cryptography::Certificates::Certificate>();
-            (::windows::core::Vtable::vtable(this).ServerCertificate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketSslErrorSeverity>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -1979,7 +1941,7 @@ impl IWebSocketInformation2 {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -1988,51 +1950,33 @@ impl IWebSocketInformation2 {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>();
-            (::windows::core::Vtable::vtable(this).ServerIntermediateCertificates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerIntermediateCertificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LocalAddress(&self) -> ::windows::core::Result<super::HostName> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).LocalAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BandwidthStatistics>();
-            (::windows::core::Vtable::vtable(this).BandwidthStatistics)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BandwidthStatistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Protocol)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Protocol)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::imp::interface_hierarchy!(IWebSocketInformation2, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<IWebSocketInformation2> for IWebSocketInformation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: IWebSocketInformation2) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&IWebSocketInformation2> for IWebSocketInformation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IWebSocketInformation2) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&IWebSocketInformation2> for ::windows::core::InParam<IWebSocketInformation> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IWebSocketInformation2) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl windows::core::CanTryInto<IWebSocketInformation> for IWebSocketInformation2 {}
 impl ::core::cmp::PartialEq for IWebSocketInformation2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2047,7 +1991,7 @@ impl ::core::fmt::Debug for IWebSocketInformation2 {
 impl ::windows::core::RuntimeType for IWebSocketInformation2 {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ce1d39ce-a1b7-4d43-8269-8d5b981bd47a}");
 }
-unsafe impl ::windows::core::Vtable for IWebSocketInformation2 {
+unsafe impl ::windows::core::Interface for IWebSocketInformation2 {
     type Vtable = IWebSocketInformation2_Vtbl;
 }
 impl ::core::clone::Clone for IWebSocketInformation2 {
@@ -2055,7 +1999,7 @@ impl ::core::clone::Clone for IWebSocketInformation2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWebSocketInformation2 {
+unsafe impl ::windows::core::ComInterface for IWebSocketInformation2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce1d39ce_a1b7_4d43_8269_8d5b981bd47a);
 }
 #[repr(C)]
@@ -2079,7 +2023,7 @@ pub struct IWebSocketInformation2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebSocketServerCustomValidationRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWebSocketServerCustomValidationRequestedEventArgs {
+unsafe impl ::windows::core::Interface for IWebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = IWebSocketServerCustomValidationRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IWebSocketServerCustomValidationRequestedEventArgs {
@@ -2087,7 +2031,7 @@ impl ::core::clone::Clone for IWebSocketServerCustomValidationRequestedEventArgs
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWebSocketServerCustomValidationRequestedEventArgs {
+unsafe impl ::windows::core::ComInterface for IWebSocketServerCustomValidationRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
 }
 #[repr(C)]
@@ -2120,39 +2064,39 @@ impl ControlChannelTrigger {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ControlChannelTriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ControlChannelTriggerId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ControlChannelTriggerId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ServerKeepAliveIntervalInMinutes(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ServerKeepAliveIntervalInMinutes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerKeepAliveIntervalInMinutes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetServerKeepAliveIntervalInMinutes(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerKeepAliveIntervalInMinutes)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServerKeepAliveIntervalInMinutes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn CurrentKeepAliveIntervalInMinutes(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).CurrentKeepAliveIntervalInMinutes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CurrentKeepAliveIntervalInMinutes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TransportObject(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
-            (::windows::core::Vtable::vtable(this).TransportObject)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TransportObject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -2161,7 +2105,7 @@ impl ControlChannelTrigger {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::ApplicationModel::Background::IBackgroundTrigger>();
-            (::windows::core::Vtable::vtable(this).KeepAliveTrigger)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).KeepAliveTrigger)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -2170,48 +2114,48 @@ impl ControlChannelTrigger {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::ApplicationModel::Background::IBackgroundTrigger>();
-            (::windows::core::Vtable::vtable(this).PushNotificationTrigger)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PushNotificationTrigger)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsingTransport<P0>(&self, transport: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+        P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UsingTransport)(::windows::core::Vtable::as_raw(this), transport.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UsingTransport)(::windows::core::Interface::as_raw(this), transport.into_param().abi()).ok() }
     }
     pub fn WaitForPushEnabled(&self) -> ::windows::core::Result<ControlChannelTriggerStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ControlChannelTriggerStatus>();
-            (::windows::core::Vtable::vtable(this).WaitForPushEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WaitForPushEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DecreaseNetworkKeepAliveInterval(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).DecreaseNetworkKeepAliveInterval)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DecreaseNetworkKeepAliveInterval)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn FlushTransport(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).FlushTransport)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).FlushTransport)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn IsWakeFromLowPowerSupported(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IControlChannelTrigger2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IControlChannelTrigger2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsWakeFromLowPowerSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsWakeFromLowPowerSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateControlChannelTrigger(channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32) -> ::windows::core::Result<ControlChannelTrigger> {
         Self::IControlChannelTriggerFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<ControlChannelTrigger>();
-            (::windows::core::Vtable::vtable(this).CreateControlChannelTrigger)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateControlChannelTrigger)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, &mut result__).from_abi(result__)
         })
     }
     pub fn CreateControlChannelTriggerEx(channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType) -> ::windows::core::Result<ControlChannelTrigger> {
         Self::IControlChannelTriggerFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<ControlChannelTrigger>();
-            (::windows::core::Vtable::vtable(this).CreateControlChannelTriggerEx)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, resourcerequesttype, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateControlChannelTriggerEx)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, resourcerequesttype, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2239,38 +2183,18 @@ impl ::core::clone::Clone for ControlChannelTrigger {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ControlChannelTrigger {
+unsafe impl ::windows::core::Interface for ControlChannelTrigger {
     type Vtable = IControlChannelTrigger_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ControlChannelTrigger {
-    const IID: ::windows::core::GUID = <IControlChannelTrigger as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ControlChannelTrigger {
+    const IID: ::windows::core::GUID = <IControlChannelTrigger as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
 }
 ::windows::imp::interface_hierarchy!(ControlChannelTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<ControlChannelTrigger> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ControlChannelTrigger) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ControlChannelTrigger> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ControlChannelTrigger) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ControlChannelTrigger> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ControlChannelTrigger) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for ControlChannelTrigger {}
 unsafe impl ::core::marker::Send for ControlChannelTrigger {}
 unsafe impl ::core::marker::Sync for ControlChannelTrigger {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -2287,21 +2211,21 @@ impl DatagramSocket {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Control(&self) -> ::windows::core::Result<DatagramSocketControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<DatagramSocketControl>();
-            (::windows::core::Vtable::vtable(this).Control)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Information(&self) -> ::windows::core::Result<DatagramSocketInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<DatagramSocketInformation>();
-            (::windows::core::Vtable::vtable(this).Information)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Information)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2310,7 +2234,7 @@ impl DatagramSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).OutputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2319,7 +2243,7 @@ impl DatagramSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2328,7 +2252,7 @@ impl DatagramSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointpair), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(endpointpair), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2337,7 +2261,7 @@ impl DatagramSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).BindServiceNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localservicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BindServiceNameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2346,12 +2270,12 @@ impl DatagramSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).BindEndpointAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localhostname), ::core::mem::transmute_copy(localservicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BindEndpointAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localhostname), ::core::mem::transmute_copy(localservicename), &mut result__).from_abi(result__)
         }
     }
     pub fn JoinMulticastGroup(&self, host: &super::HostName) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).JoinMulticastGroup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(host)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).JoinMulticastGroup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(host)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -2359,7 +2283,7 @@ impl DatagramSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>();
-            (::windows::core::Vtable::vtable(this).GetOutputStreamAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetOutputStreamAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2368,7 +2292,7 @@ impl DatagramSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>();
-            (::windows::core::Vtable::vtable(this).GetOutputStreamWithEndpointPairAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointpair), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetOutputStreamWithEndpointPairAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(endpointpair), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2377,61 +2301,61 @@ impl DatagramSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMessageReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveMessageReceived)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
     pub fn BindServiceNameAndAdapterAsync(&self, localservicename: &::windows::core::HSTRING, adapter: &super::Connectivity::NetworkAdapter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocket2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).BindServiceNameAndAdapterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localservicename), ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BindServiceNameAndAdapterAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocket3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).CancelIOAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CancelIOAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnableTransferOwnership(&self, taskid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).EnableTransferOwnership)(::windows::core::Vtable::as_raw(this), taskid).ok() }
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnership)(::windows::core::Interface::as_raw(this), taskid).ok() }
     }
     pub fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).EnableTransferOwnershipWithConnectedStandbyAction)(::windows::core::Vtable::as_raw(this), taskid, connectedstandbyaction).ok() }
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnershipWithConnectedStandbyAction)(::windows::core::Interface::as_raw(this), taskid, connectedstandbyaction).ok() }
     }
     pub fn TransferOwnership(&self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnership)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnership)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
     }
     pub fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnershipWithContext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data), keepalivetime).ok() }
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data), keepalivetime).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEndpointPairsAsync(remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IDatagramSocketStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>();
-            (::windows::core::Vtable::vtable(this).GetEndpointPairsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetEndpointPairsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2439,7 +2363,7 @@ impl DatagramSocket {
     pub fn GetEndpointPairsWithSortOptionsAsync(remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IDatagramSocketStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>();
-            (::windows::core::Vtable::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), sortoptions, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), sortoptions, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2467,38 +2391,18 @@ impl ::core::clone::Clone for DatagramSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DatagramSocket {
+unsafe impl ::windows::core::Interface for DatagramSocket {
     type Vtable = IDatagramSocket_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DatagramSocket {
-    const IID: ::windows::core::GUID = <IDatagramSocket as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DatagramSocket {
+    const IID: ::windows::core::GUID = <IDatagramSocket as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
 }
 ::windows::imp::interface_hierarchy!(DatagramSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<DatagramSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DatagramSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&DatagramSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DatagramSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&DatagramSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DatagramSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for DatagramSocket {}
 unsafe impl ::core::marker::Send for DatagramSocket {}
 unsafe impl ::core::marker::Sync for DatagramSocket {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -2509,56 +2413,56 @@ impl DatagramSocketControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketQualityOfService>();
-            (::windows::core::Vtable::vtable(this).QualityOfService)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QualityOfService)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetQualityOfService)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetQualityOfService)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn OutboundUnicastHopLimit(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).OutboundUnicastHopLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutboundUnicastHopLimit)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn InboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).InboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetInboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetInboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocketControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetInboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DontFragment(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).DontFragment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DontFragment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDontFragment(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDontFragment)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocketControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDontFragment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn MulticastOnly(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocketControl3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).MulticastOnly)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MulticastOnly)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMulticastOnly(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMulticastOnly)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IDatagramSocketControl3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetMulticastOnly)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for DatagramSocketControl {
@@ -2580,11 +2484,11 @@ impl ::core::clone::Clone for DatagramSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DatagramSocketControl {
+unsafe impl ::windows::core::Interface for DatagramSocketControl {
     type Vtable = IDatagramSocketControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DatagramSocketControl {
-    const IID: ::windows::core::GUID = <IDatagramSocketControl as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DatagramSocketControl {
+    const IID: ::windows::core::GUID = <IDatagramSocketControl as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
@@ -2600,28 +2504,28 @@ impl DatagramSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).LocalAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LocalPort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).LocalPort)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalPort)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).RemoteAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemoteAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).RemotePort)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemotePort)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2644,11 +2548,11 @@ impl ::core::clone::Clone for DatagramSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DatagramSocketInformation {
+unsafe impl ::windows::core::Interface for DatagramSocketInformation {
     type Vtable = IDatagramSocketInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DatagramSocketInformation {
-    const IID: ::windows::core::GUID = <IDatagramSocketInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DatagramSocketInformation {
+    const IID: ::windows::core::GUID = <IDatagramSocketInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
@@ -2664,21 +2568,21 @@ impl DatagramSocketMessageReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).RemoteAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemoteAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).RemotePort)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemotePort)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LocalAddress(&self) -> ::windows::core::Result<super::HostName> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).LocalAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2687,7 +2591,7 @@ impl DatagramSocketMessageReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::DataReader>();
-            (::windows::core::Vtable::vtable(this).GetDataReader)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDataReader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2696,7 +2600,7 @@ impl DatagramSocketMessageReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IInputStream>();
-            (::windows::core::Vtable::vtable(this).GetDataStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDataStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2719,11 +2623,11 @@ impl ::core::clone::Clone for DatagramSocketMessageReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DatagramSocketMessageReceivedEventArgs {
+unsafe impl ::windows::core::Interface for DatagramSocketMessageReceivedEventArgs {
     type Vtable = IDatagramSocketMessageReceivedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DatagramSocketMessageReceivedEventArgs {
-    const IID: ::windows::core::GUID = <IDatagramSocketMessageReceivedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DatagramSocketMessageReceivedEventArgs {
+    const IID: ::windows::core::GUID = <IDatagramSocketMessageReceivedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
@@ -2745,21 +2649,21 @@ impl MessageWebSocket {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Control(&self) -> ::windows::core::Result<MessageWebSocketControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<MessageWebSocketControl>();
-            (::windows::core::Vtable::vtable(this).Control)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Information(&self) -> ::windows::core::Result<MessageWebSocketInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<MessageWebSocketInformation>();
-            (::windows::core::Vtable::vtable(this).Information)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Information)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2768,96 +2672,94 @@ impl MessageWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMessageReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveMessageReceived)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ServerCustomValidationRequested(&self, eventhandler: &super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocket2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocket2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ServerCustomValidationRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCustomValidationRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServerCustomValidationRequested(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocket2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveServerCustomValidationRequested)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocket2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveServerCustomValidationRequested)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendNonfinalFrameAsync<P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SendNonfinalFrameAsync<P0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocket3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocket3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
-            (::windows::core::Vtable::vtable(this).SendNonfinalFrameAsync)(::windows::core::Vtable::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SendNonfinalFrameAsync)(::windows::core::Interface::as_raw(this), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendFinalFrameAsync<P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SendFinalFrameAsync<P0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocket3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocket3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
-            (::windows::core::Vtable::vtable(this).SendFinalFrameAsync)(::windows::core::Vtable::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SendFinalFrameAsync)(::windows::core::Interface::as_raw(this), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).OutputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRequestHeader)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(headername), ::core::mem::transmute_copy(headervalue)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestHeader)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(headername), ::core::mem::transmute_copy(headervalue)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed(&self, eventhandler: &super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveClosed)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).CloseWithStatus)(::windows::core::Vtable::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).CloseWithStatus)(::windows::core::Interface::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for MessageWebSocket {
@@ -2879,57 +2781,19 @@ impl ::core::clone::Clone for MessageWebSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MessageWebSocket {
+unsafe impl ::windows::core::Interface for MessageWebSocket {
     type Vtable = IMessageWebSocket_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MessageWebSocket {
-    const IID: ::windows::core::GUID = <IMessageWebSocket as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MessageWebSocket {
+    const IID: ::windows::core::GUID = <IMessageWebSocket as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocket";
 }
 ::windows::imp::interface_hierarchy!(MessageWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<MessageWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: MessageWebSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&MessageWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&MessageWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-impl ::core::convert::TryFrom<MessageWebSocket> for IWebSocket {
-    type Error = ::windows::core::Error;
-    fn try_from(value: MessageWebSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocket> for IWebSocket {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocket> for ::windows::core::InParam<IWebSocket> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for MessageWebSocket {}
+impl ::windows::core::CanTryInto<IWebSocket> for MessageWebSocket {}
 unsafe impl ::core::marker::Send for MessageWebSocket {}
 unsafe impl ::core::marker::Sync for MessageWebSocket {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -2940,131 +2804,131 @@ impl MessageWebSocketControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxMessageSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxMessageSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMaxMessageSize(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMaxMessageSize)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxMessageSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn MessageType(&self) -> ::windows::core::Result<SocketMessageType> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketMessageType>();
-            (::windows::core::Vtable::vtable(this).MessageType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MessageType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMessageType(&self, value: SocketMessageType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMessageType)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMessageType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).DesiredUnsolicitedPongInterval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DesiredUnsolicitedPongInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredUnsolicitedPongInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocketControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredUnsolicitedPongInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocketControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredUnsolicitedPongInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ActualUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).ActualUnsolicitedPongInterval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActualUnsolicitedPongInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReceiveMode(&self) -> ::windows::core::Result<MessageWebSocketReceiveMode> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<MessageWebSocketReceiveMode>();
-            (::windows::core::Vtable::vtable(this).ReceiveMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReceiveMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetReceiveMode(&self, value: MessageWebSocketReceiveMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocketControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetReceiveMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocketControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReceiveMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ClientCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Cryptography::Certificates::Certificate>();
-            (::windows::core::Vtable::vtable(this).ClientCertificate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClientCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn SetClientCertificate(&self, value: &super::super::Security::Cryptography::Certificates::Certificate) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocketControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetClientCertificate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocketControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetClientCertificate)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Credentials::PasswordCredential>();
-            (::windows::core::Vtable::vtable(this).ServerCredential)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetServerCredential)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Credentials::PasswordCredential>();
-            (::windows::core::Vtable::vtable(this).ProxyCredential)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProxyCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetProxyCredential)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedProtocols(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).SupportedProtocols)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedProtocols)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>();
-            (::windows::core::Vtable::vtable(this).IgnorableServerCertificateErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IgnorableServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3087,54 +2951,18 @@ impl ::core::clone::Clone for MessageWebSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MessageWebSocketControl {
+unsafe impl ::windows::core::Interface for MessageWebSocketControl {
     type Vtable = IMessageWebSocketControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MessageWebSocketControl {
-    const IID: ::windows::core::GUID = <IMessageWebSocketControl as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MessageWebSocketControl {
+    const IID: ::windows::core::GUID = <IMessageWebSocketControl as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketControl";
 }
 ::windows::imp::interface_hierarchy!(MessageWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<MessageWebSocketControl> for IWebSocketControl {
-    type Error = ::windows::core::Error;
-    fn try_from(value: MessageWebSocketControl) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocketControl> for IWebSocketControl {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocketControl) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocketControl> for ::windows::core::InParam<IWebSocketControl> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocketControl) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-impl ::core::convert::TryFrom<MessageWebSocketControl> for IWebSocketControl2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: MessageWebSocketControl) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocketControl> for IWebSocketControl2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocketControl) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocketControl> for ::windows::core::InParam<IWebSocketControl2> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocketControl) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IWebSocketControl> for MessageWebSocketControl {}
+impl ::windows::core::CanTryInto<IWebSocketControl2> for MessageWebSocketControl {}
 unsafe impl ::core::marker::Send for MessageWebSocketControl {}
 unsafe impl ::core::marker::Sync for MessageWebSocketControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3145,55 +2973,55 @@ impl MessageWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).LocalAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BandwidthStatistics>();
-            (::windows::core::Vtable::vtable(this).BandwidthStatistics)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BandwidthStatistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Protocol)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Protocol)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Cryptography::Certificates::Certificate>();
-            (::windows::core::Vtable::vtable(this).ServerCertificate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketSslErrorSeverity>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>();
-            (::windows::core::Vtable::vtable(this).ServerIntermediateCertificates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerIntermediateCertificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3216,54 +3044,18 @@ impl ::core::clone::Clone for MessageWebSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MessageWebSocketInformation {
+unsafe impl ::windows::core::Interface for MessageWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MessageWebSocketInformation {
-    const IID: ::windows::core::GUID = <IWebSocketInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MessageWebSocketInformation {
+    const IID: ::windows::core::GUID = <IWebSocketInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketInformation";
 }
 ::windows::imp::interface_hierarchy!(MessageWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<MessageWebSocketInformation> for IWebSocketInformation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: MessageWebSocketInformation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocketInformation> for IWebSocketInformation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocketInformation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocketInformation> for ::windows::core::InParam<IWebSocketInformation> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocketInformation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-impl ::core::convert::TryFrom<MessageWebSocketInformation> for IWebSocketInformation2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: MessageWebSocketInformation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocketInformation> for IWebSocketInformation2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocketInformation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&MessageWebSocketInformation> for ::windows::core::InParam<IWebSocketInformation2> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &MessageWebSocketInformation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IWebSocketInformation> for MessageWebSocketInformation {}
+impl ::windows::core::CanTryInto<IWebSocketInformation2> for MessageWebSocketInformation {}
 unsafe impl ::core::marker::Send for MessageWebSocketInformation {}
 unsafe impl ::core::marker::Sync for MessageWebSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3274,7 +3066,7 @@ impl MessageWebSocketMessageReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketMessageType>();
-            (::windows::core::Vtable::vtable(this).MessageType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MessageType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3283,7 +3075,7 @@ impl MessageWebSocketMessageReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::DataReader>();
-            (::windows::core::Vtable::vtable(this).GetDataReader)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDataReader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3292,14 +3084,14 @@ impl MessageWebSocketMessageReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IInputStream>();
-            (::windows::core::Vtable::vtable(this).GetDataStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDataStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsMessageComplete(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IMessageWebSocketMessageReceivedEventArgs2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IMessageWebSocketMessageReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsMessageComplete)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsMessageComplete)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3322,11 +3114,11 @@ impl ::core::clone::Clone for MessageWebSocketMessageReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MessageWebSocketMessageReceivedEventArgs {
+unsafe impl ::windows::core::Interface for MessageWebSocketMessageReceivedEventArgs {
     type Vtable = IMessageWebSocketMessageReceivedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MessageWebSocketMessageReceivedEventArgs {
-    const IID: ::windows::core::GUID = <IMessageWebSocketMessageReceivedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MessageWebSocketMessageReceivedEventArgs {
+    const IID: ::windows::core::GUID = <IMessageWebSocketMessageReceivedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs";
@@ -3341,8 +3133,8 @@ impl ServerMessageWebSocket {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3350,27 +3142,27 @@ impl ServerMessageWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMessageReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveMessageReceived)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn Control(&self) -> ::windows::core::Result<ServerMessageWebSocketControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ServerMessageWebSocketControl>();
-            (::windows::core::Vtable::vtable(this).Control)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Information(&self) -> ::windows::core::Result<ServerMessageWebSocketInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ServerMessageWebSocketInformation>();
-            (::windows::core::Vtable::vtable(this).Information)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Information)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3379,7 +3171,7 @@ impl ServerMessageWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).OutputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3388,18 +3180,18 @@ impl ServerMessageWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveClosed)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).CloseWithStatus)(::windows::core::Vtable::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CloseWithStatus)(::windows::core::Interface::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ServerMessageWebSocket {
@@ -3421,38 +3213,18 @@ impl ::core::clone::Clone for ServerMessageWebSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ServerMessageWebSocket {
+unsafe impl ::windows::core::Interface for ServerMessageWebSocket {
     type Vtable = IServerMessageWebSocket_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ServerMessageWebSocket {
-    const IID: ::windows::core::GUID = <IServerMessageWebSocket as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ServerMessageWebSocket {
+    const IID: ::windows::core::GUID = <IServerMessageWebSocket as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocket";
 }
 ::windows::imp::interface_hierarchy!(ServerMessageWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<ServerMessageWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ServerMessageWebSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ServerMessageWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ServerMessageWebSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ServerMessageWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ServerMessageWebSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for ServerMessageWebSocket {}
 unsafe impl ::core::marker::Send for ServerMessageWebSocket {}
 unsafe impl ::core::marker::Sync for ServerMessageWebSocket {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3463,12 +3235,12 @@ impl ServerMessageWebSocketControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketMessageType>();
-            (::windows::core::Vtable::vtable(this).MessageType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MessageType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMessageType(&self, value: SocketMessageType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMessageType)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMessageType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ServerMessageWebSocketControl {
@@ -3490,11 +3262,11 @@ impl ::core::clone::Clone for ServerMessageWebSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ServerMessageWebSocketControl {
+unsafe impl ::windows::core::Interface for ServerMessageWebSocketControl {
     type Vtable = IServerMessageWebSocketControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ServerMessageWebSocketControl {
-    const IID: ::windows::core::GUID = <IServerMessageWebSocketControl as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ServerMessageWebSocketControl {
+    const IID: ::windows::core::GUID = <IServerMessageWebSocketControl as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketControl";
@@ -3510,21 +3282,21 @@ impl ServerMessageWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BandwidthStatistics>();
-            (::windows::core::Vtable::vtable(this).BandwidthStatistics)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BandwidthStatistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Protocol)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Protocol)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LocalAddress(&self) -> ::windows::core::Result<super::HostName> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).LocalAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3547,11 +3319,11 @@ impl ::core::clone::Clone for ServerMessageWebSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ServerMessageWebSocketInformation {
+unsafe impl ::windows::core::Interface for ServerMessageWebSocketInformation {
     type Vtable = IServerMessageWebSocketInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ServerMessageWebSocketInformation {
-    const IID: ::windows::core::GUID = <IServerMessageWebSocketInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ServerMessageWebSocketInformation {
+    const IID: ::windows::core::GUID = <IServerMessageWebSocketInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketInformation";
@@ -3566,14 +3338,14 @@ impl ServerStreamWebSocket {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Information(&self) -> ::windows::core::Result<ServerStreamWebSocketInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ServerStreamWebSocketInformation>();
-            (::windows::core::Vtable::vtable(this).Information)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Information)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3582,7 +3354,7 @@ impl ServerStreamWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IInputStream>();
-            (::windows::core::Vtable::vtable(this).InputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3591,7 +3363,7 @@ impl ServerStreamWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).OutputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3600,18 +3372,18 @@ impl ServerStreamWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveClosed)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).CloseWithStatus)(::windows::core::Vtable::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CloseWithStatus)(::windows::core::Interface::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ServerStreamWebSocket {
@@ -3633,38 +3405,18 @@ impl ::core::clone::Clone for ServerStreamWebSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ServerStreamWebSocket {
+unsafe impl ::windows::core::Interface for ServerStreamWebSocket {
     type Vtable = IServerStreamWebSocket_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ServerStreamWebSocket {
-    const IID: ::windows::core::GUID = <IServerStreamWebSocket as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ServerStreamWebSocket {
+    const IID: ::windows::core::GUID = <IServerStreamWebSocket as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocket";
 }
 ::windows::imp::interface_hierarchy!(ServerStreamWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<ServerStreamWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ServerStreamWebSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ServerStreamWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ServerStreamWebSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ServerStreamWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ServerStreamWebSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for ServerStreamWebSocket {}
 unsafe impl ::core::marker::Send for ServerStreamWebSocket {}
 unsafe impl ::core::marker::Sync for ServerStreamWebSocket {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3675,21 +3427,21 @@ impl ServerStreamWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BandwidthStatistics>();
-            (::windows::core::Vtable::vtable(this).BandwidthStatistics)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BandwidthStatistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Protocol)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Protocol)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LocalAddress(&self) -> ::windows::core::Result<super::HostName> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).LocalAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3712,11 +3464,11 @@ impl ::core::clone::Clone for ServerStreamWebSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ServerStreamWebSocketInformation {
+unsafe impl ::windows::core::Interface for ServerStreamWebSocketInformation {
     type Vtable = IServerStreamWebSocketInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ServerStreamWebSocketInformation {
-    const IID: ::windows::core::GUID = <IServerStreamWebSocketInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ServerStreamWebSocketInformation {
+    const IID: ::windows::core::GUID = <IServerStreamWebSocketInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocketInformation";
@@ -3734,19 +3486,18 @@ impl SocketActivityContext {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P0, E0>(data: P0) -> ::windows::core::Result<SocketActivityContext>
+    pub fn Create<P0>(data: P0) -> ::windows::core::Result<SocketActivityContext>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         Self::ISocketActivityContextFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketActivityContext>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3774,11 +3525,11 @@ impl ::core::clone::Clone for SocketActivityContext {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SocketActivityContext {
+unsafe impl ::windows::core::Interface for SocketActivityContext {
     type Vtable = ISocketActivityContext_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SocketActivityContext {
-    const IID: ::windows::core::GUID = <ISocketActivityContext as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SocketActivityContext {
+    const IID: ::windows::core::GUID = <ISocketActivityContext as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityContext";
@@ -3794,49 +3545,49 @@ impl SocketActivityInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).TaskId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SocketKind(&self) -> ::windows::core::Result<SocketActivityKind> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketActivityKind>();
-            (::windows::core::Vtable::vtable(this).SocketKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SocketKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Context(&self) -> ::windows::core::Result<SocketActivityContext> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketActivityContext>();
-            (::windows::core::Vtable::vtable(this).Context)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Context)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DatagramSocket(&self) -> ::windows::core::Result<DatagramSocket> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<DatagramSocket>();
-            (::windows::core::Vtable::vtable(this).DatagramSocket)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DatagramSocket)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StreamSocket(&self) -> ::windows::core::Result<StreamSocket> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<StreamSocket>();
-            (::windows::core::Vtable::vtable(this).StreamSocket)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StreamSocket)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StreamSocketListener(&self) -> ::windows::core::Result<StreamSocketListener> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<StreamSocketListener>();
-            (::windows::core::Vtable::vtable(this).StreamSocketListener)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StreamSocketListener)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3844,7 +3595,7 @@ impl SocketActivityInformation {
     pub fn AllSockets() -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SocketActivityInformation>> {
         Self::ISocketActivityInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SocketActivityInformation>>();
-            (::windows::core::Vtable::vtable(this).AllSockets)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AllSockets)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3872,11 +3623,11 @@ impl ::core::clone::Clone for SocketActivityInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SocketActivityInformation {
+unsafe impl ::windows::core::Interface for SocketActivityInformation {
     type Vtable = ISocketActivityInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SocketActivityInformation {
-    const IID: ::windows::core::GUID = <ISocketActivityInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SocketActivityInformation {
+    const IID: ::windows::core::GUID = <ISocketActivityInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityInformation";
@@ -3892,14 +3643,14 @@ impl SocketActivityTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketActivityTriggerReason>();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SocketInformation(&self) -> ::windows::core::Result<SocketActivityInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketActivityInformation>();
-            (::windows::core::Vtable::vtable(this).SocketInformation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SocketInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3922,11 +3673,11 @@ impl ::core::clone::Clone for SocketActivityTriggerDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SocketActivityTriggerDetails {
+unsafe impl ::windows::core::Interface for SocketActivityTriggerDetails {
     type Vtable = ISocketActivityTriggerDetails_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SocketActivityTriggerDetails {
-    const IID: ::windows::core::GUID = <ISocketActivityTriggerDetails as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SocketActivityTriggerDetails {
+    const IID: ::windows::core::GUID = <ISocketActivityTriggerDetails as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityTriggerDetails";
@@ -3940,7 +3691,7 @@ impl SocketError {
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<SocketErrorStatus> {
         Self::ISocketErrorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketErrorStatus>();
-            (::windows::core::Vtable::vtable(this).GetStatus)(::windows::core::Vtable::as_raw(this), hresult, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), hresult, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3966,21 +3717,21 @@ impl StreamSocket {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Control(&self) -> ::windows::core::Result<StreamSocketControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<StreamSocketControl>();
-            (::windows::core::Vtable::vtable(this).Control)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Information(&self) -> ::windows::core::Result<StreamSocketInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<StreamSocketInformation>();
-            (::windows::core::Vtable::vtable(this).Information)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Information)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3989,7 +3740,7 @@ impl StreamSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IInputStream>();
-            (::windows::core::Vtable::vtable(this).InputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3998,7 +3749,7 @@ impl StreamSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).OutputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4007,7 +3758,7 @@ impl StreamSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointpair), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(endpointpair), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4016,7 +3767,7 @@ impl StreamSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4025,7 +3776,7 @@ impl StreamSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectWithEndpointPairAndProtectionLevelAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointpair), protectionlevel, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithEndpointPairAndProtectionLevelAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(endpointpair), protectionlevel, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4034,7 +3785,7 @@ impl StreamSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectWithProtectionLevelAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), protectionlevel, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithProtectionLevelAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), protectionlevel, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4043,55 +3794,55 @@ impl StreamSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).UpgradeToSslAsync)(::windows::core::Vtable::as_raw(this), protectionlevel, ::core::mem::transmute_copy(validationhostname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UpgradeToSslAsync)(::windows::core::Interface::as_raw(this), protectionlevel, ::core::mem::transmute_copy(validationhostname), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
     pub fn ConnectWithProtectionLevelAndAdapterAsync(&self, remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &super::Connectivity::NetworkAdapter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IStreamSocket2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocket2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectWithProtectionLevelAndAdapterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), protectionlevel, ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithProtectionLevelAndAdapterAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), protectionlevel, ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IStreamSocket3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocket3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).CancelIOAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CancelIOAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnableTransferOwnership(&self, taskid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).EnableTransferOwnership)(::windows::core::Vtable::as_raw(this), taskid).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnership)(::windows::core::Interface::as_raw(this), taskid).ok() }
     }
     pub fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).EnableTransferOwnershipWithConnectedStandbyAction)(::windows::core::Vtable::as_raw(this), taskid, connectedstandbyaction).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnershipWithConnectedStandbyAction)(::windows::core::Interface::as_raw(this), taskid, connectedstandbyaction).ok() }
     }
     pub fn TransferOwnership(&self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnership)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnership)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
     }
     pub fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnershipWithContext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data), keepalivetime).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data), keepalivetime).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEndpointPairsAsync(remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IStreamSocketStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>();
-            (::windows::core::Vtable::vtable(this).GetEndpointPairsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetEndpointPairsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4099,7 +3850,7 @@ impl StreamSocket {
     pub fn GetEndpointPairsWithSortOptionsAsync(remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IStreamSocketStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>();
-            (::windows::core::Vtable::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), sortoptions, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), sortoptions, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4127,38 +3878,18 @@ impl ::core::clone::Clone for StreamSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamSocket {
+unsafe impl ::windows::core::Interface for StreamSocket {
     type Vtable = IStreamSocket_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamSocket {
-    const IID: ::windows::core::GUID = <IStreamSocket as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamSocket {
+    const IID: ::windows::core::GUID = <IStreamSocket as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocket";
 }
 ::windows::imp::interface_hierarchy!(StreamSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<StreamSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: StreamSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&StreamSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&StreamSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for StreamSocket {}
 unsafe impl ::core::marker::Send for StreamSocket {}
 unsafe impl ::core::marker::Sync for StreamSocket {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4169,102 +3900,102 @@ impl StreamSocketControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).NoDelay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NoDelay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetNoDelay(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetNoDelay)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNoDelay)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn KeepAlive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).KeepAlive)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).KeepAlive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetKeepAlive(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetKeepAlive)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeepAlive)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn QualityOfService(&self) -> ::windows::core::Result<SocketQualityOfService> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketQualityOfService>();
-            (::windows::core::Vtable::vtable(this).QualityOfService)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QualityOfService)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetQualityOfService)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetQualityOfService)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn OutboundUnicastHopLimit(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).OutboundUnicastHopLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutboundUnicastHopLimit)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>();
-            (::windows::core::Vtable::vtable(this).IgnorableServerCertificateErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IgnorableServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SerializeConnectionAttempts(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketControl3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketControl3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SerializeConnectionAttempts)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SerializeConnectionAttempts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSerializeConnectionAttempts(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketControl3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSerializeConnectionAttempts)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketControl3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetSerializeConnectionAttempts)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ClientCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketControl3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketControl3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Cryptography::Certificates::Certificate>();
-            (::windows::core::Vtable::vtable(this).ClientCertificate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClientCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn SetClientCertificate(&self, value: &super::super::Security::Cryptography::Certificates::Certificate) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketControl3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetClientCertificate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketControl3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetClientCertificate)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn MinProtectionLevel(&self) -> ::windows::core::Result<SocketProtectionLevel> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketControl4>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketControl4>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketProtectionLevel>();
-            (::windows::core::Vtable::vtable(this).MinProtectionLevel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMinProtectionLevel(&self, value: SocketProtectionLevel) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketControl4>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMinProtectionLevel)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketControl4>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetMinProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for StreamSocketControl {
@@ -4286,11 +4017,11 @@ impl ::core::clone::Clone for StreamSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamSocketControl {
+unsafe impl ::windows::core::Interface for StreamSocketControl {
     type Vtable = IStreamSocketControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamSocketControl {
-    const IID: ::windows::core::GUID = <IStreamSocketControl as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamSocketControl {
+    const IID: ::windows::core::GUID = <IStreamSocketControl as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketControl";
@@ -4306,63 +4037,63 @@ impl StreamSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).LocalAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LocalPort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).LocalPort)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalPort)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoteHostName(&self) -> ::windows::core::Result<super::HostName> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).RemoteHostName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemoteHostName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).RemoteAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemoteAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoteServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).RemoteServiceName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemoteServiceName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).RemotePort)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemotePort)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RoundTripTimeStatistics(&self) -> ::windows::core::Result<RoundTripTimeStatistics> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<RoundTripTimeStatistics>();
-            (::windows::core::Vtable::vtable(this).RoundTripTimeStatistics)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RoundTripTimeStatistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BandwidthStatistics>();
-            (::windows::core::Vtable::vtable(this).BandwidthStatistics)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BandwidthStatistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProtectionLevel(&self) -> ::windows::core::Result<SocketProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketProtectionLevel>();
-            (::windows::core::Vtable::vtable(this).ProtectionLevel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -4371,41 +4102,41 @@ impl StreamSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).SessionKey)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SessionKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketSslErrorSeverity>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Cryptography::Certificates::Certificate>();
-            (::windows::core::Vtable::vtable(this).ServerCertificate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>();
-            (::windows::core::Vtable::vtable(this).ServerIntermediateCertificates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerIntermediateCertificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4428,11 +4159,11 @@ impl ::core::clone::Clone for StreamSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamSocketInformation {
+unsafe impl ::windows::core::Interface for StreamSocketInformation {
     type Vtable = IStreamSocketInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamSocketInformation {
-    const IID: ::windows::core::GUID = <IStreamSocketInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamSocketInformation {
+    const IID: ::windows::core::GUID = <IStreamSocketInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketInformation";
@@ -4454,21 +4185,21 @@ impl StreamSocketListener {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Control(&self) -> ::windows::core::Result<StreamSocketListenerControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<StreamSocketListenerControl>();
-            (::windows::core::Vtable::vtable(this).Control)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Information(&self) -> ::windows::core::Result<StreamSocketListenerInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<StreamSocketListenerInformation>();
-            (::windows::core::Vtable::vtable(this).Information)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Information)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4477,7 +4208,7 @@ impl StreamSocketListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).BindServiceNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localservicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BindServiceNameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4486,7 +4217,7 @@ impl StreamSocketListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).BindEndpointAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localhostname), ::core::mem::transmute_copy(localservicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BindEndpointAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localhostname), ::core::mem::transmute_copy(localservicename), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4495,57 +4226,57 @@ impl StreamSocketListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ConnectionReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionReceived)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveConnectionReceived)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionReceived)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BindServiceNameWithProtectionLevelAsync(&self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListener2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListener2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).BindServiceNameWithProtectionLevelAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localservicename), protectionlevel, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BindServiceNameWithProtectionLevelAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), protectionlevel, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
     pub fn BindServiceNameWithProtectionLevelAndAdapterAsync(&self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &super::Connectivity::NetworkAdapter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListener2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListener2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).BindServiceNameWithProtectionLevelAndAdapterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localservicename), protectionlevel, ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BindServiceNameWithProtectionLevelAndAdapterAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), protectionlevel, ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListener3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListener3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).CancelIOAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CancelIOAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnableTransferOwnership(&self, taskid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListener3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).EnableTransferOwnership)(::windows::core::Vtable::as_raw(this), taskid).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListener3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnership)(::windows::core::Interface::as_raw(this), taskid).ok() }
     }
     pub fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListener3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).EnableTransferOwnershipWithConnectedStandbyAction)(::windows::core::Vtable::as_raw(this), taskid, connectedstandbyaction).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListener3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnershipWithConnectedStandbyAction)(::windows::core::Interface::as_raw(this), taskid, connectedstandbyaction).ok() }
     }
     pub fn TransferOwnership(&self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListener3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnership)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListener3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnership)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
     }
     pub fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListener3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListener3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnershipWithContext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for StreamSocketListener {
@@ -4567,38 +4298,18 @@ impl ::core::clone::Clone for StreamSocketListener {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamSocketListener {
+unsafe impl ::windows::core::Interface for StreamSocketListener {
     type Vtable = IStreamSocketListener_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamSocketListener {
-    const IID: ::windows::core::GUID = <IStreamSocketListener as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamSocketListener {
+    const IID: ::windows::core::GUID = <IStreamSocketListener as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListener";
 }
 ::windows::imp::interface_hierarchy!(StreamSocketListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<StreamSocketListener> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: StreamSocketListener) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&StreamSocketListener> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamSocketListener) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&StreamSocketListener> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamSocketListener) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for StreamSocketListener {}
 unsafe impl ::core::marker::Send for StreamSocketListener {}
 unsafe impl ::core::marker::Sync for StreamSocketListener {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4609,7 +4320,7 @@ impl StreamSocketListenerConnectionReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<StreamSocket>();
-            (::windows::core::Vtable::vtable(this).Socket)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Socket)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4632,11 +4343,11 @@ impl ::core::clone::Clone for StreamSocketListenerConnectionReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamSocketListenerConnectionReceivedEventArgs {
+unsafe impl ::windows::core::Interface for StreamSocketListenerConnectionReceivedEventArgs {
     type Vtable = IStreamSocketListenerConnectionReceivedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamSocketListenerConnectionReceivedEventArgs {
-    const IID: ::windows::core::GUID = <IStreamSocketListenerConnectionReceivedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamSocketListenerConnectionReceivedEventArgs {
+    const IID: ::windows::core::GUID = <IStreamSocketListenerConnectionReceivedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs";
@@ -4652,56 +4363,56 @@ impl StreamSocketListenerControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketQualityOfService>();
-            (::windows::core::Vtable::vtable(this).QualityOfService)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QualityOfService)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetQualityOfService)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetQualityOfService)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn NoDelay(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListenerControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListenerControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).NoDelay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NoDelay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetNoDelay(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListenerControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetNoDelay)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListenerControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetNoDelay)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn KeepAlive(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListenerControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListenerControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).KeepAlive)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).KeepAlive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetKeepAlive(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListenerControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetKeepAlive)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListenerControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetKeepAlive)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListenerControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListenerControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListenerControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListenerControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn OutboundUnicastHopLimit(&self) -> ::windows::core::Result<u8> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListenerControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListenerControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).OutboundUnicastHopLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamSocketListenerControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutboundUnicastHopLimit)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamSocketListenerControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for StreamSocketListenerControl {
@@ -4723,11 +4434,11 @@ impl ::core::clone::Clone for StreamSocketListenerControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamSocketListenerControl {
+unsafe impl ::windows::core::Interface for StreamSocketListenerControl {
     type Vtable = IStreamSocketListenerControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamSocketListenerControl {
-    const IID: ::windows::core::GUID = <IStreamSocketListenerControl as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamSocketListenerControl {
+    const IID: ::windows::core::GUID = <IStreamSocketListenerControl as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerControl";
@@ -4743,7 +4454,7 @@ impl StreamSocketListenerInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).LocalPort)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalPort)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4766,11 +4477,11 @@ impl ::core::clone::Clone for StreamSocketListenerInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamSocketListenerInformation {
+unsafe impl ::windows::core::Interface for StreamSocketListenerInformation {
     type Vtable = IStreamSocketListenerInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamSocketListenerInformation {
-    const IID: ::windows::core::GUID = <IStreamSocketListenerInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamSocketListenerInformation {
+    const IID: ::windows::core::GUID = <IStreamSocketListenerInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerInformation";
@@ -4792,21 +4503,21 @@ impl StreamWebSocket {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Control(&self) -> ::windows::core::Result<StreamWebSocketControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<StreamWebSocketControl>();
-            (::windows::core::Vtable::vtable(this).Control)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Information(&self) -> ::windows::core::Result<StreamWebSocketInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<StreamWebSocketInformation>();
-            (::windows::core::Vtable::vtable(this).Information)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Information)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -4815,64 +4526,64 @@ impl StreamWebSocket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IInputStream>();
-            (::windows::core::Vtable::vtable(this).InputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ServerCustomValidationRequested(&self, eventhandler: &super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<IStreamWebSocket2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamWebSocket2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ServerCustomValidationRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCustomValidationRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServerCustomValidationRequested(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamWebSocket2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveServerCustomValidationRequested)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamWebSocket2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveServerCustomValidationRequested)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).OutputStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRequestHeader)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(headername), ::core::mem::transmute_copy(headervalue)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestHeader)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(headername), ::core::mem::transmute_copy(headervalue)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed(&self, eventhandler: &super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveClosed)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).CloseWithStatus)(::windows::core::Vtable::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocket>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).CloseWithStatus)(::windows::core::Interface::as_raw(this), code, ::core::mem::transmute_copy(reason)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for StreamWebSocket {
@@ -4894,57 +4605,19 @@ impl ::core::clone::Clone for StreamWebSocket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamWebSocket {
+unsafe impl ::windows::core::Interface for StreamWebSocket {
     type Vtable = IStreamWebSocket_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamWebSocket {
-    const IID: ::windows::core::GUID = <IStreamWebSocket as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamWebSocket {
+    const IID: ::windows::core::GUID = <IStreamWebSocket as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocket";
 }
 ::windows::imp::interface_hierarchy!(StreamWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<StreamWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: StreamWebSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&StreamWebSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&StreamWebSocket> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-impl ::core::convert::TryFrom<StreamWebSocket> for IWebSocket {
-    type Error = ::windows::core::Error;
-    fn try_from(value: StreamWebSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocket> for IWebSocket {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocket> for ::windows::core::InParam<IWebSocket> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for StreamWebSocket {}
+impl ::windows::core::CanTryInto<IWebSocket> for StreamWebSocket {}
 unsafe impl ::core::marker::Send for StreamWebSocket {}
 unsafe impl ::core::marker::Sync for StreamWebSocket {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4955,109 +4628,109 @@ impl StreamWebSocketControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).NoDelay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NoDelay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetNoDelay(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetNoDelay)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNoDelay)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::Interface::cast::<IStreamWebSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).DesiredUnsolicitedPongInterval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DesiredUnsolicitedPongInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredUnsolicitedPongInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamWebSocketControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredUnsolicitedPongInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamWebSocketControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredUnsolicitedPongInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ActualUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::Interface::cast::<IStreamWebSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).ActualUnsolicitedPongInterval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActualUnsolicitedPongInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ClientCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
-        let this = &::windows::core::Interface::cast::<IStreamWebSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Cryptography::Certificates::Certificate>();
-            (::windows::core::Vtable::vtable(this).ClientCertificate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClientCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn SetClientCertificate(&self, value: &super::super::Security::Cryptography::Certificates::Certificate) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IStreamWebSocketControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetClientCertificate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IStreamWebSocketControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetClientCertificate)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Credentials::PasswordCredential>();
-            (::windows::core::Vtable::vtable(this).ServerCredential)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetServerCredential)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Credentials::PasswordCredential>();
-            (::windows::core::Vtable::vtable(this).ProxyCredential)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProxyCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetProxyCredential)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedProtocols(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).SupportedProtocols)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedProtocols)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
-        let this = &::windows::core::Interface::cast::<IWebSocketControl2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>();
-            (::windows::core::Vtable::vtable(this).IgnorableServerCertificateErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IgnorableServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -5080,54 +4753,18 @@ impl ::core::clone::Clone for StreamWebSocketControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamWebSocketControl {
+unsafe impl ::windows::core::Interface for StreamWebSocketControl {
     type Vtable = IStreamWebSocketControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamWebSocketControl {
-    const IID: ::windows::core::GUID = <IStreamWebSocketControl as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamWebSocketControl {
+    const IID: ::windows::core::GUID = <IStreamWebSocketControl as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketControl";
 }
 ::windows::imp::interface_hierarchy!(StreamWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<StreamWebSocketControl> for IWebSocketControl {
-    type Error = ::windows::core::Error;
-    fn try_from(value: StreamWebSocketControl) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocketControl> for IWebSocketControl {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocketControl) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocketControl> for ::windows::core::InParam<IWebSocketControl> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocketControl) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-impl ::core::convert::TryFrom<StreamWebSocketControl> for IWebSocketControl2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: StreamWebSocketControl) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocketControl> for IWebSocketControl2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocketControl) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocketControl> for ::windows::core::InParam<IWebSocketControl2> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocketControl) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IWebSocketControl> for StreamWebSocketControl {}
+impl ::windows::core::CanTryInto<IWebSocketControl2> for StreamWebSocketControl {}
 unsafe impl ::core::marker::Send for StreamWebSocketControl {}
 unsafe impl ::core::marker::Sync for StreamWebSocketControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5138,55 +4775,55 @@ impl StreamWebSocketInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HostName>();
-            (::windows::core::Vtable::vtable(this).LocalAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BandwidthStatistics>();
-            (::windows::core::Vtable::vtable(this).BandwidthStatistics)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BandwidthStatistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Protocol)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Protocol)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Cryptography::Certificates::Certificate>();
-            (::windows::core::Vtable::vtable(this).ServerCertificate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketSslErrorSeverity>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
-        let this = &::windows::core::Interface::cast::<IWebSocketInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>();
-            (::windows::core::Vtable::vtable(this).ServerIntermediateCertificates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerIntermediateCertificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -5209,54 +4846,18 @@ impl ::core::clone::Clone for StreamWebSocketInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for StreamWebSocketInformation {
+unsafe impl ::windows::core::Interface for StreamWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for StreamWebSocketInformation {
-    const IID: ::windows::core::GUID = <IWebSocketInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for StreamWebSocketInformation {
+    const IID: ::windows::core::GUID = <IWebSocketInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketInformation";
 }
 ::windows::imp::interface_hierarchy!(StreamWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<StreamWebSocketInformation> for IWebSocketInformation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: StreamWebSocketInformation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocketInformation> for IWebSocketInformation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocketInformation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocketInformation> for ::windows::core::InParam<IWebSocketInformation> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocketInformation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-impl ::core::convert::TryFrom<StreamWebSocketInformation> for IWebSocketInformation2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: StreamWebSocketInformation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocketInformation> for IWebSocketInformation2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocketInformation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&StreamWebSocketInformation> for ::windows::core::InParam<IWebSocketInformation2> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &StreamWebSocketInformation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IWebSocketInformation> for StreamWebSocketInformation {}
+impl ::windows::core::CanTryInto<IWebSocketInformation2> for StreamWebSocketInformation {}
 unsafe impl ::core::marker::Send for StreamWebSocketInformation {}
 unsafe impl ::core::marker::Sync for StreamWebSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5267,14 +4868,14 @@ impl WebSocketClosedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Code)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Code)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Reason(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -5297,11 +4898,11 @@ impl ::core::clone::Clone for WebSocketClosedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WebSocketClosedEventArgs {
+unsafe impl ::windows::core::Interface for WebSocketClosedEventArgs {
     type Vtable = IWebSocketClosedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WebSocketClosedEventArgs {
-    const IID: ::windows::core::GUID = <IWebSocketClosedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WebSocketClosedEventArgs {
+    const IID: ::windows::core::GUID = <IWebSocketClosedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketClosedEventArgs";
@@ -5317,7 +4918,7 @@ impl WebSocketError {
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<super::super::Web::WebErrorStatus> {
         Self::IWebSocketErrorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Web::WebErrorStatus>();
-            (::windows::core::Vtable::vtable(this).GetStatus)(::windows::core::Vtable::as_raw(this), hresult, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), hresult, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5344,13 +4945,12 @@ impl WebSocketKeepAlive {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     #[cfg(feature = "ApplicationModel_Background")]
-    pub fn Run<P0, E0>(&self, taskinstance: P0) -> ::windows::core::Result<()>
+    pub fn Run<P0>(&self, taskinstance: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::ApplicationModel::Background::IBackgroundTaskInstance>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::ApplicationModel::Background::IBackgroundTaskInstance>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Run)(::windows::core::Vtable::as_raw(this), taskinstance.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Run)(::windows::core::Interface::as_raw(this), taskinstance.try_into_param()?.abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
@@ -5378,12 +4978,12 @@ impl ::core::clone::Clone for WebSocketKeepAlive {
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-unsafe impl ::windows::core::Vtable for WebSocketKeepAlive {
+unsafe impl ::windows::core::Interface for WebSocketKeepAlive {
     type Vtable = super::super::ApplicationModel::Background::IBackgroundTask_Vtbl;
 }
 #[cfg(feature = "ApplicationModel_Background")]
-unsafe impl ::windows::core::Interface for WebSocketKeepAlive {
-    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Background::IBackgroundTask as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WebSocketKeepAlive {
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Background::IBackgroundTask as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::windows::core::RuntimeName for WebSocketKeepAlive {
@@ -5392,27 +4992,7 @@ impl ::windows::core::RuntimeName for WebSocketKeepAlive {
 #[cfg(feature = "ApplicationModel_Background")]
 ::windows::imp::interface_hierarchy!(WebSocketKeepAlive, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::core::convert::TryFrom<WebSocketKeepAlive> for super::super::ApplicationModel::Background::IBackgroundTask {
-    type Error = ::windows::core::Error;
-    fn try_from(value: WebSocketKeepAlive) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::convert::TryFrom<&WebSocketKeepAlive> for super::super::ApplicationModel::Background::IBackgroundTask {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &WebSocketKeepAlive) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::convert::TryFrom<&WebSocketKeepAlive> for ::windows::core::InParam<super::super::ApplicationModel::Background::IBackgroundTask> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &WebSocketKeepAlive) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::ApplicationModel::Background::IBackgroundTask> for WebSocketKeepAlive {}
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl ::core::marker::Send for WebSocketKeepAlive {}
 #[cfg(feature = "ApplicationModel_Background")]
@@ -5427,14 +5007,14 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Security::Cryptography::Certificates::Certificate>();
-            (::windows::core::Vtable::vtable(this).ServerCertificate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SocketSslErrorSeverity>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -5443,7 +5023,7 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>();
-            (::windows::core::Vtable::vtable(this).ServerCertificateErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -5452,12 +5032,12 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>();
-            (::windows::core::Vtable::vtable(this).ServerIntermediateCertificates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServerIntermediateCertificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Reject(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Reject)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Reject)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5465,7 +5045,7 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -5488,11 +5068,11 @@ impl ::core::clone::Clone for WebSocketServerCustomValidationRequestedEventArgs 
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WebSocketServerCustomValidationRequestedEventArgs {
+unsafe impl ::windows::core::Interface for WebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = IWebSocketServerCustomValidationRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WebSocketServerCustomValidationRequestedEventArgs {
-    const IID: ::windows::core::GUID = <IWebSocketServerCustomValidationRequestedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WebSocketServerCustomValidationRequestedEventArgs {
+    const IID: ::windows::core::GUID = <IWebSocketServerCustomValidationRequestedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs";

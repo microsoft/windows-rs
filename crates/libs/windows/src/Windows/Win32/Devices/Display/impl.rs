@@ -40,7 +40,7 @@ impl ICloneViewHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICloneViewHelper as ::windows::core::Interface>::IID
+        iid == &<ICloneViewHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -105,6 +105,6 @@ impl IViewHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IViewHelper as ::windows::core::Interface>::IID
+        iid == &<IViewHelper as ::windows::core::ComInterface>::IID
     }
 }

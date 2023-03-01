@@ -51,7 +51,7 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIBackgroundCopyCallback as ::windows::core::Interface>::IID
+        iid == &<AsyncIBackgroundCopyCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -108,7 +108,7 @@ impl IBITSExtensionSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBITSExtensionSetup as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IBITSExtensionSetup as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -135,7 +135,7 @@ impl IBITSExtensionSetupFactory_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetObject: GetObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBITSExtensionSetupFactory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IBITSExtensionSetupFactory as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -170,7 +170,7 @@ impl IBackgroundCopyCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyCallback as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -205,7 +205,7 @@ impl IBackgroundCopyCallback1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyCallback1 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyCallback1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -223,7 +223,7 @@ impl IBackgroundCopyCallback2_Vtbl {
         Self { base__: IBackgroundCopyCallback_Vtbl::new::<Identity, Impl, OFFSET>(), FileTransferred: FileTransferred::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyCallback2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyCallback as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyCallback2 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -241,7 +241,7 @@ impl IBackgroundCopyCallback3_Vtbl {
         Self { base__: IBackgroundCopyCallback2_Vtbl::new::<Identity, Impl, OFFSET>(), FileRangesTransferred: FileRangesTransferred::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyCallback3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyCallback as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyCallback2 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyCallback3 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyCallback as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyCallback2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -314,7 +314,7 @@ impl IBackgroundCopyError_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyError as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyError as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -364,7 +364,7 @@ impl IBackgroundCopyFile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyFile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -395,7 +395,7 @@ impl IBackgroundCopyFile2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyFile2 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -458,7 +458,7 @@ impl IBackgroundCopyFile3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyFile3 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -479,7 +479,7 @@ impl IBackgroundCopyFile4_Vtbl {
         Self { base__: IBackgroundCopyFile3_Vtbl::new::<Identity, Impl, OFFSET>(), GetPeerDownloadStats: GetPeerDownloadStats::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile4 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyFile4 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -516,7 +516,7 @@ impl IBackgroundCopyFile5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile5 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile4 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyFile5 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -554,7 +554,7 @@ impl IBackgroundCopyFile6_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile6 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile4 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile5 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyFile6 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile4 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyFile5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -724,7 +724,7 @@ impl IBackgroundCopyGroup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyGroup as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyGroup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1049,7 +1049,7 @@ impl IBackgroundCopyJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyJob as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -1143,7 +1143,7 @@ impl IBackgroundCopyJob1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob1 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyJob1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1222,7 +1222,7 @@ impl IBackgroundCopyJob2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyJob2 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1273,7 +1273,7 @@ impl IBackgroundCopyJob3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyJob3 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1356,7 +1356,7 @@ impl IBackgroundCopyJob4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob4 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob3 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyJob4 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1393,7 +1393,7 @@ impl IBackgroundCopyJob5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob5 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob4 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyJob5 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob3 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJob4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -1475,7 +1475,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -1509,7 +1509,7 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyJobHttpOptions2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyJobHttpOptions2 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -1537,7 +1537,7 @@ impl IBackgroundCopyJobHttpOptions3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyJobHttpOptions3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions2 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyJobHttpOptions3 as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::ComInterface>::IID || iid == &<IBackgroundCopyJobHttpOptions2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -1597,7 +1597,7 @@ impl IBackgroundCopyManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyManager as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -1650,7 +1650,7 @@ impl IBackgroundCopyQMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyQMgr as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyQMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -1671,7 +1671,7 @@ impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCopyServerCertificateValidationCallback as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCopyServerCertificateValidationCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1727,7 +1727,7 @@ impl IBitsPeer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBitsPeer as ::windows::core::Interface>::IID
+        iid == &<IBitsPeer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -1875,7 +1875,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBitsPeerCacheAdministration as ::windows::core::Interface>::IID
+        iid == &<IBitsPeerCacheAdministration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1971,7 +1971,7 @@ impl IBitsPeerCacheRecord_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBitsPeerCacheRecord as ::windows::core::Interface>::IID
+        iid == &<IBitsPeerCacheRecord as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -2032,7 +2032,7 @@ impl IBitsTokenOptions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBitsTokenOptions as ::windows::core::Interface>::IID
+        iid == &<IBitsTokenOptions as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -2093,7 +2093,7 @@ impl IEnumBackgroundCopyFiles_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumBackgroundCopyFiles as ::windows::core::Interface>::IID
+        iid == &<IEnumBackgroundCopyFiles as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -2154,7 +2154,7 @@ impl IEnumBackgroundCopyGroups_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumBackgroundCopyGroups as ::windows::core::Interface>::IID
+        iid == &<IEnumBackgroundCopyGroups as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -2215,7 +2215,7 @@ impl IEnumBackgroundCopyJobs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumBackgroundCopyJobs as ::windows::core::Interface>::IID
+        iid == &<IEnumBackgroundCopyJobs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -2276,7 +2276,7 @@ impl IEnumBackgroundCopyJobs1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumBackgroundCopyJobs1 as ::windows::core::Interface>::IID
+        iid == &<IEnumBackgroundCopyJobs1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -2337,7 +2337,7 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumBitsPeerCacheRecords as ::windows::core::Interface>::IID
+        iid == &<IEnumBitsPeerCacheRecords as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
@@ -2398,6 +2398,6 @@ impl IEnumBitsPeers_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumBitsPeers as ::windows::core::Interface>::IID
+        iid == &<IEnumBitsPeers as ::windows::core::ComInterface>::IID
     }
 }

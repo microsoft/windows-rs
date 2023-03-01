@@ -3,10 +3,10 @@
 #[inline]
 pub unsafe fn DnsHostnameToComputerNameExW<P0>(hostname: P0, computername: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn DnsHostnameToComputerNameExW ( hostname : :: windows::core::PCWSTR , computername : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    DnsHostnameToComputerNameExW(hostname.into().abi(), ::core::mem::transmute(computername), nsize)
+    DnsHostnameToComputerNameExW(hostname.into_param().abi(), ::core::mem::transmute(computername), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
@@ -112,10 +112,10 @@ pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspm
 #[inline]
 pub unsafe fn GetSystemCpuSetInformation<P0>(information: ::core::option::Option<*mut SYSTEM_CPU_SET_INFORMATION>, bufferlength: u32, returnedlength: *mut u32, process: P0, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemCpuSetInformation ( information : *mut SYSTEM_CPU_SET_INFORMATION , bufferlength : u32 , returnedlength : *mut u32 , process : super::super::Foundation:: HANDLE , flags : u32 ) -> super::super::Foundation:: BOOL );
-    GetSystemCpuSetInformation(::core::mem::transmute(information.unwrap_or(::std::ptr::null_mut())), bufferlength, returnedlength, process.into(), flags)
+    GetSystemCpuSetInformation(::core::mem::transmute(information.unwrap_or(::std::ptr::null_mut())), bufferlength, returnedlength, process.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
@@ -139,10 +139,10 @@ pub unsafe fn GetSystemDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>) 
 #[inline]
 pub unsafe fn GetSystemFirmwareTable<P0>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: P0, pfirmwaretablebuffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32) -> u32
 where
-    P0: ::std::convert::Into<FIRMWARE_TABLE_ID>,
+    P0: ::windows::core::IntoParam<FIRMWARE_TABLE_ID>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemFirmwareTable ( firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER , firmwaretableid : FIRMWARE_TABLE_ID , pfirmwaretablebuffer : *mut ::core::ffi::c_void , buffersize : u32 ) -> u32 );
-    GetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid.into(), ::core::mem::transmute(pfirmwaretablebuffer.unwrap_or(::std::ptr::null_mut())), buffersize)
+    GetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid.into_param().abi(), ::core::mem::transmute(pfirmwaretablebuffer.unwrap_or(::std::ptr::null_mut())), buffersize)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -349,50 +349,50 @@ pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32
 #[inline]
 pub unsafe fn SetComputerNameA<P0>(lpcomputername: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameA ( lpcomputername : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameA(lpcomputername.into().abi())
+    SetComputerNameA(lpcomputername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameEx2W<P0>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameEx2W ( nametype : COMPUTER_NAME_FORMAT , flags : u32 , lpbuffer : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameEx2W(nametype, flags, lpbuffer.into().abi())
+    SetComputerNameEx2W(nametype, flags, lpbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameExA<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameExA ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameExA(nametype, lpbuffer.into().abi())
+    SetComputerNameExA(nametype, lpbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameExW<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameExW ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameExW(nametype, lpbuffer.into().abi())
+    SetComputerNameExW(nametype, lpbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameW<P0>(lpcomputername: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetComputerNameW ( lpcomputername : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    SetComputerNameW(lpcomputername.into().abi())
+    SetComputerNameW(lpcomputername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -413,20 +413,20 @@ pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTE
 #[inline]
 pub unsafe fn SetSystemTimeAdjustment<P0>(dwtimeadjustment: u32, btimeadjustmentdisabled: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetSystemTimeAdjustment ( dwtimeadjustment : u32 , btimeadjustmentdisabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    SetSystemTimeAdjustment(dwtimeadjustment, btimeadjustmentdisabled.into())
+    SetSystemTimeAdjustment(dwtimeadjustment, btimeadjustmentdisabled.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSystemTimeAdjustmentPrecise<P0>(dwtimeadjustment: u64, btimeadjustmentdisabled: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "api-ms-win-core-sysinfo-l1-2-4.dll""system" fn SetSystemTimeAdjustmentPrecise ( dwtimeadjustment : u64 , btimeadjustmentdisabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    SetSystemTimeAdjustmentPrecise(dwtimeadjustment, btimeadjustmentdisabled.into())
+    SetSystemTimeAdjustmentPrecise(dwtimeadjustment, btimeadjustmentdisabled.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
@@ -1663,11 +1663,6 @@ impl ::core::marker::Copy for FIRMWARE_TABLE_ID {}
 impl ::core::fmt::Debug for FIRMWARE_TABLE_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FIRMWARE_TABLE_ID").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<FIRMWARE_TABLE_ID>> for FIRMWARE_TABLE_ID {
-    fn from(optional: ::core::option::Option<FIRMWARE_TABLE_ID>) -> FIRMWARE_TABLE_ID {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for FIRMWARE_TABLE_ID {

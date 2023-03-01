@@ -67,7 +67,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILearningModelFeatureDescriptor as ::windows::core::Interface>::IID
+        iid == &<ILearningModelFeatureDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"implement\"`*"]
@@ -94,7 +94,7 @@ impl ILearningModelFeatureValue_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ILearningModelFeatureValue, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILearningModelFeatureValue as ::windows::core::Interface>::IID
+        iid == &<ILearningModelFeatureValue as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"implement\"`*"]
@@ -107,7 +107,7 @@ impl ILearningModelOperatorProvider_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ILearningModelOperatorProvider, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILearningModelOperatorProvider as ::windows::core::Interface>::IID
+        iid == &<ILearningModelOperatorProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -154,6 +154,6 @@ impl ITensor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITensor as ::windows::core::Interface>::IID
+        iid == &<ITensor as ::windows::core::ComInterface>::IID
     }
 }

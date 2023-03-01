@@ -3,7 +3,7 @@ pub mod SystemManufacturers;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnalyticsInfoStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAnalyticsInfoStatics {
+unsafe impl ::windows::core::Interface for IAnalyticsInfoStatics {
     type Vtable = IAnalyticsInfoStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAnalyticsInfoStatics {
@@ -11,7 +11,7 @@ impl ::core::clone::Clone for IAnalyticsInfoStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAnalyticsInfoStatics {
+unsafe impl ::windows::core::ComInterface for IAnalyticsInfoStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d5ee066_188d_5ba9_4387_acaeb0e7e305);
 }
 #[repr(C)]
@@ -24,7 +24,7 @@ pub struct IAnalyticsInfoStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnalyticsInfoStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAnalyticsInfoStatics2 {
+unsafe impl ::windows::core::Interface for IAnalyticsInfoStatics2 {
     type Vtable = IAnalyticsInfoStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IAnalyticsInfoStatics2 {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for IAnalyticsInfoStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAnalyticsInfoStatics2 {
+unsafe impl ::windows::core::ComInterface for IAnalyticsInfoStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x101704ea_a7f9_46d2_ab94_016865afdb25);
 }
 #[repr(C)]
@@ -47,7 +47,7 @@ pub struct IAnalyticsInfoStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnalyticsVersionInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAnalyticsVersionInfo {
+unsafe impl ::windows::core::Interface for IAnalyticsVersionInfo {
     type Vtable = IAnalyticsVersionInfo_Vtbl;
 }
 impl ::core::clone::Clone for IAnalyticsVersionInfo {
@@ -55,7 +55,7 @@ impl ::core::clone::Clone for IAnalyticsVersionInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAnalyticsVersionInfo {
+unsafe impl ::windows::core::ComInterface for IAnalyticsVersionInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x926130b8_9955_4c74_bdc1_7cd0decf9b03);
 }
 #[repr(C)]
@@ -68,7 +68,7 @@ pub struct IAnalyticsVersionInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnalyticsVersionInfo2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAnalyticsVersionInfo2 {
+unsafe impl ::windows::core::Interface for IAnalyticsVersionInfo2 {
     type Vtable = IAnalyticsVersionInfo2_Vtbl;
 }
 impl ::core::clone::Clone for IAnalyticsVersionInfo2 {
@@ -76,7 +76,7 @@ impl ::core::clone::Clone for IAnalyticsVersionInfo2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAnalyticsVersionInfo2 {
+unsafe impl ::windows::core::ComInterface for IAnalyticsVersionInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76e915b1_ff36_407c_9f57_160d3e540747);
 }
 #[repr(C)]
@@ -88,7 +88,7 @@ pub struct IAnalyticsVersionInfo2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppApplicabilityStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppApplicabilityStatics {
+unsafe impl ::windows::core::Interface for IAppApplicabilityStatics {
     type Vtable = IAppApplicabilityStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAppApplicabilityStatics {
@@ -96,7 +96,7 @@ impl ::core::clone::Clone for IAppApplicabilityStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppApplicabilityStatics {
+unsafe impl ::windows::core::ComInterface for IAppApplicabilityStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1664a082_0f38_5c99_83e4_48995970861c);
 }
 #[repr(C)]
@@ -111,7 +111,7 @@ pub struct IAppApplicabilityStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEducationSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IEducationSettingsStatics {
+unsafe impl ::windows::core::Interface for IEducationSettingsStatics {
     type Vtable = IEducationSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for IEducationSettingsStatics {
@@ -119,7 +119,7 @@ impl ::core::clone::Clone for IEducationSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEducationSettingsStatics {
+unsafe impl ::windows::core::ComInterface for IEducationSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc53f0ef_4d3e_4e13_9b23_505f4d091e92);
 }
 #[repr(C)]
@@ -131,7 +131,7 @@ pub struct IEducationSettingsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHardwareIdentificationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHardwareIdentificationStatics {
+unsafe impl ::windows::core::Interface for IHardwareIdentificationStatics {
     type Vtable = IHardwareIdentificationStatics_Vtbl;
 }
 impl ::core::clone::Clone for IHardwareIdentificationStatics {
@@ -139,7 +139,7 @@ impl ::core::clone::Clone for IHardwareIdentificationStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHardwareIdentificationStatics {
+unsafe impl ::windows::core::ComInterface for IHardwareIdentificationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x971260e0_f170_4a42_bd55_a900b212dae2);
 }
 #[repr(C)]
@@ -154,7 +154,7 @@ pub struct IHardwareIdentificationStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHardwareToken(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHardwareToken {
+unsafe impl ::windows::core::Interface for IHardwareToken {
     type Vtable = IHardwareToken_Vtbl;
 }
 impl ::core::clone::Clone for IHardwareToken {
@@ -162,7 +162,7 @@ impl ::core::clone::Clone for IHardwareToken {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHardwareToken {
+unsafe impl ::windows::core::ComInterface for IHardwareToken {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f6d4c0_fb12_40a4_8167_7f4e03d2724c);
 }
 #[repr(C)]
@@ -185,7 +185,7 @@ pub struct IHardwareToken_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IKnownRetailInfoPropertiesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IKnownRetailInfoPropertiesStatics {
+unsafe impl ::windows::core::Interface for IKnownRetailInfoPropertiesStatics {
     type Vtable = IKnownRetailInfoPropertiesStatics_Vtbl;
 }
 impl ::core::clone::Clone for IKnownRetailInfoPropertiesStatics {
@@ -193,7 +193,7 @@ impl ::core::clone::Clone for IKnownRetailInfoPropertiesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKnownRetailInfoPropertiesStatics {
+unsafe impl ::windows::core::ComInterface for IKnownRetailInfoPropertiesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99571178_500f_487e_8e75_29e551728712);
 }
 #[repr(C)]
@@ -226,7 +226,7 @@ pub struct IKnownRetailInfoPropertiesStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPlatformDiagnosticsAndUsageDataSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPlatformDiagnosticsAndUsageDataSettingsStatics {
+unsafe impl ::windows::core::Interface for IPlatformDiagnosticsAndUsageDataSettingsStatics {
     type Vtable = IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPlatformDiagnosticsAndUsageDataSettingsStatics {
@@ -234,7 +234,7 @@ impl ::core::clone::Clone for IPlatformDiagnosticsAndUsageDataSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPlatformDiagnosticsAndUsageDataSettingsStatics {
+unsafe impl ::windows::core::ComInterface for IPlatformDiagnosticsAndUsageDataSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6e24c1b_7b1c_4b32_8c62_a66597ce723a);
 }
 #[repr(C)]
@@ -255,7 +255,7 @@ pub struct IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRetailInfoStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRetailInfoStatics {
+unsafe impl ::windows::core::Interface for IRetailInfoStatics {
     type Vtable = IRetailInfoStatics_Vtbl;
 }
 impl ::core::clone::Clone for IRetailInfoStatics {
@@ -263,7 +263,7 @@ impl ::core::clone::Clone for IRetailInfoStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRetailInfoStatics {
+unsafe impl ::windows::core::ComInterface for IRetailInfoStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0712c6b8_8b92_4f2a_8499_031f1798d6ef);
 }
 #[repr(C)]
@@ -279,7 +279,7 @@ pub struct IRetailInfoStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISharedModeSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISharedModeSettingsStatics {
+unsafe impl ::windows::core::Interface for ISharedModeSettingsStatics {
     type Vtable = ISharedModeSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISharedModeSettingsStatics {
@@ -287,7 +287,7 @@ impl ::core::clone::Clone for ISharedModeSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISharedModeSettingsStatics {
+unsafe impl ::windows::core::ComInterface for ISharedModeSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x893df40e_cad6_4d50_8c49_6fcfc03edb29);
 }
 #[repr(C)]
@@ -299,7 +299,7 @@ pub struct ISharedModeSettingsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISharedModeSettingsStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISharedModeSettingsStatics2 {
+unsafe impl ::windows::core::Interface for ISharedModeSettingsStatics2 {
     type Vtable = ISharedModeSettingsStatics2_Vtbl;
 }
 impl ::core::clone::Clone for ISharedModeSettingsStatics2 {
@@ -307,7 +307,7 @@ impl ::core::clone::Clone for ISharedModeSettingsStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISharedModeSettingsStatics2 {
+unsafe impl ::windows::core::ComInterface for ISharedModeSettingsStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x608988a4_ccf1_4ee8_a5e2_fd6a1d0cfac8);
 }
 #[repr(C)]
@@ -319,7 +319,7 @@ pub struct ISharedModeSettingsStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISmartAppControlPolicyStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISmartAppControlPolicyStatics {
+unsafe impl ::windows::core::Interface for ISmartAppControlPolicyStatics {
     type Vtable = ISmartAppControlPolicyStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISmartAppControlPolicyStatics {
@@ -327,7 +327,7 @@ impl ::core::clone::Clone for ISmartAppControlPolicyStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISmartAppControlPolicyStatics {
+unsafe impl ::windows::core::ComInterface for ISmartAppControlPolicyStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ff8c75b_073e_5015_8d98_5ff224180a0b);
 }
 #[repr(C)]
@@ -347,7 +347,7 @@ pub struct ISmartAppControlPolicyStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemIdentificationInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISystemIdentificationInfo {
+unsafe impl ::windows::core::Interface for ISystemIdentificationInfo {
     type Vtable = ISystemIdentificationInfo_Vtbl;
 }
 impl ::core::clone::Clone for ISystemIdentificationInfo {
@@ -355,7 +355,7 @@ impl ::core::clone::Clone for ISystemIdentificationInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISystemIdentificationInfo {
+unsafe impl ::windows::core::ComInterface for ISystemIdentificationInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c659e7d_c3c2_4d33_a2df_21bc41916eb3);
 }
 #[repr(C)]
@@ -371,7 +371,7 @@ pub struct ISystemIdentificationInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemIdentificationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISystemIdentificationStatics {
+unsafe impl ::windows::core::Interface for ISystemIdentificationStatics {
     type Vtable = ISystemIdentificationStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISystemIdentificationStatics {
@@ -379,7 +379,7 @@ impl ::core::clone::Clone for ISystemIdentificationStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISystemIdentificationStatics {
+unsafe impl ::windows::core::ComInterface for ISystemIdentificationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5581f42a_d3df_4d93_a37d_c41a616c6d01);
 }
 #[repr(C)]
@@ -392,7 +392,7 @@ pub struct ISystemIdentificationStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemSetupInfoStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISystemSetupInfoStatics {
+unsafe impl ::windows::core::Interface for ISystemSetupInfoStatics {
     type Vtable = ISystemSetupInfoStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISystemSetupInfoStatics {
@@ -400,7 +400,7 @@ impl ::core::clone::Clone for ISystemSetupInfoStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISystemSetupInfoStatics {
+unsafe impl ::windows::core::ComInterface for ISystemSetupInfoStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8366a4b_fb6a_4571_be0a_9a0f67954123);
 }
 #[repr(C)]
@@ -420,7 +420,7 @@ pub struct ISystemSetupInfoStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUnsupportedAppRequirement(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUnsupportedAppRequirement {
+unsafe impl ::windows::core::Interface for IUnsupportedAppRequirement {
     type Vtable = IUnsupportedAppRequirement_Vtbl;
 }
 impl ::core::clone::Clone for IUnsupportedAppRequirement {
@@ -428,7 +428,7 @@ impl ::core::clone::Clone for IUnsupportedAppRequirement {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUnsupportedAppRequirement {
+unsafe impl ::windows::core::ComInterface for IUnsupportedAppRequirement {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6182445c_894b_5cbc_8976_a98e0a9b998d);
 }
 #[repr(C)]
@@ -441,7 +441,7 @@ pub struct IUnsupportedAppRequirement_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsIntegrityPolicyStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsIntegrityPolicyStatics {
+unsafe impl ::windows::core::Interface for IWindowsIntegrityPolicyStatics {
     type Vtable = IWindowsIntegrityPolicyStatics_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsIntegrityPolicyStatics {
@@ -449,7 +449,7 @@ impl ::core::clone::Clone for IWindowsIntegrityPolicyStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsIntegrityPolicyStatics {
+unsafe impl ::windows::core::ComInterface for IWindowsIntegrityPolicyStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1d81db_8d63_4789_9ea5_ddcf65a94f3c);
 }
 #[repr(C)]
@@ -475,25 +475,24 @@ impl AnalyticsInfo {
     pub fn VersionInfo() -> ::windows::core::Result<AnalyticsVersionInfo> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AnalyticsVersionInfo>();
-            (::windows::core::Vtable::vtable(this).VersionInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).VersionInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DeviceForm() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DeviceForm)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceForm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemPropertiesAsync<P0, E0>(attributenames: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>
+    pub fn GetSystemPropertiesAsync<P0>(attributenames: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         Self::IAnalyticsInfoStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>();
-            (::windows::core::Vtable::vtable(this).GetSystemPropertiesAsync)(::windows::core::Vtable::as_raw(this), attributenames.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSystemPropertiesAsync)(::windows::core::Interface::as_raw(this), attributenames.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -518,21 +517,21 @@ impl AnalyticsVersionInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DeviceFamily)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceFamily)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DeviceFamilyVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DeviceFamilyVersion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceFamilyVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAnalyticsVersionInfo2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAnalyticsVersionInfo2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ProductName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProductName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -555,11 +554,11 @@ impl ::core::clone::Clone for AnalyticsVersionInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AnalyticsVersionInfo {
+unsafe impl ::windows::core::Interface for AnalyticsVersionInfo {
     type Vtable = IAnalyticsVersionInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AnalyticsVersionInfo {
-    const IID: ::windows::core::GUID = <IAnalyticsVersionInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AnalyticsVersionInfo {
+    const IID: ::windows::core::GUID = <IAnalyticsVersionInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AnalyticsVersionInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsVersionInfo";
@@ -572,14 +571,13 @@ pub struct AppApplicability;
 impl AppApplicability {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetUnsupportedAppRequirements<P0, E0>(capabilities: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>
+    pub fn GetUnsupportedAppRequirements<P0>(capabilities: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         Self::IAppApplicabilityStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>();
-            (::windows::core::Vtable::vtable(this).GetUnsupportedAppRequirements)(::windows::core::Vtable::as_raw(this), capabilities.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetUnsupportedAppRequirements)(::windows::core::Interface::as_raw(this), capabilities.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -597,7 +595,7 @@ impl EducationSettings {
     pub fn IsEducationEnvironment() -> ::windows::core::Result<bool> {
         Self::IEducationSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEducationEnvironment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEducationEnvironment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -614,14 +612,13 @@ pub struct HardwareIdentification;
 impl HardwareIdentification {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPackageSpecificToken<P0, E0>(nonce: P0) -> ::windows::core::Result<HardwareToken>
+    pub fn GetPackageSpecificToken<P0>(nonce: P0) -> ::windows::core::Result<HardwareToken>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         Self::IHardwareIdentificationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<HardwareToken>();
-            (::windows::core::Vtable::vtable(this).GetPackageSpecificToken)(::windows::core::Vtable::as_raw(this), nonce.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetPackageSpecificToken)(::windows::core::Interface::as_raw(this), nonce.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -643,7 +640,7 @@ impl HardwareToken {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -652,7 +649,7 @@ impl HardwareToken {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).Signature)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Signature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -661,7 +658,7 @@ impl HardwareToken {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).Certificate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Certificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -684,11 +681,11 @@ impl ::core::clone::Clone for HardwareToken {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HardwareToken {
+unsafe impl ::windows::core::Interface for HardwareToken {
     type Vtable = IHardwareToken_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HardwareToken {
-    const IID: ::windows::core::GUID = <IHardwareToken as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HardwareToken {
+    const IID: ::windows::core::GUID = <IHardwareToken as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HardwareToken {
     const NAME: &'static str = "Windows.System.Profile.HardwareToken";
@@ -702,133 +699,133 @@ impl KnownRetailInfoProperties {
     pub fn RetailAccessCode() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).RetailAccessCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RetailAccessCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ManufacturerName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ManufacturerName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ManufacturerName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ModelName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ModelName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ModelName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DisplayModelName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayModelName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayModelName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Price() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Price)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Price)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsFeatured() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).IsFeatured)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFeatured)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn FormFactor() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FormFactor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FormFactor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ScreenSize() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ScreenSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScreenSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Weight() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Weight)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Weight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DisplayDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn BatteryLifeDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).BatteryLifeDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BatteryLifeDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ProcessorDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ProcessorDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProcessorDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Memory() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Memory)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Memory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn StorageDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).StorageDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StorageDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GraphicsDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GraphicsDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GraphicsDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn FrontCameraDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FrontCameraDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FrontCameraDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RearCameraDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).RearCameraDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RearCameraDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn HasNfc() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).HasNfc)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HasNfc)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn HasSdSlot() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).HasSdSlot)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HasSdSlot)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn HasOpticalDrive() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).HasOpticalDrive)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HasOpticalDrive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsOfficeInstalled() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).IsOfficeInstalled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsOfficeInstalled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn WindowsEdition() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).WindowsEdition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WindowsEdition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -846,7 +843,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
     pub fn CollectionLevel() -> ::windows::core::Result<PlatformDataCollectionLevel> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PlatformDataCollectionLevel>();
-            (::windows::core::Vtable::vtable(this).CollectionLevel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CollectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -854,18 +851,18 @@ impl PlatformDiagnosticsAndUsageDataSettings {
     pub fn CollectionLevelChanged(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).CollectionLevelChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CollectionLevelChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCollectionLevelChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveCollectionLevelChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCollectionLevelChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     pub fn CanCollectDiagnostics(level: PlatformDataCollectionLevel) -> ::windows::core::Result<bool> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanCollectDiagnostics)(::windows::core::Vtable::as_raw(this), level, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanCollectDiagnostics)(::windows::core::Interface::as_raw(this), level, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -883,7 +880,7 @@ impl RetailInfo {
     pub fn IsDemoModeEnabled() -> ::windows::core::Result<bool> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsDemoModeEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsDemoModeEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -891,7 +888,7 @@ impl RetailInfo {
     pub fn Properties() -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -909,13 +906,13 @@ impl SharedModeSettings {
     pub fn IsEnabled() -> ::windows::core::Result<bool> {
         Self::ISharedModeSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ShouldAvoidLocalStorage() -> ::windows::core::Result<bool> {
         Self::ISharedModeSettingsStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).ShouldAvoidLocalStorage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ShouldAvoidLocalStorage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -938,7 +935,7 @@ impl SmartAppControlPolicy {
     pub fn IsEnabled() -> ::windows::core::Result<bool> {
         Self::ISmartAppControlPolicyStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -946,13 +943,13 @@ impl SmartAppControlPolicy {
     pub fn Changed(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ISmartAppControlPolicyStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::ISmartAppControlPolicyStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::ISmartAppControlPolicyStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn ISmartAppControlPolicyStatics<R, F: FnOnce(&ISmartAppControlPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -969,13 +966,13 @@ impl SystemIdentification {
     pub fn GetSystemIdForPublisher() -> ::windows::core::Result<SystemIdentificationInfo> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<SystemIdentificationInfo>();
-            (::windows::core::Vtable::vtable(this).GetSystemIdForPublisher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSystemIdForPublisher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetSystemIdForUser(user: &super::User) -> ::windows::core::Result<SystemIdentificationInfo> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<SystemIdentificationInfo>();
-            (::windows::core::Vtable::vtable(this).GetSystemIdForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSystemIdForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -997,14 +994,14 @@ impl SystemIdentificationInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Source(&self) -> ::windows::core::Result<SystemIdentificationSource> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SystemIdentificationSource>();
-            (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1027,11 +1024,11 @@ impl ::core::clone::Clone for SystemIdentificationInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SystemIdentificationInfo {
+unsafe impl ::windows::core::Interface for SystemIdentificationInfo {
     type Vtable = ISystemIdentificationInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SystemIdentificationInfo {
-    const IID: ::windows::core::GUID = <ISystemIdentificationInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SystemIdentificationInfo {
+    const IID: ::windows::core::GUID = <ISystemIdentificationInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemIdentificationInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentificationInfo";
@@ -1045,7 +1042,7 @@ impl SystemSetupInfo {
     pub fn OutOfBoxExperienceState() -> ::windows::core::Result<SystemOutOfBoxExperienceState> {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<SystemOutOfBoxExperienceState>();
-            (::windows::core::Vtable::vtable(this).OutOfBoxExperienceState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutOfBoxExperienceState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1053,13 +1050,13 @@ impl SystemSetupInfo {
     pub fn OutOfBoxExperienceStateChanged(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).OutOfBoxExperienceStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOutOfBoxExperienceStateChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::ISystemSetupInfoStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveOutOfBoxExperienceStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::ISystemSetupInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn ISystemSetupInfoStatics<R, F: FnOnce(&ISystemSetupInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1078,14 +1075,14 @@ impl UnsupportedAppRequirement {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Requirement)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Requirement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Reasons(&self) -> ::windows::core::Result<UnsupportedAppRequirementReasons> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UnsupportedAppRequirementReasons>();
-            (::windows::core::Vtable::vtable(this).Reasons)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Reasons)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1108,11 +1105,11 @@ impl ::core::clone::Clone for UnsupportedAppRequirement {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UnsupportedAppRequirement {
+unsafe impl ::windows::core::Interface for UnsupportedAppRequirement {
     type Vtable = IUnsupportedAppRequirement_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UnsupportedAppRequirement {
-    const IID: ::windows::core::GUID = <IUnsupportedAppRequirement as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UnsupportedAppRequirement {
+    const IID: ::windows::core::GUID = <IUnsupportedAppRequirement as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UnsupportedAppRequirement {
     const NAME: &'static str = "Windows.System.Profile.UnsupportedAppRequirement";
@@ -1126,25 +1123,25 @@ impl WindowsIntegrityPolicy {
     pub fn IsEnabled() -> ::windows::core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsEnabledForTrial() -> ::windows::core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEnabledForTrial)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledForTrial)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CanDisable() -> ::windows::core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanDisable)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanDisable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsDisableSupported() -> ::windows::core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsDisableSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsDisableSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1152,13 +1149,13 @@ impl WindowsIntegrityPolicy {
     pub fn PolicyChanged(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PolicyChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PolicyChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePolicyChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemovePolicyChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePolicyChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

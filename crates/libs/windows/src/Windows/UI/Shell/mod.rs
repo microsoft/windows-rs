@@ -6,7 +6,7 @@ impl IAdaptiveCard {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ToJson)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ToJson)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -25,7 +25,7 @@ impl ::core::fmt::Debug for IAdaptiveCard {
 impl ::windows::core::RuntimeType for IAdaptiveCard {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{72d0568c-a274-41cd-82a8-989d40b9b05e}");
 }
-unsafe impl ::windows::core::Vtable for IAdaptiveCard {
+unsafe impl ::windows::core::Interface for IAdaptiveCard {
     type Vtable = IAdaptiveCard_Vtbl;
 }
 impl ::core::clone::Clone for IAdaptiveCard {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for IAdaptiveCard {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAdaptiveCard {
+unsafe impl ::windows::core::ComInterface for IAdaptiveCard {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d0568c_a274_41cd_82a8_989d40b9b05e);
 }
 #[repr(C)]
@@ -50,7 +50,7 @@ impl IAdaptiveCardBuilderStatics {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<IAdaptiveCard>();
-            (::windows::core::Vtable::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
 }
@@ -69,7 +69,7 @@ impl ::core::fmt::Debug for IAdaptiveCardBuilderStatics {
 impl ::windows::core::RuntimeType for IAdaptiveCardBuilderStatics {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{766d8f08-d3fe-4347-a0bc-b9ea9a6dc28e}");
 }
-unsafe impl ::windows::core::Vtable for IAdaptiveCardBuilderStatics {
+unsafe impl ::windows::core::Interface for IAdaptiveCardBuilderStatics {
     type Vtable = IAdaptiveCardBuilderStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAdaptiveCardBuilderStatics {
@@ -77,7 +77,7 @@ impl ::core::clone::Clone for IAdaptiveCardBuilderStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAdaptiveCardBuilderStatics {
+unsafe impl ::windows::core::ComInterface for IAdaptiveCardBuilderStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e);
 }
 #[repr(C)]
@@ -89,7 +89,7 @@ pub struct IAdaptiveCardBuilderStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFocusSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFocusSession {
+unsafe impl ::windows::core::Interface for IFocusSession {
     type Vtable = IFocusSession_Vtbl;
 }
 impl ::core::clone::Clone for IFocusSession {
@@ -97,7 +97,7 @@ impl ::core::clone::Clone for IFocusSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFocusSession {
+unsafe impl ::windows::core::ComInterface for IFocusSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x069fbab8_0e84_5f2f_8614_9b6544326277);
 }
 #[repr(C)]
@@ -110,7 +110,7 @@ pub struct IFocusSession_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFocusSessionManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFocusSessionManager {
+unsafe impl ::windows::core::Interface for IFocusSessionManager {
     type Vtable = IFocusSessionManager_Vtbl;
 }
 impl ::core::clone::Clone for IFocusSessionManager {
@@ -118,7 +118,7 @@ impl ::core::clone::Clone for IFocusSessionManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFocusSessionManager {
+unsafe impl ::windows::core::ComInterface for IFocusSessionManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ffbaa9_d8be_5dbf_bac6_49364842e37e);
 }
 #[repr(C)]
@@ -145,7 +145,7 @@ pub struct IFocusSessionManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFocusSessionManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFocusSessionManagerStatics {
+unsafe impl ::windows::core::Interface for IFocusSessionManagerStatics {
     type Vtable = IFocusSessionManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IFocusSessionManagerStatics {
@@ -153,7 +153,7 @@ impl ::core::clone::Clone for IFocusSessionManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFocusSessionManagerStatics {
+unsafe impl ::windows::core::ComInterface for IFocusSessionManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x834df764_cb9a_5d0a_aa9f_73df4f249395);
 }
 #[repr(C)]
@@ -166,7 +166,7 @@ pub struct IFocusSessionManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISecurityAppManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISecurityAppManager {
+unsafe impl ::windows::core::Interface for ISecurityAppManager {
     type Vtable = ISecurityAppManager_Vtbl;
 }
 impl ::core::clone::Clone for ISecurityAppManager {
@@ -174,7 +174,7 @@ impl ::core::clone::Clone for ISecurityAppManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISecurityAppManager {
+unsafe impl ::windows::core::ComInterface for ISecurityAppManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96ac500c_aed4_561d_bde8_953520343a2d);
 }
 #[repr(C)]
@@ -194,7 +194,7 @@ pub struct ISecurityAppManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IShareWindowCommandEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IShareWindowCommandEventArgs {
+unsafe impl ::windows::core::Interface for IShareWindowCommandEventArgs {
     type Vtable = IShareWindowCommandEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IShareWindowCommandEventArgs {
@@ -202,7 +202,7 @@ impl ::core::clone::Clone for IShareWindowCommandEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IShareWindowCommandEventArgs {
+unsafe impl ::windows::core::ComInterface for IShareWindowCommandEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4578dc09_a523_5756_a995_e4feb991fff0);
 }
 #[repr(C)]
@@ -216,7 +216,7 @@ pub struct IShareWindowCommandEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IShareWindowCommandSource(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IShareWindowCommandSource {
+unsafe impl ::windows::core::Interface for IShareWindowCommandSource {
     type Vtable = IShareWindowCommandSource_Vtbl;
 }
 impl ::core::clone::Clone for IShareWindowCommandSource {
@@ -224,7 +224,7 @@ impl ::core::clone::Clone for IShareWindowCommandSource {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IShareWindowCommandSource {
+unsafe impl ::windows::core::ComInterface for IShareWindowCommandSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb3b7ae3_6b9c_561e_bccc_61e68e0abfef);
 }
 #[repr(C)]
@@ -254,7 +254,7 @@ pub struct IShareWindowCommandSource_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IShareWindowCommandSourceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IShareWindowCommandSourceStatics {
+unsafe impl ::windows::core::Interface for IShareWindowCommandSourceStatics {
     type Vtable = IShareWindowCommandSourceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IShareWindowCommandSourceStatics {
@@ -262,7 +262,7 @@ impl ::core::clone::Clone for IShareWindowCommandSourceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IShareWindowCommandSourceStatics {
+unsafe impl ::windows::core::ComInterface for IShareWindowCommandSourceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0eb6656_9cac_517c_b6c7_8ef715084295);
 }
 #[repr(C)]
@@ -274,7 +274,7 @@ pub struct IShareWindowCommandSourceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITaskbarManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITaskbarManager {
+unsafe impl ::windows::core::Interface for ITaskbarManager {
     type Vtable = ITaskbarManager_Vtbl;
 }
 impl ::core::clone::Clone for ITaskbarManager {
@@ -282,7 +282,7 @@ impl ::core::clone::Clone for ITaskbarManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITaskbarManager {
+unsafe impl ::windows::core::ComInterface for ITaskbarManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
 }
 #[repr(C)]
@@ -311,7 +311,7 @@ pub struct ITaskbarManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITaskbarManager2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITaskbarManager2 {
+unsafe impl ::windows::core::Interface for ITaskbarManager2 {
     type Vtable = ITaskbarManager2_Vtbl;
 }
 impl ::core::clone::Clone for ITaskbarManager2 {
@@ -319,7 +319,7 @@ impl ::core::clone::Clone for ITaskbarManager2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITaskbarManager2 {
+unsafe impl ::windows::core::ComInterface for ITaskbarManager2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f0a06e_7b02_4911_918c_dee0bbd20ba4);
 }
 #[repr(C)]
@@ -342,7 +342,7 @@ pub struct ITaskbarManager2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITaskbarManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITaskbarManagerStatics {
+unsafe impl ::windows::core::Interface for ITaskbarManagerStatics {
     type Vtable = ITaskbarManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for ITaskbarManagerStatics {
@@ -350,7 +350,7 @@ impl ::core::clone::Clone for ITaskbarManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITaskbarManagerStatics {
+unsafe impl ::windows::core::ComInterface for ITaskbarManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb32ab74_de52_4fe6_b7b6_95ff9f8395df);
 }
 #[repr(C)]
@@ -365,7 +365,7 @@ impl AdaptiveCardBuilder {
     pub fn CreateAdaptiveCardFromJson(value: &::windows::core::HSTRING) -> ::windows::core::Result<IAdaptiveCard> {
         Self::IAdaptiveCardBuilderStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<IAdaptiveCard>();
-            (::windows::core::Vtable::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -385,12 +385,12 @@ impl FocusSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn End(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).End)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).End)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for FocusSession {
@@ -412,11 +412,11 @@ impl ::core::clone::Clone for FocusSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for FocusSession {
+unsafe impl ::windows::core::Interface for FocusSession {
     type Vtable = IFocusSession_Vtbl;
 }
-unsafe impl ::windows::core::Interface for FocusSession {
-    const IID: ::windows::core::GUID = <IFocusSession as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for FocusSession {
+    const IID: ::windows::core::GUID = <IFocusSession as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for FocusSession {
     const NAME: &'static str = "Windows.UI.Shell.FocusSession";
@@ -432,21 +432,21 @@ impl FocusSessionManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsFocusActive)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFocusActive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetSession(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<FocusSession> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<FocusSession>();
-            (::windows::core::Vtable::vtable(this).GetSession)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSession)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         }
     }
     pub fn TryStartFocusSession(&self) -> ::windows::core::Result<FocusSession> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<FocusSession>();
-            (::windows::core::Vtable::vtable(this).TryStartFocusSession)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryStartFocusSession)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -455,12 +455,12 @@ impl FocusSessionManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<FocusSession>();
-            (::windows::core::Vtable::vtable(this).TryStartFocusSession2)(::windows::core::Vtable::as_raw(this), endtime, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryStartFocusSession2)(::windows::core::Interface::as_raw(this), endtime, &mut result__).from_abi(result__)
         }
     }
     pub fn DeactivateFocus(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).DeactivateFocus)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DeactivateFocus)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -468,25 +468,25 @@ impl FocusSessionManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).IsFocusActiveChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFocusActiveChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsFocusActiveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveIsFocusActiveChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveIsFocusActiveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetDefault() -> ::windows::core::Result<FocusSessionManager> {
         Self::IFocusSessionManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<FocusSessionManager>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IFocusSessionManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -514,11 +514,11 @@ impl ::core::clone::Clone for FocusSessionManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for FocusSessionManager {
+unsafe impl ::windows::core::Interface for FocusSessionManager {
     type Vtable = IFocusSessionManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for FocusSessionManager {
-    const IID: ::windows::core::GUID = <IFocusSessionManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for FocusSessionManager {
+    const IID: ::windows::core::GUID = <IFocusSessionManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for FocusSessionManager {
     const NAME: &'static str = "Windows.UI.Shell.FocusSessionManager";
@@ -543,18 +543,18 @@ impl SecurityAppManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).Register)(::windows::core::Vtable::as_raw(this), kind, ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(detailsuri), registerperuser, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), kind, ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(detailsuri), registerperuser, &mut result__).from_abi(result__)
         }
     }
     pub fn Unregister(&self, kind: SecurityAppKind, guidregistration: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Unregister)(::windows::core::Vtable::as_raw(this), kind, guidregistration).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), kind, guidregistration).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateState(&self, kind: SecurityAppKind, guidregistration: ::windows::core::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateState)(::windows::core::Vtable::as_raw(this), kind, guidregistration, state, substatus, ::core::mem::transmute_copy(detailsuri)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateState)(::windows::core::Interface::as_raw(this), kind, guidregistration, state, substatus, ::core::mem::transmute_copy(detailsuri)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for SecurityAppManager {
@@ -576,11 +576,11 @@ impl ::core::clone::Clone for SecurityAppManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SecurityAppManager {
+unsafe impl ::windows::core::Interface for SecurityAppManager {
     type Vtable = ISecurityAppManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SecurityAppManager {
-    const IID: ::windows::core::GUID = <ISecurityAppManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SecurityAppManager {
+    const IID: ::windows::core::GUID = <ISecurityAppManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SecurityAppManager {
     const NAME: &'static str = "Windows.UI.Shell.SecurityAppManager";
@@ -596,19 +596,19 @@ impl ShareWindowCommandEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::WindowId>();
-            (::windows::core::Vtable::vtable(this).WindowId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WindowId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Command(&self) -> ::windows::core::Result<ShareWindowCommand> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ShareWindowCommand>();
-            (::windows::core::Vtable::vtable(this).Command)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Command)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCommand(&self, value: ShareWindowCommand) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCommand)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ShareWindowCommandEventArgs {
@@ -630,11 +630,11 @@ impl ::core::clone::Clone for ShareWindowCommandEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ShareWindowCommandEventArgs {
+unsafe impl ::windows::core::Interface for ShareWindowCommandEventArgs {
     type Vtable = IShareWindowCommandEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ShareWindowCommandEventArgs {
-    const IID: ::windows::core::GUID = <IShareWindowCommandEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ShareWindowCommandEventArgs {
+    const IID: ::windows::core::GUID = <IShareWindowCommandEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareWindowCommandEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandEventArgs";
@@ -648,15 +648,15 @@ pub struct ShareWindowCommandSource(::windows::core::IUnknown);
 impl ShareWindowCommandSource {
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportCommandChanged(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCommandChanged)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCommandChanged)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -664,14 +664,14 @@ impl ShareWindowCommandSource {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).CommandRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CommandRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCommandRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveCommandRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -679,19 +679,19 @@ impl ShareWindowCommandSource {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).CommandInvoked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CommandInvoked)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCommandInvoked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveCommandInvoked)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandInvoked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetForCurrentView() -> ::windows::core::Result<ShareWindowCommandSource> {
         Self::IShareWindowCommandSourceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<ShareWindowCommandSource>();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -719,11 +719,11 @@ impl ::core::clone::Clone for ShareWindowCommandSource {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ShareWindowCommandSource {
+unsafe impl ::windows::core::Interface for ShareWindowCommandSource {
     type Vtable = IShareWindowCommandSource_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ShareWindowCommandSource {
-    const IID: ::windows::core::GUID = <IShareWindowCommandSource as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ShareWindowCommandSource {
+    const IID: ::windows::core::GUID = <IShareWindowCommandSource as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareWindowCommandSource {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandSource";
@@ -739,14 +739,14 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPinningAllowed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPinningAllowed)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPinningAllowed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -755,7 +755,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).IsCurrentAppPinnedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsCurrentAppPinnedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
@@ -764,7 +764,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).IsAppListEntryPinnedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(applistentry), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAppListEntryPinnedAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applistentry), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -773,7 +773,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).RequestPinCurrentAppAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestPinCurrentAppAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
@@ -782,40 +782,40 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).RequestPinAppListEntryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(applistentry), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestPinAppListEntryAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applistentry), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsSecondaryTilePinnedAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).IsSecondaryTilePinnedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSecondaryTilePinnedAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_StartScreen\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_StartScreen"))]
     pub fn RequestPinSecondaryTileAsync(&self, secondarytile: &super::StartScreen::SecondaryTile) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).RequestPinSecondaryTileAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(secondarytile), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestPinSecondaryTileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(secondarytile), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryUnpinSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).TryUnpinSecondaryTileAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryUnpinSecondaryTileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<TaskbarManager> {
         Self::ITaskbarManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<TaskbarManager>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -843,11 +843,11 @@ impl ::core::clone::Clone for TaskbarManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TaskbarManager {
+unsafe impl ::windows::core::Interface for TaskbarManager {
     type Vtable = ITaskbarManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TaskbarManager {
-    const IID: ::windows::core::GUID = <ITaskbarManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TaskbarManager {
+    const IID: ::windows::core::GUID = <ITaskbarManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TaskbarManager {
     const NAME: &'static str = "Windows.UI.Shell.TaskbarManager";

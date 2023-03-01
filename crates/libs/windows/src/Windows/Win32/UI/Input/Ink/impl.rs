@@ -13,7 +13,7 @@ impl IInkCommitRequestHandler_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCommitRequested: OnCommitRequested::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInkCommitRequestHandler as ::windows::core::Interface>::IID
+        iid == &<IInkCommitRequestHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -34,7 +34,7 @@ impl IInkD2DRenderer_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInkD2DRenderer as ::windows::core::Interface>::IID
+        iid == &<IInkD2DRenderer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"implement\"`*"]
@@ -52,7 +52,7 @@ impl IInkD2DRenderer2_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInkD2DRenderer2 as ::windows::core::Interface>::IID
+        iid == &<IInkD2DRenderer2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"implement\"`*"]
@@ -87,7 +87,7 @@ impl IInkDesktopHost_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInkDesktopHost as ::windows::core::Interface>::IID
+        iid == &<IInkDesktopHost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"implement\"`*"]
@@ -105,7 +105,7 @@ impl IInkHostWorkItem_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInkHostWorkItem as ::windows::core::Interface>::IID
+        iid == &<IInkHostWorkItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"implement\"`*"]
@@ -154,6 +154,6 @@ impl IInkPresenterDesktop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInkPresenterDesktop as ::windows::core::Interface>::IID
+        iid == &<IInkPresenterDesktop as ::windows::core::ComInterface>::IID
     }
 }

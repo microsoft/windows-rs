@@ -29,7 +29,7 @@ impl IWsbApplicationAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWsbApplicationAsync as ::windows::core::Interface>::IID
+        iid == &<IWsbApplicationAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"implement\"`*"]
@@ -53,7 +53,7 @@ impl IWsbApplicationBackupSupport_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CheckConsistency: CheckConsistency::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWsbApplicationBackupSupport as ::windows::core::Interface>::IID
+        iid == &<IWsbApplicationBackupSupport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -104,6 +104,6 @@ impl IWsbApplicationRestoreSupport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWsbApplicationRestoreSupport as ::windows::core::Interface>::IID
+        iid == &<IWsbApplicationRestoreSupport as ::windows::core::ComInterface>::IID
     }
 }

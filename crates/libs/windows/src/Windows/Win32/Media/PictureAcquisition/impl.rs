@@ -45,7 +45,7 @@ impl IPhotoAcquire_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoAcquire as ::windows::core::Interface>::IID
+        iid == &<IPhotoAcquire as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -83,7 +83,7 @@ impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoAcquireDeviceSelectionDialog as ::windows::core::Interface>::IID
+        iid == &<IPhotoAcquireDeviceSelectionDialog as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -205,7 +205,7 @@ impl IPhotoAcquireItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoAcquireItem as ::windows::core::Interface>::IID
+        iid == &<IPhotoAcquireItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -263,7 +263,7 @@ impl IPhotoAcquireOptionsDialog_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoAcquireOptionsDialog as ::windows::core::Interface>::IID
+        iid == &<IPhotoAcquireOptionsDialog as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -308,7 +308,7 @@ impl IPhotoAcquirePlugin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoAcquirePlugin as ::windows::core::Interface>::IID
+        iid == &<IPhotoAcquirePlugin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -476,7 +476,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoAcquireProgressCB as ::windows::core::Interface>::IID
+        iid == &<IPhotoAcquireProgressCB as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -620,7 +620,7 @@ impl IPhotoAcquireSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoAcquireSettings as ::windows::core::Interface>::IID
+        iid == &<IPhotoAcquireSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -723,7 +723,7 @@ impl IPhotoAcquireSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoAcquireSource as ::windows::core::Interface>::IID
+        iid == &<IPhotoAcquireSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -744,7 +744,7 @@ impl IPhotoProgressActionCB_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoAction: DoAction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoProgressActionCB as ::windows::core::Interface>::IID
+        iid == &<IPhotoProgressActionCB as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -905,7 +905,7 @@ impl IPhotoProgressDialog_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhotoProgressDialog as ::windows::core::Interface>::IID
+        iid == &<IPhotoProgressDialog as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -1046,6 +1046,6 @@ impl IUserInputString_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUserInputString as ::windows::core::Interface>::IID
+        iid == &<IUserInputString as ::windows::core::ComInterface>::IID
     }
 }

@@ -22,6 +22,6 @@ impl IIsolatedEnvironmentInterop_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetHostHwndInterop: GetHostHwndInterop::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsolatedEnvironmentInterop as ::windows::core::Interface>::IID
+        iid == &<IIsolatedEnvironmentInterop as ::windows::core::ComInterface>::IID
     }
 }

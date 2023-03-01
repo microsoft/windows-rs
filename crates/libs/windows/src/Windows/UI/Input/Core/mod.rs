@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRadialControllerIndependentInputSource(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRadialControllerIndependentInputSource {
+unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSource {
     type Vtable = IRadialControllerIndependentInputSource_Vtbl;
 }
 impl ::core::clone::Clone for IRadialControllerIndependentInputSource {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IRadialControllerIndependentInputSource {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSource {
+unsafe impl ::windows::core::ComInterface for IRadialControllerIndependentInputSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
@@ -25,7 +25,7 @@ pub struct IRadialControllerIndependentInputSource_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRadialControllerIndependentInputSource2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRadialControllerIndependentInputSource2 {
+unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSource2 {
     type Vtable = IRadialControllerIndependentInputSource2_Vtbl;
 }
 impl ::core::clone::Clone for IRadialControllerIndependentInputSource2 {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for IRadialControllerIndependentInputSource2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSource2 {
+unsafe impl ::windows::core::ComInterface for IRadialControllerIndependentInputSource2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
 }
 #[repr(C)]
@@ -48,7 +48,7 @@ pub struct IRadialControllerIndependentInputSource2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRadialControllerIndependentInputSourceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRadialControllerIndependentInputSourceStatics {
+unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSourceStatics {
     type Vtable = IRadialControllerIndependentInputSourceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IRadialControllerIndependentInputSourceStatics {
@@ -56,7 +56,7 @@ impl ::core::clone::Clone for IRadialControllerIndependentInputSourceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSourceStatics {
+unsafe impl ::windows::core::ComInterface for IRadialControllerIndependentInputSourceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
@@ -76,7 +76,7 @@ impl RadialControllerIndependentInputSource {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::RadialController>();
-            (::windows::core::Vtable::vtable(this).Controller)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -85,16 +85,16 @@ impl RadialControllerIndependentInputSource {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
-        let this = &::windows::core::Interface::cast::<IRadialControllerIndependentInputSource2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IRadialControllerIndependentInputSource2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -102,7 +102,7 @@ impl RadialControllerIndependentInputSource {
     pub fn CreateForView(view: &super::super::super::ApplicationModel::Core::CoreApplicationView) -> ::windows::core::Result<RadialControllerIndependentInputSource> {
         Self::IRadialControllerIndependentInputSourceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<RadialControllerIndependentInputSource>();
-            (::windows::core::Vtable::vtable(this).CreateForView)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(view), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateForView)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(view), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -130,11 +130,11 @@ impl ::core::clone::Clone for RadialControllerIndependentInputSource {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for RadialControllerIndependentInputSource {
+unsafe impl ::windows::core::Interface for RadialControllerIndependentInputSource {
     type Vtable = IRadialControllerIndependentInputSource_Vtbl;
 }
-unsafe impl ::windows::core::Interface for RadialControllerIndependentInputSource {
-    const IID: ::windows::core::GUID = <IRadialControllerIndependentInputSource as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for RadialControllerIndependentInputSource {
+    const IID: ::windows::core::GUID = <IRadialControllerIndependentInputSource as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Core.RadialControllerIndependentInputSource";

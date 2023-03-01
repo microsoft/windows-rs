@@ -33,6 +33,6 @@ impl IXMLGraphBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLGraphBuilder as ::windows::core::Interface>::IID
+        iid == &<IXMLGraphBuilder as ::windows::core::ComInterface>::IID
     }
 }

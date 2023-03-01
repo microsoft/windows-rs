@@ -32,6 +32,6 @@ impl ILampArrayEffect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILampArrayEffect as ::windows::core::Interface>::IID
+        iid == &<ILampArrayEffect as ::windows::core::ComInterface>::IID
     }
 }

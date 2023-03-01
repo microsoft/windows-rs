@@ -45,10 +45,10 @@ pub unsafe fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id:
 #[inline]
 pub unsafe fn SnmpCreateSession<P0>(hwnd: P0, wmsg: u32, fcallback: SNMPAPI_CALLBACK, lpclientdata: *mut ::core::ffi::c_void) -> isize
 where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows::imp::link ! ( "wsnmp32.dll""system" fn SnmpCreateSession ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , fcallback : SNMPAPI_CALLBACK , lpclientdata : *mut ::core::ffi::c_void ) -> isize );
-    SnmpCreateSession(hwnd.into(), wmsg, fcallback, lpclientdata)
+    SnmpCreateSession(hwnd.into_param().abi(), wmsg, fcallback, lpclientdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
@@ -222,11 +222,11 @@ pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: ::core::opt
 #[inline]
 pub unsafe fn SnmpMgrOpen<P0, P1>(lpagentaddress: P0, lpagentcommunity: P1, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "mgmtapi.dll""system" fn SnmpMgrOpen ( lpagentaddress : :: windows::core::PCSTR , lpagentcommunity : :: windows::core::PCSTR , ntimeout : i32 , nretries : i32 ) -> *mut ::core::ffi::c_void );
-    SnmpMgrOpen(lpagentaddress.into().abi(), lpagentcommunity.into().abi(), ntimeout, nretries)
+    SnmpMgrOpen(lpagentaddress.into_param().abi(), lpagentcommunity.into_param().abi(), ntimeout, nretries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -240,10 +240,10 @@ pub unsafe fn SnmpMgrRequest(session: *mut ::core::ffi::c_void, requesttype: u8,
 #[inline]
 pub unsafe fn SnmpMgrStrToOid<P0>(string: P0, oid: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "mgmtapi.dll""system" fn SnmpMgrStrToOid ( string : :: windows::core::PCSTR , oid : *mut AsnObjectIdentifier ) -> super::super::Foundation:: BOOL );
-    SnmpMgrStrToOid(string.into().abi(), oid)
+    SnmpMgrStrToOid(string.into_param().abi(), oid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -275,10 +275,10 @@ pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
 #[inline]
 pub unsafe fn SnmpOpen<P0>(hwnd: P0, wmsg: u32) -> isize
 where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows::imp::link ! ( "wsnmp32.dll""system" fn SnmpOpen ( hwnd : super::super::Foundation:: HWND , wmsg : u32 ) -> isize );
-    SnmpOpen(hwnd.into(), wmsg)
+    SnmpOpen(hwnd.into_param().abi(), wmsg)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
@@ -362,19 +362,19 @@ pub unsafe fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize 
 #[inline]
 pub unsafe fn SnmpStrToEntity<P0>(session: isize, string: P0) -> isize
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "wsnmp32.dll""system" fn SnmpStrToEntity ( session : isize , string : :: windows::core::PCSTR ) -> isize );
-    SnmpStrToEntity(session, string.into().abi())
+    SnmpStrToEntity(session, string.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
 pub unsafe fn SnmpStrToOid<P0>(string: P0, dstoid: *mut smiOID) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "wsnmp32.dll""system" fn SnmpStrToOid ( string : :: windows::core::PCSTR , dstoid : *mut smiOID ) -> u32 );
-    SnmpStrToOid(string.into().abi(), dstoid)
+    SnmpStrToOid(string.into_param().abi(), dstoid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
@@ -412,10 +412,10 @@ pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
 #[inline]
 pub unsafe fn SnmpUtilDbgPrint<P0>(nloglevel: SNMP_LOG, szformat: P0)
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "snmpapi.dll""cdecl" fn SnmpUtilDbgPrint ( nloglevel : SNMP_LOG , szformat : :: windows::core::PCSTR ) -> ( ) );
-    SnmpUtilDbgPrint(nloglevel, szformat.into().abi())
+    SnmpUtilDbgPrint(nloglevel, szformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]

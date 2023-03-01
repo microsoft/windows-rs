@@ -16,6 +16,6 @@ impl IDDEInitializer_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDDEInitializer as ::windows::core::Interface>::IID
+        iid == &<IDDEInitializer as ::windows::core::ComInterface>::IID
     }
 }

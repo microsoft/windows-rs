@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPowerManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPowerManagerStatics {
+unsafe impl ::windows::core::Interface for IPowerManagerStatics {
     type Vtable = IPowerManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPowerManagerStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IPowerManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPowerManagerStatics {
+unsafe impl ::windows::core::ComInterface for IPowerManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25de8fd0_1c5b_11e1_bddb_0800200c9a66);
 }
 #[repr(C)]
@@ -29,7 +29,7 @@ pub struct IPowerManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPowerManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPowerManagerStatics2 {
+unsafe impl ::windows::core::Interface for IPowerManagerStatics2 {
     type Vtable = IPowerManagerStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IPowerManagerStatics2 {
@@ -37,7 +37,7 @@ impl ::core::clone::Clone for IPowerManagerStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPowerManagerStatics2 {
+unsafe impl ::windows::core::ComInterface for IPowerManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x596236cf_1918_4551_a466_c51aae373bf8);
 }
 #[repr(C)]
@@ -52,7 +52,7 @@ impl PowerManager {
     pub fn PowerSavingMode() -> ::windows::core::Result<PowerSavingMode> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PowerSavingMode>();
-            (::windows::core::Vtable::vtable(this).PowerSavingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PowerSavingMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -60,18 +60,18 @@ impl PowerManager {
     pub fn PowerSavingModeChanged(changehandler: &super::super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PowerSavingModeChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changehandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PowerSavingModeChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(changehandler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePowerSavingModeChanged(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IPowerManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemovePowerSavingModeChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::IPowerManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePowerSavingModeChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     pub fn PowerSavingModeEnabled() -> ::windows::core::Result<bool> {
         Self::IPowerManagerStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).PowerSavingModeEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PowerSavingModeEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

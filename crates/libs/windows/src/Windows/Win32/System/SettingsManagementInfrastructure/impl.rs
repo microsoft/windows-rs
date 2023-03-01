@@ -45,7 +45,7 @@ impl IItemEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IItemEnumerator as ::windows::core::Interface>::IID
+        iid == &<IItemEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -123,7 +123,7 @@ impl ISettingsContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISettingsContext as ::windows::core::Interface>::IID
+        iid == &<ISettingsContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -312,7 +312,7 @@ impl ISettingsEngine_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISettingsEngine as ::windows::core::Interface>::IID
+        iid == &<ISettingsEngine as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"implement\"`*"]
@@ -366,7 +366,7 @@ impl ISettingsIdentity_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISettingsIdentity as ::windows::core::Interface>::IID
+        iid == &<ISettingsIdentity as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -633,7 +633,7 @@ impl ISettingsItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISettingsItem as ::windows::core::Interface>::IID
+        iid == &<ISettingsItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -735,7 +735,7 @@ impl ISettingsNamespace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISettingsNamespace as ::windows::core::Interface>::IID
+        iid == &<ISettingsNamespace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"implement\"`*"]
@@ -827,7 +827,7 @@ impl ISettingsResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISettingsResult as ::windows::core::Interface>::IID
+        iid == &<ISettingsResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1063,6 +1063,6 @@ impl ITargetInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITargetInfo as ::windows::core::Interface>::IID
+        iid == &<ITargetInfo as ::windows::core::ComInterface>::IID
     }
 }

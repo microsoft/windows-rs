@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOfflineMapPackage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOfflineMapPackage {
+unsafe impl ::windows::core::Interface for IOfflineMapPackage {
     type Vtable = IOfflineMapPackage_Vtbl;
 }
 impl ::core::clone::Clone for IOfflineMapPackage {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IOfflineMapPackage {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOfflineMapPackage {
+unsafe impl ::windows::core::ComInterface for IOfflineMapPackage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa797673b_a5b5_4144_b525_e68c8862664b);
 }
 #[repr(C)]
@@ -36,7 +36,7 @@ pub struct IOfflineMapPackage_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOfflineMapPackageQueryResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOfflineMapPackageQueryResult {
+unsafe impl ::windows::core::Interface for IOfflineMapPackageQueryResult {
     type Vtable = IOfflineMapPackageQueryResult_Vtbl;
 }
 impl ::core::clone::Clone for IOfflineMapPackageQueryResult {
@@ -44,7 +44,7 @@ impl ::core::clone::Clone for IOfflineMapPackageQueryResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOfflineMapPackageQueryResult {
+unsafe impl ::windows::core::ComInterface for IOfflineMapPackageQueryResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55585411_39e1_4e41_a4e1_5f4872bee199);
 }
 #[repr(C)]
@@ -60,7 +60,7 @@ pub struct IOfflineMapPackageQueryResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOfflineMapPackageStartDownloadResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOfflineMapPackageStartDownloadResult {
+unsafe impl ::windows::core::Interface for IOfflineMapPackageStartDownloadResult {
     type Vtable = IOfflineMapPackageStartDownloadResult_Vtbl;
 }
 impl ::core::clone::Clone for IOfflineMapPackageStartDownloadResult {
@@ -68,7 +68,7 @@ impl ::core::clone::Clone for IOfflineMapPackageStartDownloadResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOfflineMapPackageStartDownloadResult {
+unsafe impl ::windows::core::ComInterface for IOfflineMapPackageStartDownloadResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 }
 #[repr(C)]
@@ -80,7 +80,7 @@ pub struct IOfflineMapPackageStartDownloadResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOfflineMapPackageStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOfflineMapPackageStatics {
+unsafe impl ::windows::core::Interface for IOfflineMapPackageStatics {
     type Vtable = IOfflineMapPackageStatics_Vtbl;
 }
 impl ::core::clone::Clone for IOfflineMapPackageStatics {
@@ -88,7 +88,7 @@ impl ::core::clone::Clone for IOfflineMapPackageStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOfflineMapPackageStatics {
+unsafe impl ::windows::core::ComInterface for IOfflineMapPackageStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185e7922_a831_4ab0_941f_6998fa929285);
 }
 #[repr(C)]
@@ -116,35 +116,35 @@ impl OfflineMapPackage {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<OfflineMapPackageStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnclosingRegionName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).EnclosingRegionName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EnclosingRegionName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EstimatedSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).EstimatedSizeInBytes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EstimatedSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStatusChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -152,7 +152,7 @@ impl OfflineMapPackage {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -161,7 +161,7 @@ impl OfflineMapPackage {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>>();
-            (::windows::core::Vtable::vtable(this).RequestStartDownloadAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestStartDownloadAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -169,7 +169,7 @@ impl OfflineMapPackage {
     pub fn FindPackagesAsync(querypoint: &super::super::super::Devices::Geolocation::Geopoint) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>();
-            (::windows::core::Vtable::vtable(this).FindPackagesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(querypoint), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(querypoint), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -177,7 +177,7 @@ impl OfflineMapPackage {
     pub fn FindPackagesInBoundingBoxAsync(queryboundingbox: &super::super::super::Devices::Geolocation::GeoboundingBox) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>();
-            (::windows::core::Vtable::vtable(this).FindPackagesInBoundingBoxAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryboundingbox), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(queryboundingbox), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -185,7 +185,7 @@ impl OfflineMapPackage {
     pub fn FindPackagesInGeocircleAsync(querycircle: &super::super::super::Devices::Geolocation::Geocircle) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>();
-            (::windows::core::Vtable::vtable(this).FindPackagesInGeocircleAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(querycircle), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesInGeocircleAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(querycircle), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -213,11 +213,11 @@ impl ::core::clone::Clone for OfflineMapPackage {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OfflineMapPackage {
+unsafe impl ::windows::core::Interface for OfflineMapPackage {
     type Vtable = IOfflineMapPackage_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OfflineMapPackage {
-    const IID: ::windows::core::GUID = <IOfflineMapPackage as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OfflineMapPackage {
+    const IID: ::windows::core::GUID = <IOfflineMapPackage as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OfflineMapPackage {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackage";
@@ -233,7 +233,7 @@ impl OfflineMapPackageQueryResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<OfflineMapPackageQueryStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -242,7 +242,7 @@ impl OfflineMapPackageQueryResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>>();
-            (::windows::core::Vtable::vtable(this).Packages)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Packages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -265,11 +265,11 @@ impl ::core::clone::Clone for OfflineMapPackageQueryResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OfflineMapPackageQueryResult {
+unsafe impl ::windows::core::Interface for OfflineMapPackageQueryResult {
     type Vtable = IOfflineMapPackageQueryResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OfflineMapPackageQueryResult {
-    const IID: ::windows::core::GUID = <IOfflineMapPackageQueryResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OfflineMapPackageQueryResult {
+    const IID: ::windows::core::GUID = <IOfflineMapPackageQueryResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OfflineMapPackageQueryResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult";
@@ -285,7 +285,7 @@ impl OfflineMapPackageStartDownloadResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<OfflineMapPackageStartDownloadStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -308,11 +308,11 @@ impl ::core::clone::Clone for OfflineMapPackageStartDownloadResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OfflineMapPackageStartDownloadResult {
+unsafe impl ::windows::core::Interface for OfflineMapPackageStartDownloadResult {
     type Vtable = IOfflineMapPackageStartDownloadResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OfflineMapPackageStartDownloadResult {
-    const IID: ::windows::core::GUID = <IOfflineMapPackageStartDownloadResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OfflineMapPackageStartDownloadResult {
+    const IID: ::windows::core::GUID = <IOfflineMapPackageStartDownloadResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OfflineMapPackageStartDownloadResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult";

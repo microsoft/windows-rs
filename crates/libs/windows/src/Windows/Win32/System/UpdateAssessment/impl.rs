@@ -22,6 +22,6 @@ impl IWaaSAssessor_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOSUpdateAssessment: GetOSUpdateAssessment::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWaaSAssessor as ::windows::core::Interface>::IID
+        iid == &<IWaaSAssessor as ::windows::core::ComInterface>::IID
     }
 }

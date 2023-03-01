@@ -13,7 +13,7 @@ impl ID2D1AnalysisTransform_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProcessAnalysisResults: ProcessAnalysisResults::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1AnalysisTransform as ::windows::core::Interface>::IID
+        iid == &<ID2D1AnalysisTransform as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -79,7 +79,7 @@ impl ID2D1Bitmap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Bitmap as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Image as ::windows::core::Interface>::IID
+        iid == &<ID2D1Bitmap as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Image as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -143,7 +143,7 @@ impl ID2D1Bitmap1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Bitmap1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Image as ::windows::core::Interface>::IID || iid == &<ID2D1Bitmap as ::windows::core::Interface>::IID
+        iid == &<ID2D1Bitmap1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Image as ::windows::core::ComInterface>::IID || iid == &<ID2D1Bitmap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
@@ -216,7 +216,7 @@ impl ID2D1BitmapBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1BitmapBrush as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Brush as ::windows::core::Interface>::IID
+        iid == &<ID2D1BitmapBrush as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Brush as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
@@ -247,7 +247,7 @@ impl ID2D1BitmapBrush1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1BitmapBrush1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Brush as ::windows::core::Interface>::IID || iid == &<ID2D1BitmapBrush as ::windows::core::Interface>::IID
+        iid == &<ID2D1BitmapBrush1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Brush as ::windows::core::ComInterface>::IID || iid == &<ID2D1BitmapBrush as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -274,7 +274,7 @@ impl ID2D1BitmapRenderTarget_Vtbl {
         Self { base__: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(), GetBitmap: GetBitmap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1BitmapRenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID
+        iid == &<ID2D1BitmapRenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -305,7 +305,7 @@ impl ID2D1BlendTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1BlendTransform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID || iid == &<ID2D1ConcreteTransform as ::windows::core::Interface>::IID
+        iid == &<ID2D1BlendTransform as ::windows::core::ComInterface>::IID || iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID || iid == &<ID2D1ConcreteTransform as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -350,7 +350,7 @@ impl ID2D1BorderTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1BorderTransform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID || iid == &<ID2D1ConcreteTransform as ::windows::core::Interface>::IID
+        iid == &<ID2D1BorderTransform as ::windows::core::ComInterface>::IID || iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID || iid == &<ID2D1ConcreteTransform as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -381,7 +381,7 @@ impl ID2D1BoundsAdjustmentTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1BoundsAdjustmentTransform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID
+        iid == &<ID2D1BoundsAdjustmentTransform as ::windows::core::ComInterface>::IID || iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
@@ -426,7 +426,7 @@ impl ID2D1Brush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Brush as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1Brush as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -461,7 +461,7 @@ impl ID2D1ColorContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1ColorContext as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1ColorContext as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -499,7 +499,7 @@ impl ID2D1ColorContext1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1ColorContext1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1ColorContext as ::windows::core::Interface>::IID
+        iid == &<ID2D1ColorContext1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1ColorContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -523,7 +523,7 @@ impl ID2D1CommandList_Vtbl {
         Self { base__: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(), Stream: Stream::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1CommandList as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Image as ::windows::core::Interface>::IID
+        iid == &<ID2D1CommandList as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Image as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -715,7 +715,7 @@ impl ID2D1CommandSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID
+        iid == &<ID2D1CommandSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -736,7 +736,7 @@ impl ID2D1CommandSink1_Vtbl {
         Self { base__: ID2D1CommandSink_Vtbl::new::<Identity, Impl, OFFSET>(), SetPrimitiveBlend1: SetPrimitiveBlend1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1CommandSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID
+        iid == &<ID2D1CommandSink1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -774,7 +774,7 @@ impl ID2D1CommandSink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1CommandSink2 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::Interface>::IID
+        iid == &<ID2D1CommandSink2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -795,7 +795,7 @@ impl ID2D1CommandSink3_Vtbl {
         Self { base__: ID2D1CommandSink2_Vtbl::new::<Identity, Impl, OFFSET>(), DrawSpriteBatch: DrawSpriteBatch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1CommandSink3 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink2 as ::windows::core::Interface>::IID
+        iid == &<ID2D1CommandSink3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -816,7 +816,7 @@ impl ID2D1CommandSink4_Vtbl {
         Self { base__: ID2D1CommandSink3_Vtbl::new::<Identity, Impl, OFFSET>(), SetPrimitiveBlend2: SetPrimitiveBlend2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1CommandSink4 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink2 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink3 as ::windows::core::Interface>::IID
+        iid == &<ID2D1CommandSink4 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -837,7 +837,7 @@ impl ID2D1CommandSink5_Vtbl {
         Self { base__: ID2D1CommandSink4_Vtbl::new::<Identity, Impl, OFFSET>(), BlendImage: BlendImage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1CommandSink5 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink2 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink3 as ::windows::core::Interface>::IID || iid == &<ID2D1CommandSink4 as ::windows::core::Interface>::IID
+        iid == &<ID2D1CommandSink5 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1CommandSink4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -875,7 +875,7 @@ impl ID2D1ComputeInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1ComputeInfo as ::windows::core::Interface>::IID || iid == &<ID2D1RenderInfo as ::windows::core::Interface>::IID
+        iid == &<ID2D1ComputeInfo as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -906,7 +906,7 @@ impl ID2D1ComputeTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1ComputeTransform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID || iid == &<ID2D1Transform as ::windows::core::Interface>::IID
+        iid == &<ID2D1ComputeTransform as ::windows::core::ComInterface>::IID || iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID || iid == &<ID2D1Transform as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -937,7 +937,7 @@ impl ID2D1ConcreteTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1ConcreteTransform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID
+        iid == &<ID2D1ConcreteTransform as ::windows::core::ComInterface>::IID || iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -958,7 +958,7 @@ impl ID2D1DCRenderTarget_Vtbl {
         Self { base__: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(), BindDC: BindDC::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DCRenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID
+        iid == &<ID2D1DCRenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
@@ -1022,7 +1022,7 @@ impl ID2D1Device_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Device as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1Device as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
@@ -1066,7 +1066,7 @@ impl ID2D1Device1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Device1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Device as ::windows::core::Interface>::IID
+        iid == &<ID2D1Device1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
@@ -1116,7 +1116,7 @@ impl ID2D1Device2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Device2 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Device as ::windows::core::Interface>::IID || iid == &<ID2D1Device1 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Device2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
@@ -1143,7 +1143,7 @@ impl ID2D1Device3_Vtbl {
         Self { base__: ID2D1Device2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext4: CreateDeviceContext4::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Device3 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Device as ::windows::core::Interface>::IID || iid == &<ID2D1Device1 as ::windows::core::Interface>::IID || iid == &<ID2D1Device2 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Device3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
@@ -1187,7 +1187,7 @@ impl ID2D1Device4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Device4 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Device as ::windows::core::Interface>::IID || iid == &<ID2D1Device1 as ::windows::core::Interface>::IID || iid == &<ID2D1Device2 as ::windows::core::Interface>::IID || iid == &<ID2D1Device3 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Device4 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
@@ -1214,7 +1214,7 @@ impl ID2D1Device5_Vtbl {
         Self { base__: ID2D1Device4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext6: CreateDeviceContext6::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Device5 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Device as ::windows::core::Interface>::IID || iid == &<ID2D1Device1 as ::windows::core::Interface>::IID || iid == &<ID2D1Device2 as ::windows::core::Interface>::IID || iid == &<ID2D1Device3 as ::windows::core::Interface>::IID || iid == &<ID2D1Device4 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Device5 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
@@ -1241,7 +1241,7 @@ impl ID2D1Device6_Vtbl {
         Self { base__: ID2D1Device5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext7: CreateDeviceContext7::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Device6 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Device as ::windows::core::Interface>::IID || iid == &<ID2D1Device1 as ::windows::core::Interface>::IID || iid == &<ID2D1Device2 as ::windows::core::Interface>::IID || iid == &<ID2D1Device3 as ::windows::core::Interface>::IID || iid == &<ID2D1Device4 as ::windows::core::Interface>::IID || iid == &<ID2D1Device5 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Device6 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device4 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Device5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -1593,7 +1593,7 @@ impl ID2D1DeviceContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DeviceContext as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID
+        iid == &<ID2D1DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -1643,7 +1643,7 @@ impl ID2D1DeviceContext1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DeviceContext1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::Interface>::IID
+        iid == &<ID2D1DeviceContext1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -1785,7 +1785,7 @@ impl ID2D1DeviceContext2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DeviceContext2 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::Interface>::IID
+        iid == &<ID2D1DeviceContext2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -1822,7 +1822,7 @@ impl ID2D1DeviceContext3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DeviceContext3 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext2 as ::windows::core::Interface>::IID
+        iid == &<ID2D1DeviceContext3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -1908,7 +1908,7 @@ impl ID2D1DeviceContext4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DeviceContext4 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext2 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext3 as ::windows::core::Interface>::IID
+        iid == &<ID2D1DeviceContext4 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1971,7 +1971,7 @@ impl ID2D1DeviceContext5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DeviceContext5 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext2 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext3 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext4 as ::windows::core::Interface>::IID
+        iid == &<ID2D1DeviceContext5 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1992,7 +1992,7 @@ impl ID2D1DeviceContext6_Vtbl {
         Self { base__: ID2D1DeviceContext5_Vtbl::new::<Identity, Impl, OFFSET>(), BlendImage: BlendImage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DeviceContext6 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext2 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext3 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext4 as ::windows::core::Interface>::IID || iid == &<ID2D1DeviceContext5 as ::windows::core::Interface>::IID
+        iid == &<ID2D1DeviceContext6 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext4 as ::windows::core::ComInterface>::IID || iid == &<ID2D1DeviceContext5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2044,7 +2044,7 @@ impl ID2D1DrawInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DrawInfo as ::windows::core::Interface>::IID || iid == &<ID2D1RenderInfo as ::windows::core::Interface>::IID
+        iid == &<ID2D1DrawInfo as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2065,7 +2065,7 @@ impl ID2D1DrawTransform_Vtbl {
         Self { base__: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(), SetDrawInfo: SetDrawInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DrawTransform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID || iid == &<ID2D1Transform as ::windows::core::Interface>::IID
+        iid == &<ID2D1DrawTransform as ::windows::core::ComInterface>::IID || iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID || iid == &<ID2D1Transform as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2110,7 +2110,7 @@ impl ID2D1DrawingStateBlock_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DrawingStateBlock as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1DrawingStateBlock as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2141,7 +2141,7 @@ impl ID2D1DrawingStateBlock1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1DrawingStateBlock1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1DrawingStateBlock as ::windows::core::Interface>::IID
+        iid == &<ID2D1DrawingStateBlock1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1DrawingStateBlock as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2193,7 +2193,7 @@ impl ID2D1Effect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Effect as ::windows::core::Interface>::IID || iid == &<ID2D1Properties as ::windows::core::Interface>::IID
+        iid == &<ID2D1Effect as ::windows::core::ComInterface>::IID || iid == &<ID2D1Properties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -2441,7 +2441,7 @@ impl ID2D1EffectContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1EffectContext as ::windows::core::Interface>::IID
+        iid == &<ID2D1EffectContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -2468,7 +2468,7 @@ impl ID2D1EffectContext1_Vtbl {
         Self { base__: ID2D1EffectContext_Vtbl::new::<Identity, Impl, OFFSET>(), CreateLookupTable3D: CreateLookupTable3D::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1EffectContext1 as ::windows::core::Interface>::IID || iid == &<ID2D1EffectContext as ::windows::core::Interface>::IID
+        iid == &<ID2D1EffectContext1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1EffectContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -2511,7 +2511,7 @@ impl ID2D1EffectContext2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1EffectContext2 as ::windows::core::Interface>::IID || iid == &<ID2D1EffectContext as ::windows::core::Interface>::IID || iid == &<ID2D1EffectContext1 as ::windows::core::Interface>::IID
+        iid == &<ID2D1EffectContext2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1EffectContext as ::windows::core::ComInterface>::IID || iid == &<ID2D1EffectContext1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -2546,7 +2546,7 @@ impl ID2D1EffectImpl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1EffectImpl as ::windows::core::Interface>::IID
+        iid == &<ID2D1EffectImpl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -2567,7 +2567,7 @@ impl ID2D1EllipseGeometry_Vtbl {
         Self { base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetEllipse: GetEllipse::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1EllipseGeometry as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID
+        iid == &<ID2D1EllipseGeometry as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Geometry as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -2754,7 +2754,7 @@ impl ID2D1Factory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Factory as ::windows::core::Interface>::IID
+        iid == &<ID2D1Factory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2877,7 +2877,7 @@ impl ID2D1Factory1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID
+        iid == &<ID2D1Factory1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2904,7 +2904,7 @@ impl ID2D1Factory2_Vtbl {
         Self { base__: ID2D1Factory1_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice2: CreateDevice2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Factory2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2931,7 +2931,7 @@ impl ID2D1Factory3_Vtbl {
         Self { base__: ID2D1Factory2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice3: CreateDevice3::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Factory3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2958,7 +2958,7 @@ impl ID2D1Factory4_Vtbl {
         Self { base__: ID2D1Factory3_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice4: CreateDevice4::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Factory4 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Factory4 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2985,7 +2985,7 @@ impl ID2D1Factory5_Vtbl {
         Self { base__: ID2D1Factory4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice5: CreateDevice5::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Factory5 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory4 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Factory5 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3012,7 +3012,7 @@ impl ID2D1Factory6_Vtbl {
         Self { base__: ID2D1Factory5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice6: CreateDevice6::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Factory6 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory4 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory5 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Factory6 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory4 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3039,7 +3039,7 @@ impl ID2D1Factory7_Vtbl {
         Self { base__: ID2D1Factory6_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice7: CreateDevice7::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Factory7 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory as ::windows::core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory4 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory5 as ::windows::core::Interface>::IID || iid == &<ID2D1Factory6 as ::windows::core::Interface>::IID
+        iid == &<ID2D1Factory7 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory2 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory3 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory4 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory5 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Factory6 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -3076,7 +3076,7 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GdiInteropRenderTarget as ::windows::core::Interface>::IID
+        iid == &<ID2D1GdiInteropRenderTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3113,7 +3113,7 @@ impl ID2D1GdiMetafile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GdiMetafile as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1GdiMetafile as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3150,7 +3150,7 @@ impl ID2D1GdiMetafile1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GdiMetafile1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1GdiMetafile as ::windows::core::Interface>::IID
+        iid == &<ID2D1GdiMetafile1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1GdiMetafile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -3168,7 +3168,7 @@ impl ID2D1GdiMetafileSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProcessRecord: ProcessRecord::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GdiMetafileSink as ::windows::core::Interface>::IID
+        iid == &<ID2D1GdiMetafileSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -3186,7 +3186,7 @@ impl ID2D1GdiMetafileSink1_Vtbl {
         Self { base__: ID2D1GdiMetafileSink_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessRecord2: ProcessRecord2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GdiMetafileSink1 as ::windows::core::Interface>::IID || iid == &<ID2D1GdiMetafileSink as ::windows::core::Interface>::IID
+        iid == &<ID2D1GdiMetafileSink1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1GdiMetafileSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3336,7 +3336,7 @@ impl ID2D1Geometry_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Geometry as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1Geometry as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3374,7 +3374,7 @@ impl ID2D1GeometryGroup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GeometryGroup as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID
+        iid == &<ID2D1GeometryGroup as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Geometry as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -3385,7 +3385,7 @@ impl ID2D1GeometryRealization_Vtbl {
         Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GeometryRealization as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1GeometryRealization as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3437,7 +3437,7 @@ impl ID2D1GeometrySink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GeometrySink as ::windows::core::Interface>::IID || iid == &<Common::ID2D1SimplifiedGeometrySink as ::windows::core::Interface>::IID
+        iid == &<ID2D1GeometrySink as ::windows::core::ComInterface>::IID || iid == &<Common::ID2D1SimplifiedGeometrySink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3468,7 +3468,7 @@ impl ID2D1GradientMesh_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GradientMesh as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1GradientMesh as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3513,7 +3513,7 @@ impl ID2D1GradientStopCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GradientStopCollection as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1GradientStopCollection as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3565,7 +3565,7 @@ impl ID2D1GradientStopCollection1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1GradientStopCollection1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1GradientStopCollection as ::windows::core::Interface>::IID
+        iid == &<ID2D1GradientStopCollection1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1GradientStopCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -3603,7 +3603,7 @@ impl ID2D1HwndRenderTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1HwndRenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID
+        iid == &<ID2D1HwndRenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -3614,7 +3614,7 @@ impl ID2D1Image_Vtbl {
         Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Image as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1Image as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3701,7 +3701,7 @@ impl ID2D1ImageBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1ImageBrush as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Brush as ::windows::core::Interface>::IID
+        iid == &<ID2D1ImageBrush as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Brush as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3738,7 +3738,7 @@ impl ID2D1ImageSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1ImageSource as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Image as ::windows::core::Interface>::IID
+        iid == &<ID2D1ImageSource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Image as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -3776,7 +3776,7 @@ impl ID2D1ImageSourceFromWic_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1ImageSourceFromWic as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Image as ::windows::core::Interface>::IID || iid == &<ID2D1ImageSource as ::windows::core::Interface>::IID
+        iid == &<ID2D1ImageSourceFromWic as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Image as ::windows::core::ComInterface>::IID || iid == &<ID2D1ImageSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3869,7 +3869,7 @@ impl ID2D1Ink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Ink as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1Ink as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
@@ -3914,7 +3914,7 @@ impl ID2D1InkStyle_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1InkStyle as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1InkStyle as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3935,7 +3935,7 @@ impl ID2D1Layer_Vtbl {
         Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(), GetSize: GetSize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Layer as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1Layer as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -3987,7 +3987,7 @@ impl ID2D1LinearGradientBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1LinearGradientBrush as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Brush as ::windows::core::Interface>::IID
+        iid == &<ID2D1LinearGradientBrush as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Brush as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -3998,7 +3998,7 @@ impl ID2D1LookupTable3D_Vtbl {
         Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1LookupTable3D as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1LookupTable3D as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -4022,7 +4022,7 @@ impl ID2D1Mesh_Vtbl {
         Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(), Open: Open::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Mesh as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1Mesh as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4060,7 +4060,7 @@ impl ID2D1Multithread_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Multithread as ::windows::core::Interface>::IID
+        iid == &<ID2D1Multithread as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4091,7 +4091,7 @@ impl ID2D1OffsetTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1OffsetTransform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID
+        iid == &<ID2D1OffsetTransform as ::windows::core::ComInterface>::IID || iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -4154,7 +4154,7 @@ impl ID2D1PathGeometry_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1PathGeometry as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID
+        iid == &<ID2D1PathGeometry as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Geometry as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -4178,7 +4178,7 @@ impl ID2D1PathGeometry1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1PathGeometry1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID || iid == &<ID2D1PathGeometry as ::windows::core::Interface>::IID
+        iid == &<ID2D1PathGeometry1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Geometry as ::windows::core::ComInterface>::IID || iid == &<ID2D1PathGeometry as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4209,7 +4209,7 @@ impl ID2D1PrintControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1PrintControl as ::windows::core::Interface>::IID
+        iid == &<ID2D1PrintControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -4306,7 +4306,7 @@ impl ID2D1Properties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Properties as ::windows::core::Interface>::IID
+        iid == &<ID2D1Properties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -4386,7 +4386,7 @@ impl ID2D1RadialGradientBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1RadialGradientBrush as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Brush as ::windows::core::Interface>::IID
+        iid == &<ID2D1RadialGradientBrush as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Brush as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -4407,7 +4407,7 @@ impl ID2D1RectangleGeometry_Vtbl {
         Self { base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetRect: GetRect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1RectangleGeometry as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID
+        iid == &<ID2D1RectangleGeometry as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Geometry as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4452,7 +4452,7 @@ impl ID2D1RenderInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1RenderInfo as ::windows::core::Interface>::IID
+        iid == &<ID2D1RenderInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -4900,7 +4900,7 @@ impl ID2D1RenderTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1RenderTarget as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1RenderTarget as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -4918,7 +4918,7 @@ impl ID2D1Resource_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetFactory: GetFactory::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -4936,7 +4936,7 @@ impl ID2D1ResourceTexture_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1ResourceTexture as ::windows::core::Interface>::IID
+        iid == &<ID2D1ResourceTexture as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -4957,7 +4957,7 @@ impl ID2D1RoundedRectangleGeometry_Vtbl {
         Self { base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetRoundedRect: GetRoundedRect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1RoundedRectangleGeometry as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID
+        iid == &<ID2D1RoundedRectangleGeometry as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Geometry as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -4988,7 +4988,7 @@ impl ID2D1SolidColorBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SolidColorBrush as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Brush as ::windows::core::Interface>::IID
+        iid == &<ID2D1SolidColorBrush as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Brush as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -5019,7 +5019,7 @@ impl ID2D1SourceTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SourceTransform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID || iid == &<ID2D1Transform as ::windows::core::Interface>::IID
+        iid == &<ID2D1SourceTransform as ::windows::core::ComInterface>::IID || iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID || iid == &<ID2D1Transform as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -5072,7 +5072,7 @@ impl ID2D1SpriteBatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SpriteBatch as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1SpriteBatch as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -5149,7 +5149,7 @@ impl ID2D1StrokeStyle_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1StrokeStyle as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1StrokeStyle as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -5167,7 +5167,7 @@ impl ID2D1StrokeStyle1_Vtbl {
         Self { base__: ID2D1StrokeStyle_Vtbl::new::<Identity, Impl, OFFSET>(), GetStrokeTransformType: GetStrokeTransformType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1StrokeStyle1 as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1StrokeStyle as ::windows::core::Interface>::IID
+        iid == &<ID2D1StrokeStyle1 as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1StrokeStyle as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -5201,7 +5201,7 @@ impl ID2D1SvgAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SvgAttribute as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1SvgAttribute as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5331,7 +5331,7 @@ impl ID2D1SvgDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SvgDocument as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1SvgDocument as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5582,7 +5582,7 @@ impl ID2D1SvgElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SvgElement as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1SvgElement as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -5631,7 +5631,7 @@ impl ID2D1SvgGlyphStyle_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SvgGlyphStyle as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
+        iid == &<ID2D1SvgGlyphStyle as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -5697,7 +5697,7 @@ impl ID2D1SvgPaint_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SvgPaint as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1SvgAttribute as ::windows::core::Interface>::IID
+        iid == &<ID2D1SvgPaint as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1SvgAttribute as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -5783,7 +5783,7 @@ impl ID2D1SvgPathData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SvgPathData as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1SvgAttribute as ::windows::core::Interface>::IID
+        iid == &<ID2D1SvgPathData as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1SvgAttribute as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -5828,7 +5828,7 @@ impl ID2D1SvgPointCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SvgPointCollection as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1SvgAttribute as ::windows::core::Interface>::IID
+        iid == &<ID2D1SvgPointCollection as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1SvgAttribute as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -5884,7 +5884,7 @@ impl ID2D1SvgStrokeDashArray_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SvgStrokeDashArray as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1SvgAttribute as ::windows::core::Interface>::IID
+        iid == &<ID2D1SvgStrokeDashArray as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1SvgAttribute as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -5915,7 +5915,7 @@ impl ID2D1TessellationSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1TessellationSink as ::windows::core::Interface>::IID
+        iid == &<ID2D1TessellationSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5959,7 +5959,7 @@ impl ID2D1Transform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1Transform as ::windows::core::Interface>::IID || iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID
+        iid == &<ID2D1Transform as ::windows::core::ComInterface>::IID || iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -6036,7 +6036,7 @@ impl ID2D1TransformGraph_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1TransformGraph as ::windows::core::Interface>::IID
+        iid == &<ID2D1TransformGraph as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -6054,7 +6054,7 @@ impl ID2D1TransformNode_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInputCount: GetInputCount::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID
+        iid == &<ID2D1TransformNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -6085,7 +6085,7 @@ impl ID2D1TransformedGeometry_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1TransformedGeometry as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Geometry as ::windows::core::Interface>::IID
+        iid == &<ID2D1TransformedGeometry as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Geometry as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -6113,7 +6113,7 @@ impl ID2D1TransformedImageSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1TransformedImageSource as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID || iid == &<ID2D1Image as ::windows::core::Interface>::IID
+        iid == &<ID2D1TransformedImageSource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Resource as ::windows::core::ComInterface>::IID || iid == &<ID2D1Image as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
@@ -6137,6 +6137,6 @@ impl ID2D1VertexBuffer_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Map: Map::<Identity, Impl, OFFSET>, Unmap: Unmap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1VertexBuffer as ::windows::core::Interface>::IID
+        iid == &<ID2D1VertexBuffer as ::windows::core::ComInterface>::IID
     }
 }

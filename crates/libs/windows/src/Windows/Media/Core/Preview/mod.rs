@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISoundLevelBrokerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISoundLevelBrokerStatics {
+unsafe impl ::windows::core::Interface for ISoundLevelBrokerStatics {
     type Vtable = ISoundLevelBrokerStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISoundLevelBrokerStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ISoundLevelBrokerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISoundLevelBrokerStatics {
+unsafe impl ::windows::core::ComInterface for ISoundLevelBrokerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a633961_dbed_464c_a09a_33412f5caa3f);
 }
 #[repr(C)]
@@ -32,7 +32,7 @@ impl SoundLevelBroker {
     pub fn SoundLevel() -> ::windows::core::Result<super::super::SoundLevel> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::SoundLevel>();
-            (::windows::core::Vtable::vtable(this).SoundLevel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SoundLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -40,13 +40,13 @@ impl SoundLevelBroker {
     pub fn SoundLevelChanged(handler: &super::super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).SoundLevelChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SoundLevelChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSoundLevelChanged(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::ISoundLevelBrokerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveSoundLevelChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::ISoundLevelBrokerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveSoundLevelChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn ISoundLevelBrokerStatics<R, F: FnOnce(&ISoundLevelBrokerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

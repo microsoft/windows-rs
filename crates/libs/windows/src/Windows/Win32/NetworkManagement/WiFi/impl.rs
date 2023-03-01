@@ -96,7 +96,7 @@ impl IDot11AdHocInterface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDot11AdHocInterface as ::windows::core::Interface>::IID
+        iid == &<IDot11AdHocInterface as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
@@ -114,7 +114,7 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnectionStatusChange: OnConnectionStatusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDot11AdHocInterfaceNotificationSink as ::windows::core::Interface>::IID
+        iid == &<IDot11AdHocInterfaceNotificationSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -190,7 +190,7 @@ impl IDot11AdHocManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDot11AdHocManager as ::windows::core::Interface>::IID
+        iid == &<IDot11AdHocManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
@@ -232,7 +232,7 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDot11AdHocManagerNotificationSink as ::windows::core::Interface>::IID
+        iid == &<IDot11AdHocManagerNotificationSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -357,7 +357,7 @@ impl IDot11AdHocNetwork_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDot11AdHocNetwork as ::windows::core::Interface>::IID
+        iid == &<IDot11AdHocNetwork as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
@@ -385,7 +385,7 @@ impl IDot11AdHocNetworkNotificationSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDot11AdHocNetworkNotificationSink as ::windows::core::Interface>::IID
+        iid == &<IDot11AdHocNetworkNotificationSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
@@ -413,7 +413,7 @@ impl IDot11AdHocSecuritySettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDot11AdHocSecuritySettings as ::windows::core::Interface>::IID
+        iid == &<IDot11AdHocSecuritySettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
@@ -461,7 +461,7 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDot11AdHocInterfaces as ::windows::core::Interface>::IID
+        iid == &<IEnumDot11AdHocInterfaces as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
@@ -509,7 +509,7 @@ impl IEnumDot11AdHocNetworks_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDot11AdHocNetworks as ::windows::core::Interface>::IID
+        iid == &<IEnumDot11AdHocNetworks as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"implement\"`*"]
@@ -557,6 +557,6 @@ impl IEnumDot11AdHocSecuritySettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDot11AdHocSecuritySettings as ::windows::core::Interface>::IID
+        iid == &<IEnumDot11AdHocSecuritySettings as ::windows::core::ComInterface>::IID
     }
 }

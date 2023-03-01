@@ -6,7 +6,7 @@ impl IWaaSAssessor {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment> {
         let mut result__ = ::windows::core::zeroed::<OSUpdateAssessment>();
-        (::windows::core::Vtable::vtable(self).GetOSUpdateAssessment)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetOSUpdateAssessment)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWaaSAssessor, ::windows::core::IUnknown);
@@ -21,7 +21,7 @@ impl ::core::fmt::Debug for IWaaSAssessor {
         f.debug_tuple("IWaaSAssessor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWaaSAssessor {
+unsafe impl ::windows::core::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessor_Vtbl;
 }
 impl ::core::clone::Clone for IWaaSAssessor {
@@ -29,7 +29,7 @@ impl ::core::clone::Clone for IWaaSAssessor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWaaSAssessor {
+unsafe impl ::windows::core::ComInterface for IWaaSAssessor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
 }
 #[repr(C)]

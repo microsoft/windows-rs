@@ -74,6 +74,6 @@ impl IUICommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUICommand as ::windows::core::Interface>::IID
+        iid == &<IUICommand as ::windows::core::ComInterface>::IID
     }
 }

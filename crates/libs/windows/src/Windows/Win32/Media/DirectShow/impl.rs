@@ -108,7 +108,7 @@ impl IAMAnalogVideoDecoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMAnalogVideoDecoder as ::windows::core::Interface>::IID
+        iid == &<IAMAnalogVideoDecoder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -195,7 +195,7 @@ impl IAMAnalogVideoEncoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMAnalogVideoEncoder as ::windows::core::Interface>::IID
+        iid == &<IAMAnalogVideoEncoder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -232,7 +232,7 @@ impl IAMAsyncReaderTimestampScaling_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMAsyncReaderTimestampScaling as ::windows::core::Interface>::IID
+        iid == &<IAMAsyncReaderTimestampScaling as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -415,7 +415,7 @@ impl IAMAudioInputMixer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMAudioInputMixer as ::windows::core::Interface>::IID
+        iid == &<IAMAudioInputMixer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -433,7 +433,7 @@ impl IAMAudioRendererStats_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetStatParam: GetStatParam::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMAudioRendererStats as ::windows::core::Interface>::IID
+        iid == &<IAMAudioRendererStats as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -467,7 +467,7 @@ impl IAMBufferNegotiation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMBufferNegotiation as ::windows::core::Interface>::IID
+        iid == &<IAMBufferNegotiation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -502,7 +502,7 @@ impl IAMCameraControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMCameraControl as ::windows::core::Interface>::IID
+        iid == &<IAMCameraControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -544,7 +544,7 @@ impl IAMCertifiedOutputProtection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMCertifiedOutputProtection as ::windows::core::Interface>::IID
+        iid == &<IAMCertifiedOutputProtection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -603,7 +603,7 @@ impl IAMChannelInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMChannelInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMChannelInfo as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -621,7 +621,7 @@ impl IAMClockAdjust_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetClockDelta: SetClockDelta::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMClockAdjust as ::windows::core::Interface>::IID
+        iid == &<IAMClockAdjust as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -655,7 +655,7 @@ impl IAMClockSlave_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMClockSlave as ::windows::core::Interface>::IID
+        iid == &<IAMClockSlave as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -711,7 +711,7 @@ impl IAMCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMCollection as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -729,7 +729,7 @@ impl IAMCopyCaptureFileProgress_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Progress: Progress::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMCopyCaptureFileProgress as ::windows::core::Interface>::IID
+        iid == &<IAMCopyCaptureFileProgress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -787,7 +787,7 @@ impl IAMCrossbar_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMCrossbar as ::windows::core::Interface>::IID
+        iid == &<IAMCrossbar as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -811,7 +811,7 @@ impl IAMDecoderCaps_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDecoderCaps: GetDecoderCaps::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMDecoderCaps as ::windows::core::Interface>::IID
+        iid == &<IAMDecoderCaps as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -860,7 +860,7 @@ impl IAMDevMemoryAllocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMDevMemoryAllocator as ::windows::core::Interface>::IID
+        iid == &<IAMDevMemoryAllocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -901,7 +901,7 @@ impl IAMDevMemoryControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMDevMemoryControl as ::windows::core::Interface>::IID
+        iid == &<IAMDevMemoryControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -936,7 +936,7 @@ impl IAMDeviceRemoval_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMDeviceRemoval as ::windows::core::Interface>::IID
+        iid == &<IAMDeviceRemoval as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -1027,7 +1027,7 @@ impl IAMDirectSound_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMDirectSound as ::windows::core::Interface>::IID
+        iid == &<IAMDirectSound as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -1087,7 +1087,7 @@ impl IAMDroppedFrames_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMDroppedFrames as ::windows::core::Interface>::IID
+        iid == &<IAMDroppedFrames as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -1187,7 +1187,7 @@ impl IAMExtDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMExtDevice as ::windows::core::Interface>::IID
+        iid == &<IAMExtDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -1463,7 +1463,7 @@ impl IAMExtTransport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMExtTransport as ::windows::core::Interface>::IID
+        iid == &<IAMExtTransport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1501,7 +1501,7 @@ impl IAMExtendedErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMExtendedErrorInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMExtendedErrorInfo as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1567,7 +1567,7 @@ impl IAMExtendedSeeking_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMExtendedSeeking as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMExtendedSeeking as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -1585,7 +1585,7 @@ impl IAMFilterGraphCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UnableToRender: UnableToRender::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMFilterGraphCallback as ::windows::core::Interface>::IID
+        iid == &<IAMFilterGraphCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -1603,7 +1603,7 @@ impl IAMFilterMiscFlags_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMiscFlags: GetMiscFlags::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMFilterMiscFlags as ::windows::core::Interface>::IID
+        iid == &<IAMFilterMiscFlags as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1634,7 +1634,7 @@ impl IAMGraphBuilderCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMGraphBuilderCallback as ::windows::core::Interface>::IID
+        iid == &<IAMGraphBuilderCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1672,7 +1672,7 @@ impl IAMGraphStreams_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMGraphStreams as ::windows::core::Interface>::IID
+        iid == &<IAMGraphStreams as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -1696,7 +1696,7 @@ impl IAMLatency_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLatency: GetLatency::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMLatency as ::windows::core::Interface>::IID
+        iid == &<IAMLatency as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1804,7 +1804,7 @@ impl IAMLine21Decoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMLine21Decoder as ::windows::core::Interface>::IID
+        iid == &<IAMLine21Decoder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1912,7 +1912,7 @@ impl IAMMediaContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMMediaContent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMMediaContent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1950,7 +1950,7 @@ impl IAMMediaContent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMMediaContent2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMMediaContent2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2002,7 +2002,7 @@ impl IAMMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMMediaStream as ::windows::core::Interface>::IID || iid == &<IMediaStream as ::windows::core::Interface>::IID
+        iid == &<IAMMediaStream as ::windows::core::ComInterface>::IID || iid == &<IMediaStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2150,7 +2150,7 @@ impl IAMMediaTypeSample_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMMediaTypeSample as ::windows::core::Interface>::IID || iid == &<IStreamSample as ::windows::core::Interface>::IID
+        iid == &<IAMMediaTypeSample as ::windows::core::ComInterface>::IID || iid == &<IStreamSample as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2214,7 +2214,7 @@ impl IAMMediaTypeStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMMediaTypeStream as ::windows::core::Interface>::IID || iid == &<IMediaStream as ::windows::core::Interface>::IID
+        iid == &<IAMMediaTypeStream as ::windows::core::ComInterface>::IID || iid == &<IMediaStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2298,7 +2298,7 @@ impl IAMMultiMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMMultiMediaStream as ::windows::core::Interface>::IID || iid == &<IMultiMediaStream as ::windows::core::Interface>::IID
+        iid == &<IAMMultiMediaStream as ::windows::core::ComInterface>::IID || iid == &<IMultiMediaStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2469,7 +2469,7 @@ impl IAMNetShowConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMNetShowConfig as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMNetShowConfig as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2549,7 +2549,7 @@ impl IAMNetShowExProps_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMNetShowExProps as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMNetShowExProps as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2580,7 +2580,7 @@ impl IAMNetShowPreroll_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMNetShowPreroll as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMNetShowPreroll as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2646,7 +2646,7 @@ impl IAMNetworkStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMNetworkStatus as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMNetworkStatus as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -2674,7 +2674,7 @@ impl IAMOpenProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMOpenProgress as ::windows::core::Interface>::IID
+        iid == &<IAMOpenProgress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -2721,7 +2721,7 @@ impl IAMOverlayFX_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMOverlayFX as ::windows::core::Interface>::IID
+        iid == &<IAMOverlayFX as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -2762,7 +2762,7 @@ impl IAMParse_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMParse as ::windows::core::Interface>::IID
+        iid == &<IAMParse as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -2780,7 +2780,7 @@ impl IAMPhysicalPinInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPhysicalType: GetPhysicalType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMPhysicalPinInfo as ::windows::core::Interface>::IID
+        iid == &<IAMPhysicalPinInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -2847,7 +2847,7 @@ impl IAMPlayList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMPlayList as ::windows::core::Interface>::IID
+        iid == &<IAMPlayList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3004,7 +3004,7 @@ impl IAMPlayListItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMPlayListItem as ::windows::core::Interface>::IID
+        iid == &<IAMPlayListItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3082,7 +3082,7 @@ impl IAMPluginControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMPluginControl as ::windows::core::Interface>::IID
+        iid == &<IAMPluginControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3156,7 +3156,7 @@ impl IAMPushSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMPushSource as ::windows::core::Interface>::IID || iid == &<IAMLatency as ::windows::core::Interface>::IID
+        iid == &<IAMPushSource as ::windows::core::ComInterface>::IID || iid == &<IAMLatency as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3174,7 +3174,7 @@ impl IAMRebuild_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RebuildNow: RebuildNow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMRebuild as ::windows::core::Interface>::IID
+        iid == &<IAMRebuild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3192,7 +3192,7 @@ impl IAMResourceControl_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Reserve: Reserve::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMResourceControl as ::windows::core::Interface>::IID
+        iid == &<IAMResourceControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3263,7 +3263,7 @@ impl IAMStats_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMStats as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAMStats as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -3314,7 +3314,7 @@ impl IAMStreamConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMStreamConfig as ::windows::core::Interface>::IID
+        iid == &<IAMStreamConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3352,7 +3352,7 @@ impl IAMStreamControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMStreamControl as ::windows::core::Interface>::IID
+        iid == &<IAMStreamControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -3396,7 +3396,7 @@ impl IAMStreamSelect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMStreamSelect as ::windows::core::Interface>::IID
+        iid == &<IAMStreamSelect as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3470,7 +3470,7 @@ impl IAMTVAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMTVAudio as ::windows::core::Interface>::IID
+        iid == &<IAMTVAudio as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3488,7 +3488,7 @@ impl IAMTVAudioNotification_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMTVAudioNotification as ::windows::core::Interface>::IID
+        iid == &<IAMTVAudioNotification as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3630,7 +3630,7 @@ impl IAMTVTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMTVTuner as ::windows::core::Interface>::IID || iid == &<IAMTuner as ::windows::core::Interface>::IID
+        iid == &<IAMTVTuner as ::windows::core::ComInterface>::IID || iid == &<IAMTuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3684,7 +3684,7 @@ impl IAMTimecodeDisplay_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMTimecodeDisplay as ::windows::core::Interface>::IID
+        iid == &<IAMTimecodeDisplay as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3752,7 +3752,7 @@ impl IAMTimecodeGenerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMTimecodeGenerator as ::windows::core::Interface>::IID
+        iid == &<IAMTimecodeGenerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3813,7 +3813,7 @@ impl IAMTimecodeReader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMTimecodeReader as ::windows::core::Interface>::IID
+        iid == &<IAMTimecodeReader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3965,7 +3965,7 @@ impl IAMTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMTuner as ::windows::core::Interface>::IID
+        iid == &<IAMTuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -3983,7 +3983,7 @@ impl IAMTunerNotification_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMTunerNotification as ::windows::core::Interface>::IID
+        iid == &<IAMTunerNotification as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4021,7 +4021,7 @@ impl IAMVfwCaptureDialogs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMVfwCaptureDialogs as ::windows::core::Interface>::IID
+        iid == &<IAMVfwCaptureDialogs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4066,7 +4066,7 @@ impl IAMVfwCompressDialogs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMVfwCompressDialogs as ::windows::core::Interface>::IID
+        iid == &<IAMVfwCompressDialogs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -4167,7 +4167,7 @@ impl IAMVideoAccelerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMVideoAccelerator as ::windows::core::Interface>::IID
+        iid == &<IAMVideoAccelerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -4205,7 +4205,7 @@ impl IAMVideoAcceleratorNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMVideoAcceleratorNotify as ::windows::core::Interface>::IID
+        iid == &<IAMVideoAcceleratorNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -4320,7 +4320,7 @@ impl IAMVideoCompression_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMVideoCompression as ::windows::core::Interface>::IID
+        iid == &<IAMVideoCompression as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4403,7 +4403,7 @@ impl IAMVideoControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMVideoControl as ::windows::core::Interface>::IID
+        iid == &<IAMVideoControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -4437,7 +4437,7 @@ impl IAMVideoDecimationProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMVideoDecimationProperties as ::windows::core::Interface>::IID
+        iid == &<IAMVideoDecimationProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -4472,7 +4472,7 @@ impl IAMVideoProcAmp_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMVideoProcAmp as ::windows::core::Interface>::IID
+        iid == &<IAMVideoProcAmp as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -4490,7 +4490,7 @@ impl IAMWMBufferPass_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetNotify: SetNotify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMWMBufferPass as ::windows::core::Interface>::IID
+        iid == &<IAMWMBufferPass as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -4511,7 +4511,7 @@ impl IAMWMBufferPassCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMWMBufferPassCallback as ::windows::core::Interface>::IID
+        iid == &<IAMWMBufferPassCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -4654,7 +4654,7 @@ impl IAMWstDecoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMWstDecoder as ::windows::core::Interface>::IID
+        iid == &<IAMWstDecoder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -4682,7 +4682,7 @@ impl IAMovieSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMovieSetup as ::windows::core::Interface>::IID
+        iid == &<IAMovieSetup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4719,7 +4719,7 @@ impl IATSCChannelTuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSCChannelTuneRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuneRequest as ::windows::core::Interface>::IID || iid == &<IChannelTuneRequest as ::windows::core::Interface>::IID
+        iid == &<IATSCChannelTuneRequest as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuneRequest as ::windows::core::ComInterface>::IID || iid == &<IChannelTuneRequest as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4756,7 +4756,7 @@ impl IATSCComponentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSCComponentType as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IComponentType as ::windows::core::Interface>::IID || iid == &<ILanguageComponentType as ::windows::core::Interface>::IID || iid == &<IMPEG2ComponentType as ::windows::core::Interface>::IID
+        iid == &<IATSCComponentType as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IComponentType as ::windows::core::ComInterface>::IID || iid == &<ILanguageComponentType as ::windows::core::ComInterface>::IID || iid == &<IMPEG2ComponentType as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4813,7 +4813,7 @@ impl IATSCLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSCLocator as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<IDigitalLocator as ::windows::core::Interface>::IID
+        iid == &<IATSCLocator as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4850,7 +4850,7 @@ impl IATSCLocator2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSCLocator2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<IDigitalLocator as ::windows::core::Interface>::IID || iid == &<IATSCLocator as ::windows::core::Interface>::IID
+        iid == &<IATSCLocator2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID || iid == &<IATSCLocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4947,7 +4947,7 @@ impl IATSCTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSCTuningSpace as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID || iid == &<IAnalogTVTuningSpace as ::windows::core::Interface>::IID
+        iid == &<IATSCTuningSpace as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID || iid == &<IAnalogTVTuningSpace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -5112,7 +5112,7 @@ impl IATSC_EIT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSC_EIT as ::windows::core::Interface>::IID
+        iid == &<IATSC_EIT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -5179,7 +5179,7 @@ impl IATSC_ETT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSC_ETT as ::windows::core::Interface>::IID
+        iid == &<IATSC_ETT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -5338,7 +5338,7 @@ impl IATSC_MGT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSC_MGT as ::windows::core::Interface>::IID
+        iid == &<IATSC_MGT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -5444,7 +5444,7 @@ impl IATSC_STT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSC_STT as ::windows::core::Interface>::IID
+        iid == &<IATSC_STT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5775,7 +5775,7 @@ impl IATSC_VCT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IATSC_VCT as ::windows::core::Interface>::IID
+        iid == &<IATSC_VCT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5812,7 +5812,7 @@ impl IAnalogAudioComponentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAnalogAudioComponentType as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IComponentType as ::windows::core::Interface>::IID
+        iid == &<IAnalogAudioComponentType as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IComponentType as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5849,7 +5849,7 @@ impl IAnalogLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAnalogLocator as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID
+        iid == &<IAnalogLocator as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5926,7 +5926,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAnalogRadioTuningSpace as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID
+        iid == &<IAnalogRadioTuningSpace as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5963,7 +5963,7 @@ impl IAnalogRadioTuningSpace2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAnalogRadioTuningSpace2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID || iid == &<IAnalogRadioTuningSpace as ::windows::core::Interface>::IID
+        iid == &<IAnalogRadioTuningSpace2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID || iid == &<IAnalogRadioTuningSpace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6060,7 +6060,7 @@ impl IAnalogTVTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAnalogTVTuningSpace as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID
+        iid == &<IAnalogTVTuningSpace as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -6136,7 +6136,7 @@ impl IAsyncReader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncReader as ::windows::core::Interface>::IID
+        iid == &<IAsyncReader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -6248,7 +6248,7 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAtscContentAdvisoryDescriptor as ::windows::core::Interface>::IID
+        iid == &<IAtscContentAdvisoryDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6402,7 +6402,7 @@ impl IAtscPsipParser_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAtscPsipParser as ::windows::core::Interface>::IID
+        iid == &<IAtscPsipParser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -6443,7 +6443,7 @@ impl IAttributeGet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAttributeGet as ::windows::core::Interface>::IID
+        iid == &<IAttributeGet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -6461,7 +6461,7 @@ impl IAttributeSet_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetAttrib: SetAttrib::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAttributeSet as ::windows::core::Interface>::IID
+        iid == &<IAttributeSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -6492,7 +6492,7 @@ impl IAudioData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioData as ::windows::core::Interface>::IID || iid == &<IMemoryData as ::windows::core::Interface>::IID
+        iid == &<IAudioData as ::windows::core::ComInterface>::IID || iid == &<IMemoryData as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -6536,7 +6536,7 @@ impl IAudioMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioMediaStream as ::windows::core::Interface>::IID || iid == &<IMediaStream as ::windows::core::Interface>::IID
+        iid == &<IAudioMediaStream as ::windows::core::ComInterface>::IID || iid == &<IMediaStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6563,7 +6563,7 @@ impl IAudioStreamSample_Vtbl {
         Self { base__: IStreamSample_Vtbl::new::<Identity, Impl, OFFSET>(), GetAudioData: GetAudioData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioStreamSample as ::windows::core::Interface>::IID || iid == &<IStreamSample as ::windows::core::Interface>::IID
+        iid == &<IAudioStreamSample as ::windows::core::ComInterface>::IID || iid == &<IStreamSample as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6577,7 +6577,7 @@ impl IAuxInTuningSpace_Vtbl {
         Self { base__: ITuningSpace_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAuxInTuningSpace as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID
+        iid == &<IAuxInTuningSpace as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6614,7 +6614,7 @@ impl IAuxInTuningSpace2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAuxInTuningSpace2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID || iid == &<IAuxInTuningSpace as ::windows::core::Interface>::IID
+        iid == &<IAuxInTuningSpace2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID || iid == &<IAuxInTuningSpace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6709,7 +6709,7 @@ impl IBDAComparable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDAComparable as ::windows::core::Interface>::IID
+        iid == &<IBDAComparable as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6736,7 +6736,7 @@ impl IBDACreateTuneRequestEx_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateTuneRequestEx: CreateTuneRequestEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDACreateTuneRequestEx as ::windows::core::Interface>::IID
+        iid == &<IBDACreateTuneRequestEx as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -6770,7 +6770,7 @@ impl IBDA_AUX_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_AUX as ::windows::core::Interface>::IID
+        iid == &<IBDA_AUX as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -6788,7 +6788,7 @@ impl IBDA_AutoDemodulate_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), put_AutoDemodulate: put_AutoDemodulate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_AutoDemodulate as ::windows::core::Interface>::IID
+        iid == &<IBDA_AutoDemodulate as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -6823,7 +6823,7 @@ impl IBDA_AutoDemodulateEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_AutoDemodulateEx as ::windows::core::Interface>::IID || iid == &<IBDA_AutoDemodulate as ::windows::core::Interface>::IID
+        iid == &<IBDA_AutoDemodulateEx as ::windows::core::ComInterface>::IID || iid == &<IBDA_AutoDemodulate as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6922,7 +6922,7 @@ impl IBDA_ConditionalAccess_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_ConditionalAccess as ::windows::core::Interface>::IID
+        iid == &<IBDA_ConditionalAccess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -6989,7 +6989,7 @@ impl IBDA_ConditionalAccessEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_ConditionalAccessEx as ::windows::core::Interface>::IID
+        iid == &<IBDA_ConditionalAccessEx as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7024,7 +7024,7 @@ impl IBDA_DRIDRMService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DRIDRMService as ::windows::core::Interface>::IID
+        iid == &<IBDA_DRIDRMService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7087,7 +7087,7 @@ impl IBDA_DRIWMDRMSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DRIWMDRMSession as ::windows::core::Interface>::IID
+        iid == &<IBDA_DRIWMDRMSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7118,7 +7118,7 @@ impl IBDA_DRM_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DRM as ::windows::core::Interface>::IID
+        iid == &<IBDA_DRM as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7146,7 +7146,7 @@ impl IBDA_DRMService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DRMService as ::windows::core::Interface>::IID
+        iid == &<IBDA_DRMService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7188,7 +7188,7 @@ impl IBDA_DeviceControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DeviceControl as ::windows::core::Interface>::IID
+        iid == &<IBDA_DeviceControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -7202,7 +7202,7 @@ impl IBDA_DiagnosticProperties_Vtbl {
         Self { base__: super::super::System::Com::StructuredStorage::IPropertyBag_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DiagnosticProperties as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::StructuredStorage::IPropertyBag as ::windows::core::Interface>::IID
+        iid == &<IBDA_DiagnosticProperties as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::StructuredStorage::IPropertyBag as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7314,7 +7314,7 @@ impl IBDA_DigitalDemodulator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DigitalDemodulator as ::windows::core::Interface>::IID
+        iid == &<IBDA_DigitalDemodulator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7384,7 +7384,7 @@ impl IBDA_DigitalDemodulator2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DigitalDemodulator2 as ::windows::core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as ::windows::core::Interface>::IID
+        iid == &<IBDA_DigitalDemodulator2 as ::windows::core::ComInterface>::IID || iid == &<IBDA_DigitalDemodulator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7426,7 +7426,7 @@ impl IBDA_DigitalDemodulator3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DigitalDemodulator3 as ::windows::core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as ::windows::core::Interface>::IID || iid == &<IBDA_DigitalDemodulator2 as ::windows::core::Interface>::IID
+        iid == &<IBDA_DigitalDemodulator3 as ::windows::core::ComInterface>::IID || iid == &<IBDA_DigitalDemodulator as ::windows::core::ComInterface>::IID || iid == &<IBDA_DigitalDemodulator2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7485,7 +7485,7 @@ impl IBDA_DiseqCommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_DiseqCommand as ::windows::core::Interface>::IID
+        iid == &<IBDA_DiseqCommand as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7503,7 +7503,7 @@ impl IBDA_EasMessage_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), get_EasMessage: get_EasMessage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_EasMessage as ::windows::core::Interface>::IID
+        iid == &<IBDA_EasMessage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7576,7 +7576,7 @@ impl IBDA_Encoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_Encoder as ::windows::core::Interface>::IID
+        iid == &<IBDA_Encoder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7631,7 +7631,7 @@ impl IBDA_EthernetFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_EthernetFilter as ::windows::core::Interface>::IID
+        iid == &<IBDA_EthernetFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7649,7 +7649,7 @@ impl IBDA_EventingService_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CompleteEvent: CompleteEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_EventingService as ::windows::core::Interface>::IID
+        iid == &<IBDA_EventingService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7727,7 +7727,7 @@ impl IBDA_FDC_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_FDC as ::windows::core::Interface>::IID
+        iid == &<IBDA_FDC as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7825,7 +7825,7 @@ impl IBDA_FrequencyFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_FrequencyFilter as ::windows::core::Interface>::IID
+        iid == &<IBDA_FrequencyFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7899,7 +7899,7 @@ impl IBDA_GuideDataDeliveryService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_GuideDataDeliveryService as ::windows::core::Interface>::IID
+        iid == &<IBDA_GuideDataDeliveryService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7927,7 +7927,7 @@ impl IBDA_IPSinkControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_IPSinkControl as ::windows::core::Interface>::IID
+        iid == &<IBDA_IPSinkControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -7974,7 +7974,7 @@ impl IBDA_IPSinkInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_IPSinkInfo as ::windows::core::Interface>::IID
+        iid == &<IBDA_IPSinkInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8029,7 +8029,7 @@ impl IBDA_IPV4Filter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_IPV4Filter as ::windows::core::Interface>::IID
+        iid == &<IBDA_IPV4Filter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8084,7 +8084,7 @@ impl IBDA_IPV6Filter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_IPV6Filter as ::windows::core::Interface>::IID
+        iid == &<IBDA_IPV6Filter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8102,7 +8102,7 @@ impl IBDA_ISDBConditionalAccess_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetIsdbCasRequest: SetIsdbCasRequest::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_ISDBConditionalAccess as ::windows::core::Interface>::IID
+        iid == &<IBDA_ISDBConditionalAccess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8158,7 +8158,7 @@ impl IBDA_LNBInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_LNBInfo as ::windows::core::Interface>::IID
+        iid == &<IBDA_LNBInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8186,7 +8186,7 @@ impl IBDA_MUX_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_MUX as ::windows::core::Interface>::IID
+        iid == &<IBDA_MUX as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8233,7 +8233,7 @@ impl IBDA_NameValueService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_NameValueService as ::windows::core::Interface>::IID
+        iid == &<IBDA_NameValueService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8296,7 +8296,7 @@ impl IBDA_NetworkProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_NetworkProvider as ::windows::core::Interface>::IID
+        iid == &<IBDA_NetworkProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8320,7 +8320,7 @@ impl IBDA_NullTransform_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Start: Start::<Identity, Impl, OFFSET>, Stop: Stop::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_NullTransform as ::windows::core::Interface>::IID
+        iid == &<IBDA_NullTransform as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8355,7 +8355,7 @@ impl IBDA_PinControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_PinControl as ::windows::core::Interface>::IID
+        iid == &<IBDA_PinControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8411,7 +8411,7 @@ impl IBDA_SignalProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_SignalProperties as ::windows::core::Interface>::IID
+        iid == &<IBDA_SignalProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8498,7 +8498,7 @@ impl IBDA_SignalStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_SignalStatistics as ::windows::core::Interface>::IID
+        iid == &<IBDA_SignalStatistics as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8526,7 +8526,7 @@ impl IBDA_TIF_REGISTRATION_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_TIF_REGISTRATION as ::windows::core::Interface>::IID
+        iid == &<IBDA_TIF_REGISTRATION as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8620,7 +8620,7 @@ impl IBDA_Topology_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_Topology as ::windows::core::Interface>::IID
+        iid == &<IBDA_Topology as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8644,7 +8644,7 @@ impl IBDA_TransportStreamInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PatTableTickCount: PatTableTickCount::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_TransportStreamInfo as ::windows::core::Interface>::IID
+        iid == &<IBDA_TransportStreamInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8672,7 +8672,7 @@ impl IBDA_TransportStreamSelector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_TransportStreamSelector as ::windows::core::Interface>::IID
+        iid == &<IBDA_TransportStreamSelector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8713,7 +8713,7 @@ impl IBDA_UserActivityService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_UserActivityService as ::windows::core::Interface>::IID
+        iid == &<IBDA_UserActivityService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8737,7 +8737,7 @@ impl IBDA_VoidTransform_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Start: Start::<Identity, Impl, OFFSET>, Stop: Stop::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_VoidTransform as ::windows::core::Interface>::IID
+        iid == &<IBDA_VoidTransform as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8807,7 +8807,7 @@ impl IBDA_WMDRMSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_WMDRMSession as ::windows::core::Interface>::IID
+        iid == &<IBDA_WMDRMSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -8869,7 +8869,7 @@ impl IBDA_WMDRMTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBDA_WMDRMTuner as ::windows::core::Interface>::IID
+        iid == &<IBDA_WMDRMTuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8907,7 +8907,7 @@ impl IBPCSatelliteTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBPCSatelliteTuner as ::windows::core::Interface>::IID || iid == &<IAMTuner as ::windows::core::Interface>::IID
+        iid == &<IBPCSatelliteTuner as ::windows::core::ComInterface>::IID || iid == &<IAMTuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -8977,7 +8977,7 @@ impl IBaseFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBaseFilter as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<IMediaFilter as ::windows::core::Interface>::IID
+        iid == &<IBaseFilter as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID || iid == &<IMediaFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -9064,7 +9064,7 @@ impl IBaseVideoMixer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBaseVideoMixer as ::windows::core::Interface>::IID
+        iid == &<IBaseVideoMixer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -9121,7 +9121,7 @@ impl IBasicAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBasicAudio as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IBasicAudio as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -9440,7 +9440,7 @@ impl IBasicVideo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBasicVideo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IBasicVideo as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -9461,7 +9461,7 @@ impl IBasicVideo2_Vtbl {
         Self { base__: IBasicVideo_Vtbl::new::<Identity, Impl, OFFSET>(), GetPreferredAspectRatio: GetPreferredAspectRatio::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBasicVideo2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IBasicVideo as ::windows::core::Interface>::IID
+        iid == &<IBasicVideo2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IBasicVideo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -9479,7 +9479,7 @@ impl IBroadcastEvent_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Fire: Fire::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBroadcastEvent as ::windows::core::Interface>::IID
+        iid == &<IBroadcastEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -9497,7 +9497,7 @@ impl IBroadcastEventEx_Vtbl {
         Self { base__: IBroadcastEvent_Vtbl::new::<Identity, Impl, OFFSET>(), FireEx: FireEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBroadcastEventEx as ::windows::core::Interface>::IID || iid == &<IBroadcastEvent as ::windows::core::Interface>::IID
+        iid == &<IBroadcastEventEx as ::windows::core::ComInterface>::IID || iid == &<IBroadcastEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -9525,7 +9525,7 @@ impl IBufferingTime_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBufferingTime as ::windows::core::Interface>::IID
+        iid == &<IBufferingTime as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -9629,7 +9629,7 @@ impl ICAT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICAT as ::windows::core::Interface>::IID
+        iid == &<ICAT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -9663,7 +9663,7 @@ impl ICCSubStreamFiltering_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICCSubStreamFiltering as ::windows::core::Interface>::IID
+        iid == &<ICCSubStreamFiltering as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -10034,7 +10034,7 @@ impl ICameraControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICameraControl as ::windows::core::Interface>::IID
+        iid == &<ICameraControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -10120,7 +10120,7 @@ impl ICaptionServiceDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICaptionServiceDescriptor as ::windows::core::Interface>::IID
+        iid == &<ICaptionServiceDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -10199,7 +10199,7 @@ impl ICaptureGraphBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICaptureGraphBuilder as ::windows::core::Interface>::IID
+        iid == &<ICaptureGraphBuilder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -10291,7 +10291,7 @@ impl ICaptureGraphBuilder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICaptureGraphBuilder2 as ::windows::core::Interface>::IID
+        iid == &<ICaptureGraphBuilder2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -10328,7 +10328,7 @@ impl IChannelIDTuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IChannelIDTuneRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuneRequest as ::windows::core::Interface>::IID
+        iid == &<IChannelIDTuneRequest as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuneRequest as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -10365,7 +10365,7 @@ impl IChannelTuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IChannelTuneRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuneRequest as ::windows::core::Interface>::IID
+        iid == &<IChannelTuneRequest as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuneRequest as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -10475,7 +10475,7 @@ impl IComponent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IComponent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IComponent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -10665,7 +10665,7 @@ impl IComponentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IComponentType as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IComponentType as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -10774,7 +10774,7 @@ impl IComponentTypes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IComponentTypes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IComponentTypes as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -10883,7 +10883,7 @@ impl IComponents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IComponents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IComponents as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -10985,7 +10985,7 @@ impl IComponentsOld_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IComponentsOld as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IComponentsOld as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -11082,7 +11082,7 @@ impl IConfigAsfWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConfigAsfWriter as ::windows::core::Interface>::IID
+        iid == &<IConfigAsfWriter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -11133,7 +11133,7 @@ impl IConfigAsfWriter2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConfigAsfWriter2 as ::windows::core::Interface>::IID || iid == &<IConfigAsfWriter as ::windows::core::Interface>::IID
+        iid == &<IConfigAsfWriter2 as ::windows::core::ComInterface>::IID || iid == &<IConfigAsfWriter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -11190,7 +11190,7 @@ impl IConfigAviMux_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConfigAviMux as ::windows::core::Interface>::IID
+        iid == &<IConfigAviMux as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -11238,7 +11238,7 @@ impl IConfigInterleaving_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConfigInterleaving as ::windows::core::Interface>::IID
+        iid == &<IConfigInterleaving as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -11259,7 +11259,7 @@ impl ICreateDevEnum_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateClassEnumerator: CreateClassEnumerator::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICreateDevEnum as ::windows::core::Interface>::IID
+        iid == &<ICreateDevEnum as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
@@ -11280,7 +11280,7 @@ impl ICreatePropBagOnRegKey_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICreatePropBagOnRegKey as ::windows::core::Interface>::IID
+        iid == &<ICreatePropBagOnRegKey as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -11346,7 +11346,7 @@ impl IDDrawExclModeVideo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDDrawExclModeVideo as ::windows::core::Interface>::IID
+        iid == &<IDDrawExclModeVideo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -11384,7 +11384,7 @@ impl IDDrawExclModeVideoCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDDrawExclModeVideoCallback as ::windows::core::Interface>::IID
+        iid == &<IDDrawExclModeVideoCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -11402,7 +11402,7 @@ impl IDMOWrapperFilter_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Init: Init::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMOWrapperFilter as ::windows::core::Interface>::IID
+        iid == &<IDMOWrapperFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -11430,7 +11430,7 @@ impl IDShowPlugin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDShowPlugin as ::windows::core::Interface>::IID
+        iid == &<IDShowPlugin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -11527,7 +11527,7 @@ impl IDTFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDTFilter as ::windows::core::Interface>::IID
+        iid == &<IDTFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -11577,7 +11577,7 @@ impl IDTFilter2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDTFilter2 as ::windows::core::Interface>::IID || iid == &<IDTFilter as ::windows::core::Interface>::IID
+        iid == &<IDTFilter2 as ::windows::core::ComInterface>::IID || iid == &<IDTFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -11627,7 +11627,7 @@ impl IDTFilter3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDTFilter3 as ::windows::core::Interface>::IID || iid == &<IDTFilter as ::windows::core::Interface>::IID || iid == &<IDTFilter2 as ::windows::core::Interface>::IID
+        iid == &<IDTFilter3 as ::windows::core::ComInterface>::IID || iid == &<IDTFilter as ::windows::core::ComInterface>::IID || iid == &<IDTFilter2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -11651,7 +11651,7 @@ impl IDTFilterConfig_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSecureChannelObject: GetSecureChannelObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDTFilterConfig as ::windows::core::Interface>::IID
+        iid == &<IDTFilterConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -11665,7 +11665,7 @@ impl IDTFilterEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDTFilterEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IDTFilterEvents as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -11683,7 +11683,7 @@ impl IDTFilterLicenseRenewal_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLicenseRenewalData: GetLicenseRenewalData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDTFilterLicenseRenewal as ::windows::core::Interface>::IID
+        iid == &<IDTFilterLicenseRenewal as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -11697,7 +11697,7 @@ impl IDVBCLocator_Vtbl {
         Self { base__: IDigitalLocator_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVBCLocator as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<IDigitalLocator as ::windows::core::Interface>::IID
+        iid == &<IDVBCLocator as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -11814,7 +11814,7 @@ impl IDVBSLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVBSLocator as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<IDigitalLocator as ::windows::core::Interface>::IID
+        iid == &<IDVBSLocator as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -11971,7 +11971,7 @@ impl IDVBSLocator2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVBSLocator2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<IDigitalLocator as ::windows::core::Interface>::IID || iid == &<IDVBSLocator as ::windows::core::Interface>::IID
+        iid == &<IDVBSLocator2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID || iid == &<IDVBSLocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -12088,7 +12088,7 @@ impl IDVBSTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVBSTuningSpace as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID || iid == &<IDVBTuningSpace as ::windows::core::Interface>::IID || iid == &<IDVBTuningSpace2 as ::windows::core::Interface>::IID
+        iid == &<IDVBSTuningSpace as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID || iid == &<IDVBTuningSpace as ::windows::core::ComInterface>::IID || iid == &<IDVBTuningSpace2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -12245,7 +12245,7 @@ impl IDVBTLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVBTLocator as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<IDigitalLocator as ::windows::core::Interface>::IID
+        iid == &<IDVBTLocator as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -12282,7 +12282,7 @@ impl IDVBTLocator2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVBTLocator2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<IDigitalLocator as ::windows::core::Interface>::IID || iid == &<IDVBTLocator as ::windows::core::Interface>::IID
+        iid == &<IDVBTLocator2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID || iid == &<IDVBTLocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -12359,7 +12359,7 @@ impl IDVBTuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVBTuneRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuneRequest as ::windows::core::Interface>::IID
+        iid == &<IDVBTuneRequest as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuneRequest as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -12396,7 +12396,7 @@ impl IDVBTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVBTuningSpace as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID
+        iid == &<IDVBTuningSpace as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -12433,7 +12433,7 @@ impl IDVBTuningSpace2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVBTuningSpace2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID || iid == &<IDVBTuningSpace as ::windows::core::Interface>::IID
+        iid == &<IDVBTuningSpace2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID || iid == &<IDVBTuningSpace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -12616,7 +12616,7 @@ impl IDVB_BAT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_BAT as ::windows::core::Interface>::IID
+        iid == &<IDVB_BAT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -12653,7 +12653,7 @@ impl IDVB_DIT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_DIT as ::windows::core::Interface>::IID
+        iid == &<IDVB_DIT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -12913,7 +12913,7 @@ impl IDVB_EIT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_EIT as ::windows::core::Interface>::IID
+        iid == &<IDVB_EIT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -12950,7 +12950,7 @@ impl IDVB_EIT2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_EIT2 as ::windows::core::Interface>::IID || iid == &<IDVB_EIT as ::windows::core::Interface>::IID
+        iid == &<IDVB_EIT2 as ::windows::core::ComInterface>::IID || iid == &<IDVB_EIT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -13152,7 +13152,7 @@ impl IDVB_NIT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_NIT as ::windows::core::Interface>::IID
+        iid == &<IDVB_NIT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -13251,7 +13251,7 @@ impl IDVB_RST_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_RST as ::windows::core::Interface>::IID
+        iid == &<IDVB_RST as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -13472,7 +13472,7 @@ impl IDVB_SDT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_SDT as ::windows::core::Interface>::IID
+        iid == &<IDVB_SDT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -13648,7 +13648,7 @@ impl IDVB_SIT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_SIT as ::windows::core::Interface>::IID
+        iid == &<IDVB_SIT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -13695,7 +13695,7 @@ impl IDVB_ST_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_ST as ::windows::core::Interface>::IID
+        iid == &<IDVB_ST as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -13729,7 +13729,7 @@ impl IDVB_TDT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_TDT as ::windows::core::Interface>::IID
+        iid == &<IDVB_TDT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -13796,7 +13796,7 @@ impl IDVB_TOT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVB_TOT as ::windows::core::Interface>::IID
+        iid == &<IDVB_TOT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -13824,7 +13824,7 @@ impl IDVEnc_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVEnc as ::windows::core::Interface>::IID
+        iid == &<IDVEnc as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -13845,7 +13845,7 @@ impl IDVRGB219_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRGB219: SetRGB219::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVRGB219 as ::windows::core::Interface>::IID
+        iid == &<IDVRGB219 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -13866,7 +13866,7 @@ impl IDVSplitter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDVSplitter as ::windows::core::Interface>::IID
+        iid == &<IDVSplitter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -13894,7 +13894,7 @@ impl IDecimateVideoImage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDecimateVideoImage as ::windows::core::Interface>::IID
+        iid == &<IDecimateVideoImage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -13948,7 +13948,7 @@ impl IDeferredCommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDeferredCommand as ::windows::core::Interface>::IID
+        iid == &<IDeferredCommand as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -13962,7 +13962,7 @@ impl IDigitalCableLocator_Vtbl {
         Self { base__: IATSCLocator2_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDigitalCableLocator as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<IDigitalLocator as ::windows::core::Interface>::IID || iid == &<IATSCLocator as ::windows::core::Interface>::IID || iid == &<IATSCLocator2 as ::windows::core::Interface>::IID
+        iid == &<IDigitalCableLocator as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID || iid == &<IATSCLocator as ::windows::core::ComInterface>::IID || iid == &<IATSCLocator2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -14019,7 +14019,7 @@ impl IDigitalCableTuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDigitalCableTuneRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuneRequest as ::windows::core::Interface>::IID || iid == &<IChannelTuneRequest as ::windows::core::Interface>::IID || iid == &<IATSCChannelTuneRequest as ::windows::core::Interface>::IID
+        iid == &<IDigitalCableTuneRequest as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuneRequest as ::windows::core::ComInterface>::IID || iid == &<IChannelTuneRequest as ::windows::core::ComInterface>::IID || iid == &<IATSCChannelTuneRequest as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -14116,7 +14116,7 @@ impl IDigitalCableTuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDigitalCableTuningSpace as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuningSpace as ::windows::core::Interface>::IID || iid == &<IAnalogTVTuningSpace as ::windows::core::Interface>::IID || iid == &<IATSCTuningSpace as ::windows::core::Interface>::IID
+        iid == &<IDigitalCableTuningSpace as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuningSpace as ::windows::core::ComInterface>::IID || iid == &<IAnalogTVTuningSpace as ::windows::core::ComInterface>::IID || iid == &<IATSCTuningSpace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -14130,7 +14130,7 @@ impl IDigitalLocator_Vtbl {
         Self { base__: ILocator_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDigitalLocator as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID
+        iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -14161,7 +14161,7 @@ impl IDirectDrawMediaSample_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectDrawMediaSample as ::windows::core::Interface>::IID
+        iid == &<IDirectDrawMediaSample as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -14188,7 +14188,7 @@ impl IDirectDrawMediaSampleAllocator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDirectDraw: GetDirectDraw::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectDrawMediaSampleAllocator as ::windows::core::Interface>::IID
+        iid == &<IDirectDrawMediaSampleAllocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -14265,7 +14265,7 @@ impl IDirectDrawMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectDrawMediaStream as ::windows::core::Interface>::IID || iid == &<IMediaStream as ::windows::core::Interface>::IID
+        iid == &<IDirectDrawMediaStream as ::windows::core::ComInterface>::IID || iid == &<IMediaStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -14296,7 +14296,7 @@ impl IDirectDrawStreamSample_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectDrawStreamSample as ::windows::core::Interface>::IID || iid == &<IStreamSample as ::windows::core::Interface>::IID
+        iid == &<IDirectDrawStreamSample as ::windows::core::ComInterface>::IID || iid == &<IStreamSample as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -14461,7 +14461,7 @@ impl IDirectDrawVideo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectDrawVideo as ::windows::core::Interface>::IID
+        iid == &<IDirectDrawVideo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -14510,7 +14510,7 @@ impl IDistributorNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDistributorNotify as ::windows::core::Interface>::IID
+        iid == &<IDistributorNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -14548,7 +14548,7 @@ impl IDrawVideoImage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDrawVideoImage as ::windows::core::Interface>::IID
+        iid == &<IDrawVideoImage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -14653,7 +14653,7 @@ impl IDvbCableDeliverySystemDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbCableDeliverySystemDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbCableDeliverySystemDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -14752,7 +14752,7 @@ impl IDvbComponentDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbComponentDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbComponentDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -14819,7 +14819,7 @@ impl IDvbContentDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbContentDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbContentDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -14879,7 +14879,7 @@ impl IDvbContentIdentifierDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbContentIdentifierDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbContentIdentifierDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -14998,7 +14998,7 @@ impl IDvbDataBroadcastDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbDataBroadcastDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbDataBroadcastDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15058,7 +15058,7 @@ impl IDvbDataBroadcastIDDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbDataBroadcastIDDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbDataBroadcastIDDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15105,7 +15105,7 @@ impl IDvbDefaultAuthorityDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbDefaultAuthorityDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbDefaultAuthorityDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15238,7 +15238,7 @@ impl IDvbExtendedEventDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbExtendedEventDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbExtendedEventDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15317,7 +15317,7 @@ impl IDvbFrequencyListDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbFrequencyListDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbFrequencyListDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15328,7 +15328,7 @@ impl IDvbHDSimulcastLogicalChannelDescriptor_Vtbl {
         Self { base__: IDvbLogicalChannelDescriptor2_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbHDSimulcastLogicalChannelDescriptor as ::windows::core::Interface>::IID || iid == &<IDvbLogicalChannelDescriptor as ::windows::core::Interface>::IID || iid == &<IDvbLogicalChannelDescriptor2 as ::windows::core::Interface>::IID
+        iid == &<IDvbHDSimulcastLogicalChannelDescriptor as ::windows::core::ComInterface>::IID || iid == &<IDvbLogicalChannelDescriptor as ::windows::core::ComInterface>::IID || iid == &<IDvbLogicalChannelDescriptor2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15440,7 +15440,7 @@ impl IDvbLinkageDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbLinkageDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbLinkageDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15552,7 +15552,7 @@ impl IDvbLogicalChannel2Descriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbLogicalChannel2Descriptor as ::windows::core::Interface>::IID || iid == &<IDvbLogicalChannelDescriptor as ::windows::core::Interface>::IID || iid == &<IDvbLogicalChannelDescriptor2 as ::windows::core::Interface>::IID
+        iid == &<IDvbLogicalChannel2Descriptor as ::windows::core::ComInterface>::IID || iid == &<IDvbLogicalChannelDescriptor as ::windows::core::ComInterface>::IID || iid == &<IDvbLogicalChannelDescriptor2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15631,7 +15631,7 @@ impl IDvbLogicalChannelDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbLogicalChannelDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbLogicalChannelDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15658,7 +15658,7 @@ impl IDvbLogicalChannelDescriptor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbLogicalChannelDescriptor2 as ::windows::core::Interface>::IID || iid == &<IDvbLogicalChannelDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbLogicalChannelDescriptor2 as ::windows::core::ComInterface>::IID || iid == &<IDvbLogicalChannelDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15750,7 +15750,7 @@ impl IDvbMultilingualServiceNameDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbMultilingualServiceNameDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbMultilingualServiceNameDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15816,7 +15816,7 @@ impl IDvbNetworkNameDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbNetworkNameDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbNetworkNameDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15876,7 +15876,7 @@ impl IDvbParentalRatingDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbParentalRatingDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbParentalRatingDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -15929,7 +15929,7 @@ impl IDvbPrivateDataSpecifierDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbPrivateDataSpecifierDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbPrivateDataSpecifierDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -16060,7 +16060,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbSatelliteDeliverySystemDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbSatelliteDeliverySystemDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -16155,7 +16155,7 @@ impl IDvbServiceAttributeDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbServiceAttributeDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbServiceAttributeDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -16273,7 +16273,7 @@ impl IDvbServiceDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbServiceDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbServiceDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -16313,7 +16313,7 @@ impl IDvbServiceDescriptor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbServiceDescriptor2 as ::windows::core::Interface>::IID || iid == &<IDvbServiceDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbServiceDescriptor2 as ::windows::core::ComInterface>::IID || iid == &<IDvbServiceDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -16392,7 +16392,7 @@ impl IDvbServiceListDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbServiceListDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbServiceListDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -16465,7 +16465,7 @@ impl IDvbShortEventDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbShortEventDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbShortEventDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -16668,7 +16668,7 @@ impl IDvbSiParser_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbSiParser as ::windows::core::Interface>::IID
+        iid == &<IDvbSiParser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -16692,7 +16692,7 @@ impl IDvbSiParser2_Vtbl {
         Self { base__: IDvbSiParser_Vtbl::new::<Identity, Impl, OFFSET>(), GetEIT2: GetEIT2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbSiParser2 as ::windows::core::Interface>::IID || iid == &<IDvbSiParser as ::windows::core::Interface>::IID
+        iid == &<IDvbSiParser2 as ::windows::core::ComInterface>::IID || iid == &<IDvbSiParser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -16797,7 +16797,7 @@ impl IDvbSubtitlingDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbSubtitlingDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbSubtitlingDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -16902,7 +16902,7 @@ impl IDvbTeletextDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbTeletextDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbTeletextDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -17085,7 +17085,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbTerrestrial2DeliverySystemDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbTerrestrial2DeliverySystemDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -17242,7 +17242,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvbTerrestrialDeliverySystemDescriptor as ::windows::core::Interface>::IID
+        iid == &<IDvbTerrestrialDeliverySystemDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -17270,7 +17270,7 @@ impl IDvdCmd_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvdCmd as ::windows::core::Interface>::IID
+        iid == &<IDvdCmd as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -17532,7 +17532,7 @@ impl IDvdControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvdControl as ::windows::core::Interface>::IID
+        iid == &<IDvdControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -17937,7 +17937,7 @@ impl IDvdControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvdControl2 as ::windows::core::Interface>::IID
+        iid == &<IDvdControl2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -17981,7 +17981,7 @@ impl IDvdGraphBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvdGraphBuilder as ::windows::core::Interface>::IID
+        iid == &<IDvdGraphBuilder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -18231,7 +18231,7 @@ impl IDvdInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvdInfo as ::windows::core::Interface>::IID
+        iid == &<IDvdInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -18635,7 +18635,7 @@ impl IDvdInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvdInfo2 as ::windows::core::Interface>::IID
+        iid == &<IDvdInfo2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -18675,7 +18675,7 @@ impl IDvdState_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDvdState as ::windows::core::Interface>::IID
+        iid == &<IDvdState as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -18702,7 +18702,7 @@ impl IESCloseMmiEvent_Vtbl {
         Self { base__: IESEvent_Vtbl::new::<Identity, Impl, OFFSET>(), GetDialogNumber: GetDialogNumber::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESCloseMmiEvent as ::windows::core::Interface>::IID || iid == &<IESEvent as ::windows::core::Interface>::IID
+        iid == &<IESCloseMmiEvent as ::windows::core::ComInterface>::IID || iid == &<IESEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -18778,7 +18778,7 @@ impl IESEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESEvent as ::windows::core::Interface>::IID
+        iid == &<IESEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -18802,7 +18802,7 @@ impl IESEventFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateESEvent: CreateESEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESEventFactory as ::windows::core::Interface>::IID
+        iid == &<IESEventFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -18820,7 +18820,7 @@ impl IESEventService_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FireESEvent: FireESEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESEventService as ::windows::core::Interface>::IID
+        iid == &<IESEventService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -18876,7 +18876,7 @@ impl IESEventServiceConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESEventServiceConfiguration as ::windows::core::Interface>::IID
+        iid == &<IESEventServiceConfiguration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -18894,7 +18894,7 @@ impl IESEvents_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnESEventReceived: OnESEventReceived::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESEvents as ::windows::core::Interface>::IID
+        iid == &<IESEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -18989,7 +18989,7 @@ impl IESFileExpiryDateEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESFileExpiryDateEvent as ::windows::core::Interface>::IID || iid == &<IESEvent as ::windows::core::Interface>::IID
+        iid == &<IESFileExpiryDateEvent as ::windows::core::ComInterface>::IID || iid == &<IESEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -19058,7 +19058,7 @@ impl IESIsdbCasResponseEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESIsdbCasResponseEvent as ::windows::core::Interface>::IID || iid == &<IESEvent as ::windows::core::Interface>::IID
+        iid == &<IESIsdbCasResponseEvent as ::windows::core::ComInterface>::IID || iid == &<IESEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -19218,7 +19218,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESLicenseRenewalResultEvent as ::windows::core::Interface>::IID || iid == &<IESEvent as ::windows::core::Interface>::IID
+        iid == &<IESLicenseRenewalResultEvent as ::windows::core::ComInterface>::IID || iid == &<IESEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -19275,7 +19275,7 @@ impl IESOpenMmiEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESOpenMmiEvent as ::windows::core::Interface>::IID || iid == &<IESEvent as ::windows::core::Interface>::IID
+        iid == &<IESOpenMmiEvent as ::windows::core::ComInterface>::IID || iid == &<IESEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -19344,7 +19344,7 @@ impl IESRequestTunerEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESRequestTunerEvent as ::windows::core::Interface>::IID || iid == &<IESEvent as ::windows::core::Interface>::IID
+        iid == &<IESRequestTunerEvent as ::windows::core::ComInterface>::IID || iid == &<IESEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -19371,7 +19371,7 @@ impl IESValueUpdatedEvent_Vtbl {
         Self { base__: IESEvent_Vtbl::new::<Identity, Impl, OFFSET>(), GetValueNames: GetValueNames::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IESValueUpdatedEvent as ::windows::core::Interface>::IID || iid == &<IESEvent as ::windows::core::Interface>::IID
+        iid == &<IESValueUpdatedEvent as ::windows::core::ComInterface>::IID || iid == &<IESEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -19435,7 +19435,7 @@ impl IETFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IETFilter as ::windows::core::Interface>::IID
+        iid == &<IETFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -19469,7 +19469,7 @@ impl IETFilterConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IETFilterConfig as ::windows::core::Interface>::IID
+        iid == &<IETFilterConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -19483,7 +19483,7 @@ impl IETFilterEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IETFilterEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IETFilterEvents as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -19561,7 +19561,7 @@ impl IEncoderAPI_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEncoderAPI as ::windows::core::Interface>::IID
+        iid == &<IEncoderAPI as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -19612,7 +19612,7 @@ impl IEnumComponentTypes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumComponentTypes as ::windows::core::Interface>::IID
+        iid == &<IEnumComponentTypes as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -19663,7 +19663,7 @@ impl IEnumComponents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumComponents as ::windows::core::Interface>::IID
+        iid == &<IEnumComponents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -19714,7 +19714,7 @@ impl IEnumFilters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumFilters as ::windows::core::Interface>::IID
+        iid == &<IEnumFilters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -19762,7 +19762,7 @@ impl IEnumGuideDataProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumGuideDataProperties as ::windows::core::Interface>::IID
+        iid == &<IEnumGuideDataProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -19813,7 +19813,7 @@ impl IEnumMSVidGraphSegment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumMSVidGraphSegment as ::windows::core::Interface>::IID
+        iid == &<IEnumMSVidGraphSegment as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19864,7 +19864,7 @@ impl IEnumMediaTypes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumMediaTypes as ::windows::core::Interface>::IID
+        iid == &<IEnumMediaTypes as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -19912,7 +19912,7 @@ impl IEnumPIDMap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumPIDMap as ::windows::core::Interface>::IID
+        iid == &<IEnumPIDMap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -19960,7 +19960,7 @@ impl IEnumPins_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumPins as ::windows::core::Interface>::IID
+        iid == &<IEnumPins as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -20008,7 +20008,7 @@ impl IEnumRegFilters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumRegFilters as ::windows::core::Interface>::IID
+        iid == &<IEnumRegFilters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -20056,7 +20056,7 @@ impl IEnumStreamBufferRecordingAttrib_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumStreamBufferRecordingAttrib as ::windows::core::Interface>::IID
+        iid == &<IEnumStreamBufferRecordingAttrib as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -20104,7 +20104,7 @@ impl IEnumStreamIdMap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumStreamIdMap as ::windows::core::Interface>::IID
+        iid == &<IEnumStreamIdMap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -20155,7 +20155,7 @@ impl IEnumTuneRequests_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTuneRequests as ::windows::core::Interface>::IID
+        iid == &<IEnumTuneRequests as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -20206,7 +20206,7 @@ impl IEnumTuningSpaces_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTuningSpaces as ::windows::core::Interface>::IID
+        iid == &<IEnumTuningSpaces as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -20277,7 +20277,7 @@ impl IEvalRat_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEvalRat as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IEvalRat as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -20308,7 +20308,7 @@ impl IFileSinkFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFileSinkFilter as ::windows::core::Interface>::IID
+        iid == &<IFileSinkFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -20345,7 +20345,7 @@ impl IFileSinkFilter2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFileSinkFilter2 as ::windows::core::Interface>::IID || iid == &<IFileSinkFilter as ::windows::core::Interface>::IID
+        iid == &<IFileSinkFilter2 as ::windows::core::ComInterface>::IID || iid == &<IFileSinkFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -20376,7 +20376,7 @@ impl IFileSourceFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFileSourceFilter as ::windows::core::Interface>::IID
+        iid == &<IFileSourceFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -20421,7 +20421,7 @@ impl IFilterChain_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFilterChain as ::windows::core::Interface>::IID
+        iid == &<IFilterChain as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -20506,7 +20506,7 @@ impl IFilterGraph_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFilterGraph as ::windows::core::Interface>::IID
+        iid == &<IFilterGraph as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -20550,7 +20550,7 @@ impl IFilterGraph2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFilterGraph2 as ::windows::core::Interface>::IID || iid == &<IFilterGraph as ::windows::core::Interface>::IID || iid == &<IGraphBuilder as ::windows::core::Interface>::IID
+        iid == &<IFilterGraph2 as ::windows::core::ComInterface>::IID || iid == &<IFilterGraph as ::windows::core::ComInterface>::IID || iid == &<IGraphBuilder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -20571,7 +20571,7 @@ impl IFilterGraph3_Vtbl {
         Self { base__: IFilterGraph2_Vtbl::new::<Identity, Impl, OFFSET>(), SetSyncSourceEx: SetSyncSourceEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFilterGraph3 as ::windows::core::Interface>::IID || iid == &<IFilterGraph as ::windows::core::Interface>::IID || iid == &<IGraphBuilder as ::windows::core::Interface>::IID || iid == &<IFilterGraph2 as ::windows::core::Interface>::IID
+        iid == &<IFilterGraph3 as ::windows::core::ComInterface>::IID || iid == &<IFilterGraph as ::windows::core::ComInterface>::IID || iid == &<IGraphBuilder as ::windows::core::ComInterface>::IID || iid == &<IFilterGraph2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -20686,7 +20686,7 @@ impl IFilterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFilterInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IFilterInfo as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -20765,7 +20765,7 @@ impl IFilterMapper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFilterMapper as ::windows::core::Interface>::IID
+        iid == &<IFilterMapper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -20827,7 +20827,7 @@ impl IFilterMapper2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFilterMapper2 as ::windows::core::Interface>::IID
+        iid == &<IFilterMapper2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -20854,7 +20854,7 @@ impl IFilterMapper3_Vtbl {
         Self { base__: IFilterMapper2_Vtbl::new::<Identity, Impl, OFFSET>(), GetICreateDevEnum: GetICreateDevEnum::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFilterMapper3 as ::windows::core::Interface>::IID || iid == &<IFilterMapper2 as ::windows::core::Interface>::IID
+        iid == &<IFilterMapper3 as ::windows::core::ComInterface>::IID || iid == &<IFilterMapper2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -20916,7 +20916,7 @@ impl IFrequencyMap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFrequencyMap as ::windows::core::Interface>::IID
+        iid == &<IFrequencyMap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -21088,7 +21088,7 @@ impl IFullScreenVideo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFullScreenVideo as ::windows::core::Interface>::IID
+        iid == &<IFullScreenVideo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -21139,7 +21139,7 @@ impl IFullScreenVideoEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFullScreenVideoEx as ::windows::core::Interface>::IID || iid == &<IFullScreenVideo as ::windows::core::Interface>::IID
+        iid == &<IFullScreenVideoEx as ::windows::core::ComInterface>::IID || iid == &<IFullScreenVideo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -21199,7 +21199,7 @@ impl IGenericDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGenericDescriptor as ::windows::core::Interface>::IID
+        iid == &<IGenericDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -21233,7 +21233,7 @@ impl IGenericDescriptor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGenericDescriptor2 as ::windows::core::Interface>::IID || iid == &<IGenericDescriptor as ::windows::core::Interface>::IID
+        iid == &<IGenericDescriptor2 as ::windows::core::ComInterface>::IID || iid == &<IGenericDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
@@ -21260,7 +21260,7 @@ impl IGetCapabilitiesKey_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCapabilitiesKey: GetCapabilitiesKey::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGetCapabilitiesKey as ::windows::core::Interface>::IID
+        iid == &<IGetCapabilitiesKey as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -21284,7 +21284,7 @@ impl IGpnvsCommonBase_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetValueUpdateName: GetValueUpdateName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGpnvsCommonBase as ::windows::core::Interface>::IID
+        iid == &<IGpnvsCommonBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -21356,7 +21356,7 @@ impl IGraphBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGraphBuilder as ::windows::core::Interface>::IID || iid == &<IFilterGraph as ::windows::core::Interface>::IID
+        iid == &<IGraphBuilder as ::windows::core::ComInterface>::IID || iid == &<IFilterGraph as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -21449,7 +21449,7 @@ impl IGraphConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGraphConfig as ::windows::core::Interface>::IID
+        iid == &<IGraphConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -21467,7 +21467,7 @@ impl IGraphConfigCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Reconfigure: Reconfigure::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGraphConfigCallback as ::windows::core::Interface>::IID
+        iid == &<IGraphConfigCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -21491,7 +21491,7 @@ impl IGraphVersion_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryVersion: QueryVersion::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGraphVersion as ::windows::core::Interface>::IID
+        iid == &<IGraphVersion as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -21586,7 +21586,7 @@ impl IGuideData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGuideData as ::windows::core::Interface>::IID
+        iid == &<IGuideData as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -21652,7 +21652,7 @@ impl IGuideDataEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGuideDataEvent as ::windows::core::Interface>::IID
+        iid == &<IGuideDataEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -21680,7 +21680,7 @@ impl IGuideDataLoader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGuideDataLoader as ::windows::core::Interface>::IID
+        iid == &<IGuideDataLoader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -21736,7 +21736,7 @@ impl IGuideDataProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGuideDataProperty as ::windows::core::Interface>::IID
+        iid == &<IGuideDataProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -21770,7 +21770,7 @@ impl IIPDVDec_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIPDVDec as ::windows::core::Interface>::IID
+        iid == &<IIPDVDec as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -21784,7 +21784,7 @@ impl IISDBSLocator_Vtbl {
         Self { base__: IDVBSLocator_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IISDBSLocator as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<IDigitalLocator as ::windows::core::Interface>::IID || iid == &<IDVBSLocator as ::windows::core::Interface>::IID
+        iid == &<IISDBSLocator as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<IDigitalLocator as ::windows::core::ComInterface>::IID || iid == &<IDVBSLocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -21949,7 +21949,7 @@ impl IISDB_BIT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IISDB_BIT as ::windows::core::Interface>::IID
+        iid == &<IISDB_BIT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -22107,7 +22107,7 @@ impl IISDB_CDT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IISDB_CDT as ::windows::core::Interface>::IID
+        iid == &<IISDB_CDT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -22188,7 +22188,7 @@ impl IISDB_EMM_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IISDB_EMM as ::windows::core::Interface>::IID
+        iid == &<IISDB_EMM as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -22333,7 +22333,7 @@ impl IISDB_LDT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IISDB_LDT as ::windows::core::Interface>::IID
+        iid == &<IISDB_LDT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -22530,7 +22530,7 @@ impl IISDB_NBIT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IISDB_NBIT as ::windows::core::Interface>::IID
+        iid == &<IISDB_NBIT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -22557,7 +22557,7 @@ impl IISDB_SDT_Vtbl {
         Self { base__: IDVB_SDT_Vtbl::new::<Identity, Impl, OFFSET>(), GetRecordEITUserDefinedFlags: GetRecordEITUserDefinedFlags::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IISDB_SDT as ::windows::core::Interface>::IID || iid == &<IDVB_SDT as ::windows::core::Interface>::IID
+        iid == &<IISDB_SDT as ::windows::core::ComInterface>::IID || iid == &<IDVB_SDT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -22819,7 +22819,7 @@ impl IISDB_SDTT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IISDB_SDTT as ::windows::core::Interface>::IID
+        iid == &<IISDB_SDTT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -23006,7 +23006,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbAudioComponentDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbAudioComponentDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -23137,7 +23137,7 @@ impl IIsdbCAContractInformationDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbCAContractInformationDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbCAContractInformationDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -23223,7 +23223,7 @@ impl IIsdbCADescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbCADescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbCADescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -23309,7 +23309,7 @@ impl IIsdbCAServiceDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbCAServiceDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbCAServiceDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -23466,7 +23466,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbComponentGroupDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbComponentGroupDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -23604,7 +23604,7 @@ impl IIsdbDataContentDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbDataContentDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbDataContentDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -23671,7 +23671,7 @@ impl IIsdbDigitalCopyControlDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbDigitalCopyControlDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbDigitalCopyControlDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -23897,7 +23897,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbDownloadContentDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbDownloadContentDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -23996,7 +23996,7 @@ impl IIsdbEmergencyInformationDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbEmergencyInformationDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbEmergencyInformationDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -24089,7 +24089,7 @@ impl IIsdbEventGroupDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbEventGroupDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbEventGroupDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -24181,7 +24181,7 @@ impl IIsdbHierarchicalTransmissionDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbHierarchicalTransmissionDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbHierarchicalTransmissionDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -24286,7 +24286,7 @@ impl IIsdbLogoTransmissionDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbLogoTransmissionDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbLogoTransmissionDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -24398,7 +24398,7 @@ impl IIsdbSIParameterDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbSIParameterDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbSIParameterDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -24526,7 +24526,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbSeriesDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbSeriesDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -24631,7 +24631,7 @@ impl IIsdbSiParser2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbSiParser2 as ::windows::core::Interface>::IID || iid == &<IDvbSiParser as ::windows::core::Interface>::IID || iid == &<IDvbSiParser2 as ::windows::core::Interface>::IID
+        iid == &<IIsdbSiParser2 as ::windows::core::ComInterface>::IID || iid == &<IDvbSiParser as ::windows::core::ComInterface>::IID || iid == &<IDvbSiParser2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -24749,7 +24749,7 @@ impl IIsdbTSInformationDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbTSInformationDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbTSInformationDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -24854,7 +24854,7 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsdbTerrestrialDeliverySystemDescriptor as ::windows::core::Interface>::IID
+        iid == &<IIsdbTerrestrialDeliverySystemDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -24882,7 +24882,7 @@ impl IKsNodeControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsNodeControl as ::windows::core::Interface>::IID
+        iid == &<IKsNodeControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
@@ -24991,7 +24991,7 @@ impl IKsTopologyInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsTopologyInfo as ::windows::core::Interface>::IID
+        iid == &<IKsTopologyInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25028,7 +25028,7 @@ impl ILanguageComponentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILanguageComponentType as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IComponentType as ::windows::core::Interface>::IID
+        iid == &<ILanguageComponentType as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IComponentType as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25198,7 +25198,7 @@ impl ILocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILocator as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ILocator as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25275,7 +25275,7 @@ impl IMPEG2Component_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMPEG2Component as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IComponent as ::windows::core::Interface>::IID
+        iid == &<IMPEG2Component as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IComponent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25312,7 +25312,7 @@ impl IMPEG2ComponentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMPEG2ComponentType as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IComponentType as ::windows::core::Interface>::IID || iid == &<ILanguageComponentType as ::windows::core::Interface>::IID
+        iid == &<IMPEG2ComponentType as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IComponentType as ::windows::core::ComInterface>::IID || iid == &<ILanguageComponentType as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -25353,7 +25353,7 @@ impl IMPEG2PIDMap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMPEG2PIDMap as ::windows::core::Interface>::IID
+        iid == &<IMPEG2PIDMap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -25394,7 +25394,7 @@ impl IMPEG2StreamIdMap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMPEG2StreamIdMap as ::windows::core::Interface>::IID
+        iid == &<IMPEG2StreamIdMap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25451,7 +25451,7 @@ impl IMPEG2TuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMPEG2TuneRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITuneRequest as ::windows::core::Interface>::IID
+        iid == &<IMPEG2TuneRequest as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITuneRequest as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25481,7 +25481,7 @@ impl IMPEG2TuneRequestFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMPEG2TuneRequestFactory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMPEG2TuneRequestFactory as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -25492,7 +25492,7 @@ impl IMPEG2TuneRequestSupport_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMPEG2TuneRequestSupport as ::windows::core::Interface>::IID
+        iid == &<IMPEG2TuneRequestSupport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -25554,7 +25554,7 @@ impl IMPEG2_TIF_CONTROL_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMPEG2_TIF_CONTROL as ::windows::core::Interface>::IID
+        iid == &<IMPEG2_TIF_CONTROL as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25591,7 +25591,7 @@ impl IMSEventBinder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSEventBinder as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSEventBinder as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25701,7 +25701,7 @@ impl IMSVidAnalogTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidAnalogTuner as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidVideoInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidTuner as ::windows::core::Interface>::IID
+        iid == &<IMSVidAnalogTuner as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidVideoInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidTuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25757,7 +25757,7 @@ impl IMSVidAnalogTuner2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidAnalogTuner2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidVideoInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidTuner as ::windows::core::Interface>::IID || iid == &<IMSVidAnalogTuner as ::windows::core::Interface>::IID
+        iid == &<IMSVidAnalogTuner2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidVideoInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidTuner as ::windows::core::ComInterface>::IID || iid == &<IMSVidAnalogTuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25771,7 +25771,7 @@ impl IMSVidAnalogTunerEvent_Vtbl {
         Self { base__: IMSVidTunerEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidAnalogTunerEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidTunerEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidAnalogTunerEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidTunerEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25828,7 +25828,7 @@ impl IMSVidAudioRenderer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidAudioRenderer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidAudioRenderer as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25898,7 +25898,7 @@ impl IMSVidAudioRendererDevices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidAudioRendererDevices as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidAudioRendererDevices as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25912,7 +25912,7 @@ impl IMSVidAudioRendererEvent_Vtbl {
         Self { base__: IMSVidOutputDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidAudioRendererEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidAudioRendererEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -25985,7 +25985,7 @@ impl IMSVidAudioRendererEvent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidAudioRendererEvent2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidAudioRendererEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidAudioRendererEvent2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidAudioRendererEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26022,7 +26022,7 @@ impl IMSVidClosedCaptioning_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidClosedCaptioning as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidFeature as ::windows::core::Interface>::IID
+        iid == &<IMSVidClosedCaptioning as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidFeature as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26059,7 +26059,7 @@ impl IMSVidClosedCaptioning2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidClosedCaptioning2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidFeature as ::windows::core::Interface>::IID || iid == &<IMSVidClosedCaptioning as ::windows::core::Interface>::IID
+        iid == &<IMSVidClosedCaptioning2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidFeature as ::windows::core::ComInterface>::IID || iid == &<IMSVidClosedCaptioning as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26086,7 +26086,7 @@ impl IMSVidClosedCaptioning3_Vtbl {
         Self { base__: IMSVidClosedCaptioning2_Vtbl::new::<Identity, Impl, OFFSET>(), TeleTextFilter: TeleTextFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidClosedCaptioning3 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidFeature as ::windows::core::Interface>::IID || iid == &<IMSVidClosedCaptioning as ::windows::core::Interface>::IID || iid == &<IMSVidClosedCaptioning2 as ::windows::core::Interface>::IID
+        iid == &<IMSVidClosedCaptioning3 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidFeature as ::windows::core::ComInterface>::IID || iid == &<IMSVidClosedCaptioning as ::windows::core::ComInterface>::IID || iid == &<IMSVidClosedCaptioning2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -26136,7 +26136,7 @@ impl IMSVidCompositionSegment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidCompositionSegment as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<IMSVidGraphSegment as ::windows::core::Interface>::IID
+        iid == &<IMSVidCompositionSegment as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID || iid == &<IMSVidGraphSegment as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26580,7 +26580,7 @@ impl IMSVidCtl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidCtl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidCtl as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26594,7 +26594,7 @@ impl IMSVidDataServices_Vtbl {
         Self { base__: IMSVidFeature_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidDataServices as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidFeature as ::windows::core::Interface>::IID
+        iid == &<IMSVidDataServices as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidFeature as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26608,7 +26608,7 @@ impl IMSVidDataServicesEvent_Vtbl {
         Self { base__: IMSVidDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidDataServicesEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidDataServicesEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26736,7 +26736,7 @@ impl IMSVidDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -26760,7 +26760,7 @@ impl IMSVidDevice2_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DevicePath: DevicePath::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidDevice2 as ::windows::core::Interface>::IID
+        iid == &<IMSVidDevice2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26781,7 +26781,7 @@ impl IMSVidDeviceEvent_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), StateChange: StateChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26838,7 +26838,7 @@ impl IMSVidEVR_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidEVR as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidVideoRenderer as ::windows::core::Interface>::IID
+        iid == &<IMSVidEVR as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidVideoRenderer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26859,7 +26859,7 @@ impl IMSVidEVREvent_Vtbl {
         Self { base__: IMSVidOutputDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>(), OnUserEvent: OnUserEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidEVREvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidEVREvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26902,7 +26902,7 @@ impl IMSVidEncoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidEncoder as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidFeature as ::windows::core::Interface>::IID
+        iid == &<IMSVidEncoder as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidFeature as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26916,7 +26916,7 @@ impl IMSVidFeature_Vtbl {
         Self { base__: IMSVidDevice_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidFeature as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidFeature as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -26930,7 +26930,7 @@ impl IMSVidFeatureEvent_Vtbl {
         Self { base__: IMSVidDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidFeatureEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidFeatureEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27000,7 +27000,7 @@ impl IMSVidFeatures_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidFeatures as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidFeatures as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27037,7 +27037,7 @@ impl IMSVidFilePlayback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidFilePlayback as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidPlayback as ::windows::core::Interface>::IID
+        iid == &<IMSVidFilePlayback as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlayback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27068,7 +27068,7 @@ impl IMSVidFilePlayback2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidFilePlayback2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidPlayback as ::windows::core::Interface>::IID || iid == &<IMSVidFilePlayback as ::windows::core::Interface>::IID
+        iid == &<IMSVidFilePlayback2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlayback as ::windows::core::ComInterface>::IID || iid == &<IMSVidFilePlayback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27082,7 +27082,7 @@ impl IMSVidFilePlaybackEvent_Vtbl {
         Self { base__: IMSVidPlaybackEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidFilePlaybackEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidFilePlaybackEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27126,7 +27126,7 @@ impl IMSVidGenericSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidGenericSink as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidGenericSink as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27157,7 +27157,7 @@ impl IMSVidGenericSink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidGenericSink2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidGenericSink as ::windows::core::Interface>::IID
+        iid == &<IMSVidGenericSink2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidGenericSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -27309,7 +27309,7 @@ impl IMSVidGraphSegment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidGraphSegment as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID
+        iid == &<IMSVidGraphSegment as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -27451,7 +27451,7 @@ impl IMSVidGraphSegmentContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidGraphSegmentContainer as ::windows::core::Interface>::IID
+        iid == &<IMSVidGraphSegmentContainer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -27521,7 +27521,7 @@ impl IMSVidGraphSegmentUserInput_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidGraphSegmentUserInput as ::windows::core::Interface>::IID
+        iid == &<IMSVidGraphSegmentUserInput as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27558,7 +27558,7 @@ impl IMSVidInputDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27572,7 +27572,7 @@ impl IMSVidInputDeviceEvent_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27642,7 +27642,7 @@ impl IMSVidInputDevices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidInputDevices as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidInputDevices as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27656,7 +27656,7 @@ impl IMSVidOutputDevice_Vtbl {
         Self { base__: IMSVidDevice_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27670,7 +27670,7 @@ impl IMSVidOutputDeviceEvent_Vtbl {
         Self { base__: IMSVidDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27740,7 +27740,7 @@ impl IMSVidOutputDevices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidOutputDevices as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidOutputDevices as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27891,7 +27891,7 @@ impl IMSVidPlayback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidPlayback as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidPlayback as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -27912,7 +27912,7 @@ impl IMSVidPlaybackEvent_Vtbl {
         Self { base__: IMSVidInputDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>(), EndOfMedia: EndOfMedia::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidPlaybackEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidPlaybackEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28036,7 +28036,7 @@ impl IMSVidRect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidRect as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidRect as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28145,7 +28145,7 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferRecordingControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferRecordingControl as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28228,7 +28228,7 @@ impl IMSVidStreamBufferSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSink as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSink as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28249,7 +28249,7 @@ impl IMSVidStreamBufferSink2_Vtbl {
         Self { base__: IMSVidStreamBufferSink_Vtbl::new::<Identity, Impl, OFFSET>(), UnlockProfile: UnlockProfile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSink2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSink as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSink2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28464,7 +28464,7 @@ impl IMSVidStreamBufferSink3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSink3 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSink as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSink2 as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSink3 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSink as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSink2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28502,7 +28502,7 @@ impl IMSVidStreamBufferSinkEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSinkEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSinkEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28533,7 +28533,7 @@ impl IMSVidStreamBufferSinkEvent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSinkEvent2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSinkEvent2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSinkEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28554,7 +28554,7 @@ impl IMSVidStreamBufferSinkEvent3_Vtbl {
         Self { base__: IMSVidStreamBufferSinkEvent2_Vtbl::new::<Identity, Impl, OFFSET>(), LicenseChange: LicenseChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSinkEvent3 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent2 as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSinkEvent3 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSinkEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSinkEvent2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28575,7 +28575,7 @@ impl IMSVidStreamBufferSinkEvent4_Vtbl {
         Self { base__: IMSVidStreamBufferSinkEvent3_Vtbl::new::<Identity, Impl, OFFSET>(), WriteFailureClear: WriteFailureClear::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSinkEvent4 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent2 as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent3 as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSinkEvent4 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSinkEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSinkEvent2 as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSinkEvent3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28659,7 +28659,7 @@ impl IMSVidStreamBufferSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSource as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidPlayback as ::windows::core::Interface>::IID || iid == &<IMSVidFilePlayback as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSource as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlayback as ::windows::core::ComInterface>::IID || iid == &<IMSVidFilePlayback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28735,7 +28735,7 @@ impl IMSVidStreamBufferSource2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSource2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidPlayback as ::windows::core::Interface>::IID || iid == &<IMSVidFilePlayback as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSource as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSource2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlayback as ::windows::core::ComInterface>::IID || iid == &<IMSVidFilePlayback as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28815,7 +28815,7 @@ impl IMSVidStreamBufferSourceEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSourceEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::Interface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSourceEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28836,7 +28836,7 @@ impl IMSVidStreamBufferSourceEvent2_Vtbl {
         Self { base__: IMSVidStreamBufferSourceEvent_Vtbl::new::<Identity, Impl, OFFSET>(), RateChange: RateChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSourceEvent2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::Interface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSourceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSourceEvent2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSourceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28888,7 +28888,7 @@ impl IMSVidStreamBufferSourceEvent3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferSourceEvent3 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::Interface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSourceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidStreamBufferSourceEvent2 as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferSourceEvent3 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSourceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidStreamBufferSourceEvent2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -28968,7 +28968,7 @@ impl IMSVidStreamBufferV2SourceEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidStreamBufferV2SourceEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::Interface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidStreamBufferV2SourceEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29025,7 +29025,7 @@ impl IMSVidTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidTuner as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidVideoInputDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidTuner as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidVideoInputDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29046,7 +29046,7 @@ impl IMSVidTunerEvent_Vtbl {
         Self { base__: IMSVidInputDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>(), TuneChanged: TuneChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidTunerEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidTunerEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29116,7 +29116,7 @@ impl IMSVidVMR9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidVMR9 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidVideoRenderer as ::windows::core::Interface>::IID
+        iid == &<IMSVidVMR9 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidVideoRenderer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -29328,7 +29328,7 @@ impl IMSVidVRGraphSegment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidVRGraphSegment as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<IMSVidGraphSegment as ::windows::core::Interface>::IID
+        iid == &<IMSVidVRGraphSegment as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID || iid == &<IMSVidGraphSegment as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29342,7 +29342,7 @@ impl IMSVidVideoInputDevice_Vtbl {
         Self { base__: IMSVidInputDevice_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidVideoInputDevice as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidVideoInputDevice as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29671,7 +29671,7 @@ impl IMSVidVideoRenderer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidVideoRenderer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID
+        iid == &<IMSVidVideoRenderer as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29761,7 +29761,7 @@ impl IMSVidVideoRenderer2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidVideoRenderer2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidVideoRenderer as ::windows::core::Interface>::IID
+        iid == &<IMSVidVideoRenderer2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidVideoRenderer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29831,7 +29831,7 @@ impl IMSVidVideoRendererDevices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidVideoRendererDevices as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidVideoRendererDevices as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29852,7 +29852,7 @@ impl IMSVidVideoRendererEvent_Vtbl {
         Self { base__: IMSVidOutputDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>(), OverlayUnavailable: OverlayUnavailable::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidVideoRendererEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidVideoRendererEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29873,7 +29873,7 @@ impl IMSVidVideoRendererEvent2_Vtbl {
         Self { base__: IMSVidOutputDeviceEvent_Vtbl::new::<Identity, Impl, OFFSET>(), OverlayUnavailable: OverlayUnavailable::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidVideoRendererEvent2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidVideoRendererEvent2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -30861,7 +30861,7 @@ impl IMSVidWebDVD_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidWebDVD as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidPlayback as ::windows::core::Interface>::IID
+        iid == &<IMSVidWebDVD as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlayback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -30892,7 +30892,7 @@ impl IMSVidWebDVD2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidWebDVD2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows::core::Interface>::IID || iid == &<IMSVidPlayback as ::windows::core::Interface>::IID || iid == &<IMSVidWebDVD as ::windows::core::Interface>::IID
+        iid == &<IMSVidWebDVD2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlayback as ::windows::core::ComInterface>::IID || iid == &<IMSVidWebDVD as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31049,7 +31049,7 @@ impl IMSVidWebDVDAdm_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidWebDVDAdm as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMSVidWebDVDAdm as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31227,7 +31227,7 @@ impl IMSVidWebDVDEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidWebDVDEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidWebDVDEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidPlaybackEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31254,7 +31254,7 @@ impl IMSVidXDS_Vtbl {
         Self { base__: IMSVidFeature_Vtbl::new::<Identity, Impl, OFFSET>(), ChannelChangeInterface: ChannelChangeInterface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidXDS as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDevice as ::windows::core::Interface>::IID || iid == &<IMSVidFeature as ::windows::core::Interface>::IID
+        iid == &<IMSVidXDS as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDevice as ::windows::core::ComInterface>::IID || iid == &<IMSVidFeature as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31275,7 +31275,7 @@ impl IMSVidXDSEvent_Vtbl {
         Self { base__: IMSVidFeatureEvent_Vtbl::new::<Identity, Impl, OFFSET>(), RatingChange: RatingChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSVidXDSEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::Interface>::IID || iid == &<IMSVidFeatureEvent as ::windows::core::Interface>::IID
+        iid == &<IMSVidXDSEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMSVidDeviceEvent as ::windows::core::ComInterface>::IID || iid == &<IMSVidFeatureEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -31293,7 +31293,7 @@ impl IMceBurnerControl_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetBurnerNoDecryption: GetBurnerNoDecryption::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMceBurnerControl as ::windows::core::Interface>::IID
+        iid == &<IMceBurnerControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31397,7 +31397,7 @@ impl IMediaControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMediaControl as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31468,7 +31468,7 @@ impl IMediaEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMediaEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31512,7 +31512,7 @@ impl IMediaEventEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaEventEx as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMediaEvent as ::windows::core::Interface>::IID
+        iid == &<IMediaEventEx as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IMediaEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -31530,7 +31530,7 @@ impl IMediaEventSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaEventSink as ::windows::core::Interface>::IID
+        iid == &<IMediaEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -31601,7 +31601,7 @@ impl IMediaFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaFilter as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID
+        iid == &<IMediaFilter as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -31681,7 +31681,7 @@ impl IMediaParamInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaParamInfo as ::windows::core::Interface>::IID
+        iid == &<IMediaParamInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -31736,7 +31736,7 @@ impl IMediaParams_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaParams as ::windows::core::Interface>::IID
+        iid == &<IMediaParams as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31872,7 +31872,7 @@ impl IMediaPosition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaPosition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMediaPosition as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31896,7 +31896,7 @@ impl IMediaPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaPropertyBag as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::StructuredStorage::IPropertyBag as ::windows::core::Interface>::IID
+        iid == &<IMediaPropertyBag as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::StructuredStorage::IPropertyBag as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -32037,7 +32037,7 @@ impl IMediaSample_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaSample as ::windows::core::Interface>::IID
+        iid == &<IMediaSample as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -32068,7 +32068,7 @@ impl IMediaSample2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaSample2 as ::windows::core::Interface>::IID || iid == &<IMediaSample as ::windows::core::Interface>::IID
+        iid == &<IMediaSample2 as ::windows::core::ComInterface>::IID || iid == &<IMediaSample as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -32092,7 +32092,7 @@ impl IMediaSample2Config_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSurface: GetSurface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaSample2Config as ::windows::core::Interface>::IID
+        iid == &<IMediaSample2Config as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -32273,7 +32273,7 @@ impl IMediaSeeking_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaSeeking as ::windows::core::Interface>::IID
+        iid == &<IMediaSeeking as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -32347,7 +32347,7 @@ impl IMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaStream as ::windows::core::Interface>::IID
+        iid == &<IMediaStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -32451,7 +32451,7 @@ impl IMediaStreamFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaStreamFilter as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<IMediaFilter as ::windows::core::Interface>::IID || iid == &<IBaseFilter as ::windows::core::Interface>::IID
+        iid == &<IMediaStreamFilter as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID || iid == &<IMediaFilter as ::windows::core::ComInterface>::IID || iid == &<IBaseFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -32494,7 +32494,7 @@ impl IMediaTypeInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaTypeInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMediaTypeInfo as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -32562,7 +32562,7 @@ impl IMemAllocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMemAllocator as ::windows::core::Interface>::IID
+        iid == &<IMemAllocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -32596,7 +32596,7 @@ impl IMemAllocatorCallbackTemp_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMemAllocatorCallbackTemp as ::windows::core::Interface>::IID || iid == &<IMemAllocator as ::windows::core::Interface>::IID
+        iid == &<IMemAllocatorCallbackTemp as ::windows::core::ComInterface>::IID || iid == &<IMemAllocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -32614,7 +32614,7 @@ impl IMemAllocatorNotifyCallbackTemp_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyRelease: NotifyRelease::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMemAllocatorNotifyCallbackTemp as ::windows::core::Interface>::IID
+        iid == &<IMemAllocatorNotifyCallbackTemp as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -32691,7 +32691,7 @@ impl IMemInputPin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMemInputPin as ::windows::core::Interface>::IID
+        iid == &<IMemInputPin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -32726,7 +32726,7 @@ impl IMemoryData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMemoryData as ::windows::core::Interface>::IID
+        iid == &<IMemoryData as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -32805,7 +32805,7 @@ impl IMixerOCX_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMixerOCX as ::windows::core::Interface>::IID
+        iid == &<IMixerOCX as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -32843,7 +32843,7 @@ impl IMixerOCXNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMixerOCXNotify as ::windows::core::Interface>::IID
+        iid == &<IMixerOCXNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -32944,7 +32944,7 @@ impl IMixerPinConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMixerPinConfig as ::windows::core::Interface>::IID
+        iid == &<IMixerPinConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -32975,7 +32975,7 @@ impl IMixerPinConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMixerPinConfig2 as ::windows::core::Interface>::IID || iid == &<IMixerPinConfig as ::windows::core::Interface>::IID
+        iid == &<IMixerPinConfig2 as ::windows::core::ComInterface>::IID || iid == &<IMixerPinConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -33031,7 +33031,7 @@ impl IMpeg2Data_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMpeg2Data as ::windows::core::Interface>::IID
+        iid == &<IMpeg2Data as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -33069,7 +33069,7 @@ impl IMpeg2Demultiplexer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMpeg2Demultiplexer as ::windows::core::Interface>::IID
+        iid == &<IMpeg2Demultiplexer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -33100,7 +33100,7 @@ impl IMpeg2Stream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMpeg2Stream as ::windows::core::Interface>::IID
+        iid == &<IMpeg2Stream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -33156,7 +33156,7 @@ impl IMpeg2TableFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMpeg2TableFilter as ::windows::core::Interface>::IID
+        iid == &<IMpeg2TableFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -33294,7 +33294,7 @@ impl IMpegAudioDecoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMpegAudioDecoder as ::windows::core::Interface>::IID
+        iid == &<IMpegAudioDecoder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -33410,7 +33410,7 @@ impl IMultiMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMultiMediaStream as ::windows::core::Interface>::IID
+        iid == &<IMultiMediaStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -33515,7 +33515,7 @@ impl IOverlay_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOverlay as ::windows::core::Interface>::IID
+        iid == &<IOverlay as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -33560,7 +33560,7 @@ impl IOverlayNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOverlayNotify as ::windows::core::Interface>::IID
+        iid == &<IOverlayNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -33581,7 +33581,7 @@ impl IOverlayNotify2_Vtbl {
         Self { base__: IOverlayNotify_Vtbl::new::<Identity, Impl, OFFSET>(), OnDisplayChange: OnDisplayChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOverlayNotify2 as ::windows::core::Interface>::IID || iid == &<IOverlayNotify as ::windows::core::Interface>::IID
+        iid == &<IOverlayNotify2 as ::windows::core::ComInterface>::IID || iid == &<IOverlayNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -33717,7 +33717,7 @@ impl IPAT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPAT as ::windows::core::Interface>::IID
+        iid == &<IPAT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -33764,7 +33764,7 @@ impl IPBDAAttributesDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPBDAAttributesDescriptor as ::windows::core::Interface>::IID
+        iid == &<IPBDAAttributesDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -33811,7 +33811,7 @@ impl IPBDAEntitlementDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPBDAEntitlementDescriptor as ::windows::core::Interface>::IID
+        iid == &<IPBDAEntitlementDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -33858,7 +33858,7 @@ impl IPBDASiParser_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPBDASiParser as ::windows::core::Interface>::IID
+        iid == &<IPBDASiParser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -34003,7 +34003,7 @@ impl IPBDA_EIT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPBDA_EIT as ::windows::core::Interface>::IID
+        iid == &<IPBDA_EIT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -34050,7 +34050,7 @@ impl IPBDA_Services_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPBDA_Services as ::windows::core::Interface>::IID
+        iid == &<IPBDA_Services as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -34266,7 +34266,7 @@ impl IPMT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMT as ::windows::core::Interface>::IID
+        iid == &<IPMT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -34290,7 +34290,7 @@ impl IPSITables_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetTable: GetTable::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPSITables as ::windows::core::Interface>::IID
+        iid == &<IPSITables as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -34321,7 +34321,7 @@ impl IPTFilterLicenseRenewal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPTFilterLicenseRenewal as ::windows::core::Interface>::IID
+        iid == &<IPTFilterLicenseRenewal as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -34359,7 +34359,7 @@ impl IPersistMediaPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistMediaPropertyBag as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID
+        iid == &<IPersistMediaPropertyBag as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -34403,7 +34403,7 @@ impl IPersistTuneXml_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistTuneXml as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID
+        iid == &<IPersistTuneXml as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -34430,7 +34430,7 @@ impl IPersistTuneXmlUtility_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Deserialize: Deserialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistTuneXmlUtility as ::windows::core::Interface>::IID
+        iid == &<IPersistTuneXmlUtility as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -34457,7 +34457,7 @@ impl IPersistTuneXmlUtility2_Vtbl {
         Self { base__: IPersistTuneXmlUtility_Vtbl::new::<Identity, Impl, OFFSET>(), Serialize: Serialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistTuneXmlUtility2 as ::windows::core::Interface>::IID || iid == &<IPersistTuneXmlUtility as ::windows::core::Interface>::IID
+        iid == &<IPersistTuneXmlUtility2 as ::windows::core::ComInterface>::IID || iid == &<IPersistTuneXmlUtility as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -34603,7 +34603,7 @@ impl IPin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPin as ::windows::core::Interface>::IID
+        iid == &<IPin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -34648,7 +34648,7 @@ impl IPinConnection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPinConnection as ::windows::core::Interface>::IID
+        iid == &<IPinConnection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -34669,7 +34669,7 @@ impl IPinFlowControl_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Block: Block::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPinFlowControl as ::windows::core::Interface>::IID
+        iid == &<IPinFlowControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -34825,7 +34825,7 @@ impl IPinInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPinInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPinInfo as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -34917,7 +34917,7 @@ impl IQualProp_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IQualProp as ::windows::core::Interface>::IID
+        iid == &<IQualProp as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -34948,7 +34948,7 @@ impl IQualityControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IQualityControl as ::windows::core::Interface>::IID
+        iid == &<IQualityControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -34979,7 +34979,7 @@ impl IQueueCommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IQueueCommand as ::windows::core::Interface>::IID
+        iid == &<IQueueCommand as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -35022,7 +35022,7 @@ impl IRegFilterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRegFilterInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRegFilterInfo as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35040,7 +35040,7 @@ impl IRegisterServiceProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RegisterService: RegisterService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRegisterServiceProvider as ::windows::core::Interface>::IID
+        iid == &<IRegisterServiceProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35068,7 +35068,7 @@ impl IRegisterTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRegisterTuner as ::windows::core::Interface>::IID
+        iid == &<IRegisterTuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35096,7 +35096,7 @@ impl IResourceConsumer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceConsumer as ::windows::core::Interface>::IID
+        iid == &<IResourceConsumer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -35181,7 +35181,7 @@ impl IResourceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManager as ::windows::core::Interface>::IID
+        iid == &<IResourceManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35235,7 +35235,7 @@ impl ISBE2Crossbar_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISBE2Crossbar as ::windows::core::Interface>::IID
+        iid == &<ISBE2Crossbar as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35283,7 +35283,7 @@ impl ISBE2EnumStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISBE2EnumStream as ::windows::core::Interface>::IID
+        iid == &<ISBE2EnumStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35301,7 +35301,7 @@ impl ISBE2FileScan_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RepairFile: RepairFile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISBE2FileScan as ::windows::core::Interface>::IID
+        iid == &<ISBE2FileScan as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -35322,7 +35322,7 @@ impl ISBE2GlobalEvent_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetEvent: GetEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISBE2GlobalEvent as ::windows::core::Interface>::IID
+        iid == &<ISBE2GlobalEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -35343,7 +35343,7 @@ impl ISBE2GlobalEvent2_Vtbl {
         Self { base__: ISBE2GlobalEvent_Vtbl::new::<Identity, Impl, OFFSET>(), GetEventEx: GetEventEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISBE2GlobalEvent2 as ::windows::core::Interface>::IID || iid == &<ISBE2GlobalEvent as ::windows::core::Interface>::IID
+        iid == &<ISBE2GlobalEvent2 as ::windows::core::ComInterface>::IID || iid == &<ISBE2GlobalEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -35400,7 +35400,7 @@ impl ISBE2MediaTypeProfile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISBE2MediaTypeProfile as ::windows::core::Interface>::IID
+        iid == &<ISBE2MediaTypeProfile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35418,7 +35418,7 @@ impl ISBE2SpanningEvent_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetEvent: GetEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISBE2SpanningEvent as ::windows::core::Interface>::IID
+        iid == &<ISBE2SpanningEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35459,7 +35459,7 @@ impl ISBE2StreamMap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISBE2StreamMap as ::windows::core::Interface>::IID
+        iid == &<ISBE2StreamMap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35826,7 +35826,7 @@ impl ISCTE_EAS_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISCTE_EAS as ::windows::core::Interface>::IID
+        iid == &<ISCTE_EAS as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -35870,7 +35870,7 @@ impl ISIInbandEPG_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISIInbandEPG as ::windows::core::Interface>::IID
+        iid == &<ISIInbandEPG as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -35888,7 +35888,7 @@ impl ISIInbandEPGEvent_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SIObjectEvent: SIObjectEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISIInbandEPGEvent as ::windows::core::Interface>::IID
+        iid == &<ISIInbandEPGEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -35940,7 +35940,7 @@ impl IScanningTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IScanningTuner as ::windows::core::Interface>::IID || iid == &<ITuner as ::windows::core::Interface>::IID
+        iid == &<IScanningTuner as ::windows::core::ComInterface>::IID || iid == &<ITuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -36019,7 +36019,7 @@ impl IScanningTunerEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IScanningTunerEx as ::windows::core::Interface>::IID || iid == &<ITuner as ::windows::core::Interface>::IID || iid == &<IScanningTuner as ::windows::core::Interface>::IID
+        iid == &<IScanningTunerEx as ::windows::core::ComInterface>::IID || iid == &<ITuner as ::windows::core::ComInterface>::IID || iid == &<IScanningTuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -36091,7 +36091,7 @@ impl ISectionList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISectionList as ::windows::core::Interface>::IID
+        iid == &<ISectionList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -36112,7 +36112,7 @@ impl ISeekingPassThru_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Init: Init::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISeekingPassThru as ::windows::core::Interface>::IID
+        iid == &<ISeekingPassThru as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36159,7 +36159,7 @@ impl ISelector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISelector as ::windows::core::Interface>::IID
+        iid == &<ISelector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36232,7 +36232,7 @@ impl IServiceLocationDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IServiceLocationDescriptor as ::windows::core::Interface>::IID
+        iid == &<IServiceLocationDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -36259,7 +36259,7 @@ impl ISpecifyParticularPages_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPages: GetPages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpecifyParticularPages as ::windows::core::Interface>::IID
+        iid == &<ISpecifyParticularPages as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36327,7 +36327,7 @@ impl IStreamBufferConfigure_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferConfigure as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferConfigure as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36375,7 +36375,7 @@ impl IStreamBufferConfigure2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferConfigure2 as ::windows::core::Interface>::IID || iid == &<IStreamBufferConfigure as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferConfigure2 as ::windows::core::ComInterface>::IID || iid == &<IStreamBufferConfigure as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -36432,7 +36432,7 @@ impl IStreamBufferConfigure3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferConfigure3 as ::windows::core::Interface>::IID || iid == &<IStreamBufferConfigure as ::windows::core::Interface>::IID || iid == &<IStreamBufferConfigure2 as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferConfigure3 as ::windows::core::ComInterface>::IID || iid == &<IStreamBufferConfigure as ::windows::core::ComInterface>::IID || iid == &<IStreamBufferConfigure2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36460,7 +36460,7 @@ impl IStreamBufferDataCounters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferDataCounters as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferDataCounters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
@@ -36491,7 +36491,7 @@ impl IStreamBufferInitialize_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferInitialize as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferInitialize as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36502,7 +36502,7 @@ impl IStreamBufferMediaSeeking_Vtbl {
         Self { base__: IMediaSeeking_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferMediaSeeking as ::windows::core::Interface>::IID || iid == &<IMediaSeeking as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferMediaSeeking as ::windows::core::ComInterface>::IID || iid == &<IMediaSeeking as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36520,7 +36520,7 @@ impl IStreamBufferMediaSeeking2_Vtbl {
         Self { base__: IStreamBufferMediaSeeking_Vtbl::new::<Identity, Impl, OFFSET>(), SetRateEx: SetRateEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferMediaSeeking2 as ::windows::core::Interface>::IID || iid == &<IMediaSeeking as ::windows::core::Interface>::IID || iid == &<IStreamBufferMediaSeeking as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferMediaSeeking2 as ::windows::core::ComInterface>::IID || iid == &<IMediaSeeking as ::windows::core::ComInterface>::IID || iid == &<IStreamBufferMediaSeeking as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36582,7 +36582,7 @@ impl IStreamBufferRecComp_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferRecComp as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferRecComp as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -36620,7 +36620,7 @@ impl IStreamBufferRecordControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferRecordControl as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferRecordControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36681,7 +36681,7 @@ impl IStreamBufferRecordingAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferRecordingAttribute as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferRecordingAttribute as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36722,7 +36722,7 @@ impl IStreamBufferSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferSink as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36740,7 +36740,7 @@ impl IStreamBufferSink2_Vtbl {
         Self { base__: IStreamBufferSink_Vtbl::new::<Identity, Impl, OFFSET>(), UnlockProfile: UnlockProfile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferSink2 as ::windows::core::Interface>::IID || iid == &<IStreamBufferSink as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferSink2 as ::windows::core::ComInterface>::IID || iid == &<IStreamBufferSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36758,7 +36758,7 @@ impl IStreamBufferSink3_Vtbl {
         Self { base__: IStreamBufferSink2_Vtbl::new::<Identity, Impl, OFFSET>(), SetAvailableFilter: SetAvailableFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferSink3 as ::windows::core::Interface>::IID || iid == &<IStreamBufferSink as ::windows::core::Interface>::IID || iid == &<IStreamBufferSink2 as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferSink3 as ::windows::core::ComInterface>::IID || iid == &<IStreamBufferSink as ::windows::core::ComInterface>::IID || iid == &<IStreamBufferSink2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36776,7 +36776,7 @@ impl IStreamBufferSource_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetStreamSink: SetStreamSink::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBufferSource as ::windows::core::Interface>::IID
+        iid == &<IStreamBufferSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -36804,7 +36804,7 @@ impl IStreamBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamBuilder as ::windows::core::Interface>::IID
+        iid == &<IStreamBuilder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -36856,7 +36856,7 @@ impl IStreamSample_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamSample as ::windows::core::Interface>::IID
+        iid == &<IStreamSample as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -36960,7 +36960,7 @@ impl ITSDT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITSDT as ::windows::core::Interface>::IID
+        iid == &<ITSDT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -37036,7 +37036,7 @@ impl ITuneRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITuneRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITuneRequest as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -37126,7 +37126,7 @@ impl ITuneRequestInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITuneRequestInfo as ::windows::core::Interface>::IID
+        iid == &<ITuneRequestInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -37153,7 +37153,7 @@ impl ITuneRequestInfoEx_Vtbl {
         Self { base__: ITuneRequestInfo_Vtbl::new::<Identity, Impl, OFFSET>(), CreateComponentListEx: CreateComponentListEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITuneRequestInfoEx as ::windows::core::Interface>::IID || iid == &<ITuneRequestInfo as ::windows::core::Interface>::IID
+        iid == &<ITuneRequestInfoEx as ::windows::core::ComInterface>::IID || iid == &<ITuneRequestInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -37270,7 +37270,7 @@ impl ITuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITuner as ::windows::core::Interface>::IID
+        iid == &<ITuner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -37305,7 +37305,7 @@ impl ITunerCap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITunerCap as ::windows::core::Interface>::IID
+        iid == &<ITunerCap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -37332,7 +37332,7 @@ impl ITunerCapEx_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Has608_708Caption: Has608_708Caption::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITunerCapEx as ::windows::core::Interface>::IID
+        iid == &<ITunerCapEx as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -37554,7 +37554,7 @@ impl ITuningSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITuningSpace as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITuningSpace as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -37722,7 +37722,7 @@ impl ITuningSpaceContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITuningSpaceContainer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITuningSpaceContainer as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -37791,7 +37791,7 @@ impl ITuningSpaces_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITuningSpaces as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITuningSpaces as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -37819,7 +37819,7 @@ impl IVMRAspectRatioControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRAspectRatioControl as ::windows::core::Interface>::IID
+        iid == &<IVMRAspectRatioControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -37853,7 +37853,7 @@ impl IVMRAspectRatioControl9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRAspectRatioControl9 as ::windows::core::Interface>::IID
+        iid == &<IVMRAspectRatioControl9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -37919,7 +37919,7 @@ impl IVMRDeinterlaceControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRDeinterlaceControl as ::windows::core::Interface>::IID
+        iid == &<IVMRDeinterlaceControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -38000,7 +38000,7 @@ impl IVMRDeinterlaceControl9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRDeinterlaceControl9 as ::windows::core::Interface>::IID
+        iid == &<IVMRDeinterlaceControl9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -38063,7 +38063,7 @@ impl IVMRFilterConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRFilterConfig as ::windows::core::Interface>::IID
+        iid == &<IVMRFilterConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -38144,7 +38144,7 @@ impl IVMRFilterConfig9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRFilterConfig9 as ::windows::core::Interface>::IID
+        iid == &<IVMRFilterConfig9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -38189,7 +38189,7 @@ impl IVMRImageCompositor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRImageCompositor as ::windows::core::Interface>::IID
+        iid == &<IVMRImageCompositor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -38234,7 +38234,7 @@ impl IVMRImageCompositor9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRImageCompositor9 as ::windows::core::Interface>::IID
+        iid == &<IVMRImageCompositor9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -38272,7 +38272,7 @@ impl IVMRImagePresenter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRImagePresenter as ::windows::core::Interface>::IID
+        iid == &<IVMRImagePresenter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -38310,7 +38310,7 @@ impl IVMRImagePresenter9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRImagePresenter9 as ::windows::core::Interface>::IID
+        iid == &<IVMRImagePresenter9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -38338,7 +38338,7 @@ impl IVMRImagePresenterConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRImagePresenterConfig as ::windows::core::Interface>::IID
+        iid == &<IVMRImagePresenterConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -38372,7 +38372,7 @@ impl IVMRImagePresenterConfig9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRImagePresenterConfig9 as ::windows::core::Interface>::IID
+        iid == &<IVMRImagePresenterConfig9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -38403,7 +38403,7 @@ impl IVMRImagePresenterExclModeConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRImagePresenterExclModeConfig as ::windows::core::Interface>::IID || iid == &<IVMRImagePresenterConfig as ::windows::core::Interface>::IID
+        iid == &<IVMRImagePresenterExclModeConfig as ::windows::core::ComInterface>::IID || iid == &<IVMRImagePresenterConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -38441,7 +38441,7 @@ impl IVMRMixerBitmap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRMixerBitmap as ::windows::core::Interface>::IID
+        iid == &<IVMRMixerBitmap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -38479,7 +38479,7 @@ impl IVMRMixerBitmap9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRMixerBitmap9 as ::windows::core::Interface>::IID
+        iid == &<IVMRMixerBitmap9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -38566,7 +38566,7 @@ impl IVMRMixerControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRMixerControl as ::windows::core::Interface>::IID
+        iid == &<IVMRMixerControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -38698,7 +38698,7 @@ impl IVMRMixerControl9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRMixerControl9 as ::windows::core::Interface>::IID
+        iid == &<IVMRMixerControl9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -38750,7 +38750,7 @@ impl IVMRMonitorConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRMonitorConfig as ::windows::core::Interface>::IID
+        iid == &<IVMRMonitorConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -38814,7 +38814,7 @@ impl IVMRMonitorConfig9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRMonitorConfig9 as ::windows::core::Interface>::IID
+        iid == &<IVMRMonitorConfig9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -38865,7 +38865,7 @@ impl IVMRSurface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRSurface as ::windows::core::Interface>::IID
+        iid == &<IVMRSurface as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -38922,7 +38922,7 @@ impl IVMRSurface9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRSurface9 as ::windows::core::Interface>::IID
+        iid == &<IVMRSurface9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -38967,7 +38967,7 @@ impl IVMRSurfaceAllocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRSurfaceAllocator as ::windows::core::Interface>::IID
+        iid == &<IVMRSurfaceAllocator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -39018,7 +39018,7 @@ impl IVMRSurfaceAllocator9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRSurfaceAllocator9 as ::windows::core::Interface>::IID
+        iid == &<IVMRSurfaceAllocator9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -39039,7 +39039,7 @@ impl IVMRSurfaceAllocatorEx9_Vtbl {
         Self { base__: IVMRSurfaceAllocator9_Vtbl::new::<Identity, Impl, OFFSET>(), GetSurfaceEx: GetSurfaceEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRSurfaceAllocatorEx9 as ::windows::core::Interface>::IID || iid == &<IVMRSurfaceAllocator9 as ::windows::core::Interface>::IID
+        iid == &<IVMRSurfaceAllocatorEx9 as ::windows::core::ComInterface>::IID || iid == &<IVMRSurfaceAllocator9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -39098,7 +39098,7 @@ impl IVMRSurfaceAllocatorNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRSurfaceAllocatorNotify as ::windows::core::Interface>::IID
+        iid == &<IVMRSurfaceAllocatorNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -39150,7 +39150,7 @@ impl IVMRSurfaceAllocatorNotify9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRSurfaceAllocatorNotify9 as ::windows::core::Interface>::IID
+        iid == &<IVMRSurfaceAllocatorNotify9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -39195,7 +39195,7 @@ impl IVMRVideoStreamControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRVideoStreamControl as ::windows::core::Interface>::IID
+        iid == &<IVMRVideoStreamControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -39232,7 +39232,7 @@ impl IVMRVideoStreamControl9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRVideoStreamControl9 as ::windows::core::Interface>::IID
+        iid == &<IVMRVideoStreamControl9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -39354,7 +39354,7 @@ impl IVMRWindowlessControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRWindowlessControl as ::windows::core::Interface>::IID
+        iid == &<IVMRWindowlessControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -39480,7 +39480,7 @@ impl IVMRWindowlessControl9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVMRWindowlessControl9 as ::windows::core::Interface>::IID
+        iid == &<IVMRWindowlessControl9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -39594,7 +39594,7 @@ impl IVPBaseConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVPBaseConfig as ::windows::core::Interface>::IID
+        iid == &<IVPBaseConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -39612,7 +39612,7 @@ impl IVPBaseNotify_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RenegotiateVPParameters: RenegotiateVPParameters::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVPBaseNotify as ::windows::core::Interface>::IID
+        iid == &<IVPBaseNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -39643,7 +39643,7 @@ impl IVPConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVPConfig as ::windows::core::Interface>::IID || iid == &<IVPBaseConfig as ::windows::core::Interface>::IID
+        iid == &<IVPConfig as ::windows::core::ComInterface>::IID || iid == &<IVPBaseConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -39671,7 +39671,7 @@ impl IVPManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVPManager as ::windows::core::Interface>::IID
+        iid == &<IVPManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -39699,7 +39699,7 @@ impl IVPNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVPNotify as ::windows::core::Interface>::IID || iid == &<IVPBaseNotify as ::windows::core::Interface>::IID
+        iid == &<IVPNotify as ::windows::core::ComInterface>::IID || iid == &<IVPBaseNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -39730,7 +39730,7 @@ impl IVPNotify2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVPNotify2 as ::windows::core::Interface>::IID || iid == &<IVPBaseNotify as ::windows::core::Interface>::IID || iid == &<IVPNotify as ::windows::core::Interface>::IID
+        iid == &<IVPNotify2 as ::windows::core::ComInterface>::IID || iid == &<IVPBaseNotify as ::windows::core::ComInterface>::IID || iid == &<IVPNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"implement\"`*"]
@@ -39744,7 +39744,7 @@ impl IVPVBIConfig_Vtbl {
         Self { base__: IVPBaseConfig_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVPVBIConfig as ::windows::core::Interface>::IID || iid == &<IVPBaseConfig as ::windows::core::Interface>::IID
+        iid == &<IVPVBIConfig as ::windows::core::ComInterface>::IID || iid == &<IVPBaseConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -39755,7 +39755,7 @@ impl IVPVBINotify_Vtbl {
         Self { base__: IVPBaseNotify_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVPVBINotify as ::windows::core::Interface>::IID || iid == &<IVPBaseNotify as ::windows::core::Interface>::IID
+        iid == &<IVPVBINotify as ::windows::core::ComInterface>::IID || iid == &<IVPBaseNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -39769,7 +39769,7 @@ impl IVideoEncoder_Vtbl {
         Self { base__: IEncoderAPI_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoEncoder as ::windows::core::Interface>::IID || iid == &<IEncoderAPI as ::windows::core::Interface>::IID
+        iid == &<IVideoEncoder as ::windows::core::ComInterface>::IID || iid == &<IEncoderAPI as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -39804,7 +39804,7 @@ impl IVideoFrameStep_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoFrameStep as ::windows::core::Interface>::IID
+        iid == &<IVideoFrameStep as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -40091,7 +40091,7 @@ impl IVideoProcAmp_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoProcAmp as ::windows::core::Interface>::IID
+        iid == &<IVideoProcAmp as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -40477,7 +40477,7 @@ impl IVideoWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoWindow as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IVideoWindow as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -40515,7 +40515,7 @@ impl IWMCodecAMVideoAccelerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMCodecAMVideoAccelerator as ::windows::core::Interface>::IID
+        iid == &<IWMCodecAMVideoAccelerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -40546,7 +40546,7 @@ impl IWMCodecVideoAccelerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMCodecVideoAccelerator as ::windows::core::Interface>::IID
+        iid == &<IWMCodecVideoAccelerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -40627,7 +40627,7 @@ impl IXDSCodec_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXDSCodec as ::windows::core::Interface>::IID
+        iid == &<IXDSCodec as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
@@ -40661,7 +40661,7 @@ impl IXDSCodecConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXDSCodecConfig as ::windows::core::Interface>::IID
+        iid == &<IXDSCodecConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -40675,7 +40675,7 @@ impl IXDSCodecEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXDSCodecEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IXDSCodecEvents as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -40706,7 +40706,7 @@ impl IXDSToRat_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXDSToRat as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IXDSToRat as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -40720,6 +40720,6 @@ impl _IMSVidCtlEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<_IMSVidCtlEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<_IMSVidCtlEvents as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }

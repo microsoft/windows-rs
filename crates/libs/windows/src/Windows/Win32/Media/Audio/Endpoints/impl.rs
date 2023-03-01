@@ -13,7 +13,7 @@ impl IAudioEndpointFormatControl_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResetToDefault: ResetToDefault::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEndpointFormatControl as ::windows::core::Interface>::IID
+        iid == &<IAudioEndpointFormatControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`, `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -44,7 +44,7 @@ impl IAudioEndpointLastBufferControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEndpointLastBufferControl as ::windows::core::Interface>::IID
+        iid == &<IAudioEndpointLastBufferControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"implement\"`*"]
@@ -84,7 +84,7 @@ impl IAudioEndpointOffloadStreamMeter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEndpointOffloadStreamMeter as ::windows::core::Interface>::IID
+        iid == &<IAudioEndpointOffloadStreamMeter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"implement\"`*"]
@@ -118,7 +118,7 @@ impl IAudioEndpointOffloadStreamMute_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEndpointOffloadStreamMute as ::windows::core::Interface>::IID
+        iid == &<IAudioEndpointOffloadStreamMute as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
@@ -168,7 +168,7 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEndpointOffloadStreamVolume as ::windows::core::Interface>::IID
+        iid == &<IAudioEndpointOffloadStreamVolume as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -353,7 +353,7 @@ impl IAudioEndpointVolume_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEndpointVolume as ::windows::core::Interface>::IID
+        iid == &<IAudioEndpointVolume as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -374,7 +374,7 @@ impl IAudioEndpointVolumeCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEndpointVolumeCallback as ::windows::core::Interface>::IID
+        iid == &<IAudioEndpointVolumeCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -395,7 +395,7 @@ impl IAudioEndpointVolumeEx_Vtbl {
         Self { base__: IAudioEndpointVolume_Vtbl::new::<Identity, Impl, OFFSET>(), GetVolumeRangeChannel: GetVolumeRangeChannel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEndpointVolumeEx as ::windows::core::Interface>::IID || iid == &<IAudioEndpointVolume as ::windows::core::Interface>::IID
+        iid == &<IAudioEndpointVolumeEx as ::windows::core::ComInterface>::IID || iid == &<IAudioEndpointVolume as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -432,7 +432,7 @@ impl IAudioLfxControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioLfxControl as ::windows::core::Interface>::IID
+        iid == &<IAudioLfxControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"implement\"`*"]
@@ -492,7 +492,7 @@ impl IAudioMeterInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioMeterInformation as ::windows::core::Interface>::IID
+        iid == &<IAudioMeterInformation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -556,6 +556,6 @@ impl IHardwareAudioEngineBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHardwareAudioEngineBase as ::windows::core::Interface>::IID
+        iid == &<IHardwareAudioEngineBase as ::windows::core::ComInterface>::IID
     }
 }

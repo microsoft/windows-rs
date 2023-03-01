@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeviceLockdownProfileInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDeviceLockdownProfileInformation {
+unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformation_Vtbl;
 }
 impl ::core::clone::Clone for IDeviceLockdownProfileInformation {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IDeviceLockdownProfileInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
+unsafe impl ::windows::core::ComInterface for IDeviceLockdownProfileInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
 }
 #[repr(C)]
@@ -21,7 +21,7 @@ pub struct IDeviceLockdownProfileInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeviceLockdownProfileStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDeviceLockdownProfileStatics {
+unsafe impl ::windows::core::Interface for IDeviceLockdownProfileStatics {
     type Vtable = IDeviceLockdownProfileStatics_Vtbl;
 }
 impl ::core::clone::Clone for IDeviceLockdownProfileStatics {
@@ -29,7 +29,7 @@ impl ::core::clone::Clone for IDeviceLockdownProfileStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDeviceLockdownProfileStatics {
+unsafe impl ::windows::core::ComInterface for IDeviceLockdownProfileStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x622f6965_f9a8_41a1_a691_88cd80c7a069);
 }
 #[repr(C)]
@@ -55,13 +55,13 @@ impl DeviceLockdownProfile {
     pub fn GetSupportedLockdownProfiles() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>>();
-            (::windows::core::Vtable::vtable(this).GetSupportedLockdownProfiles)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSupportedLockdownProfiles)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetCurrentLockdownProfile() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).GetCurrentLockdownProfile)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentLockdownProfile)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -69,13 +69,13 @@ impl DeviceLockdownProfile {
     pub fn ApplyLockdownProfileAsync(profileid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ApplyLockdownProfileAsync)(::windows::core::Vtable::as_raw(this), profileid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ApplyLockdownProfileAsync)(::windows::core::Interface::as_raw(this), profileid, &mut result__).from_abi(result__)
         })
     }
     pub fn GetLockdownProfileInformation(profileid: ::windows::core::GUID) -> ::windows::core::Result<DeviceLockdownProfileInformation> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<DeviceLockdownProfileInformation>();
-            (::windows::core::Vtable::vtable(this).GetLockdownProfileInformation)(::windows::core::Vtable::as_raw(this), profileid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetLockdownProfileInformation)(::windows::core::Interface::as_raw(this), profileid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -95,7 +95,7 @@ impl DeviceLockdownProfileInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -118,11 +118,11 @@ impl ::core::clone::Clone for DeviceLockdownProfileInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DeviceLockdownProfileInformation {
+unsafe impl ::windows::core::Interface for DeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DeviceLockdownProfileInformation {
-    const IID: ::windows::core::GUID = <IDeviceLockdownProfileInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DeviceLockdownProfileInformation {
+    const IID: ::windows::core::GUID = <IDeviceLockdownProfileInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceLockdownProfileInformation {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation";

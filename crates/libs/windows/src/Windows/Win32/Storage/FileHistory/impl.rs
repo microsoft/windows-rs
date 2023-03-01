@@ -140,7 +140,7 @@ impl IFhConfigMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFhConfigMgr as ::windows::core::Interface>::IID
+        iid == &<IFhConfigMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -198,7 +198,7 @@ impl IFhReassociation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFhReassociation as ::windows::core::Interface>::IID
+        iid == &<IFhReassociation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"implement\"`*"]
@@ -232,7 +232,7 @@ impl IFhScopeIterator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFhScopeIterator as ::windows::core::Interface>::IID
+        iid == &<IFhScopeIterator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"implement\"`*"]
@@ -272,6 +272,6 @@ impl IFhTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFhTarget as ::windows::core::Interface>::IID
+        iid == &<IFhTarget as ::windows::core::ComInterface>::IID
     }
 }

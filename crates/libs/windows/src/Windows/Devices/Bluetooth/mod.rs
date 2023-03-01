@@ -9,7 +9,7 @@ pub mod Rfcomm;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothAdapter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothAdapter {
+unsafe impl ::windows::core::Interface for IBluetoothAdapter {
     type Vtable = IBluetoothAdapter_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothAdapter {
@@ -17,7 +17,7 @@ impl ::core::clone::Clone for IBluetoothAdapter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothAdapter {
+unsafe impl ::windows::core::ComInterface for IBluetoothAdapter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7974f04c_5f7a_4a34_9225_a855f84b1a8b);
 }
 #[repr(C)]
@@ -39,7 +39,7 @@ pub struct IBluetoothAdapter_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothAdapter2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothAdapter2 {
+unsafe impl ::windows::core::Interface for IBluetoothAdapter2 {
     type Vtable = IBluetoothAdapter2_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothAdapter2 {
@@ -47,7 +47,7 @@ impl ::core::clone::Clone for IBluetoothAdapter2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothAdapter2 {
+unsafe impl ::windows::core::ComInterface for IBluetoothAdapter2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac94cecc_24d5_41b3_916d_1097c50b102b);
 }
 #[repr(C)]
@@ -60,7 +60,7 @@ pub struct IBluetoothAdapter2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothAdapter3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothAdapter3 {
+unsafe impl ::windows::core::Interface for IBluetoothAdapter3 {
     type Vtable = IBluetoothAdapter3_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothAdapter3 {
@@ -68,7 +68,7 @@ impl ::core::clone::Clone for IBluetoothAdapter3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothAdapter3 {
+unsafe impl ::windows::core::ComInterface for IBluetoothAdapter3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f8624e0_cba9_5211_9f89_3aac62b4c6b8);
 }
 #[repr(C)]
@@ -81,7 +81,7 @@ pub struct IBluetoothAdapter3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothAdapterStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothAdapterStatics {
+unsafe impl ::windows::core::Interface for IBluetoothAdapterStatics {
     type Vtable = IBluetoothAdapterStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothAdapterStatics {
@@ -89,7 +89,7 @@ impl ::core::clone::Clone for IBluetoothAdapterStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothAdapterStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothAdapterStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b02fb6a_ac4c_4741_8661_8eab7d17ea9f);
 }
 #[repr(C)]
@@ -109,7 +109,7 @@ pub struct IBluetoothAdapterStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothClassOfDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothClassOfDevice {
+unsafe impl ::windows::core::Interface for IBluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDevice_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothClassOfDevice {
@@ -117,7 +117,7 @@ impl ::core::clone::Clone for IBluetoothClassOfDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothClassOfDevice {
+unsafe impl ::windows::core::ComInterface for IBluetoothClassOfDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd640227e_d7d7_4661_9454_65039ca17a2b);
 }
 #[repr(C)]
@@ -132,7 +132,7 @@ pub struct IBluetoothClassOfDevice_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothClassOfDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothClassOfDeviceStatics {
+unsafe impl ::windows::core::Interface for IBluetoothClassOfDeviceStatics {
     type Vtable = IBluetoothClassOfDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothClassOfDeviceStatics {
@@ -140,7 +140,7 @@ impl ::core::clone::Clone for IBluetoothClassOfDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothClassOfDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothClassOfDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe46135bd_0fa2_416c_91b4_c1e48ca061c1);
 }
 #[repr(C)]
@@ -153,7 +153,7 @@ pub struct IBluetoothClassOfDeviceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothDevice {
+unsafe impl ::windows::core::Interface for IBluetoothDevice {
     type Vtable = IBluetoothDevice_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothDevice {
@@ -161,7 +161,7 @@ impl ::core::clone::Clone for IBluetoothDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothDevice {
+unsafe impl ::windows::core::ComInterface for IBluetoothDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2335b156_90d2_4a04_aef5_0e20b9e6b707);
 }
 #[repr(C)]
@@ -213,7 +213,7 @@ pub struct IBluetoothDevice_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothDevice2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothDevice2 {
+unsafe impl ::windows::core::Interface for IBluetoothDevice2 {
     type Vtable = IBluetoothDevice2_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothDevice2 {
@@ -221,7 +221,7 @@ impl ::core::clone::Clone for IBluetoothDevice2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothDevice2 {
+unsafe impl ::windows::core::ComInterface for IBluetoothDevice2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0133f954_b156_4dd0_b1f5_c11bc31a5163);
 }
 #[repr(C)]
@@ -236,7 +236,7 @@ pub struct IBluetoothDevice2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothDevice3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothDevice3 {
+unsafe impl ::windows::core::Interface for IBluetoothDevice3 {
     type Vtable = IBluetoothDevice3_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothDevice3 {
@@ -244,7 +244,7 @@ impl ::core::clone::Clone for IBluetoothDevice3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothDevice3 {
+unsafe impl ::windows::core::ComInterface for IBluetoothDevice3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57fff78b_651a_4454_b90f_eb21ef0b0d71);
 }
 #[repr(C)]
@@ -279,7 +279,7 @@ pub struct IBluetoothDevice3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothDevice4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothDevice4 {
+unsafe impl ::windows::core::Interface for IBluetoothDevice4 {
     type Vtable = IBluetoothDevice4_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothDevice4 {
@@ -287,7 +287,7 @@ impl ::core::clone::Clone for IBluetoothDevice4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothDevice4 {
+unsafe impl ::windows::core::ComInterface for IBluetoothDevice4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x817c34ad_0e9c_42b2_a8dc_3e8094940d12);
 }
 #[repr(C)]
@@ -299,7 +299,7 @@ pub struct IBluetoothDevice4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothDevice5(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothDevice5 {
+unsafe impl ::windows::core::Interface for IBluetoothDevice5 {
     type Vtable = IBluetoothDevice5_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothDevice5 {
@@ -307,7 +307,7 @@ impl ::core::clone::Clone for IBluetoothDevice5 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothDevice5 {
+unsafe impl ::windows::core::ComInterface for IBluetoothDevice5 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5e0b385_5e85_4559_a10d_1c7281379f96);
 }
 #[repr(C)]
@@ -319,7 +319,7 @@ pub struct IBluetoothDevice5_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothDeviceId(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothDeviceId {
+unsafe impl ::windows::core::Interface for IBluetoothDeviceId {
     type Vtable = IBluetoothDeviceId_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothDeviceId {
@@ -327,7 +327,7 @@ impl ::core::clone::Clone for IBluetoothDeviceId {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothDeviceId {
+unsafe impl ::windows::core::ComInterface for IBluetoothDeviceId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17949af_57c1_4642_bcce_e6c06b20ae76);
 }
 #[repr(C)]
@@ -341,7 +341,7 @@ pub struct IBluetoothDeviceId_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothDeviceIdStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothDeviceIdStatics {
+unsafe impl ::windows::core::Interface for IBluetoothDeviceIdStatics {
     type Vtable = IBluetoothDeviceIdStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothDeviceIdStatics {
@@ -349,7 +349,7 @@ impl ::core::clone::Clone for IBluetoothDeviceIdStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothDeviceIdStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothDeviceIdStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7884e67_3efb_4f31_bbc2_810e09977404);
 }
 #[repr(C)]
@@ -361,7 +361,7 @@ pub struct IBluetoothDeviceIdStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothDeviceStatics {
+unsafe impl ::windows::core::Interface for IBluetoothDeviceStatics {
     type Vtable = IBluetoothDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothDeviceStatics {
@@ -369,7 +369,7 @@ impl ::core::clone::Clone for IBluetoothDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0991df51_57db_4725_bbd7_84f64327ec2c);
 }
 #[repr(C)]
@@ -393,7 +393,7 @@ pub struct IBluetoothDeviceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothDeviceStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothDeviceStatics2 {
+unsafe impl ::windows::core::Interface for IBluetoothDeviceStatics2 {
     type Vtable = IBluetoothDeviceStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothDeviceStatics2 {
@@ -401,7 +401,7 @@ impl ::core::clone::Clone for IBluetoothDeviceStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothDeviceStatics2 {
+unsafe impl ::windows::core::ComInterface for IBluetoothDeviceStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc29e8e2f_4e14_4477_aa1b_b8b47e5b7ece);
 }
 #[repr(C)]
@@ -417,7 +417,7 @@ pub struct IBluetoothDeviceStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEAppearance(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEAppearance {
+unsafe impl ::windows::core::Interface for IBluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearance_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEAppearance {
@@ -425,7 +425,7 @@ impl ::core::clone::Clone for IBluetoothLEAppearance {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEAppearance {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEAppearance {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d2079f2_66a8_4258_985e_02b4d9509f18);
 }
 #[repr(C)]
@@ -439,7 +439,7 @@ pub struct IBluetoothLEAppearance_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEAppearanceCategoriesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEAppearanceCategoriesStatics {
+unsafe impl ::windows::core::Interface for IBluetoothLEAppearanceCategoriesStatics {
     type Vtable = IBluetoothLEAppearanceCategoriesStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEAppearanceCategoriesStatics {
@@ -447,7 +447,7 @@ impl ::core::clone::Clone for IBluetoothLEAppearanceCategoriesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEAppearanceCategoriesStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEAppearanceCategoriesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4d54fe_046a_4185_aab6_824cf0610861);
 }
 #[repr(C)]
@@ -480,7 +480,7 @@ pub struct IBluetoothLEAppearanceCategoriesStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEAppearanceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEAppearanceStatics {
+unsafe impl ::windows::core::Interface for IBluetoothLEAppearanceStatics {
     type Vtable = IBluetoothLEAppearanceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEAppearanceStatics {
@@ -488,7 +488,7 @@ impl ::core::clone::Clone for IBluetoothLEAppearanceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEAppearanceStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEAppearanceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa193c0c7_4504_4f4a_9ba5_cd1054e5e065);
 }
 #[repr(C)]
@@ -501,7 +501,7 @@ pub struct IBluetoothLEAppearanceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEAppearanceSubcategoriesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEAppearanceSubcategoriesStatics {
+unsafe impl ::windows::core::Interface for IBluetoothLEAppearanceSubcategoriesStatics {
     type Vtable = IBluetoothLEAppearanceSubcategoriesStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEAppearanceSubcategoriesStatics {
@@ -509,7 +509,7 @@ impl ::core::clone::Clone for IBluetoothLEAppearanceSubcategoriesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEAppearanceSubcategoriesStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEAppearanceSubcategoriesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe57ba606_2144_415a_8312_71ccf291f8d1);
 }
 #[repr(C)]
@@ -548,7 +548,7 @@ pub struct IBluetoothLEAppearanceSubcategoriesStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEConnectionParameters(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEConnectionParameters {
+unsafe impl ::windows::core::Interface for IBluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParameters_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEConnectionParameters {
@@ -556,7 +556,7 @@ impl ::core::clone::Clone for IBluetoothLEConnectionParameters {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEConnectionParameters {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEConnectionParameters {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33cb0771_8da9_508f_a366_1ca388c929ab);
 }
 #[repr(C)]
@@ -570,7 +570,7 @@ pub struct IBluetoothLEConnectionParameters_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEConnectionPhy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEConnectionPhy {
+unsafe impl ::windows::core::Interface for IBluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhy_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEConnectionPhy {
@@ -578,7 +578,7 @@ impl ::core::clone::Clone for IBluetoothLEConnectionPhy {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEConnectionPhy {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEConnectionPhy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781e5e48_621e_5a7e_8be6_1b9561ff63c9);
 }
 #[repr(C)]
@@ -591,7 +591,7 @@ pub struct IBluetoothLEConnectionPhy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEConnectionPhyInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEConnectionPhyInfo {
+unsafe impl ::windows::core::Interface for IBluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfo_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEConnectionPhyInfo {
@@ -599,7 +599,7 @@ impl ::core::clone::Clone for IBluetoothLEConnectionPhyInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEConnectionPhyInfo {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEConnectionPhyInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a100bdd_602e_5c27_a1ae_b230015a6394);
 }
 #[repr(C)]
@@ -613,7 +613,7 @@ pub struct IBluetoothLEConnectionPhyInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEDevice {
+unsafe impl ::windows::core::Interface for IBluetoothLEDevice {
     type Vtable = IBluetoothLEDevice_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEDevice {
@@ -621,7 +621,7 @@ impl ::core::clone::Clone for IBluetoothLEDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEDevice {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ee2f7b_4ad8_4642_ac48_80a0b500e887);
 }
 #[repr(C)]
@@ -668,7 +668,7 @@ pub struct IBluetoothLEDevice_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEDevice2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEDevice2 {
+unsafe impl ::windows::core::Interface for IBluetoothLEDevice2 {
     type Vtable = IBluetoothLEDevice2_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEDevice2 {
@@ -676,7 +676,7 @@ impl ::core::clone::Clone for IBluetoothLEDevice2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEDevice2 {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEDevice2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26f062b3_7aee_4d31_baba_b1b9775f5916);
 }
 #[repr(C)]
@@ -693,7 +693,7 @@ pub struct IBluetoothLEDevice2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEDevice3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEDevice3 {
+unsafe impl ::windows::core::Interface for IBluetoothLEDevice3 {
     type Vtable = IBluetoothLEDevice3_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEDevice3 {
@@ -701,7 +701,7 @@ impl ::core::clone::Clone for IBluetoothLEDevice3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEDevice3 {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEDevice3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaee9e493_44ac_40dc_af33_b2c13c01ca46);
 }
 #[repr(C)]
@@ -736,7 +736,7 @@ pub struct IBluetoothLEDevice3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEDevice4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEDevice4 {
+unsafe impl ::windows::core::Interface for IBluetoothLEDevice4 {
     type Vtable = IBluetoothLEDevice4_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEDevice4 {
@@ -744,7 +744,7 @@ impl ::core::clone::Clone for IBluetoothLEDevice4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEDevice4 {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEDevice4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b605031_2248_4b2f_acf0_7cee36fc5870);
 }
 #[repr(C)]
@@ -756,7 +756,7 @@ pub struct IBluetoothLEDevice4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEDevice5(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEDevice5 {
+unsafe impl ::windows::core::Interface for IBluetoothLEDevice5 {
     type Vtable = IBluetoothLEDevice5_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEDevice5 {
@@ -764,7 +764,7 @@ impl ::core::clone::Clone for IBluetoothLEDevice5 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEDevice5 {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEDevice5 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d6a1260_5287_458e_95ba_17c8b7bb326e);
 }
 #[repr(C)]
@@ -776,7 +776,7 @@ pub struct IBluetoothLEDevice5_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEDevice6(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEDevice6 {
+unsafe impl ::windows::core::Interface for IBluetoothLEDevice6 {
     type Vtable = IBluetoothLEDevice6_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEDevice6 {
@@ -784,7 +784,7 @@ impl ::core::clone::Clone for IBluetoothLEDevice6 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEDevice6 {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEDevice6 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca7190ef_0cae_573c_a1ca_e1fc5bfc39e2);
 }
 #[repr(C)]
@@ -814,7 +814,7 @@ pub struct IBluetoothLEDevice6_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEDeviceStatics {
+unsafe impl ::windows::core::Interface for IBluetoothLEDeviceStatics {
     type Vtable = IBluetoothLEDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEDeviceStatics {
@@ -822,7 +822,7 @@ impl ::core::clone::Clone for IBluetoothLEDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8cf1a19_f0b6_4bf0_8689_41303de2d9f4);
 }
 #[repr(C)]
@@ -842,7 +842,7 @@ pub struct IBluetoothLEDeviceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEDeviceStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEDeviceStatics2 {
+unsafe impl ::windows::core::Interface for IBluetoothLEDeviceStatics2 {
     type Vtable = IBluetoothLEDeviceStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEDeviceStatics2 {
@@ -850,7 +850,7 @@ impl ::core::clone::Clone for IBluetoothLEDeviceStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEDeviceStatics2 {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEDeviceStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f12c06b_3bac_43e8_ad16_563271bd41c2);
 }
 #[repr(C)]
@@ -871,7 +871,7 @@ pub struct IBluetoothLEDeviceStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEPreferredConnectionParameters(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEPreferredConnectionParameters {
+unsafe impl ::windows::core::Interface for IBluetoothLEPreferredConnectionParameters {
     type Vtable = IBluetoothLEPreferredConnectionParameters_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParameters {
@@ -879,7 +879,7 @@ impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParameters {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEPreferredConnectionParameters {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEPreferredConnectionParameters {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2f44344_7372_5f7b_9b34_29c944f5a715);
 }
 #[repr(C)]
@@ -894,7 +894,7 @@ pub struct IBluetoothLEPreferredConnectionParameters_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEPreferredConnectionParametersRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEPreferredConnectionParametersRequest {
+unsafe impl ::windows::core::Interface for IBluetoothLEPreferredConnectionParametersRequest {
     type Vtable = IBluetoothLEPreferredConnectionParametersRequest_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParametersRequest {
@@ -902,7 +902,7 @@ impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParametersRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEPreferredConnectionParametersRequest {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEPreferredConnectionParametersRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a375276_a528_5266_b661_cce6a5ff9739);
 }
 #[repr(C)]
@@ -914,7 +914,7 @@ pub struct IBluetoothLEPreferredConnectionParametersRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEPreferredConnectionParametersStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothLEPreferredConnectionParametersStatics {
+unsafe impl ::windows::core::Interface for IBluetoothLEPreferredConnectionParametersStatics {
     type Vtable = IBluetoothLEPreferredConnectionParametersStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParametersStatics {
@@ -922,7 +922,7 @@ impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParametersStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothLEPreferredConnectionParametersStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothLEPreferredConnectionParametersStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e3e8edc_2751_55aa_a838_8faeee818d72);
 }
 #[repr(C)]
@@ -936,7 +936,7 @@ pub struct IBluetoothLEPreferredConnectionParametersStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothSignalStrengthFilter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothSignalStrengthFilter {
+unsafe impl ::windows::core::Interface for IBluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilter_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothSignalStrengthFilter {
@@ -944,7 +944,7 @@ impl ::core::clone::Clone for IBluetoothSignalStrengthFilter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothSignalStrengthFilter {
+unsafe impl ::windows::core::ComInterface for IBluetoothSignalStrengthFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf7b7391_6bb5_4cfe_90b1_5d7324edcf7f);
 }
 #[repr(C)]
@@ -987,7 +987,7 @@ pub struct IBluetoothSignalStrengthFilter_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothUuidHelperStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IBluetoothUuidHelperStatics {
+unsafe impl ::windows::core::Interface for IBluetoothUuidHelperStatics {
     type Vtable = IBluetoothUuidHelperStatics_Vtbl;
 }
 impl ::core::clone::Clone for IBluetoothUuidHelperStatics {
@@ -995,7 +995,7 @@ impl ::core::clone::Clone for IBluetoothUuidHelperStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IBluetoothUuidHelperStatics {
+unsafe impl ::windows::core::ComInterface for IBluetoothUuidHelperStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17df0cd8_cf74_4b21_afe6_f57a11bcdea0);
 }
 #[repr(C)]
@@ -1016,49 +1016,49 @@ impl BluetoothAdapter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BluetoothAddress(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).BluetoothAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BluetoothAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsClassicSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsClassicSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsClassicSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsLowEnergySupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsLowEnergySupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsLowEnergySupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPeripheralRoleSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPeripheralRoleSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPeripheralRoleSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsCentralRoleSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsCentralRoleSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsCentralRoleSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsAdvertisementOffloadSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsAdvertisementOffloadSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAdvertisementOffloadSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Radios\"`, `\"Foundation\"`*"]
@@ -1067,41 +1067,41 @@ impl BluetoothAdapter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::Radios::Radio>>();
-            (::windows::core::Vtable::vtable(this).GetRadioAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRadioAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AreClassicSecureConnectionsSupported(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IBluetoothAdapter2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothAdapter2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AreClassicSecureConnectionsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AreClassicSecureConnectionsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AreLowEnergySecureConnectionsSupported(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IBluetoothAdapter2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothAdapter2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AreLowEnergySecureConnectionsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AreLowEnergySecureConnectionsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsExtendedAdvertisingSupported(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IBluetoothAdapter3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothAdapter3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsExtendedAdvertisingSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsExtendedAdvertisingSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxAdvertisementDataLength(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IBluetoothAdapter3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothAdapter3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxAdvertisementDataLength)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxAdvertisementDataLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1109,7 +1109,7 @@ impl BluetoothAdapter {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<BluetoothAdapter>>();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1117,7 +1117,7 @@ impl BluetoothAdapter {
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<BluetoothAdapter>>();
-            (::windows::core::Vtable::vtable(this).GetDefaultAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1145,11 +1145,11 @@ impl ::core::clone::Clone for BluetoothAdapter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothAdapter {
+unsafe impl ::windows::core::Interface for BluetoothAdapter {
     type Vtable = IBluetoothAdapter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothAdapter {
-    const IID: ::windows::core::GUID = <IBluetoothAdapter as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothAdapter {
+    const IID: ::windows::core::GUID = <IBluetoothAdapter as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothAdapter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothAdapter";
@@ -1165,40 +1165,40 @@ impl BluetoothClassOfDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).RawValue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RawValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MajorClass(&self) -> ::windows::core::Result<BluetoothMajorClass> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothMajorClass>();
-            (::windows::core::Vtable::vtable(this).MajorClass)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MajorClass)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MinorClass(&self) -> ::windows::core::Result<BluetoothMinorClass> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothMinorClass>();
-            (::windows::core::Vtable::vtable(this).MinorClass)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinorClass)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ServiceCapabilities(&self) -> ::windows::core::Result<BluetoothServiceCapabilities> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothServiceCapabilities>();
-            (::windows::core::Vtable::vtable(this).ServiceCapabilities)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ServiceCapabilities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FromRawValue(rawvalue: u32) -> ::windows::core::Result<BluetoothClassOfDevice> {
         Self::IBluetoothClassOfDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothClassOfDevice>();
-            (::windows::core::Vtable::vtable(this).FromRawValue)(::windows::core::Vtable::as_raw(this), rawvalue, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromRawValue)(::windows::core::Interface::as_raw(this), rawvalue, &mut result__).from_abi(result__)
         })
     }
     pub fn FromParts(majorclass: BluetoothMajorClass, minorclass: BluetoothMinorClass, servicecapabilities: BluetoothServiceCapabilities) -> ::windows::core::Result<BluetoothClassOfDevice> {
         Self::IBluetoothClassOfDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothClassOfDevice>();
-            (::windows::core::Vtable::vtable(this).FromParts)(::windows::core::Vtable::as_raw(this), majorclass, minorclass, servicecapabilities, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromParts)(::windows::core::Interface::as_raw(this), majorclass, minorclass, servicecapabilities, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1226,11 +1226,11 @@ impl ::core::clone::Clone for BluetoothClassOfDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothClassOfDevice {
+unsafe impl ::windows::core::Interface for BluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDevice_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothClassOfDevice {
-    const IID: ::windows::core::GUID = <IBluetoothClassOfDevice as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothClassOfDevice {
+    const IID: ::windows::core::GUID = <IBluetoothClassOfDevice as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothClassOfDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothClassOfDevice";
@@ -1246,7 +1246,7 @@ impl BluetoothDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
@@ -1255,21 +1255,21 @@ impl BluetoothDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Networking::HostName>();
-            (::windows::core::Vtable::vtable(this).HostName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HostName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ClassOfDevice(&self) -> ::windows::core::Result<BluetoothClassOfDevice> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothClassOfDevice>();
-            (::windows::core::Vtable::vtable(this).ClassOfDevice)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ClassOfDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
@@ -1278,7 +1278,7 @@ impl BluetoothDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Storage::Streams::IBuffer>>();
-            (::windows::core::Vtable::vtable(this).SdpRecords)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SdpRecords)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1287,21 +1287,21 @@ impl BluetoothDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<Rfcomm::RfcommDeviceService>>();
-            (::windows::core::Vtable::vtable(this).RfcommServices)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RfcommServices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConnectionStatus(&self) -> ::windows::core::Result<BluetoothConnectionStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothConnectionStatus>();
-            (::windows::core::Vtable::vtable(this).ConnectionStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BluetoothAddress(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).BluetoothAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BluetoothAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1310,14 +1310,14 @@ impl BluetoothDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).NameChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NameChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNameChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveNameChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNameChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1325,14 +1325,14 @@ impl BluetoothDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).SdpRecordsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SdpRecordsChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSdpRecordsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveSdpRecordsChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSdpRecordsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1340,90 +1340,90 @@ impl BluetoothDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ConnectionStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionStatusChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveConnectionStatusChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInformation(&self) -> ::windows::core::Result<super::Enumeration::DeviceInformation> {
-        let this = &::windows::core::Interface::cast::<IBluetoothDevice2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothDevice2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Enumeration::DeviceInformation>();
-            (::windows::core::Vtable::vtable(this).DeviceInformation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::Enumeration::DeviceAccessInformation> {
-        let this = &::windows::core::Interface::cast::<IBluetoothDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Enumeration::DeviceAccessInformation>();
-            (::windows::core::Vtable::vtable(this).DeviceAccessInformation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceAccessInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>>();
-            (::windows::core::Vtable::vtable(this).RequestAccessAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
     pub fn GetRfcommServicesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>();
-            (::windows::core::Vtable::vtable(this).GetRfcommServicesAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRfcommServicesAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
     pub fn GetRfcommServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>();
-            (::windows::core::Vtable::vtable(this).GetRfcommServicesWithCacheModeAsync)(::windows::core::Vtable::as_raw(this), cachemode, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRfcommServicesWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
     pub fn GetRfcommServicesForIdAsync(&self, serviceid: &Rfcomm::RfcommServiceId) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>();
-            (::windows::core::Vtable::vtable(this).GetRfcommServicesForIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRfcommServicesForIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceid), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
     pub fn GetRfcommServicesForIdWithCacheModeAsync(&self, serviceid: &Rfcomm::RfcommServiceId, cachemode: BluetoothCacheMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>();
-            (::windows::core::Vtable::vtable(this).GetRfcommServicesForIdWithCacheModeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serviceid), cachemode, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRfcommServicesForIdWithCacheModeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceid), cachemode, &mut result__).from_abi(result__)
         }
     }
     pub fn BluetoothDeviceId(&self) -> ::windows::core::Result<BluetoothDeviceId> {
-        let this = &::windows::core::Interface::cast::<IBluetoothDevice4>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothDevice4>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothDeviceId>();
-            (::windows::core::Vtable::vtable(this).BluetoothDeviceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BluetoothDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn WasSecureConnectionUsedForPairing(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IBluetoothDevice5>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothDevice5>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).WasSecureConnectionUsedForPairing)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WasSecureConnectionUsedForPairing)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1431,7 +1431,7 @@ impl BluetoothDevice {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<BluetoothDevice>>();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking\"`*"]
@@ -1439,7 +1439,7 @@ impl BluetoothDevice {
     pub fn FromHostNameAsync(hostname: &super::super::Networking::HostName) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<BluetoothDevice>>();
-            (::windows::core::Vtable::vtable(this).FromHostNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromHostNameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(hostname), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1447,50 +1447,50 @@ impl BluetoothDevice {
     pub fn FromBluetoothAddressAsync(address: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<BluetoothDevice>>();
-            (::windows::core::Vtable::vtable(this).FromBluetoothAddressAsync)(::windows::core::Vtable::as_raw(this), address, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromBluetoothAddressAsync)(::windows::core::Interface::as_raw(this), address, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromPairingState(pairingstate: bool) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromPairingState)(::windows::core::Vtable::as_raw(this), pairingstate, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromPairingState)(::windows::core::Interface::as_raw(this), pairingstate, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromConnectionStatus(connectionstatus: BluetoothConnectionStatus) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromConnectionStatus)(::windows::core::Vtable::as_raw(this), connectionstatus, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromConnectionStatus)(::windows::core::Interface::as_raw(this), connectionstatus, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromDeviceName(devicename: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromDeviceName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(devicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromDeviceName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(devicename), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromBluetoothAddress(bluetoothaddress: u64) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromBluetoothAddress)(::windows::core::Vtable::as_raw(this), bluetoothaddress, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromBluetoothAddress)(::windows::core::Interface::as_raw(this), bluetoothaddress, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromClassOfDevice(classofdevice: &BluetoothClassOfDevice) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromClassOfDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(classofdevice), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromClassOfDevice)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(classofdevice), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc(hidden)]
     pub fn IBluetoothDeviceStatics<R, F: FnOnce(&IBluetoothDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1522,38 +1522,18 @@ impl ::core::clone::Clone for BluetoothDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothDevice {
+unsafe impl ::windows::core::Interface for BluetoothDevice {
     type Vtable = IBluetoothDevice_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothDevice {
-    const IID: ::windows::core::GUID = <IBluetoothDevice as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothDevice {
+    const IID: ::windows::core::GUID = <IBluetoothDevice as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDevice";
 }
 ::windows::imp::interface_hierarchy!(BluetoothDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<BluetoothDevice> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: BluetoothDevice) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&BluetoothDevice> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BluetoothDevice) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&BluetoothDevice> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BluetoothDevice) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for BluetoothDevice {}
 unsafe impl ::core::marker::Send for BluetoothDevice {}
 unsafe impl ::core::marker::Sync for BluetoothDevice {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -1564,27 +1544,27 @@ impl BluetoothDeviceId {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsClassicDevice(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsClassicDevice)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsClassicDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsLowEnergyDevice(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsLowEnergyDevice)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsLowEnergyDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FromId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<BluetoothDeviceId> {
         Self::IBluetoothDeviceIdStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothDeviceId>();
-            (::windows::core::Vtable::vtable(this).FromId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1612,11 +1592,11 @@ impl ::core::clone::Clone for BluetoothDeviceId {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothDeviceId {
+unsafe impl ::windows::core::Interface for BluetoothDeviceId {
     type Vtable = IBluetoothDeviceId_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothDeviceId {
-    const IID: ::windows::core::GUID = <IBluetoothDeviceId as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothDeviceId {
+    const IID: ::windows::core::GUID = <IBluetoothDeviceId as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothDeviceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDeviceId";
@@ -1632,33 +1612,33 @@ impl BluetoothLEAppearance {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).RawValue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RawValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Category(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Category)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Category)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SubCategory(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).SubCategory)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SubCategory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FromRawValue(rawvalue: u16) -> ::windows::core::Result<BluetoothLEAppearance> {
         Self::IBluetoothLEAppearanceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEAppearance>();
-            (::windows::core::Vtable::vtable(this).FromRawValue)(::windows::core::Vtable::as_raw(this), rawvalue, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromRawValue)(::windows::core::Interface::as_raw(this), rawvalue, &mut result__).from_abi(result__)
         })
     }
     pub fn FromParts(appearancecategory: u16, appearancesubcategory: u16) -> ::windows::core::Result<BluetoothLEAppearance> {
         Self::IBluetoothLEAppearanceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEAppearance>();
-            (::windows::core::Vtable::vtable(this).FromParts)(::windows::core::Vtable::as_raw(this), appearancecategory, appearancesubcategory, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromParts)(::windows::core::Interface::as_raw(this), appearancecategory, appearancesubcategory, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1686,11 +1666,11 @@ impl ::core::clone::Clone for BluetoothLEAppearance {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothLEAppearance {
+unsafe impl ::windows::core::Interface for BluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearance_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothLEAppearance {
-    const IID: ::windows::core::GUID = <IBluetoothLEAppearance as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothLEAppearance {
+    const IID: ::windows::core::GUID = <IBluetoothLEAppearance as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAppearance {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearance";
@@ -1704,133 +1684,133 @@ impl BluetoothLEAppearanceCategories {
     pub fn Uncategorized() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Uncategorized)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Uncategorized)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Phone() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Phone)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Phone)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Computer() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Computer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Computer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Watch() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Watch)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Watch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Clock() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Clock)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Clock)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Display() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Display)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Display)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RemoteControl() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).RemoteControl)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemoteControl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn EyeGlasses() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).EyeGlasses)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EyeGlasses)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Tag() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Tag)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Tag)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Keyring() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Keyring)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Keyring)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn MediaPlayer() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).MediaPlayer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MediaPlayer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn BarcodeScanner() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).BarcodeScanner)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BarcodeScanner)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Thermometer() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Thermometer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Thermometer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn HeartRate() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).HeartRate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HeartRate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn BloodPressure() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).BloodPressure)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BloodPressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn HumanInterfaceDevice() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).HumanInterfaceDevice)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HumanInterfaceDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GlucoseMeter() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).GlucoseMeter)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GlucoseMeter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RunningWalking() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).RunningWalking)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RunningWalking)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Cycling() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Cycling)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Cycling)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn PulseOximeter() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).PulseOximeter)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PulseOximeter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn WeightScale() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).WeightScale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WeightScale)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn OutdoorSportActivity() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).OutdoorSportActivity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutdoorSportActivity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1848,169 +1828,169 @@ impl BluetoothLEAppearanceSubcategories {
     pub fn Generic() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Generic)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Generic)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn SportsWatch() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).SportsWatch)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SportsWatch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ThermometerEar() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).ThermometerEar)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ThermometerEar)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn HeartRateBelt() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).HeartRateBelt)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HeartRateBelt)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn BloodPressureArm() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).BloodPressureArm)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BloodPressureArm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn BloodPressureWrist() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).BloodPressureWrist)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BloodPressureWrist)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Keyboard() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Keyboard)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Keyboard)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Mouse() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Mouse)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Mouse)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Joystick() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Joystick)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Joystick)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Gamepad() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Gamepad)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Gamepad)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DigitizerTablet() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).DigitizerTablet)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DigitizerTablet)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CardReader() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).CardReader)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CardReader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DigitalPen() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).DigitalPen)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DigitalPen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn BarcodeScanner() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).BarcodeScanner)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BarcodeScanner)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RunningWalkingInShoe() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).RunningWalkingInShoe)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RunningWalkingInShoe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RunningWalkingOnShoe() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).RunningWalkingOnShoe)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RunningWalkingOnShoe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RunningWalkingOnHip() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).RunningWalkingOnHip)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RunningWalkingOnHip)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CyclingComputer() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).CyclingComputer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CyclingComputer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CyclingSpeedSensor() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).CyclingSpeedSensor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CyclingSpeedSensor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CyclingCadenceSensor() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).CyclingCadenceSensor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CyclingCadenceSensor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CyclingPowerSensor() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).CyclingPowerSensor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CyclingPowerSensor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CyclingSpeedCadenceSensor() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).CyclingSpeedCadenceSensor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CyclingSpeedCadenceSensor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn OximeterFingertip() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).OximeterFingertip)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OximeterFingertip)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn OximeterWristWorn() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).OximeterWristWorn)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OximeterWristWorn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn LocationDisplay() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).LocationDisplay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocationDisplay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn LocationNavigationDisplay() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).LocationNavigationDisplay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocationNavigationDisplay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn LocationPod() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).LocationPod)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocationPod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn LocationNavigationPod() -> ::windows::core::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).LocationNavigationPod)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocationNavigationPod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2030,21 +2010,21 @@ impl BluetoothLEConnectionParameters {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).LinkTimeout)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LinkTimeout)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConnectionLatency(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).ConnectionLatency)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionLatency)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConnectionInterval(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).ConnectionInterval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2067,11 +2047,11 @@ impl ::core::clone::Clone for BluetoothLEConnectionParameters {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothLEConnectionParameters {
+unsafe impl ::windows::core::Interface for BluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParameters_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothLEConnectionParameters {
-    const IID: ::windows::core::GUID = <IBluetoothLEConnectionParameters as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothLEConnectionParameters {
+    const IID: ::windows::core::GUID = <IBluetoothLEConnectionParameters as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionParameters";
@@ -2087,14 +2067,14 @@ impl BluetoothLEConnectionPhy {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEConnectionPhyInfo>();
-            (::windows::core::Vtable::vtable(this).TransmitInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TransmitInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReceiveInfo(&self) -> ::windows::core::Result<BluetoothLEConnectionPhyInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEConnectionPhyInfo>();
-            (::windows::core::Vtable::vtable(this).ReceiveInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReceiveInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2117,11 +2097,11 @@ impl ::core::clone::Clone for BluetoothLEConnectionPhy {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothLEConnectionPhy {
+unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhy_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhy {
-    const IID: ::windows::core::GUID = <IBluetoothLEConnectionPhy as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothLEConnectionPhy {
+    const IID: ::windows::core::GUID = <IBluetoothLEConnectionPhy as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEConnectionPhy {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhy";
@@ -2137,21 +2117,21 @@ impl BluetoothLEConnectionPhyInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsUncoded1MPhy)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsUncoded1MPhy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsUncoded2MPhy(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsUncoded2MPhy)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsUncoded2MPhy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsCodedPhy(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsCodedPhy)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsCodedPhy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2174,11 +2154,11 @@ impl ::core::clone::Clone for BluetoothLEConnectionPhyInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothLEConnectionPhyInfo {
+unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhyInfo {
-    const IID: ::windows::core::GUID = <IBluetoothLEConnectionPhyInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothLEConnectionPhyInfo {
+    const IID: ::windows::core::GUID = <IBluetoothLEConnectionPhyInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEConnectionPhyInfo {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo";
@@ -2194,14 +2174,14 @@ impl BluetoothLEDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -2210,21 +2190,21 @@ impl BluetoothLEDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<GenericAttributeProfile::GattDeviceService>>();
-            (::windows::core::Vtable::vtable(this).GattServices)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GattServices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConnectionStatus(&self) -> ::windows::core::Result<BluetoothConnectionStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothConnectionStatus>();
-            (::windows::core::Vtable::vtable(this).ConnectionStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BluetoothAddress(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).BluetoothAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BluetoothAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"deprecated\"`*"]
@@ -2233,7 +2213,7 @@ impl BluetoothLEDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GenericAttributeProfile::GattDeviceService>();
-            (::windows::core::Vtable::vtable(this).GetGattService)(::windows::core::Vtable::as_raw(this), serviceuuid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetGattService)(::windows::core::Interface::as_raw(this), serviceuuid, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2242,14 +2222,14 @@ impl BluetoothLEDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).NameChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NameChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNameChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveNameChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNameChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2257,14 +2237,14 @@ impl BluetoothLEDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).GattServicesChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GattServicesChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGattServicesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveGattServicesChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveGattServicesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2272,163 +2252,163 @@ impl BluetoothLEDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ConnectionStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionStatusChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveConnectionStatusChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInformation(&self) -> ::windows::core::Result<super::Enumeration::DeviceInformation> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Enumeration::DeviceInformation>();
-            (::windows::core::Vtable::vtable(this).DeviceInformation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Appearance(&self) -> ::windows::core::Result<BluetoothLEAppearance> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEAppearance>();
-            (::windows::core::Vtable::vtable(this).Appearance)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Appearance)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BluetoothAddressType(&self) -> ::windows::core::Result<BluetoothAddressType> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothAddressType>();
-            (::windows::core::Vtable::vtable(this).BluetoothAddressType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BluetoothAddressType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::Enumeration::DeviceAccessInformation> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Enumeration::DeviceAccessInformation>();
-            (::windows::core::Vtable::vtable(this).DeviceAccessInformation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceAccessInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>>();
-            (::windows::core::Vtable::vtable(this).RequestAccessAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
     pub fn GetGattServicesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>>();
-            (::windows::core::Vtable::vtable(this).GetGattServicesAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetGattServicesAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
     pub fn GetGattServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>>();
-            (::windows::core::Vtable::vtable(this).GetGattServicesWithCacheModeAsync)(::windows::core::Vtable::as_raw(this), cachemode, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetGattServicesWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
     pub fn GetGattServicesForUuidAsync(&self, serviceuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>>();
-            (::windows::core::Vtable::vtable(this).GetGattServicesForUuidAsync)(::windows::core::Vtable::as_raw(this), serviceuuid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetGattServicesForUuidAsync)(::windows::core::Interface::as_raw(this), serviceuuid, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
     pub fn GetGattServicesForUuidWithCacheModeAsync(&self, serviceuuid: ::windows::core::GUID, cachemode: BluetoothCacheMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>>();
-            (::windows::core::Vtable::vtable(this).GetGattServicesForUuidWithCacheModeAsync)(::windows::core::Vtable::as_raw(this), serviceuuid, cachemode, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetGattServicesForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), serviceuuid, cachemode, &mut result__).from_abi(result__)
         }
     }
     pub fn BluetoothDeviceId(&self) -> ::windows::core::Result<BluetoothDeviceId> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice4>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice4>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothDeviceId>();
-            (::windows::core::Vtable::vtable(this).BluetoothDeviceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BluetoothDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn WasSecureConnectionUsedForPairing(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice5>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice5>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).WasSecureConnectionUsedForPairing)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WasSecureConnectionUsedForPairing)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetConnectionParameters(&self) -> ::windows::core::Result<BluetoothLEConnectionParameters> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEConnectionParameters>();
-            (::windows::core::Vtable::vtable(this).GetConnectionParameters)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetConnectionParameters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetConnectionPhy(&self) -> ::windows::core::Result<BluetoothLEConnectionPhy> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEConnectionPhy>();
-            (::windows::core::Vtable::vtable(this).GetConnectionPhy)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetConnectionPhy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RequestPreferredConnectionParameters(&self, preferredconnectionparameters: &BluetoothLEPreferredConnectionParameters) -> ::windows::core::Result<BluetoothLEPreferredConnectionParametersRequest> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEPreferredConnectionParametersRequest>();
-            (::windows::core::Vtable::vtable(this).RequestPreferredConnectionParameters)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(preferredconnectionparameters), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestPreferredConnectionParameters)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(preferredconnectionparameters), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionParametersChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ConnectionParametersChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionParametersChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionParametersChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveConnectionParametersChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice6>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionParametersChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionPhyChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ConnectionPhyChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionPhyChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionPhyChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveConnectionPhyChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        let this = &::windows::core::ComInterface::cast::<IBluetoothLEDevice6>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionPhyChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>>();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2436,49 +2416,49 @@ impl BluetoothLEDevice {
     pub fn FromBluetoothAddressAsync(bluetoothaddress: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>>();
-            (::windows::core::Vtable::vtable(this).FromBluetoothAddressAsync)(::windows::core::Vtable::as_raw(this), bluetoothaddress, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromBluetoothAddressAsync)(::windows::core::Interface::as_raw(this), bluetoothaddress, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromPairingState(pairingstate: bool) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromPairingState)(::windows::core::Vtable::as_raw(this), pairingstate, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromPairingState)(::windows::core::Interface::as_raw(this), pairingstate, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromConnectionStatus(connectionstatus: BluetoothConnectionStatus) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromConnectionStatus)(::windows::core::Vtable::as_raw(this), connectionstatus, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromConnectionStatus)(::windows::core::Interface::as_raw(this), connectionstatus, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromDeviceName(devicename: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromDeviceName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(devicename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromDeviceName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(devicename), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromBluetoothAddress(bluetoothaddress: u64) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromBluetoothAddress)(::windows::core::Vtable::as_raw(this), bluetoothaddress, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromBluetoothAddress)(::windows::core::Interface::as_raw(this), bluetoothaddress, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType(bluetoothaddress: u64, bluetoothaddresstype: BluetoothAddressType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType)(::windows::core::Vtable::as_raw(this), bluetoothaddress, bluetoothaddresstype, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType)(::windows::core::Interface::as_raw(this), bluetoothaddress, bluetoothaddresstype, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromAppearance(appearance: &BluetoothLEAppearance) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromAppearance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appearance), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromAppearance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appearance), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2486,14 +2466,14 @@ impl BluetoothLEDevice {
     pub fn FromBluetoothAddressWithBluetoothAddressTypeAsync(bluetoothaddress: u64, bluetoothaddresstype: BluetoothAddressType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>>();
-            (::windows::core::Vtable::vtable(this).FromBluetoothAddressWithBluetoothAddressTypeAsync)(::windows::core::Vtable::as_raw(this), bluetoothaddress, bluetoothaddresstype, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromBluetoothAddressWithBluetoothAddressTypeAsync)(::windows::core::Interface::as_raw(this), bluetoothaddress, bluetoothaddresstype, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc(hidden)]
     pub fn IBluetoothLEDeviceStatics<R, F: FnOnce(&IBluetoothLEDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2525,38 +2505,18 @@ impl ::core::clone::Clone for BluetoothLEDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothLEDevice {
+unsafe impl ::windows::core::Interface for BluetoothLEDevice {
     type Vtable = IBluetoothLEDevice_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothLEDevice {
-    const IID: ::windows::core::GUID = <IBluetoothLEDevice as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothLEDevice {
+    const IID: ::windows::core::GUID = <IBluetoothLEDevice as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEDevice";
 }
 ::windows::imp::interface_hierarchy!(BluetoothLEDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<BluetoothLEDevice> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: BluetoothLEDevice) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&BluetoothLEDevice> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BluetoothLEDevice) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&BluetoothLEDevice> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BluetoothLEDevice) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for BluetoothLEDevice {}
 unsafe impl ::core::marker::Send for BluetoothLEDevice {}
 unsafe impl ::core::marker::Sync for BluetoothLEDevice {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2567,46 +2527,46 @@ impl BluetoothLEPreferredConnectionParameters {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).LinkTimeout)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LinkTimeout)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConnectionLatency(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).ConnectionLatency)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionLatency)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MinConnectionInterval(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).MinConnectionInterval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinConnectionInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxConnectionInterval(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).MaxConnectionInterval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxConnectionInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Balanced() -> ::windows::core::Result<BluetoothLEPreferredConnectionParameters> {
         Self::IBluetoothLEPreferredConnectionParametersStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEPreferredConnectionParameters>();
-            (::windows::core::Vtable::vtable(this).Balanced)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Balanced)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ThroughputOptimized() -> ::windows::core::Result<BluetoothLEPreferredConnectionParameters> {
         Self::IBluetoothLEPreferredConnectionParametersStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEPreferredConnectionParameters>();
-            (::windows::core::Vtable::vtable(this).ThroughputOptimized)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ThroughputOptimized)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn PowerOptimized() -> ::windows::core::Result<BluetoothLEPreferredConnectionParameters> {
         Self::IBluetoothLEPreferredConnectionParametersStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEPreferredConnectionParameters>();
-            (::windows::core::Vtable::vtable(this).PowerOptimized)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PowerOptimized)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2634,11 +2594,11 @@ impl ::core::clone::Clone for BluetoothLEPreferredConnectionParameters {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothLEPreferredConnectionParameters {
+unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParameters {
     type Vtable = IBluetoothLEPreferredConnectionParameters_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParameters {
-    const IID: ::windows::core::GUID = <IBluetoothLEPreferredConnectionParameters as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothLEPreferredConnectionParameters {
+    const IID: ::windows::core::GUID = <IBluetoothLEPreferredConnectionParameters as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEPreferredConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters";
@@ -2654,14 +2614,14 @@ impl BluetoothLEPreferredConnectionParametersRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<BluetoothLEPreferredConnectionParametersRequestStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for BluetoothLEPreferredConnectionParametersRequest {
@@ -2683,38 +2643,18 @@ impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothLEPreferredConnectionParametersRequest {
+unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParametersRequest {
     type Vtable = IBluetoothLEPreferredConnectionParametersRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParametersRequest {
-    const IID: ::windows::core::GUID = <IBluetoothLEPreferredConnectionParametersRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothLEPreferredConnectionParametersRequest {
+    const IID: ::windows::core::GUID = <IBluetoothLEPreferredConnectionParametersRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEPreferredConnectionParametersRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest";
 }
 ::windows::imp::interface_hierarchy!(BluetoothLEPreferredConnectionParametersRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<BluetoothLEPreferredConnectionParametersRequest> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: BluetoothLEPreferredConnectionParametersRequest) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&BluetoothLEPreferredConnectionParametersRequest> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BluetoothLEPreferredConnectionParametersRequest) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&BluetoothLEPreferredConnectionParametersRequest> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BluetoothLEPreferredConnectionParametersRequest) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for BluetoothLEPreferredConnectionParametersRequest {}
 unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParametersRequest {}
 unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParametersRequest {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2734,18 +2674,17 @@ impl BluetoothSignalStrengthFilter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<i16>>();
-            (::windows::core::Vtable::vtable(this).InRangeThresholdInDBm)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InRangeThresholdInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInRangeThresholdInDBm<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetInRangeThresholdInDBm<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<i16>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<i16>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetInRangeThresholdInDBm)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInRangeThresholdInDBm)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2753,18 +2692,17 @@ impl BluetoothSignalStrengthFilter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<i16>>();
-            (::windows::core::Vtable::vtable(this).OutOfRangeThresholdInDBm)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutOfRangeThresholdInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetOutOfRangeThresholdInDBm<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetOutOfRangeThresholdInDBm<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<i16>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<i16>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutOfRangeThresholdInDBm)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutOfRangeThresholdInDBm)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2772,18 +2710,17 @@ impl BluetoothSignalStrengthFilter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>();
-            (::windows::core::Vtable::vtable(this).OutOfRangeTimeout)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OutOfRangeTimeout)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetOutOfRangeTimeout<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetOutOfRangeTimeout<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutOfRangeTimeout)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutOfRangeTimeout)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2791,18 +2728,17 @@ impl BluetoothSignalStrengthFilter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>();
-            (::windows::core::Vtable::vtable(this).SamplingInterval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SamplingInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSamplingInterval<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSamplingInterval<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSamplingInterval)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSamplingInterval)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for BluetoothSignalStrengthFilter {
@@ -2824,11 +2760,11 @@ impl ::core::clone::Clone for BluetoothSignalStrengthFilter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for BluetoothSignalStrengthFilter {
+unsafe impl ::windows::core::Interface for BluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for BluetoothSignalStrengthFilter {
-    const IID: ::windows::core::GUID = <IBluetoothSignalStrengthFilter as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for BluetoothSignalStrengthFilter {
+    const IID: ::windows::core::GUID = <IBluetoothSignalStrengthFilter as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothSignalStrengthFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter";
@@ -2842,7 +2778,7 @@ impl BluetoothUuidHelper {
     pub fn FromShortId(shortid: u32) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBluetoothUuidHelperStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).FromShortId)(::windows::core::Vtable::as_raw(this), shortid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromShortId)(::windows::core::Interface::as_raw(this), shortid, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2850,7 +2786,7 @@ impl BluetoothUuidHelper {
     pub fn TryGetShortId(uuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         Self::IBluetoothUuidHelperStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<u32>>();
-            (::windows::core::Vtable::vtable(this).TryGetShortId)(::windows::core::Vtable::as_raw(this), uuid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryGetShortId)(::windows::core::Interface::as_raw(this), uuid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

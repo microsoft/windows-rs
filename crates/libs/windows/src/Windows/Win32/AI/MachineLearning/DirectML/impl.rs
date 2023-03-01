@@ -47,7 +47,7 @@ impl IDMLBindingTable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLBindingTable as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID
+        iid == &<IDMLBindingTable as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -68,7 +68,7 @@ impl IDMLCommandRecorder_Vtbl {
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), RecordDispatch: RecordDispatch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLCommandRecorder as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID
+        iid == &<IDMLCommandRecorder as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
@@ -79,7 +79,7 @@ impl IDMLCompiledOperator_Vtbl {
         Self { base__: IDMLDispatchable_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLCompiledOperator as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID || iid == &<IDMLPageable as ::windows::core::Interface>::IID || iid == &<IDMLDispatchable as ::windows::core::Interface>::IID
+        iid == &<IDMLCompiledOperator as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows::core::ComInterface>::IID || iid == &<IDMLPageable as ::windows::core::ComInterface>::IID || iid == &<IDMLDispatchable as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -100,7 +100,7 @@ impl IDMLDebugDevice_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetMuteDebugOutput: SetMuteDebugOutput::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLDebugDevice as ::windows::core::Interface>::IID
+        iid == &<IDMLDebugDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -187,7 +187,7 @@ impl IDMLDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLDevice as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID
+        iid == &<IDMLDevice as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -208,7 +208,7 @@ impl IDMLDevice1_Vtbl {
         Self { base__: IDMLDevice_Vtbl::new::<Identity, Impl, OFFSET>(), CompileGraph: CompileGraph::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLDevice1 as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDevice as ::windows::core::Interface>::IID
+        iid == &<IDMLDevice1 as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID || iid == &<IDMLDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
@@ -226,7 +226,7 @@ impl IDMLDeviceChild_Vtbl {
         Self { base__: IDMLObject_Vtbl::new::<Identity, Impl, OFFSET>(), GetDevice: GetDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID
+        iid == &<IDMLDeviceChild as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
@@ -244,7 +244,7 @@ impl IDMLDispatchable_Vtbl {
         Self { base__: IDMLPageable_Vtbl::new::<Identity, Impl, OFFSET>(), GetBindingProperties: GetBindingProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLDispatchable as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID || iid == &<IDMLPageable as ::windows::core::Interface>::IID
+        iid == &<IDMLDispatchable as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows::core::ComInterface>::IID || iid == &<IDMLPageable as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
@@ -286,7 +286,7 @@ impl IDMLObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLObject as ::windows::core::Interface>::IID
+        iid == &<IDMLObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
@@ -297,7 +297,7 @@ impl IDMLOperator_Vtbl {
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLOperator as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID
+        iid == &<IDMLOperator as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
@@ -315,7 +315,7 @@ impl IDMLOperatorInitializer_Vtbl {
         Self { base__: IDMLDispatchable_Vtbl::new::<Identity, Impl, OFFSET>(), Reset: Reset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLOperatorInitializer as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID || iid == &<IDMLPageable as ::windows::core::Interface>::IID || iid == &<IDMLDispatchable as ::windows::core::Interface>::IID
+        iid == &<IDMLOperatorInitializer as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows::core::ComInterface>::IID || iid == &<IDMLPageable as ::windows::core::ComInterface>::IID || iid == &<IDMLDispatchable as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
@@ -326,6 +326,6 @@ impl IDMLPageable_Vtbl {
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMLPageable as ::windows::core::Interface>::IID || iid == &<IDMLObject as ::windows::core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows::core::Interface>::IID
+        iid == &<IDMLPageable as ::windows::core::ComInterface>::IID || iid == &<IDMLObject as ::windows::core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows::core::ComInterface>::IID
     }
 }

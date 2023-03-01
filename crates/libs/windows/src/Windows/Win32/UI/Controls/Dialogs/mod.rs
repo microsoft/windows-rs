@@ -50,19 +50,19 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 #[inline]
 pub unsafe fn GetFileTitleA<P0>(param0: P0, buf: &mut [u8]) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "comdlg32.dll""system" fn GetFileTitleA ( param0 : :: windows::core::PCSTR , buf : :: windows::core::PSTR , cchsize : u16 ) -> i16 );
-    GetFileTitleA(param0.into().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
+    GetFileTitleA(param0.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
 pub unsafe fn GetFileTitleW<P0>(param0: P0, buf: &mut [u16]) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "comdlg32.dll""system" fn GetFileTitleW ( param0 : :: windows::core::PCWSTR , buf : :: windows::core::PWSTR , cchsize : u16 ) -> i16 );
-    GetFileTitleW(param0.into().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
+    GetFileTitleW(param0.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -153,20 +153,20 @@ pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Fo
 pub struct IPrintDialogCallback(::windows::core::IUnknown);
 impl IPrintDialogCallback {
     pub unsafe fn InitDone(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitDone)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).InitDone)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SelectionChange(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SelectionChange)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).SelectionChange)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HandleMessage<P0, P1, P2>(&self, hdlg: P0, umsg: u32, wparam: P1, lparam: P2, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<super::super::super::Foundation::WPARAM>,
+        P2: ::windows::core::IntoParam<super::super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).HandleMessage)(::windows::core::Vtable::as_raw(self), hdlg.into(), umsg, wparam.into(), lparam.into(), presult).ok()
+        (::windows::core::Interface::vtable(self).HandleMessage)(::windows::core::Interface::as_raw(self), hdlg.into_param().abi(), umsg, wparam.into_param().abi(), lparam.into_param().abi(), presult).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IPrintDialogCallback, ::windows::core::IUnknown);
@@ -181,7 +181,7 @@ impl ::core::fmt::Debug for IPrintDialogCallback {
         f.debug_tuple("IPrintDialogCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IPrintDialogCallback {
+unsafe impl ::windows::core::Interface for IPrintDialogCallback {
     type Vtable = IPrintDialogCallback_Vtbl;
 }
 impl ::core::clone::Clone for IPrintDialogCallback {
@@ -189,7 +189,7 @@ impl ::core::clone::Clone for IPrintDialogCallback {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintDialogCallback {
+unsafe impl ::windows::core::ComInterface for IPrintDialogCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
 }
 #[repr(C)]
@@ -210,13 +210,13 @@ impl IPrintDialogServices {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCurrentDevMode)(::windows::core::Vtable::as_raw(self), pdevmode, pcbsize).ok()
+        (::windows::core::Interface::vtable(self).GetCurrentDevMode)(::windows::core::Interface::as_raw(self), pdevmode, pcbsize).ok()
     }
     pub unsafe fn GetCurrentPrinterName(&self, pprintername: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCurrentPrinterName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprintername), pcchsize).ok()
+        (::windows::core::Interface::vtable(self).GetCurrentPrinterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprintername), pcchsize).ok()
     }
     pub unsafe fn GetCurrentPortName(&self, pportname: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCurrentPortName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pportname), pcchsize).ok()
+        (::windows::core::Interface::vtable(self).GetCurrentPortName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pportname), pcchsize).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IPrintDialogServices, ::windows::core::IUnknown);
@@ -231,7 +231,7 @@ impl ::core::fmt::Debug for IPrintDialogServices {
         f.debug_tuple("IPrintDialogServices").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IPrintDialogServices {
+unsafe impl ::windows::core::Interface for IPrintDialogServices {
     type Vtable = IPrintDialogServices_Vtbl;
 }
 impl ::core::clone::Clone for IPrintDialogServices {
@@ -239,7 +239,7 @@ impl ::core::clone::Clone for IPrintDialogServices {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintDialogServices {
+unsafe impl ::windows::core::ComInterface for IPrintDialogServices {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
 }
 #[repr(C)]

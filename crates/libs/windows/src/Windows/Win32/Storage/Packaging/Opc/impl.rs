@@ -46,7 +46,7 @@ impl IOpcCertificateEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcCertificateEnumerator as ::windows::core::Interface>::IID
+        iid == &<IOpcCertificateEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"implement\"`*"]
@@ -90,7 +90,7 @@ impl IOpcCertificateSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcCertificateSet as ::windows::core::Interface>::IID
+        iid == &<IOpcCertificateSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -272,7 +272,7 @@ impl IOpcDigitalSignature_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcDigitalSignature as ::windows::core::Interface>::IID
+        iid == &<IOpcDigitalSignature as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -341,7 +341,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcDigitalSignatureEnumerator as ::windows::core::Interface>::IID
+        iid == &<IOpcDigitalSignatureEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -444,7 +444,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcDigitalSignatureManager as ::windows::core::Interface>::IID
+        iid == &<IOpcDigitalSignatureManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -546,7 +546,7 @@ impl IOpcFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcFactory as ::windows::core::Interface>::IID
+        iid == &<IOpcFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
@@ -586,7 +586,7 @@ impl IOpcPackage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcPackage as ::windows::core::Interface>::IID
+        iid == &<IOpcPackage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -668,7 +668,7 @@ impl IOpcPart_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcPart as ::windows::core::Interface>::IID
+        iid == &<IOpcPart as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -737,7 +737,7 @@ impl IOpcPartEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcPartEnumerator as ::windows::core::Interface>::IID
+        iid == &<IOpcPartEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -813,7 +813,7 @@ impl IOpcPartSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcPartSet as ::windows::core::Interface>::IID
+        iid == &<IOpcPartSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -869,7 +869,7 @@ impl IOpcPartUri_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcPartUri as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IUri as ::windows::core::Interface>::IID || iid == &<IOpcUri as ::windows::core::Interface>::IID
+        iid == &<IOpcPartUri as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IUri as ::windows::core::ComInterface>::IID || iid == &<IOpcUri as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -951,7 +951,7 @@ impl IOpcRelationship_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcRelationship as ::windows::core::Interface>::IID
+        iid == &<IOpcRelationship as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1020,7 +1020,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcRelationshipEnumerator as ::windows::core::Interface>::IID
+        iid == &<IOpcRelationshipEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
@@ -1060,7 +1060,7 @@ impl IOpcRelationshipSelector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcRelationshipSelector as ::windows::core::Interface>::IID
+        iid == &<IOpcRelationshipSelector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1129,7 +1129,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcRelationshipSelectorEnumerator as ::windows::core::Interface>::IID
+        iid == &<IOpcRelationshipSelectorEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
@@ -1176,7 +1176,7 @@ impl IOpcRelationshipSelectorSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcRelationshipSelectorSet as ::windows::core::Interface>::IID
+        iid == &<IOpcRelationshipSelectorSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1278,7 +1278,7 @@ impl IOpcRelationshipSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcRelationshipSet as ::windows::core::Interface>::IID
+        iid == &<IOpcRelationshipSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
@@ -1296,7 +1296,7 @@ impl IOpcSignatureCustomObject_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetXml: GetXml::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignatureCustomObject as ::windows::core::Interface>::IID
+        iid == &<IOpcSignatureCustomObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1365,7 +1365,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignatureCustomObjectEnumerator as ::windows::core::Interface>::IID
+        iid == &<IOpcSignatureCustomObjectEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"implement\"`*"]
@@ -1412,7 +1412,7 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignatureCustomObjectSet as ::windows::core::Interface>::IID
+        iid == &<IOpcSignatureCustomObjectSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1488,7 +1488,7 @@ impl IOpcSignaturePartReference_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignaturePartReference as ::windows::core::Interface>::IID
+        iid == &<IOpcSignaturePartReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1557,7 +1557,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignaturePartReferenceEnumerator as ::windows::core::Interface>::IID
+        iid == &<IOpcSignaturePartReferenceEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1607,7 +1607,7 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignaturePartReferenceSet as ::windows::core::Interface>::IID
+        iid == &<IOpcSignaturePartReferenceSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1696,7 +1696,7 @@ impl IOpcSignatureReference_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignatureReference as ::windows::core::Interface>::IID
+        iid == &<IOpcSignatureReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1765,7 +1765,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignatureReferenceEnumerator as ::windows::core::Interface>::IID
+        iid == &<IOpcSignatureReferenceEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1815,7 +1815,7 @@ impl IOpcSignatureReferenceSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignatureReferenceSet as ::windows::core::Interface>::IID
+        iid == &<IOpcSignatureReferenceSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1904,7 +1904,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignatureRelationshipReference as ::windows::core::Interface>::IID
+        iid == &<IOpcSignatureRelationshipReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1973,7 +1973,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignatureRelationshipReferenceEnumerator as ::windows::core::Interface>::IID
+        iid == &<IOpcSignatureRelationshipReferenceEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2036,7 +2036,7 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSignatureRelationshipReferenceSet as ::windows::core::Interface>::IID
+        iid == &<IOpcSignatureRelationshipReferenceSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2238,7 +2238,7 @@ impl IOpcSigningOptions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcSigningOptions as ::windows::core::Interface>::IID
+        iid == &<IOpcSigningOptions as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2294,6 +2294,6 @@ impl IOpcUri_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcUri as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IUri as ::windows::core::Interface>::IID
+        iid == &<IOpcUri as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IUri as ::windows::core::ComInterface>::IID
     }
 }

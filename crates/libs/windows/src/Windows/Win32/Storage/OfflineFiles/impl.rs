@@ -43,7 +43,7 @@ impl IEnumOfflineFilesItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumOfflineFilesItems as ::windows::core::Interface>::IID
+        iid == &<IEnumOfflineFilesItems as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
@@ -91,7 +91,7 @@ impl IEnumOfflineFilesSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumOfflineFilesSettings as ::windows::core::Interface>::IID
+        iid == &<IEnumOfflineFilesSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -257,7 +257,7 @@ impl IOfflineFilesCache_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesCache as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesCache as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -278,7 +278,7 @@ impl IOfflineFilesCache2_Vtbl {
         Self { base__: IOfflineFilesCache_Vtbl::new::<Identity, Impl, OFFSET>(), RenameItemEx: RenameItemEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesCache2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesCache as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesCache2 as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesCache as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -367,7 +367,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesChangeInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesChangeInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -418,7 +418,7 @@ impl IOfflineFilesConnectionInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesConnectionInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesConnectionInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -432,7 +432,7 @@ impl IOfflineFilesDirectoryItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesDirectoryItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesDirectoryItem as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
@@ -472,7 +472,7 @@ impl IOfflineFilesDirtyInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesDirtyInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesDirtyInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -515,7 +515,7 @@ impl IOfflineFilesErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesErrorInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesErrorInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -707,7 +707,7 @@ impl IOfflineFilesEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -787,7 +787,7 @@ impl IOfflineFilesEvents2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesEvents2 as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -825,7 +825,7 @@ impl IOfflineFilesEvents3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents3 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesEvents3 as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesEvents2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -856,7 +856,7 @@ impl IOfflineFilesEvents4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents4 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents3 as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesEvents4 as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesEvents2 as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesEvents3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
@@ -891,7 +891,7 @@ impl IOfflineFilesEventsFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesEventsFilter as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesEventsFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -934,7 +934,7 @@ impl IOfflineFilesFileItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesFileItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesFileItem as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -984,7 +984,7 @@ impl IOfflineFilesFileSysInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesFileSysInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesFileSysInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1011,7 +1011,7 @@ impl IOfflineFilesGhostInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsGhosted: IsGhosted::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesGhostInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesGhostInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1087,7 +1087,7 @@ impl IOfflineFilesItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
@@ -1127,7 +1127,7 @@ impl IOfflineFilesItemContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesItemContainer as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesItemContainer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1165,7 +1165,7 @@ impl IOfflineFilesItemFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesItemFilter as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesItemFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1223,7 +1223,7 @@ impl IOfflineFilesPinInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesPinInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesPinInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1250,7 +1250,7 @@ impl IOfflineFilesPinInfo2_Vtbl {
         Self { base__: IOfflineFilesPinInfo_Vtbl::new::<Identity, Impl, OFFSET>(), IsPartlyPinned: IsPartlyPinned::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesPinInfo2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesPinInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesPinInfo2 as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesPinInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1300,7 +1300,7 @@ impl IOfflineFilesProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesProgress as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesProgress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1314,7 +1314,7 @@ impl IOfflineFilesServerItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesServerItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesServerItem as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1418,7 +1418,7 @@ impl IOfflineFilesSetting_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSetting as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSetting as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1474,7 +1474,7 @@ impl IOfflineFilesShareInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesShareInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesShareInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1488,7 +1488,7 @@ impl IOfflineFilesShareItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesShareItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesShareItem as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1531,7 +1531,7 @@ impl IOfflineFilesSimpleProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSimpleProgress as ::windows::core::Interface>::IID || iid == &<IOfflineFilesProgress as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSimpleProgress as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesProgress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1552,7 +1552,7 @@ impl IOfflineFilesSuspend_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SuspendRoot: SuspendRoot::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSuspend as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSuspend as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1573,7 +1573,7 @@ impl IOfflineFilesSuspendInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsSuspended: IsSuspended::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSuspendInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSuspendInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"implement\"`*"]
@@ -1591,7 +1591,7 @@ impl IOfflineFilesSyncConflictHandler_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveConflict: ResolveConflict::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncConflictHandler as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSyncConflictHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1687,7 +1687,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncErrorInfo as ::windows::core::Interface>::IID || iid == &<IOfflineFilesErrorInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSyncErrorInfo as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesErrorInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1737,7 +1737,7 @@ impl IOfflineFilesSyncErrorItemInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncErrorItemInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSyncErrorItemInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1780,7 +1780,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncProgress as ::windows::core::Interface>::IID || iid == &<IOfflineFilesProgress as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSyncProgress as ::windows::core::ComInterface>::IID || iid == &<IOfflineFilesProgress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1807,6 +1807,6 @@ impl IOfflineFilesTransparentCacheInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsTransparentlyCached: IsTransparentlyCached::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesTransparentCacheInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesTransparentCacheInfo as ::windows::core::ComInterface>::IID
     }
 }

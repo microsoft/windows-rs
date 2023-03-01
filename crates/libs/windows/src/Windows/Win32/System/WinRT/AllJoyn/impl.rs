@@ -16,7 +16,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows::core::Interface>::IID
+        iid == &<IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
@@ -43,7 +43,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusAttachmentInterop as ::windows::core::Interface>::IID
+        iid == &<IWindowsDevicesAllJoynBusAttachmentInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
@@ -64,7 +64,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows::core::Interface>::IID
+        iid == &<IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
@@ -105,6 +105,6 @@ impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusObjectInterop as ::windows::core::Interface>::IID
+        iid == &<IWindowsDevicesAllJoynBusObjectInterop as ::windows::core::ComInterface>::IID
     }
 }

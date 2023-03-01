@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAddAppointmentOperation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAddAppointmentOperation {
+unsafe impl ::windows::core::Interface for IAddAppointmentOperation {
     type Vtable = IAddAppointmentOperation_Vtbl;
 }
 impl ::core::clone::Clone for IAddAppointmentOperation {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IAddAppointmentOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAddAppointmentOperation {
+unsafe impl ::windows::core::ComInterface for IAddAppointmentOperation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec4a9af3_620d_4c69_add7_9794e918081f);
 }
 #[repr(C)]
@@ -26,7 +26,7 @@ pub struct IAddAppointmentOperation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentsProviderLaunchActionVerbsStatics {
+unsafe impl ::windows::core::Interface for IAppointmentsProviderLaunchActionVerbsStatics {
     type Vtable = IAppointmentsProviderLaunchActionVerbsStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentsProviderLaunchActionVerbsStatics {
@@ -34,7 +34,7 @@ impl ::core::clone::Clone for IAppointmentsProviderLaunchActionVerbsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentsProviderLaunchActionVerbsStatics {
+unsafe impl ::windows::core::ComInterface for IAppointmentsProviderLaunchActionVerbsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8);
 }
 #[repr(C)]
@@ -49,7 +49,7 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentsProviderLaunchActionVerbsStatics2 {
+unsafe impl ::windows::core::Interface for IAppointmentsProviderLaunchActionVerbsStatics2 {
     type Vtable = IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentsProviderLaunchActionVerbsStatics2 {
@@ -57,7 +57,7 @@ impl ::core::clone::Clone for IAppointmentsProviderLaunchActionVerbsStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentsProviderLaunchActionVerbsStatics2 {
+unsafe impl ::windows::core::ComInterface for IAppointmentsProviderLaunchActionVerbsStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef9049a4_af21_473c_88dc_76cd89f60ca5);
 }
 #[repr(C)]
@@ -69,7 +69,7 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRemoveAppointmentOperation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRemoveAppointmentOperation {
+unsafe impl ::windows::core::Interface for IRemoveAppointmentOperation {
     type Vtable = IRemoveAppointmentOperation_Vtbl;
 }
 impl ::core::clone::Clone for IRemoveAppointmentOperation {
@@ -77,7 +77,7 @@ impl ::core::clone::Clone for IRemoveAppointmentOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRemoveAppointmentOperation {
+unsafe impl ::windows::core::ComInterface for IRemoveAppointmentOperation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
 }
 #[repr(C)]
@@ -98,7 +98,7 @@ pub struct IRemoveAppointmentOperation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IReplaceAppointmentOperation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IReplaceAppointmentOperation {
+unsafe impl ::windows::core::Interface for IReplaceAppointmentOperation {
     type Vtable = IReplaceAppointmentOperation_Vtbl;
 }
 impl ::core::clone::Clone for IReplaceAppointmentOperation {
@@ -106,7 +106,7 @@ impl ::core::clone::Clone for IReplaceAppointmentOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IReplaceAppointmentOperation {
+unsafe impl ::windows::core::ComInterface for IReplaceAppointmentOperation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
 }
 #[repr(C)]
@@ -133,31 +133,31 @@ impl AddAppointmentOperation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Appointment>();
-            (::windows::core::Vtable::vtable(this).AppointmentInformation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SourcePackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SourcePackageFamilyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourcePackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportCompleted(&self, itemid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(itemid)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(itemid)).ok() }
     }
     pub fn ReportCanceled(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCanceled)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCanceled)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).DismissUI)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DismissUI)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for AddAppointmentOperation {
@@ -179,11 +179,11 @@ impl ::core::clone::Clone for AddAppointmentOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AddAppointmentOperation {
+unsafe impl ::windows::core::Interface for AddAppointmentOperation {
     type Vtable = IAddAppointmentOperation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AddAppointmentOperation {
-    const IID: ::windows::core::GUID = <IAddAppointmentOperation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AddAppointmentOperation {
+    const IID: ::windows::core::GUID = <IAddAppointmentOperation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AddAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation";
@@ -197,31 +197,31 @@ impl AppointmentsProviderLaunchActionVerbs {
     pub fn AddAppointment() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AddAppointment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AddAppointment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ReplaceAppointment() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ReplaceAppointment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReplaceAppointment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RemoveAppointment() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).RemoveAppointment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemoveAppointment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ShowTimeFrame() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ShowTimeFrame)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ShowTimeFrame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ShowAppointmentDetails() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ShowAppointmentDetails)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ShowAppointmentDetails)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -246,7 +246,7 @@ impl RemoveAppointmentOperation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -255,31 +255,31 @@ impl RemoveAppointmentOperation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).InstanceStartDate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InstanceStartDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SourcePackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SourcePackageFamilyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourcePackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCompleted)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportCanceled(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCanceled)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCanceled)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).DismissUI)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DismissUI)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for RemoveAppointmentOperation {
@@ -301,11 +301,11 @@ impl ::core::clone::Clone for RemoveAppointmentOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for RemoveAppointmentOperation {
+unsafe impl ::windows::core::Interface for RemoveAppointmentOperation {
     type Vtable = IRemoveAppointmentOperation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for RemoveAppointmentOperation {
-    const IID: ::windows::core::GUID = <IRemoveAppointmentOperation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for RemoveAppointmentOperation {
+    const IID: ::windows::core::GUID = <IRemoveAppointmentOperation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation";
@@ -321,14 +321,14 @@ impl ReplaceAppointmentOperation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppointmentInformation(&self) -> ::windows::core::Result<super::Appointment> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Appointment>();
-            (::windows::core::Vtable::vtable(this).AppointmentInformation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -337,31 +337,31 @@ impl ReplaceAppointmentOperation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).InstanceStartDate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InstanceStartDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SourcePackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SourcePackageFamilyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourcePackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportCompleted(&self, itemid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(itemid)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(itemid)).ok() }
     }
     pub fn ReportCanceled(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCanceled)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCanceled)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).DismissUI)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DismissUI)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ReplaceAppointmentOperation {
@@ -383,11 +383,11 @@ impl ::core::clone::Clone for ReplaceAppointmentOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ReplaceAppointmentOperation {
+unsafe impl ::windows::core::Interface for ReplaceAppointmentOperation {
     type Vtable = IReplaceAppointmentOperation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ReplaceAppointmentOperation {
-    const IID: ::windows::core::GUID = <IReplaceAppointmentOperation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ReplaceAppointmentOperation {
+    const IID: ::windows::core::GUID = <IReplaceAppointmentOperation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation";

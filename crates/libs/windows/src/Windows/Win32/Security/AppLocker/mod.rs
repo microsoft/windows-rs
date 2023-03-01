@@ -3,21 +3,21 @@
 #[inline]
 pub unsafe fn SaferCloseLevel<P0>(hlevelhandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
+    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
 {
     ::windows::imp::link ! ( "advapi32.dll""system" fn SaferCloseLevel ( hlevelhandle : super:: SAFER_LEVEL_HANDLE ) -> super::super::Foundation:: BOOL );
-    SaferCloseLevel(hlevelhandle.into())
+    SaferCloseLevel(hlevelhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferComputeTokenFromLevel<P0, P1>(levelhandle: P0, inaccesstoken: P1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "advapi32.dll""system" fn SaferComputeTokenFromLevel ( levelhandle : super:: SAFER_LEVEL_HANDLE , inaccesstoken : super::super::Foundation:: HANDLE , outaccesstoken : *mut super::super::Foundation:: HANDLE , dwflags : SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS , lpreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SaferComputeTokenFromLevel(levelhandle.into(), inaccesstoken.into(), outaccesstoken, dwflags, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
+    SaferComputeTokenFromLevel(levelhandle.into_param().abi(), inaccesstoken.into_param().abi(), outaccesstoken, dwflags, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -31,10 +31,10 @@ pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, p
 #[inline]
 pub unsafe fn SaferGetLevelInformation<P0>(levelhandle: P0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: ::core::option::Option<*mut ::core::ffi::c_void>, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
+    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
 {
     ::windows::imp::link ! ( "advapi32.dll""system" fn SaferGetLevelInformation ( levelhandle : super:: SAFER_LEVEL_HANDLE , dwinfotype : SAFER_OBJECT_INFO_CLASS , lpquerybuffer : *mut ::core::ffi::c_void , dwinbuffersize : u32 , lpdwoutbuffersize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    SaferGetLevelInformation(levelhandle.into(), dwinfotype, ::core::mem::transmute(lpquerybuffer.unwrap_or(::std::ptr::null_mut())), dwinbuffersize, lpdwoutbuffersize)
+    SaferGetLevelInformation(levelhandle.into_param().abi(), dwinfotype, ::core::mem::transmute(lpquerybuffer.unwrap_or(::std::ptr::null_mut())), dwinbuffersize, lpdwoutbuffersize)
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -55,21 +55,21 @@ pub unsafe fn SaferIdentifyLevel(pcodeproperties: ::core::option::Option<&[SAFER
 #[inline]
 pub unsafe fn SaferRecordEventLogEntry<P0, P1>(hlevel: P0, sztargetpath: P1, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "advapi32.dll""system" fn SaferRecordEventLogEntry ( hlevel : super:: SAFER_LEVEL_HANDLE , sztargetpath : :: windows::core::PCWSTR , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SaferRecordEventLogEntry(hlevel.into(), sztargetpath.into().abi(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
+    SaferRecordEventLogEntry(hlevel.into_param().abi(), sztargetpath.into_param().abi(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferSetLevelInformation<P0>(levelhandle: P0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
+    P0: ::windows::core::IntoParam<super::SAFER_LEVEL_HANDLE>,
 {
     ::windows::imp::link ! ( "advapi32.dll""system" fn SaferSetLevelInformation ( levelhandle : super:: SAFER_LEVEL_HANDLE , dwinfotype : SAFER_OBJECT_INFO_CLASS , lpquerybuffer : *const ::core::ffi::c_void , dwinbuffersize : u32 ) -> super::super::Foundation:: BOOL );
-    SaferSetLevelInformation(levelhandle.into(), dwinfotype, lpquerybuffer, dwinbuffersize)
+    SaferSetLevelInformation(levelhandle.into_param().abi(), dwinfotype, lpquerybuffer, dwinbuffersize)
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -83,11 +83,11 @@ pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[inline]
 pub unsafe fn SaferiIsExecutableFileType<P0, P1>(szfullpathname: P0, bfromshellexecute: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
     ::windows::imp::link ! ( "advapi32.dll""system" fn SaferiIsExecutableFileType ( szfullpathname : :: windows::core::PCWSTR , bfromshellexecute : super::super::Foundation:: BOOLEAN ) -> super::super::Foundation:: BOOL );
-    SaferiIsExecutableFileType(szfullpathname.into().abi(), bfromshellexecute.into())
+    SaferiIsExecutableFileType(szfullpathname.into_param().abi(), bfromshellexecute.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;

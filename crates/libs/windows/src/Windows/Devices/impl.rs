@@ -84,6 +84,6 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILowLevelDevicesAggregateProvider as ::windows::core::Interface>::IID
+        iid == &<ILowLevelDevicesAggregateProvider as ::windows::core::ComInterface>::IID
     }
 }

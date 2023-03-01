@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHdmiDisplayInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHdmiDisplayInformation {
+unsafe impl ::windows::core::Interface for IHdmiDisplayInformation {
     type Vtable = IHdmiDisplayInformation_Vtbl;
 }
 impl ::core::clone::Clone for IHdmiDisplayInformation {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IHdmiDisplayInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHdmiDisplayInformation {
+unsafe impl ::windows::core::ComInterface for IHdmiDisplayInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 }
 #[repr(C)]
@@ -49,7 +49,7 @@ pub struct IHdmiDisplayInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHdmiDisplayInformationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHdmiDisplayInformationStatics {
+unsafe impl ::windows::core::Interface for IHdmiDisplayInformationStatics {
     type Vtable = IHdmiDisplayInformationStatics_Vtbl;
 }
 impl ::core::clone::Clone for IHdmiDisplayInformationStatics {
@@ -57,7 +57,7 @@ impl ::core::clone::Clone for IHdmiDisplayInformationStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHdmiDisplayInformationStatics {
+unsafe impl ::windows::core::ComInterface for IHdmiDisplayInformationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df);
 }
 #[repr(C)]
@@ -69,7 +69,7 @@ pub struct IHdmiDisplayInformationStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHdmiDisplayMode(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHdmiDisplayMode {
+unsafe impl ::windows::core::Interface for IHdmiDisplayMode {
     type Vtable = IHdmiDisplayMode_Vtbl;
 }
 impl ::core::clone::Clone for IHdmiDisplayMode {
@@ -77,7 +77,7 @@ impl ::core::clone::Clone for IHdmiDisplayMode {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHdmiDisplayMode {
+unsafe impl ::windows::core::ComInterface for IHdmiDisplayMode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
 }
 #[repr(C)]
@@ -99,7 +99,7 @@ pub struct IHdmiDisplayMode_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHdmiDisplayMode2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHdmiDisplayMode2 {
+unsafe impl ::windows::core::Interface for IHdmiDisplayMode2 {
     type Vtable = IHdmiDisplayMode2_Vtbl;
 }
 impl ::core::clone::Clone for IHdmiDisplayMode2 {
@@ -107,7 +107,7 @@ impl ::core::clone::Clone for IHdmiDisplayMode2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHdmiDisplayMode2 {
+unsafe impl ::windows::core::ComInterface for IHdmiDisplayMode2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07cd4e9f_4b3c_42b8_84e7_895368718af2);
 }
 #[repr(C)]
@@ -126,14 +126,14 @@ impl HdmiDisplayInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>>();
-            (::windows::core::Vtable::vtable(this).GetSupportedDisplayModes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSupportedDisplayModes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetCurrentDisplayMode(&self) -> ::windows::core::Result<HdmiDisplayMode> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HdmiDisplayMode>();
-            (::windows::core::Vtable::vtable(this).GetCurrentDisplayMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentDisplayMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -142,7 +142,7 @@ impl HdmiDisplayInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).SetDefaultDisplayModeAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetDefaultDisplayModeAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -151,7 +151,7 @@ impl HdmiDisplayInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).RequestSetCurrentDisplayModeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mode), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestSetCurrentDisplayModeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(mode), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -160,7 +160,7 @@ impl HdmiDisplayInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mode), hdroption, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(mode), hdroption, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -169,7 +169,7 @@ impl HdmiDisplayInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mode), hdroption, hdrmetadata, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(mode), hdroption, hdrmetadata, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -178,19 +178,19 @@ impl HdmiDisplayInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).DisplayModesChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayModesChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDisplayModesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveDisplayModesChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDisplayModesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetForCurrentView() -> ::windows::core::Result<HdmiDisplayInformation> {
         Self::IHdmiDisplayInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<HdmiDisplayInformation>();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -218,11 +218,11 @@ impl ::core::clone::Clone for HdmiDisplayInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HdmiDisplayInformation {
+unsafe impl ::windows::core::Interface for HdmiDisplayInformation {
     type Vtable = IHdmiDisplayInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HdmiDisplayInformation {
-    const IID: ::windows::core::GUID = <IHdmiDisplayInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HdmiDisplayInformation {
+    const IID: ::windows::core::GUID = <IHdmiDisplayInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayInformation";
@@ -238,84 +238,84 @@ impl HdmiDisplayMode {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ResolutionWidthInRawPixels)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ResolutionWidthInRawPixels)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResolutionHeightInRawPixels(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ResolutionHeightInRawPixels)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ResolutionHeightInRawPixels)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RefreshRate(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).RefreshRate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RefreshRate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StereoEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).StereoEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StereoEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BitsPerPixel(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).BitsPerPixel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BitsPerPixel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsEqual(&self, mode: &HdmiDisplayMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEqual)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mode), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEqual)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(mode), &mut result__).from_abi(result__)
         }
     }
     pub fn ColorSpace(&self) -> ::windows::core::Result<HdmiDisplayColorSpace> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HdmiDisplayColorSpace>();
-            (::windows::core::Vtable::vtable(this).ColorSpace)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ColorSpace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PixelEncoding(&self) -> ::windows::core::Result<HdmiDisplayPixelEncoding> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HdmiDisplayPixelEncoding>();
-            (::windows::core::Vtable::vtable(this).PixelEncoding)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PixelEncoding)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSdrLuminanceSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSdrLuminanceSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSdrLuminanceSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSmpte2084Supported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSmpte2084Supported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSmpte2084Supported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Is2086MetadataSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Is2086MetadataSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Is2086MetadataSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsDolbyVisionLowLatencySupported(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IHdmiDisplayMode2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IHdmiDisplayMode2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsDolbyVisionLowLatencySupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsDolbyVisionLowLatencySupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -338,11 +338,11 @@ impl ::core::clone::Clone for HdmiDisplayMode {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HdmiDisplayMode {
+unsafe impl ::windows::core::Interface for HdmiDisplayMode {
     type Vtable = IHdmiDisplayMode_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HdmiDisplayMode {
-    const IID: ::windows::core::GUID = <IHdmiDisplayMode as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HdmiDisplayMode {
+    const IID: ::windows::core::GUID = <IHdmiDisplayMode as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayMode";

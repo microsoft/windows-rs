@@ -86,7 +86,7 @@ impl ICameraUIControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICameraUIControl as ::windows::core::Interface>::IID
+        iid == &<ICameraUIControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"implement\"`*"]
@@ -135,7 +135,7 @@ impl ICameraUIControlEventCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICameraUIControlEventCallback as ::windows::core::Interface>::IID
+        iid == &<ICameraUIControlEventCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"implement\"`*"]
@@ -153,7 +153,7 @@ impl IClipServiceNotificationHelper_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ShowToast: ShowToast::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IClipServiceNotificationHelper as ::windows::core::Interface>::IID
+        iid == &<IClipServiceNotificationHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -180,7 +180,7 @@ impl IContainerActivationHelper_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CanActivateClientVM: CanActivateClientVM::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContainerActivationHelper as ::windows::core::Interface>::IID
+        iid == &<IContainerActivationHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -201,7 +201,7 @@ impl IDefaultBrowserSyncSettings_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsEnabled: IsEnabled::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDefaultBrowserSyncSettings as ::windows::core::Interface>::IID
+        iid == &<IDefaultBrowserSyncSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"implement\"`*"]
@@ -219,7 +219,7 @@ impl IDeleteBrowsingHistory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DeleteBrowsingHistory: DeleteBrowsingHistory::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDeleteBrowsingHistory as ::windows::core::Interface>::IID
+        iid == &<IDeleteBrowsingHistory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -264,7 +264,7 @@ impl IEditionUpgradeBroker_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEditionUpgradeBroker as ::windows::core::Interface>::IID
+        iid == &<IEditionUpgradeBroker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -334,7 +334,7 @@ impl IEditionUpgradeHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEditionUpgradeHelper as ::windows::core::Interface>::IID
+        iid == &<IEditionUpgradeHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -361,6 +361,6 @@ impl IWindowsLockModeHelper_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSMode: GetSMode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsLockModeHelper as ::windows::core::Interface>::IID
+        iid == &<IWindowsLockModeHelper as ::windows::core::ComInterface>::IID
     }
 }

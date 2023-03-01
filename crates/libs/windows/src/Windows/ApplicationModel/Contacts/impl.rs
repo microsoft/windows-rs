@@ -67,7 +67,7 @@ impl IContactField_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactField as ::windows::core::Interface>::IID
+        iid == &<IContactField as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
@@ -125,7 +125,7 @@ impl IContactFieldFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactFieldFactory as ::windows::core::Interface>::IID
+        iid == &<IContactFieldFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -186,7 +186,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactInstantMessageFieldFactory as ::windows::core::Interface>::IID
+        iid == &<IContactInstantMessageFieldFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
@@ -244,6 +244,6 @@ impl IContactLocationFieldFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactLocationFieldFactory as ::windows::core::Interface>::IID
+        iid == &<IContactLocationFieldFactory as ::windows::core::ComInterface>::IID
     }
 }

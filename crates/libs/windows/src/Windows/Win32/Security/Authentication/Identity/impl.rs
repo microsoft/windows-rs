@@ -13,6 +13,6 @@ impl ICcgDomainAuthCredentials_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPasswordCredentials: GetPasswordCredentials::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICcgDomainAuthCredentials as ::windows::core::Interface>::IID
+        iid == &<ICcgDomainAuthCredentials as ::windows::core::ComInterface>::IID
     }
 }

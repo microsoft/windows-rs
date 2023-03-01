@@ -140,6 +140,6 @@ impl IStorageItemInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemInformation as ::windows::core::Interface>::IID
+        iid == &<IStorageItemInformation as ::windows::core::ComInterface>::IID
     }
 }

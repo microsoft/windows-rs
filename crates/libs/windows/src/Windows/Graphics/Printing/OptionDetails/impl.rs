@@ -32,7 +32,7 @@ impl IPrintCustomOptionDetails_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintCustomOptionDetails as ::windows::core::Interface>::IID
+        iid == &<IPrintCustomOptionDetails as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -62,7 +62,7 @@ impl IPrintItemListOptionDetails_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IPrintItemListOptionDetails, OFFSET>(), Items: Items::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintItemListOptionDetails as ::windows::core::Interface>::IID
+        iid == &<IPrintItemListOptionDetails as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
@@ -106,7 +106,7 @@ impl IPrintNumberOptionDetails_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintNumberOptionDetails as ::windows::core::Interface>::IID
+        iid == &<IPrintNumberOptionDetails as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
@@ -220,7 +220,7 @@ impl IPrintOptionDetails_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintOptionDetails as ::windows::core::Interface>::IID
+        iid == &<IPrintOptionDetails as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
@@ -250,6 +250,6 @@ impl IPrintTextOptionDetails_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintTextOptionDetails as ::windows::core::Interface>::IID
+        iid == &<IPrintTextOptionDetails as ::windows::core::ComInterface>::IID
     }
 }

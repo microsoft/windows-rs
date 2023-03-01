@@ -45,7 +45,7 @@ impl IDXGIAdapter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -66,7 +66,7 @@ impl IDXGIAdapter1_Vtbl {
         Self { base__: IDXGIAdapter_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -87,7 +87,7 @@ impl IDXGIAdapter2_Vtbl {
         Self { base__: IDXGIAdapter1_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc2: GetDesc2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -158,7 +158,7 @@ impl IDXGIAdapter3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter2 as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -179,7 +179,7 @@ impl IDXGIAdapter4_Vtbl {
         Self { base__: IDXGIAdapter3_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc3: GetDesc3::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter2 as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter3 as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter4 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIAdapter3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
@@ -197,7 +197,7 @@ impl IDXGIDebug_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ReportLiveObjects: ReportLiveObjects::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDebug as ::windows::core::Interface>::IID
+        iid == &<IDXGIDebug as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -235,7 +235,7 @@ impl IDXGIDebug1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDebug1 as ::windows::core::Interface>::IID || iid == &<IDXGIDebug as ::windows::core::Interface>::IID
+        iid == &<IDXGIDebug1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIDebug as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -327,7 +327,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDecodeSwapChain as ::windows::core::Interface>::IID
+        iid == &<IDXGIDecodeSwapChain as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -391,7 +391,7 @@ impl IDXGIDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -428,7 +428,7 @@ impl IDXGIDevice1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDevice as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -466,7 +466,7 @@ impl IDXGIDevice2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDevice as ::windows::core::Interface>::IID || iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -487,7 +487,7 @@ impl IDXGIDevice3_Vtbl {
         Self { base__: IDXGIDevice2_Vtbl::new::<Identity, Impl, OFFSET>(), Trim: Trim::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDevice as ::windows::core::Interface>::IID || iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID || iid == &<IDXGIDevice2 as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -518,7 +518,7 @@ impl IDXGIDevice4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDevice as ::windows::core::Interface>::IID || iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID || iid == &<IDXGIDevice2 as ::windows::core::Interface>::IID || iid == &<IDXGIDevice3 as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice4 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIDevice3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
@@ -536,7 +536,7 @@ impl IDXGIDeviceSubObject_Vtbl {
         Self { base__: IDXGIObject_Vtbl::new::<Identity, Impl, OFFSET>(), GetDevice: GetDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -567,7 +567,7 @@ impl IDXGIDisplayControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDisplayControl as ::windows::core::Interface>::IID
+        iid == &<IDXGIDisplayControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -637,7 +637,7 @@ impl IDXGIFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -674,7 +674,7 @@ impl IDXGIFactory1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -816,7 +816,7 @@ impl IDXGIFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -837,7 +837,7 @@ impl IDXGIFactory3_Vtbl {
         Self { base__: IDXGIFactory2_Vtbl::new::<Identity, Impl, OFFSET>(), GetCreationFlags: GetCreationFlags::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -868,7 +868,7 @@ impl IDXGIFactory4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory4 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -889,7 +889,7 @@ impl IDXGIFactory5_Vtbl {
         Self { base__: IDXGIFactory4_Vtbl::new::<Identity, Impl, OFFSET>(), CheckFeatureSupport: CheckFeatureSupport::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory5 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory5 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -910,7 +910,7 @@ impl IDXGIFactory6_Vtbl {
         Self { base__: IDXGIFactory5_Vtbl::new::<Identity, Impl, OFFSET>(), EnumAdapterByGpuPreference: EnumAdapterByGpuPreference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory6 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory5 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory6 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory4 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -947,7 +947,7 @@ impl IDXGIFactory7_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory7 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory5 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory6 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory7 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory4 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory5 as ::windows::core::ComInterface>::IID || iid == &<IDXGIFactory6 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -990,7 +990,7 @@ impl IDXGIFactoryMedia_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactoryMedia as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactoryMedia as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1266,7 +1266,7 @@ impl IDXGIInfoQueue_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIInfoQueue as ::windows::core::Interface>::IID
+        iid == &<IDXGIInfoQueue as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
@@ -1294,7 +1294,7 @@ impl IDXGIKeyedMutex_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIKeyedMutex as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIKeyedMutex as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
@@ -1336,7 +1336,7 @@ impl IDXGIObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1437,7 +1437,7 @@ impl IDXGIOutput_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1488,7 +1488,7 @@ impl IDXGIOutput1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1509,7 +1509,7 @@ impl IDXGIOutput2_Vtbl {
         Self { base__: IDXGIOutput1_Vtbl::new::<Identity, Impl, OFFSET>(), SupportsOverlays: SupportsOverlays::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1536,7 +1536,7 @@ impl IDXGIOutput3_Vtbl {
         Self { base__: IDXGIOutput2_Vtbl::new::<Identity, Impl, OFFSET>(), CheckOverlaySupport: CheckOverlaySupport::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1566,7 +1566,7 @@ impl IDXGIOutput4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput4 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1593,7 +1593,7 @@ impl IDXGIOutput5_Vtbl {
         Self { base__: IDXGIOutput4_Vtbl::new::<Identity, Impl, OFFSET>(), DuplicateOutput1: DuplicateOutput1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput5 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput4 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput5 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1630,7 +1630,7 @@ impl IDXGIOutput6_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput6 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput4 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput5 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput6 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput4 as ::windows::core::ComInterface>::IID || iid == &<IDXGIOutput5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1709,7 +1709,7 @@ impl IDXGIOutputDuplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutputDuplication as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutputDuplication as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1772,7 +1772,7 @@ impl IDXGIResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIResource as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIResource as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"implement\"`*"]
@@ -1815,7 +1815,7 @@ impl IDXGIResource1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIResource1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGIResource as ::windows::core::Interface>::IID
+        iid == &<IDXGIResource1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIResource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1853,7 +1853,7 @@ impl IDXGISurface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISurface as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID
+        iid == &<IDXGISurface as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1890,7 +1890,7 @@ impl IDXGISurface1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISurface1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISurface as ::windows::core::Interface>::IID
+        iid == &<IDXGISurface1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID || iid == &<IDXGISurface as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1911,7 +1911,7 @@ impl IDXGISurface2_Vtbl {
         Self { base__: IDXGISurface1_Vtbl::new::<Identity, Impl, OFFSET>(), GetResource: GetResource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISurface2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISurface as ::windows::core::Interface>::IID || iid == &<IDXGISurface1 as ::windows::core::Interface>::IID
+        iid == &<IDXGISurface2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID || iid == &<IDXGISurface as ::windows::core::ComInterface>::IID || iid == &<IDXGISurface1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -2010,7 +2010,7 @@ impl IDXGISwapChain_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -2128,7 +2128,7 @@ impl IDXGISwapChain1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain1 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -2200,7 +2200,7 @@ impl IDXGISwapChain2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain2 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -2251,7 +2251,7 @@ impl IDXGISwapChain3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain2 as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain3 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -2272,7 +2272,7 @@ impl IDXGISwapChain4_Vtbl {
         Self { base__: IDXGISwapChain3_Vtbl::new::<Identity, Impl, OFFSET>(), SetHDRMetaData: SetHDRMetaData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain2 as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain3 as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain4 as ::windows::core::ComInterface>::IID || iid == &<IDXGIObject as ::windows::core::ComInterface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain2 as ::windows::core::ComInterface>::IID || iid == &<IDXGISwapChain3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
@@ -2307,7 +2307,7 @@ impl IDXGISwapChainMedia_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChainMedia as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChainMedia as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
@@ -2335,6 +2335,6 @@ impl IDXGraphicsAnalysis_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGraphicsAnalysis as ::windows::core::Interface>::IID
+        iid == &<IDXGraphicsAnalysis as ::windows::core::ComInterface>::IID
     }
 }

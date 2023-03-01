@@ -18,7 +18,7 @@ impl IDirect3DDevice_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IDirect3DDevice, OFFSET>(), Trim: Trim::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DDevice as ::windows::core::Interface>::IID
+        iid == &<IDirect3DDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -48,6 +48,6 @@ impl IDirect3DSurface_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IDirect3DSurface, OFFSET>(), Description: Description::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DSurface as ::windows::core::Interface>::IID
+        iid == &<IDirect3DSurface as ::windows::core::ComInterface>::IID
     }
 }

@@ -3,94 +3,94 @@
 #[inline]
 pub unsafe fn KsCreateAllocator<P0>(connectionhandle: P0, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateAllocator ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    KsCreateAllocator(connectionhandle.into(), allocatorframing, allocatorhandle)
+    KsCreateAllocator(connectionhandle.into_param().abi(), allocatorframing, allocatorhandle)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateAllocator2<P0>(connectionhandle: P0, allocatorframing: *const KSALLOCATOR_FRAMING) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateAllocator2 ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
-    KsCreateAllocator2(connectionhandle.into(), allocatorframing, &mut result__).from_abi(result__)
+    KsCreateAllocator2(connectionhandle.into_param().abi(), allocatorframing, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateClock<P0>(connectionhandle: P0, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateClock ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    KsCreateClock(connectionhandle.into(), clockcreate, clockhandle)
+    KsCreateClock(connectionhandle.into_param().abi(), clockcreate, clockhandle)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateClock2<P0>(connectionhandle: P0, clockcreate: *const KSCLOCK_CREATE) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateClock2 ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
-    KsCreateClock2(connectionhandle.into(), clockcreate, &mut result__).from_abi(result__)
+    KsCreateClock2(connectionhandle.into_param().abi(), clockcreate, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreatePin<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreatePin ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    KsCreatePin(filterhandle.into(), connect, desiredaccess, connectionhandle)
+    KsCreatePin(filterhandle.into_param().abi(), connect, desiredaccess, connectionhandle)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreatePin2<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreatePin2 ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
-    KsCreatePin2(filterhandle.into(), connect, desiredaccess, &mut result__).from_abi(result__)
+    KsCreatePin2(filterhandle.into_param().abi(), connect, desiredaccess, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateTopologyNode<P0>(parenthandle: P0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateTopologyNode ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    KsCreateTopologyNode(parenthandle.into(), nodecreate, desiredaccess, nodehandle)
+    KsCreateTopologyNode(parenthandle.into_param().abi(), nodecreate, desiredaccess, nodehandle)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateTopologyNode2<P0>(parenthandle: P0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateTopologyNode2 ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
-    KsCreateTopologyNode2(parenthandle.into(), nodecreate, desiredaccess, &mut result__).from_abi(result__)
+    KsCreateTopologyNode2(parenthandle.into_param().abi(), nodecreate, desiredaccess, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 pub struct IKsAggregateControl(::windows::core::IUnknown);
 impl IKsAggregateControl {
     pub unsafe fn KsAddAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).KsAddAggregate)(::windows::core::Vtable::as_raw(self), aggregateclass).ok()
+        (::windows::core::Interface::vtable(self).KsAddAggregate)(::windows::core::Interface::as_raw(self), aggregateclass).ok()
     }
     pub unsafe fn KsRemoveAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).KsRemoveAggregate)(::windows::core::Vtable::as_raw(self), aggregateclass).ok()
+        (::windows::core::Interface::vtable(self).KsRemoveAggregate)(::windows::core::Interface::as_raw(self), aggregateclass).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IKsAggregateControl, ::windows::core::IUnknown);
@@ -105,7 +105,7 @@ impl ::core::fmt::Debug for IKsAggregateControl {
         f.debug_tuple("IKsAggregateControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKsAggregateControl {
+unsafe impl ::windows::core::Interface for IKsAggregateControl {
     type Vtable = IKsAggregateControl_Vtbl;
 }
 impl ::core::clone::Clone for IKsAggregateControl {
@@ -113,7 +113,7 @@ impl ::core::clone::Clone for IKsAggregateControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKsAggregateControl {
+unsafe impl ::windows::core::ComInterface for IKsAggregateControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f40eac0_3947_11d2_874e_00a0c9223196);
 }
 #[repr(C)]
@@ -128,13 +128,13 @@ pub struct IKsAggregateControl_Vtbl {
 pub struct IKsControl(::windows::core::IUnknown);
 impl IKsControl {
     pub unsafe fn KsProperty(&self, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).KsProperty)(::windows::core::Vtable::as_raw(self), property, propertylength, propertydata, datalength, bytesreturned).ok()
+        (::windows::core::Interface::vtable(self).KsProperty)(::windows::core::Interface::as_raw(self), property, propertylength, propertydata, datalength, bytesreturned).ok()
     }
     pub unsafe fn KsMethod(&self, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).KsMethod)(::windows::core::Vtable::as_raw(self), method, methodlength, methoddata, datalength, bytesreturned).ok()
+        (::windows::core::Interface::vtable(self).KsMethod)(::windows::core::Interface::as_raw(self), method, methodlength, methoddata, datalength, bytesreturned).ok()
     }
     pub unsafe fn KsEvent(&self, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).KsEvent)(::windows::core::Vtable::as_raw(self), event, eventlength, eventdata, datalength, bytesreturned).ok()
+        (::windows::core::Interface::vtable(self).KsEvent)(::windows::core::Interface::as_raw(self), event, eventlength, eventdata, datalength, bytesreturned).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IKsControl, ::windows::core::IUnknown);
@@ -149,7 +149,7 @@ impl ::core::fmt::Debug for IKsControl {
         f.debug_tuple("IKsControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKsControl {
+unsafe impl ::windows::core::Interface for IKsControl {
     type Vtable = IKsControl_Vtbl;
 }
 impl ::core::clone::Clone for IKsControl {
@@ -157,7 +157,7 @@ impl ::core::clone::Clone for IKsControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKsControl {
+unsafe impl ::windows::core::ComInterface for IKsControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54685_06fd_11d2_b27a_00a0c9223196);
 }
 #[repr(C)]
@@ -175,11 +175,11 @@ impl IKsFormatSupport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).IsFormatSupported)(::windows::core::Vtable::as_raw(self), pksformat, cbformat, pbsupported).ok()
+        (::windows::core::Interface::vtable(self).IsFormatSupported)(::windows::core::Interface::as_raw(self), pksformat, cbformat, pbsupported).ok()
     }
     pub unsafe fn GetDevicePreferredFormat(&self) -> ::windows::core::Result<*mut KSDATAFORMAT> {
         let mut result__ = ::windows::core::zeroed::<*mut KSDATAFORMAT>();
-        (::windows::core::Vtable::vtable(self).GetDevicePreferredFormat)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDevicePreferredFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IKsFormatSupport, ::windows::core::IUnknown);
@@ -194,7 +194,7 @@ impl ::core::fmt::Debug for IKsFormatSupport {
         f.debug_tuple("IKsFormatSupport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKsFormatSupport {
+unsafe impl ::windows::core::Interface for IKsFormatSupport {
     type Vtable = IKsFormatSupport_Vtbl;
 }
 impl ::core::clone::Clone for IKsFormatSupport {
@@ -202,7 +202,7 @@ impl ::core::clone::Clone for IKsFormatSupport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKsFormatSupport {
+unsafe impl ::windows::core::ComInterface for IKsFormatSupport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
 }
 #[repr(C)]
@@ -221,7 +221,7 @@ pub struct IKsJackContainerId(::windows::core::IUnknown);
 impl IKsJackContainerId {
     pub unsafe fn GetJackContainerId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-        (::windows::core::Vtable::vtable(self).GetJackContainerId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetJackContainerId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IKsJackContainerId, ::windows::core::IUnknown);
@@ -236,7 +236,7 @@ impl ::core::fmt::Debug for IKsJackContainerId {
         f.debug_tuple("IKsJackContainerId").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKsJackContainerId {
+unsafe impl ::windows::core::Interface for IKsJackContainerId {
     type Vtable = IKsJackContainerId_Vtbl;
 }
 impl ::core::clone::Clone for IKsJackContainerId {
@@ -244,7 +244,7 @@ impl ::core::clone::Clone for IKsJackContainerId {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackContainerId {
+unsafe impl ::windows::core::ComInterface for IKsJackContainerId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99af463_d629_4ec4_8c00_e54d68154248);
 }
 #[repr(C)]
@@ -259,12 +259,12 @@ pub struct IKsJackDescription(::windows::core::IUnknown);
 impl IKsJackDescription {
     pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetJackCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackDescription(&self, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetJackDescription)(::windows::core::Vtable::as_raw(self), njack, pdescription).ok()
+        (::windows::core::Interface::vtable(self).GetJackDescription)(::windows::core::Interface::as_raw(self), njack, pdescription).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IKsJackDescription, ::windows::core::IUnknown);
@@ -279,7 +279,7 @@ impl ::core::fmt::Debug for IKsJackDescription {
         f.debug_tuple("IKsJackDescription").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKsJackDescription {
+unsafe impl ::windows::core::Interface for IKsJackDescription {
     type Vtable = IKsJackDescription_Vtbl;
 }
 impl ::core::clone::Clone for IKsJackDescription {
@@ -287,7 +287,7 @@ impl ::core::clone::Clone for IKsJackDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackDescription {
+unsafe impl ::windows::core::ComInterface for IKsJackDescription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
 }
 #[repr(C)]
@@ -306,11 +306,11 @@ pub struct IKsJackDescription2(::windows::core::IUnknown);
 impl IKsJackDescription2 {
     pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetJackCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetJackDescription2(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION2> {
         let mut result__ = ::windows::core::zeroed::<KSJACK_DESCRIPTION2>();
-        (::windows::core::Vtable::vtable(self).GetJackDescription2)(::windows::core::Vtable::as_raw(self), njack, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetJackDescription2)(::windows::core::Interface::as_raw(self), njack, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IKsJackDescription2, ::windows::core::IUnknown);
@@ -325,7 +325,7 @@ impl ::core::fmt::Debug for IKsJackDescription2 {
         f.debug_tuple("IKsJackDescription2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKsJackDescription2 {
+unsafe impl ::windows::core::Interface for IKsJackDescription2 {
     type Vtable = IKsJackDescription2_Vtbl;
 }
 impl ::core::clone::Clone for IKsJackDescription2 {
@@ -333,7 +333,7 @@ impl ::core::clone::Clone for IKsJackDescription2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackDescription2 {
+unsafe impl ::windows::core::ComInterface for IKsJackDescription2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
 }
 #[repr(C)]
@@ -350,7 +350,7 @@ impl IKsJackSinkInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetJackSinkInformation)(::windows::core::Vtable::as_raw(self), pjacksinkinformation).ok()
+        (::windows::core::Interface::vtable(self).GetJackSinkInformation)(::windows::core::Interface::as_raw(self), pjacksinkinformation).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IKsJackSinkInformation, ::windows::core::IUnknown);
@@ -365,7 +365,7 @@ impl ::core::fmt::Debug for IKsJackSinkInformation {
         f.debug_tuple("IKsJackSinkInformation").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKsJackSinkInformation {
+unsafe impl ::windows::core::Interface for IKsJackSinkInformation {
     type Vtable = IKsJackSinkInformation_Vtbl;
 }
 impl ::core::clone::Clone for IKsJackSinkInformation {
@@ -373,7 +373,7 @@ impl ::core::clone::Clone for IKsJackSinkInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackSinkInformation {
+unsafe impl ::windows::core::ComInterface for IKsJackSinkInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
 }
 #[repr(C)]
@@ -390,14 +390,14 @@ pub struct IKsJackSinkInformation_Vtbl {
 pub struct IKsPropertySet(::windows::core::IUnknown);
 impl IKsPropertySet {
     pub unsafe fn Set(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength).ok()
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength).ok()
     }
     pub unsafe fn Get(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength, bytesreturned).ok()
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength, bytesreturned).ok()
     }
     pub unsafe fn QuerySupported(&self, propset: *const ::windows::core::GUID, id: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).QuerySupported)(::windows::core::Vtable::as_raw(self), propset, id, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).QuerySupported)(::windows::core::Interface::as_raw(self), propset, id, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IKsPropertySet, ::windows::core::IUnknown);
@@ -412,7 +412,7 @@ impl ::core::fmt::Debug for IKsPropertySet {
         f.debug_tuple("IKsPropertySet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKsPropertySet {
+unsafe impl ::windows::core::Interface for IKsPropertySet {
     type Vtable = IKsPropertySet_Vtbl;
 }
 impl ::core::clone::Clone for IKsPropertySet {
@@ -420,7 +420,7 @@ impl ::core::clone::Clone for IKsPropertySet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKsPropertySet {
+unsafe impl ::windows::core::ComInterface for IKsPropertySet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
 }
 #[repr(C)]
@@ -437,9 +437,9 @@ pub struct IKsTopology(::windows::core::IUnknown);
 impl IKsTopology {
     pub unsafe fn CreateNodeInstance<P0>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: P0, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).CreateNodeInstance)(::windows::core::Vtable::as_raw(self), nodeid, flags, desiredaccess, unkouter.into().abi(), interfaceid, interface).ok()
+        (::windows::core::Interface::vtable(self).CreateNodeInstance)(::windows::core::Interface::as_raw(self), nodeid, flags, desiredaccess, unkouter.into_param().abi(), interfaceid, interface).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IKsTopology, ::windows::core::IUnknown);
@@ -454,7 +454,7 @@ impl ::core::fmt::Debug for IKsTopology {
         f.debug_tuple("IKsTopology").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKsTopology {
+unsafe impl ::windows::core::Interface for IKsTopology {
     type Vtable = IKsTopology_Vtbl;
 }
 impl ::core::clone::Clone for IKsTopology {
@@ -462,7 +462,7 @@ impl ::core::clone::Clone for IKsTopology {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKsTopology {
+unsafe impl ::windows::core::ComInterface for IKsTopology {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54683_06fd_11d2_b27a_00a0c9223196);
 }
 #[repr(C)]

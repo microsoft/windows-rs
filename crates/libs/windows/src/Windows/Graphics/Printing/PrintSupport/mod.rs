@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportExtensionSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportExtensionSession {
+unsafe impl ::windows::core::Interface for IPrintSupportExtensionSession {
     type Vtable = IPrintSupportExtensionSession_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportExtensionSession {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IPrintSupportExtensionSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportExtensionSession {
+unsafe impl ::windows::core::ComInterface for IPrintSupportExtensionSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea45f1a_f4c6_54b3_a0b8_a559839aa4c3);
 }
 #[repr(C)]
@@ -41,7 +41,7 @@ pub struct IPrintSupportExtensionSession_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportExtensionSession2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportExtensionSession2 {
+unsafe impl ::windows::core::Interface for IPrintSupportExtensionSession2 {
     type Vtable = IPrintSupportExtensionSession2_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportExtensionSession2 {
@@ -49,7 +49,7 @@ impl ::core::clone::Clone for IPrintSupportExtensionSession2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportExtensionSession2 {
+unsafe impl ::windows::core::ComInterface for IPrintSupportExtensionSession2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10fa8c11_6de8_5765_8fcf_e716e0f27ed1);
 }
 #[repr(C)]
@@ -68,7 +68,7 @@ pub struct IPrintSupportExtensionSession2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportExtensionTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportExtensionTriggerDetails {
+unsafe impl ::windows::core::Interface for IPrintSupportExtensionTriggerDetails {
     type Vtable = IPrintSupportExtensionTriggerDetails_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportExtensionTriggerDetails {
@@ -76,7 +76,7 @@ impl ::core::clone::Clone for IPrintSupportExtensionTriggerDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportExtensionTriggerDetails {
+unsafe impl ::windows::core::ComInterface for IPrintSupportExtensionTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae083711_9b09_55d1_a0ae_2a14c5f83d6a);
 }
 #[repr(C)]
@@ -88,7 +88,7 @@ pub struct IPrintSupportExtensionTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
@@ -96,7 +96,7 @@ impl ::core::clone::Clone for IPrintSupportPrintDeviceCapabilitiesChangedEventAr
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15969bf0_9028_5722_8a37_7d7c34b41dd6);
 }
 #[repr(C)]
@@ -119,7 +119,7 @@ pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
+unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
@@ -127,7 +127,7 @@ impl ::core::clone::Clone for IPrintSupportPrintDeviceCapabilitiesChangedEventAr
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
+unsafe impl ::windows::core::ComInterface for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x469df9e7_fd07_5eeb_a07d_9fcc67f089ba);
 }
 #[repr(C)]
@@ -152,7 +152,7 @@ pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
+unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
@@ -160,7 +160,7 @@ impl ::core::clone::Clone for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
+unsafe impl ::windows::core::ComInterface for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f5fc025_8c35_5529_8038_8cdc3634bbcd);
 }
 #[repr(C)]
@@ -171,7 +171,7 @@ pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
+unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
@@ -179,7 +179,7 @@ impl ::core::clone::Clone for IPrintSupportPrintDeviceCapabilitiesUpdatePolicySt
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
+unsafe impl ::windows::core::ComInterface for IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d9e1a70_7c39_551f_aa1f_f8ca35b3119e);
 }
 #[repr(C)]
@@ -195,7 +195,7 @@ pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportPrintTicketElement(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportPrintTicketElement {
+unsafe impl ::windows::core::Interface for IPrintSupportPrintTicketElement {
     type Vtable = IPrintSupportPrintTicketElement_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportPrintTicketElement {
@@ -203,7 +203,7 @@ impl ::core::clone::Clone for IPrintSupportPrintTicketElement {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportPrintTicketElement {
+unsafe impl ::windows::core::ComInterface for IPrintSupportPrintTicketElement {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b2a4489_730d_5be7_80e6_8332941abf13);
 }
 #[repr(C)]
@@ -218,7 +218,7 @@ pub struct IPrintSupportPrintTicketElement_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportPrintTicketValidationRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportPrintTicketValidationRequestedEventArgs {
+unsafe impl ::windows::core::Interface for IPrintSupportPrintTicketValidationRequestedEventArgs {
     type Vtable = IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportPrintTicketValidationRequestedEventArgs {
@@ -226,7 +226,7 @@ impl ::core::clone::Clone for IPrintSupportPrintTicketValidationRequestedEventAr
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportPrintTicketValidationRequestedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPrintSupportPrintTicketValidationRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338e4e69_db55_55c7_8338_ef64680a8f90);
 }
 #[repr(C)]
@@ -246,7 +246,7 @@ pub struct IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportPrinterSelectedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportPrinterSelectedEventArgs {
+unsafe impl ::windows::core::Interface for IPrintSupportPrinterSelectedEventArgs {
     type Vtable = IPrintSupportPrinterSelectedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportPrinterSelectedEventArgs {
@@ -254,7 +254,7 @@ impl ::core::clone::Clone for IPrintSupportPrinterSelectedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportPrinterSelectedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPrintSupportPrinterSelectedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b1cb7d9_a8a4_5c09_adb2_66165f817977);
 }
 #[repr(C)]
@@ -294,7 +294,7 @@ pub struct IPrintSupportPrinterSelectedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportSessionInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportSessionInfo {
+unsafe impl ::windows::core::Interface for IPrintSupportSessionInfo {
     type Vtable = IPrintSupportSessionInfo_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportSessionInfo {
@@ -302,7 +302,7 @@ impl ::core::clone::Clone for IPrintSupportSessionInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportSessionInfo {
+unsafe impl ::windows::core::ComInterface for IPrintSupportSessionInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x852149af_777d_53e9_9ee9_45d3f4b5be9c);
 }
 #[repr(C)]
@@ -321,7 +321,7 @@ pub struct IPrintSupportSessionInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportSettingsActivatedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportSettingsActivatedEventArgs {
+unsafe impl ::windows::core::Interface for IPrintSupportSettingsActivatedEventArgs {
     type Vtable = IPrintSupportSettingsActivatedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportSettingsActivatedEventArgs {
@@ -329,7 +329,7 @@ impl ::core::clone::Clone for IPrintSupportSettingsActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportSettingsActivatedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPrintSupportSettingsActivatedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e1b565e_a013_55ea_9b8c_eea39d9fb6c1);
 }
 #[repr(C)]
@@ -345,7 +345,7 @@ pub struct IPrintSupportSettingsActivatedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintSupportSettingsUISession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPrintSupportSettingsUISession {
+unsafe impl ::windows::core::Interface for IPrintSupportSettingsUISession {
     type Vtable = IPrintSupportSettingsUISession_Vtbl;
 }
 impl ::core::clone::Clone for IPrintSupportSettingsUISession {
@@ -353,7 +353,7 @@ impl ::core::clone::Clone for IPrintSupportSettingsUISession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintSupportSettingsUISession {
+unsafe impl ::windows::core::ComInterface for IPrintSupportSettingsUISession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6da2251_83c3_55e4_a0f8_5de8b062adbf);
 }
 #[repr(C)]
@@ -382,7 +382,7 @@ impl PrintSupportExtensionSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Devices::Printers::IppPrintDevice>();
-            (::windows::core::Vtable::vtable(this).Printer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Printer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -391,14 +391,14 @@ impl PrintSupportExtensionSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PrintTicketValidationRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PrintTicketValidationRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePrintTicketValidationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePrintTicketValidationRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePrintTicketValidationRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -406,33 +406,33 @@ impl PrintSupportExtensionSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PrintDeviceCapabilitiesChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePrintDeviceCapabilitiesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePrintDeviceCapabilitiesChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePrintDeviceCapabilitiesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PrinterSelected(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrinterSelectedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<IPrintSupportExtensionSession2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPrintSupportExtensionSession2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PrinterSelected)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PrinterSelected)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePrinterSelected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IPrintSupportExtensionSession2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePrinterSelected)(::windows::core::Vtable::as_raw(this), token).ok() }
+        let this = &::windows::core::ComInterface::cast::<IPrintSupportExtensionSession2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).RemovePrinterSelected)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::cmp::PartialEq for PrintSupportExtensionSession {
@@ -454,11 +454,11 @@ impl ::core::clone::Clone for PrintSupportExtensionSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportExtensionSession {
+unsafe impl ::windows::core::Interface for PrintSupportExtensionSession {
     type Vtable = IPrintSupportExtensionSession_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportExtensionSession {
-    const IID: ::windows::core::GUID = <IPrintSupportExtensionSession as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportExtensionSession {
+    const IID: ::windows::core::GUID = <IPrintSupportExtensionSession as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportExtensionSession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession";
@@ -474,7 +474,7 @@ impl PrintSupportExtensionTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PrintSupportExtensionSession>();
-            (::windows::core::Vtable::vtable(this).Session)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -497,11 +497,11 @@ impl ::core::clone::Clone for PrintSupportExtensionTriggerDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportExtensionTriggerDetails {
+unsafe impl ::windows::core::Interface for PrintSupportExtensionTriggerDetails {
     type Vtable = IPrintSupportExtensionTriggerDetails_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportExtensionTriggerDetails {
-    const IID: ::windows::core::GUID = <IPrintSupportExtensionTriggerDetails as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportExtensionTriggerDetails {
+    const IID: ::windows::core::GUID = <IPrintSupportExtensionTriggerDetails as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportExtensionTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails";
@@ -519,14 +519,14 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Data::Xml::Dom::XmlDocument>();
-            (::windows::core::Vtable::vtable(this).GetCurrentPrintDeviceCapabilities)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentPrintDeviceCapabilities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn UpdatePrintDeviceCapabilities(&self, updatedpdc: &super::super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdatePrintDeviceCapabilities)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(updatedpdc)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(updatedpdc)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -534,44 +534,43 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetSupportedPdlPassthroughContentTypes<P0, E0>(&self, supportedpdlcontenttypes: P0) -> ::windows::core::Result<()>
+    pub fn SetSupportedPdlPassthroughContentTypes<P0>(&self, supportedpdlcontenttypes: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
-        let this = &::windows::core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSupportedPdlPassthroughContentTypes)(::windows::core::Vtable::as_raw(this), supportedpdlcontenttypes.try_into().map_err(|e| e.into())?.abi()).ok() }
+        let this = &::windows::core::ComInterface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetSupportedPdlPassthroughContentTypes)(::windows::core::Interface::as_raw(this), supportedpdlcontenttypes.try_into_param()?.abi()).ok() }
     }
     pub fn ResourceLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ResourceLanguage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ResourceLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetCurrentPrintDeviceResources(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::XmlDocument> {
-        let this = &::windows::core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Data::Xml::Dom::XmlDocument>();
-            (::windows::core::Vtable::vtable(this).GetCurrentPrintDeviceResources)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentPrintDeviceResources)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn UpdatePrintDeviceResources(&self, updatedpdr: &super::super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdatePrintDeviceResources)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(updatedpdr)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).UpdatePrintDeviceResources)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(updatedpdr)).ok() }
     }
     pub fn SetPrintDeviceCapabilitiesUpdatePolicy(&self, updatepolicy: &PrintSupportPrintDeviceCapabilitiesUpdatePolicy) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPrintDeviceCapabilitiesUpdatePolicy)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(updatepolicy)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintDeviceCapabilitiesUpdatePolicy)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(updatepolicy)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
@@ -593,11 +592,11 @@ impl ::core::clone::Clone for PrintSupportPrintDeviceCapabilitiesChangedEventArg
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+unsafe impl ::windows::core::Interface for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    const IID: ::windows::core::GUID = <IPrintSupportPrintDeviceCapabilitiesChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+    const IID: ::windows::core::GUID = <IPrintSupportPrintDeviceCapabilitiesChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs";
@@ -614,13 +613,13 @@ impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     pub fn CreatePeriodicRefresh(updateperiod: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
         Self::IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PrintSupportPrintDeviceCapabilitiesUpdatePolicy>();
-            (::windows::core::Vtable::vtable(this).CreatePeriodicRefresh)(::windows::core::Vtable::as_raw(this), updateperiod, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreatePeriodicRefresh)(::windows::core::Interface::as_raw(this), updateperiod, &mut result__).from_abi(result__)
         })
     }
     pub fn CreatePrintJobRefresh(numberofjobs: u32) -> ::windows::core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
         Self::IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PrintSupportPrintDeviceCapabilitiesUpdatePolicy>();
-            (::windows::core::Vtable::vtable(this).CreatePrintJobRefresh)(::windows::core::Vtable::as_raw(this), numberofjobs, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreatePrintJobRefresh)(::windows::core::Interface::as_raw(this), numberofjobs, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -648,11 +647,11 @@ impl ::core::clone::Clone for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
+unsafe impl ::windows::core::Interface for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    const IID: ::windows::core::GUID = <IPrintSupportPrintDeviceCapabilitiesUpdatePolicy as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
+    const IID: ::windows::core::GUID = <IPrintSupportPrintDeviceCapabilitiesUpdatePolicy as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesUpdatePolicy";
@@ -675,23 +674,23 @@ impl PrintSupportPrintTicketElement {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).LocalName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetLocalName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetLocalName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocalName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).NamespaceUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetNamespaceUri(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetNamespaceUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNamespaceUri)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for PrintSupportPrintTicketElement {
@@ -713,11 +712,11 @@ impl ::core::clone::Clone for PrintSupportPrintTicketElement {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportPrintTicketElement {
+unsafe impl ::windows::core::Interface for PrintSupportPrintTicketElement {
     type Vtable = IPrintSupportPrintTicketElement_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportPrintTicketElement {
-    const IID: ::windows::core::GUID = <IPrintSupportPrintTicketElement as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportPrintTicketElement {
+    const IID: ::windows::core::GUID = <IPrintSupportPrintTicketElement as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportPrintTicketElement {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketElement";
@@ -735,12 +734,12 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::PrintTicket::WorkflowPrintTicket>();
-            (::windows::core::Vtable::vtable(this).PrintTicket)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PrintTicket)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPrintTicketValidationStatus(&self, status: WorkflowPrintTicketValidationStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPrintTicketValidationStatus)(::windows::core::Vtable::as_raw(this), status).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintTicketValidationStatus)(::windows::core::Interface::as_raw(this), status).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -748,7 +747,7 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -771,11 +770,11 @@ impl ::core::clone::Clone for PrintSupportPrintTicketValidationRequestedEventArg
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportPrintTicketValidationRequestedEventArgs {
+unsafe impl ::windows::core::Interface for PrintSupportPrintTicketValidationRequestedEventArgs {
     type Vtable = IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportPrintTicketValidationRequestedEventArgs {
-    const IID: ::windows::core::GUID = <IPrintSupportPrintTicketValidationRequestedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportPrintTicketValidationRequestedEventArgs {
+    const IID: ::windows::core::GUID = <IPrintSupportPrintTicketValidationRequestedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportPrintTicketValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs";
@@ -793,7 +792,7 @@ impl PrintSupportPrinterSelectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::ApplicationModel::AppInfo>();
-            (::windows::core::Vtable::vtable(this).SourceAppInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceAppInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -802,51 +801,48 @@ impl PrintSupportPrinterSelectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::PrintTicket::WorkflowPrintTicket>();
-            (::windows::core::Vtable::vtable(this).PrintTicket)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PrintTicket)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn SetPrintTicket(&self, value: &super::PrintTicket::WorkflowPrintTicket) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPrintTicket)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintTicket)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAdditionalFeatures<P0, E0>(&self, features: P0) -> ::windows::core::Result<()>
+    pub fn SetAdditionalFeatures<P0>(&self, features: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAdditionalFeatures)(::windows::core::Vtable::as_raw(this), features.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAdditionalFeatures)(::windows::core::Interface::as_raw(this), features.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAdditionalParameters<P0, E0>(&self, parameters: P0) -> ::windows::core::Result<()>
+    pub fn SetAdditionalParameters<P0>(&self, parameters: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<PrintSupportPrintTicketElement>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAdditionalParameters)(::windows::core::Vtable::as_raw(this), parameters.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAdditionalParameters)(::windows::core::Interface::as_raw(this), parameters.try_into_param()?.abi()).ok() }
     }
     pub fn AllowedAdditionalFeaturesAndParametersCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).AllowedAdditionalFeaturesAndParametersCount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AllowedAdditionalFeaturesAndParametersCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
-    pub fn SetAdaptiveCard<P0, E0>(&self, adaptivecard: P0) -> ::windows::core::Result<()>
+    pub fn SetAdaptiveCard<P0>(&self, adaptivecard: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::UI::Shell::IAdaptiveCard>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::UI::Shell::IAdaptiveCard>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAdaptiveCard)(::windows::core::Vtable::as_raw(this), adaptivecard.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAdaptiveCard)(::windows::core::Interface::as_raw(this), adaptivecard.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -854,7 +850,7 @@ impl PrintSupportPrinterSelectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -877,11 +873,11 @@ impl ::core::clone::Clone for PrintSupportPrinterSelectedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportPrinterSelectedEventArgs {
+unsafe impl ::windows::core::Interface for PrintSupportPrinterSelectedEventArgs {
     type Vtable = IPrintSupportPrinterSelectedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportPrinterSelectedEventArgs {
-    const IID: ::windows::core::GUID = <IPrintSupportPrinterSelectedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportPrinterSelectedEventArgs {
+    const IID: ::windows::core::GUID = <IPrintSupportPrinterSelectedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportPrinterSelectedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrinterSelectedEventArgs";
@@ -899,7 +895,7 @@ impl PrintSupportSessionInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::ApplicationModel::AppInfo>();
-            (::windows::core::Vtable::vtable(this).SourceAppInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceAppInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -908,7 +904,7 @@ impl PrintSupportSessionInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Devices::Printers::IppPrintDevice>();
-            (::windows::core::Vtable::vtable(this).Printer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Printer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -931,11 +927,11 @@ impl ::core::clone::Clone for PrintSupportSessionInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportSessionInfo {
+unsafe impl ::windows::core::Interface for PrintSupportSessionInfo {
     type Vtable = IPrintSupportSessionInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportSessionInfo {
-    const IID: ::windows::core::GUID = <IPrintSupportSessionInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportSessionInfo {
+    const IID: ::windows::core::GUID = <IPrintSupportSessionInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportSessionInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo";
@@ -950,44 +946,44 @@ impl PrintSupportSettingsActivatedEventArgs {
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
-        let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::ApplicationModel::Activation::ActivationKind>();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::ApplicationModel::Activation::ApplicationExecutionState>();
-            (::windows::core::Vtable::vtable(this).PreviousExecutionState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
-        let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::ApplicationModel::Activation::SplashScreen>();
-            (::windows::core::Vtable::vtable(this).SplashScreen)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::System::User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Session(&self) -> ::windows::core::Result<PrintSupportSettingsUISession> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PrintSupportSettingsUISession>();
-            (::windows::core::Vtable::vtable(this).Session)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -996,7 +992,7 @@ impl PrintSupportSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1019,60 +1015,20 @@ impl ::core::clone::Clone for PrintSupportSettingsActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportSettingsActivatedEventArgs {
+unsafe impl ::windows::core::Interface for PrintSupportSettingsActivatedEventArgs {
     type Vtable = IPrintSupportSettingsActivatedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportSettingsActivatedEventArgs {
-    const IID: ::windows::core::GUID = <IPrintSupportSettingsActivatedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportSettingsActivatedEventArgs {
+    const IID: ::windows::core::GUID = <IPrintSupportSettingsActivatedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs";
 }
 ::windows::imp::interface_hierarchy!(PrintSupportSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::convert::TryFrom<PrintSupportSettingsActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::ApplicationModel::Activation::IActivatedEventArgs> for PrintSupportSettingsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::InParam<super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::convert::TryFrom<PrintSupportSettingsActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::InParam<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for PrintSupportSettingsActivatedEventArgs {}
 unsafe impl ::core::marker::Send for PrintSupportSettingsActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintSupportSettingsActivatedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -1085,34 +1041,34 @@ impl PrintSupportSettingsUISession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::PrintTicket::WorkflowPrintTicket>();
-            (::windows::core::Vtable::vtable(this).SessionPrintTicket)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SessionPrintTicket)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DocumentTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DocumentTitle)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DocumentTitle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LaunchKind(&self) -> ::windows::core::Result<SettingsLaunchKind> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SettingsLaunchKind>();
-            (::windows::core::Vtable::vtable(this).LaunchKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn UpdatePrintTicket(&self, printticket: &super::PrintTicket::WorkflowPrintTicket) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdatePrintTicket)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printticket)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdatePrintTicket)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(printticket)).ok() }
     }
     pub fn SessionInfo(&self) -> ::windows::core::Result<PrintSupportSessionInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PrintSupportSessionInfo>();
-            (::windows::core::Vtable::vtable(this).SessionInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SessionInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1135,11 +1091,11 @@ impl ::core::clone::Clone for PrintSupportSettingsUISession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PrintSupportSettingsUISession {
+unsafe impl ::windows::core::Interface for PrintSupportSettingsUISession {
     type Vtable = IPrintSupportSettingsUISession_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PrintSupportSettingsUISession {
-    const IID: ::windows::core::GUID = <IPrintSupportSettingsUISession as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PrintSupportSettingsUISession {
+    const IID: ::windows::core::GUID = <IPrintSupportSettingsUISession as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportSettingsUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession";

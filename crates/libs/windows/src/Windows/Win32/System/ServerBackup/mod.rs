@@ -4,10 +4,10 @@ pub struct IWsbApplicationAsync(::windows::core::IUnknown);
 impl IWsbApplicationAsync {
     pub unsafe fn QueryStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-        (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).QueryStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Abort(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Abort)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWsbApplicationAsync, ::windows::core::IUnknown);
@@ -22,7 +22,7 @@ impl ::core::fmt::Debug for IWsbApplicationAsync {
         f.debug_tuple("IWsbApplicationAsync").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWsbApplicationAsync {
+unsafe impl ::windows::core::Interface for IWsbApplicationAsync {
     type Vtable = IWsbApplicationAsync_Vtbl;
 }
 impl ::core::clone::Clone for IWsbApplicationAsync {
@@ -30,7 +30,7 @@ impl ::core::clone::Clone for IWsbApplicationAsync {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWsbApplicationAsync {
+unsafe impl ::windows::core::ComInterface for IWsbApplicationAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0843f6f7_895c_44a6_b0c2_05a5022aa3a1);
 }
 #[repr(C)]
@@ -46,12 +46,12 @@ pub struct IWsbApplicationBackupSupport(::windows::core::IUnknown);
 impl IWsbApplicationBackupSupport {
     pub unsafe fn CheckConsistency<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, cvolumes: u32, rgwszsourcevolumepath: *const ::windows::core::PCWSTR, rgwszsnapshotvolumepath: *const ::windows::core::PCWSTR) -> ::windows::core::Result<IWsbApplicationAsync>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IWsbApplicationAsync>();
-        (::windows::core::Vtable::vtable(self).CheckConsistency)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into().abi(), wszcomponentname.into().abi(), wszcomponentlogicalpath.into().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CheckConsistency)(::windows::core::Interface::as_raw(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWsbApplicationBackupSupport, ::windows::core::IUnknown);
@@ -66,7 +66,7 @@ impl ::core::fmt::Debug for IWsbApplicationBackupSupport {
         f.debug_tuple("IWsbApplicationBackupSupport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWsbApplicationBackupSupport {
+unsafe impl ::windows::core::Interface for IWsbApplicationBackupSupport {
     type Vtable = IWsbApplicationBackupSupport_Vtbl;
 }
 impl ::core::clone::Clone for IWsbApplicationBackupSupport {
@@ -74,7 +74,7 @@ impl ::core::clone::Clone for IWsbApplicationBackupSupport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWsbApplicationBackupSupport {
+unsafe impl ::windows::core::ComInterface for IWsbApplicationBackupSupport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
 }
 #[repr(C)]
@@ -91,30 +91,30 @@ impl IWsbApplicationRestoreSupport {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreRestore<P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P3: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
     {
-        (::windows::core::Vtable::vtable(self).PreRestore)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into().abi(), wszcomponentname.into().abi(), wszcomponentlogicalpath.into().abi(), bnorollforward.into()).ok()
+        (::windows::core::Interface::vtable(self).PreRestore)(::windows::core::Interface::as_raw(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), bnorollforward.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostRestore<P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P3: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
     {
-        (::windows::core::Vtable::vtable(self).PostRestore)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into().abi(), wszcomponentname.into().abi(), wszcomponentlogicalpath.into().abi(), bnorollforward.into()).ok()
+        (::windows::core::Interface::vtable(self).PostRestore)(::windows::core::Interface::as_raw(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), bnorollforward.into_param().abi()).ok()
     }
     pub unsafe fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const ::windows::core::PCWSTR, rgcomponentlogicalpaths: *const ::windows::core::PCWSTR, prgcomponentname: *mut *mut ::windows::core::PWSTR, prgcomponentlogicalpath: *mut *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OrderComponents)(::windows::core::Vtable::as_raw(self), ccomponents, rgcomponentname, rgcomponentlogicalpaths, prgcomponentname, prgcomponentlogicalpath).ok()
+        (::windows::core::Interface::vtable(self).OrderComponents)(::windows::core::Interface::as_raw(self), ccomponents, rgcomponentname, rgcomponentlogicalpaths, prgcomponentname, prgcomponentlogicalpath).ok()
     }
     pub unsafe fn IsRollForwardSupported(&self) -> ::windows::core::Result<u8> {
         let mut result__ = ::windows::core::zeroed::<u8>();
-        (::windows::core::Vtable::vtable(self).IsRollForwardSupported)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsRollForwardSupported)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWsbApplicationRestoreSupport, ::windows::core::IUnknown);
@@ -129,7 +129,7 @@ impl ::core::fmt::Debug for IWsbApplicationRestoreSupport {
         f.debug_tuple("IWsbApplicationRestoreSupport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWsbApplicationRestoreSupport {
+unsafe impl ::windows::core::Interface for IWsbApplicationRestoreSupport {
     type Vtable = IWsbApplicationRestoreSupport_Vtbl;
 }
 impl ::core::clone::Clone for IWsbApplicationRestoreSupport {
@@ -137,7 +137,7 @@ impl ::core::clone::Clone for IWsbApplicationRestoreSupport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWsbApplicationRestoreSupport {
+unsafe impl ::windows::core::ComInterface for IWsbApplicationRestoreSupport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
 }
 #[repr(C)]

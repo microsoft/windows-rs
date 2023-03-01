@@ -25,7 +25,7 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILearningModelDeviceFactoryNative as ::windows::core::Interface>::IID
+        iid == &<ILearningModelDeviceFactoryNative as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
@@ -52,7 +52,7 @@ impl ILearningModelOperatorProviderNative_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRegistry: GetRegistry::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILearningModelOperatorProviderNative as ::windows::core::Interface>::IID
+        iid == &<ILearningModelOperatorProviderNative as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"implement\"`*"]
@@ -73,7 +73,7 @@ impl ILearningModelSessionOptionsNative_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILearningModelSessionOptionsNative as ::windows::core::Interface>::IID
+        iid == &<ILearningModelSessionOptionsNative as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -110,7 +110,7 @@ impl ITensorNative_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITensorNative as ::windows::core::Interface>::IID
+        iid == &<ITensorNative as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -131,6 +131,6 @@ impl ITensorStaticsNative_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateFromD3D12Resource: CreateFromD3D12Resource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITensorStaticsNative as ::windows::core::Interface>::IID
+        iid == &<ITensorStaticsNative as ::windows::core::ComInterface>::IID
     }
 }

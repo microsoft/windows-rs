@@ -60,7 +60,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImageScannerFormatConfiguration as ::windows::core::Interface>::IID
+        iid == &<IImageScannerFormatConfiguration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -443,6 +443,6 @@ impl IImageScannerSourceConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImageScannerSourceConfiguration as ::windows::core::Interface>::IID
+        iid == &<IImageScannerSourceConfiguration as ::windows::core::ComInterface>::IID
     }
 }

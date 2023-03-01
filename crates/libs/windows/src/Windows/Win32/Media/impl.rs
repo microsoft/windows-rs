@@ -58,7 +58,7 @@ impl IReferenceClock_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReferenceClock as ::windows::core::Interface>::IID
+        iid == &<IReferenceClock as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -72,7 +72,7 @@ impl IReferenceClock2_Vtbl {
         Self { base__: IReferenceClock_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReferenceClock2 as ::windows::core::Interface>::IID || iid == &<IReferenceClock as ::windows::core::Interface>::IID
+        iid == &<IReferenceClock2 as ::windows::core::ComInterface>::IID || iid == &<IReferenceClock as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media\"`, `\"implement\"`*"]
@@ -106,6 +106,6 @@ impl IReferenceClockTimerControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReferenceClockTimerControl as ::windows::core::Interface>::IID
+        iid == &<IReferenceClockTimerControl as ::windows::core::ComInterface>::IID
     }
 }

@@ -3,11 +3,11 @@
 #[inline]
 pub unsafe fn RmAddFilter<P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: ::core::option::Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P1, filteraction: RM_FILTER_ACTION) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "rstrtmgr.dll""system" fn RmAddFilter ( dwsessionhandle : u32 , strmodulename : :: windows::core::PCWSTR , pprocess : *const RM_UNIQUE_PROCESS , strserviceshortname : :: windows::core::PCWSTR , filteraction : RM_FILTER_ACTION ) -> u32 );
-    RmAddFilter(dwsessionhandle, strmodulename.into().abi(), ::core::mem::transmute(pprocess.unwrap_or(::std::ptr::null())), strserviceshortname.into().abi(), filteraction)
+    RmAddFilter(dwsessionhandle, strmodulename.into_param().abi(), ::core::mem::transmute(pprocess.unwrap_or(::std::ptr::null())), strserviceshortname.into_param().abi(), filteraction)
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
@@ -38,10 +38,10 @@ pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnproc
 #[inline]
 pub unsafe fn RmJoinSession<P0>(psessionhandle: *mut u32, strsessionkey: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "rstrtmgr.dll""system" fn RmJoinSession ( psessionhandle : *mut u32 , strsessionkey : :: windows::core::PCWSTR ) -> u32 );
-    RmJoinSession(psessionhandle, strsessionkey.into().abi())
+    RmJoinSession(psessionhandle, strsessionkey.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -63,11 +63,11 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: ::core::op
 #[inline]
 pub unsafe fn RmRemoveFilter<P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: ::core::option::Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "rstrtmgr.dll""system" fn RmRemoveFilter ( dwsessionhandle : u32 , strmodulename : :: windows::core::PCWSTR , pprocess : *const RM_UNIQUE_PROCESS , strserviceshortname : :: windows::core::PCWSTR ) -> u32 );
-    RmRemoveFilter(dwsessionhandle, strmodulename.into().abi(), ::core::mem::transmute(pprocess.unwrap_or(::std::ptr::null())), strserviceshortname.into().abi())
+    RmRemoveFilter(dwsessionhandle, strmodulename.into_param().abi(), ::core::mem::transmute(pprocess.unwrap_or(::std::ptr::null())), strserviceshortname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]

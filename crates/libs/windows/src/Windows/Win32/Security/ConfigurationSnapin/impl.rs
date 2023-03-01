@@ -37,7 +37,7 @@ impl ISceSvcAttachmentData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISceSvcAttachmentData as ::windows::core::Interface>::IID
+        iid == &<ISceSvcAttachmentData as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -75,6 +75,6 @@ impl ISceSvcAttachmentPersistInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISceSvcAttachmentPersistInfo as ::windows::core::Interface>::IID
+        iid == &<ISceSvcAttachmentPersistInfo as ::windows::core::ComInterface>::IID
     }
 }

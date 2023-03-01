@@ -72,28 +72,28 @@ pub struct IReferenceClock(::windows::core::IUnknown);
 impl IReferenceClock {
     pub unsafe fn GetTime(&self) -> ::windows::core::Result<i64> {
         let mut result__ = ::windows::core::zeroed::<i64>();
-        (::windows::core::Vtable::vtable(self).GetTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows::core::Result<usize>
     where
-        P0: ::std::convert::Into<super::Foundation::HANDLE>,
+        P0: ::windows::core::IntoParam<super::Foundation::HANDLE>,
     {
         let mut result__ = ::windows::core::zeroed::<usize>();
-        (::windows::core::Vtable::vtable(self).AdviseTime)(::windows::core::Vtable::as_raw(self), basetime, streamtime, hevent.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AdviseTime)(::windows::core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows::core::Result<usize>
     where
-        P0: ::std::convert::Into<super::Foundation::HANDLE>,
+        P0: ::windows::core::IntoParam<super::Foundation::HANDLE>,
     {
         let mut result__ = ::windows::core::zeroed::<usize>();
-        (::windows::core::Vtable::vtable(self).AdvisePeriodic)(::windows::core::Vtable::as_raw(self), starttime, periodtime, hsemaphore.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AdvisePeriodic)(::windows::core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), dwadvisecookie).ok()
+        (::windows::core::Interface::vtable(self).Unadvise)(::windows::core::Interface::as_raw(self), dwadvisecookie).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IReferenceClock, ::windows::core::IUnknown);
@@ -108,7 +108,7 @@ impl ::core::fmt::Debug for IReferenceClock {
         f.debug_tuple("IReferenceClock").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IReferenceClock {
+unsafe impl ::windows::core::Interface for IReferenceClock {
     type Vtable = IReferenceClock_Vtbl;
 }
 impl ::core::clone::Clone for IReferenceClock {
@@ -116,7 +116,7 @@ impl ::core::clone::Clone for IReferenceClock {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IReferenceClock {
+unsafe impl ::windows::core::ComInterface for IReferenceClock {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a86897_0ad4_11ce_b03a_0020af0ba770);
 }
 #[repr(C)]
@@ -140,28 +140,28 @@ pub struct IReferenceClock2(::windows::core::IUnknown);
 impl IReferenceClock2 {
     pub unsafe fn GetTime(&self) -> ::windows::core::Result<i64> {
         let mut result__ = ::windows::core::zeroed::<i64>();
-        (::windows::core::Vtable::vtable(self).base__.GetTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows::core::Result<usize>
     where
-        P0: ::std::convert::Into<super::Foundation::HANDLE>,
+        P0: ::windows::core::IntoParam<super::Foundation::HANDLE>,
     {
         let mut result__ = ::windows::core::zeroed::<usize>();
-        (::windows::core::Vtable::vtable(self).base__.AdviseTime)(::windows::core::Vtable::as_raw(self), basetime, streamtime, hevent.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.AdviseTime)(::windows::core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows::core::Result<usize>
     where
-        P0: ::std::convert::Into<super::Foundation::HANDLE>,
+        P0: ::windows::core::IntoParam<super::Foundation::HANDLE>,
     {
         let mut result__ = ::windows::core::zeroed::<usize>();
-        (::windows::core::Vtable::vtable(self).base__.AdvisePeriodic)(::windows::core::Vtable::as_raw(self), starttime, periodtime, hsemaphore.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.AdvisePeriodic)(::windows::core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Unadvise)(::windows::core::Vtable::as_raw(self), dwadvisecookie).ok()
+        (::windows::core::Interface::vtable(self).base__.Unadvise)(::windows::core::Interface::as_raw(self), dwadvisecookie).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IReferenceClock2, ::windows::core::IUnknown, IReferenceClock);
@@ -176,7 +176,7 @@ impl ::core::fmt::Debug for IReferenceClock2 {
         f.debug_tuple("IReferenceClock2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IReferenceClock2 {
+unsafe impl ::windows::core::Interface for IReferenceClock2 {
     type Vtable = IReferenceClock2_Vtbl;
 }
 impl ::core::clone::Clone for IReferenceClock2 {
@@ -184,7 +184,7 @@ impl ::core::clone::Clone for IReferenceClock2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IReferenceClock2 {
+unsafe impl ::windows::core::ComInterface for IReferenceClock2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36b73885_c2c8_11cf_8b46_00805f6cef60);
 }
 #[repr(C)]
@@ -197,11 +197,11 @@ pub struct IReferenceClock2_Vtbl {
 pub struct IReferenceClockTimerControl(::windows::core::IUnknown);
 impl IReferenceClockTimerControl {
     pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDefaultTimerResolution)(::windows::core::Vtable::as_raw(self), timerresolution).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultTimerResolution)(::windows::core::Interface::as_raw(self), timerresolution).ok()
     }
     pub unsafe fn GetDefaultTimerResolution(&self) -> ::windows::core::Result<i64> {
         let mut result__ = ::windows::core::zeroed::<i64>();
-        (::windows::core::Vtable::vtable(self).GetDefaultTimerResolution)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultTimerResolution)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IReferenceClockTimerControl, ::windows::core::IUnknown);
@@ -216,7 +216,7 @@ impl ::core::fmt::Debug for IReferenceClockTimerControl {
         f.debug_tuple("IReferenceClockTimerControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IReferenceClockTimerControl {
+unsafe impl ::windows::core::Interface for IReferenceClockTimerControl {
     type Vtable = IReferenceClockTimerControl_Vtbl;
 }
 impl ::core::clone::Clone for IReferenceClockTimerControl {
@@ -224,7 +224,7 @@ impl ::core::clone::Clone for IReferenceClockTimerControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IReferenceClockTimerControl {
+unsafe impl ::windows::core::ComInterface for IReferenceClockTimerControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebec459c_2eca_4d42_a8af_30df557614b8);
 }
 #[repr(C)]
@@ -520,11 +520,6 @@ impl ::core::marker::Copy for HTASK {}
 impl ::core::fmt::Debug for HTASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HTASK").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HTASK>> for HTASK {
-    fn from(optional: ::core::option::Option<HTASK>) -> HTASK {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HTASK {

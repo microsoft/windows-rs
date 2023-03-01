@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDetectedFace(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDetectedFace {
+unsafe impl ::windows::core::Interface for IDetectedFace {
     type Vtable = IDetectedFace_Vtbl;
 }
 impl ::core::clone::Clone for IDetectedFace {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IDetectedFace {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDetectedFace {
+unsafe impl ::windows::core::ComInterface for IDetectedFace {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8200d454_66bc_34df_9410_e89400195414);
 }
 #[repr(C)]
@@ -24,7 +24,7 @@ pub struct IDetectedFace_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFaceDetector(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFaceDetector {
+unsafe impl ::windows::core::Interface for IFaceDetector {
     type Vtable = IFaceDetector_Vtbl;
 }
 impl ::core::clone::Clone for IFaceDetector {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for IFaceDetector {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFaceDetector {
+unsafe impl ::windows::core::ComInterface for IFaceDetector {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16b672dc_fe6f_3117_8d95_c3f04d51630c);
 }
 #[repr(C)]
@@ -67,7 +67,7 @@ pub struct IFaceDetector_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFaceDetectorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFaceDetectorStatics {
+unsafe impl ::windows::core::Interface for IFaceDetectorStatics {
     type Vtable = IFaceDetectorStatics_Vtbl;
 }
 impl ::core::clone::Clone for IFaceDetectorStatics {
@@ -75,7 +75,7 @@ impl ::core::clone::Clone for IFaceDetectorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFaceDetectorStatics {
+unsafe impl ::windows::core::ComInterface for IFaceDetectorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc042d67_9047_33f6_881b_6746c1b218b8);
 }
 #[repr(C)]
@@ -99,7 +99,7 @@ pub struct IFaceDetectorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFaceTracker(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFaceTracker {
+unsafe impl ::windows::core::Interface for IFaceTracker {
     type Vtable = IFaceTracker_Vtbl;
 }
 impl ::core::clone::Clone for IFaceTracker {
@@ -107,7 +107,7 @@ impl ::core::clone::Clone for IFaceTracker {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFaceTracker {
+unsafe impl ::windows::core::ComInterface for IFaceTracker {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba67d8c_a841_4420_93e6_2420a1884fcf);
 }
 #[repr(C)]
@@ -138,7 +138,7 @@ pub struct IFaceTracker_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFaceTrackerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFaceTrackerStatics {
+unsafe impl ::windows::core::Interface for IFaceTrackerStatics {
     type Vtable = IFaceTrackerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IFaceTrackerStatics {
@@ -146,7 +146,7 @@ impl ::core::clone::Clone for IFaceTrackerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFaceTrackerStatics {
+unsafe impl ::windows::core::ComInterface for IFaceTrackerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9629198_1801_3fa5_932e_31d767af6c4d);
 }
 #[repr(C)]
@@ -177,7 +177,7 @@ impl DetectedFace {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Imaging::BitmapBounds>();
-            (::windows::core::Vtable::vtable(this).FaceBox)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FaceBox)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -200,11 +200,11 @@ impl ::core::clone::Clone for DetectedFace {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DetectedFace {
+unsafe impl ::windows::core::Interface for DetectedFace {
     type Vtable = IDetectedFace_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DetectedFace {
-    const IID: ::windows::core::GUID = <IDetectedFace as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DetectedFace {
+    const IID: ::windows::core::GUID = <IDetectedFace as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
@@ -222,7 +222,7 @@ impl FaceDetector {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>();
-            (::windows::core::Vtable::vtable(this).DetectFacesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(image), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DetectFacesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(image), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
@@ -231,7 +231,7 @@ impl FaceDetector {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>();
-            (::windows::core::Vtable::vtable(this).DetectFacesWithSearchAreaAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(image), searcharea, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DetectFacesWithSearchAreaAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(image), searcharea, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -240,14 +240,14 @@ impl FaceDetector {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Imaging::BitmapSize>();
-            (::windows::core::Vtable::vtable(this).MinDetectableFaceSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinDetectableFaceSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetMinDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMinDetectableFaceSize)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinDetectableFaceSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
@@ -255,21 +255,21 @@ impl FaceDetector {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Imaging::BitmapSize>();
-            (::windows::core::Vtable::vtable(this).MaxDetectableFaceSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxDetectableFaceSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetMaxDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMaxDetectableFaceSize)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxDetectableFaceSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceDetector>> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<FaceDetector>>();
-            (::windows::core::Vtable::vtable(this).CreateAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
@@ -277,7 +277,7 @@ impl FaceDetector {
     pub fn GetSupportedBitmapPixelFormats() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>();
-            (::windows::core::Vtable::vtable(this).GetSupportedBitmapPixelFormats)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSupportedBitmapPixelFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -285,13 +285,13 @@ impl FaceDetector {
     pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Vtable::as_raw(this), bitmappixelformat, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Interface::as_raw(this), bitmappixelformat, &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -319,11 +319,11 @@ impl ::core::clone::Clone for FaceDetector {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for FaceDetector {
+unsafe impl ::windows::core::Interface for FaceDetector {
     type Vtable = IFaceDetector_Vtbl;
 }
-unsafe impl ::windows::core::Interface for FaceDetector {
-    const IID: ::windows::core::GUID = <IFaceDetector as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for FaceDetector {
+    const IID: ::windows::core::GUID = <IFaceDetector as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
@@ -341,7 +341,7 @@ impl FaceTracker {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>();
-            (::windows::core::Vtable::vtable(this).ProcessNextFrameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(videoframe), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProcessNextFrameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(videoframe), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -350,14 +350,14 @@ impl FaceTracker {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Imaging::BitmapSize>();
-            (::windows::core::Vtable::vtable(this).MinDetectableFaceSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinDetectableFaceSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetMinDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMinDetectableFaceSize)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinDetectableFaceSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
@@ -365,21 +365,21 @@ impl FaceTracker {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Imaging::BitmapSize>();
-            (::windows::core::Vtable::vtable(this).MaxDetectableFaceSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxDetectableFaceSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetMaxDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMaxDetectableFaceSize)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxDetectableFaceSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceTracker>> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<FaceTracker>>();
-            (::windows::core::Vtable::vtable(this).CreateAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
@@ -387,7 +387,7 @@ impl FaceTracker {
     pub fn GetSupportedBitmapPixelFormats() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>();
-            (::windows::core::Vtable::vtable(this).GetSupportedBitmapPixelFormats)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSupportedBitmapPixelFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -395,13 +395,13 @@ impl FaceTracker {
     pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Vtable::as_raw(this), bitmappixelformat, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Interface::as_raw(this), bitmappixelformat, &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -429,11 +429,11 @@ impl ::core::clone::Clone for FaceTracker {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for FaceTracker {
+unsafe impl ::windows::core::Interface for FaceTracker {
     type Vtable = IFaceTracker_Vtbl;
 }
-unsafe impl ::windows::core::Interface for FaceTracker {
-    const IID: ::windows::core::GUID = <IFaceTracker as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for FaceTracker {
+    const IID: ::windows::core::GUID = <IFaceTracker as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";

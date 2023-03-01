@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHolographicKeyboard(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHolographicKeyboard {
+unsafe impl ::windows::core::Interface for IHolographicKeyboard {
     type Vtable = IHolographicKeyboard_Vtbl;
 }
 impl ::core::clone::Clone for IHolographicKeyboard {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IHolographicKeyboard {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHolographicKeyboard {
+unsafe impl ::windows::core::ComInterface for IHolographicKeyboard {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
 }
 #[repr(C)]
@@ -29,7 +29,7 @@ pub struct IHolographicKeyboard_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHolographicKeyboardStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHolographicKeyboardStatics {
+unsafe impl ::windows::core::Interface for IHolographicKeyboardStatics {
     type Vtable = IHolographicKeyboardStatics_Vtbl;
 }
 impl ::core::clone::Clone for IHolographicKeyboardStatics {
@@ -37,7 +37,7 @@ impl ::core::clone::Clone for IHolographicKeyboardStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHolographicKeyboardStatics {
+unsafe impl ::windows::core::ComInterface for IHolographicKeyboardStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb676c624_63d7_58cf_b06b_08baa032a23f);
 }
 #[repr(C)]
@@ -54,22 +54,22 @@ impl HolographicKeyboard {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetPlacementOverride(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPlacementOverride)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), topcenterposition, orientation).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlacementOverride)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), topcenterposition, orientation).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetPlacementOverrideWithMaxSize(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPlacementOverrideWithMaxSize)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), topcenterposition, orientation, maxsize).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), topcenterposition, orientation, maxsize).ok() }
     }
     pub fn ResetPlacementOverride(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ResetPlacementOverride)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ResetPlacementOverride)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn GetDefault() -> ::windows::core::Result<HolographicKeyboard> {
         Self::IHolographicKeyboardStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<HolographicKeyboard>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -97,11 +97,11 @@ impl ::core::clone::Clone for HolographicKeyboard {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HolographicKeyboard {
+unsafe impl ::windows::core::Interface for HolographicKeyboard {
     type Vtable = IHolographicKeyboard_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HolographicKeyboard {
-    const IID: ::windows::core::GUID = <IHolographicKeyboard as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HolographicKeyboard {
+    const IID: ::windows::core::GUID = <IHolographicKeyboard as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";

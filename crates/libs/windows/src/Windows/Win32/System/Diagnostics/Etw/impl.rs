@@ -111,7 +111,7 @@ impl ITraceEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITraceEvent as ::windows::core::Interface>::IID
+        iid == &<ITraceEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"implement\"`*"]
@@ -146,7 +146,7 @@ impl ITraceEventCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITraceEventCallback as ::windows::core::Interface>::IID
+        iid == &<ITraceEventCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -244,6 +244,6 @@ impl ITraceRelogger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITraceRelogger as ::windows::core::Interface>::IID
+        iid == &<ITraceRelogger as ::windows::core::ComInterface>::IID
     }
 }

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveBlobGetResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveBlobGetResult {
+unsafe impl ::windows::core::Interface for IGameSaveBlobGetResult {
     type Vtable = IGameSaveBlobGetResult_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveBlobGetResult {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IGameSaveBlobGetResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveBlobGetResult {
+unsafe impl ::windows::core::ComInterface for IGameSaveBlobGetResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917281e0_7201_4953_aa2c_4008f03aef45);
 }
 #[repr(C)]
@@ -25,7 +25,7 @@ pub struct IGameSaveBlobGetResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveBlobInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveBlobInfo {
+unsafe impl ::windows::core::Interface for IGameSaveBlobInfo {
     type Vtable = IGameSaveBlobInfo_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveBlobInfo {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for IGameSaveBlobInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveBlobInfo {
+unsafe impl ::windows::core::ComInterface for IGameSaveBlobInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
 }
 #[repr(C)]
@@ -46,7 +46,7 @@ pub struct IGameSaveBlobInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveBlobInfoGetResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveBlobInfoGetResult {
+unsafe impl ::windows::core::Interface for IGameSaveBlobInfoGetResult {
     type Vtable = IGameSaveBlobInfoGetResult_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveBlobInfoGetResult {
@@ -54,7 +54,7 @@ impl ::core::clone::Clone for IGameSaveBlobInfoGetResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveBlobInfoGetResult {
+unsafe impl ::windows::core::ComInterface for IGameSaveBlobInfoGetResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7578582_3697_42bf_989c_665d923b5231);
 }
 #[repr(C)]
@@ -70,7 +70,7 @@ pub struct IGameSaveBlobInfoGetResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveBlobInfoQuery(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveBlobInfoQuery {
+unsafe impl ::windows::core::Interface for IGameSaveBlobInfoQuery {
     type Vtable = IGameSaveBlobInfoQuery_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveBlobInfoQuery {
@@ -78,7 +78,7 @@ impl ::core::clone::Clone for IGameSaveBlobInfoQuery {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveBlobInfoQuery {
+unsafe impl ::windows::core::ComInterface for IGameSaveBlobInfoQuery {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
 }
 #[repr(C)]
@@ -101,7 +101,7 @@ pub struct IGameSaveBlobInfoQuery_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveContainer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveContainer {
+unsafe impl ::windows::core::Interface for IGameSaveContainer {
     type Vtable = IGameSaveContainer_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveContainer {
@@ -109,7 +109,7 @@ impl ::core::clone::Clone for IGameSaveContainer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveContainer {
+unsafe impl ::windows::core::ComInterface for IGameSaveContainer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
 }
 #[repr(C)]
@@ -139,7 +139,7 @@ pub struct IGameSaveContainer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveContainerInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveContainerInfo {
+unsafe impl ::windows::core::Interface for IGameSaveContainerInfo {
     type Vtable = IGameSaveContainerInfo_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveContainerInfo {
@@ -147,7 +147,7 @@ impl ::core::clone::Clone for IGameSaveContainerInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveContainerInfo {
+unsafe impl ::windows::core::ComInterface for IGameSaveContainerInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 }
 #[repr(C)]
@@ -166,7 +166,7 @@ pub struct IGameSaveContainerInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveContainerInfoGetResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveContainerInfoGetResult {
+unsafe impl ::windows::core::Interface for IGameSaveContainerInfoGetResult {
     type Vtable = IGameSaveContainerInfoGetResult_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveContainerInfoGetResult {
@@ -174,7 +174,7 @@ impl ::core::clone::Clone for IGameSaveContainerInfoGetResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveContainerInfoGetResult {
+unsafe impl ::windows::core::ComInterface for IGameSaveContainerInfoGetResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
 }
 #[repr(C)]
@@ -190,7 +190,7 @@ pub struct IGameSaveContainerInfoGetResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveContainerInfoQuery(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveContainerInfoQuery {
+unsafe impl ::windows::core::Interface for IGameSaveContainerInfoQuery {
     type Vtable = IGameSaveContainerInfoQuery_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveContainerInfoQuery {
@@ -198,7 +198,7 @@ impl ::core::clone::Clone for IGameSaveContainerInfoQuery {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveContainerInfoQuery {
+unsafe impl ::windows::core::ComInterface for IGameSaveContainerInfoQuery {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c94e863_6f80_4327_9327_ffc11afd42b3);
 }
 #[repr(C)]
@@ -221,7 +221,7 @@ pub struct IGameSaveContainerInfoQuery_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveOperationResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveOperationResult {
+unsafe impl ::windows::core::Interface for IGameSaveOperationResult {
     type Vtable = IGameSaveOperationResult_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveOperationResult {
@@ -229,7 +229,7 @@ impl ::core::clone::Clone for IGameSaveOperationResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveOperationResult {
+unsafe impl ::windows::core::ComInterface for IGameSaveOperationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
 }
 #[repr(C)]
@@ -241,7 +241,7 @@ pub struct IGameSaveOperationResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveProvider(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveProvider {
+unsafe impl ::windows::core::Interface for IGameSaveProvider {
     type Vtable = IGameSaveProvider_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveProvider {
@@ -249,7 +249,7 @@ impl ::core::clone::Clone for IGameSaveProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveProvider {
+unsafe impl ::windows::core::ComInterface for IGameSaveProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a60394_80fe_4211_97f8_a5de14dd95d2);
 }
 #[repr(C)]
@@ -279,7 +279,7 @@ pub struct IGameSaveProvider_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveProviderGetResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveProviderGetResult {
+unsafe impl ::windows::core::Interface for IGameSaveProviderGetResult {
     type Vtable = IGameSaveProviderGetResult_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveProviderGetResult {
@@ -287,7 +287,7 @@ impl ::core::clone::Clone for IGameSaveProviderGetResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveProviderGetResult {
+unsafe impl ::windows::core::ComInterface for IGameSaveProviderGetResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab90816_d393_4d65_ac16_41c3e67ab945);
 }
 #[repr(C)]
@@ -300,7 +300,7 @@ pub struct IGameSaveProviderGetResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveProviderStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameSaveProviderStatics {
+unsafe impl ::windows::core::Interface for IGameSaveProviderStatics {
     type Vtable = IGameSaveProviderStatics_Vtbl;
 }
 impl ::core::clone::Clone for IGameSaveProviderStatics {
@@ -308,7 +308,7 @@ impl ::core::clone::Clone for IGameSaveProviderStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameSaveProviderStatics {
+unsafe impl ::windows::core::ComInterface for IGameSaveProviderStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd01d3ed0_7b03_449d_8cbd_3402842a1048);
 }
 #[repr(C)]
@@ -332,7 +332,7 @@ impl GameSaveBlobGetResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveErrorStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
@@ -341,7 +341,7 @@ impl GameSaveBlobGetResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -364,11 +364,11 @@ impl ::core::clone::Clone for GameSaveBlobGetResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveBlobGetResult {
+unsafe impl ::windows::core::Interface for GameSaveBlobGetResult {
     type Vtable = IGameSaveBlobGetResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveBlobGetResult {
-    const IID: ::windows::core::GUID = <IGameSaveBlobGetResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveBlobGetResult {
+    const IID: ::windows::core::GUID = <IGameSaveBlobGetResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveBlobGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult";
@@ -384,14 +384,14 @@ impl GameSaveBlobInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -414,11 +414,11 @@ impl ::core::clone::Clone for GameSaveBlobInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveBlobInfo {
+unsafe impl ::windows::core::Interface for GameSaveBlobInfo {
     type Vtable = IGameSaveBlobInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveBlobInfo {
-    const IID: ::windows::core::GUID = <IGameSaveBlobInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveBlobInfo {
+    const IID: ::windows::core::GUID = <IGameSaveBlobInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveBlobInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo";
@@ -434,7 +434,7 @@ impl GameSaveBlobInfoGetResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveErrorStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -443,7 +443,7 @@ impl GameSaveBlobInfoGetResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<GameSaveBlobInfo>>();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -466,11 +466,11 @@ impl ::core::clone::Clone for GameSaveBlobInfoGetResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveBlobInfoGetResult {
+unsafe impl ::windows::core::Interface for GameSaveBlobInfoGetResult {
     type Vtable = IGameSaveBlobInfoGetResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveBlobInfoGetResult {
-    const IID: ::windows::core::GUID = <IGameSaveBlobInfoGetResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveBlobInfoGetResult {
+    const IID: ::windows::core::GUID = <IGameSaveBlobInfoGetResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveBlobInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult";
@@ -488,7 +488,7 @@ impl GameSaveBlobInfoQuery {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>();
-            (::windows::core::Vtable::vtable(this).GetBlobInfoAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBlobInfoAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -497,7 +497,7 @@ impl GameSaveBlobInfoQuery {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>();
-            (::windows::core::Vtable::vtable(this).GetBlobInfoWithIndexAndMaxAsync)(::windows::core::Vtable::as_raw(this), startindex, maxnumberofitems, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBlobInfoWithIndexAndMaxAsync)(::windows::core::Interface::as_raw(this), startindex, maxnumberofitems, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -506,7 +506,7 @@ impl GameSaveBlobInfoQuery {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<u32>>();
-            (::windows::core::Vtable::vtable(this).GetItemCountAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetItemCountAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -529,11 +529,11 @@ impl ::core::clone::Clone for GameSaveBlobInfoQuery {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveBlobInfoQuery {
+unsafe impl ::windows::core::Interface for GameSaveBlobInfoQuery {
     type Vtable = IGameSaveBlobInfoQuery_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveBlobInfoQuery {
-    const IID: ::windows::core::GUID = <IGameSaveBlobInfoQuery as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveBlobInfoQuery {
+    const IID: ::windows::core::GUID = <IGameSaveBlobInfoQuery as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveBlobInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery";
@@ -549,77 +549,71 @@ impl GameSaveContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Provider(&self) -> ::windows::core::Result<GameSaveProvider> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveProvider>();
-            (::windows::core::Vtable::vtable(this).Provider)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Provider)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn SubmitUpdatesAsync<P0, E0, P1, E1>(&self, blobstowrite: P0, blobstodelete: P1, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
+    pub fn SubmitUpdatesAsync<P0, P1>(&self, blobstowrite: P0, blobstodelete: P1, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>,
+        P1: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>();
-            (::windows::core::Vtable::vtable(this).SubmitUpdatesAsync)(::windows::core::Vtable::as_raw(this), blobstowrite.try_into().map_err(|e| e.into())?.abi(), blobstodelete.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SubmitUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.try_into_param()?.abi(), blobstodelete.try_into_param()?.abi(), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn ReadAsync<P0, E0>(&self, blobstoread: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
+    pub fn ReadAsync<P0>(&self, blobstoread: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>();
-            (::windows::core::Vtable::vtable(this).ReadAsync)(::windows::core::Vtable::as_raw(this), blobstoread.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), blobstoread.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsync<P0, E0>(&self, blobstoread: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>>
+    pub fn GetAsync<P0>(&self, blobstoread: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>>();
-            (::windows::core::Vtable::vtable(this).GetAsync)(::windows::core::Vtable::as_raw(this), blobstoread.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), blobstoread.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SubmitPropertySetUpdatesAsync<P0, E0, P1, E1>(&self, blobstowrite: P0, blobstodelete: P1, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
+    pub fn SubmitPropertySetUpdatesAsync<P0, P1>(&self, blobstowrite: P0, blobstodelete: P1, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IPropertySet>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IPropertySet>,
+        P1: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>();
-            (::windows::core::Vtable::vtable(this).SubmitPropertySetUpdatesAsync)(::windows::core::Vtable::as_raw(this), blobstowrite.try_into().map_err(|e| e.into())?.abi(), blobstodelete.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SubmitPropertySetUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.try_into_param()?.abi(), blobstodelete.try_into_param()?.abi(), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateBlobInfoQuery(&self, blobnameprefix: &::windows::core::HSTRING) -> ::windows::core::Result<GameSaveBlobInfoQuery> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveBlobInfoQuery>();
-            (::windows::core::Vtable::vtable(this).CreateBlobInfoQuery)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(blobnameprefix), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateBlobInfoQuery)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(blobnameprefix), &mut result__).from_abi(result__)
         }
     }
 }
@@ -642,11 +636,11 @@ impl ::core::clone::Clone for GameSaveContainer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveContainer {
+unsafe impl ::windows::core::Interface for GameSaveContainer {
     type Vtable = IGameSaveContainer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveContainer {
-    const IID: ::windows::core::GUID = <IGameSaveContainer as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveContainer {
+    const IID: ::windows::core::GUID = <IGameSaveContainer as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveContainer {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainer";
@@ -662,21 +656,21 @@ impl GameSaveContainerInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TotalSize(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).TotalSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TotalSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -685,14 +679,14 @@ impl GameSaveContainerInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).LastModifiedTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LastModifiedTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NeedsSync(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).NeedsSync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NeedsSync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -715,11 +709,11 @@ impl ::core::clone::Clone for GameSaveContainerInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveContainerInfo {
+unsafe impl ::windows::core::Interface for GameSaveContainerInfo {
     type Vtable = IGameSaveContainerInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveContainerInfo {
-    const IID: ::windows::core::GUID = <IGameSaveContainerInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveContainerInfo {
+    const IID: ::windows::core::GUID = <IGameSaveContainerInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveContainerInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo";
@@ -735,7 +729,7 @@ impl GameSaveContainerInfoGetResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveErrorStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -744,7 +738,7 @@ impl GameSaveContainerInfoGetResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<GameSaveContainerInfo>>();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -767,11 +761,11 @@ impl ::core::clone::Clone for GameSaveContainerInfoGetResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveContainerInfoGetResult {
+unsafe impl ::windows::core::Interface for GameSaveContainerInfoGetResult {
     type Vtable = IGameSaveContainerInfoGetResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveContainerInfoGetResult {
-    const IID: ::windows::core::GUID = <IGameSaveContainerInfoGetResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveContainerInfoGetResult {
+    const IID: ::windows::core::GUID = <IGameSaveContainerInfoGetResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveContainerInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult";
@@ -789,7 +783,7 @@ impl GameSaveContainerInfoQuery {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>();
-            (::windows::core::Vtable::vtable(this).GetContainerInfoAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetContainerInfoAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -798,7 +792,7 @@ impl GameSaveContainerInfoQuery {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>();
-            (::windows::core::Vtable::vtable(this).GetContainerInfoWithIndexAndMaxAsync)(::windows::core::Vtable::as_raw(this), startindex, maxnumberofitems, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetContainerInfoWithIndexAndMaxAsync)(::windows::core::Interface::as_raw(this), startindex, maxnumberofitems, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -807,7 +801,7 @@ impl GameSaveContainerInfoQuery {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<u32>>();
-            (::windows::core::Vtable::vtable(this).GetItemCountAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetItemCountAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -830,11 +824,11 @@ impl ::core::clone::Clone for GameSaveContainerInfoQuery {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveContainerInfoQuery {
+unsafe impl ::windows::core::Interface for GameSaveContainerInfoQuery {
     type Vtable = IGameSaveContainerInfoQuery_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveContainerInfoQuery {
-    const IID: ::windows::core::GUID = <IGameSaveContainerInfoQuery as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveContainerInfoQuery {
+    const IID: ::windows::core::GUID = <IGameSaveContainerInfoQuery as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveContainerInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery";
@@ -850,7 +844,7 @@ impl GameSaveOperationResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveErrorStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -873,11 +867,11 @@ impl ::core::clone::Clone for GameSaveOperationResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveOperationResult {
+unsafe impl ::windows::core::Interface for GameSaveOperationResult {
     type Vtable = IGameSaveOperationResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveOperationResult {
-    const IID: ::windows::core::GUID = <IGameSaveOperationResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveOperationResult {
+    const IID: ::windows::core::GUID = <IGameSaveOperationResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveOperationResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveOperationResult";
@@ -895,14 +889,14 @@ impl GameSaveProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::System::User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateContainer(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<GameSaveContainer> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveContainer>();
-            (::windows::core::Vtable::vtable(this).CreateContainer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -911,21 +905,21 @@ impl GameSaveProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>();
-            (::windows::core::Vtable::vtable(this).DeleteContainerAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeleteContainerAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateContainerInfoQuery(&self) -> ::windows::core::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveContainerInfoQuery>();
-            (::windows::core::Vtable::vtable(this).CreateContainerInfoQuery)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateContainerInfoQuery)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateContainerInfoQueryWithName(&self, containernameprefix: &::windows::core::HSTRING) -> ::windows::core::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveContainerInfoQuery>();
-            (::windows::core::Vtable::vtable(this).CreateContainerInfoQueryWithName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(containernameprefix), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateContainerInfoQueryWithName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(containernameprefix), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -934,7 +928,7 @@ impl GameSaveProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<i64>>();
-            (::windows::core::Vtable::vtable(this).GetRemainingBytesInQuotaAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRemainingBytesInQuotaAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -943,7 +937,7 @@ impl GameSaveProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).ContainersChangedSinceLastSync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ContainersChangedSinceLastSync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
@@ -951,7 +945,7 @@ impl GameSaveProvider {
     pub fn GetForUserAsync(user: &super::super::super::System::User, serviceconfigid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>();
-            (::windows::core::Vtable::vtable(this).GetForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(serviceconfigid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(serviceconfigid), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
@@ -959,7 +953,7 @@ impl GameSaveProvider {
     pub fn GetSyncOnDemandForUserAsync(user: &super::super::super::System::User, serviceconfigid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>();
-            (::windows::core::Vtable::vtable(this).GetSyncOnDemandForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(serviceconfigid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSyncOnDemandForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(serviceconfigid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -987,11 +981,11 @@ impl ::core::clone::Clone for GameSaveProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveProvider {
+unsafe impl ::windows::core::Interface for GameSaveProvider {
     type Vtable = IGameSaveProvider_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveProvider {
-    const IID: ::windows::core::GUID = <IGameSaveProvider as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveProvider {
+    const IID: ::windows::core::GUID = <IGameSaveProvider as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveProvider {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProvider";
@@ -1007,14 +1001,14 @@ impl GameSaveProviderGetResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveErrorStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows::core::Result<GameSaveProvider> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GameSaveProvider>();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1037,11 +1031,11 @@ impl ::core::clone::Clone for GameSaveProviderGetResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameSaveProviderGetResult {
+unsafe impl ::windows::core::Interface for GameSaveProviderGetResult {
     type Vtable = IGameSaveProviderGetResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameSaveProviderGetResult {
-    const IID: ::windows::core::GUID = <IGameSaveProviderGetResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameSaveProviderGetResult {
+    const IID: ::windows::core::GUID = <IGameSaveProviderGetResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameSaveProviderGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult";

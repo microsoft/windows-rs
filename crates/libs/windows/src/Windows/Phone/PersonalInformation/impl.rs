@@ -203,7 +203,7 @@ impl IContactInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactInformation as ::windows::core::Interface>::IID
+        iid == &<IContactInformation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -243,6 +243,6 @@ impl IContactInformation2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactInformation2 as ::windows::core::Interface>::IID
+        iid == &<IContactInformation2 as ::windows::core::ComInterface>::IID
     }
 }

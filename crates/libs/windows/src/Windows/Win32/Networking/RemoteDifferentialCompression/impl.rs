@@ -29,7 +29,7 @@ impl IFindSimilarResults_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFindSimilarResults as ::windows::core::Interface>::IID
+        iid == &<IFindSimilarResults as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -50,7 +50,7 @@ impl IRdcComparator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Process: Process::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcComparator as ::windows::core::Interface>::IID
+        iid == &<IRdcComparator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -100,7 +100,7 @@ impl IRdcFileReader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcFileReader as ::windows::core::Interface>::IID
+        iid == &<IRdcFileReader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -144,7 +144,7 @@ impl IRdcFileWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcFileWriter as ::windows::core::Interface>::IID || iid == &<IRdcFileReader as ::windows::core::Interface>::IID
+        iid == &<IRdcFileWriter as ::windows::core::ComInterface>::IID || iid == &<IRdcFileReader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -181,7 +181,7 @@ impl IRdcGenerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcGenerator as ::windows::core::Interface>::IID
+        iid == &<IRdcGenerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"implement\"`*"]
@@ -235,7 +235,7 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcGeneratorFilterMaxParameters as ::windows::core::Interface>::IID
+        iid == &<IRdcGeneratorFilterMaxParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"implement\"`*"]
@@ -289,7 +289,7 @@ impl IRdcGeneratorParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcGeneratorParameters as ::windows::core::Interface>::IID
+        iid == &<IRdcGeneratorParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"implement\"`*"]
@@ -388,7 +388,7 @@ impl IRdcLibrary_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcLibrary as ::windows::core::Interface>::IID
+        iid == &<IRdcLibrary as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -425,7 +425,7 @@ impl IRdcSignatureReader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcSignatureReader as ::windows::core::Interface>::IID
+        iid == &<IRdcSignatureReader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"implement\"`*"]
@@ -459,7 +459,7 @@ impl IRdcSimilarityGenerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcSimilarityGenerator as ::windows::core::Interface>::IID
+        iid == &<IRdcSimilarityGenerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -549,7 +549,7 @@ impl ISimilarity_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimilarity as ::windows::core::Interface>::IID
+        iid == &<ISimilarity as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -639,7 +639,7 @@ impl ISimilarityFileIdTable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimilarityFileIdTable as ::windows::core::Interface>::IID
+        iid == &<ISimilarityFileIdTable as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"implement\"`*"]
@@ -657,7 +657,7 @@ impl ISimilarityReportProgress_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ReportProgress: ReportProgress::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimilarityReportProgress as ::windows::core::Interface>::IID
+        iid == &<ISimilarityReportProgress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -678,7 +678,7 @@ impl ISimilarityTableDumpState_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNextData: GetNextData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimilarityTableDumpState as ::windows::core::Interface>::IID
+        iid == &<ISimilarityTableDumpState as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -729,7 +729,7 @@ impl ISimilarityTraitsMappedView_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimilarityTraitsMappedView as ::windows::core::Interface>::IID
+        iid == &<ISimilarityTraitsMappedView as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"implement\"`*"]
@@ -816,7 +816,7 @@ impl ISimilarityTraitsMapping_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimilarityTraitsMapping as ::windows::core::Interface>::IID
+        iid == &<ISimilarityTraitsMapping as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -906,6 +906,6 @@ impl ISimilarityTraitsTable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimilarityTraitsTable as ::windows::core::Interface>::IID
+        iid == &<ISimilarityTraitsTable as ::windows::core::ComInterface>::IID
     }
 }

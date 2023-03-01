@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasClientDeviceInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IEasClientDeviceInformation {
+unsafe impl ::windows::core::Interface for IEasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_Vtbl;
 }
 impl ::core::clone::Clone for IEasClientDeviceInformation {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IEasClientDeviceInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEasClientDeviceInformation {
+unsafe impl ::windows::core::ComInterface for IEasClientDeviceInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
 }
 #[repr(C)]
@@ -26,7 +26,7 @@ pub struct IEasClientDeviceInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasClientDeviceInformation2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IEasClientDeviceInformation2 {
+unsafe impl ::windows::core::Interface for IEasClientDeviceInformation2 {
     type Vtable = IEasClientDeviceInformation2_Vtbl;
 }
 impl ::core::clone::Clone for IEasClientDeviceInformation2 {
@@ -34,7 +34,7 @@ impl ::core::clone::Clone for IEasClientDeviceInformation2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEasClientDeviceInformation2 {
+unsafe impl ::windows::core::ComInterface for IEasClientDeviceInformation2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb35923_bb26_4d6a_81bc_165aee0ad754);
 }
 #[repr(C)]
@@ -47,7 +47,7 @@ pub struct IEasClientDeviceInformation2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasClientSecurityPolicy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IEasClientSecurityPolicy {
+unsafe impl ::windows::core::Interface for IEasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_Vtbl;
 }
 impl ::core::clone::Clone for IEasClientSecurityPolicy {
@@ -55,7 +55,7 @@ impl ::core::clone::Clone for IEasClientSecurityPolicy {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEasClientSecurityPolicy {
+unsafe impl ::windows::core::ComInterface for IEasClientSecurityPolicy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
 }
 #[repr(C)]
@@ -99,7 +99,7 @@ pub struct IEasClientSecurityPolicy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasComplianceResults(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IEasComplianceResults {
+unsafe impl ::windows::core::Interface for IEasComplianceResults {
     type Vtable = IEasComplianceResults_Vtbl;
 }
 impl ::core::clone::Clone for IEasComplianceResults {
@@ -107,7 +107,7 @@ impl ::core::clone::Clone for IEasComplianceResults {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEasComplianceResults {
+unsafe impl ::windows::core::ComInterface for IEasComplianceResults {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
 }
 #[repr(C)]
@@ -127,7 +127,7 @@ pub struct IEasComplianceResults_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasComplianceResults2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IEasComplianceResults2 {
+unsafe impl ::windows::core::Interface for IEasComplianceResults2 {
     type Vtable = IEasComplianceResults2_Vtbl;
 }
 impl ::core::clone::Clone for IEasComplianceResults2 {
@@ -135,7 +135,7 @@ impl ::core::clone::Clone for IEasComplianceResults2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEasComplianceResults2 {
+unsafe impl ::windows::core::ComInterface for IEasComplianceResults2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
 }
 #[repr(C)]
@@ -159,56 +159,56 @@ impl EasClientDeviceInformation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OperatingSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).OperatingSystem)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OperatingSystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FriendlyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SystemManufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SystemManufacturer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SystemManufacturer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SystemProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SystemProductName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SystemProductName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SystemSku(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SystemSku)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SystemSku)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SystemHardwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SystemHardwareVersion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SystemHardwareVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SystemFirmwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SystemFirmwareVersion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SystemFirmwareVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -231,11 +231,11 @@ impl ::core::clone::Clone for EasClientDeviceInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for EasClientDeviceInformation {
+unsafe impl ::windows::core::Interface for EasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for EasClientDeviceInformation {
-    const IID: ::windows::core::GUID = <IEasClientDeviceInformation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for EasClientDeviceInformation {
+    const IID: ::windows::core::GUID = <IEasClientDeviceInformation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for EasClientDeviceInformation {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation";
@@ -256,45 +256,45 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).RequireEncryption)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequireEncryption)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRequireEncryption(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRequireEncryption)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequireEncryption)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn MinPasswordLength(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).MinPasswordLength)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinPasswordLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMinPasswordLength(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMinPasswordLength)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinPasswordLength)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DisallowConvenienceLogon(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).DisallowConvenienceLogon)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisallowConvenienceLogon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDisallowConvenienceLogon(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDisallowConvenienceLogon)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisallowConvenienceLogon)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn MinPasswordComplexCharacters(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).MinPasswordComplexCharacters)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinPasswordComplexCharacters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMinPasswordComplexCharacters(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMinPasswordComplexCharacters)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinPasswordComplexCharacters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -302,36 +302,36 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).PasswordExpiration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PasswordExpiration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPasswordExpiration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPasswordExpiration)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPasswordExpiration)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn PasswordHistory(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).PasswordHistory)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PasswordHistory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPasswordHistory(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPasswordHistory)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPasswordHistory)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn MaxPasswordFailedAttempts(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u8>();
-            (::windows::core::Vtable::vtable(this).MaxPasswordFailedAttempts)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxPasswordFailedAttempts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMaxPasswordFailedAttempts(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMaxPasswordFailedAttempts)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxPasswordFailedAttempts)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -339,20 +339,20 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).MaxInactivityTimeLock)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxInactivityTimeLock)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxInactivityTimeLock(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMaxInactivityTimeLock)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxInactivityTimeLock)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn CheckCompliance(&self) -> ::windows::core::Result<EasComplianceResults> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasComplianceResults>();
-            (::windows::core::Vtable::vtable(this).CheckCompliance)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CheckCompliance)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -361,7 +361,7 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<EasComplianceResults>>();
-            (::windows::core::Vtable::vtable(this).ApplyAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ApplyAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -384,11 +384,11 @@ impl ::core::clone::Clone for EasClientSecurityPolicy {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for EasClientSecurityPolicy {
+unsafe impl ::windows::core::Interface for EasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_Vtbl;
 }
-unsafe impl ::windows::core::Interface for EasClientSecurityPolicy {
-    const IID: ::windows::core::GUID = <IEasClientSecurityPolicy as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for EasClientSecurityPolicy {
+    const IID: ::windows::core::GUID = <IEasClientSecurityPolicy as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for EasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy";
@@ -402,70 +402,70 @@ impl EasComplianceResults {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Compliant)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Compliant)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RequireEncryptionResult(&self) -> ::windows::core::Result<EasRequireEncryptionResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasRequireEncryptionResult>();
-            (::windows::core::Vtable::vtable(this).RequireEncryptionResult)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequireEncryptionResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MinPasswordLengthResult(&self) -> ::windows::core::Result<EasMinPasswordLengthResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasMinPasswordLengthResult>();
-            (::windows::core::Vtable::vtable(this).MinPasswordLengthResult)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinPasswordLengthResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisallowConvenienceLogonResult(&self) -> ::windows::core::Result<EasDisallowConvenienceLogonResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasDisallowConvenienceLogonResult>();
-            (::windows::core::Vtable::vtable(this).DisallowConvenienceLogonResult)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisallowConvenienceLogonResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MinPasswordComplexCharactersResult(&self) -> ::windows::core::Result<EasMinPasswordComplexCharactersResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasMinPasswordComplexCharactersResult>();
-            (::windows::core::Vtable::vtable(this).MinPasswordComplexCharactersResult)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinPasswordComplexCharactersResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PasswordExpirationResult(&self) -> ::windows::core::Result<EasPasswordExpirationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasPasswordExpirationResult>();
-            (::windows::core::Vtable::vtable(this).PasswordExpirationResult)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PasswordExpirationResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PasswordHistoryResult(&self) -> ::windows::core::Result<EasPasswordHistoryResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasPasswordHistoryResult>();
-            (::windows::core::Vtable::vtable(this).PasswordHistoryResult)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PasswordHistoryResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxPasswordFailedAttemptsResult(&self) -> ::windows::core::Result<EasMaxPasswordFailedAttemptsResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasMaxPasswordFailedAttemptsResult>();
-            (::windows::core::Vtable::vtable(this).MaxPasswordFailedAttemptsResult)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxPasswordFailedAttemptsResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxInactivityTimeLockResult(&self) -> ::windows::core::Result<EasMaxInactivityTimeLockResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasMaxInactivityTimeLockResult>();
-            (::windows::core::Vtable::vtable(this).MaxInactivityTimeLockResult)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxInactivityTimeLockResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EncryptionProviderType(&self) -> ::windows::core::Result<EasEncryptionProviderType> {
-        let this = &::windows::core::Interface::cast::<IEasComplianceResults2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IEasComplianceResults2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<EasEncryptionProviderType>();
-            (::windows::core::Vtable::vtable(this).EncryptionProviderType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EncryptionProviderType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -488,11 +488,11 @@ impl ::core::clone::Clone for EasComplianceResults {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for EasComplianceResults {
+unsafe impl ::windows::core::Interface for EasComplianceResults {
     type Vtable = IEasComplianceResults_Vtbl;
 }
-unsafe impl ::windows::core::Interface for EasComplianceResults {
-    const IID: ::windows::core::GUID = <IEasComplianceResults as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for EasComplianceResults {
+    const IID: ::windows::core::GUID = <IEasComplianceResults as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for EasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";

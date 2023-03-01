@@ -58,6 +58,6 @@ impl ID2D1SimplifiedGeometrySink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID2D1SimplifiedGeometrySink as ::windows::core::Interface>::IID
+        iid == &<ID2D1SimplifiedGeometrySink as ::windows::core::ComInterface>::IID
     }
 }

@@ -3,10 +3,10 @@
 #[inline]
 pub unsafe fn EnableMouseInPointer<P0>(fenable: P0) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "user32.dll""system" fn EnableMouseInPointer ( fenable : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
-    EnableMouseInPointer(fenable.into())
+    EnableMouseInPointer(fenable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20,40 +20,40 @@ pub unsafe fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> super::s
 #[inline]
 pub unsafe fn GetPointerDevice<P0>(device: P0, pointerdevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "user32.dll""system" fn GetPointerDevice ( device : super::super::super::Foundation:: HANDLE , pointerdevice : *mut super::super::Controls:: POINTER_DEVICE_INFO ) -> super::super::super::Foundation:: BOOL );
-    GetPointerDevice(device.into(), pointerdevice)
+    GetPointerDevice(device.into_param().abi(), pointerdevice)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDeviceCursors<P0>(device: P0, cursorcount: *mut u32, devicecursors: ::core::option::Option<*mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO>) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "user32.dll""system" fn GetPointerDeviceCursors ( device : super::super::super::Foundation:: HANDLE , cursorcount : *mut u32 , devicecursors : *mut super::super::Controls:: POINTER_DEVICE_CURSOR_INFO ) -> super::super::super::Foundation:: BOOL );
-    GetPointerDeviceCursors(device.into(), cursorcount, ::core::mem::transmute(devicecursors.unwrap_or(::std::ptr::null_mut())))
+    GetPointerDeviceCursors(device.into_param().abi(), cursorcount, ::core::mem::transmute(devicecursors.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDeviceProperties<P0>(device: P0, propertycount: *mut u32, pointerproperties: ::core::option::Option<*mut super::super::Controls::POINTER_DEVICE_PROPERTY>) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "user32.dll""system" fn GetPointerDeviceProperties ( device : super::super::super::Foundation:: HANDLE , propertycount : *mut u32 , pointerproperties : *mut super::super::Controls:: POINTER_DEVICE_PROPERTY ) -> super::super::super::Foundation:: BOOL );
-    GetPointerDeviceProperties(device.into(), propertycount, ::core::mem::transmute(pointerproperties.unwrap_or(::std::ptr::null_mut())))
+    GetPointerDeviceProperties(device.into_param().abi(), propertycount, ::core::mem::transmute(pointerproperties.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPointerDeviceRects<P0>(device: P0, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "user32.dll""system" fn GetPointerDeviceRects ( device : super::super::super::Foundation:: HANDLE , pointerdevicerect : *mut super::super::super::Foundation:: RECT , displayrect : *mut super::super::super::Foundation:: RECT ) -> super::super::super::Foundation:: BOOL );
-    GetPointerDeviceRects(device.into(), pointerdevicerect, displayrect)
+    GetPointerDeviceRects(device.into_param().abi(), pointerdevicerect, displayrect)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
@@ -185,10 +185,10 @@ pub unsafe fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MOD
 #[inline]
 pub unsafe fn InjectSyntheticPointerInput<P0>(device: P0, pointerinfo: &[super::super::Controls::POINTER_TYPE_INFO]) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Controls::HSYNTHETICPOINTERDEVICE>,
+    P0: ::windows::core::IntoParam<super::super::Controls::HSYNTHETICPOINTERDEVICE>,
 {
     ::windows::imp::link ! ( "user32.dll""system" fn InjectSyntheticPointerInput ( device : super::super::Controls:: HSYNTHETICPOINTERDEVICE , pointerinfo : *const super::super::Controls:: POINTER_TYPE_INFO , count : u32 ) -> super::super::super::Foundation:: BOOL );
-    InjectSyntheticPointerInput(device.into(), ::core::mem::transmute(pointerinfo.as_ptr()), pointerinfo.len() as _)
+    InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(pointerinfo.as_ptr()), pointerinfo.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDisplayRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDisplayRequest {
+unsafe impl ::windows::core::Interface for IDisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;
 }
 impl ::core::clone::Clone for IDisplayRequest {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IDisplayRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDisplayRequest {
+unsafe impl ::windows::core::ComInterface for IDisplayRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 }
 #[repr(C)]
@@ -32,11 +32,11 @@ impl DisplayRequest {
     }
     pub fn RequestActive(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RequestActive)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestActive)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn RequestRelease(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RequestRelease)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestRelease)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for DisplayRequest {
@@ -58,11 +58,11 @@ impl ::core::clone::Clone for DisplayRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DisplayRequest {
+unsafe impl ::windows::core::Interface for DisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DisplayRequest {
-    const IID: ::windows::core::GUID = <IDisplayRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DisplayRequest {
+    const IID: ::windows::core::GUID = <IDisplayRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";

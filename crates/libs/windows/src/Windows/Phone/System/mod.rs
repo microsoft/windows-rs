@@ -7,7 +7,7 @@ pub mod UserProfile;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemProtectionStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISystemProtectionStatics {
+unsafe impl ::windows::core::Interface for ISystemProtectionStatics {
     type Vtable = ISystemProtectionStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISystemProtectionStatics {
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for ISystemProtectionStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISystemProtectionStatics {
+unsafe impl ::windows::core::ComInterface for ISystemProtectionStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49c36560_97e1_4d99_8bfb_befeaa6ace6d);
 }
 #[repr(C)]
@@ -27,7 +27,7 @@ pub struct ISystemProtectionStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemProtectionUnlockStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISystemProtectionUnlockStatics {
+unsafe impl ::windows::core::Interface for ISystemProtectionUnlockStatics {
     type Vtable = ISystemProtectionUnlockStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISystemProtectionUnlockStatics {
@@ -35,7 +35,7 @@ impl ::core::clone::Clone for ISystemProtectionUnlockStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISystemProtectionUnlockStatics {
+unsafe impl ::windows::core::ComInterface for ISystemProtectionUnlockStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0692fa3f_8f11_4c4b_aa0d_87d7af7b1779);
 }
 #[repr(C)]
@@ -50,11 +50,11 @@ impl SystemProtection {
     pub fn ScreenLocked() -> ::windows::core::Result<bool> {
         Self::ISystemProtectionStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).ScreenLocked)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScreenLocked)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RequestScreenUnlock() -> ::windows::core::Result<()> {
-        Self::ISystemProtectionUnlockStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RequestScreenUnlock)(::windows::core::Vtable::as_raw(this)).ok() })
+        Self::ISystemProtectionUnlockStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RequestScreenUnlock)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc(hidden)]
     pub fn ISystemProtectionStatics<R, F: FnOnce(&ISystemProtectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

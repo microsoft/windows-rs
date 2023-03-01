@@ -28,7 +28,7 @@ impl IWebAccountProviderBaseReportOperation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAccountProviderBaseReportOperation as ::windows::core::Interface>::IID
+        iid == &<IWebAccountProviderBaseReportOperation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"implement\"`*"]
@@ -55,7 +55,7 @@ impl IWebAccountProviderOperation_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWebAccountProviderOperation, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAccountProviderOperation as ::windows::core::Interface>::IID
+        iid == &<IWebAccountProviderOperation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"Security_Authentication_Web_Core\"`, `\"implement\"`*"]
@@ -88,7 +88,7 @@ impl IWebAccountProviderSilentReportOperation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAccountProviderSilentReportOperation as ::windows::core::Interface>::IID
+        iid == &<IWebAccountProviderSilentReportOperation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"implement\"`*"]
@@ -118,7 +118,7 @@ impl IWebAccountProviderTokenObjects_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAccountProviderTokenObjects as ::windows::core::Interface>::IID
+        iid == &<IWebAccountProviderTokenObjects as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"System\"`, `\"implement\"`*"]
@@ -148,7 +148,7 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWebAccountProviderTokenObjects2, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAccountProviderTokenObjects2 as ::windows::core::Interface>::IID
+        iid == &<IWebAccountProviderTokenObjects2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -216,7 +216,7 @@ impl IWebAccountProviderTokenOperation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAccountProviderTokenOperation as ::windows::core::Interface>::IID
+        iid == &<IWebAccountProviderTokenOperation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"Security_Authentication_Web_Core\"`, `\"implement\"`*"]
@@ -242,6 +242,6 @@ impl IWebAccountProviderUIReportOperation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAccountProviderUIReportOperation as ::windows::core::Interface>::IID
+        iid == &<IWebAccountProviderUIReportOperation as ::windows::core::ComInterface>::IID
     }
 }

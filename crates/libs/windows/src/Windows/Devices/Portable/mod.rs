@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IServiceDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IServiceDeviceStatics {
+unsafe impl ::windows::core::Interface for IServiceDeviceStatics {
     type Vtable = IServiceDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IServiceDeviceStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IServiceDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IServiceDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IServiceDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa88214e1_59c7_4a20_aba6_9f6707937230);
 }
 #[repr(C)]
@@ -22,7 +22,7 @@ pub struct IServiceDeviceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStorageDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IStorageDeviceStatics {
+unsafe impl ::windows::core::Interface for IStorageDeviceStatics {
     type Vtable = IStorageDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IStorageDeviceStatics {
@@ -30,7 +30,7 @@ impl ::core::clone::Clone for IStorageDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IStorageDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IStorageDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ece44ee_1b23_4dd2_8652_bc164f003128);
 }
 #[repr(C)]
@@ -49,13 +49,13 @@ impl ServiceDevice {
     pub fn GetDeviceSelector(servicetype: ServiceDeviceType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), servicetype, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), servicetype, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromServiceId(serviceid: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromServiceId)(::windows::core::Vtable::as_raw(this), serviceid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromServiceId)(::windows::core::Interface::as_raw(this), serviceid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -75,13 +75,13 @@ impl StorageDevice {
     pub fn FromId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::StorageFolder>();
-            (::windows::core::Vtable::vtable(this).FromId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

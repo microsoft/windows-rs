@@ -33,7 +33,7 @@ impl ::core::fmt::Debug for IGeometrySource2D {
 impl ::windows::core::RuntimeType for IGeometrySource2D {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
 }
-unsafe impl ::windows::core::Vtable for IGeometrySource2D {
+unsafe impl ::windows::core::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2D_Vtbl;
 }
 impl ::core::clone::Clone for IGeometrySource2D {
@@ -41,7 +41,7 @@ impl ::core::clone::Clone for IGeometrySource2D {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGeometrySource2D {
+unsafe impl ::windows::core::ComInterface for IGeometrySource2D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);
 }
 #[repr(C)]

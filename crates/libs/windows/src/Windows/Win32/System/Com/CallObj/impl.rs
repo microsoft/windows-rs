@@ -175,7 +175,7 @@ impl ICallFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICallFrame as ::windows::core::Interface>::IID
+        iid == &<ICallFrame as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"implement\"`*"]
@@ -193,7 +193,7 @@ impl ICallFrameEvents_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCall: OnCall::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICallFrameEvents as ::windows::core::Interface>::IID
+        iid == &<ICallFrameEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -214,7 +214,7 @@ impl ICallFrameWalker_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnWalkInterface: OnWalkInterface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICallFrameWalker as ::windows::core::Interface>::IID
+        iid == &<ICallFrameWalker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -265,7 +265,7 @@ impl ICallIndirect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICallIndirect as ::windows::core::Interface>::IID
+        iid == &<ICallIndirect as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -302,7 +302,7 @@ impl ICallInterceptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICallInterceptor as ::windows::core::Interface>::IID || iid == &<ICallIndirect as ::windows::core::Interface>::IID
+        iid == &<ICallInterceptor as ::windows::core::ComInterface>::IID || iid == &<ICallIndirect as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -333,7 +333,7 @@ impl ICallUnmarshal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICallUnmarshal as ::windows::core::Interface>::IID
+        iid == &<ICallUnmarshal as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"implement\"`*"]
@@ -367,6 +367,6 @@ impl IInterfaceRelated_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInterfaceRelated as ::windows::core::Interface>::IID
+        iid == &<IInterfaceRelated as ::windows::core::ComInterface>::IID
     }
 }

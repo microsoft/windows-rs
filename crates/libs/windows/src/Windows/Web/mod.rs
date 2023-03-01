@@ -16,7 +16,7 @@ impl IUriToStreamResolver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>();
-            (::windows::core::Vtable::vtable(this).UriToStreamAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UriToStreamAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         }
     }
 }
@@ -35,7 +35,7 @@ impl ::core::fmt::Debug for IUriToStreamResolver {
 impl ::windows::core::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{b0aba86a-9aeb-4d3a-9590-003e3ca7e290}");
 }
-unsafe impl ::windows::core::Vtable for IUriToStreamResolver {
+unsafe impl ::windows::core::Interface for IUriToStreamResolver {
     type Vtable = IUriToStreamResolver_Vtbl;
 }
 impl ::core::clone::Clone for IUriToStreamResolver {
@@ -43,7 +43,7 @@ impl ::core::clone::Clone for IUriToStreamResolver {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUriToStreamResolver {
+unsafe impl ::windows::core::ComInterface for IUriToStreamResolver {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 }
 #[repr(C)]
@@ -58,7 +58,7 @@ pub struct IUriToStreamResolver_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebErrorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWebErrorStatics {
+unsafe impl ::windows::core::Interface for IWebErrorStatics {
     type Vtable = IWebErrorStatics_Vtbl;
 }
 impl ::core::clone::Clone for IWebErrorStatics {
@@ -66,7 +66,7 @@ impl ::core::clone::Clone for IWebErrorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWebErrorStatics {
+unsafe impl ::windows::core::ComInterface for IWebErrorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe616766_bf27_4064_87b7_6563bb11ce2e);
 }
 #[repr(C)]
@@ -81,7 +81,7 @@ impl WebError {
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<WebErrorStatus>();
-            (::windows::core::Vtable::vtable(this).GetStatus)(::windows::core::Vtable::as_raw(this), hresult, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), hresult, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

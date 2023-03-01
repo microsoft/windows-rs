@@ -3,24 +3,24 @@
 #[inline]
 pub unsafe fn MSChapSrvChangePassword<P0, P1, P2>(servername: P0, username: P1, lmoldpresent: P2, lmoldowfpassword: *const LM_OWF_PASSWORD, lmnewowfpassword: *const LM_OWF_PASSWORD, ntoldowfpassword: *const LM_OWF_PASSWORD, ntnewowfpassword: *const LM_OWF_PASSWORD) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
     ::windows::imp::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , lmoldpresent : super::super::Foundation:: BOOLEAN , lmoldowfpassword : *const LM_OWF_PASSWORD , lmnewowfpassword : *const LM_OWF_PASSWORD , ntoldowfpassword : *const LM_OWF_PASSWORD , ntnewowfpassword : *const LM_OWF_PASSWORD ) -> u32 );
-    MSChapSrvChangePassword(servername.into().abi(), username.into().abi(), lmoldpresent.into(), lmoldowfpassword, lmnewowfpassword, ntoldowfpassword, ntnewowfpassword)
+    MSChapSrvChangePassword(servername.into_param().abi(), username.into_param().abi(), lmoldpresent.into_param().abi(), lmoldowfpassword, lmnewowfpassword, ntoldowfpassword, ntnewowfpassword)
 }
 #[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword2<P0, P1, P2>(servername: P0, username: P1, newpasswordencryptedwitholdnt: *const SAMPR_ENCRYPTED_USER_PASSWORD, oldntowfpasswordencryptedwithnewnt: *const ENCRYPTED_LM_OWF_PASSWORD, lmpresent: P2, newpasswordencryptedwitholdlm: *const SAMPR_ENCRYPTED_USER_PASSWORD, oldlmowfpasswordencryptedwithnewlmornt: *const ENCRYPTED_LM_OWF_PASSWORD) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
     ::windows::imp::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword2 ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , newpasswordencryptedwitholdnt : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldntowfpasswordencryptedwithnewnt : *const ENCRYPTED_LM_OWF_PASSWORD , lmpresent : super::super::Foundation:: BOOLEAN , newpasswordencryptedwitholdlm : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldlmowfpasswordencryptedwithnewlmornt : *const ENCRYPTED_LM_OWF_PASSWORD ) -> u32 );
-    MSChapSrvChangePassword2(servername.into().abi(), username.into().abi(), newpasswordencryptedwitholdnt, oldntowfpasswordencryptedwithnewnt, lmpresent.into(), newpasswordencryptedwitholdlm, oldlmowfpasswordencryptedwithnewlmornt)
+    MSChapSrvChangePassword2(servername.into_param().abi(), username.into_param().abi(), newpasswordencryptedwitholdnt, oldntowfpasswordencryptedwithnewnt, lmpresent.into_param().abi(), newpasswordencryptedwitholdlm, oldlmowfpasswordencryptedwithnewlmornt)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]

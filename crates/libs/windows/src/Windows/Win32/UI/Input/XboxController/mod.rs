@@ -3,10 +3,10 @@
 #[inline]
 pub unsafe fn XInputEnable<P0>(enable: P0)
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "xinput1_4.dll""system" fn XInputEnable ( enable : super::super::super::Foundation:: BOOL ) -> ( ) );
-    XInputEnable(enable.into())
+    XInputEnable(enable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]

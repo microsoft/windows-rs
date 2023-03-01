@@ -13,7 +13,7 @@ impl IDedupBackupSupport_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RestoreFiles: RestoreFiles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDedupBackupSupport as ::windows::core::Interface>::IID
+        iid == &<IDedupBackupSupport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -64,7 +64,7 @@ impl IDedupChunkLibrary_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDedupChunkLibrary as ::windows::core::Interface>::IID
+        iid == &<IDedupChunkLibrary as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -213,7 +213,7 @@ impl IDedupDataPort_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDedupDataPort as ::windows::core::Interface>::IID
+        iid == &<IDedupDataPort as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"implement\"`*"]
@@ -260,7 +260,7 @@ impl IDedupDataPortManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDedupDataPortManager as ::windows::core::Interface>::IID
+        iid == &<IDedupDataPortManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"implement\"`*"]
@@ -302,7 +302,7 @@ impl IDedupIterateChunksHash32_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDedupIterateChunksHash32 as ::windows::core::Interface>::IID
+        iid == &<IDedupIterateChunksHash32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"implement\"`*"]
@@ -337,6 +337,6 @@ impl IDedupReadFileCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDedupReadFileCallback as ::windows::core::Interface>::IID
+        iid == &<IDedupReadFileCallback as ::windows::core::ComInterface>::IID
     }
 }

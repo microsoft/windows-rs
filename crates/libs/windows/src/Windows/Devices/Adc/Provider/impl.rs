@@ -130,7 +130,7 @@ impl IAdcControllerProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAdcControllerProvider as ::windows::core::Interface>::IID
+        iid == &<IAdcControllerProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Adc_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -160,6 +160,6 @@ impl IAdcProvider_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAdcProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAdcProvider as ::windows::core::Interface>::IID
+        iid == &<IAdcProvider as ::windows::core::ComInterface>::IID
     }
 }

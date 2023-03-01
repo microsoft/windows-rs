@@ -499,7 +499,7 @@ impl IInertiaProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInertiaProcessor as ::windows::core::Interface>::IID
+        iid == &<IInertiaProcessor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"implement\"`*"]
@@ -714,7 +714,7 @@ impl IManipulationProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IManipulationProcessor as ::windows::core::Interface>::IID
+        iid == &<IManipulationProcessor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"implement\"`*"]
@@ -763,6 +763,6 @@ impl _IManipulationEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<_IManipulationEvents as ::windows::core::Interface>::IID
+        iid == &<_IManipulationEvents as ::windows::core::ComInterface>::IID
     }
 }

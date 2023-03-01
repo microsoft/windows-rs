@@ -3,68 +3,68 @@
 #[inline]
 pub unsafe fn DCompositionAttachMouseDragToHwnd<P0, P1, P2>(visual: P0, hwnd: P1, enable: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<IDCompositionVisual>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseDragToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    DCompositionAttachMouseDragToHwnd(visual.into().abi(), hwnd.into(), enable.into()).ok()
+    DCompositionAttachMouseDragToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionAttachMouseWheelToHwnd<P0, P1, P2>(visual: P0, hwnd: P1, enable: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<IDCompositionVisual>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseWheelToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    DCompositionAttachMouseWheelToHwnd(visual.into().abi(), hwnd.into(), enable.into()).ok()
+    DCompositionAttachMouseWheelToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionBoostCompositorClock<P0>(enable: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionBoostCompositorClock ( enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    DCompositionBoostCompositorClock(enable.into()).ok()
+    DCompositionBoostCompositorClock(enable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn DCompositionCreateDevice<P0, T>(dxgidevice: P0) -> ::windows::core::Result<T>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::Dxgi::IDXGIDevice>>,
-    T: ::windows::core::Interface,
+    P0: ::windows::core::IntoParam<super::Dxgi::IDXGIDevice>,
+    T: ::windows::core::ComInterface,
 {
     ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice ( dxgidevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
-    DCompositionCreateDevice(dxgidevice.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+    DCompositionCreateDevice(dxgidevice.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
 pub unsafe fn DCompositionCreateDevice2<P0, T>(renderingdevice: P0) -> ::windows::core::Result<T>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-    T: ::windows::core::Interface,
+    P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    T: ::windows::core::ComInterface,
 {
     ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice2 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
-    DCompositionCreateDevice2(renderingdevice.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+    DCompositionCreateDevice2(renderingdevice.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
 pub unsafe fn DCompositionCreateDevice3<P0, T>(renderingdevice: P0) -> ::windows::core::Result<T>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-    T: ::windows::core::Interface,
+    P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    T: ::windows::core::ComInterface,
 {
     ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice3 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
-    DCompositionCreateDevice3(renderingdevice.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+    DCompositionCreateDevice3(renderingdevice.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -108,42 +108,42 @@ pub struct IDCompositionAffineTransform2DEffect(::windows::core::IUnknown);
 impl IDCompositionAffineTransform2DEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetInterpolationMode(&self, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetInterpolationMode)(::windows::core::Vtable::as_raw(self), interpolationmode).ok()
+        (::windows::core::Interface::vtable(self).SetInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetBorderMode(&self, bordermode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBorderMode)(::windows::core::Vtable::as_raw(self), bordermode).ok()
+        (::windows::core::Interface::vtable(self).SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode).ok()
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransformMatrix(&self, transformmatrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTransformMatrix)(::windows::core::Vtable::as_raw(self), transformmatrix).ok()
+        (::windows::core::Interface::vtable(self).SetTransformMatrix)(::windows::core::Interface::as_raw(self), transformmatrix).ok()
     }
     pub unsafe fn SetTransformMatrixElement<P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetTransformMatrixElement)(::windows::core::Vtable::as_raw(self), row, column, animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTransformMatrixElement)(::windows::core::Interface::as_raw(self), row, column, animation.into_param().abi()).ok()
     }
     pub unsafe fn SetTransformMatrixElement2(&self, row: i32, column: i32, value: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTransformMatrixElement2)(::windows::core::Vtable::as_raw(self), row, column, value).ok()
+        (::windows::core::Interface::vtable(self).SetTransformMatrixElement2)(::windows::core::Interface::as_raw(self), row, column, value).ok()
     }
     pub unsafe fn SetSharpness<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetSharpness)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSharpness)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetSharpness2(&self, sharpness: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSharpness2)(::windows::core::Vtable::as_raw(self), sharpness).ok()
+        (::windows::core::Interface::vtable(self).SetSharpness2)(::windows::core::Interface::as_raw(self), sharpness).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionAffineTransform2DEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -158,7 +158,7 @@ impl ::core::fmt::Debug for IDCompositionAffineTransform2DEffect {
         f.debug_tuple("IDCompositionAffineTransform2DEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionAffineTransform2DEffect {
+unsafe impl ::windows::core::Interface for IDCompositionAffineTransform2DEffect {
     type Vtable = IDCompositionAffineTransform2DEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionAffineTransform2DEffect {
@@ -166,7 +166,7 @@ impl ::core::clone::Clone for IDCompositionAffineTransform2DEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionAffineTransform2DEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionAffineTransform2DEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d);
 }
 #[repr(C)]
@@ -195,22 +195,22 @@ pub struct IDCompositionAffineTransform2DEffect_Vtbl {
 pub struct IDCompositionAnimation(::windows::core::IUnknown);
 impl IDCompositionAnimation {
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetAbsoluteBeginTime(&self, begintime: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAbsoluteBeginTime)(::windows::core::Vtable::as_raw(self), begintime).ok()
+        (::windows::core::Interface::vtable(self).SetAbsoluteBeginTime)(::windows::core::Interface::as_raw(self), begintime).ok()
     }
     pub unsafe fn AddCubic(&self, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddCubic)(::windows::core::Vtable::as_raw(self), beginoffset, constantcoefficient, linearcoefficient, quadraticcoefficient, cubiccoefficient).ok()
+        (::windows::core::Interface::vtable(self).AddCubic)(::windows::core::Interface::as_raw(self), beginoffset, constantcoefficient, linearcoefficient, quadraticcoefficient, cubiccoefficient).ok()
     }
     pub unsafe fn AddSinusoidal(&self, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddSinusoidal)(::windows::core::Vtable::as_raw(self), beginoffset, bias, amplitude, frequency, phase).ok()
+        (::windows::core::Interface::vtable(self).AddSinusoidal)(::windows::core::Interface::as_raw(self), beginoffset, bias, amplitude, frequency, phase).ok()
     }
     pub unsafe fn AddRepeat(&self, beginoffset: f64, durationtorepeat: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddRepeat)(::windows::core::Vtable::as_raw(self), beginoffset, durationtorepeat).ok()
+        (::windows::core::Interface::vtable(self).AddRepeat)(::windows::core::Interface::as_raw(self), beginoffset, durationtorepeat).ok()
     }
     pub unsafe fn End(&self, endoffset: f64, endvalue: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self), endoffset, endvalue).ok()
+        (::windows::core::Interface::vtable(self).End)(::windows::core::Interface::as_raw(self), endoffset, endvalue).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionAnimation, ::windows::core::IUnknown);
@@ -225,7 +225,7 @@ impl ::core::fmt::Debug for IDCompositionAnimation {
         f.debug_tuple("IDCompositionAnimation").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionAnimation {
+unsafe impl ::windows::core::Interface for IDCompositionAnimation {
     type Vtable = IDCompositionAnimation_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionAnimation {
@@ -233,7 +233,7 @@ impl ::core::clone::Clone for IDCompositionAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionAnimation {
+unsafe impl ::windows::core::ComInterface for IDCompositionAnimation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbfd91d9_51b2_45e4_b3de_d19ccfb863c5);
 }
 #[repr(C)]
@@ -253,58 +253,58 @@ pub struct IDCompositionArithmeticCompositeEffect(::windows::core::IUnknown);
 impl IDCompositionArithmeticCompositeEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetCoefficients(&self, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCoefficients)(::windows::core::Vtable::as_raw(self), coefficients).ok()
+        (::windows::core::Interface::vtable(self).SetCoefficients)(::windows::core::Interface::as_raw(self), coefficients).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClampOutput<P0>(&self, clampoutput: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clampoutput.into()).ok()
+        (::windows::core::Interface::vtable(self).SetClampOutput)(::windows::core::Interface::as_raw(self), clampoutput.into_param().abi()).ok()
     }
     pub unsafe fn SetCoefficient1<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCoefficient1)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCoefficient1)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCoefficient12(&self, coeffcient1: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCoefficient12)(::windows::core::Vtable::as_raw(self), coeffcient1).ok()
+        (::windows::core::Interface::vtable(self).SetCoefficient12)(::windows::core::Interface::as_raw(self), coeffcient1).ok()
     }
     pub unsafe fn SetCoefficient2<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCoefficient2)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCoefficient2)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCoefficient22(&self, coefficient2: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCoefficient22)(::windows::core::Vtable::as_raw(self), coefficient2).ok()
+        (::windows::core::Interface::vtable(self).SetCoefficient22)(::windows::core::Interface::as_raw(self), coefficient2).ok()
     }
     pub unsafe fn SetCoefficient3<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCoefficient3)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCoefficient3)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCoefficient32(&self, coefficient3: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCoefficient32)(::windows::core::Vtable::as_raw(self), coefficient3).ok()
+        (::windows::core::Interface::vtable(self).SetCoefficient32)(::windows::core::Interface::as_raw(self), coefficient3).ok()
     }
     pub unsafe fn SetCoefficient4<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCoefficient4)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCoefficient4)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCoefficient42(&self, coefficient4: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCoefficient42)(::windows::core::Vtable::as_raw(self), coefficient4).ok()
+        (::windows::core::Interface::vtable(self).SetCoefficient42)(::windows::core::Interface::as_raw(self), coefficient4).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionArithmeticCompositeEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -319,7 +319,7 @@ impl ::core::fmt::Debug for IDCompositionArithmeticCompositeEffect {
         f.debug_tuple("IDCompositionArithmeticCompositeEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionArithmeticCompositeEffect {
+unsafe impl ::windows::core::Interface for IDCompositionArithmeticCompositeEffect {
     type Vtable = IDCompositionArithmeticCompositeEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionArithmeticCompositeEffect {
@@ -327,7 +327,7 @@ impl ::core::clone::Clone for IDCompositionArithmeticCompositeEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionArithmeticCompositeEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionArithmeticCompositeEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc);
 }
 #[repr(C)]
@@ -357,14 +357,14 @@ pub struct IDCompositionBlendEffect(::windows::core::IUnknown);
 impl IDCompositionBlendEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetMode(&self, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMode)(::windows::core::Vtable::as_raw(self), mode).ok()
+        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionBlendEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -379,7 +379,7 @@ impl ::core::fmt::Debug for IDCompositionBlendEffect {
         f.debug_tuple("IDCompositionBlendEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionBlendEffect {
+unsafe impl ::windows::core::Interface for IDCompositionBlendEffect {
     type Vtable = IDCompositionBlendEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionBlendEffect {
@@ -387,7 +387,7 @@ impl ::core::clone::Clone for IDCompositionBlendEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionBlendEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionBlendEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5);
 }
 #[repr(C)]
@@ -405,55 +405,55 @@ pub struct IDCompositionBrightnessEffect(::windows::core::IUnknown);
 impl IDCompositionBrightnessEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetWhitePoint(&self, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWhitePoint)(::windows::core::Vtable::as_raw(self), whitepoint).ok()
+        (::windows::core::Interface::vtable(self).SetWhitePoint)(::windows::core::Interface::as_raw(self), whitepoint).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetBlackPoint(&self, blackpoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlackPoint)(::windows::core::Vtable::as_raw(self), blackpoint).ok()
+        (::windows::core::Interface::vtable(self).SetBlackPoint)(::windows::core::Interface::as_raw(self), blackpoint).ok()
     }
     pub unsafe fn SetWhitePointX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetWhitePointX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetWhitePointX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetWhitePointX2(&self, whitepointx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWhitePointX2)(::windows::core::Vtable::as_raw(self), whitepointx).ok()
+        (::windows::core::Interface::vtable(self).SetWhitePointX2)(::windows::core::Interface::as_raw(self), whitepointx).ok()
     }
     pub unsafe fn SetWhitePointY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetWhitePointY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetWhitePointY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetWhitePointY2(&self, whitepointy: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWhitePointY2)(::windows::core::Vtable::as_raw(self), whitepointy).ok()
+        (::windows::core::Interface::vtable(self).SetWhitePointY2)(::windows::core::Interface::as_raw(self), whitepointy).ok()
     }
     pub unsafe fn SetBlackPointX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBlackPointX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBlackPointX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBlackPointX2(&self, blackpointx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlackPointX2)(::windows::core::Vtable::as_raw(self), blackpointx).ok()
+        (::windows::core::Interface::vtable(self).SetBlackPointX2)(::windows::core::Interface::as_raw(self), blackpointx).ok()
     }
     pub unsafe fn SetBlackPointY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBlackPointY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBlackPointY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBlackPointY2(&self, blackpointy: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlackPointY2)(::windows::core::Vtable::as_raw(self), blackpointy).ok()
+        (::windows::core::Interface::vtable(self).SetBlackPointY2)(::windows::core::Interface::as_raw(self), blackpointy).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionBrightnessEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -468,7 +468,7 @@ impl ::core::fmt::Debug for IDCompositionBrightnessEffect {
         f.debug_tuple("IDCompositionBrightnessEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionBrightnessEffect {
+unsafe impl ::windows::core::Interface for IDCompositionBrightnessEffect {
     type Vtable = IDCompositionBrightnessEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionBrightnessEffect {
@@ -476,7 +476,7 @@ impl ::core::clone::Clone for IDCompositionBrightnessEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionBrightnessEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionBrightnessEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6027496e_cb3a_49ab_934f_d798da4f7da6);
 }
 #[repr(C)]
@@ -516,7 +516,7 @@ impl ::core::fmt::Debug for IDCompositionClip {
         f.debug_tuple("IDCompositionClip").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionClip {
+unsafe impl ::windows::core::Interface for IDCompositionClip {
     type Vtable = IDCompositionClip_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionClip {
@@ -524,7 +524,7 @@ impl ::core::clone::Clone for IDCompositionClip {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionClip {
+unsafe impl ::windows::core::ComInterface for IDCompositionClip {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7);
 }
 #[repr(C)]
@@ -538,36 +538,36 @@ pub struct IDCompositionColorMatrixEffect(::windows::core::IUnknown);
 impl IDCompositionColorMatrixEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetMatrix(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), matrix).ok()
+        (::windows::core::Interface::vtable(self).SetMatrix)(::windows::core::Interface::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetMatrixElement<P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetMatrixElement)(::windows::core::Vtable::as_raw(self), row, column, animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMatrixElement)(::windows::core::Interface::as_raw(self), row, column, animation.into_param().abi()).ok()
     }
     pub unsafe fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMatrixElement2)(::windows::core::Vtable::as_raw(self), row, column, value).ok()
+        (::windows::core::Interface::vtable(self).SetMatrixElement2)(::windows::core::Interface::as_raw(self), row, column, value).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetAlphaMode(&self, mode: super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAlphaMode)(::windows::core::Vtable::as_raw(self), mode).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClampOutput<P0>(&self, clamp: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clamp.into()).ok()
+        (::windows::core::Interface::vtable(self).SetClampOutput)(::windows::core::Interface::as_raw(self), clamp.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionColorMatrixEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -582,7 +582,7 @@ impl ::core::fmt::Debug for IDCompositionColorMatrixEffect {
         f.debug_tuple("IDCompositionColorMatrixEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionColorMatrixEffect {
+unsafe impl ::windows::core::Interface for IDCompositionColorMatrixEffect {
     type Vtable = IDCompositionColorMatrixEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionColorMatrixEffect {
@@ -590,7 +590,7 @@ impl ::core::clone::Clone for IDCompositionColorMatrixEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionColorMatrixEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionColorMatrixEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1170a22_3ce2_4966_90d4_55408bfc84c4);
 }
 #[repr(C)]
@@ -618,14 +618,14 @@ pub struct IDCompositionCompositeEffect(::windows::core::IUnknown);
 impl IDCompositionCompositeEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetMode(&self, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMode)(::windows::core::Vtable::as_raw(self), mode).ok()
+        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionCompositeEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -640,7 +640,7 @@ impl ::core::fmt::Debug for IDCompositionCompositeEffect {
         f.debug_tuple("IDCompositionCompositeEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionCompositeEffect {
+unsafe impl ::windows::core::Interface for IDCompositionCompositeEffect {
     type Vtable = IDCompositionCompositeEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionCompositeEffect {
@@ -648,7 +648,7 @@ impl ::core::clone::Clone for IDCompositionCompositeEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionCompositeEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionCompositeEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x576616c0_a231_494d_a38d_00fd5ec4db46);
 }
 #[repr(C)]
@@ -666,19 +666,19 @@ pub struct IDCompositionDelegatedInkTrail(::windows::core::IUnknown);
 impl IDCompositionDelegatedInkTrail {
     pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint]) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).AddTrailPoints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AddTrailPoints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: &[DCompositionInkTrailPoint], predictedinkpoints: &[DCompositionInkTrailPoint]) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).AddTrailPointsWithPrediction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, ::core::mem::transmute(predictedinkpoints.as_ptr()), predictedinkpoints.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AddTrailPointsWithPrediction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, ::core::mem::transmute(predictedinkpoints.as_ptr()), predictedinkpoints.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveTrailPoints(&self, generationid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveTrailPoints)(::windows::core::Vtable::as_raw(self), generationid).ok()
+        (::windows::core::Interface::vtable(self).RemoveTrailPoints)(::windows::core::Interface::as_raw(self), generationid).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn StartNewTrail(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartNewTrail)(::windows::core::Vtable::as_raw(self), color).ok()
+        (::windows::core::Interface::vtable(self).StartNewTrail)(::windows::core::Interface::as_raw(self), color).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionDelegatedInkTrail, ::windows::core::IUnknown);
@@ -693,7 +693,7 @@ impl ::core::fmt::Debug for IDCompositionDelegatedInkTrail {
         f.debug_tuple("IDCompositionDelegatedInkTrail").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionDelegatedInkTrail {
+unsafe impl ::windows::core::Interface for IDCompositionDelegatedInkTrail {
     type Vtable = IDCompositionDelegatedInkTrail_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionDelegatedInkTrail {
@@ -701,7 +701,7 @@ impl ::core::clone::Clone for IDCompositionDelegatedInkTrail {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionDelegatedInkTrail {
+unsafe impl ::windows::core::ComInterface for IDCompositionDelegatedInkTrail {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2448e9b_547d_4057_8cf5_8144ede1c2da);
 }
 #[repr(C)]
@@ -721,122 +721,122 @@ pub struct IDCompositionDelegatedInkTrail_Vtbl {
 pub struct IDCompositionDesktopDevice(::windows::core::IUnknown);
 impl IDCompositionDesktopDevice {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Commit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WaitForCommitCompletion(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.WaitForCommitCompletion)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.WaitForCommitCompletion)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFrameStatistics)(::windows::core::Vtable::as_raw(self), statistics).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFrameStatistics)(::windows::core::Interface::as_raw(self), statistics).ok()
     }
     pub unsafe fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual2> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionVisual2>();
-        (::windows::core::Vtable::vtable(self).base__.CreateVisual)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateVisual)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSurfaceFactory<P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSurfaceFactory>();
-        (::windows::core::Vtable::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Interface::as_raw(self), renderingdevice.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSurface>();
-        (::windows::core::Vtable::vtable(self).base__.CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSurface)(::windows::core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionVirtualSurface>();
-        (::windows::core::Vtable::vtable(self).base__.CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateVirtualSurface)(::windows::core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTranslateTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTranslateTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform(&self) -> ::windows::core::Result<IDCompositionScaleTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionScaleTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateScaleTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform(&self) -> ::windows::core::Result<IDCompositionRotateTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRotateTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRotateTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSkewTransform(&self) -> ::windows::core::Result<IDCompositionSkewTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSkewTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateSkewTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSkewTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform(&self) -> ::windows::core::Result<IDCompositionMatrixTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionMatrixTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateMatrixTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTransformGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTranslateTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTranslateTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> ::windows::core::Result<IDCompositionScaleTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionScaleTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateScaleTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> ::windows::core::Result<IDCompositionRotateTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRotateTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRotateTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> ::windows::core::Result<IDCompositionMatrixTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionMatrixTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionEffectGroup>();
-        (::windows::core::Vtable::vtable(self).base__.CreateEffectGroup)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateEffectGroup)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRectangleClip(&self) -> ::windows::core::Result<IDCompositionRectangleClip> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRectangleClip>();
-        (::windows::core::Vtable::vtable(self).base__.CreateRectangleClip)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRectangleClip)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionAnimation>();
-        (::windows::core::Vtable::vtable(self).base__.CreateAnimation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateAnimation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTargetForHwnd<P0, P1>(&self, hwnd: P0, topmost: P1) -> ::windows::core::Result<IDCompositionTarget>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTarget>();
-        (::windows::core::Vtable::vtable(self).CreateTargetForHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), topmost.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTargetForHwnd)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), topmost.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSurfaceFromHandle<P0>(&self, handle: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHandle)(::windows::core::Vtable::as_raw(self), handle.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSurfaceFromHandle)(::windows::core::Interface::as_raw(self), handle.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSurfaceFromHwnd<P0>(&self, hwnd: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionDesktopDevice, ::windows::core::IUnknown, IDCompositionDevice2);
@@ -851,7 +851,7 @@ impl ::core::fmt::Debug for IDCompositionDesktopDevice {
         f.debug_tuple("IDCompositionDesktopDevice").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionDesktopDevice {
+unsafe impl ::windows::core::Interface for IDCompositionDesktopDevice {
     type Vtable = IDCompositionDesktopDevice_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionDesktopDevice {
@@ -859,7 +859,7 @@ impl ::core::clone::Clone for IDCompositionDesktopDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionDesktopDevice {
+unsafe impl ::windows::core::ComInterface for IDCompositionDesktopDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f4633fe_1e08_4cb8_8c75_ce24333f5602);
 }
 #[repr(C)]
@@ -884,121 +884,121 @@ pub struct IDCompositionDesktopDevice_Vtbl {
 pub struct IDCompositionDevice(::windows::core::IUnknown);
 impl IDCompositionDevice {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WaitForCommitCompletion(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WaitForCommitCompletion)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).WaitForCommitCompletion)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFrameStatistics)(::windows::core::Vtable::as_raw(self), statistics).ok()
+        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::windows::core::Interface::as_raw(self), statistics).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTargetForHwnd<P0, P1>(&self, hwnd: P0, topmost: P1) -> ::windows::core::Result<IDCompositionTarget>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTarget>();
-        (::windows::core::Vtable::vtable(self).CreateTargetForHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), topmost.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTargetForHwnd)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), topmost.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionVisual>();
-        (::windows::core::Vtable::vtable(self).CreateVisual)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateVisual)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSurface>();
-        (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionVirtualSurface>();
-        (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualSurface)(::windows::core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSurfaceFromHandle<P0>(&self, handle: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHandle)(::windows::core::Vtable::as_raw(self), handle.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSurfaceFromHandle)(::windows::core::Interface::as_raw(self), handle.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSurfaceFromHwnd<P0>(&self, hwnd: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTranslateTransform>();
-        (::windows::core::Vtable::vtable(self).CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTranslateTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform(&self) -> ::windows::core::Result<IDCompositionScaleTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionScaleTransform>();
-        (::windows::core::Vtable::vtable(self).CreateScaleTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateScaleTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform(&self) -> ::windows::core::Result<IDCompositionRotateTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRotateTransform>();
-        (::windows::core::Vtable::vtable(self).CreateRotateTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateRotateTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSkewTransform(&self) -> ::windows::core::Result<IDCompositionSkewTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSkewTransform>();
-        (::windows::core::Vtable::vtable(self).CreateSkewTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSkewTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform(&self) -> ::windows::core::Result<IDCompositionMatrixTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionMatrixTransform>();
-        (::windows::core::Vtable::vtable(self).CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateMatrixTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTransform>();
-        (::windows::core::Vtable::vtable(self).CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTransformGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTranslateTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTranslateTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> ::windows::core::Result<IDCompositionScaleTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionScaleTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateScaleTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> ::windows::core::Result<IDCompositionRotateTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRotateTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateRotateTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> ::windows::core::Result<IDCompositionMatrixTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionMatrixTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateMatrixTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTransform3DGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionEffectGroup>();
-        (::windows::core::Vtable::vtable(self).CreateEffectGroup)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateEffectGroup)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRectangleClip(&self) -> ::windows::core::Result<IDCompositionRectangleClip> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRectangleClip>();
-        (::windows::core::Vtable::vtable(self).CreateRectangleClip)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateRectangleClip)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionAnimation>();
-        (::windows::core::Vtable::vtable(self).CreateAnimation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateAnimation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).CheckDeviceState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CheckDeviceState)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionDevice, ::windows::core::IUnknown);
@@ -1013,7 +1013,7 @@ impl ::core::fmt::Debug for IDCompositionDevice {
         f.debug_tuple("IDCompositionDevice").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionDevice {
+unsafe impl ::windows::core::Interface for IDCompositionDevice {
     type Vtable = IDCompositionDevice_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionDevice {
@@ -1021,7 +1021,7 @@ impl ::core::clone::Clone for IDCompositionDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionDevice {
+unsafe impl ::windows::core::ComInterface for IDCompositionDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc37ea93a_e7aa_450d_b16f_9746cb0407f3);
 }
 #[repr(C)]
@@ -1079,94 +1079,94 @@ pub struct IDCompositionDevice_Vtbl {
 pub struct IDCompositionDevice2(::windows::core::IUnknown);
 impl IDCompositionDevice2 {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WaitForCommitCompletion(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WaitForCommitCompletion)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).WaitForCommitCompletion)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFrameStatistics)(::windows::core::Vtable::as_raw(self), statistics).ok()
+        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::windows::core::Interface::as_raw(self), statistics).ok()
     }
     pub unsafe fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual2> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionVisual2>();
-        (::windows::core::Vtable::vtable(self).CreateVisual)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateVisual)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSurfaceFactory<P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSurfaceFactory>();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSurfaceFactory)(::windows::core::Interface::as_raw(self), renderingdevice.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSurface>();
-        (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionVirtualSurface>();
-        (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualSurface)(::windows::core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTranslateTransform>();
-        (::windows::core::Vtable::vtable(self).CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTranslateTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform(&self) -> ::windows::core::Result<IDCompositionScaleTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionScaleTransform>();
-        (::windows::core::Vtable::vtable(self).CreateScaleTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateScaleTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform(&self) -> ::windows::core::Result<IDCompositionRotateTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRotateTransform>();
-        (::windows::core::Vtable::vtable(self).CreateRotateTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateRotateTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSkewTransform(&self) -> ::windows::core::Result<IDCompositionSkewTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSkewTransform>();
-        (::windows::core::Vtable::vtable(self).CreateSkewTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSkewTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform(&self) -> ::windows::core::Result<IDCompositionMatrixTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionMatrixTransform>();
-        (::windows::core::Vtable::vtable(self).CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateMatrixTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTransform>();
-        (::windows::core::Vtable::vtable(self).CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTransformGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTranslateTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTranslateTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> ::windows::core::Result<IDCompositionScaleTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionScaleTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateScaleTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> ::windows::core::Result<IDCompositionRotateTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRotateTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateRotateTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> ::windows::core::Result<IDCompositionMatrixTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionMatrixTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateMatrixTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTransform3D>();
-        (::windows::core::Vtable::vtable(self).CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTransform3DGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionEffectGroup>();
-        (::windows::core::Vtable::vtable(self).CreateEffectGroup)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateEffectGroup)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRectangleClip(&self) -> ::windows::core::Result<IDCompositionRectangleClip> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRectangleClip>();
-        (::windows::core::Vtable::vtable(self).CreateRectangleClip)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateRectangleClip)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionAnimation>();
-        (::windows::core::Vtable::vtable(self).CreateAnimation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateAnimation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionDevice2, ::windows::core::IUnknown);
@@ -1181,7 +1181,7 @@ impl ::core::fmt::Debug for IDCompositionDevice2 {
         f.debug_tuple("IDCompositionDevice2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionDevice2 {
+unsafe impl ::windows::core::Interface for IDCompositionDevice2 {
     type Vtable = IDCompositionDevice2_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionDevice2 {
@@ -1189,7 +1189,7 @@ impl ::core::clone::Clone for IDCompositionDevice2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionDevice2 {
+unsafe impl ::windows::core::ComInterface for IDCompositionDevice2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75f6468d_1b8e_447c_9bc6_75fea80b5b25);
 }
 #[repr(C)]
@@ -1232,146 +1232,146 @@ pub struct IDCompositionDevice2_Vtbl {
 pub struct IDCompositionDevice3(::windows::core::IUnknown);
 impl IDCompositionDevice3 {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Commit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WaitForCommitCompletion(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.WaitForCommitCompletion)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.WaitForCommitCompletion)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetFrameStatistics(&self, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFrameStatistics)(::windows::core::Vtable::as_raw(self), statistics).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFrameStatistics)(::windows::core::Interface::as_raw(self), statistics).ok()
     }
     pub unsafe fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual2> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionVisual2>();
-        (::windows::core::Vtable::vtable(self).base__.CreateVisual)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateVisual)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSurfaceFactory<P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSurfaceFactory>();
-        (::windows::core::Vtable::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Interface::as_raw(self), renderingdevice.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSurface>();
-        (::windows::core::Vtable::vtable(self).base__.CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSurface)(::windows::core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionVirtualSurface>();
-        (::windows::core::Vtable::vtable(self).base__.CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateVirtualSurface)(::windows::core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTranslateTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTranslateTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform(&self) -> ::windows::core::Result<IDCompositionScaleTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionScaleTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateScaleTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform(&self) -> ::windows::core::Result<IDCompositionRotateTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRotateTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRotateTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSkewTransform(&self) -> ::windows::core::Result<IDCompositionSkewTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSkewTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateSkewTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSkewTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform(&self) -> ::windows::core::Result<IDCompositionMatrixTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionMatrixTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateMatrixTransform)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTransform>();
-        (::windows::core::Vtable::vtable(self).base__.CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTransformGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTranslateTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTranslateTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> ::windows::core::Result<IDCompositionScaleTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionScaleTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateScaleTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> ::windows::core::Result<IDCompositionRotateTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRotateTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRotateTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> ::windows::core::Result<IDCompositionMatrixTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionMatrixTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTransform3D>();
-        (::windows::core::Vtable::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionEffectGroup>();
-        (::windows::core::Vtable::vtable(self).base__.CreateEffectGroup)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateEffectGroup)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRectangleClip(&self) -> ::windows::core::Result<IDCompositionRectangleClip> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionRectangleClip>();
-        (::windows::core::Vtable::vtable(self).base__.CreateRectangleClip)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRectangleClip)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionAnimation>();
-        (::windows::core::Vtable::vtable(self).base__.CreateAnimation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateAnimation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateGaussianBlurEffect(&self) -> ::windows::core::Result<IDCompositionGaussianBlurEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionGaussianBlurEffect>();
-        (::windows::core::Vtable::vtable(self).CreateGaussianBlurEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateGaussianBlurEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBrightnessEffect(&self) -> ::windows::core::Result<IDCompositionBrightnessEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionBrightnessEffect>();
-        (::windows::core::Vtable::vtable(self).CreateBrightnessEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateBrightnessEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateColorMatrixEffect(&self) -> ::windows::core::Result<IDCompositionColorMatrixEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionColorMatrixEffect>();
-        (::windows::core::Vtable::vtable(self).CreateColorMatrixEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateColorMatrixEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateShadowEffect(&self) -> ::windows::core::Result<IDCompositionShadowEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionShadowEffect>();
-        (::windows::core::Vtable::vtable(self).CreateShadowEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateShadowEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateHueRotationEffect(&self) -> ::windows::core::Result<IDCompositionHueRotationEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionHueRotationEffect>();
-        (::windows::core::Vtable::vtable(self).CreateHueRotationEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateHueRotationEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSaturationEffect(&self) -> ::windows::core::Result<IDCompositionSaturationEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSaturationEffect>();
-        (::windows::core::Vtable::vtable(self).CreateSaturationEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSaturationEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTurbulenceEffect(&self) -> ::windows::core::Result<IDCompositionTurbulenceEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTurbulenceEffect>();
-        (::windows::core::Vtable::vtable(self).CreateTurbulenceEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTurbulenceEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateLinearTransferEffect(&self) -> ::windows::core::Result<IDCompositionLinearTransferEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionLinearTransferEffect>();
-        (::windows::core::Vtable::vtable(self).CreateLinearTransferEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateLinearTransferEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTableTransferEffect(&self) -> ::windows::core::Result<IDCompositionTableTransferEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionTableTransferEffect>();
-        (::windows::core::Vtable::vtable(self).CreateTableTransferEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTableTransferEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateCompositeEffect(&self) -> ::windows::core::Result<IDCompositionCompositeEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionCompositeEffect>();
-        (::windows::core::Vtable::vtable(self).CreateCompositeEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateCompositeEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBlendEffect(&self) -> ::windows::core::Result<IDCompositionBlendEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionBlendEffect>();
-        (::windows::core::Vtable::vtable(self).CreateBlendEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateBlendEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateArithmeticCompositeEffect(&self) -> ::windows::core::Result<IDCompositionArithmeticCompositeEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionArithmeticCompositeEffect>();
-        (::windows::core::Vtable::vtable(self).CreateArithmeticCompositeEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateArithmeticCompositeEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAffineTransform2DEffect(&self) -> ::windows::core::Result<IDCompositionAffineTransform2DEffect> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionAffineTransform2DEffect>();
-        (::windows::core::Vtable::vtable(self).CreateAffineTransform2DEffect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateAffineTransform2DEffect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionDevice3, ::windows::core::IUnknown, IDCompositionDevice2);
@@ -1386,7 +1386,7 @@ impl ::core::fmt::Debug for IDCompositionDevice3 {
         f.debug_tuple("IDCompositionDevice3").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionDevice3 {
+unsafe impl ::windows::core::Interface for IDCompositionDevice3 {
     type Vtable = IDCompositionDevice3_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionDevice3 {
@@ -1394,7 +1394,7 @@ impl ::core::clone::Clone for IDCompositionDevice3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionDevice3 {
+unsafe impl ::windows::core::ComInterface for IDCompositionDevice3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0987cb06_f916_48bf_8d35_ce7641781bd9);
 }
 #[repr(C)]
@@ -1420,10 +1420,10 @@ pub struct IDCompositionDevice3_Vtbl {
 pub struct IDCompositionDeviceDebug(::windows::core::IUnknown);
 impl IDCompositionDeviceDebug {
     pub unsafe fn EnableDebugCounters(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnableDebugCounters)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).EnableDebugCounters)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn DisableDebugCounters(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisableDebugCounters)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).DisableDebugCounters)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionDeviceDebug, ::windows::core::IUnknown);
@@ -1438,7 +1438,7 @@ impl ::core::fmt::Debug for IDCompositionDeviceDebug {
         f.debug_tuple("IDCompositionDeviceDebug").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionDeviceDebug {
+unsafe impl ::windows::core::Interface for IDCompositionDeviceDebug {
     type Vtable = IDCompositionDeviceDebug_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionDeviceDebug {
@@ -1446,7 +1446,7 @@ impl ::core::clone::Clone for IDCompositionDeviceDebug {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionDeviceDebug {
+unsafe impl ::windows::core::ComInterface for IDCompositionDeviceDebug {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
 }
 #[repr(C)]
@@ -1472,7 +1472,7 @@ impl ::core::fmt::Debug for IDCompositionEffect {
         f.debug_tuple("IDCompositionEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionEffect {
+unsafe impl ::windows::core::Interface for IDCompositionEffect {
     type Vtable = IDCompositionEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionEffect {
@@ -1480,7 +1480,7 @@ impl ::core::clone::Clone for IDCompositionEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec81b08f_bfcb_4e8d_b193_a915587999e8);
 }
 #[repr(C)]
@@ -1494,18 +1494,18 @@ pub struct IDCompositionEffectGroup(::windows::core::IUnknown);
 impl IDCompositionEffectGroup {
     pub unsafe fn SetOpacity<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOpacity)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOpacity)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOpacity2(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOpacity2)(::windows::core::Vtable::as_raw(self), opacity).ok()
+        (::windows::core::Interface::vtable(self).SetOpacity2)(::windows::core::Interface::as_raw(self), opacity).ok()
     }
     pub unsafe fn SetTransform3D<P0>(&self, transform3d: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform3D>>,
+        P0: ::windows::core::IntoParam<IDCompositionTransform3D>,
     {
-        (::windows::core::Vtable::vtable(self).SetTransform3D)(::windows::core::Vtable::as_raw(self), transform3d.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTransform3D)(::windows::core::Interface::as_raw(self), transform3d.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionEffectGroup, ::windows::core::IUnknown, IDCompositionEffect);
@@ -1520,7 +1520,7 @@ impl ::core::fmt::Debug for IDCompositionEffectGroup {
         f.debug_tuple("IDCompositionEffectGroup").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionEffectGroup {
+unsafe impl ::windows::core::Interface for IDCompositionEffectGroup {
     type Vtable = IDCompositionEffectGroup_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionEffectGroup {
@@ -1528,7 +1528,7 @@ impl ::core::clone::Clone for IDCompositionEffectGroup {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionEffectGroup {
+unsafe impl ::windows::core::ComInterface for IDCompositionEffectGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7929a74_e6b2_4bd6_8b95_4040119ca34d);
 }
 #[repr(C)]
@@ -1545,9 +1545,9 @@ pub struct IDCompositionFilterEffect(::windows::core::IUnknown);
 impl IDCompositionFilterEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionFilterEffect, ::windows::core::IUnknown, IDCompositionEffect);
@@ -1562,7 +1562,7 @@ impl ::core::fmt::Debug for IDCompositionFilterEffect {
         f.debug_tuple("IDCompositionFilterEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionFilterEffect {
+unsafe impl ::windows::core::Interface for IDCompositionFilterEffect {
     type Vtable = IDCompositionFilterEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionFilterEffect {
@@ -1570,7 +1570,7 @@ impl ::core::clone::Clone for IDCompositionFilterEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionFilterEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionFilterEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30c421d5_8cb2_4e9f_b133_37be270d4ac2);
 }
 #[repr(C)]
@@ -1585,23 +1585,23 @@ pub struct IDCompositionGaussianBlurEffect(::windows::core::IUnknown);
 impl IDCompositionGaussianBlurEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     pub unsafe fn SetStandardDeviation<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetStandardDeviation)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStandardDeviation)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetStandardDeviation2(&self, amount: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStandardDeviation2)(::windows::core::Vtable::as_raw(self), amount).ok()
+        (::windows::core::Interface::vtable(self).SetStandardDeviation2)(::windows::core::Interface::as_raw(self), amount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetBorderMode(&self, mode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBorderMode)(::windows::core::Vtable::as_raw(self), mode).ok()
+        (::windows::core::Interface::vtable(self).SetBorderMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionGaussianBlurEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1616,7 +1616,7 @@ impl ::core::fmt::Debug for IDCompositionGaussianBlurEffect {
         f.debug_tuple("IDCompositionGaussianBlurEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionGaussianBlurEffect {
+unsafe impl ::windows::core::Interface for IDCompositionGaussianBlurEffect {
     type Vtable = IDCompositionGaussianBlurEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionGaussianBlurEffect {
@@ -1624,7 +1624,7 @@ impl ::core::clone::Clone for IDCompositionGaussianBlurEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionGaussianBlurEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionGaussianBlurEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45d4d0b7_1bd4_454e_8894_2bfa68443033);
 }
 #[repr(C)]
@@ -1644,18 +1644,18 @@ pub struct IDCompositionHueRotationEffect(::windows::core::IUnknown);
 impl IDCompositionHueRotationEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     pub unsafe fn SetAngle<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAngle)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAngle)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAngle2(&self, amountdegrees: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAngle2)(::windows::core::Vtable::as_raw(self), amountdegrees).ok()
+        (::windows::core::Interface::vtable(self).SetAngle2)(::windows::core::Interface::as_raw(self), amountdegrees).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionHueRotationEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1670,7 +1670,7 @@ impl ::core::fmt::Debug for IDCompositionHueRotationEffect {
         f.debug_tuple("IDCompositionHueRotationEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionHueRotationEffect {
+unsafe impl ::windows::core::Interface for IDCompositionHueRotationEffect {
     type Vtable = IDCompositionHueRotationEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionHueRotationEffect {
@@ -1678,7 +1678,7 @@ impl ::core::clone::Clone for IDCompositionHueRotationEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionHueRotationEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionHueRotationEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6db9f920_0770_4781_b0c6_381912f9d167);
 }
 #[repr(C)]
@@ -1694,14 +1694,14 @@ pub struct IDCompositionInkTrailDevice(::windows::core::IUnknown);
 impl IDCompositionInkTrailDevice {
     pub unsafe fn CreateDelegatedInkTrail(&self) -> ::windows::core::Result<IDCompositionDelegatedInkTrail> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionDelegatedInkTrail>();
-        (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrail)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateDelegatedInkTrail)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDelegatedInkTrailForSwapChain<P0>(&self, swapchain: P0) -> ::windows::core::Result<IDCompositionDelegatedInkTrail>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
         let mut result__ = ::windows::core::zeroed::<IDCompositionDelegatedInkTrail>();
-        (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrailForSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateDelegatedInkTrailForSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionInkTrailDevice, ::windows::core::IUnknown);
@@ -1716,7 +1716,7 @@ impl ::core::fmt::Debug for IDCompositionInkTrailDevice {
         f.debug_tuple("IDCompositionInkTrailDevice").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionInkTrailDevice {
+unsafe impl ::windows::core::Interface for IDCompositionInkTrailDevice {
     type Vtable = IDCompositionInkTrailDevice_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionInkTrailDevice {
@@ -1724,7 +1724,7 @@ impl ::core::clone::Clone for IDCompositionInkTrailDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionInkTrailDevice {
+unsafe impl ::windows::core::ComInterface for IDCompositionInkTrailDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c);
 }
 #[repr(C)]
@@ -1740,121 +1740,121 @@ pub struct IDCompositionLinearTransferEffect(::windows::core::IUnknown);
 impl IDCompositionLinearTransferEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     pub unsafe fn SetRedYIntercept<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetRedYIntercept)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRedYIntercept)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetRedYIntercept2(&self, redyintercept: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRedYIntercept2)(::windows::core::Vtable::as_raw(self), redyintercept).ok()
+        (::windows::core::Interface::vtable(self).SetRedYIntercept2)(::windows::core::Interface::as_raw(self), redyintercept).ok()
     }
     pub unsafe fn SetRedSlope<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetRedSlope)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRedSlope)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetRedSlope2(&self, redslope: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRedSlope2)(::windows::core::Vtable::as_raw(self), redslope).ok()
+        (::windows::core::Interface::vtable(self).SetRedSlope2)(::windows::core::Interface::as_raw(self), redslope).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRedDisable<P0>(&self, reddisable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetRedDisable)(::windows::core::Vtable::as_raw(self), reddisable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetRedDisable)(::windows::core::Interface::as_raw(self), reddisable.into_param().abi()).ok()
     }
     pub unsafe fn SetGreenYIntercept<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetGreenYIntercept)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGreenYIntercept)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetGreenYIntercept2(&self, greenyintercept: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGreenYIntercept2)(::windows::core::Vtable::as_raw(self), greenyintercept).ok()
+        (::windows::core::Interface::vtable(self).SetGreenYIntercept2)(::windows::core::Interface::as_raw(self), greenyintercept).ok()
     }
     pub unsafe fn SetGreenSlope<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetGreenSlope)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGreenSlope)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetGreenSlope2(&self, greenslope: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGreenSlope2)(::windows::core::Vtable::as_raw(self), greenslope).ok()
+        (::windows::core::Interface::vtable(self).SetGreenSlope2)(::windows::core::Interface::as_raw(self), greenslope).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGreenDisable<P0>(&self, greendisable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetGreenDisable)(::windows::core::Vtable::as_raw(self), greendisable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetGreenDisable)(::windows::core::Interface::as_raw(self), greendisable.into_param().abi()).ok()
     }
     pub unsafe fn SetBlueYIntercept<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBlueYIntercept)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBlueYIntercept)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBlueYIntercept2(&self, blueyintercept: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlueYIntercept2)(::windows::core::Vtable::as_raw(self), blueyintercept).ok()
+        (::windows::core::Interface::vtable(self).SetBlueYIntercept2)(::windows::core::Interface::as_raw(self), blueyintercept).ok()
     }
     pub unsafe fn SetBlueSlope<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBlueSlope)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBlueSlope)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBlueSlope2(&self, blueslope: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlueSlope2)(::windows::core::Vtable::as_raw(self), blueslope).ok()
+        (::windows::core::Interface::vtable(self).SetBlueSlope2)(::windows::core::Interface::as_raw(self), blueslope).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlueDisable<P0>(&self, bluedisable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetBlueDisable)(::windows::core::Vtable::as_raw(self), bluedisable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetBlueDisable)(::windows::core::Interface::as_raw(self), bluedisable.into_param().abi()).ok()
     }
     pub unsafe fn SetAlphaYIntercept<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAlphaYIntercept)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaYIntercept)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAlphaYIntercept2(&self, alphayintercept: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAlphaYIntercept2)(::windows::core::Vtable::as_raw(self), alphayintercept).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaYIntercept2)(::windows::core::Interface::as_raw(self), alphayintercept).ok()
     }
     pub unsafe fn SetAlphaSlope<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAlphaSlope)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaSlope)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAlphaSlope2(&self, alphaslope: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAlphaSlope2)(::windows::core::Vtable::as_raw(self), alphaslope).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaSlope2)(::windows::core::Interface::as_raw(self), alphaslope).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlphaDisable<P0>(&self, alphadisable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetAlphaDisable)(::windows::core::Vtable::as_raw(self), alphadisable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaDisable)(::windows::core::Interface::as_raw(self), alphadisable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClampOutput<P0>(&self, clampoutput: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clampoutput.into()).ok()
+        (::windows::core::Interface::vtable(self).SetClampOutput)(::windows::core::Interface::as_raw(self), clampoutput.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionLinearTransferEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1869,7 +1869,7 @@ impl ::core::fmt::Debug for IDCompositionLinearTransferEffect {
         f.debug_tuple("IDCompositionLinearTransferEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionLinearTransferEffect {
+unsafe impl ::windows::core::Interface for IDCompositionLinearTransferEffect {
     type Vtable = IDCompositionLinearTransferEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionLinearTransferEffect {
@@ -1877,7 +1877,7 @@ impl ::core::clone::Clone for IDCompositionLinearTransferEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionLinearTransferEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionLinearTransferEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4305ee5b_c4a0_4c88_9385_67124e017683);
 }
 #[repr(C)]
@@ -1928,16 +1928,16 @@ impl IDCompositionMatrixTransform {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), matrix).ok()
+        (::windows::core::Interface::vtable(self).SetMatrix)(::windows::core::Interface::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetMatrixElement<P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetMatrixElement)(::windows::core::Vtable::as_raw(self), row, column, animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMatrixElement)(::windows::core::Interface::as_raw(self), row, column, animation.into_param().abi()).ok()
     }
     pub unsafe fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMatrixElement2)(::windows::core::Vtable::as_raw(self), row, column, value).ok()
+        (::windows::core::Interface::vtable(self).SetMatrixElement2)(::windows::core::Interface::as_raw(self), row, column, value).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionMatrixTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -1952,7 +1952,7 @@ impl ::core::fmt::Debug for IDCompositionMatrixTransform {
         f.debug_tuple("IDCompositionMatrixTransform").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionMatrixTransform {
+unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform {
     type Vtable = IDCompositionMatrixTransform_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionMatrixTransform {
@@ -1960,7 +1960,7 @@ impl ::core::clone::Clone for IDCompositionMatrixTransform {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform {
+unsafe impl ::windows::core::ComInterface for IDCompositionMatrixTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16cdff07_c503_419c_83f2_0965c7af1fa6);
 }
 #[repr(C)]
@@ -1981,16 +1981,16 @@ impl IDCompositionMatrixTransform3D {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), matrix).ok()
+        (::windows::core::Interface::vtable(self).SetMatrix)(::windows::core::Interface::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetMatrixElement<P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetMatrixElement)(::windows::core::Vtable::as_raw(self), row, column, animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMatrixElement)(::windows::core::Interface::as_raw(self), row, column, animation.into_param().abi()).ok()
     }
     pub unsafe fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMatrixElement2)(::windows::core::Vtable::as_raw(self), row, column, value).ok()
+        (::windows::core::Interface::vtable(self).SetMatrixElement2)(::windows::core::Interface::as_raw(self), row, column, value).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionMatrixTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -2005,7 +2005,7 @@ impl ::core::fmt::Debug for IDCompositionMatrixTransform3D {
         f.debug_tuple("IDCompositionMatrixTransform3D").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionMatrixTransform3D {
+unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform3D {
     type Vtable = IDCompositionMatrixTransform3D_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionMatrixTransform3D {
@@ -2013,7 +2013,7 @@ impl ::core::clone::Clone for IDCompositionMatrixTransform3D {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform3D {
+unsafe impl ::windows::core::ComInterface for IDCompositionMatrixTransform3D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b3363f0_643b_41b7_b6e0_ccf22d34467c);
 }
 #[repr(C)]
@@ -2033,111 +2033,111 @@ pub struct IDCompositionRectangleClip(::windows::core::IUnknown);
 impl IDCompositionRectangleClip {
     pub unsafe fn SetLeft<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetLeft)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLeft)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetLeft2(&self, left: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLeft2)(::windows::core::Vtable::as_raw(self), left).ok()
+        (::windows::core::Interface::vtable(self).SetLeft2)(::windows::core::Interface::as_raw(self), left).ok()
     }
     pub unsafe fn SetTop<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetTop)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTop)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetTop2(&self, top: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTop2)(::windows::core::Vtable::as_raw(self), top).ok()
+        (::windows::core::Interface::vtable(self).SetTop2)(::windows::core::Interface::as_raw(self), top).ok()
     }
     pub unsafe fn SetRight<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetRight)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRight)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetRight2(&self, right: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRight2)(::windows::core::Vtable::as_raw(self), right).ok()
+        (::windows::core::Interface::vtable(self).SetRight2)(::windows::core::Interface::as_raw(self), right).ok()
     }
     pub unsafe fn SetBottom<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBottom)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBottom)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBottom2(&self, bottom: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBottom2)(::windows::core::Vtable::as_raw(self), bottom).ok()
+        (::windows::core::Interface::vtable(self).SetBottom2)(::windows::core::Interface::as_raw(self), bottom).ok()
     }
     pub unsafe fn SetTopLeftRadiusX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetTopLeftRadiusX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTopLeftRadiusX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetTopLeftRadiusX2(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTopLeftRadiusX2)(::windows::core::Vtable::as_raw(self), radius).ok()
+        (::windows::core::Interface::vtable(self).SetTopLeftRadiusX2)(::windows::core::Interface::as_raw(self), radius).ok()
     }
     pub unsafe fn SetTopLeftRadiusY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetTopLeftRadiusY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTopLeftRadiusY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetTopLeftRadiusY2(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTopLeftRadiusY2)(::windows::core::Vtable::as_raw(self), radius).ok()
+        (::windows::core::Interface::vtable(self).SetTopLeftRadiusY2)(::windows::core::Interface::as_raw(self), radius).ok()
     }
     pub unsafe fn SetTopRightRadiusX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetTopRightRadiusX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTopRightRadiusX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetTopRightRadiusX2(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTopRightRadiusX2)(::windows::core::Vtable::as_raw(self), radius).ok()
+        (::windows::core::Interface::vtable(self).SetTopRightRadiusX2)(::windows::core::Interface::as_raw(self), radius).ok()
     }
     pub unsafe fn SetTopRightRadiusY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetTopRightRadiusY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTopRightRadiusY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetTopRightRadiusY2(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTopRightRadiusY2)(::windows::core::Vtable::as_raw(self), radius).ok()
+        (::windows::core::Interface::vtable(self).SetTopRightRadiusY2)(::windows::core::Interface::as_raw(self), radius).ok()
     }
     pub unsafe fn SetBottomLeftRadiusX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBottomLeftRadiusX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBottomLeftRadiusX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBottomLeftRadiusX2(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBottomLeftRadiusX2)(::windows::core::Vtable::as_raw(self), radius).ok()
+        (::windows::core::Interface::vtable(self).SetBottomLeftRadiusX2)(::windows::core::Interface::as_raw(self), radius).ok()
     }
     pub unsafe fn SetBottomLeftRadiusY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBottomLeftRadiusY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBottomLeftRadiusY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBottomLeftRadiusY2(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBottomLeftRadiusY2)(::windows::core::Vtable::as_raw(self), radius).ok()
+        (::windows::core::Interface::vtable(self).SetBottomLeftRadiusY2)(::windows::core::Interface::as_raw(self), radius).ok()
     }
     pub unsafe fn SetBottomRightRadiusX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBottomRightRadiusX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBottomRightRadiusX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBottomRightRadiusX2(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBottomRightRadiusX2)(::windows::core::Vtable::as_raw(self), radius).ok()
+        (::windows::core::Interface::vtable(self).SetBottomRightRadiusX2)(::windows::core::Interface::as_raw(self), radius).ok()
     }
     pub unsafe fn SetBottomRightRadiusY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBottomRightRadiusY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBottomRightRadiusY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBottomRightRadiusY2(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBottomRightRadiusY2)(::windows::core::Vtable::as_raw(self), radius).ok()
+        (::windows::core::Interface::vtable(self).SetBottomRightRadiusY2)(::windows::core::Interface::as_raw(self), radius).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionRectangleClip, ::windows::core::IUnknown, IDCompositionClip);
@@ -2152,7 +2152,7 @@ impl ::core::fmt::Debug for IDCompositionRectangleClip {
         f.debug_tuple("IDCompositionRectangleClip").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionRectangleClip {
+unsafe impl ::windows::core::Interface for IDCompositionRectangleClip {
     type Vtable = IDCompositionRectangleClip_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionRectangleClip {
@@ -2160,7 +2160,7 @@ impl ::core::clone::Clone for IDCompositionRectangleClip {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionRectangleClip {
+unsafe impl ::windows::core::ComInterface for IDCompositionRectangleClip {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9842ad7d_d9cf_4908_aed7_48b51da5e7c2);
 }
 #[repr(C)]
@@ -2198,30 +2198,30 @@ pub struct IDCompositionRotateTransform(::windows::core::IUnknown);
 impl IDCompositionRotateTransform {
     pub unsafe fn SetAngle<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAngle)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAngle)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAngle2(&self, angle: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAngle2)(::windows::core::Vtable::as_raw(self), angle).ok()
+        (::windows::core::Interface::vtable(self).SetAngle2)(::windows::core::Interface::as_raw(self), angle).ok()
     }
     pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX2)(::windows::core::Interface::as_raw(self), centerx).ok()
     }
     pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY2)(::windows::core::Interface::as_raw(self), centery).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionRotateTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -2236,7 +2236,7 @@ impl ::core::fmt::Debug for IDCompositionRotateTransform {
         f.debug_tuple("IDCompositionRotateTransform").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionRotateTransform {
+unsafe impl ::windows::core::Interface for IDCompositionRotateTransform {
     type Vtable = IDCompositionRotateTransform_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionRotateTransform {
@@ -2244,7 +2244,7 @@ impl ::core::clone::Clone for IDCompositionRotateTransform {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionRotateTransform {
+unsafe impl ::windows::core::ComInterface for IDCompositionRotateTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x641ed83c_ae96_46c5_90dc_32774cc5c6d5);
 }
 #[repr(C)]
@@ -2264,66 +2264,66 @@ pub struct IDCompositionRotateTransform3D(::windows::core::IUnknown);
 impl IDCompositionRotateTransform3D {
     pub unsafe fn SetAngle<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAngle)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAngle)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAngle2(&self, angle: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAngle2)(::windows::core::Vtable::as_raw(self), angle).ok()
+        (::windows::core::Interface::vtable(self).SetAngle2)(::windows::core::Interface::as_raw(self), angle).ok()
     }
     pub unsafe fn SetAxisX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAxisX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAxisX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAxisX2(&self, axisx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAxisX2)(::windows::core::Vtable::as_raw(self), axisx).ok()
+        (::windows::core::Interface::vtable(self).SetAxisX2)(::windows::core::Interface::as_raw(self), axisx).ok()
     }
     pub unsafe fn SetAxisY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAxisY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAxisY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAxisY2(&self, axisy: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAxisY2)(::windows::core::Vtable::as_raw(self), axisy).ok()
+        (::windows::core::Interface::vtable(self).SetAxisY2)(::windows::core::Interface::as_raw(self), axisy).ok()
     }
     pub unsafe fn SetAxisZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAxisZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAxisZ)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAxisZ2(&self, axisz: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAxisZ2)(::windows::core::Vtable::as_raw(self), axisz).ok()
+        (::windows::core::Interface::vtable(self).SetAxisZ2)(::windows::core::Interface::as_raw(self), axisz).ok()
     }
     pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX2)(::windows::core::Interface::as_raw(self), centerx).ok()
     }
     pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY2)(::windows::core::Interface::as_raw(self), centery).ok()
     }
     pub unsafe fn SetCenterZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterZ)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterZ2(&self, centerz: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterZ2)(::windows::core::Vtable::as_raw(self), centerz).ok()
+        (::windows::core::Interface::vtable(self).SetCenterZ2)(::windows::core::Interface::as_raw(self), centerz).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionRotateTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -2338,7 +2338,7 @@ impl ::core::fmt::Debug for IDCompositionRotateTransform3D {
         f.debug_tuple("IDCompositionRotateTransform3D").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionRotateTransform3D {
+unsafe impl ::windows::core::Interface for IDCompositionRotateTransform3D {
     type Vtable = IDCompositionRotateTransform3D_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionRotateTransform3D {
@@ -2346,7 +2346,7 @@ impl ::core::clone::Clone for IDCompositionRotateTransform3D {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionRotateTransform3D {
+unsafe impl ::windows::core::ComInterface for IDCompositionRotateTransform3D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f5b23f_d429_4a91_b55a_d2f45fd75b18);
 }
 #[repr(C)]
@@ -2374,18 +2374,18 @@ pub struct IDCompositionSaturationEffect(::windows::core::IUnknown);
 impl IDCompositionSaturationEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     pub unsafe fn SetSaturation<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetSaturation)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSaturation)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetSaturation2(&self, ratio: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSaturation2)(::windows::core::Vtable::as_raw(self), ratio).ok()
+        (::windows::core::Interface::vtable(self).SetSaturation2)(::windows::core::Interface::as_raw(self), ratio).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionSaturationEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -2400,7 +2400,7 @@ impl ::core::fmt::Debug for IDCompositionSaturationEffect {
         f.debug_tuple("IDCompositionSaturationEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionSaturationEffect {
+unsafe impl ::windows::core::Interface for IDCompositionSaturationEffect {
     type Vtable = IDCompositionSaturationEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionSaturationEffect {
@@ -2408,7 +2408,7 @@ impl ::core::clone::Clone for IDCompositionSaturationEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionSaturationEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionSaturationEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa08debda_3258_4fa4_9f16_9174d3fe93b1);
 }
 #[repr(C)]
@@ -2424,39 +2424,39 @@ pub struct IDCompositionScaleTransform(::windows::core::IUnknown);
 impl IDCompositionScaleTransform {
     pub unsafe fn SetScaleX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetScaleX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetScaleX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetScaleX2(&self, scalex: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetScaleX2)(::windows::core::Vtable::as_raw(self), scalex).ok()
+        (::windows::core::Interface::vtable(self).SetScaleX2)(::windows::core::Interface::as_raw(self), scalex).ok()
     }
     pub unsafe fn SetScaleY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetScaleY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetScaleY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetScaleY2(&self, scaley: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetScaleY2)(::windows::core::Vtable::as_raw(self), scaley).ok()
+        (::windows::core::Interface::vtable(self).SetScaleY2)(::windows::core::Interface::as_raw(self), scaley).ok()
     }
     pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX2)(::windows::core::Interface::as_raw(self), centerx).ok()
     }
     pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY2)(::windows::core::Interface::as_raw(self), centery).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionScaleTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -2471,7 +2471,7 @@ impl ::core::fmt::Debug for IDCompositionScaleTransform {
         f.debug_tuple("IDCompositionScaleTransform").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionScaleTransform {
+unsafe impl ::windows::core::Interface for IDCompositionScaleTransform {
     type Vtable = IDCompositionScaleTransform_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionScaleTransform {
@@ -2479,7 +2479,7 @@ impl ::core::clone::Clone for IDCompositionScaleTransform {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionScaleTransform {
+unsafe impl ::windows::core::ComInterface for IDCompositionScaleTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71fde914_40ef_45ef_bd51_68b037c339f9);
 }
 #[repr(C)]
@@ -2501,57 +2501,57 @@ pub struct IDCompositionScaleTransform3D(::windows::core::IUnknown);
 impl IDCompositionScaleTransform3D {
     pub unsafe fn SetScaleX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetScaleX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetScaleX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetScaleX2(&self, scalex: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetScaleX2)(::windows::core::Vtable::as_raw(self), scalex).ok()
+        (::windows::core::Interface::vtable(self).SetScaleX2)(::windows::core::Interface::as_raw(self), scalex).ok()
     }
     pub unsafe fn SetScaleY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetScaleY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetScaleY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetScaleY2(&self, scaley: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetScaleY2)(::windows::core::Vtable::as_raw(self), scaley).ok()
+        (::windows::core::Interface::vtable(self).SetScaleY2)(::windows::core::Interface::as_raw(self), scaley).ok()
     }
     pub unsafe fn SetScaleZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetScaleZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetScaleZ)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetScaleZ2(&self, scalez: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetScaleZ2)(::windows::core::Vtable::as_raw(self), scalez).ok()
+        (::windows::core::Interface::vtable(self).SetScaleZ2)(::windows::core::Interface::as_raw(self), scalez).ok()
     }
     pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX2)(::windows::core::Interface::as_raw(self), centerx).ok()
     }
     pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY2)(::windows::core::Interface::as_raw(self), centery).ok()
     }
     pub unsafe fn SetCenterZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterZ)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterZ2(&self, centerz: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterZ2)(::windows::core::Vtable::as_raw(self), centerz).ok()
+        (::windows::core::Interface::vtable(self).SetCenterZ2)(::windows::core::Interface::as_raw(self), centerz).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionScaleTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -2566,7 +2566,7 @@ impl ::core::fmt::Debug for IDCompositionScaleTransform3D {
         f.debug_tuple("IDCompositionScaleTransform3D").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionScaleTransform3D {
+unsafe impl ::windows::core::Interface for IDCompositionScaleTransform3D {
     type Vtable = IDCompositionScaleTransform3D_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionScaleTransform3D {
@@ -2574,7 +2574,7 @@ impl ::core::clone::Clone for IDCompositionScaleTransform3D {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionScaleTransform3D {
+unsafe impl ::windows::core::ComInterface for IDCompositionScaleTransform3D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9e9ead_364b_4b15_a7c4_a1997f78b389);
 }
 #[repr(C)]
@@ -2600,59 +2600,59 @@ pub struct IDCompositionShadowEffect(::windows::core::IUnknown);
 impl IDCompositionShadowEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     pub unsafe fn SetStandardDeviation<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetStandardDeviation)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStandardDeviation)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetStandardDeviation2(&self, amount: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStandardDeviation2)(::windows::core::Vtable::as_raw(self), amount).ok()
+        (::windows::core::Interface::vtable(self).SetStandardDeviation2)(::windows::core::Interface::as_raw(self), amount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetColor(&self, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetColor)(::windows::core::Vtable::as_raw(self), color).ok()
+        (::windows::core::Interface::vtable(self).SetColor)(::windows::core::Interface::as_raw(self), color).ok()
     }
     pub unsafe fn SetRed<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetRed)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRed)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetRed2(&self, amount: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRed2)(::windows::core::Vtable::as_raw(self), amount).ok()
+        (::windows::core::Interface::vtable(self).SetRed2)(::windows::core::Interface::as_raw(self), amount).ok()
     }
     pub unsafe fn SetGreen<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetGreen)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGreen)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetGreen2(&self, amount: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGreen2)(::windows::core::Vtable::as_raw(self), amount).ok()
+        (::windows::core::Interface::vtable(self).SetGreen2)(::windows::core::Interface::as_raw(self), amount).ok()
     }
     pub unsafe fn SetBlue<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBlue)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBlue)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBlue2(&self, amount: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlue2)(::windows::core::Vtable::as_raw(self), amount).ok()
+        (::windows::core::Interface::vtable(self).SetBlue2)(::windows::core::Interface::as_raw(self), amount).ok()
     }
     pub unsafe fn SetAlpha<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAlpha)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAlpha)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAlpha2(&self, amount: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAlpha2)(::windows::core::Vtable::as_raw(self), amount).ok()
+        (::windows::core::Interface::vtable(self).SetAlpha2)(::windows::core::Interface::as_raw(self), amount).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionShadowEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -2667,7 +2667,7 @@ impl ::core::fmt::Debug for IDCompositionShadowEffect {
         f.debug_tuple("IDCompositionShadowEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionShadowEffect {
+unsafe impl ::windows::core::Interface for IDCompositionShadowEffect {
     type Vtable = IDCompositionShadowEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionShadowEffect {
@@ -2675,7 +2675,7 @@ impl ::core::clone::Clone for IDCompositionShadowEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionShadowEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionShadowEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ad18ac0_cfd2_4c2f_bb62_96e54fdb6879);
 }
 #[repr(C)]
@@ -2703,39 +2703,39 @@ pub struct IDCompositionSkewTransform(::windows::core::IUnknown);
 impl IDCompositionSkewTransform {
     pub unsafe fn SetAngleX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAngleX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAngleX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAngleX2(&self, anglex: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAngleX2)(::windows::core::Vtable::as_raw(self), anglex).ok()
+        (::windows::core::Interface::vtable(self).SetAngleX2)(::windows::core::Interface::as_raw(self), anglex).ok()
     }
     pub unsafe fn SetAngleY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAngleY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAngleY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAngleY2(&self, angley: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAngleY2)(::windows::core::Vtable::as_raw(self), angley).ok()
+        (::windows::core::Interface::vtable(self).SetAngleY2)(::windows::core::Interface::as_raw(self), angley).ok()
     }
     pub unsafe fn SetCenterX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterX2(&self, centerx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterX2)(::windows::core::Vtable::as_raw(self), centerx).ok()
+        (::windows::core::Interface::vtable(self).SetCenterX2)(::windows::core::Interface::as_raw(self), centerx).ok()
     }
     pub unsafe fn SetCenterY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetCenterY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
+        (::windows::core::Interface::vtable(self).SetCenterY2)(::windows::core::Interface::as_raw(self), centery).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionSkewTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -2750,7 +2750,7 @@ impl ::core::fmt::Debug for IDCompositionSkewTransform {
         f.debug_tuple("IDCompositionSkewTransform").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionSkewTransform {
+unsafe impl ::windows::core::Interface for IDCompositionSkewTransform {
     type Vtable = IDCompositionSkewTransform_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionSkewTransform {
@@ -2758,7 +2758,7 @@ impl ::core::clone::Clone for IDCompositionSkewTransform {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionSkewTransform {
+unsafe impl ::windows::core::ComInterface for IDCompositionSkewTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe57aa735_dcdb_4c72_9c61_0591f58889ee);
 }
 #[repr(C)]
@@ -2782,24 +2782,24 @@ impl IDCompositionSurface {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginDraw<T>(&self, updaterect: ::core::option::Option<*const super::super::Foundation::RECT>, updateoffset: *mut super::super::Foundation::POINT) -> ::windows::core::Result<T>
     where
-        T: ::windows::core::Interface,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__, updateoffset).from_abi(result__)
+        (::windows::core::Interface::vtable(self).BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::ComInterface>::IID, &mut result__, updateoffset).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EndDraw)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).EndDraw)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SuspendDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SuspendDraw)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).SuspendDraw)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn ResumeDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ResumeDraw)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).ResumeDraw)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scroll(&self, scrollrect: ::core::option::Option<*const super::super::Foundation::RECT>, cliprect: ::core::option::Option<*const super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Scroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
+        (::windows::core::Interface::vtable(self).Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionSurface, ::windows::core::IUnknown);
@@ -2814,7 +2814,7 @@ impl ::core::fmt::Debug for IDCompositionSurface {
         f.debug_tuple("IDCompositionSurface").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionSurface {
+unsafe impl ::windows::core::Interface for IDCompositionSurface {
     type Vtable = IDCompositionSurface_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionSurface {
@@ -2822,7 +2822,7 @@ impl ::core::clone::Clone for IDCompositionSurface {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionSurface {
+unsafe impl ::windows::core::ComInterface for IDCompositionSurface {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac);
 }
 #[repr(C)]
@@ -2849,13 +2849,13 @@ impl IDCompositionSurfaceFactory {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionSurface>();
-        (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::windows::core::zeroed::<IDCompositionVirtualSurface>();
-        (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualSurface)(::windows::core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionSurfaceFactory, ::windows::core::IUnknown);
@@ -2870,7 +2870,7 @@ impl ::core::fmt::Debug for IDCompositionSurfaceFactory {
         f.debug_tuple("IDCompositionSurfaceFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionSurfaceFactory {
+unsafe impl ::windows::core::Interface for IDCompositionSurfaceFactory {
     type Vtable = IDCompositionSurfaceFactory_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionSurfaceFactory {
@@ -2878,7 +2878,7 @@ impl ::core::clone::Clone for IDCompositionSurfaceFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionSurfaceFactory {
+unsafe impl ::windows::core::ComInterface for IDCompositionSurfaceFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8);
 }
 #[repr(C)]
@@ -2900,97 +2900,97 @@ pub struct IDCompositionTableTransferEffect(::windows::core::IUnknown);
 impl IDCompositionTableTransferEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     pub unsafe fn SetRedTable(&self, tablevalues: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRedTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetRedTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
     }
     pub unsafe fn SetGreenTable(&self, tablevalues: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGreenTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetGreenTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
     }
     pub unsafe fn SetBlueTable(&self, tablevalues: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlueTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetBlueTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
     }
     pub unsafe fn SetAlphaTable(&self, tablevalues: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAlphaTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRedDisable<P0>(&self, reddisable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetRedDisable)(::windows::core::Vtable::as_raw(self), reddisable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetRedDisable)(::windows::core::Interface::as_raw(self), reddisable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGreenDisable<P0>(&self, greendisable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetGreenDisable)(::windows::core::Vtable::as_raw(self), greendisable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetGreenDisable)(::windows::core::Interface::as_raw(self), greendisable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlueDisable<P0>(&self, bluedisable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetBlueDisable)(::windows::core::Vtable::as_raw(self), bluedisable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetBlueDisable)(::windows::core::Interface::as_raw(self), bluedisable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlphaDisable<P0>(&self, alphadisable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetAlphaDisable)(::windows::core::Vtable::as_raw(self), alphadisable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaDisable)(::windows::core::Interface::as_raw(self), alphadisable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClampOutput<P0>(&self, clampoutput: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clampoutput.into()).ok()
+        (::windows::core::Interface::vtable(self).SetClampOutput)(::windows::core::Interface::as_raw(self), clampoutput.into_param().abi()).ok()
     }
     pub unsafe fn SetRedTableValue<P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetRedTableValue)(::windows::core::Vtable::as_raw(self), index, animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRedTableValue)(::windows::core::Interface::as_raw(self), index, animation.into_param().abi()).ok()
     }
     pub unsafe fn SetRedTableValue2(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRedTableValue2)(::windows::core::Vtable::as_raw(self), index, value).ok()
+        (::windows::core::Interface::vtable(self).SetRedTableValue2)(::windows::core::Interface::as_raw(self), index, value).ok()
     }
     pub unsafe fn SetGreenTableValue<P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetGreenTableValue)(::windows::core::Vtable::as_raw(self), index, animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGreenTableValue)(::windows::core::Interface::as_raw(self), index, animation.into_param().abi()).ok()
     }
     pub unsafe fn SetGreenTableValue2(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGreenTableValue2)(::windows::core::Vtable::as_raw(self), index, value).ok()
+        (::windows::core::Interface::vtable(self).SetGreenTableValue2)(::windows::core::Interface::as_raw(self), index, value).ok()
     }
     pub unsafe fn SetBlueTableValue<P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetBlueTableValue)(::windows::core::Vtable::as_raw(self), index, animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBlueTableValue)(::windows::core::Interface::as_raw(self), index, animation.into_param().abi()).ok()
     }
     pub unsafe fn SetBlueTableValue2(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlueTableValue2)(::windows::core::Vtable::as_raw(self), index, value).ok()
+        (::windows::core::Interface::vtable(self).SetBlueTableValue2)(::windows::core::Interface::as_raw(self), index, value).ok()
     }
     pub unsafe fn SetAlphaTableValue<P0>(&self, index: u32, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetAlphaTableValue)(::windows::core::Vtable::as_raw(self), index, animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaTableValue)(::windows::core::Interface::as_raw(self), index, animation.into_param().abi()).ok()
     }
     pub unsafe fn SetAlphaTableValue2(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAlphaTableValue2)(::windows::core::Vtable::as_raw(self), index, value).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaTableValue2)(::windows::core::Interface::as_raw(self), index, value).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionTableTransferEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -3005,7 +3005,7 @@ impl ::core::fmt::Debug for IDCompositionTableTransferEffect {
         f.debug_tuple("IDCompositionTableTransferEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionTableTransferEffect {
+unsafe impl ::windows::core::Interface for IDCompositionTableTransferEffect {
     type Vtable = IDCompositionTableTransferEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionTableTransferEffect {
@@ -3013,7 +3013,7 @@ impl ::core::clone::Clone for IDCompositionTableTransferEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionTableTransferEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionTableTransferEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd);
 }
 #[repr(C)]
@@ -3059,9 +3059,9 @@ pub struct IDCompositionTarget(::windows::core::IUnknown);
 impl IDCompositionTarget {
     pub unsafe fn SetRoot<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).SetRoot)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRoot)(::windows::core::Interface::as_raw(self), visual.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionTarget, ::windows::core::IUnknown);
@@ -3076,7 +3076,7 @@ impl ::core::fmt::Debug for IDCompositionTarget {
         f.debug_tuple("IDCompositionTarget").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionTarget {
+unsafe impl ::windows::core::Interface for IDCompositionTarget {
     type Vtable = IDCompositionTarget_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionTarget {
@@ -3084,7 +3084,7 @@ impl ::core::clone::Clone for IDCompositionTarget {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionTarget {
+unsafe impl ::windows::core::ComInterface for IDCompositionTarget {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeacdd04c_117e_4e17_88f4_d1b12b0e3d89);
 }
 #[repr(C)]
@@ -3109,7 +3109,7 @@ impl ::core::fmt::Debug for IDCompositionTransform {
         f.debug_tuple("IDCompositionTransform").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionTransform {
+unsafe impl ::windows::core::Interface for IDCompositionTransform {
     type Vtable = IDCompositionTransform_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionTransform {
@@ -3117,7 +3117,7 @@ impl ::core::clone::Clone for IDCompositionTransform {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionTransform {
+unsafe impl ::windows::core::ComInterface for IDCompositionTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd55faa7_37e0_4c20_95d2_9be45bc33f55);
 }
 #[repr(C)]
@@ -3141,7 +3141,7 @@ impl ::core::fmt::Debug for IDCompositionTransform3D {
         f.debug_tuple("IDCompositionTransform3D").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionTransform3D {
+unsafe impl ::windows::core::Interface for IDCompositionTransform3D {
     type Vtable = IDCompositionTransform3D_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionTransform3D {
@@ -3149,7 +3149,7 @@ impl ::core::clone::Clone for IDCompositionTransform3D {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionTransform3D {
+unsafe impl ::windows::core::ComInterface for IDCompositionTransform3D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71185722_246b_41f2_aad1_0443f7f4bfc2);
 }
 #[repr(C)]
@@ -3163,21 +3163,21 @@ pub struct IDCompositionTranslateTransform(::windows::core::IUnknown);
 impl IDCompositionTranslateTransform {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetX2)(::windows::core::Interface::as_raw(self), offsetx).ok()
     }
     pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetY2)(::windows::core::Interface::as_raw(self), offsety).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionTranslateTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -3192,7 +3192,7 @@ impl ::core::fmt::Debug for IDCompositionTranslateTransform {
         f.debug_tuple("IDCompositionTranslateTransform").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionTranslateTransform {
+unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform {
     type Vtable = IDCompositionTranslateTransform_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionTranslateTransform {
@@ -3200,7 +3200,7 @@ impl ::core::clone::Clone for IDCompositionTranslateTransform {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform {
+unsafe impl ::windows::core::ComInterface for IDCompositionTranslateTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06791122_c6f0_417d_8323_269e987f5954);
 }
 #[repr(C)]
@@ -3218,30 +3218,30 @@ pub struct IDCompositionTranslateTransform3D(::windows::core::IUnknown);
 impl IDCompositionTranslateTransform3D {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetX2)(::windows::core::Interface::as_raw(self), offsetx).ok()
     }
     pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetY2)(::windows::core::Interface::as_raw(self), offsety).ok()
     }
     pub unsafe fn SetOffsetZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOffsetZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetZ)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetZ2(&self, offsetz: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffsetZ2)(::windows::core::Vtable::as_raw(self), offsetz).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetZ2)(::windows::core::Interface::as_raw(self), offsetz).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionTranslateTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -3256,7 +3256,7 @@ impl ::core::fmt::Debug for IDCompositionTranslateTransform3D {
         f.debug_tuple("IDCompositionTranslateTransform3D").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionTranslateTransform3D {
+unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform3D {
     type Vtable = IDCompositionTranslateTransform3D_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionTranslateTransform3D {
@@ -3264,7 +3264,7 @@ impl ::core::clone::Clone for IDCompositionTranslateTransform3D {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform3D {
+unsafe impl ::windows::core::ComInterface for IDCompositionTranslateTransform3D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91636d4b_9ba1_4532_aaf7_e3344994d788);
 }
 #[repr(C)]
@@ -3284,43 +3284,43 @@ pub struct IDCompositionTurbulenceEffect(::windows::core::IUnknown);
 impl IDCompositionTurbulenceEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInput)(::windows::core::Interface::as_raw(self), index, input.into_param().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetOffset(&self, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffset)(::windows::core::Vtable::as_raw(self), offset).ok()
+        (::windows::core::Interface::vtable(self).SetOffset)(::windows::core::Interface::as_raw(self), offset).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetBaseFrequency(&self, frequency: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBaseFrequency)(::windows::core::Vtable::as_raw(self), frequency).ok()
+        (::windows::core::Interface::vtable(self).SetBaseFrequency)(::windows::core::Interface::as_raw(self), frequency).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetSize(&self, size: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSize)(::windows::core::Vtable::as_raw(self), size).ok()
+        (::windows::core::Interface::vtable(self).SetSize)(::windows::core::Interface::as_raw(self), size).ok()
     }
     pub unsafe fn SetNumOctaves(&self, numoctaves: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNumOctaves)(::windows::core::Vtable::as_raw(self), numoctaves).ok()
+        (::windows::core::Interface::vtable(self).SetNumOctaves)(::windows::core::Interface::as_raw(self), numoctaves).ok()
     }
     pub unsafe fn SetSeed(&self, seed: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSeed)(::windows::core::Vtable::as_raw(self), seed).ok()
+        (::windows::core::Interface::vtable(self).SetSeed)(::windows::core::Interface::as_raw(self), seed).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetNoise(&self, noise: super::Direct2D::Common::D2D1_TURBULENCE_NOISE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNoise)(::windows::core::Vtable::as_raw(self), noise).ok()
+        (::windows::core::Interface::vtable(self).SetNoise)(::windows::core::Interface::as_raw(self), noise).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStitchable<P0>(&self, stitchable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetStitchable)(::windows::core::Vtable::as_raw(self), stitchable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetStitchable)(::windows::core::Interface::as_raw(self), stitchable.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionTurbulenceEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -3335,7 +3335,7 @@ impl ::core::fmt::Debug for IDCompositionTurbulenceEffect {
         f.debug_tuple("IDCompositionTurbulenceEffect").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionTurbulenceEffect {
+unsafe impl ::windows::core::Interface for IDCompositionTurbulenceEffect {
     type Vtable = IDCompositionTurbulenceEffect_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionTurbulenceEffect {
@@ -3343,7 +3343,7 @@ impl ::core::clone::Clone for IDCompositionTurbulenceEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionTurbulenceEffect {
+unsafe impl ::windows::core::ComInterface for IDCompositionTurbulenceEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6a55bda_c09c_49f3_9193_a41922c89715);
 }
 #[repr(C)]
@@ -3381,32 +3381,32 @@ impl IDCompositionVirtualSurface {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginDraw<T>(&self, updaterect: ::core::option::Option<*const super::super::Foundation::RECT>, updateoffset: *mut super::super::Foundation::POINT) -> ::windows::core::Result<T>
     where
-        T: ::windows::core::Interface,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).base__.BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__, updateoffset).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::ComInterface>::IID, &mut result__, updateoffset).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EndDraw)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.EndDraw)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SuspendDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SuspendDraw)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SuspendDraw)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn ResumeDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.ResumeDraw)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.ResumeDraw)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scroll(&self, scrollrect: ::core::option::Option<*const super::super::Foundation::RECT>, cliprect: ::core::option::Option<*const super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Scroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
+        (::windows::core::Interface::vtable(self).base__.Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
     }
     pub unsafe fn Resize(&self, width: u32, height: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Resize)(::windows::core::Vtable::as_raw(self), width, height).ok()
+        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), width, height).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Trim(&self, rectangles: ::core::option::Option<&[super::super::Foundation::RECT]>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Trim)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rectangles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rectangles.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows::core::Interface::vtable(self).Trim)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rectangles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rectangles.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionVirtualSurface, ::windows::core::IUnknown, IDCompositionSurface);
@@ -3421,7 +3421,7 @@ impl ::core::fmt::Debug for IDCompositionVirtualSurface {
         f.debug_tuple("IDCompositionVirtualSurface").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionVirtualSurface {
+unsafe impl ::windows::core::Interface for IDCompositionVirtualSurface {
     type Vtable = IDCompositionVirtualSurface_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionVirtualSurface {
@@ -3429,7 +3429,7 @@ impl ::core::clone::Clone for IDCompositionVirtualSurface {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionVirtualSurface {
+unsafe impl ::windows::core::ComInterface for IDCompositionVirtualSurface {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0);
 }
 #[repr(C)]
@@ -3448,89 +3448,89 @@ pub struct IDCompositionVisual(::windows::core::IUnknown);
 impl IDCompositionVisual {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetX2)(::windows::core::Interface::as_raw(self), offsetx).ok()
     }
     pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetY2)(::windows::core::Interface::as_raw(self), offsety).ok()
     }
     pub unsafe fn SetTransform<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform>>,
+        P0: ::windows::core::IntoParam<IDCompositionTransform>,
     {
-        (::windows::core::Vtable::vtable(self).SetTransform)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTransform)(::windows::core::Interface::as_raw(self), transform.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
+        (::windows::core::Interface::vtable(self).SetTransform2)(::windows::core::Interface::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).SetTransformParent)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTransformParent)(::windows::core::Interface::as_raw(self), visual.into_param().abi()).ok()
     }
     pub unsafe fn SetEffect<P0>(&self, effect: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionEffect>>,
+        P0: ::windows::core::IntoParam<IDCompositionEffect>,
     {
-        (::windows::core::Vtable::vtable(self).SetEffect)(::windows::core::Vtable::as_raw(self), effect.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEffect)(::windows::core::Interface::as_raw(self), effect.into_param().abi()).ok()
     }
     pub unsafe fn SetBitmapInterpolationMode(&self, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBitmapInterpolationMode)(::windows::core::Vtable::as_raw(self), interpolationmode).ok()
+        (::windows::core::Interface::vtable(self).SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode).ok()
     }
     pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBorderMode)(::windows::core::Vtable::as_raw(self), bordermode).ok()
+        (::windows::core::Interface::vtable(self).SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode).ok()
     }
     pub unsafe fn SetClip<P0>(&self, clip: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionClip>>,
+        P0: ::windows::core::IntoParam<IDCompositionClip>,
     {
-        (::windows::core::Vtable::vtable(self).SetClip)(::windows::core::Vtable::as_raw(self), clip.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetClip)(::windows::core::Interface::as_raw(self), clip.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
+        (::windows::core::Interface::vtable(self).SetClip2)(::windows::core::Interface::as_raw(self), rect).ok()
     }
     pub unsafe fn SetContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetContent)(::windows::core::Interface::as_raw(self), content.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddVisual<P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).AddVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi(), insertabove.into(), referencevisual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddVisual)(::windows::core::Interface::as_raw(self), visual.into_param().abi(), insertabove.into_param().abi(), referencevisual.into_param().abi()).ok()
     }
     pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveVisual)(::windows::core::Interface::as_raw(self), visual.into_param().abi()).ok()
     }
     pub unsafe fn RemoveAllVisuals(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveAllVisuals)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).RemoveAllVisuals)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCompositeMode)(::windows::core::Vtable::as_raw(self), compositemode).ok()
+        (::windows::core::Interface::vtable(self).SetCompositeMode)(::windows::core::Interface::as_raw(self), compositemode).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionVisual, ::windows::core::IUnknown);
@@ -3545,7 +3545,7 @@ impl ::core::fmt::Debug for IDCompositionVisual {
         f.debug_tuple("IDCompositionVisual").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionVisual {
+unsafe impl ::windows::core::Interface for IDCompositionVisual {
     type Vtable = IDCompositionVisual_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionVisual {
@@ -3553,7 +3553,7 @@ impl ::core::clone::Clone for IDCompositionVisual {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionVisual {
+unsafe impl ::windows::core::ComInterface for IDCompositionVisual {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d93059d_097b_4651_9a60_f0f25116e2f3);
 }
 #[repr(C)]
@@ -3593,95 +3593,95 @@ pub struct IDCompositionVisual2(::windows::core::IUnknown);
 impl IDCompositionVisual2 {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetOffsetX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
+        (::windows::core::Interface::vtable(self).base__.SetOffsetX2)(::windows::core::Interface::as_raw(self), offsetx).ok()
     }
     pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetOffsetY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
+        (::windows::core::Interface::vtable(self).base__.SetOffsetY2)(::windows::core::Interface::as_raw(self), offsety).ok()
     }
     pub unsafe fn SetTransform<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform>>,
+        P0: ::windows::core::IntoParam<IDCompositionTransform>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetTransform)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetTransform)(::windows::core::Interface::as_raw(self), transform.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
+        (::windows::core::Interface::vtable(self).base__.SetTransform2)(::windows::core::Interface::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetTransformParent)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetTransformParent)(::windows::core::Interface::as_raw(self), visual.into_param().abi()).ok()
     }
     pub unsafe fn SetEffect<P0>(&self, effect: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionEffect>>,
+        P0: ::windows::core::IntoParam<IDCompositionEffect>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetEffect)(::windows::core::Vtable::as_raw(self), effect.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEffect)(::windows::core::Interface::as_raw(self), effect.into_param().abi()).ok()
     }
     pub unsafe fn SetBitmapInterpolationMode(&self, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBitmapInterpolationMode)(::windows::core::Vtable::as_raw(self), interpolationmode).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode).ok()
     }
     pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBorderMode)(::windows::core::Vtable::as_raw(self), bordermode).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode).ok()
     }
     pub unsafe fn SetClip<P0>(&self, clip: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionClip>>,
+        P0: ::windows::core::IntoParam<IDCompositionClip>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetClip)(::windows::core::Vtable::as_raw(self), clip.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetClip)(::windows::core::Interface::as_raw(self), clip.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
+        (::windows::core::Interface::vtable(self).base__.SetClip2)(::windows::core::Interface::as_raw(self), rect).ok()
     }
     pub unsafe fn SetContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetContent)(::windows::core::Interface::as_raw(self), content.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddVisual<P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi(), insertabove.into(), referencevisual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.AddVisual)(::windows::core::Interface::as_raw(self), visual.into_param().abi(), insertabove.into_param().abi(), referencevisual.into_param().abi()).ok()
     }
     pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RemoveVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveVisual)(::windows::core::Interface::as_raw(self), visual.into_param().abi()).ok()
     }
     pub unsafe fn RemoveAllVisuals(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RemoveAllVisuals)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.RemoveAllVisuals)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetCompositeMode)(::windows::core::Vtable::as_raw(self), compositemode).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCompositeMode)(::windows::core::Interface::as_raw(self), compositemode).ok()
     }
     pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOpacityMode)(::windows::core::Vtable::as_raw(self), mode).ok()
+        (::windows::core::Interface::vtable(self).SetOpacityMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBackFaceVisibility)(::windows::core::Vtable::as_raw(self), visibility).ok()
+        (::windows::core::Interface::vtable(self).SetBackFaceVisibility)(::windows::core::Interface::as_raw(self), visibility).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionVisual2, ::windows::core::IUnknown, IDCompositionVisual);
@@ -3696,7 +3696,7 @@ impl ::core::fmt::Debug for IDCompositionVisual2 {
         f.debug_tuple("IDCompositionVisual2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionVisual2 {
+unsafe impl ::windows::core::Interface for IDCompositionVisual2 {
     type Vtable = IDCompositionVisual2_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionVisual2 {
@@ -3704,7 +3704,7 @@ impl ::core::clone::Clone for IDCompositionVisual2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionVisual2 {
+unsafe impl ::windows::core::ComInterface for IDCompositionVisual2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8de1639_4331_4b26_bc5f_6a321d347a85);
 }
 #[repr(C)]
@@ -3720,149 +3720,149 @@ pub struct IDCompositionVisual3(::windows::core::IUnknown);
 impl IDCompositionVisual3 {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetOffsetX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetOffsetX2)(::windows::core::Interface::as_raw(self), offsetx).ok()
     }
     pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetOffsetY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetOffsetY2)(::windows::core::Interface::as_raw(self), offsety).ok()
     }
     pub unsafe fn SetTransform<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform>>,
+        P0: ::windows::core::IntoParam<IDCompositionTransform>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTransform)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetTransform)(::windows::core::Interface::as_raw(self), transform.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetTransform2)(::windows::core::Interface::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTransformParent)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetTransformParent)(::windows::core::Interface::as_raw(self), visual.into_param().abi()).ok()
     }
     pub unsafe fn SetEffect<P0>(&self, effect: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionEffect>>,
+        P0: ::windows::core::IntoParam<IDCompositionEffect>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetEffect)(::windows::core::Vtable::as_raw(self), effect.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetEffect)(::windows::core::Interface::as_raw(self), effect.into_param().abi()).ok()
     }
     pub unsafe fn SetBitmapInterpolationMode(&self, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetBitmapInterpolationMode)(::windows::core::Vtable::as_raw(self), interpolationmode).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode).ok()
     }
     pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetBorderMode)(::windows::core::Vtable::as_raw(self), bordermode).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode).ok()
     }
     pub unsafe fn SetClip<P0>(&self, clip: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionClip>>,
+        P0: ::windows::core::IntoParam<IDCompositionClip>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetClip)(::windows::core::Vtable::as_raw(self), clip.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClip)(::windows::core::Interface::as_raw(self), clip.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClip2)(::windows::core::Interface::as_raw(self), rect).ok()
     }
     pub unsafe fn SetContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetContent)(::windows::core::Interface::as_raw(self), content.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddVisual<P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.AddVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi(), insertabove.into(), referencevisual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.AddVisual)(::windows::core::Interface::as_raw(self), visual.into_param().abi(), insertabove.into_param().abi(), referencevisual.into_param().abi()).ok()
     }
     pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.RemoveVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.RemoveVisual)(::windows::core::Interface::as_raw(self), visual.into_param().abi()).ok()
     }
     pub unsafe fn RemoveAllVisuals(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.RemoveAllVisuals)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.RemoveAllVisuals)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetCompositeMode)(::windows::core::Vtable::as_raw(self), compositemode).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetCompositeMode)(::windows::core::Interface::as_raw(self), compositemode).ok()
     }
     pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetOpacityMode)(::windows::core::Vtable::as_raw(self), mode).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetOpacityMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetBackFaceVisibility)(::windows::core::Vtable::as_raw(self), visibility).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetBackFaceVisibility)(::windows::core::Interface::as_raw(self), visibility).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnableHeatMap)(::windows::core::Vtable::as_raw(self), color).ok()
+        (::windows::core::Interface::vtable(self).base__.EnableHeatMap)(::windows::core::Interface::as_raw(self), color).ok()
     }
     pub unsafe fn DisableHeatMap(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DisableHeatMap)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.DisableHeatMap)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn EnableRedrawRegions(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnableRedrawRegions)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.EnableRedrawRegions)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn DisableRedrawRegions(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DisableRedrawRegions)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.DisableRedrawRegions)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetDepthMode(&self, mode: DCOMPOSITION_DEPTH_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDepthMode)(::windows::core::Vtable::as_raw(self), mode).ok()
+        (::windows::core::Interface::vtable(self).SetDepthMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     pub unsafe fn SetOffsetZ<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOffsetZ)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetZ)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetZ2(&self, offsetz: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffsetZ2)(::windows::core::Vtable::as_raw(self), offsetz).ok()
+        (::windows::core::Interface::vtable(self).SetOffsetZ2)(::windows::core::Interface::as_raw(self), offsetz).ok()
     }
     pub unsafe fn SetOpacity<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).SetOpacity)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOpacity)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOpacity2(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOpacity2)(::windows::core::Vtable::as_raw(self), opacity).ok()
+        (::windows::core::Interface::vtable(self).SetOpacity2)(::windows::core::Interface::as_raw(self), opacity).ok()
     }
     pub unsafe fn SetTransform3<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform3D>>,
+        P0: ::windows::core::IntoParam<IDCompositionTransform3D>,
     {
-        (::windows::core::Vtable::vtable(self).SetTransform3)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTransform3)(::windows::core::Interface::as_raw(self), transform.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetTransform4(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTransform4)(::windows::core::Vtable::as_raw(self), matrix).ok()
+        (::windows::core::Interface::vtable(self).SetTransform4)(::windows::core::Interface::as_raw(self), matrix).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVisible<P0>(&self, visible: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), visible.into()).ok()
+        (::windows::core::Interface::vtable(self).SetVisible)(::windows::core::Interface::as_raw(self), visible.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionVisual3, ::windows::core::IUnknown, IDCompositionVisual, IDCompositionVisual2, IDCompositionVisualDebug);
@@ -3877,7 +3877,7 @@ impl ::core::fmt::Debug for IDCompositionVisual3 {
         f.debug_tuple("IDCompositionVisual3").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionVisual3 {
+unsafe impl ::windows::core::Interface for IDCompositionVisual3 {
     type Vtable = IDCompositionVisual3_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionVisual3 {
@@ -3885,7 +3885,7 @@ impl ::core::clone::Clone for IDCompositionVisual3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionVisual3 {
+unsafe impl ::windows::core::ComInterface for IDCompositionVisual3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2775f462_b6c1_4015_b0be_b3e7d6a4976d);
 }
 #[repr(C)]
@@ -3913,109 +3913,109 @@ pub struct IDCompositionVisualDebug(::windows::core::IUnknown);
 impl IDCompositionVisualDebug {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetOffsetX)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetOffsetX)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetX2(&self, offsetx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetOffsetX2)(::windows::core::Vtable::as_raw(self), offsetx).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetOffsetX2)(::windows::core::Interface::as_raw(self), offsetx).ok()
     }
     pub unsafe fn SetOffsetY<P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionAnimation>>,
+        P0: ::windows::core::IntoParam<IDCompositionAnimation>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetOffsetY)(::windows::core::Vtable::as_raw(self), animation.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetOffsetY)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
     }
     pub unsafe fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetOffsetY2)(::windows::core::Interface::as_raw(self), offsety).ok()
     }
     pub unsafe fn SetTransform<P0>(&self, transform: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionTransform>>,
+        P0: ::windows::core::IntoParam<IDCompositionTransform>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetTransform)(::windows::core::Vtable::as_raw(self), transform.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetTransform)(::windows::core::Interface::as_raw(self), transform.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetTransform2)(::windows::core::Interface::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetTransformParent)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetTransformParent)(::windows::core::Interface::as_raw(self), visual.into_param().abi()).ok()
     }
     pub unsafe fn SetEffect<P0>(&self, effect: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionEffect>>,
+        P0: ::windows::core::IntoParam<IDCompositionEffect>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetEffect)(::windows::core::Vtable::as_raw(self), effect.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetEffect)(::windows::core::Interface::as_raw(self), effect.into_param().abi()).ok()
     }
     pub unsafe fn SetBitmapInterpolationMode(&self, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetBitmapInterpolationMode)(::windows::core::Vtable::as_raw(self), interpolationmode).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode).ok()
     }
     pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetBorderMode)(::windows::core::Vtable::as_raw(self), bordermode).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode).ok()
     }
     pub unsafe fn SetClip<P0>(&self, clip: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionClip>>,
+        P0: ::windows::core::IntoParam<IDCompositionClip>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetClip)(::windows::core::Vtable::as_raw(self), clip.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetClip)(::windows::core::Interface::as_raw(self), clip.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetClip2)(::windows::core::Interface::as_raw(self), rect).ok()
     }
     pub unsafe fn SetContent<P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetContent)(::windows::core::Vtable::as_raw(self), content.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetContent)(::windows::core::Interface::as_raw(self), content.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddVisual<P0, P1, P2>(&self, visual: P0, insertabove: P1, referencevisual: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.AddVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi(), insertabove.into(), referencevisual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.AddVisual)(::windows::core::Interface::as_raw(self), visual.into_param().abi(), insertabove.into_param().abi(), referencevisual.into_param().abi()).ok()
     }
     pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDCompositionVisual>>,
+        P0: ::windows::core::IntoParam<IDCompositionVisual>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.RemoveVisual)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.RemoveVisual)(::windows::core::Interface::as_raw(self), visual.into_param().abi()).ok()
     }
     pub unsafe fn RemoveAllVisuals(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.RemoveAllVisuals)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.RemoveAllVisuals)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetCompositeMode)(::windows::core::Vtable::as_raw(self), compositemode).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetCompositeMode)(::windows::core::Interface::as_raw(self), compositemode).ok()
     }
     pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetOpacityMode)(::windows::core::Vtable::as_raw(self), mode).ok()
+        (::windows::core::Interface::vtable(self).base__.SetOpacityMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
     pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBackFaceVisibility)(::windows::core::Vtable::as_raw(self), visibility).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBackFaceVisibility)(::windows::core::Interface::as_raw(self), visibility).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnableHeatMap)(::windows::core::Vtable::as_raw(self), color).ok()
+        (::windows::core::Interface::vtable(self).EnableHeatMap)(::windows::core::Interface::as_raw(self), color).ok()
     }
     pub unsafe fn DisableHeatMap(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisableHeatMap)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).DisableHeatMap)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn EnableRedrawRegions(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnableRedrawRegions)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).EnableRedrawRegions)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn DisableRedrawRegions(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisableRedrawRegions)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).DisableRedrawRegions)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDCompositionVisualDebug, ::windows::core::IUnknown, IDCompositionVisual, IDCompositionVisual2);
@@ -4030,7 +4030,7 @@ impl ::core::fmt::Debug for IDCompositionVisualDebug {
         f.debug_tuple("IDCompositionVisualDebug").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDCompositionVisualDebug {
+unsafe impl ::windows::core::Interface for IDCompositionVisualDebug {
     type Vtable = IDCompositionVisualDebug_Vtbl;
 }
 impl ::core::clone::Clone for IDCompositionVisualDebug {
@@ -4038,7 +4038,7 @@ impl ::core::clone::Clone for IDCompositionVisualDebug {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDCompositionVisualDebug {
+unsafe impl ::windows::core::ComInterface for IDCompositionVisualDebug {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfed2b808_5eb4_43a0_aea3_35f65280f91b);
 }
 #[repr(C)]

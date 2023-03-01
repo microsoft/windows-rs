@@ -33,7 +33,7 @@ impl ICompositionFramePresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositionFramePresentStatistics as ::windows::core::Interface>::IID || iid == &<IPresentStatistics as ::windows::core::Interface>::IID
+        iid == &<ICompositionFramePresentStatistics as ::windows::core::ComInterface>::IID || iid == &<IPresentStatistics as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -85,7 +85,7 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIndependentFlipFramePresentStatistics as ::windows::core::Interface>::IID || iid == &<IPresentStatistics as ::windows::core::Interface>::IID
+        iid == &<IIndependentFlipFramePresentStatistics as ::windows::core::ComInterface>::IID || iid == &<IPresentStatistics as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
@@ -113,7 +113,7 @@ impl IPresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPresentStatistics as ::windows::core::Interface>::IID
+        iid == &<IPresentStatistics as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
@@ -141,7 +141,7 @@ impl IPresentStatusPresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPresentStatusPresentStatistics as ::windows::core::Interface>::IID || iid == &<IPresentStatistics as ::windows::core::Interface>::IID
+        iid == &<IPresentStatusPresentStatistics as ::windows::core::ComInterface>::IID || iid == &<IPresentStatistics as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -184,7 +184,7 @@ impl IPresentationBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPresentationBuffer as ::windows::core::Interface>::IID
+        iid == &<IPresentationBuffer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
@@ -202,7 +202,7 @@ impl IPresentationContent_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetTag: SetTag::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPresentationContent as ::windows::core::Interface>::IID
+        iid == &<IPresentationContent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
@@ -243,7 +243,7 @@ impl IPresentationFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPresentationFactory as ::windows::core::Interface>::IID
+        iid == &<IPresentationFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -387,7 +387,7 @@ impl IPresentationManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPresentationManager as ::windows::core::Interface>::IID
+        iid == &<IPresentationManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -460,6 +460,6 @@ impl IPresentationSurface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPresentationSurface as ::windows::core::Interface>::IID || iid == &<IPresentationContent as ::windows::core::Interface>::IID
+        iid == &<IPresentationSurface as ::windows::core::ComInterface>::IID || iid == &<IPresentationContent as ::windows::core::ComInterface>::IID
     }
 }

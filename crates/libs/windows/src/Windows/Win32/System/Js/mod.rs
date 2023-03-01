@@ -70,10 +70,10 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) 
 #[inline]
 pub unsafe fn JsCreateContext<P0>(runtime: *const ::core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IDebugApplication64>>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IDebugApplication64>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : * mut::core::ffi::c_void , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateContext(runtime, debugapplication.into().abi(), newcontext)
+    JsCreateContext(runtime, debugapplication.into_param().abi(), newcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -81,10 +81,10 @@ where
 #[inline]
 pub unsafe fn JsCreateContext<P0>(runtime: *const ::core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IDebugApplication32>>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IDebugApplication32>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : * mut::core::ffi::c_void , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateContext(runtime, debugapplication.into().abi(), newcontext)
+    JsCreateContext(runtime, debugapplication.into_param().abi(), newcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -271,10 +271,10 @@ pub unsafe fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *con
 #[inline]
 pub unsafe fn JsGetPropertyIdFromName<P0>(name: P0, propertyid: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsGetPropertyIdFromName ( name : :: windows::core::PCWSTR , propertyid : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetPropertyIdFromName(name.into().abi(), propertyid)
+    JsGetPropertyIdFromName(name.into_param().abi(), propertyid)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -388,21 +388,21 @@ pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *
 #[inline]
 pub unsafe fn JsParseScript<P0, P1>(script: P0, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsParseScript ( script : :: windows::core::PCWSTR , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsParseScript(script.into().abi(), sourcecontext, sourceurl.into().abi(), result)
+    JsParseScript(script.into_param().abi(), sourcecontext, sourceurl.into_param().abi(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsParseSerializedScript<P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsParseSerializedScript ( script : :: windows::core::PCWSTR , buffer : *const u8 , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsParseSerializedScript(script.into().abi(), buffer, sourcecontext, sourceurl.into().abi(), result)
+    JsParseSerializedScript(script.into_param().abi(), buffer, sourcecontext, sourceurl.into_param().abi(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -426,30 +426,30 @@ pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: ::core::option
 #[inline]
 pub unsafe fn JsRunScript<P0, P1>(script: P0, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsRunScript ( script : :: windows::core::PCWSTR , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsRunScript(script.into().abi(), sourcecontext, sourceurl.into().abi(), result)
+    JsRunScript(script.into_param().abi(), sourcecontext, sourceurl.into_param().abi(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsRunSerializedScript<P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsRunSerializedScript ( script : :: windows::core::PCWSTR , buffer : *const u8 , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsRunSerializedScript(script.into().abi(), buffer, sourcecontext, sourceurl.into().abi(), result)
+    JsRunSerializedScript(script.into_param().abi(), buffer, sourcecontext, sourceurl.into_param().abi(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSerializeScript<P0>(script: P0, buffer: ::core::option::Option<*mut u8>, buffersize: *mut u32) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsSerializeScript ( script : :: windows::core::PCWSTR , buffer : *mut u8 , buffersize : *mut u32 ) -> JsErrorCode );
-    JsSerializeScript(script.into().abi(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize)
+    JsSerializeScript(script.into_param().abi(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -511,10 +511,10 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
 #[inline]
 pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IDebugApplication64>>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IDebugApplication64>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsStartDebugging ( debugapplication : * mut::core::ffi::c_void ) -> JsErrorCode );
-    JsStartDebugging(debugapplication.into().abi())
+    JsStartDebugging(debugapplication.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -522,20 +522,20 @@ where
 #[inline]
 pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IDebugApplication32>>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IDebugApplication32>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsStartDebugging ( debugapplication : * mut::core::ffi::c_void ) -> JsErrorCode );
-    JsStartDebugging(debugapplication.into().abi())
+    JsStartDebugging(debugapplication.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsStartProfiling<P0>(callback: P0, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::Diagnostics::Debug::IActiveScriptProfilerCallback>>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IActiveScriptProfilerCallback>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsStartProfiling ( callback : * mut::core::ffi::c_void , eventmask : super::Diagnostics::Debug:: PROFILER_EVENT_MASK , context : u32 ) -> JsErrorCode );
-    JsStartProfiling(callback.into().abi(), eventmask, context)
+    JsStartProfiling(callback.into_param().abi(), eventmask, context)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]

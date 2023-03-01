@@ -35,7 +35,7 @@ impl ISysStorageProviderEventSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISysStorageProviderEventSource as ::windows::core::Interface>::IID
+        iid == &<ISysStorageProviderEventSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"implement\"`*"]
@@ -79,7 +79,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISysStorageProviderHandlerFactory as ::windows::core::Interface>::IID
+        iid == &<ISysStorageProviderHandlerFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`, `\"Web_Http\"`, `\"implement\"`*"]
@@ -112,6 +112,6 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISysStorageProviderHttpRequestProvider as ::windows::core::Interface>::IID
+        iid == &<ISysStorageProviderHttpRequestProvider as ::windows::core::ComInterface>::IID
     }
 }

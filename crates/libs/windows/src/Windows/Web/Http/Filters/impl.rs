@@ -25,6 +25,6 @@ impl IHttpFilter_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IHttpFilter, OFFSET>(), SendRequestAsync: SendRequestAsync::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHttpFilter as ::windows::core::Interface>::IID
+        iid == &<IHttpFilter as ::windows::core::ComInterface>::IID
     }
 }

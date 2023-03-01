@@ -13,7 +13,7 @@ impl IActivateAudioInterfaceAsyncOperation_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetActivateResult: GetActivateResult::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActivateAudioInterfaceAsyncOperation as ::windows::core::Interface>::IID
+        iid == &<IActivateAudioInterfaceAsyncOperation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -31,7 +31,7 @@ impl IActivateAudioInterfaceCompletionHandler_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ActivateCompleted: ActivateCompleted::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActivateAudioInterfaceCompletionHandler as ::windows::core::Interface>::IID
+        iid == &<IActivateAudioInterfaceCompletionHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -82,7 +82,7 @@ impl IAudioAmbisonicsControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioAmbisonicsControl as ::windows::core::Interface>::IID
+        iid == &<IAudioAmbisonicsControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -119,7 +119,7 @@ impl IAudioAutoGainControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioAutoGainControl as ::windows::core::Interface>::IID
+        iid == &<IAudioAutoGainControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -130,7 +130,7 @@ impl IAudioBass_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioBass as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
+        iid == &<IAudioBass as ::windows::core::ComInterface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -171,7 +171,7 @@ impl IAudioCaptureClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioCaptureClient as ::windows::core::Interface>::IID
+        iid == &<IAudioCaptureClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -205,7 +205,7 @@ impl IAudioChannelConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioChannelConfig as ::windows::core::Interface>::IID
+        iid == &<IAudioChannelConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -330,7 +330,7 @@ impl IAudioClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioClient as ::windows::core::Interface>::IID
+        iid == &<IAudioClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -374,7 +374,7 @@ impl IAudioClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioClient2 as ::windows::core::Interface>::IID || iid == &<IAudioClient as ::windows::core::Interface>::IID
+        iid == &<IAudioClient2 as ::windows::core::ComInterface>::IID || iid == &<IAudioClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -412,7 +412,7 @@ impl IAudioClient3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioClient3 as ::windows::core::Interface>::IID || iid == &<IAudioClient as ::windows::core::Interface>::IID || iid == &<IAudioClient2 as ::windows::core::Interface>::IID
+        iid == &<IAudioClient3 as ::windows::core::ComInterface>::IID || iid == &<IAudioClient as ::windows::core::ComInterface>::IID || iid == &<IAudioClient2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -433,7 +433,7 @@ impl IAudioClientDuckingControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioClientDuckingControl as ::windows::core::Interface>::IID
+        iid == &<IAudioClientDuckingControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -480,7 +480,7 @@ impl IAudioClock_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioClock as ::windows::core::Interface>::IID
+        iid == &<IAudioClock as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -498,7 +498,7 @@ impl IAudioClock2_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDevicePosition: GetDevicePosition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioClock2 as ::windows::core::Interface>::IID
+        iid == &<IAudioClock2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -516,7 +516,7 @@ impl IAudioClockAdjustment_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSampleRate: SetSampleRate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioClockAdjustment as ::windows::core::Interface>::IID
+        iid == &<IAudioClockAdjustment as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -534,7 +534,7 @@ impl IAudioEffectsChangedNotificationClient_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnAudioEffectsChanged: OnAudioEffectsChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEffectsChangedNotificationClient as ::windows::core::Interface>::IID
+        iid == &<IAudioEffectsChangedNotificationClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -579,7 +579,7 @@ impl IAudioEffectsManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEffectsManager as ::windows::core::Interface>::IID
+        iid == &<IAudioEffectsManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -619,7 +619,7 @@ impl IAudioFormatEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioFormatEnumerator as ::windows::core::Interface>::IID
+        iid == &<IAudioFormatEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -653,7 +653,7 @@ impl IAudioInputSelector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioInputSelector as ::windows::core::Interface>::IID
+        iid == &<IAudioInputSelector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -690,7 +690,7 @@ impl IAudioLoudness_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioLoudness as ::windows::core::Interface>::IID
+        iid == &<IAudioLoudness as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -701,7 +701,7 @@ impl IAudioMidrange_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioMidrange as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
+        iid == &<IAudioMidrange as ::windows::core::ComInterface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -738,7 +738,7 @@ impl IAudioMute_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioMute as ::windows::core::Interface>::IID
+        iid == &<IAudioMute as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -772,7 +772,7 @@ impl IAudioOutputSelector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioOutputSelector as ::windows::core::Interface>::IID
+        iid == &<IAudioOutputSelector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -812,7 +812,7 @@ impl IAudioPeakMeter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioPeakMeter as ::windows::core::Interface>::IID
+        iid == &<IAudioPeakMeter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -846,7 +846,7 @@ impl IAudioRenderClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioRenderClient as ::windows::core::Interface>::IID
+        iid == &<IAudioRenderClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -947,7 +947,7 @@ impl IAudioSessionControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSessionControl as ::windows::core::Interface>::IID
+        iid == &<IAudioSessionControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1017,7 +1017,7 @@ impl IAudioSessionControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSessionControl2 as ::windows::core::Interface>::IID || iid == &<IAudioSessionControl as ::windows::core::Interface>::IID
+        iid == &<IAudioSessionControl2 as ::windows::core::ComInterface>::IID || iid == &<IAudioSessionControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1057,7 +1057,7 @@ impl IAudioSessionEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSessionEnumerator as ::windows::core::Interface>::IID
+        iid == &<IAudioSessionEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1123,7 +1123,7 @@ impl IAudioSessionEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSessionEvents as ::windows::core::Interface>::IID
+        iid == &<IAudioSessionEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1163,7 +1163,7 @@ impl IAudioSessionManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSessionManager as ::windows::core::Interface>::IID
+        iid == &<IAudioSessionManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1218,7 +1218,7 @@ impl IAudioSessionManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSessionManager2 as ::windows::core::Interface>::IID || iid == &<IAudioSessionManager as ::windows::core::Interface>::IID
+        iid == &<IAudioSessionManager2 as ::windows::core::ComInterface>::IID || iid == &<IAudioSessionManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1236,7 +1236,7 @@ impl IAudioSessionNotification_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSessionCreated: OnSessionCreated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSessionNotification as ::windows::core::Interface>::IID
+        iid == &<IAudioSessionNotification as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1277,7 +1277,7 @@ impl IAudioStateMonitor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioStateMonitor as ::windows::core::Interface>::IID
+        iid == &<IAudioStateMonitor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1338,7 +1338,7 @@ impl IAudioStreamVolume_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioStreamVolume as ::windows::core::Interface>::IID
+        iid == &<IAudioStreamVolume as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -1359,7 +1359,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnPropertyChanged: OnPropertyChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSystemEffectsPropertyChangeNotificationClient as ::windows::core::Interface>::IID
+        iid == &<IAudioSystemEffectsPropertyChangeNotificationClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -1443,7 +1443,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSystemEffectsPropertyStore as ::windows::core::Interface>::IID
+        iid == &<IAudioSystemEffectsPropertyStore as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1454,7 +1454,7 @@ impl IAudioTreble_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioTreble as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
+        iid == &<IAudioTreble as ::windows::core::ComInterface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1482,7 +1482,7 @@ impl IAudioVolumeDuckNotification_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioVolumeDuckNotification as ::windows::core::Interface>::IID
+        iid == &<IAudioVolumeDuckNotification as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1493,7 +1493,7 @@ impl IAudioVolumeLevel_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioVolumeLevel as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
+        iid == &<IAudioVolumeLevel as ::windows::core::ComInterface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1554,7 +1554,7 @@ impl IChannelAudioVolume_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IChannelAudioVolume as ::windows::core::Interface>::IID
+        iid == &<IChannelAudioVolume as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1663,7 +1663,7 @@ impl IConnector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConnector as ::windows::core::Interface>::IID
+        iid == &<IConnector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1681,7 +1681,7 @@ impl IControlChangeNotify_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IControlChangeNotify as ::windows::core::Interface>::IID
+        iid == &<IControlChangeNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1721,7 +1721,7 @@ impl IControlInterface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IControlInterface as ::windows::core::Interface>::IID
+        iid == &<IControlInterface as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1769,7 +1769,7 @@ impl IDeviceSpecificProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDeviceSpecificProperty as ::windows::core::Interface>::IID
+        iid == &<IDeviceSpecificProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1877,7 +1877,7 @@ impl IDeviceTopology_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDeviceTopology as ::windows::core::Interface>::IID
+        iid == &<IDeviceTopology as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -1940,7 +1940,7 @@ impl IMMDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMMDevice as ::windows::core::Interface>::IID
+        iid == &<IMMDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -1961,7 +1961,7 @@ impl IMMDeviceActivator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMMDeviceActivator as ::windows::core::Interface>::IID
+        iid == &<IMMDeviceActivator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2001,7 +2001,7 @@ impl IMMDeviceCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMMDeviceCollection as ::windows::core::Interface>::IID
+        iid == &<IMMDeviceCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2068,7 +2068,7 @@ impl IMMDeviceEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMMDeviceEnumerator as ::windows::core::Interface>::IID
+        iid == &<IMMDeviceEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2092,7 +2092,7 @@ impl IMMEndpoint_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDataFlow: GetDataFlow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMMEndpoint as ::windows::core::Interface>::IID
+        iid == &<IMMEndpoint as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -2144,7 +2144,7 @@ impl IMMNotificationClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMMNotificationClient as ::windows::core::Interface>::IID
+        iid == &<IMMNotificationClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2182,7 +2182,7 @@ impl IMessageFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMessageFilter as ::windows::core::Interface>::IID
+        iid == &<IMessageFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2347,7 +2347,7 @@ impl IPart_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPart as ::windows::core::Interface>::IID
+        iid == &<IPart as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2387,7 +2387,7 @@ impl IPartsList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartsList as ::windows::core::Interface>::IID
+        iid == &<IPartsList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2455,7 +2455,7 @@ impl IPerChannelDbLevel_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
+        iid == &<IPerChannelDbLevel as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2512,7 +2512,7 @@ impl ISimpleAudioVolume_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimpleAudioVolume as ::windows::core::Interface>::IID
+        iid == &<ISimpleAudioVolume as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -2609,7 +2609,7 @@ impl ISpatialAudioClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioClient as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -2652,7 +2652,7 @@ impl ISpatialAudioClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioClient2 as ::windows::core::Interface>::IID || iid == &<ISpatialAudioClient as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioClient2 as ::windows::core::ComInterface>::IID || iid == &<ISpatialAudioClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2725,7 +2725,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioMetadataClient as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioMetadataClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2766,7 +2766,7 @@ impl ISpatialAudioMetadataCopier_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioMetadataCopier as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioMetadataCopier as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2845,7 +2845,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioMetadataItems as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioMetadataItems as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2880,7 +2880,7 @@ impl ISpatialAudioMetadataItemsBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioMetadataItemsBuffer as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioMetadataItemsBuffer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2922,7 +2922,7 @@ impl ISpatialAudioMetadataReader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioMetadataReader as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioMetadataReader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2964,7 +2964,7 @@ impl ISpatialAudioMetadataWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioMetadataWriter as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioMetadataWriter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2995,7 +2995,7 @@ impl ISpatialAudioObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObject as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObject as ::windows::core::ComInterface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3052,7 +3052,7 @@ impl ISpatialAudioObjectBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3111,7 +3111,7 @@ impl ISpatialAudioObjectForHrtf_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForHrtf as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectForHrtf as ::windows::core::ComInterface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3135,7 +3135,7 @@ impl ISpatialAudioObjectForMetadataCommands_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForMetadataCommands as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectForMetadataCommands as ::windows::core::ComInterface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3165,7 +3165,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForMetadataItems as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectForMetadataItems as ::windows::core::ComInterface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -3192,7 +3192,7 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStream as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStream as ::windows::core::ComInterface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -3261,7 +3261,7 @@ impl ISpatialAudioObjectRenderStreamBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -3288,7 +3288,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStreamForHrtf as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStreamForHrtf as ::windows::core::ComInterface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -3328,7 +3328,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStreamForMetadata as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStreamForMetadata as ::windows::core::ComInterface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -3349,7 +3349,7 @@ impl ISpatialAudioObjectRenderStreamNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStreamNotify as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStreamNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -3360,6 +3360,6 @@ impl ISubunit_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISubunit as ::windows::core::Interface>::IID
+        iid == &<ISubunit as ::windows::core::ComInterface>::IID
     }
 }
