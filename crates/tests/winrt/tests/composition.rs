@@ -1,5 +1,5 @@
 use windows::{
-    core::HSTRING,
+    core::{ComInterface, HSTRING},
     System::DispatcherQueueController,
     Win32::System::WinRT::{CreateDispatcherQueueController, DispatcherQueueOptions, DQTAT_COM_NONE, DQTYPE_THREAD_CURRENT},
 };
@@ -23,13 +23,13 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
     // Convert from SpriteVisual class to base Visual class by value (dropping the sprite).
     let sprite: SpriteVisual = compositor.CreateSpriteVisual()?;
     sprite.SetComment(&HSTRING::from("test"))?;
-    let visual: Visual = sprite.into();
+    let visual: Visual = sprite.cast()?;
     assert!(visual.Comment()? == "test");
 
     // Convert from SpriteVisual class to base Visual class by reference (retaining the sprite).
     let sprite: &SpriteVisual = &compositor.CreateSpriteVisual()?;
     sprite.SetComment(&HSTRING::from("test"))?;
-    let visual: Visual = sprite.into();
+    let visual: Visual = sprite.cast()?;
     assert!(visual.Comment()? == "test");
     assert!(visual.Comment()? == sprite.Comment()?);
 
@@ -55,7 +55,7 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
 
 #[test]
 fn composition() -> windows::core::Result<()> {
-    use windows::core::Interface;
+    use windows::core::ComInterface;
     use windows::Foundation::Numerics::Vector3;
     use windows::UI::Composition::{CompositionColorBrush, Compositor};
     use windows::UI::{Color, Colors};

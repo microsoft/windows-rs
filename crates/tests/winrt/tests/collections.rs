@@ -2,6 +2,7 @@ use core::convert::*;
 use core::iter::FromIterator;
 
 use windows::{
+    core::ComInterface,
     Foundation::Collections::{IIterable, IVectorView, PropertySet},
     Foundation::{IWwwFormUrlDecoderEntry, Uri},
 };
@@ -36,7 +37,7 @@ fn uri() -> windows::core::Result<()> {
     // This tests the ability to treat the WwwFormUrlDecoder as an IIterable<T> and use
     // the slower IIterator<T> iterator.
 
-    let iterable: IIterable<IWwwFormUrlDecoderEntry> = uri.QueryParsed()?.try_into().unwrap();
+    let iterable: IIterable<IWwwFormUrlDecoderEntry> = uri.QueryParsed()?.cast()?;
 
     let mut result = String::new();
 
@@ -49,7 +50,7 @@ fn uri() -> windows::core::Result<()> {
     // This tests the ability to treat the WwwFormUrlDecoder as an IVectorView<T> and use
     // the fast IVectorView iterator directly.
 
-    let iterable: IVectorView<IWwwFormUrlDecoderEntry> = uri.QueryParsed()?.try_into().unwrap();
+    let iterable: IVectorView<IWwwFormUrlDecoderEntry> = uri.QueryParsed()?.cast()?;
 
     let mut result = String::new();
 

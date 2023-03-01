@@ -1,5 +1,4 @@
-use core::convert::TryInto;
-use windows::core::{Interface, RuntimeName};
+use windows::core::{ComInterface, RuntimeName};
 use windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
 use windows::Win32::System::Com::IAgileObject;
 
@@ -21,7 +20,7 @@ fn uri() -> windows::core::Result<()> {
     // Calls QueryInterface followed by IStringable::ToString under the hood
     assert!(uri.ToString()? == "http://kennykerr.ca/");
 
-    let stringable: IStringable = uri.try_into().unwrap();
+    let stringable: IStringable = uri.cast()?;
     assert!(stringable.ToString()? == uri.ToString()?);
 
     Ok(())
@@ -41,12 +40,12 @@ fn interface_conversion() -> windows::core::Result<()> {
 
     // Convert from Uri class to non-default non-generic interface by value.
     let uri: Uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
-    let default: IStringable = uri.try_into().unwrap();
+    let default: IStringable = uri.cast()?;
     assert!(default.ToString()? == "http://kennykerr.ca/");
 
     // Convert from Uri class to non-default non-generic interface by reference.
     let uri: &Uri = &Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
-    let default: IStringable = uri.try_into().unwrap();
+    let default: IStringable = uri.cast()?;
     assert!(default.ToString()? == uri.ToString()?);
 
     // Convert from ??? class to default generic interface by value.

@@ -40,7 +40,7 @@ fn test() -> Result<()> {
         stream.cast::<IPersistStream>()?;
         stream.cast::<IPersist>()?;
 
-        let persist: IPersist = stream.into();
+        let persist: &IPersist = stream.can_into();
         persist.GetClassID()?;
         persist.cast::<IPersistStream>()?;
         persist.cast::<IPersist>()?;

@@ -1,4 +1,4 @@
-use windows::core::Interface;
+use windows::core::ComInterface;
 use windows::imp::WeakRefCount;
 use windows::Win32::System::WinRT::IWeakReferenceSource;
 

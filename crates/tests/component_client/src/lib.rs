@@ -35,7 +35,7 @@ fn test() -> Result<()> {
     assert_eq!(inspectable.GetRuntimeClassName()?, "test_component.Class");
 
     // This just casts down to IInspectable since the vtable already includes IInspectable.
-    let inspectable: IInspectable = class.into();
+    let inspectable: &IInspectable = class.can_into();
     // Notice GetRuntimeClassName returns the specific interface name.
     assert_eq!(inspectable.GetRuntimeClassName()?, "test_component.IClass");
 

@@ -1,4 +1,3 @@
-use core::convert::TryInto;
 use windows::core::*;
 use windows::Foundation::Collections::*;
 use windows::Foundation::*;
@@ -59,7 +58,7 @@ fn test_implement() -> Result<()> {
     let url1: HSTRING = "http://one/".into();
     let url2: HSTRING = "http://two/".into();
     let url3: HSTRING = "http://three/".into();
-    let v: IVectorView<IStringable> = Thing(vec![Uri::CreateUri(&url1)?.try_into()?, Uri::CreateUri(&url2)?.try_into()?, Uri::CreateUri(&url3)?.try_into()?]).into();
+    let v: IVectorView<IStringable> = Thing(vec![Uri::CreateUri(&url1)?.cast()?, Uri::CreateUri(&url2)?.cast()?, Uri::CreateUri(&url3)?.cast()?]).into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);

@@ -39,7 +39,7 @@ fn implement() -> Result<()> {
 
         // Confirms that the conversion to `IInspectable` properly handles
         // reference counting.
-        let _: IInspectable = s.into();
+        let _: IInspectable = s.can_clone_into();
     }
     assert!(receiver.recv().unwrap() == "drop: object");
 

@@ -1,5 +1,5 @@
 use windows::{
-    core::{Interface, Result, HSTRING},
+    core::{ComInterface, Result, HSTRING},
     Foundation::Collections::StringMap,
     Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED},
     Win32::System::WinRT::RoActivateInstance,

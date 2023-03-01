@@ -123,8 +123,6 @@ where
     U: CanInto<T>,
 {
     fn into_param(self) -> Param<T> {
-        unsafe {
-        Param::Owned(std::mem::transmute_copy(&self))
-        }
+        unsafe { Param::Owned(std::mem::transmute_copy(&self)) }
     }
 }

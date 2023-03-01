@@ -1,4 +1,4 @@
-use windows::core::Interface;
+use windows::core::ComInterface;
 use windows::Foundation::IStringable;
 
 #[test]

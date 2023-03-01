@@ -1,4 +1,4 @@
-use windows::core::{Interface, Result};
+use windows::core::{ComInterface, Result};
 use windows::Foundation::{IClosable, IStringable, Uri};
 
 #[test]
