@@ -402,9 +402,9 @@ impl std::convert::From<HSTRING> for std::ffi::OsString {
     }
 }
 
-impl From<&HSTRING> for InParam<PCWSTR> {
-    fn from(hstring: &HSTRING) -> Self {
-        Self::Owned(PCWSTR(hstring.as_ptr()))
+impl IntoParam<PCWSTR> for &HSTRING {
+    fn into_param(self) -> Param<PCWSTR> {
+        Param::Owned(PCWSTR(self.as_ptr()))
     }
 }
 

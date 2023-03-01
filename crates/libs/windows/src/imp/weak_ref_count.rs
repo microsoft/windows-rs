@@ -1,6 +1,6 @@
 use super::*;
 use std::sync::atomic::{AtomicIsize, Ordering};
-use windows::core::Interface;
+use windows::core::ComInterface;
 
 #[doc(hidden)]
 #[repr(transparent)]

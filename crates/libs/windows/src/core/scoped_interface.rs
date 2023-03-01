@@ -8,18 +8,18 @@ pub struct ScopedHeap {
 }
 
 #[doc(hidden)]
-pub struct ScopedInterface<'a, T: Vtable> {
+pub struct ScopedInterface<'a, T: Interface> {
     interface: T,
     lifetime: std::marker::PhantomData<&'a T>,
 }
 
-impl<'a, T: Vtable> ScopedInterface<'a, T> {
+impl<'a, T: Interface> ScopedInterface<'a, T> {
     pub fn new(interface: T) -> Self {
         Self { interface, lifetime: std::marker::PhantomData }
     }
 }
 
-impl<'a, T: Vtable> std::ops::Deref for ScopedInterface<'a, T> {
+impl<'a, T: Interface> std::ops::Deref for ScopedInterface<'a, T> {
     type Target = T;
 
     fn deref(&self) -> &T {
@@ -27,7 +27,7 @@ impl<'a, T: Vtable> std::ops::Deref for ScopedInterface<'a, T> {
     }
 }
 
-impl<'a, T: Vtable> Drop for ScopedInterface<'a, T> {
+impl<'a, T: Interface> Drop for ScopedInterface<'a, T> {
     fn drop(&mut self) {
         unsafe {
             let _ = std::boxed::Box::from_raw(self.interface.as_raw() as *const _ as *mut ScopedHeap);
