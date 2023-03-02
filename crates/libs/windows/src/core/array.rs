@@ -63,7 +63,7 @@ impl<T: Type<T>> Array<T> {
 
     /// Returns a slice containing the entire array.
     pub fn as_slice(&self) -> &[T::Default] {
-        &*self
+        self
     }
 
     /// Returns `true` if the array is empty.
